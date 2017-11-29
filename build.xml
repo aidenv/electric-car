@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="yilinker-online-php" default="build">
+  <property name="workspace" value="${basedir}" />
+  <property name="sourcedir" value="${basedir}/src" />
+  <property name="builddir" value="${workspace}/app/build" />
+
+  <target name="build" depends="prepare,vendors,phpunit-buyer,phpunit-seller,phpunit-admin"/>
+  <target name="build-parallel" depends="prepare,phpunit-buyer,phpunit-seller,phpunit-admin"/>
+
+  <target name="clean" description="Cleanup build artifacts">
+    <delete dir="${builddir}/api"/>
+    <delete dir="${builddir}/code-browser"/>
+    <delete dir="${builddir}/coverage"/>
+    <delete dir="${builddir}/logs"/>
+    <delete dir="${builddir}/pdepend"/>
+    <delete dir="${builddir}/docs/*"/>
+  </target>
+
+  <target name="prepare" depends="clean" description="Prepare for build">
+    <mkdir dir="${builddir}/api"/>
+    <mkdir dir="${builddir}/code-browser"/>
+    <mkdir dir="${builddir}/coverage"/>
+    <mkdir dir="${builddir}/logs"/>
+    <mkdir dir="${builddir}/pdepend"/>
+  </target>
+
+  <target name="phpunit-buyer" description="PHPUnit frontend">
+    <exec executable="bin/phpunit" failonerror="true">
+      <arg value="-c" />
+      <arg path="${basedir}/app/frontend" />
+    </exec>
+  </target>
+
+  <target name="phpunit-admin" description="PHPUnit backend">
+    <exec executable="bin/phpunit" failonerror="true">
+      <arg value="-c" />
+      <arg path="${basedir}/app/backend" />
+    </exec>
+  </target>
+
+  
+  <target name="phpunit-seller" description="PHPUnit seller">
+    <exec executable="bin/phpunit" failonerror="true">
+      <arg value="-c" />
+      <arg path="${basedir}/app/merchant" />
+    </exec>
+  </target>
+
+  <target name="vendors" description="Update vendors">
+    <exec executable="php" failonerror="true">
+        <arg value="composer.phar" />
+        <arg value="install" />
+    </exec>
+  </target>
+
+</project>
+
+                 
