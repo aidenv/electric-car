@@ -1,0 +1,20 @@
+api_v3_user_register:
+    path: /user/register
+    defaults: { _controller: YilinkerFrontendBundle:Api/UserApi:registerUser }
+    methods: [POST]
+
+api_v3_user_get_details:
+    path: /auth/user/getUser
+    defaults: { _controller: YilinkerFrontendBundle:Api/UserApi:getUserDetails }
+
+api_v3_user_update_details:
+    path: /auth/user/editProfile
+    defaults: { _controller: YilinkerFrontendBundle:Api/UserApi:updateUserInfo }
+
+daily_v3_login_register_webview:
+    path: /auth/daily-login/register
+    defaults: { _controller: YilinkerFrontendBundle:Api/WebViewApi:registerToDailyLogin }
+
+daily_v3_login_webview:
+    path: /auth/daily-login
+    defaults: { _controller: YilinkerFrontendBundle:Api/WebViewApi:renderDailyLogin }

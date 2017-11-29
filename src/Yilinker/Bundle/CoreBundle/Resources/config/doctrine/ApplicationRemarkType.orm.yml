@@ -1,0 +1,14 @@
+Yilinker\Bundle\CoreBundle\Entity\ApplicationRemarkType:
+    type: entity
+    table: ApplicationRemarkType
+    id:
+        applicationRemarkTypeId:
+            type: bigint
+            column: application_remark_type_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            length: 255
+    lifecycleCallbacks: {  }

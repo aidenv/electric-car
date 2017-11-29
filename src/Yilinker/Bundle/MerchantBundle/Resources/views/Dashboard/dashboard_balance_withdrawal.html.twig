@@ -1,0 +1,256 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Balance Withdrawal
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+    <div class="dashboard-body-container white">
+        <div class="dashboard-submenu-wrapper">
+            <div class="dashboard-submenu-container">
+                <ul class="list-unstyle list-submenu">
+                    <li>
+                        <a class="active">
+                            {% trans %} Withdrawal {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('dashboard_balance_record') }}">
+                            {% trans %} Balance Record {% endtrans %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="dashboard-component top">
+            {% set receivable = store.service.tentativeReceivable %}
+            {% set availableBalance = store.service.availableBalance %}
+            {% set netReceivable = receivable + availableBalance %}
+            {% set withdrawn = store.service.totalWithdrawn %}
+            {% set inProcessWithdrawal = store.service.inProcessWithdrawal %}
+            <div class="component-content">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="align-center">
+                            <h3 class="purple-color">
+                                P {{ netReceivable|number_format(2) }}
+                            </h3>
+                            <h5 class="uppercase">Net Receivables</h5>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="align-center">
+                            <h3 class="purple-color">
+                                P {{ receivable|number_format(2) }}
+                            </h3>
+                            <h5 class="uppercase">Tentative Receivable</h5>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="align-center">
+                            <h3 class="purple-color">
+                                P {{ withdrawn|number_format(2) }}
+                            </h3>
+                            <h5 class="uppercase">
+                                Total Withdrew<br/>
+                                <small>In Process: P {{ inProcessWithdrawal|number_format(2) }}</small>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="align-center">
+                            <h3 class="purple-color">
+                                P <span data-available-balance>{{ availableBalance|number_format(2) }}</span>
+                            </h3>
+                            <h5 class="uppercase">Available Balance</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_start(form) }}
+            <div class="dashboard-component">
+                <div class="title-bar">
+                </div>
+                <div class="component-content">
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-3 align-right">
+                                <label>Available Balance:</label>
+                            </div>
+                            <div class="col-md-8">
+                                P {{ availableBalance|number_format(2) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-3 align-right">
+                                <label class="mrg-top-10">Withdrawal Amount:</label>
+                            </div>
+                            <div class="col-md-4">
+                                {{ form_widget(form.requestedAmount) }}
+                                {{ include('YilinkerCoreBundle:Widget:floating_form_error.html.twig', {field: form.requestedAmount}) }}
+                                <span class="form-ui-note">
+                                    P50 Bank charge for withdrawal below P 5,000.00
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-3 align-right">
+                                <label class="mrg-top-10">Withdrawal Method:</label>
+                            </div>
+                            {% if not store.isAffiliate %}
+                                <div class="col-md-8 col-withdrawal-method">
+                                        <strong>Deposit to Bank</strong>
+                                </div>
+                            {% endif %}
+                            <div {{ store.isAffiliate ? '': 'style="display:none"' }} class="col-md-8 col-withdrawal-method">
+                                {% for choice in form.payoutRequestMethod %}
+                                    {{ form_widget(choice) }}
+                                    {{ form_label(choice) }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% set bankAccount = store.user.defaultBank %}
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-3 align-right">
+                                <label>Deposit To:</label>
+                            </div>
+                            <div class="col-md-8" data-deposit-bank>
+                                <p>{{ store.user.fullName }}</p>
+                                {% if bankAccount %}
+                                <p>{{ bankAccount.bank.bankName }} | {{ bankAccount.accountName }} | {{ bankAccount.accountNumber }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-8" data-deposit-check style="display:none">
+                                <p>{{ store.user.fullName }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-3 align-right">
+                                <label>Mobile Number:</label>
+                            </div>
+                            <div class="col-md-8">
+                                {{ store.user.contactNumber }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-3 align-right">
+                                <label class="mrg-top-10">Confirmation Code:</label>
+                            </div>
+                            <div class="col-md-4">
+                                {{ form_widget(form.confirmationCode) }}
+                                {{ include('YilinkerCoreBundle:Widget:floating_form_error.html.twig', {field: form.confirmationCode}) }}
+                            </div>
+                            <div class="col-md-5">
+                                <button data-confirmation-code-btn
+                                        data-send-otp="{{ constant('Yilinker\\Bundle\\CoreBundle\\Services\\SMS\\OneTimePasswordService::OTP_TYPE_PAYOUT_REQUEST') }}"
+                                        data-contact-number="{{ store.user.contactNumber }}"
+                                        data-loader='form[name="payout_request"]'
+                                        class="button blue"
+                                        {{ store.ableToWithdraw() ? '' : 'disabled=disabled' }}
+                                >
+                                    Get Confirmation Code
+                                </button>
+                                <button data-confirmation-code-timer
+                                        style="display:none"
+                                        class="button gray disabled">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-3">
+                                {% if accreditationStatus is same as(constant("Yilinker\\Bundle\\CoreBundle\\Entity\\Store::ACCREDITATION_WAITING")) %}
+                                    <p class="form-ui-note mrg-bt-10">
+                                        Your accreditation application is currently in progress. Please contact our customer service representative for assistance
+                                    </p>
+                                {% elseif accreditationStatus is same as(constant("Yilinker\\Bundle\\CoreBundle\\Entity\\Store::ACCREDITATION_INCOMPLETE")) %}
+                                    <p class="form-ui-note mrg-bt-10">
+                                        Your accreditation application is incomplete. Please contact our customer service representative for assistance
+                                    </p>
+                                {% endif %}
+                                <button data-trigger-confirmation="#proceed-withdraw-modal" type="submit" class="button purple button-rounded-side summary-modal-trigger"
+                                {{ accreditationStatus is same as(constant("Yilinker\\Bundle\\CoreBundle\\Entity\\Store::ACCREDITATION_COMPLETE")) ? '' : 'disabled=disabled' }}
+                                >
+                                    Proceed
+                                </button>
+                                {# Disable PROCEED button if not yet complete #}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{ form_end(form) }}
+        {{ render(controller('YilinkerMerchantBundle:Dashboard:dashboardBalanceWithdrawalRequestList', {page: app.request.get('page')})) }}
+    </div>
+    <!--Start of modal summary-->
+    <div class="ui modal small summary-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">Confirm Withdrawal</h4>
+        </div>
+        <div class="content">
+            <p>
+                Please confirm your withdrawal requested amount, bank charge, and the amount to be received.
+            </p>
+            <div class="row">
+                <div class="col-md-12" data-bankcharge-information>
+
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <button id="proceed-withdraw-modal" class="button blue uppercase">
+                Proceed
+            </button>
+        </div>
+    </div>
+    <!--End of modal summary-->
+
+    <!--Start of modal success withdraw-->
+        <div class="ui modal tiny success-withdraw-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                    <div class="content">
+                        Lorem ipsum
+                        <div class="sub-header">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </div>
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button confirm uppercase close">Okay</button>
+            </div>
+        </div>
+        <!--End of modal success withdraw-->
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="{{ asset('js/bower/moment.min.js') }}"></script>
+    <script src="{{ asset('js/bower/jquery-countdown.js') }}"></script>
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/src/utility/alert.js') }}"></script>
+    <script src="{{ asset('js/src/utility/loader.js') }}"></script>
+    <script src="{{ asset('js/src/utility/send-otp.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/dashboard-balance-withdrawal.js') }}"></script>
+    <script src="{{ asset('js/src/trigger-confirmation.js') }}"></script>
+{% endblock %}

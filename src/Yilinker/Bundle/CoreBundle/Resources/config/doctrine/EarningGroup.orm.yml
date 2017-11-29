@@ -1,0 +1,26 @@
+Yilinker\Bundle\CoreBundle\Entity\EarningGroup:
+    type: entity
+    table: EarningGroup
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\EarningGroupRepository
+    id:
+        earningGroupId:
+            type: integer
+            id: true
+            column: earning_group_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            length: 255
+            options:
+                default: ''
+        imageLocation:
+            column: image_location
+            length: 255
+            options:
+                default: ''
+    oneToMany:
+        earningGroup:
+            targetEntity: EarningGroup
+            mappedBy: earningGroup
+    lifecycleCallbacks: {  }

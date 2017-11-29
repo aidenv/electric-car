@@ -1,0 +1,62 @@
+    <div class="ui modal modal-box coupled-first coupled-second" id="feedback-details">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="header">Feedback Details</div>
+        <div class="content">
+            
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>User</strong>
+                </div>
+                <div class="col-md-10"> {% if mobilefeedback.user is null  %} anonymous {% else %}  {{  mobilefeedback.user.getFullName }} {% endif %} </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>Title</strong>
+                </div>
+                <div class="col-md-10"> {{ mobilefeedback.title }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>Description</strong>
+                </div>
+                <div class="col-md-10">
+                    {{ mobilefeedback.description }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <strong>Phone Model</strong>
+                </div>
+                <div class="col-md-10"> {{ mobilefeedback.phoneModel }} </div>
+            </div>
+           <div class="row">
+                <div class="col-md-2">
+                    <strong>OS Version</strong>
+                </div>
+                <div class="col-md-10">{{ mobilefeedback.osVersion }}</div>
+           </div>
+           <div class="row">
+                <div class="col-md-2">
+                    <strong>OS Type</strong>
+                </div>
+                <div class="col-md-10">{{ mobilefeedback.osName }}</div>
+           </div>
+           <div class="row">
+                <div class="col-md-2">
+                    <strong>User Type</strong>
+                </div>
+                <div class="col-md-10">{{ mobilefeedback.userType(true) }}</div>
+           </div>
+           <div class="row">
+                <div class="col-md-2">
+                    <strong>Date Added</strong>
+                </div>
+                <div class="col-md-10">{{ mobilefeedback.dateAdded | date('M d Y') }}</div>
+           </div>
+        </div>
+
+        <div class="actions">
+            <button class="button cancel modal-payout-trigger close-modal">Back</button>
+        </div>
+    </div>

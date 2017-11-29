@@ -1,0 +1,31 @@
+<tr>
+    <td width="90">{{ activity.dateAdded('g:i A') }}</td>
+    <td>
+        <p>
+            <em>
+                {% set userFollowHistory = activity.activityData %}
+                {{ userFollowHistory.isFollow ? 'Followed': 'Unfollowed' }}
+                {% if userFollowHistory.followee.store is defined and userFollowHistory.followee.store %}
+                    {{ userFollowHistory.followee.store.storeName }}
+                {% elseif userFollowHistory.followee is defined %}
+                    {{ userFollowHistory.followee.firstName }} {{ userFollowHistory.followee.lastName }}
+                {% else %}
+                    Someone
+                {% endif %}
+            </em>
+        </p>
+    </td>
+    <td>
+         {% 
+            if 
+            userFollowHistory is not empty and
+            userFollowHistory.followee.primaryImage is not empty and
+            userFollowHistory.followee.primaryImage is defined and 
+            userFollowHistory.followee.primaryImage is not null and 
+            userFollowHistory.followee.primaryImage is not same as("") 
+        %}
+            {% set imageLocation = asset("#{userFollowHistory.followee.userId}/thumbnail/#{userFollowHistory.followee.primaryImage.imageLocation}", 'user') %}
+        {% endif %}
+        <img height="30px" src="{{ imageLocation is defined and file_exists(imageLocation) ? imageLocation : asset('images/default-buyer.png') }}" alt="">
+    </td>
+</tr>

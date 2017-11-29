@@ -1,0 +1,49 @@
+@mixin button-variant($color, $background-color, $border){
+    color: $color;
+    background: $background-color;
+    border-color: $border;
+    &:hover,
+    &:active,
+    &:focus{
+        background: darken($background-color, 5%);
+        border-color: darken($border, 5%);
+        outline: none;
+        text-decoration: none;
+    }
+}
+
+@mixin button-basic-variant($color, $background-color, $border){
+    color: $color;
+    background: $background-color;
+    border-color: $border;
+    &:hover,
+    &:active,
+    &:focus{
+        background: $border;
+        border-color: $border;
+        outline: none;
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius-default;
+}
+
+@mixin basic-hover($color, $background-color, $border){
+    color: $color;
+    background: $background-color;
+    border-color: $border;
+}
+
+@mixin filter($filter-type,$filter-amount) {
+  -webkit-filter: $filter-type+unquote('(#{$filter-amount})');
+  -moz-filter: $filter-type+unquote('(#{$filter-amount})');
+  -ms-filter: $filter-type+unquote('(#{$filter-amount})');
+  -o-filter: $filter-type+unquote('(#{$filter-amount})');
+  filter: $filter-type+unquote('(#{$filter-amount})');
+}

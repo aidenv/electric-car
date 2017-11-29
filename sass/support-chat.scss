@@ -1,0 +1,67 @@
+.support-chat-full{
+    position: fixed;
+    z-index: 9999;
+    right: 38px;
+    bottom: 0;
+    height: 428px;
+    width: 351px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 2px 25px rgba(0,0,0,.2)!important;
+    transition: all 0.3s ease;
+    transform: translateY(106%);
+    iframe{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    &.open{
+        transform: translateY(0%);
+    }
+
+    .trigger-toggle.chat-full{
+        width: 40px;
+        height: 44px;
+        position: absolute;
+        right: 0px;
+        top: 0;
+        background: #000;
+        opacity: 0;
+        cursor: pointer;
+        border-radius: 50%;
+        z-index: 3;
+    }
+}
+
+.support-chat-compressed{
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 999;
+    right: 13px;
+    bottom: 15px;
+    transition: all 0.3s ease;
+    transform: translateY(106%);
+
+    &.open{
+        transform: translateY(0%);
+    }
+
+    .trigger-toggle.chat-compressed{
+        cursor: pointer;
+        position: absolute;
+        width: 85px;
+        height: 85px;
+        background: #000;
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 414px){
+    .support-chat-full {
+        right: 20px;
+        width: 280px;
+    }
+}

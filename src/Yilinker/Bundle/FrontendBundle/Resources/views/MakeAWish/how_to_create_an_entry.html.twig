@@ -1,0 +1,166 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    How to Create an Entry | Make A Wish
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+            {{ include('YilinkerFrontendBundle:MakeAWish:breadcrumb.html.twig') }}
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-xs-3 col-xl-2">
+                        <h4 class="bold mrg-bt-20">Promo Mechanics:</h4>
+                        <ul class="list-unstyled list-sidemenu">
+                            <li>
+                                <a href="{{ path('about_make_a_wish') }}">
+                                    About the Promo
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('how_to_join_make_a_wish') }}">
+                                    How to Join
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('how_to_register_make_a_wish') }}">
+                                    How to Register
+                                </a>
+                            </li>
+                            <li>
+                                <a class="active">
+                                    How to Create an Entry
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('criteria_for_claiming_the_prize_make_a_wish') }}">
+                                    Criteria for Claiming the Prize
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-9 col-xl-10">
+                        <div class="content-container">
+                            <div class="content-segment">
+                                <h3 class="bold mrg-bt-20">
+                                    How to create an entry:
+                                </h3>
+                                <div class="content-description">
+                                    <ol>
+                                        <li>
+                                           Upon successfully connecting their Facebook account, users will be allowed to input their Rafflecopter entries.  Each Rafflecopter raffle “entry” comes from fulfilling a specific action.
+                                        </li>
+                                        <li>
+                                           <p class="mrg-bt-10">
+                                               The actions for the Make a Wish promo will be as follows:
+                                           </p>
+                                           <ol class="lower-alpha">
+                                               <li>
+                                                    Subscribe to the YiLinker newsletter.
+                                               </li>
+                                               <li>
+                                                    Share the Rafflecopter giveaway with friends.  This option allows entrants to gain points by sharing a unique URL that tracks their referrals. 
+                                               </li>
+                                               <li>
+                                                    Follow YiLinker’s main Instagram account.
+                                               </li>
+                                               <li>
+                                                    Shared their wish with us with an explanation on why they want their wish granted!
+                                               </li>
+                                           </ol>
+                                        </li>
+                                        <li>
+                                           <p class="mrg-bt-10">
+                                               Disqualification of Entries:
+                                           </p>
+                                           <ol class="lower-alpha">
+                                               <li>
+                                                    If a given wish is illegal or immoral.
+                                               </li>
+                                               <li>
+                                                    If a given wish is not a physical item.  (Ex. “Trip to Paris!”) 
+                                               </li>
+                                           </ol>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="content-segment">
+                                <h3 class="bold mrg-bt-20">
+                                    Requirements to validate entries:
+                                </h3>
+                                <div class="content-description">
+                                    <ol>
+                                        <li>
+                                           <p class="mrg-bt-10">
+                                               Qualified entries must:
+                                           </p>
+                                           <ol class="lower-alpha">
+                                               <li>
+                                                    Have registered on the Rafflecopter application within the promo period.
+                                               </li>
+                                               <li>
+                                                    Fulfilled all the conditions of the Rafflecopter entry.
+                                               </li>
+                                           </ol>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="content-segment">
+                                <h3 class="bold mrg-bt-20">
+                                    Provision on invalid entries:
+                                </h3>
+                                <div class="content-description">
+                                    <p class="mrg-bt-10">The following are not qualified for the promo:</p>
+                                    <ol>
+                                        <li>
+                                            Users who have not registered via the Facebook application.
+                                        </li>
+                                        <li>
+                                            Users who are below 18 years of age.
+                                        </li>
+                                        <li>
+                                            Users who are not residents of the Philippines.
+                                        </li>
+                                        <li>
+                                            All employees of YiLinker and its agencies and their relatives up to the second degree of affinity or consanguinity.
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="content-segment">
+                                <div class="content-description">
+                                    <ol class="bulleted">
+                                        <li>
+                                            Drawing of winner is possible through the app.  However, a manual function also exists and this can be done by exporting the data gathered by the Rafflecopter app.
+                                        </li>
+                                        <li>
+                                            The winner will be drawn at random by a YiLinker representative.
+                                        </li>
+                                        <li>
+                                            The 100 recipients of the “free mascot” will also be drawn randomly by a YiLinker representative.
+                                        </li>
+                                        <li>
+                                            Winners will be announced on the YiLinker Facebook page, as well as via email, and the app will subsequently be taken down.
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="content-segment">
+                                <h4 class="bold mrg-bt-20 align-center">
+                                    <a href="{{ path('criteria_for_claiming_the_prize_make_a_wish') }}" class="sky-blue-color">Criteria for Claiming the Prize</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}
+{% block javascripts %}
+    
+{% endblock %}

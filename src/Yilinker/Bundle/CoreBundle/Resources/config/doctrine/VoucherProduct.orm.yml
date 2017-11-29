@@ -1,0 +1,33 @@
+Yilinker\Bundle\CoreBundle\Entity\VoucherProduct:
+    type: entity
+    table: VoucherProduct
+    id:
+        voucherProductId:
+            type: bigint
+            id: true
+            column: voucher_product_id
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        voucher:
+            targetEntity: Voucher
+            inversedBy: voucherProducts
+            joinColumn:
+                name: voucher_id
+                referencedColumnName: voucher_id
+            orphanRemoval: false
+        product:
+            targetEntity: Product
+            inversedBy: voucherProducts
+            joinColumn:
+                name: product_id
+                referencedColumnName: product_id
+            orphanRemoval: false
+    indexes:
+        fk_voucher_voucherid_voucherproduct_voucherid_idx:
+            columns:
+                - voucher_id
+        fk_voucher_productid_voucherproduct_productid_idx:
+            columns:
+                - product_id
+    lifecycleCallbacks: {  }

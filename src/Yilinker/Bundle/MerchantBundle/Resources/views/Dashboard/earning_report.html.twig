@@ -1,0 +1,59 @@
+<div class="dashboard-component top">
+    <div class="title-bar">
+        <div class="component-content">
+            <div class="row">
+                <div class="col-xs-8"><span class="uppercase">{% trans %} Earning Report {% endtrans %}</span></div>
+                <div class="col-xs-4">
+                    <div class="filter-day-range">
+                        <div class="form">
+                            <input type="text" value="{{ filter.startdate|date('m/d/Y') }} - {{ filter.enddate|date('m/d/Y') }}" class="form-ui form-daterange inverted rounded align-center sales-report-daterange" readonly/>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="component-content mrg-top-20">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="align-center">
+                    <div class="sales-chart-container mrg-top-20">
+                        <canvas id="pie-earnings" class="sales-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="inverted">
+                            <th colspan="2" align="center" width="50%">Resources</th>
+                            <th align="center" width="20%">Percent</th>
+                            <th align="right" width="30%">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% set colors = ['#75348a', '#9b0d28', '#ce6925', '#498a44', '#0a6c8e', '#ffdf71', '#f5b5c8', '#b5f5cf', '#90336b'] %}
+                        {% set totalEarning = 0 %}
+                        {% for earningOfType in earningGroups %}
+                            {% set totalEarning = totalEarning + earningOfType.totalAmount %}
+                        {% endfor %}
+                        {% for earningOfType in earningGroups %}
+                            {% set color = colors|first %}
+                            {% set colors = colors|slice(1) %}
+                            <tr data-earning-type-of-group>
+                                {% set earningPercentage = totalEarning > 0
+                                   ?(earningOfType.totalAmount / totalEarning) * 100
+                                   : 0 %}
+                                <td align="center" width="10%" style="background: {{ color }}">&nbsp;</td>
+                                <td align="center" width="40%">{{ earningOfType.name }}</td>
+                                <td align="center" width="20%">{{ earningPercentage|number_format(2) }}%</td>
+                                <td align="right" width="30%">P {{ earningOfType.totalAmount|number_format(2) }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <h4 class="bold purple-color uppercase mrg-top-20 align-right">Total Earning: P {{totalEarning|number_format(2)}}</h4>
+            </div>
+        </div>
+    </div>
+</div>

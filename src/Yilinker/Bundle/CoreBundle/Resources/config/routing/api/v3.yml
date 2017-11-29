@@ -1,0 +1,82 @@
+#
+# from v1
+#
+yilinker_promo_event_api_v3_route:
+    resource: "v3/promo_event.yml"
+    prefix: /
+
+yilinker_broadcast_api_v3_route:
+    resource: "v3/broadcast.yml"
+    prefix: /
+
+yilinker_point_api_v3_route:
+    resource: "v3/user_point.yml"
+    prefix: /
+
+yilinker_store_api_v3_route:
+    resource: "v3/store.yml"
+    prefix: /
+
+yilinker_location_api_v3_route:
+    resource: "v3/location.yml"
+    prefix: /
+
+yilinker_location_api_v3_auth_route:
+    resource: "v3/location_auth.yml"
+    prefix: /
+
+yilinker_user_address_api_v3_route:
+    resource: "v3/user_address.yml"
+    prefix: /
+
+yilinker_user_api_v3_route:
+    resource: "v3/user_v1.yml"
+    prefix: /
+
+yilinker_custom_category_api_v3_route:
+    resource: "v3/customized_category.yml"
+    prefix: /
+
+yilinker_category_api_v3_route:
+    resource: "v3/product_category.yml"
+    prefix: /
+
+yilinker_message_route:
+    resource: "v3/message.yml"
+    prefix: /
+
+yilinker_product_route:
+    resource: "v3/product.yml"
+    prefix: /
+
+yilinker_user_registration_route:
+    resource: "v3/device_v1.yml"
+
+yilinker_user_feedback_route:
+    resource: "v3/user_feedback.yml"
+
+yilinker_transaction_api_v3_route:
+    resource: "v3/transaction.yml"
+    prefix: /
+
+yilinker_dispute_api_v3_route:
+    resource: "v3/dispute.yml"
+    prefix: /
+
+#
+# from v2
+#
+yilinker_user_api_route_v3:
+    resource: "v3/user_v2.yml"
+    prefix: /
+
+yilinker_mobilefeedback_api_route_v3:
+    resource: "v3/mobile_feedback.yml"
+    
+yilinker_image_api_route_v3:
+    resource: "v3/image.yml"
+    prefix: /
+
+yilinker_device_api_route_v3:
+    resource: "v3/device_v2.yml"
+    prefix: /

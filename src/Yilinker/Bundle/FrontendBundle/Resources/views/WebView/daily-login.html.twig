@@ -1,0 +1,32 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+        <title>Yilinker - Daily Login</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Maven+Pro">
+        <link rel="stylesheet" href="{{ asset('css/webview.css') }}" media="screen,print">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="{{ asset('js/src/frontend/flash-sales.js') }}"></script>
+    </head>
+     <body>
+        <div class="body-mobile">
+            <div class="daily-login-content">
+                <div class="mrg-top-15 points-content">
+                    <p>{{ isSuccess == true ? dailyLoginData.successMessage : dailyLoginData.errorMessage }}</p>
+                    <p>Consecutive Logins: <strong>{{ app.user.consecutiveLoginCount }} day/s</strong></p>
+                    <p>Total Points: <strong>{{ dailyLoginPoints|number_format(2) }}</strong></p>
+                </div>
+                <h4>Mechanics:</h4>
+                <ol class="mrg-bt-20">
+                    <li> Users logging in via Mobile App for the 'Daily Present' can get 1 point per day.</li>
+                    <li>For every 30 consecutive days of signing in, Users will get extra 10 points.</li>
+                </ol>
+                <div class="banners-content">
+                    {% for image in dailyLoginData.images %}
+                        <a href="{{ image.src }}"><img src="{{ asset(image.fileDir) }}" alt="ads"></a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

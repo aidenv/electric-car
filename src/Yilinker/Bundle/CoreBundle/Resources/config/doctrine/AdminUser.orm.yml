@@ -1,0 +1,57 @@
+Yilinker\Bundle\CoreBundle\Entity\AdminUser:
+    type: entity
+    table: AdminUser
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\AdminUserRepository
+    indexes:
+        fk_admin_admiroleid_adminrole_admiroleid_idx:
+            columns:
+                - admin_role_id
+    id:
+        adminUserId:
+            type: integer
+            id: true
+            column: admin_user_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        username:
+            type: string
+            length: '255'
+        firstName:
+            type: string
+            length: '255'
+            column: firstname
+            nullable: true
+            options:
+                default: ''
+        lastName:
+            type: string
+            length: '255'
+            column: lastname
+            nullable: true
+            options:
+                default: ''
+        password:
+            type: string
+            column: password
+            length: '255'
+        dateAdded:
+            type: datetime
+            column: date_added
+        lastDateModified:
+            type: datetime
+            column: last_date_modified
+        isActive:
+            type: boolean
+            column: is_active
+            nullable: true
+            options:
+                default: false
+    manyToOne:
+        AdminRole:
+            targetEntity: AdminRole
+            joinColumn:
+                name: admin_role_id
+                referencedColumnName: admin_role_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

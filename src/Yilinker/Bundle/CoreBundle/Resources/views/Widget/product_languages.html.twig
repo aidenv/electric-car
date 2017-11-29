@@ -1,0 +1,19 @@
+<div class="global-options-container table-display language">
+    <div class="label-container table-cell">
+        <i class="icon icon-language icon-2-5x popup-hover" data-html="<b>Language Translated: </b> This is where you can add translations for your products to provide a localized experience for your buyers around the world." data-variation="large"></i>
+    </div>
+    <div class="flag-container table-cell">
+        {% for language in languages %}
+            {% if not app.user.isAffiliate %}
+            <a data-product-language="{{ language.code }}" href="{{ path('product_translation', {languageCode: language.code, slug: product.slug}) }}">
+            {% endif %}
+                <span class="language uppercase popup-hover" data-content="{{ language.name }}" data-variation="inverted">{{ language.code }}</span>
+            {% if not app.user.isAffiliate %}
+            </a>
+            {% endif %}
+        {% endfor %}
+        {% if not app.user.isAffiliate %}
+            <span class="flag-icon add-language icon-2-5x add popup-hover" data-html="Add available language" data-variation="inverted"><i class="icon icon-plus"></i></span>
+        {% endif %}
+    </div>
+</div>

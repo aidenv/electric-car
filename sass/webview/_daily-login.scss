@@ -1,0 +1,35 @@
+.body-mobile {
+    .daily-login-content {
+        padding: 0 15px;
+        .points-content {
+            font-size: 1.2em;
+            strong {
+                color: #75338a;
+            }
+            p:first-of-type {
+                padding: 30px 0;
+                text-align:center;
+            }
+        }
+        ol {
+            padding-left: 12px;
+        }
+        .banners-content {
+            text-align: center;
+            a {
+                display: block;
+                margin-bottom: 10px;
+                position: relative;
+                &:hover {
+                    background-color: black;
+                    img {
+                        opacity: 0.9;
+                    }
+                }
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

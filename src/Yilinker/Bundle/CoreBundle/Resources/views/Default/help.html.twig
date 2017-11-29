@@ -1,0 +1,748 @@
+<div class="dashboard-body-container white">
+    <div class="dashboard-submenu-wrapper">
+         <div class="dashboard-submenu-container" style="padding-top: 10px;">
+            <ul class="list-unstyle list-submenu tab-head-container mrg-bt-5 mrg-top-10">
+                <li class="mrg-bt-5">
+                    <a src="help-1" class="active">
+                        REGISTRATION
+                    </a>
+                </li>
+                <li class="mrg-bt-5">
+                    <a src="help-2">
+                        SIGN IN
+                    </a>
+                </li>
+                <li  class="mrg-bt-5">
+                    <a src="help-3">
+                        ACCOUNT MANAGEMENT
+                    </a>
+                </li>
+                <li  class="mrg-bt-5">
+                    <a src="help-4">
+                        EMAIL SUBSCRIPTION
+                    </a>
+                </li>
+                <li  class="mrg-bt-5">
+                    <a src="help-5">
+                        FINDING PRODUCTS AND SELLERS
+                    </a>
+                </li>
+                <li  class="mrg-bt-5">
+                    <a src="help-6">
+                        PRODUCT CHECKOUT AND DELIVERY
+                    </a>
+                </li>
+                <li  class="mrg-bt-5">
+                    <a src="help-7">
+                        PROMOTIONS
+                    </a>
+                </li>
+            </ul>
+         </div>
+    </div>
+    <!--Basic Info-->
+    <div class="dashboard-component top">
+        <div class="tab-container" id="help-1">
+
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How do I register for an account?
+                </div>
+                <div class="accordion-body">
+                    <p>
+                        To join Aeneasusa.com as a member, please click on the “Sign up” button. Type in the email address you want to use, your mobile number and a password of your choice. To complete the registration process, click on the "Register now" button found at the bottom of the registration page.  
+                         
+                        Make sure to check the boxes that say: 
+                        "Upon creating my account, I:
+                    </p>
+                    <ul>
+                        <li>Agree to the Aeneasusa.com <a href="#">Terms and Conditions</a></li>
+                        <li>Agree to receive emails relating to updates and services from Aeneasusa.com</li>
+                        <li>Have read the <a href="#">Privacy Policy</a>"</li>
+                    </ul> 
+                    
+                    <p>
+                        You will receive an email to verify your account so make sure to check your inbox after registration. 
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Can I register using a smartphone?
+                </div>
+                <div class="accordion-body">
+                    <p>
+                        Yes, you can register using your smartphone. Just visit Aeneasusa.com on your phone or you can download our mobile apps from your default App Store. Please click on the “Sign In” button. Type in the email address you want to use, your mobile number and a password of your choice. To complete the registration process, click "Register Me Now! found at the bottom of the registration page. 
+                         
+                        Make sure to check the boxes that say: 
+                        "Upon creating my account, I:
+                    </p>
+                    <ul>
+                        {#<li>Agree to the Aeneasusa.com <a href="#">Terms and Conditions</a></li>#}
+                        <li>Agree to receive emails relating to updates and services from Aeneasusa.com</li>
+                        <li>Take a look at our
+                            <a href="{{ app.user.userType == constant('Aeneasusa\\Bundle\\CoreBundle\\Entity\\User::USER_TYPE_BUYER') ? path('privacy_policy') : frontendHostname ~ path('frontend_privacy_policy') }}">Privacy Policy</a></li>
+                                Privacy Policy
+                            </a>
+                        </li>
+                    </ul> 
+                    
+                    <p>
+                        A one-time PIN will be sent on the phone number you provided to verify your account so make sure to wait for it on your inbox.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Do I have to register an account if I want to purchase on Aeneasusa.com?
+                </div>
+                <div class="accordion-body">
+                    <p>
+                        Yes. Aeneasusa.com is a platform exclusive only for members. Guests can view our products but to purchase, they will be required to register for an account.
+                    </p>
+                    <ul>
+                        {#<li>Agree to the Aeneasusa.com <a href="#">Terms and Conditions</a></li>#}
+                        <li>Agree to receive emails relating to updates and services from Aeneasusa.com</li>
+                        <li>Take a look at our <a href="{{ app.user.userType == constant('Aeneasusa\\Bundle\\CoreBundle\\Entity\\User::USER_TYPE_BUYER') ? path('privacy_policy') : frontendHostname ~ path('frontend_privacy_policy') }}">Privacy Policy</a></li>
+                    </ul>                     
+                    <p>
+                        {% set registerLink = frontendHostname ~ (app.user.userType == constant('Aeneasusa\\Bundle\\CoreBundle\\Entity\\User::USER_TYPE_BUYER') ? path("user_buyer_register") : path("user_frontend_register")) %}
+                        Not yet a member? <a href="{{ registerLink }}">Register</a> for an account now!
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> What email address can I use to register for an account?
+                </div>
+                <div class="accordion-body">
+                    <p>
+                        Any email address created using major third party email provider website like Gmail or Yahoo Mail can be used.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I don’t have a credit card. Can I still purchase on your website?
+                </div>
+                <div class="accordion-body">
+                    <p>
+                        Of course you can! We offer cash on delivery (COD) for your convenience. However, we have specified limitations on products worth more than P5,000. Please read our conditions for COD on our terms and conditions <a href="#">here</a>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Can I have more than one account on Aeneasusa.com?
+                </div>
+                <div class="accordion-body">
+                    <p>
+                        Unfortunately, we only allow one buyer account per person only. Anyone caught maintaining more than one account will be subjected to investigation for fraudulent action. You can read more about this on our <a href="#">terms and conditions</a>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> What can I do if I haven’t received the confirmation text?
+                </div>
+                <div class="accordion-body">
+                    <p>
+                        If you haven’t received your confirmation text for more than one hour, please call our customer service at {{ supportMobile }} and they can help you verify your account.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Should I register a separate account to be a reseller?
+                </div>
+                <div class="accordion-body">
+                    <p>
+                        {% set registerAffiliateLink = merchantHostname ~ path("user_affiliate_landing_page") %}
+                        Yes. We have a separate account to be a Aeneasusa Affiliate. For more information on how to register, please follow <a href="{{ registerAffiliateLink }}">this link</a>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Can I set up an account without a phone number?
+                </div>
+                <div class="accordion-body">
+                    <p>
+                        Unfortunately, we don’t allow accounts to be set up without a phone number. Your profile will not be created without providing us with your phone number.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Is it possible for multiple users to share one account?
+                </div>
+                <div class="accordion-body">
+                    <p>
+                        No. Aeneasusa.com only allows one user to handle his/her account. Anyone caught sharing one account will be subjected to investigation for fraudulent action. You can read more about this on our <a href="#">terms and conditions</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Where will you use the information I provided in my registration?
+                </div>
+                <div class="accordion-body">
+                    <p>
+                        For more information on how we use your information, please refer to the <a href="#">Privacy Policy</a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-container" id="help-2">
+
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> The sign in page is blank. What should I do?
+                </div>
+                <div class="accordion-body">
+                    If you get a blank sign in page, please refresh and wait for it to load. If it doesn’t load after repeated attempts, please feel free to send a report to our web developers at bug@Aeneasusa.com.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Why can’t I sign in to my account?
+                </div>
+                <div class="accordion-body">
+                    Please make sure that the email address or password that you entered is correct. After multiple login failed attempts, you may request to reset your password by clicking the “Forgot Password?” link.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> The system keeps asking me to sign in. What can I do to solve this?
+                </div>
+                <div class="accordion-body">
+                    Send a report to our web developers at bug@Aeneasusa.com as this can indicate a bug in our system.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> When signing in, I got this error message saying "Your account name or password is incorrect". What can I do?
+                </div>
+                <div class="accordion-body">
+                    Make sure that the email address and password you entered match. You may also request to reset your password by clicking the "Forgot Password?" link.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How can I sign out?
+                </div>
+                <div class="accordion-body">
+                    To sign out, please click the Sign out link at the top right portion of the page.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> What can I do if I forgot my password?
+                </div>
+                <div class="accordion-body">
+                    Simply click the "Forgot Password?" link. This will generate an email where you can reset your password.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I did not receive an email to reset my password. What can I do?
+                </div>
+                <div class="accordion-body">
+                    Please check your SPAM folder in case you didn't get the email in your inbox. You can call our customer service directly at {{ supportMobile }} to help you out.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I asked for a new password but why doesn’t the link I received work?
+                </div>
+                <div class="accordion-body">
+                    It must be a problem with the system. Make sure to report it to our web developers at bug@Aeneasusa.com or call our customer service directly at {{ supportMobile }} so they can help you out as soon as possible.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> What can I do if I have forgotten my email address?
+                </div>
+                <div class="accordion-body">
+                    Please contact our customer service immediately by sending an email or call at {{ supportMobile }} so we can help you out as soon as we can.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> The system tells me that I am signing in with an incorrect email address or user ID. What can I do?
+                </div>
+                <div class="accordion-body">
+                    Double check the email address or user ID that you are entering. Make sure that it matches with your registered Aeneasusa.com email.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Why can’t I sign in with my correct password?
+                </div>
+                <div class="accordion-body">
+                    It may be because you misspelled your password while trying to sign in. Make sure to double check the password that you entered.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I have changed my password but I still cannot sign in. Why is that?
+                </div>
+                <div class="accordion-body">
+                    Please check that your keyboard’s CAPS LOCK key isn’t turned on and that the email &amp; password combination you are using is correct. Otherwise, you can use the <strong>Forgot Password</strong> feature to reset your password.
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-container" id="help-3">
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How can I set my privacy settings?
+                </div>
+                <div class="accordion-body">
+                    To edit your privacy settings, click the "Settings" link on the top right side of the page.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How do I edit my contact details?
+                </div>
+                <div class="accordion-body">
+                    Once you click on the "Settings" link, there will be tabs displayed. Click on the "My Profile" tab and then you can proceed in editing your contact details.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How can I upload or change my profile photo?
+                </div>
+                <div class="accordion-body">
+                    Once you click on the "Settings" link, there will be tabs displayed. Click on the "Add Photo" icon on top of your left navigation panel and then save the changes.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Can I remove my phone number?
+                </div>
+                <div class="accordion-body">
+                    No. To further provide you with the best service possible, we require all our members to have a phone number in their profile. This will allow our customer service to easily contact you should there be issues or updates regarding your transactions. Not to worry, your phone number is safe with us!
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How long does it take for the changes I made in my profile take effect?
+                </div>
+                <div class="accordion-body">
+                    All changes in the profile take effect real time. 
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Can I change my password without signing in?
+                </div>
+                <div class="accordion-body">
+                    Yes. If you click on "Forgot Password?" you will receive an email to reset your password.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Is my email address shown publicly or privately?
+                </div>
+                <div class="accordion-body">
+                    Your email address is private and is only visible to you alone. Aeneasusa staff will never ask for your login details.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Can I change my email address?
+                </div>
+                <div class="accordion-body">
+                    Yes, but once you've verified an email address once, it can never be used again in a different account.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How can I cancel my account?
+                </div>
+                <div class="accordion-body">
+                    Once you click on the "Settings" link, there will be tabs displayed. Click on the "Settings" tab on the left navigation panel and click on the toggle button for the "Deactivate my Account" section.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I deactivated my account. Why can I still find my account information in your search results?
+                </div>
+                <div class="accordion-body">
+                    This may mean that there is a bug in the system. Contact our web developers directly at bug@Aeneasusa.com to report this problem immediately.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I have had my account deactivated but why can I still sign in?
+                </div>
+                <div class="accordion-body">
+                    This could mean that there is a bug in the system. Contact our web developers directly at website@Aeneasusa.com to report this problem immediately.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Are there any documents required for account reactivation?
+                </div>
+                <div class="accordion-body">
+                    Normally, there are no documents needed for account reactivation. However, if our system detected malicious or fraudulent activities from certain accounts, the customer service will require a set of documents to be provided by the member. Ask us more about it on our <a href="#">Contact Us</a> page.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I want to register a new account on your website using my registered email address from my existing account. What can I do?
+                </div>
+                <div class="accordion-body">
+                    You can only use a certain email address once when you register on the website. You have the option to deactivate your existing account to use that email address again.
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-container" id="help-4">
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How do I subscribe to your newsletter?
+                </div>
+                <div class="accordion-body">
+                    Once registered on the website, you will automatically be subscribed to our newsletters.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How do I edit how often I receive your updates?
+                </div>
+                <div class="accordion-body">
+                    To edit it newsletter updates, just click on "Settings". Find the "Email Settings" tab. From there, you can already specify how often you want to receive our updates.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> What types of information can I get from subscribing to your newsletters?
+                </div>
+                <div class="accordion-body">
+                    Our newsletters contain updates on on-going promotions, upcoming events, news, and new products to name a few. With a lot of deals and discounts in store for you, you might want to receive it often.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Can I change the email address to receive newsletters?
+                </div>
+                <div class="accordion-body">
+                    No. The email address you used to register on Aeneasusa.com will be the only email address that can receive newsletters.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Why can't I receive any of your newsletters?
+                </div>
+                <div class="accordion-body">
+                    This may be because you have not checked the "Receive Newsletter" button on the "Email Settings" page.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I want to stop receiving emails from you. What can I do?
+                </div>
+                <div class="accordion-body">
+                    Click on the "Settings" link, there will be tabs displayed. On the "Email Settings" tab, uncheck the "Receive Newsletter" button and then save the changes.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How often do you send out newsletters?
+                </div>
+                <div class="accordion-body">
+                    We normally send out newsletters once a week.
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-container" id="help-5">
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How can find products on your website?
+                </div>
+                <div class="accordion-body">
+                    Locate the "Search" box on top of the page. Type in the item or the seller you want to search for.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I know a seller who sells on your website, how do I find his page?
+                </div>
+                <div class="accordion-body">
+                    On top of the Aeneasusa.com page, you will see the "Search" box. Type in the username of the seller you want to search. 
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How do I know if the seller is reliable?
+                </div>
+                <div class="accordion-body">
+                    Sellers have badges on their profiles to show that they are selling products on our website legally. We at Aeneasusa.com ensure that all sellers posting their items on our website have passed our accreditation process.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Are all your sellers verified on Aeneasusa.com?
+                </div>
+                <div class="accordion-body">
+                    Yes, all our sellers have passed the accreditation process before they can post their products at Aeneasusa.com
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> What are Editor Videos?
+                </div>
+                <div class="accordion-body">
+                    Editor videos are videos created by accredited reviewers. Their reviews are approved by our Editors to ensure validity. This may be in the form of unboxing video to video reviews.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> What are Editor Reviews?
+                </div>
+                <div class="accordion-body">
+                    Like Editor Videos, these are reviews created by accredited reviewers. These reviews are approved by our Editors to ensure validity.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I can't find the products I want. Can you help me out?
+                </div>
+                <div class="accordion-body">
+                    If you can't find the products you want, just make sure to type in the exact brand you want on the "Search" box. If you still can't find what you're looking for after specifying the product brand, you can call our customer service at {{ supportMobile }} so they can help you out.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Are all your products original?
+                </div>
+                <div class="accordion-body">
+                    Yes. All our products have undergone an accreditation process before they were posted on our website.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Where do you get your products?
+                </div>
+                <div class="accordion-body">
+                    We get our products from accredited suppliers and sellers from China and here in the Philippines.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How can I get accurate search results?
+                </div>
+                <div class="accordion-body">
+                    To get accurate search results, be sure to type in the exact brand name of the product you want to search for.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Why can’t I see my recent searched under the search bar?
+                </div>
+                <div class="accordion-body">
+                    This may be because you have cleared your cache on your browser.
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-container" id="help-6">
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How can I view my cart?
+                </div>
+                <div class="accordion-body">
+                    On the upper right of your page, you will see the cart icon. Just click on it to view the products on your cart.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How can I remove items from my cart?
+                </div>
+                <div class="accordion-body">
+                    On the upper right of your page, you will see the cart icon. Just click on the Delete button next to your products on your cart.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I got this error message "Please log in or register to continue check out" when I am already registered and logged in. What can I do?
+                </div>
+                <div class="accordion-body">
+                    This may be because your session has expired and need to log in again. Enter your email address or mobile number and password again to continue with the transaction. If this doesn’t work, immediately send a report to our web developers at website@Aeneasusa.com so we can do something about it as soon as we can.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I recently got a voucher from my last purchase, how do I use it?
+                </div>
+                <div class="accordion-body">
+                    On the checkout page, you will find a voucher field at the bottom. Simply type in the voucher code before proceeding to checkout.
+                </div>
+            </div>
+
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How can I pay for my purchases?
+                </div>
+                <div class="accordion-body">
+                    <p>
+                        You have two options in paying for your purchases:
+                    </p>
+                    <ul>
+                        <li>Cash on Delivery (COD) – pay for your product/s once it is delivered at your doorstep</li>
+                        <li>Credit Card or Debit Card – pay for your product/s online</li>
+                    </ul> 
+                    
+                    <p>
+                        You will be asked upon checkout which payment method you prefer.
+                    </p>
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I don’t have a credit card. How can I pay?
+                </div>
+                <div class="accordion-body">
+                    You can opt to pay using your debit card. You just have to enter your debit card details on the billing page on our website. Additionally, you can also pay through Cash on Delivery (COD).
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How much do I need to pay for the product shipping?
+                </div>
+                <div class="accordion-body">
+                    All products on our website are inclusive of shipping fee so you don’t have to worry about paying any additional amount. However, for products to be delivered outside of Metro Manila, there will be additional payment. Please refer to this table for the fees.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I got the wrong product. How do I request for a return?
+                </div>
+                <div class="accordion-body">
+                    To request for product return, please call our customer service at {{ supportMobile }} to immediately process your request. Alternatively, you can send us an email at support@Aeneasusa.com.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I don’t want this product anymore. How can I request for a refund?
+                </div>
+                <div class="accordion-body">
+                   Call our customer service at{{ supportMobile }} to request for a refund. However, we cannot guarantee that you will get full refund. Your request will have to be evaluated before being approved for refund.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> The product I received is damaged. How do I get a replacement?
+                </div>
+                <div class="accordion-body">
+                   For replacements, please send a request at support@Aeneasusa.com or call our customer service at {{ supportMobile }} so they can assist you as soon as possible.
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-container" id="help-7">
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> How can I join your promos?
+                </div>
+                <div class="accordion-body">
+                    You must be at least 18 years old to qualify to join our promos. All promos have their own mechanics so be sure to read them carefully. For the full list of promos, please visit this page.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> Can I join as many promos as many times as I want?
+                </div>
+                <div class="accordion-body">
+                    There are promos wherein you are only allowed to submit one entry. Be sure to visit this page to find out where you qualify.
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I just won in your promos. How can I claim my prize?
+                </div>
+                <div class="accordion-body">
+                    Our customer service will send you an email and call you on instructions of claiming your prize. Make sure you are always ready to receive our call! 
+                </div>
+            </div>
+        
+            <div class="accordion-item-container">
+                <div class="accordion-head">
+                    <i class="icon icon-plus"></i> I have prior commitments and can’t claim my prize. Can someone claim it on my behalf?
+                </div>
+                <div class="accordion-body">
+                    Yes. You just need to provide an authorization letter, 2 Valid IDs and 1 Valid ID of the person claiming your prize. 
+                </div>
+            </div>
+        
+        </div>
+    </div>

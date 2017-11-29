@@ -1,0 +1,4 @@
+
+yilinker_frontend_international_product:
+    resource: "international/product.yml"
+    prefix: /product

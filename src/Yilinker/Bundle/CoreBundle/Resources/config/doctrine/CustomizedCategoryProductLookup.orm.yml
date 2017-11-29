@@ -1,0 +1,40 @@
+Yilinker\Bundle\CoreBundle\Entity\CustomizedCategoryProductLookup:
+    type: entity
+    table: CustomizedCategoryProductLookup
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\CustomizedCategoryProductLookupRepository
+    id:
+        customizedCategoryProductLookupId:
+            type: integer
+            id: true
+            column: customized_category_product_lookup_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        sortOrder:
+            type: integer
+            column: sort_order
+            options:
+                default: '0'
+
+    manyToOne:
+        customizedCategory:
+            targetEntity: CustomizedCategory
+            joinColumn:
+                name: customized_category_id
+                referencedColumnName: customized_category_id
+            orphanRemoval: false
+        product:
+            targetEntity: Product
+            joinColumn:
+                name: product_id
+                referencedColumnName: product_id
+            orphanRemoval: false
+    indexes:
+        fk_customizedcategoryproductlookup_customizedcategoryid_customizedcategory_customizedcategoryid_idx:
+            columns:
+                - customized_category_id
+        fk_customizedcategoryproductlookup_productid_product_productid_idx:
+            columns:
+                - product_id
+
+    lifecycleCallbacks: {  }

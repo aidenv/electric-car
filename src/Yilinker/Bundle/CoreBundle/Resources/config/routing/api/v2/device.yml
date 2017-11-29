@@ -1,0 +1,16 @@
+
+api_core_add_device_token_v2:
+    path: /device/add-device-token
+    defaults: { _controller: YilinkerCoreBundle:Api/v2/DeviceApi:addDeviceToken }
+    methods: [POST]
+
+api_core_auth_add_device_token_v2:
+    path: /auth/device/add-device-token
+    defaults: { _controller: YilinkerCoreBundle:Api/v2/DeviceApi:addDeviceToken }
+    methods: [POST]
+
+api_core_send_push_notification_v2:
+    path: /device/send-push-notification
+    defaults: { _controller: YilinkerCoreBundle:Api/v2/DeviceApi:sendPushNotification }
+    methods: [GET]
+

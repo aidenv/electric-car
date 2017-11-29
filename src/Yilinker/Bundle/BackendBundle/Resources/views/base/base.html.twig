@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="csrf-token" content="{{ default_csrf_token() }}" />
+        <title>{% block title %} AENEAS USA Admin {% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/plugin-admin-main.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}"/>
+        <link href="{{ asset('css/bower/dropdown.min.css') }}" rel="stylesheet" />
+
+        {% block stylesheets %}{% endblock %}
+
+    </head>
+    <body>
+
+        {{ render(controller('YilinkerBackendBundle:Home:renderHeader')) }}
+        {{ render(controller('YilinkerBackendBundle:Home:renderSideBar')) }}
+
+        {% block body_container %}
+        <section class="box-outer">
+            <div class="box-wrapper">
+                {% block body %}{% endblock %}
+            </div>
+        </section>
+        {% endblock %}
+
+        <input type="hidden" value="{{ asset_hostname }}" class="asset-hostname"/>
+
+        {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/admin-base.js"
+            "js/bower/jquery.min.js"
+            "js/bower/api.min.js"
+            "js/src/vendor/slick.min.js"
+            "js/bower/tipso.min.js"
+            "js/bower/dimmer.min.js"
+            "js/bower/modal.min.js"
+            "js/bower/dropdown.min.js"
+            "js/bower/checkbox.min.js"
+            "js/bower/transition.min.js"
+            "js/bower/dropzone.min.js"
+            "js/bower/tab.min.js"
+            "js/bower/moment.min.js"
+            "js/bower/popup.min.js"
+            "js/src/utility/input-search.js"
+            "js/src/bstrp-datetimepicker-mod.js"
+            "js/src/universal.js"
+            "js/src/backend/admin-base.js"
+            "bundles/fosjsrouting/js/router.js"
+            "js/bower/daterangepicker.js"
+            "js/bower/form.min.js"
+            "js/src/backend/sticky.js"
+            "js/src/utility/loader.js"
+        %}
+        <script src="{{ asset_url }}"></script>
+        <script src="{{ asset('js/bower/typeahead.bundle.min.js') }}"></script>
+        {% endjavascripts %}
+
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        {% block javascripts %}
+            <script src="{{ asset('reactjs/build/vendor.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,4 @@
+YilinkerOAuthServerBundle\Form\Model\Authorize:    
+    properties:
+        allowAccess:
+            - True: { message: Please click continue to allow access to your profile,  groups: [ Authorize ] }

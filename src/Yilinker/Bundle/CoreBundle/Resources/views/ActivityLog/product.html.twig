@@ -1,0 +1,55 @@
+<tr>
+    <td width="90">{{ activity.dateAdded('g:i A') }}</td>
+    <td>
+        <p>
+            <em>
+                <strong>
+                    {{ activity.mysqlAction == 'INSERT' ? 'Added' : '' }}
+                    {{ activity.mysqlAction == 'UPDATE' ? 'Modified' : '' }}
+                    {{ activity.mysqlAction == 'DELETE' ? 'Removed' : '' }}
+                    Product 
+                </strong>
+                into your listing
+            </em>
+        </p>
+        {% if activity.mysqlAction == 'UPDATE' and activity.activityData.__changes is defined %}
+            <ol class="bulleted">
+                {% for column, change in activity.activityData.__changes %}
+                    <li>
+                        {{ column|capitalize }} changed
+                        {% set before = change|first %}
+                        {% set after = change|last %}
+                        {% if (before and before is not iterable and after and after is not iterable) %}
+                            {% if column == 'status' %}
+                                from {{ before|product_status }} to {{ after|product_status }}
+                            {% else %}
+                                from {{ before }} to {{ after }}
+                            {% endif %}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </td>
+    <td width="40%">
+        <table>
+            <tr>
+                <td width="40" valign="top">
+                    {% if activity.activityData.primaryImageLocation is defined and activity.activityData.primaryImageLocation %}
+                        <img width="30px" src="{{ asset(activity.activityData.primaryImageLocation, 'product') }}" alt="{{ activity.activityData.name }}">
+                    {% endif %}
+                </td>
+                <td>
+                    <span valign="top">
+                        {{ activity.activityData.name }}</br>
+                        {% if activity.activityData.defaultPrice is defined and activity.activityData.defaultPrice > 0 %}
+                            P {{ activity.activityData.defaultPrice|number_format(2) }}
+                        {% endif %}
+                    </span>
+                </td>
+            </tr>
+        </table>
+        
+        
+    </td>
+</tr>

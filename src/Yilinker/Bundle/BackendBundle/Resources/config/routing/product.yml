@@ -1,0 +1,26 @@
+yilinker_backend_product_listings:
+    path: /listings
+    defaults: { _controller: YilinkerBackendBundle:Product:listings }
+
+yilinker_backend_product_detail:
+    path: /detail/{productId}
+    defaults: { _controller: YilinkerBackendBundle:Product:getProductDetail }
+    
+yilinker_backend_product_update_status:
+    path: /product/status-update
+    defaults: { _controller: YilinkerBackendBundle:Product:updateProductStatus }
+
+yilinker_backend_send_remarks:
+    path: /product/send-remarks
+    defaults : { _controller: YilinkerBackendBundle:Product:sendRemarks }
+
+yilinker_backend_product_update_shipping_category:
+    path: /update-shipping-category
+    defaults: { _controller: YilinkerBackendBundle:Product:updateShippingCategory }
+    methods : [POST]
+
+frontend_search_product_route:
+    path: /search/product
+
+frontend_product_route:
+    path: /item

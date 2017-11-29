@@ -1,0 +1,226 @@
+<div class="search-header-wrapper">
+
+    {% block menu %}
+
+    {% endblock %}
+
+    {% block filters %}
+    <div class="search-header-bottom-layer" id="subCategoryFilter">
+        <div class="gutter-container">
+        <div class="desktop-hide search-control-mobile">
+            <div class="control-item wide filter-modal-trigger">
+                <i class="icon icon-category"></i> Filter
+            </div>
+            <div class="control-item wide sort-modal-trigger">
+                <i class="icon icon-category "></i> Sort By
+            </div>
+            <div class="control-item wide view-by-modal-trigger">
+                <i class="icon icon-category "></i> View By
+            </div>
+        </div>
+
+        <div class="row mobile-hide">
+            <div class="col-md-6">
+                <div class="filter-control-container">
+                    <div class="search-header-label filter-label search-control-label table-cell">
+                        <span class="semi-bold">{% trans %} Filter Area: {% endtrans %}</span>
+                    </div>
+                    <div class="search-control-area filter table-cell less">
+                        {% if aggregations.categories is defined %}
+                        <div class="control-type-container">
+                            <div class="control-dropdown form-ui ui single selection dropdown small">
+                                <div class="text">{% trans %} Sub-Category {% endtrans %}</div>
+                                <i class="dropdown icon"></i>
+                            </div>
+                            <div class="control-dropdown-menu">
+                                <ul class="list-unstyled list-control-items category-filter">
+                                    <li>
+                                        <div class="ui checkbox">
+                                            <input type="checkbox" name="category_filter_all"
+                                                   class="subcategory-filter-checkbox" />
+                                            <label for="category_filter_all">All</label>
+                                        </div>
+                                    </li>
+                                    {% for subcategory in aggregations.categories %}
+                                    <li>
+                                        <div class="ui checkbox">
+                                            <input
+                                                type="checkbox"
+                                                name="category_filter_{{ subcategory.id }}"
+                                                class="subcategory-filter-checkbox"
+                                                data-product-search="categories"
+                                                data-subcategoryid="{{ subcategory.id }}"
+                                                value="{{ subcategory.id }}"
+                                            />
+                                            <label for="category_filter_{{ subcategory.id }}">{{ subcategory.name }}</label>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if aggregations.maxPrice is defined or aggregations.minPrice is defined %}
+                        <div class="control-type-container">
+                            <div class="control-dropdown form-ui ui single selection dropdown small" id="price-slider-trigger">
+                                <div class="text">{% trans %} Price {% endtrans %}</div>
+                                <i class="dropdown icon"></i>
+
+                            </div>
+                            <div class="control-dropdown-menu">
+                                <div class="price-range-container">
+                                    <div class="semi-bold range-label">{% trans %} Price Range {% endtrans %}</div>
+                                    <input type="text" id="priceRange" value=""
+                                           data-max="{{ aggregations.maxPrice | number_format(2, '.', '')  }}"
+                                           data-min="{{ aggregations.minPrice | number_format(2, '.', '') }}"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if aggregations.brands is defined %}
+                        <div class="control-type-container">
+                            <div class="control-dropdown form-ui ui single selection dropdown small">
+                                <div class="text">{% trans %} Brand {% endtrans %}</div>
+                                <i class="dropdown icon"></i>
+                            </div>
+                            <div class="control-dropdown-menu">
+                                <ul class="list-unstyled list-control-items category-filter">
+                                    <li>
+                                        <div class="ui checkbox">
+                                            <input type="checkbox" name="brand_filter_all"
+                                                   class="brand-checkbox" />
+                                            <label for="brand_filter_all">All</label>
+                                        </div>
+                                    </li>
+                                    {% for brand in aggregations.brands %}
+                                    <li>
+                                      <div class="ui checkbox">
+                                            <input type="checkbox" data-product-search="brands" class="brand-checkbox brand-filter-checkbox" data-brand="{{ brand }}" value="{{ brand }}" />
+                                            <label for="">{{ brand  }}</label>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="more-filter">
+                            <span class="more-filter-trigger semi-bold light-color">{% trans %} More Filter {% endtrans %}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 align-right">
+                <div class="filter-control-container pull-right">
+                    {% if includeCountry is defined %}
+                        <div class="search-header-label search-control-label table-cell">
+                            <span class="semi-bold">{% trans %} Ships From: {% endtrans %}</span>
+                        </div>
+                        <div class="search-header-label search-control-label table-cell">
+                            <div class="search-control-area">
+                                <div class="control-type-container">
+                                    <select id="country-filter" class="form-ui ui single selection dropdown small category-filter">
+                                        <option value="">All</option>
+                                        {% for country in aggregations.countries %}
+                                            {% if appCountry.code != country.code %}
+                                                <option value="{{country.code|lower}}"
+                                                {% if country.code|lower == app.request.get('country') %}
+                                                    selected="selected"
+                                                {% endif %}
+                                                >{{country.name}}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="search-header-label search-control-label table-cell">
+                        <span class="semi-bold">{% trans %} Sort By: {% endtrans %}</span>
+                    </div>
+                    <div class="search-control-group table-cell">
+                        <div class="search-control-area">
+                            <div class="control-type-container">
+                                <select class="form-ui ui single selection dropdown small category-filter sort-by-filter product-search-sort">
+                                    {% if app.request.query.get('query') != ""  %}
+                                    <option value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::RELEVANCE') }}~{{  constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') }}"
+                                     data-direction="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') }}">
+                                        {% trans %} Relevance {% endtrans %}
+                                    </option>
+                                    {% endif %}
+                                    <option value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::BYDATE') }}~{{  constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') }}"
+                                     data-direction="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') }}">
+                                        {% trans %} New to Old {% endtrans %}
+                                    </option>
+                                    <option value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::BYDATE') }}~{{  constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_ASC') }}"
+                                     data-direction="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_ASC') }}">
+                                        {% trans %} Old to New {% endtrans %}
+                                    </option>
+                                    <option value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::ALPHABETICAL') }}~{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_ASC') }}"
+                                     data-direction="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_ASC') }}">
+                                        {% trans %} Alphabetical {% endtrans %}
+                                    </option>
+                                    <option value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::BYPOPULARITY') }}~{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') }}"
+                                     data-direction="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') }}">
+                                        {% trans %} Popularity {% endtrans %}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    {% block view_by_block %}
+                    <div class="search-header-label search-control-label table-cell">
+                        <span class="semi-bold">{% trans %} View By: {% endtrans %}</span>
+                    </div>
+                    <div class="search-control-group table-cell">
+                        <div class="control-type-container view-control">
+                            <button class="button-view grid-view-trigger active">
+                                <i class="icon icon-grid-view icon-lg"></i>
+                            </button>
+                            <button class="button-view list-view-trigger">
+                                <i class="icon icon-list-view icon-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                    {% endblock %}
+                    <div class="search-control-group table-cell">
+                        <div class="search-control-area list-pager">
+                            <div class="control-type-container view-control">
+                                <div class="pagination-short">
+                                    <div class="pager prev">
+                                        {% if page > 1  %}
+                                        {% set updatedParameters = parameters|merge({'page': page - 1}) %}
+                                        <a href="{{ path('search_product', updatedParameters ) }}"/>
+                                        <i class="icon icon-caret-left"></i>
+                                        </a>
+                                        {% else %}
+                                        <i class="icon icon-caret-left"></i>
+                                        {% endif %}
+                                    </div>
+                                    <span class="current-page">{{ page|default(1) }}</span>
+                                    <i class="of-divider">of</i>
+                                    <div class="total-page">{{ totalPages|default(1) }}</div>
+                                    <div class="pager next">
+                                        {% if page < totalPages  %}
+                                        {% set updatedParameters = parameters|merge({'page': page + 1}) %}
+                                        <a href="{{ path('search_product', updatedParameters ) }}"/>
+                                        <i class="icon icon-caret-right"></i>
+                                        {% else %}
+                                        <i class="icon icon-caret-right"></i>
+                                        {% endif %}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    {% endblock %}
+
+</div>
+{{ include('YilinkerFrontendBundle:Product:filter_mobile_modal.html.twig') }}

@@ -1,0 +1,104 @@
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Manage Administrator</span>
+        </div>
+    </div>
+    <div class="container">
+      <!-- Tables -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+              <div class="box-div">
+                <div class="row gutters group-segment">
+                  <div class="col-md-4">
+                    <h4>Register Administrator</h4>
+                    <p class="sub-header">
+                      Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien.
+                      Maecenas quam neque, scelerisque sit amet elit fermentum, lobortis convallis dui.
+                    </p>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="message-box red">
+                      <p class="title">Error Not A Number!</h5>
+                      <p>This transaction has been flagged for further review.</p>
+                    </div>
+
+                    <div class="form">
+                      <label>Username</label>
+                      <input type="text" class="form-ui error" placeholder="Placeholder">
+                      <span class="form-ui-note error"><i class="icon-alert-exclamation icon-lg"></i> You entered a wrong data...</span>
+                    </div>
+
+                    <div class="form">
+                      <label>Password</label>
+                      <input type="text" class="form-ui error" placeholder="Placeholder">
+                      <span class="form-ui-note error"><i class="icon-alert-exclamation icon-lg"></i> You entered a wrong data...</span>
+                    </div>
+
+                    <div class="form">
+                      <label>Full Name</label>
+                      <input type="text" class="form-ui" placeholder="Placeholder">
+                    </div>
+
+                    <div class="form">
+                      <button class="button purple modal-alert-success-trigger">
+                        <i class="icon icon-plus"></i>
+                        Register
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="row gutters group-segment">
+                  <div class="col-md-4">
+                    <h4>Manage Roles</h4>
+                    <p class="sub-header">
+                      Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien.
+                      Maecenas quam neque, scelerisque sit amet elit fermentum, lobortis convallis dui.
+                    </p>
+                  </div>
+                  <div class="col-md-8">
+                    <table class="table basic table-vertical-align-top center">
+                      <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Fullname</th>
+                        <th>Role</th>
+                        <th class="txtcenter">Activation</th>
+                      </tr>
+                      {% for i in 1..5 %}
+                        <tr>
+                          <td>2</td>
+                          <td>inonbaguio</td>
+                          <td>Inon Baguio</td>
+                          <td>
+                            <div class="options">
+                              <select name="" id="" class="form-ui ui search single selection dropdown">
+                                <option value="0">Content</option>
+                                <option value="1">CSR</option>
+                                <option value="2">Marketing</option>
+                                <option value="3">Super-User</option>
+                                <option value="4">Guest</option>
+                              </select>
+                            </div>
+                          </td>
+                          <td class="txtcenter">
+                            <div>
+                              <input class="toggle-one" type="checkbox" data-toggle="toggle">
+                            </div>
+                          </td>
+                        </tr>
+                      {% endfor %}
+                    </table>
+
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>

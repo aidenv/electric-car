@@ -1,0 +1,415 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Bank Account Information
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+    {% set bankType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_BANK_INFORMATION') %}
+        <div class="dashboard-body-container white">
+            <div class="dashboard-submenu-wrapper">
+                 <div class="dashboard-submenu-container">
+                    <ul class="list-unstyle list-submenu">
+                        <li>
+                            <a href="{{ path('user_store_information') }}">
+                                {% trans %} General Information {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_store_address') }}">
+                                {% trans %} Store Address {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="active">
+                                {% trans %} Bank Account Information {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dashboard_legal_information') }}">
+                                {% trans %} Legal Information {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_account_information') }}">
+                                {% trans %} Account Information {% endtrans %}
+                            </a>
+                        </li>
+                    </ul>
+                 </div>
+             </div>
+            <div class="dashboard-component top bottom">
+                <div class="component-content">
+                    <div class="bank-account-container">
+                        {# START OF REMARKS #}
+                        {% if applicationDetails.remarkArray[bankType] is defined and isBankEditable %}
+                            <div class="panel">
+                                <div class="panel-body">
+                                    {% set bankRemarkLength = applicationDetails.remarkArray[bankType]|length %}
+                                    {% set lastBankRemarkKey = bankRemarkLength - 1 %}
+                                    <div class="panel-item row">
+                                    <span class="col-md-1">
+                                        <span class="admin-notif-image">
+                                            <img src="{{ asset('images/logo-icon.png') }}" alt="Yilinker">
+                                        </span>
+                                    </span>
+                                    <span class="col-md-11">
+                                        <p>{{ applicationDetails.remarkArray[bankType][lastBankRemarkKey].message }}</p>
+                                        <span class="admin-notif-txt">
+                                            Posted By:
+                                            <strong>Administrator</strong>
+                                            <span>{{ applicationDetails.remarkArray[bankType][lastBankRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</span>
+                                        </span>
+                                    </span>
+                                    </div>
+                                    {% if bankRemarkLength > 1 %}
+                                        <div class="panel-item row align-center">
+                                            <span class="show-prev-remarks">
+                                                <span class="remarks-txt-view">View</span>
+                                                <span class="remarks-txt-hide">Hide</span>
+                                                previous remarks <strong>({{ bankRemarkLength - 1 }})</strong>
+                                            </span>
+                                        </div>
+                                        {% for remarks in applicationDetails.remarkArray[bankType] %}
+                                            {% if remarks.applicationRemarkId != applicationDetails.remarkArray[bankType][lastBankRemarkKey].applicationRemarkId %}
+                                                <div class="panel-item row prev-remarks">
+                                                <span class="col-md-1">
+                                                    <span class="admin-notif-image">
+                                                        <img src="{{ asset('images/logo-icon.png') }}" alt="Yilinker">
+                                                    </span>
+                                                </span>
+                                                <span class="col-md-11">
+                                                    <p>{{ remarks.message }}</p>
+                                                    <span class="admin-notif-txt">
+                                                        Posted By:
+                                                        <strong>Administrator</strong>
+                                                        <span>{{ remarks.dateAdded|date('h:i:s, Y/m/d') }}</span>
+                                                    </span>
+                                                </span>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+                        {# END OF REMARKS #}
+
+                        <div class="bank-account-container">
+                            <div id="clone-bank-account-table" class="hidden">
+                                <div class="col-md-6 col-xl-4 bank-account">
+                                    <div class="bordered-segment bank-account-segment">
+                                        <table class="bank-account-table">
+                                            <tbody>
+                                            <tr class="tr-address">
+                                                <td width="2em">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="isDefault">
+                                                    </div>
+                                                </td>
+                                                <td class="td-border-bottom-1">
+                                                    <div class="shipping-label">
+                                                        <a class="item-name">
+                                                        </a>
+                                                        {% if isBankEditable is defined and isBankEditable  %}
+                                                        <a class="pull-right">
+                                                            <div class="ui buttons">
+                                                                <div class="ui floating dropdown ellipsis-dropdown">
+                                                                    <span class="ellipsis-text">...</span>
+                                                                    <div class="menu">
+                                                                        <div class="item edit"><i class="icon icon-edit"></i> Edit Bank Account</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        {% endif %}
+                                                        <div class="item-address-line light-color">
+                                                            <div class="account-number"></div>
+                                                            <div class="account-name"></div>
+                                                            <div class="account-bank"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="bank-account-collection">
+                                {% for bankAccount in bankAccounts %}
+                                <div class="col-md-6 col-xl-4 bank-account" data-bank-account-id="{{ bankAccount.bankAccountId }}">
+                                    <div class="bordered-segment bank-account-segment {{ bankAccount.isDefault? 'active':'' }}">
+                                        <table class="bank-account-table">
+                                            <tbody>
+                                            <tr class="tr-address">
+                                                <td class="td-border-bottom-1">
+                                                    <div class="shipping-label">
+                                                        <a class="item-name">
+                                                            {{ bankAccount.accountTitle }}
+                                                        </a>
+                                                        {% if isBankEditable is defined and isBankEditable  %}
+                                                        <a class="pull-right">
+                                                            <div class="ui buttons">
+                                                                <div class="ui floating dropdown ellipsis-dropdown">
+                                                                    <span class="ellipsis-text">...</span>
+                                                                    <div class="menu">
+                                                                        <div class="item edit" data-id="{{ bankAccount.bankAccountId }}" data-bank="{{ bankAccount|json_encode() }}"><i class="icon icon-edit"></i> Edit Bank Account</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        {% endif %}
+                                                        <div class="item-address-line light-color">
+                                                            <div class="account-number">{{ bankAccount.accountNumber }}</div>
+                                                            <div class="account-name">{{ bankAccount.accountName }}</div>
+                                                            <div class="account-bank">{{ bankAccount.bankName }}</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% if isBankEditable is defined and isBankEditable and bankAccounts is empty %}
+                            <!--Display if there is no store address-->
+                            <div class="align-center empty-bank-account {{ bankAccounts is not empty? 'hidden':'' }}">
+                                <h3 class="ui header">
+                                    <i class="icon icon-store"></i>
+                                    <div class="content">
+                                        Your bank info will only be used for your payout.
+                                        <div class="sub-header">Please enter your bank info carefully to prevent problems during payouts.</div>
+                                        <button class="button gray small uppercase mrg-top-20 new-bank-account-modal-trigger">
+                                            <i class="icon icon-plus icon-lg"></i> New Bank Account
+                                        </button>
+                                    </div>
+                                </h3>
+                            </div>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--Start of modal success message-->
+        <div class="ui modal small coupled-new-bank-account new-bank-account-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+             <div class="header">
+                <h4 class="no-margin">New Bank Account</h4>
+            </div>
+            <form name="add-new-bank-account" class="form ui">
+                <div class="content">
+                    <div class="hidden ui error message message-box red with-close-message"></div>
+                    <div class="hidden message message-box red with-close-message"></div>
+                    <div class="field">
+                        <label for="accountTitle" class="required">
+                            Bank Account Title
+                        </label>
+                        <input type="text" name="accountTitle" maxlength="255" class="form-ui ui input" placeholder="Enter your bank account title here">
+                    </div>
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="bankId" class="required">
+                                    Bank Name
+                                </label>
+                                <input type="hidden" name="bankId" class="bankId bank-input">
+                                <div class="form" id="bank-loader-image">
+                                    <div class="form-autosuggest banks">
+                                        <input class="form-ui typeahead" type="text" placeholder="Enter bank here" value="" />
+                                    </div>
+                                    <img src="{{ asset('images/loader.gif')}}" alt="Loading" class="loading-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="accountNumber" class="required">
+                                    Account Number
+                                </label>
+                                <input type="text" name="accountNumber" maxlength="25" class="form-ui ui input" placeholder="Enter your bank account number here">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="accountName" class="required">
+                                    Account Name
+                                </label>
+                                <input type="text" name="accountName" maxlength="255" class="form-ui ui input" placeholder="Enter your bank account name here">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="button uppercase cancel">Cancel</a>
+                    <button class="button confirm submit-to-success submit-button uppercase">
+                        <span class="text">Submit</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!--End of modal success message-->
+
+         <!--Start of modal success new address-->
+        <div class="ui modal tiny coupled-new-bank-account success-new-bank-account-message">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                    <div class="content">
+                        Bank account information has been successfully added
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button blue close uppercase">Okay</button>
+            </div>
+        </div>
+        <!--End of modal delete address-->
+
+        <!--Start of modal success message-->
+        <div class="ui modal small coupled-edit-bank-account edit-bank-account-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+             <div class="header">
+                <h4 class="no-margin">Update Bank Account</h4>
+            </div>
+            <form name="update-bank-account">
+                <div class="content">
+                    <div class="hidden ui error message message-box red with-close-message"></div>
+                    <div class="hidden message message-box red with-close-message"></div>
+                    <div class="form">
+                        <label for="" class="required">
+                            Bank Account Title
+                        </label>
+                        <input type="text" name="accountTitle" maxlength="255" class="form-ui" placeholder="Enter your bank account title here">
+                    </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="" class="required">
+                                    Bank Name
+                                </label>
+                                <input type="hidden" name="bankId" class="bankId bank-input">
+                                <div class="form" id="bank-loader-image">
+                                    <div class="form-autosuggest banks">
+                                        <input class="form-ui typeahead" type="text" placeholder="Enter bank here" value="" />
+                                    </div>
+                                    <img src="{{ asset('images/loader.gif')}}" alt="Loading" class="loading-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="" class="required">
+                                    Account Number
+                                </label>
+                                <input type="text" name="accountNumber" maxlength="25" class="form-ui" placeholder="Enter your bank account number here">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="required">
+                                    Account Name
+                                </label>
+                                <input type="text" name="accountName" maxlength="255" class="form-ui" placeholder="Enter your bank account name here">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="button uppercase cancel">Cancel</a>
+                    <button class="button confirm uppercase submit-to-success submit-button">
+                        <span class="text">Submit</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!--End of modal success message-->
+
+         <!--Start of modal success new address-->
+        <div class="ui modal tiny coupled-edit-bank-account success-edit-bank-account-message">
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                    <div class="content">
+                        Bank account information has been successfully updated
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button blue uppercase approve">Okay</button>
+            </div>
+        </div>
+        <!--End of modal delete address-->
+
+       <!--Start of modal delete address-->
+        <div class="ui modal tiny coupled-delete delete-bank-account-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-trash"></i>
+                    <div class="content">
+                        Delete  Bank Account Information?
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Cancel</button>
+                <button class="button red submit-to-success positive submit-button">
+                    <span class="text">{% trans %} Delete {% endtrans %}</span>
+                </button>
+            </div>
+        </div>
+        <!--End of modal delete address-->
+
+         <!--Start of modal delete address-->
+        <div class="ui modal coupled-delete tiny delete-success-bank-account-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-trash"></i>
+                    <div class="content">
+                        Bank account information has been successfully deleted
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button blue uppercase close">Okay</button>
+            </div>
+        </div>
+        <!--End of modal delete address-->
+
+        <!--Start of modal alert for deleting default bank account-->
+        <div class="ui modal tiny alert-default-bank-account-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h3 class="ui header">
+                    <i class="icon icon-alert-exclamation"></i>
+                    <div class="content">
+                        Default bank account cannot be deleted
+                    </div>
+                </h3>
+            </div>
+            <div class="actions">
+                <button class="button blue uppercase close">Okay</button>
+            </div>
+        </div>
+        <!--End of modal alert for deleting default address-->
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/bower/checkbox.min.js') }}"></script>
+    <script src="{{ asset('js/bower/masonry.min.js') }}"></script>
+    <script src="{{ asset('js/src/utility/button-loader.js') }}"></script>
+    <script src="{{ asset('js/bower/typeahead.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/bank-account.js') }}"></script>
+{% endblock %}

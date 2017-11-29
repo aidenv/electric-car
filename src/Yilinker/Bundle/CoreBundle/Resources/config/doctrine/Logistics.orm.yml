@@ -1,0 +1,30 @@
+Yilinker\Bundle\CoreBundle\Entity\Logistics:
+    type: entity
+    table: Logistics
+    id:
+        logisticsId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: logistics_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+        dateAdded:
+            type: datetime
+            column: date_added
+        isActive:
+            type: boolean
+            column: is_active
+            options:
+                default: true
+    lifecycleCallbacks: {  }

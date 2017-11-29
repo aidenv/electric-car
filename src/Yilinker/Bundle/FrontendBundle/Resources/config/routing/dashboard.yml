@@ -1,0 +1,144 @@
+profile_information:
+    path: /me
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:profileInformation }
+    requirements:
+        _locale: en
+
+profile_info_update:
+    path: /update
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:profileInformationUpdate }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+profile_create_address:
+    path: /address/create
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:createNewAddress }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+profile_update_address:
+    path: /address/update
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:updateAddress }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+profile_update_contactnumber:
+    path: /contactnumber/update
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:updateContactNumber }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+profile_delete_address:
+    path: /address/delete
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:deleteAddress }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+profile_change_email:
+    path: /email/change
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:updateEmail }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+profile_change_password:
+    path: /password/change
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:updatePassword }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+profile_location_children:
+    path: /location/children
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:getChildrenLocations }
+
+profile_activity_log:
+    path: /activity-log
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:profileActivityLog }
+    requirements:
+        _locale: en
+
+profile_following:
+    path: /following
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:profileFollowing }
+    requirements:
+        _locale: en
+
+profile_messages:
+    path: /messages/{userId}
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:profileMessages, userId:null }
+    requirements:
+        _locale: en
+
+profile_settings:
+    path: /settings
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:profileSettings }
+    requirements:
+        _locale: en
+
+transaction_cancellation:
+    path: /transaction/cancellation
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:profileTransactionCancellation }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+profile_transaction:
+    path: /transactions
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:profileTransaction }
+    requirements:
+        _locale: en
+
+profile_transaction_view:
+    path: /transaction/{invoice}
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:profileTransactionView }
+    requirements:
+        _locale: en
+
+profile_resolution_center:
+    path: /resolution-center
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:profileResolutionCenter }
+    methods: [GET]
+    requirements:
+        _locale: en
+
+profile_resolution_center_add:
+    path: /resolution-center/add-case
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:addCase }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+profile_get_order_products:
+    path: /resolution-center/get-order-products
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:getOrderProduct }
+    methods: [GET]
+    requirements:
+        _locale: en
+
+profile_help:
+    path: /help
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:profileHelp }
+    requirements:
+        _locale: en
+
+profile_upload_document:
+    path: /upload-document
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:profileUploadDocument }
+    requirements:
+        _locale: en
+
+profile_add_referrer_code:
+    path: /add-referrer-code
+    defaults: { _controller: YilinkerFrontendBundle:Dashboard:addReferrerCode }
+    requirements:
+        _locale: en
+
+yilinker_frontend_points_route:
+    resource: "points.yml"
+

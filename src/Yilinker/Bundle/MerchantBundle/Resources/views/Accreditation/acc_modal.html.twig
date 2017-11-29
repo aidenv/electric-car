@@ -1,0 +1,200 @@
+<!--Start of modal add product category-->
+<div class="ui modal add-product-category">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">Add Product Category</h4>
+    </div>
+    <div class="content">
+      {% for i in 0..2 %}
+      <div class="row gutters">
+        <div class="col span-3">
+          <div class="form">
+            <div class="bordered-segment checked">
+              <a href="#"><i class="icon icon-star-o"></i></a>
+              <p><strong>Category One</strong></p>
+              <div class="ui checkbox">
+                  <input type="checkbox" checked>
+                  <label for="">&nbsp;</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col span-3">
+          <div class="form">
+            <div class="bordered-segment">
+              <a href="#"><i class="icon icon-star-o"></i></a>
+              <p><strong>Category One</strong></p>
+              <div class="ui checkbox">
+                  <input type="checkbox" name="0">
+                  <label for="">&nbsp;</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col span-3">
+          <div class="form">
+            <div class="bordered-segment">
+              <a href="#"><i class="icon icon-star-o"></i></a>
+              <p><strong>Category One</strong></p>
+              <div class="ui checkbox">
+                  <input type="checkbox" name="0">
+                  <label for="">&nbsp;</label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col span-3">
+          <div class="form">
+            <div class="bordered-segment">
+              <a href="#"><i class="icon icon-star-o"></i></a>
+              <p><strong>Category One</strong></p>
+              <div class="ui checkbox">
+                  <input type="checkbox" name="0">
+                  <label for="">&nbsp;</label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>
+    <div class="actions">
+      <button class="button confirm product-category-list-trigger">Add this Category</button>
+    </div>
+</div>
+<!--End of modal add product category-->
+
+<!--Start of modal success message-->
+<div class="ui modal small verify-email-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">Verify Email Address</h4>
+    </div>
+    <div class="content">
+        <div class="form">
+          <input type="text" class="form-ui" placeholder="Code">
+        </div>
+        <div class="form">
+          <p>Check your spam mailbox, and make sure that yilinker.com is allowed to send you email.</p>
+        </div>
+        <div class="form">
+          <button class="button gray small uppercase">Resend Verification Code</button>
+        </div>
+    </div>
+    <div class="actions">
+      <button class="button confirm submit-to-success">Verify</button>
+    </div>
+</div>
+<!--End of modal success message-->
+
+
+<!--Start of modal success message-->
+<div class="ui modal small coupled-new-address new-address-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">New Store Address</h4>
+    </div>
+    <div class="content">
+        <div class="form">
+            <label for="" class="required">
+                Complete Address
+            </label>
+            <input type="text" class="form-ui" placeholder="Enter your address line 1 here">
+        </div>
+        <div class="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="" class="required">
+                        Street
+                    </label>
+                    <input type="text" class="form-ui" placeholder="Enter your address line 1 here">
+                </div>
+                <div class="col-md-6">
+                    <label for="" class="required">
+                        Baranggay
+                    </label>
+                    <input type="text" class="form-ui" placeholder="Enter your address line 1 here">
+                </div>
+            </div>
+        </div>
+        <div class="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="" class="required">
+                        City/Minicipality
+                    </label>
+                    <input type="text" class="form-ui" placeholder="Enter your address line 1 here">
+                </div>
+                <div class="col-md-6">
+                    <label for="" class="required">
+                        Province
+                    </label>
+                    <input type="text" class="form-ui" placeholder="Enter your address line 1 here">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="button cancel">Cancel</button>
+        <button class="button confirm submit-to-success">Submit</button>
+    </div>
+</div>
+<!--End of modal success message-->
+
+<!--Start of modal success verify account-->
+<div class="ui modal small success-verify-account">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <h3 class="ui header">
+            <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    Your have successfully verified this account
+                <div class="sub-header">This account has been successfully verified.</div>
+            </div>
+        </h3>
+    </div>
+    <div class="actions">
+        <button class="button confirm close">Okay</button>
+    </div>
+</div>
+<!--End of modal success address-->
+
+<!--Start of modal success new address-->
+<div class="ui modal small coupled-new-address success-new-address-message">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <h3 class="ui header">
+            <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    Store address has been successfully added
+                <div class="sub-header">You have successfully created a new address.</div>
+            </div>
+        </h3>
+    </div>
+    <div class="actions">
+        <button class="button confirm close">Okay</button>
+    </div>
+</div>
+<!--End of modal success address-->
+
+<!--Start of modal delete address-->
+<div class="ui modal small delete-address-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <h3 class="ui header">
+            <i class="icon icon-trash"></i>
+                <div class="content">
+                    Delete Address?
+                <div class="sub-header">Are you sure you want to delete this address</div>
+            </div>
+        </h3>
+    </div>
+    <div class="actions">
+        <button class="button cancel">Cancel</button>
+        <button class="button red"> {% trans %} Delete {% endtrans %}</button>
+    </div>
+</div>
+<!--End of modal delete address-->

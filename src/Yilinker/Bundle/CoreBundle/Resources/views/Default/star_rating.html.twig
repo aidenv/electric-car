@@ -1,0 +1,16 @@
+{% set rating = rating|round %}
+<div class="rating-container">
+    <span class="rating-icons">
+        {% for i in 1..5 %}
+            <i class="icon icon-star-o {{ rating >= i ? 'active' : '' }}"></i>
+        {% endfor %}
+    </span>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Rating",
+  "ratingValue": "{{ rating }}"
+}
+</script>

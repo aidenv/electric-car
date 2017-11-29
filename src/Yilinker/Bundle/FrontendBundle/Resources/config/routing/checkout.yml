@@ -1,0 +1,35 @@
+checkout_type:
+    path: /
+    defaults: { _controller: YilinkerFrontendBundle:Checkout:type }
+
+checkout_summary:
+    path: /summary
+    defaults: { _controller: YilinkerFrontendBundle:Checkout:summary }
+
+checkout_addresses:
+    path: /address-list
+    defaults: { _controller: YilinkerFrontendBundle:Checkout:addressList }
+
+checkout_validate_voucher:
+    path: /validate-voucher
+    defaults: { _controller: YilinkerFrontendBundle:Checkout:validateVoucher }
+
+checkout_payment:
+    path: /payment
+    defaults: { _controller: YilinkerFrontendBundle:Checkout:payment }
+
+checkout_overview:
+    path: /overview
+    defaults: { _controller: YilinkerFrontendBundle:Checkout:overview }
+
+checkout_deleteAddress:
+    path: /delete-address/{addressId}
+    defaults: { _controller: YilinkerFrontendBundle:Checkout:deleteAddress }
+
+checkout_buynow:
+    path: /buynow
+    defaults: { _controller: YilinkerFrontendBundle:Checkout:buynow }
+
+checkout_receipt:
+    path: /receipt
+    defaults: { _controller: YilinkerFrontendBundle:Checkout:printReceipt }

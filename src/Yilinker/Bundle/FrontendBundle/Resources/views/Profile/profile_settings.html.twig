@@ -1,0 +1,172 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    {% trans %}Settings{% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="profile">
+        <div class="dashboard-wrapper">
+            <div class="dashboard-body-container white">
+                {{ render(controller('YilinkerFrontendBundle:Dashboard:renderLeftWingMenu', {'currentRoute': app.request.attributes.get('_route') } )) }}
+                <div class="dashboard-component top">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">{% trans %} Notifications {% endtrans %}</span>
+                        </div>
+                    </div>
+                    <!--Notification settings-->
+                    <div class="component-content">
+                        <table class="table table-setting-content">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="setting-segment-head">
+                                                    <div class="setting-segment-head-item align-left ">
+                                                        <h4 class="semi-bold">
+                                                            {% trans %}SMS Notifications{% endtrans %}
+                                                        </h4>
+                                                    </div>
+                                                    <div class="setting-segment-head-item align-right">
+                                                        <div class="ui green toggle checkbox pull-right">
+                                                            <input type="checkbox" class="enable-sms-checkbox" {% if isSubscribed %} checked {% endif %}>
+                                                            <label>&nbsp;</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <p class="about-paragraph">
+                                                {% trans %}Aside from your email, you'll also receive marketing announcements on your mobile by default. You can choose whether you want to receive SMS notifications.{% endtrans %}
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="dashboard-component">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">{% trans %}Account setting{% endtrans %}</span>
+                        </div>
+                    </div>
+                    <!--Account settings-->
+                    <div class="component-content">
+                        <table class="table table-setting-content">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="setting-segment-head">
+                                                    <div class="setting-segment-head-item align-left ">
+                                                        <h4 class="semi-bold">
+                                                            {% trans %}Deactivate My Account{% endtrans %}
+                                                        </h4>
+                                                    </div>
+                                                    <div class="setting-segment-head-item align-right">
+                                                        <div class="ui green toggle checkbox pull-right">
+                                                            <input type="checkbox" class="disable-account-checkbox">
+                                                            <label>&nbsp;</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-7">
+                                                <p class="about-paragraph">
+                                                    {% trans %}We'd really hate to see you go but, you still get to decide whether you want to keep your account active or deactivate it. Other people with whom you have transacted with will still have a record of your transactions details including, but not limited to your name & contact number. You will also receive an email that contains a reactivation link should you wish to reactivate your account at a future time.{% endtrans %}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {{ include('YilinkerFrontendBundle:Profile:profile_right_wing_notifications.html.twig') }}
+            </div>
+
+            <div class="ui modal tiny deactivate-confirm-password-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <form name="verify-contact-number" class="form ui verify-contact-number-form">
+                    <div class="content">
+                        <div class="hidden message-box red with-close-message verify-contact-number-errors"></div>
+                        <div class="password-verify-prompt error" style="display:none;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="message-box red with-close-message">
+                                        {% trans %}The password you entered is invalid.{% endtrans %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="light mrg-bt-20 light-color">
+                            {% trans %}Please enter your password to confirm your account deactivation.{% endtrans %}
+                        </p>
+                        <div class="form">
+                            <label for="" class="required">Password</label>
+                            <input type="password" name="password" class="form-ui password-input" placeholder="Enter your password here"/>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="button cancel uppercase">{% trans %}Cancel{% endtrans %}</button>
+                        <button type="submit" class="button blue submit-to-success uppercase approve">{% trans %}Deactivate{% endtrans %}</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="ui modal tiny success-deactivation-modal">
+                <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h3 class="ui header">
+                        <i class="icon icon-circle-check"></i>
+                            <div class="content">
+                                 {% trans %}Account has been successfully deactivated.{% endtrans %}
+                            <div class="sub-header">{% trans %}A reactivation email has been to your email should you wish to reneable your account.You will be logged out now.{% endtrans %}</div>
+                        </div>
+                    </h3>
+                </div>
+                <div class="actions">
+                    <button class="button blue uppercase close">{% trans %}Okay{% endtrans %}</button>
+                </div>           
+            </div>
+            
+            <div class="ui modal tiny sms-subscription-confirm-modal">
+              <a class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h4 class="ui header">
+                      <div class="content">
+                           {% trans %}Are you sure you want to proceed?{% endtrans %}
+                           <div class="sub-header">
+                                {% trans %}You are about to change the subscription status of your active mobile number.{% endtrans %}
+                           </div>
+                      </div>
+                    </h4>
+                </div>
+                <div class="actions">
+                     <button class="button cancel uppercase">{% trans %}Cancel{% endtrans %}</button>
+                     <button type="submit" class="button blue submit-to-success uppercase approve">{% trans %}Continue{% endtrans %}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ include('YilinkerFrontendBundle:Profile:profile_base_js.html.twig') }}
+    <script src="{{ asset('js/src/dashboard-settings.js') }}"></script>
+{% endblock %}

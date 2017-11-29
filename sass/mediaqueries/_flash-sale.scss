@@ -1,0 +1,50 @@
+@media screen and (max-width: 768px){
+    .flash-item.list .actions {
+        float: left;
+        width: 154px;
+        clear: none;
+        margin-top: 14px;
+    }
+
+    .flash-product-container .flash-item {
+        width: 50%;
+        float: left;
+        border: solid #C1C1C1 1px;
+        border-left: 0 !important;
+        &:nth-child(odd){
+            border-right: 0 !important;
+        }
+    }
+
+    .flash-product-container .item.current-sale {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+
+    .flash-product-container {
+        margin: 0;
+    }
+
+    .flash-product-container .flash-slider {
+        display: block;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .flash-item.list {
+        margin-bottom: -1px !important;
+    }
+    
+    .flash-product-container .countdown{
+        padding-top: 17px;
+        margin-bottom: 0px;
+        margin-top: -13px;
+    }
+
+    .item.upcoming-sale{
+        .flash-item{
+            width: 100%;
+        }
+    }
+}

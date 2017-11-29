@@ -1,0 +1,467 @@
+<div class="sidebar-submenu-background-overlay"></div>
+<div class="sidebar sidebar-wrapper">
+    <!--Start of featured Deals-->
+    <ul class="list-for-sidebar list-unstyled">
+        <li>
+            <i class="item-icon icon-discount-tag "></i>
+            <span class="item-title">
+                {{ homeXml.sidebar.todaysPromos.sidebarTitle is defined? ''~homeXml.sidebar.todaysPromos.sidebarTitle:"" }}     
+            </span>
+            <div class="board">
+                <div class="board-content">
+                    <div class="board-group">
+                        <h5 class="header">
+                            <a href="#">
+                                {{ homeXml.sidebar.todaysPromos.title is defined? ''~homeXml.sidebar.todaysPromos.title:"" }}      
+                                <i class="icon-angle-right"></i>
+                            </a>
+                        </h5>
+                        {% if homeXml.sidebar.todaysPromos.productsUpperSection.product is defined %}
+                            <div class="product-group">
+                                <div class="row">
+                                    {% for product in homeXml.sidebar.todaysPromos.productsUpperSection.product %}
+                                        {% if 
+                                            product.attributes.unit is defined and 
+                                            productUnitsData[''~product.attributes.unit] is defined 
+                                        %}
+                                            {% set productDetails = productUnitsData[''~product.attributes.unit] %}
+                                        {% elseif productsData[''~product] is defined %}
+                                            {% set productDetails = productsData[''~product] %}
+                                        {% endif %}
+                                        {% if productDetails is defined %}
+                                            {%
+                                                set addtocart = {
+                                                    'productId': productDetails.productId,
+                                                    'unitId':    productDetails.productUnitId
+                                                }
+                                            %}
+                                            <div class="col-md-6 col-for-product-small">
+                                                <div class="product-card-small">
+                                                    <div class="image-wrapper">
+                                                        <img src="{{ asset(productDetails.thumbnail, 'product') }}" alt="{{ productDetails.productName }}" />
+                                                    </div>
+                                                    <div class="product-meta">
+                                                        <a href="{{ path('product_details', {'slug': productDetails.slug}) }}" class="name">
+                                                            {{ productDetails.productName|length > 25 ? productDetails.productName|slice(0, 25) ~ '...' : productDetails.productName }}
+                                                        </a>
+                                                        <span class="old-price">
+                                                            {% if productDetails.originalPrice != productDetails.discountedPrice %}
+                                                                P {{ productDetails.originalPrice }}
+                                                            {% endif %}
+                                                        </span>
+                                                        <button class="button purple block cart" data-href="{{ path('cart_add_item') }}" data-addtocart="{{ addtocart|json_encode }}">
+                                                            <span class="current-price">P {{ productDetails.discountedPrice }}</span>
+                                                            <span class="cart text">Add to cart</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {% if homeXml.sidebar.todaysPromos.middleImages.advertisement is defined %}
+                            {% for advertisement in homeXml.sidebar.todaysPromos.middleImages.advertisement %}
+                                <div class="advertisement">
+                                    <a href="{{ ''~advertisement.target }}">
+                                        <img src="{{ asset(''~advertisement.image, 'cms') }}" class="img-full-width"/>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% 
+                            if homeXml.sidebar.todaysPromos.category is defined and
+                            homeXml.sidebar.todaysPromos.category.attributes.categoryId is defined
+                        %}
+                            <div class="board-group">
+                                {% set categoryId = ''~homeXml.sidebar.todaysPromos.category.attributes.categoryId %}
+                                {% if productCategories[categoryId] is defined %}
+                                    <h5 class="header">
+                                       <a href="{{ path('get_category', {'slug':productCategories[categoryId].slug}) }}">
+                                            {{ productCategories[categoryId].name }} 
+                                            <i class="icon-angle-right"></i>
+                                        </a>
+                                    </h5>
+                                {% endif %}
+                                <div class="product-group">
+                                    <div class="row">
+                                        {% if homeXml.sidebar.todaysPromos.category.product is defined %}
+                                            {% for product in homeXml.sidebar.todaysPromos.category.product %}
+                                                {% if 
+                                                    product.attributes.unit is defined and 
+                                                    productUnitsData[''~product.attributes.unit] is defined 
+                                                %}
+                                                    {% set productDetails = productUnitsData[''~product.attributes.unit] %}
+                                                {% elseif productsData[''~product] is defined %}
+                                                    {% set productDetails = productsData[''~product] %}
+                                                {% endif %}
+                                                {% if productDetails is defined %}
+                                                    {%
+                                                        set addtocart = {
+                                                            'productId': productDetails.productId,
+                                                            'unitId':    productDetails.productUnitId
+                                                        }
+                                                    %}
+                                                    <div class="col-md-6 col-for-product-small">
+                                                        <div class="product-card-small">
+                                                            <div class="image-wrapper">
+                                                                <img src="{{ asset(productDetails.thumbnail, 'product') }}" alt="{{ productDetails.productName }}" />
+                                                            </div>
+                                                            <div class="product-meta">
+                                                                <a href="{{ path('product_details', {'slug': productDetails.slug}) }}" class="name">
+                                                                    {{ productDetails.productName }}
+                                                                </a>
+                                                                <span class="old-price">
+                                                                    {% if productDetails.originalPrice != productDetails.discountedPrice %}
+                                                                        P {{ productDetails.originalPrice }}
+                                                                    {% endif %}
+                                                                </span>
+                                                                <button class="button purple block cart" data-href="{{ path('cart_add_item') }}" data-addtocart="{{ addtocart|json_encode }}">
+                                                                    <span class="current-price">P {{ productDetails.discountedPrice }}</span>
+                                                                    <span class="cart text">Add to cart</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="long-item-mask align-center">
+                    <div class="fade-top"></div>
+                    <div class="item-container">
+                        <a class="button basic-purple small block uppercase bold" href="{{ homeXml.sidebar.todaysPromos.viewMoreTarget }}">
+                            See More 
+                            <i class="ico icon-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <i class="item-icon icon-gift "></i>
+            <span class="item-title">
+                {{ homeXml.sidebar.giftIdeas.sidebarTitle is defined? ''~homeXml.sidebar.giftIdeas.sidebarTitle:"" }}    
+            </span>
+            <div class="board">
+                <div class="board-content">
+                    <div class="board-group">
+                        <h5 class="header">
+                            <a href="#">
+                                {{ homeXml.sidebar.giftIdeas.title is defined? ''~homeXml.sidebar.giftIdeas.title:"" }}    
+                                <i class="icon-angle-right"></i>
+                            </a>
+                        </h5>
+                        {% if homeXml.sidebar.giftIdeas.productsUpperSection.product is defined %}
+                            <div class="product-group">
+                                <div class="row">
+                                    {% for product in homeXml.sidebar.giftIdeas.productsUpperSection.product %}
+                                        {% if 
+                                            product.attributes.unit is defined and 
+                                            productUnitsData[''~product.attributes.unit] is defined 
+                                        %}
+                                            {% set productDetails = productUnitsData[''~product.attributes.unit] %}
+                                        {% elseif productsData[''~product] is defined %}
+                                            {% set productDetails = productsData[''~product] %}
+                                        {% endif %}
+                                        {% if productDetails is defined %}
+                                            {%
+                                                set addtocart = {
+                                                    'productId': productDetails.productId,
+                                                    'unitId':    productDetails.productUnitId
+                                                }
+                                            %}
+
+                                            <div class="col-md-6 col-for-product-small">
+                                                <div class="product-card-small">
+                                                    <div class="image-wrapper">
+                                                        <img src="{{ asset(productDetails.thumbnail, 'product') }}" alt="{{ productDetails.productName }}" />
+                                                    </div>
+                                                    <div class="product-meta">
+                                                        <a href="{{ path('product_details', {'slug': productDetails.slug}) }}" class="name">
+                                                            {{ productDetails.productName|length > 25 ? productDetails.productName|slice(0, 25) ~ '...' : productDetails.productName }}
+                                                        </a>
+                                                        <span class="old-price">
+                                                            {% if productDetails.originalPrice != productDetails.discountedPrice %}
+                                                                P {{ productDetails.originalPrice }}
+                                                            {% endif %}
+                                                        </span>
+                                                        <button class="button purple block cart" data-href="{{ path('cart_add_item') }}" data-addtocart="{{ addtocart|json_encode }}">
+                                                            <span class="current-price">P {{ productDetails.discountedPrice }}</span>
+                                                            <span class="cart text">Add to cart</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        {% if homeXml.sidebar.giftIdeas.middleImages.advertisement is defined %}
+                            {% for advertisement in homeXml.sidebar.giftIdeas.middleImages.advertisement %}
+                                <div class="advertisement">
+                                    <a href="{{ ''~advertisement.target }}">
+                                        <img src="{{ asset(''~advertisement.image, 'cms') }}" class="img-full-width"/>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        {% 
+                            if homeXml.sidebar.giftIdeas.category is defined and
+                            homeXml.sidebar.giftIdeas.category.attributes.categoryId is defined
+                        %}
+                            <div class="board-group">
+                                {% set categoryId = ''~homeXml.sidebar.giftIdeas.category.attributes.categoryId %}
+                                {% if productCategories[categoryId] is defined %}
+                                    <h5 class="header">
+                                       <a href="{{ path('get_category', {'slug':productCategories[categoryId].slug}) }}">
+                                            {{ productCategories[categoryId].name }} 
+                                            <i class="icon-angle-right"></i>
+                                        </a>
+                                    </h5>
+                                {% endif %}
+                                <div class="product-group">
+                                    <div class="row">
+                                        {% if homeXml.sidebar.giftIdeas.category.product is defined %}
+                                            {% for product in homeXml.sidebar.giftIdeas.category.product %}
+                                                {% if 
+                                                    product.attributes.unit is defined and 
+                                                    productUnitsData[''~product.attributes.unit] is defined 
+                                                %}
+                                                    {% set productDetails = productUnitsData[''~product.attributes.unit] %}
+                                                {% elseif productsData[''~product] is defined %}
+                                                    {% set productDetails = productsData[''~product] %}
+                                                {% endif %}
+                                                {% if productDetails is defined %}
+                                                    {%
+                                                        set addtocart = {
+                                                            'productId': productDetails.productId,
+                                                            'unitId':    productDetails.productUnitId
+                                                        }
+                                                    %}
+                                                    <div class="col-md-6 col-for-product-small">
+                                                        <div class="product-card-small">
+                                                            <div class="image-wrapper">
+                                                                <img src="{{ asset(productDetails.thumbnail, 'product') }}" alt="{{ productDetails.productName }}" />
+                                                            </div>
+                                                            <div class="product-meta">
+                                                                <a href="{{ path('product_details', {'slug': productDetails.slug}) }}" class="name">
+                                                                    {{ productDetails.productName|length > 25 ? productDetails.productName|slice(0, 25) ~ '...' : productDetails.productName }}
+                                                                </a>
+                                                                <span class="old-price">
+                                                                    {% if productDetails.originalPrice != productDetails.discountedPrice %}
+                                                                        P {{ productDetails.originalPrice }}
+                                                                    {% endif %}
+                                                                </span>
+                                                                <button class="button purple block cart" data-href="{{ path('cart_add_item') }}" data-addtocart="{{ addtocart|json_encode }}">
+                                                                    <span class="current-price">P {{ productDetails.discountedPrice }}</span>
+                                                                    <span class="cart text">Add to cart</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="long-item-mask align-center">
+                    <div class="fade-top"></div>
+                    <div class="item-container">
+                        <a class="button basic-purple small block uppercase bold" href="{{ homeXml.sidebar.giftIdeas.viewMoreTarget }}">
+                            See More 
+                            <i class="ico icon-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <!--Start of all categories-->
+        <li>
+            <i class="item-icon icon-categories"></i>
+            <span class="item-title">
+                {{ homeXml.sidebar.allCategories.sidebarTitle is defined? ''~homeXml.sidebar.allCategories.sidebarTitle:"" }}   
+            </span>
+            {% if homeXml.sidebar.allCategories.category is defined %}
+                <div class="board">
+                    <div class="board-content">
+                        {% for category in homeXml.sidebar.allCategories.category %}
+                            {% if category.attributes.categoryId is defined %}
+                                {% set categoryId = ''~category.attributes.categoryId %}
+                                {% if productCategories[categoryId] is defined %}
+                                    <h4 class="header">
+                                        <a href="{{ path('get_category', {'slug':productCategories[categoryId].slug}) }}">
+                                            {{productCategories[categoryId].name}} <i class="icon-angle-right"></i>
+                                        </a>
+                                    </h4>
+                                {% endif %}
+                                {% if category.subcategories.categoryId is defined %}
+                                    <ul class="list-unstyled list-categories">
+                                        {% for subcategory in category.subcategories.categoryId %}
+                                            {% set subcategoryId = ''~subcategory %}
+                                            {% if productCategories[subcategoryId] is defined %}
+                                                <li><a href="{{ path('get_category', {'slug':productCategories[subcategoryId].slug}) }}">{{productCategories[subcategoryId].name}}</a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="long-item-mask align-center">
+                        <div class="fade-top"></div>
+                        <div class="item-container">
+                            <a class="button basic-purple small block uppercase bold" href="{{ path('all_categories') }}">
+                                More Categories 
+                                <i class="ico icon-angle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </li>
+        <!--End of all categories-->
+
+        {% if homeXml.sidebar.otherCategories.category is defined %}
+            {% for category in homeXml.sidebar.otherCategories.category %}
+                {% if category.attributes.categoryId is defined %}
+                    {% set categoryId = ''~category.attributes.categoryId %}
+                    {% if productCategories[categoryId] is defined %}
+                        <li>
+                            <i class="item-icon {{ productCategories[categoryId].icon }}"></i>
+                            <span class="item-title">
+                                {{ productCategories[categoryId].name }}
+                            </span>
+                            <div class="board">
+                                <div class="board-content">
+                                    <div class="board-group">
+                                        <h4 class="header">
+                                            <a href="{{ path('get_category', {'slug':productCategories[categoryId].slug}) }}">
+                                                {{ productCategories[categoryId].name }}
+                                                <i class="icon-angle-right"></i>
+                                            </a>
+                                        </h4>
+                                        {% if category.subcategories.categoryId is defined %}
+                                            <ul class="list-unstyled list-categories">
+                                                {% for subcategory in category.subcategories.categoryId %}
+                                                    {% set subcategoryId = ''~subcategory %}
+                                                    {% if productCategories[subcategoryId] is defined %}
+                                                        <li><a href="{{ path('get_category', {'slug':productCategories[subcategoryId].slug}) }}">{{productCategories[subcategoryId].name}}</a></li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </div>
+                                    
+                                    {% if category.featuredProducts.product is defined %}
+                                        <div class="board-group featured-category-board-group">
+                                            <h4 class="header">
+                                                <a href="{{ path('get_category', {'slug':productCategories[categoryId].slug}) }}">
+                                                    Featured Products
+                                                </a>
+                                            </h4>
+                                            <div class="product-group">
+                                                <div class="row">
+                                                    {% for product in category.featuredProducts.product %}
+                                                        {% if 
+                                                            product.attributes.unit is defined and 
+                                                            productUnitsData[''~product.attributes.unit] is defined 
+                                                        %}
+                                                            {% set productDetails = productUnitsData[''~product.attributes.unit] %}
+                                                        {% elseif productsData[''~product] is defined %}
+                                                            {% set productDetails = productsData[''~product] %}
+                                                        {% endif %}
+                                                        {% if productDetails is defined %}
+                                                            {%
+                                                                set addtocart = {
+                                                                    'productId': productDetails.productId,
+                                                                    'unitId':    productDetails.productUnitId
+                                                                }
+                                                            %}
+                                                            <div class="col-md-6 col-for-product-small">
+                                                                <div class="product-card-small">
+                                                                    <div class="image-wrapper">
+                                                                        <img src="{{ asset(productDetails.thumbnail, 'product') }}" alt="{{ productDetails.productName }}" />
+                                                                    </div>
+                                                                    <div class="product-meta">
+                                                                        <a href="{{ path('product_details', {'slug': productDetails.slug}) }}" class="name">
+                                                                            {{ productDetails.productName|length > 25 ? productDetails.productName|slice(0, 25) ~ '...' : productDetails.productName }}
+                                                                        </a>
+                                                                        <span class="old-price">
+                                                                            {% if productDetails.originalPrice != productDetails.discountedPrice %}
+                                                                                P {{ productDetails.originalPrice }}
+                                                                            {% endif %}
+                                                                        </span>
+                                                                        <button class="button purple block cart" data-href="{{ path('cart_add_item') }}" data-addtocart="{{ addtocart|json_encode }}">
+                                                                            <span class="current-price">P {{ productDetails.discountedPrice }}</span>
+                                                                            <span class="cart text">Add to cart</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {% if category.advertisement is defined %}
+                                        <div class="board-group">
+                                            <div class="advertisement">
+                                                <a href="{{ category.advertisement.target }}">
+                                                    <img src="{{ asset(category.advertisement.image, 'cms') }}" alt="{{productCategories[categoryId].name}}"/>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <div class="long-item-mask align-center">
+                                    <div class="fade-top"></div>
+                                    <div class="item-container">
+                                        <a class="button basic-purple small block uppercase bold" href="{{ path('get_category', {'slug':productCategories[categoryId].slug}) }}">
+                                            See More 
+                                            <i class="ico icon-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </ul>
+    <!--End of featured Deals-->
+    <ul class="list-for-social-media list-unstyled">
+        <li>
+            <a href="{{ yilinkerFacebook }}">
+                <i class="item-icon icon-facebook"></i>
+            </a>
+        </li>
+        <li>
+            <a href="{{ yilinkerTwitter }}">
+                <i class="item-icon icon-twitter"></i>
+            </a>
+        </li>
+        <li>
+            <a href="{{ yilinkerGoogle }}">
+                <i class="item-icon icon-google-plus"></i>
+            </a>
+        </li>
+    </ul>
+</div>

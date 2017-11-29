@@ -1,0 +1,93 @@
+<!-- Modal Buyer Refund Type One -->
+<div class="ui modal small modal-box modal-register-user-one">
+  <a class="close">
+    <i class="icon-times"></i>
+  </a>
+  <div class="header">
+    User Information
+    <div class="ui tabular menu">
+      <div class="item active" data-tab="moda-tab-name">Address</div>
+      <div class="item" data-tab="moda-tab-name1">Bank Account</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="ui tab active" data-tab="moda-tab-name">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form">
+            <label>Address</label>
+            <div id="div-address">asdsadsad, 123 jkhjk, asdsadsad, BF International Village, Las Pinas, Metro Manila, 1213</div>
+          </div>
+          <div class="form">
+            <label>Generate Code</label>
+            <div id="div-generated-code">477-344-1</div>
+            <button class="button gray small mrg-top-10" data-id="1" id="btn-generate-code">
+              Generate Code
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui tab" data-tab="moda-tab-name1">
+      <div class="row sample-bank-blank">
+        <div class="col-md-12">
+          <div class="form">
+            <p>This account doesnt have any bank information</p>
+            <a class="button gray small mrg-top-10 samp-trig-add" href="#">Add</a>
+          </div>
+        </div>
+      </div>
+      <div class="row sample-bank-add hidden">
+        <div class="col-md-12">
+          <div class="form">
+            <label>Bank Account</label>
+            <h4>My BPI Bank Account</h4>
+            <p>283713968540781</p>
+            <p>George Macalulo Winston Lee</p>
+            <p>BPI</p>
+            <a class="button gray small mrg-top-10 samp-trig-edit" href="#">Edit</a>
+          </div>
+        </div>
+      </div>
+      <form class="form ui sample-bank-edit hidden">
+        <div class="field">
+          <label>Bank Account Title</label>
+          <input class="form-ui" maxlength="255" name="txt-bank-account-title" placeholder="Enter your bank account title here" type="text">
+        </div>
+        <div class="field">
+          <label>Bank Name</label>
+          <div class="ui selection dropdown" tabindex="-1">
+            <input name="drop-down-bank-name" type="hidden">
+            <div class="text default">Select Bank...</div>
+            <i class="dropdown icon"></i>
+            <div class="menu" tabindex="-1">
+              <div class="item" data-value="1" style="padding: 1em 1.25em !important">BPI</div>
+              <div class="item" data-value="2" style="padding: 1em 1.25em !important">UCPB</div>
+              <div class="item" data-value="3" style="padding: 1em 1.25em !important">Allied Bank</div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="two fields">
+            <div class="field required error">
+              <label>
+                Account Number
+              </label>
+              <input class="form-ui" name="txt-bank-account-number" placeholder="Enter your bank account number here" type="text">
+            </div>
+            <div class="field required">
+              <label>
+                Account Name
+              </label>
+              <input class="form-ui" name="txt-bank-account-name" placeholder="Enter your bank account name here" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="hidden" id="server-error-message"></div>
+        <div>
+          <a class="button gray small mrg-top-10 samp-trig-add" href="#">Save</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

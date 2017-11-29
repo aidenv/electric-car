@@ -1,0 +1,33 @@
+<div class="search-header-wrapper">
+    <div class="search-header-top-category-layer search-category-header">
+        <div class="search-header-label search-results-total">
+            <span class="semi-bold">{% trans %} Sub Category: {% endtrans %}</span>
+        </div>
+        <div class="search-result-type">
+            <ul class="list-unstyled list-search-result-type list-search-category">
+                {% for i in 1..7 %}
+                {% for middleCategory in category.children %}
+                <li>
+                    <a href="{{ path('get_category', {'slug':middleCategory.slug}) }}">{{ middleCategory.name }}</a>
+                    <div class="category-bottom-header">
+                        <ul class="list-unstyled list-sub-category-header">
+                            {% for lowestCategory in middleCategory.children %}
+                            <li>
+                                <a href="{{ path('get_category', {'slug':lowestCategory.slug}) }}">
+                                    {{ lowestCategory.name }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="search-header-more">
+            <span class="semi-bold expand-category-trigger">{% trans %} More {% endtrans %} <i class="icon icon-caret-down"></i></span>
+            <span class="semi-bold compress-category-trigger">{% trans %} Less {% endtrans %} <i class="icon icon-caret-up"></i></span>
+        </div>
+    </div>
+</div>

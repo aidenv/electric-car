@@ -1,0 +1,185 @@
+<!-- Modal Product Listing -->
+<div class="ui modal modal-box modal-product-listing show-on" data-id="">
+  <a class="close"><i class="icon-times"></i></a>
+  <div class="content title">
+    <h5 class="light-color light">Product Name</h5>
+    <h3>Apple Watch</h3>
+  </div>
+  <div class="content short-desc">
+    <div class="title-bar">
+      <div class="component-content">
+        <span class="uppercase">Short Description</span>
+      </div>
+    </div>
+    <p>Featuring revolutionary new technologies and a pioneering user interface with a
+       beautiful design that honors the rich tradition of precision watchmaking.</p>
+  </div>
+  <div class="content photos">
+    <div class="title-bar">
+      <div class="component-content">
+        <span class="uppercase">Photos</span>
+      </div>
+    </div>
+    <div class="slider">
+      <div class="slick-prev"><span class="icon-arrow-left"></span></div>
+      <div class="slick-next"><span class="icon-arrow-right"></span></div>
+      <div class="slick">
+        <div><img src="{{ asset('images/featured-prod-2.jpg') }}"></div>
+        <div><img src="{{ asset('images/featured-prod-2.jpg') }}"></div>
+        <div><img src="{{ asset('images/featured-prod-2.jpg') }}"></div>
+        <div><img src="{{ asset('images/featured-prod-2.jpg') }}"></div>
+        <div><img src="{{ asset('images/featured-prod-2.jpg') }}"></div>
+        <div><img src="{{ asset('images/featured-prod-2.jpg') }}"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="content full-desc">
+    <div class="title-bar">
+      <div class="component-content">
+        <span class="uppercase">Full Description</span>
+      </div>
+    </div>
+    <p>Receive and respond to notiﬁcations in an instant. Track your daily activity.
+       Control your music using only your voice. Pay for groceries just like that.
+       With Apple Watch, important information and essential features are always
+       just a raise of the wrist away.</p>
+  </div>
+  <div class="content details">
+    <div class="title-bar">
+      <div class="component-content">
+        <span class="uppercase">Details</span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <div class="col-md-4"><strong>Category</strong></div>
+        <div class="col-md-8">Jewellery &amp; Watches</div>
+      </div>
+      <div>
+        <div class="col-md-4"><strong>Brand</strong></div>
+        <div class="col-md-8">Custom</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <div class="col-md-4"><strong>Regular Price</strong></div>
+        <div class="col-md-8">P 1,000.00</div>
+      </div>
+      <div>
+        <div class="col-md-4"><strong>Discounted Price</strong></div>
+        <div class="col-md-8">P 1,000.00</div>
+      </div>
+    </div>
+  </div>
+  <div class="content details">
+    <div class="title-bar">
+      <div class="component-content">
+        <span class="uppercase">Dimensions &amp; Weight</span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <div class="col-md-4"><strong>Length (CM)</strong></div>
+        <div class="col-md-8">8.00 cm</div>
+      </div>
+      <div>
+        <div class="col-md-4"><strong>Width (CM)</strong></div>
+        <div class="col-md-8">8.00 cm</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <div class="col-md-4"><strong>Weight (KG)</strong></div>
+        <div class="col-md-8">8.00 kg</div>
+      </div>
+      <div>
+        <div class="col-md-4"><strong>Height (CM)</strong></div>
+        <div class="col-md-8">8.00 cm</div>
+      </div>
+    </div>
+  </div>
+  <div class="content combination">
+    <div class="title-bar">
+      <div class="component-content">
+        <span class="uppercase">Combinations</span>
+      </div>
+    </div>
+    <div class="form">
+      <div class="row">
+    {% for i in 1..3 %}
+      <div class="col-md-4">
+        <div class="combo">
+          <div class="row">
+            <div class="col-md-12">
+              <p class="title">Combination Name</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><strong>SKU</strong></div>
+            <div class="col-md-6">10001</div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><strong>Quantity</strong></div>
+            <div class="col-md-6">10</div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><strong>Color</strong></div>
+            <div class="col-md-6">Blue</div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><strong>Size</strong></div>
+            <div class="col-md-6">Large</div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><strong>Regular Price</strong></div>
+            <div class="col-md-6">P 1000.00</div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><strong>Discounted Price</strong></div>
+            <div class="col-md-6">P 1000.00</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="combo">
+          <div class="row">
+            <div class="col-md-12">
+              <p class="title">Combination Name</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><strong>SKU</strong></div>
+            <div class="col-md-6">10001</div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><strong>Quantity</strong></div>
+            <div class="col-md-6">10</div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><strong>Color</strong></div>
+            <div class="col-md-6">Blue</div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><strong>Size</strong></div>
+            <div class="col-md-6">Large</div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><strong>Regular Price</strong></div>
+            <div class="col-md-6">P 1000.00</div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><strong>Discounted Price</strong></div>
+            <div class="col-md-6">P 1000.00</div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="button cancel">Cancel</button>
+  </div>
+</div>

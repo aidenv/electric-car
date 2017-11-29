@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="{{ asset('css/oauth.css') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />
+        <title>{% block title %} Login | Yilinker  {% endblock %}</title>
+    </head>
+    <body>
+        <div class="segment">
+            <form name="oauth-login" class="" action="{{ path('yilinker_oauth_server_login_check') }}" method="POST">
+                <div class="error">
+                      {% if error %}
+                        <div class="message-box red">
+                            {{ error }}
+                        </div>
+                      {% endif %}
+                </div>
+                <div class="form_item">  
+                    {# <div class="form_label"><label for="username">Enter you email/mobile number/username</label>:</div>   #}
+                    <div class="form_widget input-icon">
+                        <input type="text" class="mrg-bt-15" id="username" name="_username" placeholder="Email / mobile number / username" autocomplete="off"/>
+                        <i class="icon icon-user2"></i>
+                    </div>  
+                </div>  
+                <div class="form_item">  
+                    {# <div class="form_label"><label for="password">Password</label>:</div>   #}
+                    <div class="form_widget input-icon">
+                        <input type="password" class="mrg-bt-15" id="password" name="_password" placeholder="Password"/>
+                        <i class="icon icon-lock"></i>
+                    </div>  
+                </div>  
+                <div class="form_button">  
+                    <input type="submit" id="_submit" name="_submit" value="Login" class="button submit block fat"/>
+                    {% if app.request.getSchemeAndHttpHost() != backend_hostname %}
+                    <div align="center" class="register mrg-top-15">
+                        Not yet a member? <a href="{{ path('core_user_create') }}">
+                            Signup now!
+                        </a>
+                    </div>
+                    {% endif %}
+
+                    
+                </div>
+            </form>
+            <div class="header">              
+                <img src="{{ asset('images/logo-icon.png') }}" alt="YiLinker.com" class="logo">
+                <p class="intro">Welcome to</p>
+                <p class="name">YiLinker</p>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+api_v3_user_product_detail:
+    path: /auth/product/getProductDetail
+    defaults: { _controller: YilinkerCoreBundle:Api/ProductApi:detail }
+    methods: [GET]
+
+
+api_v3_product_searchkeywords:
+    path: /product/getSearchKeywords
+    defaults: { _controller: YilinkerCoreBundle:Api/ProductApi:getProductSearchKeyword }
+    methods: [GET]

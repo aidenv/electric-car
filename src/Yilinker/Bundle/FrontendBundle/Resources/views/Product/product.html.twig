@@ -1,0 +1,127 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+{% block facebook_analytics %}
+    {% embed 'analytics/facebook-pixel.html.twig' %}
+        {% block fbPixel %}
+        fbq('track', 'ViewContent', { 
+            content_type: 'product',
+            content_ids: ['{{ product.productId }}'],
+            content_name: '{{ product.name }}',
+            content_category: '{{ product.productCategory.name }}' 
+        });
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block metatags %}
+    <meta property="og:title" content="{{ product.name }}"/>
+    <meta property="og:image" content="{{ asset(product.primaryImageLocation, 'product') }}"/>
+    <meta property="og:site_name" content="Yilinker Online"/>
+    <meta property="og:description" content="{{ product.shortDescription }}"/>
+    <meta property="og:url" content="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+    <meta property="fb:app_id" content="{{ frontend_facebook_appId }}"/>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="product-page">
+        <div class="wrapper-outer ui segment">
+            <div id="productWrapper">
+                <div class="product-top-layer-wrapper">
+                    <div class="row row-top-layer">
+                        <div class="col-sm-6">
+                            <!--Product Image Slider-->
+                            {{ include('YilinkerFrontendBundle:Product:product_images.html.twig') }}
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="">
+                                <!--Product Information-->
+                                {{ include('YilinkerFrontendBundle:Product:product_info.html.twig') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-bottom-layer-wrapper" id="description">
+                    <!--Product Description and Review-->
+                    {{ include('YilinkerFrontendBundle:Product:product_moreinfo.html.twig') }}
+                </div>
+                {% for productUnit in product.units %}
+                    {% set isDefaultUnit = product.defaultUnit == productUnit %}
+                    {%
+                        set addtocart = {
+                            'productId': product.productId,
+                            'unitId':    productUnit.productUnitId,
+                            'sellerId':  store ? store.user.userId: null
+                        }
+                    %}
+                    <div class="responsive-show sticky-cart-button {{ productUnit.quantity > 0? '':'out-of-stock' }} {{ productUnit.quantity > 0 and isDefaultUnit? 'display-mobile':'hide-mobile' }}">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div data-product-unit-partial="{{ productUnit.productUnitId }}" {{ isDefaultUnit ? '': 'style="display:none"' }} >
+                                    <div class="product-cart-button-flip">
+                                        {% if productUnit.quantity > 0 %}
+                                            <div 
+                                                data-product-page-add-to-cart
+                                                data-href="{{ path('cart_add_item') }}"
+                                                data-addtocart="{{ addtocart|json_encode }}"
+                                                class="button purple block button-cart front"
+                                            >
+                                                {% trans %} Add to Cart {% endtrans %}
+                                                <div class="icon-container">
+                                                    <i class="icon icon-shopping-cart"></i>
+                                                </div>
+                                            </div>
+                                            <div class="button gray block button-cart disabled back">
+                                                <i class="icon icon-check"></i>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div data-product-unit-partial="{{ productUnit.productUnitId }}" {{ isDefaultUnit ? '': 'style="display:none"' }}>
+                                    {% if productUnit.quantity > 0 %}
+                                        <a {{ disable_payment ? 'disabled="disabled"': '' }} data-buynow="{{ addtocart|json_encode }}" class="button blue block button-buy-now">
+                                            {% trans %} Buy now {% endtrans %}
+                                            <div class="icon-container">
+                                                <i class="icon icon-arrow-short-right"></i>
+                                            </div>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!--Recommended Items-->
+            {{ render(controller('YilinkerFrontendBundle:Product:sellerRelated', {'productId' : product.getProductId})) }}
+            {# render(controller('YilinkerFrontendBundle:Product:related', {'productId' : product.getProductId})) #}
+            {# render(controller('YilinkerFrontendBundle:Product:boughtWith', {'productId' : product.getProductId})) #}
+            {# render(controller('YilinkerFrontendBundle:Product:mayLike')) #}
+            {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block yeahmobi_google_remarketing %}
+    {% include 'analytics/yeahmobi/google-remarketing.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('js/bower/slick.min.js') }}"></script>
+    <script src="{{ asset('js/src/universal.js') }}"></script>
+    <script src="{{ asset('js/src/form.js') }}"></script>
+    <script src="{{ asset('js/src/product-page.js') }}"></script>
+    <script src="{{ asset('js/src/utility/social/facebook.js') }}"></script>
+    <script src="{{ asset('js/src/utility/social/twitter.js') }}"></script>
+    <script src="{{ asset('js/src/utility/social/google.js') }}"></script>
+{% endblock %}

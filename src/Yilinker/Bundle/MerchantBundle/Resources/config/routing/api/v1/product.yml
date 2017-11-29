@@ -1,0 +1,28 @@
+api_product_update_status:
+    path: /updateProductStatus
+    defaults: { _controller: YilinkerMerchantBundle:Api/ProductApi:updateProductStatus }
+    methods: [POST]
+
+api_product_get_list:
+    path: /getProductList
+    defaults: { _controller: YilinkerMerchantBundle:Api/ProductApi:getProductList }
+
+api_productname_search_suggestion:
+    path: /name-suggestion
+    defaults: { _controller: YilinkerMerchantBundle:Api/ProductApi:getProductNameSearchSuggestion }
+
+api_product_affiiliate_categories:
+    path: /getCategories
+    defaults: { _controller: YilinkerMerchantBundle:Api/ProductApi:getManufacturerCategories }
+
+api_product_affiiliate_products:
+    path: /getAffiliateProducts
+    defaults: { _controller: YilinkerMerchantBundle:Api/ProductApi:getAffiliateProducts }
+
+api_product_affiiliate_saveProducts:
+    path: /saveAffiliateProducts
+    defaults: { _controller: YilinkerMerchantBundle:Api/ProductApi:saveAffiliateProduct }
+
+api_product_affiiliate_unbindSelectedProduct:
+    path: /unbindSelectedProduct
+    defaults: { _controller: YilinkerMerchantBundle:Api/ProductApi:unbindSelectedProduct }

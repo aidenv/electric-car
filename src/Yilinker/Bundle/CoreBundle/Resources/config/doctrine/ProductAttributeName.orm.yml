@@ -1,0 +1,37 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductAttributeName:
+    type: entity
+    table: ProductAttributeName
+    gedmo:
+        translation:
+            locale: locale
+    indexes:
+        fk_productattributename_productid_product_productid_idx:
+            columns:
+                - product_id
+    id:
+        productAttributeNameId:
+            type: bigint
+            id: true
+            column: product_attribute_name_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            length: 1024
+            options:
+                default: ''
+            gedmo:
+                - translatable
+    manyToOne:
+        product:
+            targetEntity: Product
+            inversedBy: attributes
+            joinColumn:
+                name: product_id
+                referencedColumnName: product_id
+            orphanRemoval: false
+    oneToMany:
+        productAttributeValues:
+            targetEntity: ProductAttributeValue
+            mappedBy: productAttributeName
+    lifecycleCallbacks: {  }

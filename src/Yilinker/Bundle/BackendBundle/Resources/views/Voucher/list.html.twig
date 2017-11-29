@@ -1,0 +1,75 @@
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Vouchers</span>
+        </div>
+    </div>
+    <div class="container">
+    <!-- Tables -->
+        <div class="row">
+            <div class="box-upper">
+                <div class="col-md-12">
+                    <div class="box-div">
+                        <div class="row sub-tools">
+                            <div class="col-md-12">
+                                <button data-create-voucher class="button gray small">Create Voucher</button>
+                            </div>
+                        </div>
+                        <div class="row gutters">
+                            <div class="col-md-12">
+                                <table class="table basic">
+                                    <tr>
+                                        <th>Voucher Name</th>
+                                        <th>Code</th>
+                                        <th>Duration</th>
+                                        <th>Usage Limit</th>
+                                        <th>Discount Type</th>
+                                        <th>Quantity</th>
+                                        <th>Used</th>
+                                    </tr>
+                                    {% for voucher in vouchers %}
+                                        <tr data-voucher="{{ voucher.voucherId }}" class="modal-voucher-one-trigger">
+                                            <td>{{ voucher.name }}</td>
+                                            <td width="25%">
+                                                {{ voucher.voucherCodeTexts ? voucher.voucherCodeTexts[0:3]|join(', '): '' }}
+                                                {{ voucher.voucherCodeTexts|length > 3 ? '...': '' }}
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    From: {{ voucher.startDate|date('F d, Y h:iA') }}
+                                                </p>
+                                                <p>
+                                                    To: {{ voucher.endDate|date('F d, Y h:iA') }}
+                                                </p>
+                                            </td>
+                                            <td>{{ voucher.usageTypeTxt }}</td>
+                                            <td>{{ voucher.discountTypeTxt }}</td>
+                                            <td>{{ voucher.quantity }}</td>
+                                            <td>{{ voucher.usageCount }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Bottom Tools -->
+        <div class="row">
+            <div class="box-upper">
+                <div class="col-md-12">
+                    <div class="box-blank">
+                        <div class="row">
+                          <div class="col-md-12">
+                                {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResult: totalResults , perPage: perPage}) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Modal -->

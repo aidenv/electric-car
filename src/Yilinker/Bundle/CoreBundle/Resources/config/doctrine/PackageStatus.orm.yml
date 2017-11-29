@@ -1,0 +1,18 @@
+Yilinker\Bundle\CoreBundle\Entity\PackageStatus:
+    type: entity
+    table: PackageStatus
+    id:
+        packageStatusId:
+            type: integer
+            id: true
+            column: package_status_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: '255'
+            nullable: true
+            options:
+                default: false
+    lifecycleCallbacks: {  }

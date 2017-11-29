@@ -1,0 +1,25 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+   {% trans %}Help{% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ include('YilinkerFrontendBundle:Profile:profile_base_css.html.twig') }}
+{% endblock %}
+
+{% block body %}
+    <div class="profile help">
+        <div class="dashboard-wrapper">
+            {{ render(controller('YilinkerFrontendBundle:Dashboard:renderLeftWingMenu', {'currentRoute': app.request.attributes.get('_route') } )) }}
+            {{ include('YilinkerCoreBundle:Default:help.html.twig', {frontendHostname:frontendHostname, merchantHostname:merchantHostname}) }}
+            {{ include('YilinkerFrontendBundle:Profile:profile_right_wing_notifications.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/checkbox.min.js') }}"></script>
+    {{ include('YilinkerFrontendBundle:Profile:profile_base_js.html.twig') }}
+    <script src="{{ asset('js/src/faq.js') }}"></script>
+{% endblock %}

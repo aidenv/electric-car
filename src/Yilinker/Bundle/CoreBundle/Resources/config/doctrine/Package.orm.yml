@@ -1,0 +1,61 @@
+Yilinker\Bundle\CoreBundle\Entity\Package:
+    type: entity
+    table: Package
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\PackageRepository 
+    indexes:
+        fk_package_packagestatusid_packagestatus_packagestatusid_idx:
+            columns:
+                - package_status_id
+        fk_package_orderid_userorder_orderid_idx:
+            columns:
+                - order_id
+    id:
+        packageId:
+            type: integer
+            id: true
+            column: package_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        waybillNumber:
+            type: string
+            length: '255'
+            column: waybill_number
+            nullable: true
+            options:
+                default: false
+        dateAdded:
+            type: datetime
+            column: date_added
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+    manyToOne:
+        packageStatus:
+            targetEntity: PackageStatus
+            joinColumn:
+                name: package_status_id
+                referencedColumnName: package_status_id
+            orphanRemoval: false
+        userOrder:
+            targetEntity: UserOrder
+            joinColumn:
+                name: order_id
+                referencedColumnName: order_id
+            orphanRemoval: false
+            inversedBy: packages
+        warehouse:
+            targetEntity: Warehouse
+            joinColumn:
+                name: warehouse_id
+                referencedColumnName: warehouse_id
+                nullable: true
+            orphanRemoval: false
+    oneToMany:
+        packageDetails:
+            targetEntity: PackageDetail
+            mappedBy: package
+        packageHistory:
+            targetEntity: PackageHistory
+            mappedBy: package
+    lifecycleCallbacks: {  }

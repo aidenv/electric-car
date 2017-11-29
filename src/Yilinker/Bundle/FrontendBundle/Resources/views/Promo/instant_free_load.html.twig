@@ -1,0 +1,72 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    Instant Free Load
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper static">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="content-container">
+                    <div class="content-segment">
+                        <div class="content-description row">
+                            <div class="col-md-6">
+                                <img src="{{ asset('images/promo/instant-free-load/instant-free-load.jpg') }}" alt="Instant Free Load" class="img-full-width mrg-bt-20">
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="pd-left-20">
+                                    <h3 class="mrg-bt-30">
+                                        Register and get Php20 load!
+                                    </h3>
+
+                                    <p class="mrg-bt-15" style="font-size: 20px;">
+                                        More rewards from YiLinker are coming up! This month, we are giving away INSTANT FREE LOAD worth P20 to welcome our newly registered users! SIGN UP now for a FREE LOAD!
+                                    </p>
+
+                                    <p class="mrg-bt-20">
+                                        <strong>Promo Period:</strong>February 16 - March 31
+                                    </p>
+                                    <p class="mrg-bt-15">
+                                        <strong>Promo Mechanics:</strong>
+                                    </p>
+                                    <ol class="pd-left-20 mrg-bt-30">
+                                        <li>
+                                           To qualify, participant should register at <a href="www.yilinker.com">www.yilinker.com</a> by providing complete personal details and mobile number.
+                                        </li>
+                                        <li>
+                                           Verify account thru email for confirmation.
+                                        </li>
+                                        <li>
+                                           Successful registered user will get FREE P20 LOAD within 24hrs upon completion of registration.
+                                        </li>
+                                        <li>
+                                            Open to all local mobile networks.
+                                        </li>
+                                        <li>
+                                            Each valid user can only receive the free load once. Dummy or additional accounts will be disqualified for this promo.
+                                        </li>
+                                    </ol>
+
+                                    <a class="button blue mrg-bt-30" href="http://www.yilinker.com/register">SIGN UP NOW</a>
+
+                                    <p class="mrg-bt-15"><i>Per DTI - FTEB SPD Permit No. 2137, Series of 2016</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}

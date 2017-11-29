@@ -1,0 +1,25 @@
+Yilinker\Bundle\CoreBundle\Entity\OrderProductCancellationReason:
+    type: entity
+    table: OrderProductCancellationReason
+    id:
+        orderProductCancellationReasonId:
+            type: integer
+            column: order_product_cancellation_reason_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        reason:
+            length: 255
+        description:
+            length: 255
+            nullable: true
+        reasonType:
+            column: reason_type
+            type: smallint
+            nullable: true
+        userType:
+            column: user_type
+            type: smallint
+            nullable: true
+    lifecycleCallbacks: {  }

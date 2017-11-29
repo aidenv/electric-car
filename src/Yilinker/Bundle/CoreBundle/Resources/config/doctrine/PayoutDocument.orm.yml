@@ -1,0 +1,26 @@
+Yilinker\Bundle\CoreBundle\Entity\PayoutDocument:
+    type: entity
+    table: PayoutDocument
+    id:
+        payoutDocumentId:
+            type: integer
+            id: true
+            column: payout_document_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        filename:
+            type: string
+            length: 255
+            column: filename
+        dateAdded:
+            type: datetime
+            column: date_added
+    manyToOne:
+        payout:
+            targetEntity: Payout
+            joinColumn:
+                name: payout_id
+                referencedColumnName: payout_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

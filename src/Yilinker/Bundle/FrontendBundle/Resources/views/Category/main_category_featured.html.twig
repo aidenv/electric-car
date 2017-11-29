@@ -1,0 +1,42 @@
+<div class="category-set">
+    <div class="title-bar">
+        <div class="container-title">
+            <span>{{ featured.title }}</span>
+            <span class="view-more"><a href="{{ featured.target }}">{% trans %} view more {% endtrans %} <i class="icon icon-arrow-short-right"></i></a></span>
+        </div>
+    </div>
+    <div class="category-body-wrapper">
+        <div class="advertisement">
+            <div class="row">
+                {% for section in featured.subsection %}
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <a href="{{ section.image.target }}">
+                                    <div class="category-image-wrapper">
+                                        <img src="{{ asset(section.image.imageLocation, 'cms') }}" alt="" class="img-auto-place"/>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="category-name">
+                                    <a href="{{ path('get_category', {'slug':section.category.slug}) }}">{{ section.category.name }}</a>
+                                </div>
+                                <ul class="list-unstyled list-sub-category">
+                                    {% for subcategory in section.subcategories %}
+                                    <li>
+                                        <a href="{{ path('get_category', {'slug':subcategory.slug}) }}">{{ subcategory.name }}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>

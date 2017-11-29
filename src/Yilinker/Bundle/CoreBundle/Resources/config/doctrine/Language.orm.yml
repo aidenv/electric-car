@@ -1,0 +1,26 @@
+Yilinker\Bundle\CoreBundle\Entity\Language:
+    type: entity
+    table: Language
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\LanguageRepository
+    indexes:
+        fk_language_language_id_idx:
+            columns:
+                - language_id
+    id:
+        languageId:
+            type: integer
+            id: true
+            column: language_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            length: 100
+        code:
+            type: string
+            length: 10
+    oneToMany:
+        languageCountries:
+            targetEntity: LanguageCountry
+            mappedBy: language
+    lifecycleCallbacks: {  }

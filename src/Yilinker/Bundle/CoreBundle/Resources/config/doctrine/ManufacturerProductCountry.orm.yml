@@ -1,0 +1,47 @@
+Yilinker\Bundle\CoreBundle\Entity\ManufacturerProductCountry:
+    type: entity
+    table: ManufacturerProductCountry
+    indexes:
+        fk_manufacturer_product_country:
+            columns:
+                - country_id
+        fk_manufacturer_product_manufacturer_product:
+            columns:
+                - manufacturer_product_id
+    id:
+        manufacturerProductCountryId:
+            type: bigint
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: manufacturer_product_country_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        referenceId:
+            type: string
+            length: 255
+            column: reference_id
+            options:
+                default: ''
+    manyToOne:
+        country:
+            targetEntity: Country
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                country_id:
+                    referencedColumnName: country_id
+            orphanRemoval: false
+        manufacturerProduct:
+            targetEntity: ManufacturerProduct
+            cascade: {  }
+            mappedBy: null
+            inversedBy: manufacturerProductCountries
+            joinColumns:
+                manufacturer_product_id:
+                    referencedColumnName: manufacturer_product_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

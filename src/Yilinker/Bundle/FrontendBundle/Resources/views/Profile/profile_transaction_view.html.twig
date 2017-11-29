@@ -1,0 +1,231 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    Transaction Invoice: {{ order.invoiceNumber }}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="profile transaction">
+        <div class="dashboard-wrapper">
+            {{ render(controller('YilinkerFrontendBundle:Dashboard:renderLeftWingMenu', {'currentRoute': app.request.attributes.get('_route') } )) }}
+            <div class="dashboard-body-container white">
+                <div class="dashboard-submenu-wrapper">
+                    <div class="dashboard-submenu-container">
+                        <a href="{{ path('profile_transaction') }}" class="button basic-default button-rounded-side no-margin">
+    		        <i class="icon icon-arrow-short-left icon-lg "></i> {% trans %}Go Back{% endtrans %}
+    		    </a>
+                    </div>
+                </div>
+                <div class="dashboard-component top">
+                    <div class="component-content">
+                        <h5 class="light-color light">{% trans %}Transaction Number{% endtrans %}</h5>
+                        <h3 class="semi-bold no-margin">{{ order.invoiceNumber }}</h3>
+                        {% if order.getIsFlagged %}
+                        {# <span>* This transaction is currently flagged and is being reviewed by our Custom Service Department</span> #}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!--Details-->
+                <div class="dashboard-component">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">{% trans %}Details{% endtrans %}</span>
+                        </div>
+                    </div>
+                    <div class="component-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="detail-name">{% trans %}Status:{% endtrans %} </span>
+                                        <span class="detail-value bold">
+                                            <div class="status-container">
+                                                {% set uniqueOrderProductStatuses = order.getUniqueOrderProductStatuses %}
+                                                {% if uniqueOrderProductStatuses|length <= 1 %}
+                                                <span class="badge light
+                                                 {% if order.orderStatus.orderStatusId ==
+                                                     constant('Yilinker\\Bundle\\CoreBundle\\Entity\\UserOrder::ORDER_STATUS_PAYMENT_CONFIRMED') 
+                                                 %}
+                                                     blue
+                                                 {% else %}
+                                                     transparent
+                                                 {% endif %}
+                                                ">
+                                                    {{ order.orderStatus.name }}
+                                                </span>
+                                                {% else %}
+                                                    {% for status in uniqueOrderProductStatuses %}
+                                                        <span class="badge light {{ status.class }}">{{ status.name }}</span>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <span class="detail-name">{% trans %}Payment Type:{% endtrans %} </span>
+                                        <span class="detail-value bold">{{ order.paymentmethod.name }}</span>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <span class="detail-name">{% trans %}Date Created:{% endtrans %} </span>
+                                        <span class="detail-value bold">{{ order.dateAdded.format('Y-d-m h:i:s') }}</span>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <span class="detail-name">{% trans %}Total Quantity:{% endtrans %} </span>
+                                        <span class="detail-value bold">x {{ order.totalProductQuantity }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="detail-name">{% trans %}Subtotal:{% endtrans %} </span>
+                                        <span class="detail-value bold">P {{ order.subtotal|number_format(2, '.', ',') }}</span>
+                                    </div>
+                                    {% if order.voucherCodes %}
+                                        {% set voucherDeduction = order.voucherDeduction %}
+                                        <div class="col-md-12">
+                                            <span class="detail-name">{% trans %}Voucher Code:{% endtrans %} </span>
+                                            <span class="detail-value bold">
+                                                {{ order.voucherCodes|join(', ') }}
+                                            </span>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <span class="detail-name">{% trans %}Voucher Price Deduction:{% endtrans %} </span>
+                                           <span class="detail-value bold">
+                                                - P {{ voucherDeduction|number_format(2, '.', ',') }}
+                                            </span>
+                                        </div>
+                                    {% endif%}
+                                    <div class="col-md-12">
+                                        <span class="detail-name">Total Cost: </span>
+                                         <span class="detail-value bold">
+                                           <span class="large-font">
+                                                P {{ order.totalPrice|number_format(2, '.', ',') }}
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="dashboard-component">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">{% trans %}Consignee{% endtrans %}</span>
+                        </div>
+                    </div>
+                    <div class="component-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="detail-name">{% trans %}Consignee Name:{% endtrans %} </span>
+                                        {% 
+                                            if order.consigneeName is not same as(null) and
+                                            order.consigneeName is not same as("") 
+                                        %}
+                                            {% set consigneeName = order.consigneeName %}
+                                        {% else %}
+                                            {% set consigneeName = order.buyer.fullName %}
+                                        {% endif %}
+                                        <span class="detail-value bold">{{ consigneeName }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="detail-name">{% trans %}Consignee Contact Number:{% endtrans %} </span>
+                                        {% 
+                                            if order.consigneeContactNumber is not same as(null) and
+                                            order.consigneeContactNumber is not same as("") 
+                                        %}
+                                            {% set consigneeContactNumber = order.consigneeContactNumber %}
+                                        {% else %}
+                                            {% set consigneeContactNumber = order.buyer.contactNumber %}
+                                        {% endif %}
+                                        <span class="detail-value bold">{{ consigneeContactNumber }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                {{ render(controller('YilinkerFrontendBundle:Dashboard:productList', {order: order} )) }}
+                {{ render(controller('YilinkerCoreBundle:Order:deliveryLog', {order: order} )) }}
+
+                <div class="dashboard-component dashboard-component-footer gray align-center">
+                    <div class="component-content">
+                        {% if cancellationForm.orderProducts|length > 0  %}
+                        <button class="button gray button-rounded-side uppercase cancel-order-trigger">
+                             {% trans %}Cancel Order{% endtrans %}
+                        </button>
+                        {% endif %}
+                    </div>
+                </div>
+                
+            </div>
+            {{ include('YilinkerFrontendBundle:Profile:modal_product_feedback.html.twig') }}
+            {{ include('YilinkerFrontendBundle:Profile:modal_seller_feedback.html.twig') }}
+
+             <!--Start of modal success feedback-->
+            <div class="ui modal small coupled success-feedback-message">
+                <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h3 class="ui header">
+                        <i class="icon icon-circle-check"></i>
+                            <div class="content">
+                                {% trans %}Feedback sent{% endtrans %}
+                            <div class="sub-header">{% trans %}Feedback has been successfully submitted.{% endtrans %}</div>
+                        </div>
+                    </h3>
+                </div>
+                <div class="actions">
+                    <button class="button confirm close">{% trans %}Okay{% endtrans %}</button>
+                </div>
+            </div>
+            <!--End of modal success feedback-->
+            
+            <!--Start of modal success feedback-->
+            <div class="ui modal small coupled-feedback-prouduct success-feedback-product-message">
+                <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h3 class="ui header">
+                        <i class="icon icon-circle-check"></i>
+                            <div class="content">
+                                {% trans %}Feedback sent{% endtrans %}
+                            <div class="sub-header">{% trans %}Feedback has been successfully submitted.{% endtrans %} </div>
+                        </div>
+                    </h3>
+                </div>
+                <div class="actions">
+                    <button class="button confirm close">{% trans %}Okay{% endtrans %}</button>
+                </div>
+            </div>
+            <!--End of modal success feedback-->
+
+            {{ include('YilinkerCoreBundle:Order:order_product_cancellation.html.twig') }}
+            {{ include('YilinkerFrontendBundle:Profile:profile_right_wing_notifications.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ include('YilinkerFrontendBundle:Profile:profile_base_js.html.twig') }}
+    <script src="{{ asset('js/src/utility/button-loader.js') }}"></script>
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/src/feedback.js') }}"></script>
+    <script src="{{ asset('js/src/frontend/profile-transaction-view.js') }}"></script>
+    <script src="{{ asset('js/src/order-product-cancellation.js') }}"></script>
+    <script src="{{ asset('js/src/utility/capture-actives.js') }}"></script>
+    <script src="{{ asset('js/src/utility/star-rating.js') }}"></script>
+{% endblock %}

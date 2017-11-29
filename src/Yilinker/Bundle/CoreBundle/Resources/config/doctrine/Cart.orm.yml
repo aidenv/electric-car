@@ -1,0 +1,33 @@
+Yilinker\Bundle\CoreBundle\Entity\Cart:
+    type: entity
+    table: Cart
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\CartRepository
+    indexes:
+        fk_cart_userid_user_userid_idx:
+            columns:
+                - user_id
+    id:
+        id:
+            type: bigint
+            id: true
+            column: id
+            generator:
+                strategy: IDENTITY
+    fields:
+        status:
+            type: smallint
+            column: status
+            default: '0'
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: ['persist']
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    oneToMany:
+        cartItems:
+            targetEntity: CartItem
+            mappedBy: cart
+    lifecycleCallbacks: {  }

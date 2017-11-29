@@ -1,0 +1,60 @@
+{% if status is not defined %}
+    {% set status = null %}
+{% endif %}
+<div class="dashboard-submenu-wrapper">
+    <div class="dashboard-submenu-container">
+        <ul class="list-unstyle list-submenu">
+            <li>
+                <a data-val="" class="current-tab {{ status is null and app.request.attributes.get('_route') != 'reseller_product_select' ? 'active':'' }}" href="{{ path('merchant_product_management') }}">
+                    All
+                </a>
+            </li>
+            <li>
+                <a data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::ACTIVE') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::ACTIVE')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'active'}) }}">
+                    Active
+                </a>
+            </li>
+            <li>
+                <a data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::INACTIVE') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::INACTIVE')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'inactive'}) }}">
+                    Inactive
+                </a>
+            </li>
+            {% if app.user.isAffiliate %}
+            <li>
+                <a class="current-tab {{ app.request.attributes.get('_route') == 'reseller_product_select' ? 'active': '' }}" href="{{ path('reseller_product_select') }}">
+                    Products to Sell
+                </a>
+            </li>
+            {% endif %}
+            {% 
+              if seller is defined and seller.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT')
+            %}
+            <li>
+                <a data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DRAFT') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DRAFT')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'draft'}) }}">
+                    Draft
+                </a>
+            </li>
+            <li>
+                <a data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DELETE') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DELETE')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'delete'}) }}">
+                    Deleted
+                </a>
+            </li>
+            <li>
+                <a  data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_REVIEW') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_REVIEW')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'review'}) }}">
+                    Under Review
+                </a>
+            </li>
+            <li>
+                <a data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::REJECT') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::REJECT')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'rejected'}) }}">
+                    Rejected
+                </a>
+            </li>
+            <li>
+                <a data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_COMPLETION') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_COMPLETION')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'for-completion'}) }}">
+                    For Completion
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>

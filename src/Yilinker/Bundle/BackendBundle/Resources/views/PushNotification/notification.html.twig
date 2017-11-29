@@ -1,0 +1,202 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Notifications</span>
+        </div>
+    </div>
+    <div class="container" data-frontend-hostname="{{ frontendHostName }}">
+        <!-- Tools -->
+        <div class="row">
+            <div class="box-upper">
+                <form name="search">
+                    <div class="col-md-12">
+                        <div class="tools top form">
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                    <p class="sub-header">
+                                        Nam egestas est quis sapien commodo mattis. Morbi tortor libero, fermentum vitae euismod fermentum.
+                                    </p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form vers-one">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <label>Search</label>
+                                                <input class="form-ui" name="keyword" id="searchKeyword" placeholder="Search By Title / Message Content " type="text" value="{{ keyword }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row gutters group-segment light-segment">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-8">
+                                    <div class="form">
+                                        <div class="row">
+                                            <label class="col-md-12" for="">Date Range:
+                                            </label>
+                                            <div class="col-md-3">
+                                                <input class="form-ui ui datetimepicker" id="dateFrom" placeholder="Start Date" name="dateFrom" type="text" value="{{ dateFrom }}" />
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input class="form-ui ui datetimepicker" id="dateTo" placeholder="End Date" name="dateTo" type="text" value="{{ dateTo }}" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form mrg-top-10">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label for="paymentStatus">
+                                                    Device: {{ recipient is same as (constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::RECIPIENT_IOS')) or recipient is same as (constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::RECIPIENT_ALL')) }}
+                                                </label>
+                                                <div class="ui checkbox col-md-3">
+                                                    <input type="checkbox" name="recipient[]" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::RECIPIENT_IOS') }}"{% if recipient is same as (constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::RECIPIENT_IOS')) or recipient is same as (constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::RECIPIENT_ALL')) %} checked="checked" {% endif %}>
+                                                    <label for="">IOS (Mobile)</label>
+                                                </div>
+                                                <div class="ui checkbox col-md-4">
+                                                    <input type="checkbox" name="recipient[]" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::RECIPIENT_ANDROID') }}" {% if recipient is same as (constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::RECIPIENT_ANDROID')) or recipient is same as (constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::RECIPIENT_ALL')) %} checked="checked" {% endif %}>
+                                                    <label for="">Andriod (Mobile)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form mrg-top-10">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="">Target:
+                                                </label>
+                                                <select name="targetType" class="form-ui ui search single selection dropdown">
+                                                    <option>---</option>
+                                                    <option {{ targetType is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_HOME'))? "selected='selected'" : '' }} value="{{constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_HOME')}}">Home</option>
+                                                    <option {{ targetType is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_WEBVIEW'))? "selected='selected'" : '' }} value="{{constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_WEBVIEW')}}">Custom Pages</option>
+                                                    <option {{ targetType is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_PRODUCT'))? "selected='selected'" : '' }} value="{{constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_PRODUCT')}}">Product</option>
+                                                    <option {{ targetType is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_PRODUCT_LIST'))? "selected='selected'" : '' }} value="{{constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_PRODUCT_LIST')}}">Product Search</option>
+                                                    <option {{ targetType is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_STORE'))? "selected='selected'" : '' }} value="{{constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_STORE')}}">Store</option>
+                                                    <option {{ targetType is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_STORE_LIST'))? "selected='selected'" : '' }} value="{{constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_STORE_LIST')}}">Store Search</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button class="button gray mrg-top-10" id="searchTransaction" type="submit">
+                                                    <i class="item-icon icon-search">
+                                                        Search</i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Tables -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+                            <div class="row sub-tools">
+                                <div class="col-md-12">
+                                    <button class="button purple modal-send-notification-trigger">Send Notification</button>
+                                </div>
+                            </div>
+                            <div class="row gutters">
+                                <div class="col-md-12">
+                                    <table class="table basic notification-list">
+                                        <thead>
+                                            <tr>
+                                                <th>Devices</th>
+                                                <th>Title</th>
+                                                <th width="35%">Message</th>
+                                                <th>Target</th>
+                                                <th>Sender</th>
+                                                <th>Schedule</th>
+                                                <th>Status</th>
+                                                <th>Is Active</th>
+                                            </tr>
+                                            <tr class="hidden notification notification-clone" data-id="" data-details="">
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for notification in notifications.results %}
+                                                <tr class="notification {{ notification.getIsSent is same as(true)? 'update' : '' }}" data-id="{{ notification.getDeviceNotificationId }}" data-details="{{ notification.__toArray | json_encode }}">
+                                                    <td>{{ notification.getRecipient(true) }}</td>
+                                                    <td>{{ notification.getTitle }}</td>
+                                                    <td>{{ notification.getMessage }}</td>
+                                                    <td>
+                                                        {% if notification.getTargetType is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_HOME')) %}
+                                                            Home
+                                                        {% elseif notification.getTargetType is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_WEBVIEW')) %}
+                                                            Custom Pages
+                                                        {% elseif notification.getTargetType is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_PRODUCT')) %}
+                                                            Product
+                                                        {% elseif notification.getTargetType is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_PRODUCT_LIST')) %}
+                                                            Product Search
+                                                        {% elseif notification.getTargetType is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_STORE')) %}
+                                                            Store
+                                                        {% elseif notification.getTargetType is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::TARGET_TYPE_STORE_LIST')) %}
+                                                            Store Search
+                                                        {% endif %}
+                                                    </td>
+                                                    <td>{{ notification.getCreatedBy.getFullName }}</td>
+                                                    <td>{{ notification.getDateScheduled.format("m/d/Y") }}
+                                                        <br>
+                                                        {{ notification.getDateScheduled.format("H:i A") }}
+                                                    </td>
+                                                    <td>{{ notification.getIsSent is same as(true)? 'Sent' : 'Waiting' }}</td>
+                                                    <td>{{ notification.getIsActive is same as(true)? 'true' : 'false' }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-blank">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ 
+                                        include('YilinkerCoreBundle:Default:pagination.html.twig', 
+                                        {
+                                            totalResults : notifications.totalResultCount,
+                                            perPage: perPage }
+                                        ) 
+                                    }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ include("YilinkerBackendBundle:PushNotification:notification_modal.html.twig") }}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/bower/moment.min.js') }}"></script>
+    <script src="{{ asset('js/src/backend/notification.js') }}"></script>
+{% endblock %}

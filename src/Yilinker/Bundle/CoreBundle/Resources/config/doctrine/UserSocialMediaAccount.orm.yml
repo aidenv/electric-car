@@ -1,0 +1,35 @@
+Yilinker\Bundle\CoreBundle\Entity\UserSocialMediaAccount:
+    type: entity
+    table: UserSocialMediaAccount
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserSocialMediaAccountRepository
+    id:
+        userSocialMediaAccountId:
+            type: bigint
+            id: true
+            column: user_social_media_account_id
+            generator:
+                strategy: IDENTITY
+    indexes:
+        fk_user_social_media_account_user_id_user_user_id_idx:
+            columns:
+                - user_id
+        fk_user_social_media_account_user_social_media_account_type_id_user_social_media_account_type_user_social_media_account_type_id_idx:
+            columns:
+                - user_social_media_account_type_id
+    fields:
+        name:
+            length: 255
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        userSocialMediaAccountType:
+            targetEntity: UserSocialMediaAccountType
+            joinColumn:
+                name: user_social_media_account_type_id
+                referencedColumnName: user_social_media_account_type_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

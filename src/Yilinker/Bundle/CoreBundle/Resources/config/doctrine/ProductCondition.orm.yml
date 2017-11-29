@@ -1,0 +1,17 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductCondition:
+    type: entity
+    table: ProductCondition
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ProductConditionRepository
+    id:
+        productConditionId:
+            type: integer
+            id: true
+            unsigned: true
+            column: product_condition_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 60
+    lifecycleCallbacks: {  }

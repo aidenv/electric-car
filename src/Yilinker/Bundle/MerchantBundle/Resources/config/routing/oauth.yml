@@ -1,0 +1,4 @@
+oauth_token_generation:
+    path: /api/v1/login
+    defaults: { _controller: fos_oauth_server.controller.token:tokenAction }
+    methods: [POST]

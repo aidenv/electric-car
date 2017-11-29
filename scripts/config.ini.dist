@@ -1,0 +1,15 @@
+; db config
+user =  "user"
+pass =  "password"
+host =  "localhost"
+db =    "yilinker_online"
+
+; email config
+to =    "paul.borja@yilinker.ph"
+cc =    "jonathan.antivo@yilinker.ph"
+from =  "noreply@yiliker.ph"
+subject="Daily_Transaction_Report"
+
+; send email
+script_path = "/media/ebs1/sites/PRODUCTION/www.yilinker.com/app/frontend/console"
+attachment_path = "/media/ebs1/sites/PRODUCTION/www.yilinker.com/scripts/"

@@ -1,0 +1,73 @@
+<section class="home-section">
+    <div class="title-bar">
+        <div class="home-body-wrapper">
+            <span>{% trans %} See What Others are Selling {% endtrans %}</span>
+            <a class="pull-right see-more">{% trans %} view more sellers {% endtrans %} <i class="icon icon-arrow-short-right"></i></a>
+        </div>
+    </div>
+    <div class="content seller-group">
+        <div class="home-body-wrapper">
+            <div class="row row-for-seller-group">
+                {% for user in homeXml.seeWhatOthersAreSelling.featuredSellersSection.user %}
+                    {% set userId = ''~user.attributes.id %}
+                    {% if users[userId] is defined and users[userId].getStore is not null %}
+                        <div class="col-xs-5ths col-for-seller-group">
+                            <div class="seller-wrapper">
+                                <table class="table-seller-name">
+                                    <thead>
+                                        <tr>
+                                            <td class="td-seller-img">
+                                                {% set userImage = users[userId].getPrimaryImage %}
+                                                {% if userImage != false  %}
+                                                    {% set imageLocation = asset(userImage.getImageLocationBySize("thumbnail"), 'user') %}
+                                                {% else %}
+                                                    {% set imageLocation = asset('images/default-merchant.png') %}
+                                                {% endif %}
+                                                <div class="img-seller-container">
+                                                    <img src="{{ imageLocation }}" alt="{{ users[userId].getStore.getStoreName }}" title="{{ users[userId].getStore.getStoreName }}" />
+                                                </div>
+                                            </td>
+                                            <td class="td-seller-name">
+                                                <span class="name">
+                                                    <a href="{{ path('store_page_products', {'slug': users[userId].getStore.getStoreSlug }) }}">
+                                                        {{ users[userId].getStore.getStoreName }}
+                                                    </a>
+                                                </span>
+                                                {% if userSpecialties[userId] is defined %}
+                                                    {% set specialty = userSpecialties[userId].name %}
+                                                {% else %}
+                                                    {%  set specialty = "" %}
+                                                {% endif %}
+                                                <span class="specialty">{% trans %} Specialty: {% endtrans %} {{ specialty }}</span>
+
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div class="seller-product-group">
+                                    {% for product in user.products.product %}
+                                        {% if 
+                                            product.attributes.unit is defined and 
+                                            productUnitsData[''~product.attributes.unit] is defined 
+                                        %}
+                                            {% set productDetails = productUnitsData[''~product.attributes.unit] %}
+                                        {% elseif productsData[''~product] is defined %}
+                                            {% set productDetails = productsData[''~product] %}
+                                        {% endif %}
+                                        {% if productDetails is defined %}
+                                            <div class="product-square">
+                                                <a href="{{ path('product_details', {'slug': productDetails.slug}) }}" title="{{ productDetails.productName }}">
+                                                    <img src="{{ asset(productDetails.thumbnail, 'product') }}" alt="{{ productDetails.productName }}" title="{{ productDetails.productName }}" class="img-responsive" />
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

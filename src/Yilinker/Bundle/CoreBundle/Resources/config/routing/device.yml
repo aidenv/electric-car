@@ -1,0 +1,9 @@
+core_connect_device:
+    path: /device/connectDevice
+    defaults: { _controller: YilinkerCoreBundle:Device:connectDevice }
+    methods: [POST]
+
+core_disconnect_device:
+    path: /device/disconnectDevice
+    defaults: { _controller: YilinkerCoreBundle:Device:disconnectDevice }
+    methods: [POST]

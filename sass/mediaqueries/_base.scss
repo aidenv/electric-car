@@ -1,0 +1,20 @@
+
+
+.display-mobile{
+    display: none !Important;
+}
+
+@media screen and (max-width: 769px){
+    body{
+        min-width: 0 !Important;
+        width: 100%;
+    }
+
+    .hide-mobile{
+        display: none !Important;
+    }
+
+    .display-mobile{
+        display: block !Important;
+    }
+}

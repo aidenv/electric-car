@@ -1,0 +1,109 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    {{ store.storeName }}
+{% endblock %}
+
+{% block header  %}
+    {% render controller('YilinkerFrontendBundle:Home:renderHeader', { request: app.request, 'store': store }) %}
+{% endblock %}
+
+{% block sidebar %}{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="store">
+        <div class="wrapper-outer">
+            <!--Store search form-->
+            {{ include('YilinkerFrontendBundle:Store:store_top_search.html.twig') }}
+            
+            <!--Store top banner-->
+            {{ include('YilinkerFrontendBundle:Store:store_top_banner.html.twig') }}
+            
+            {% set reviewItems = '' %}
+            {% set totalRating = 0 %}
+            {% for review in reviews %}
+                {% set reviewItems = reviewItems ~ include('YilinkerFrontendBundle:Store:store_feedback_preview.html.twig') %}
+                {% set totalRating = totalRating + review.rating %}
+            {% endfor %}
+            {% set storeRating = (reviews|length) ? (totalRating / reviews|length)|round: 0 %}
+
+            <div class="search-body-wrapper store-body-wrapper">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="product-rating-review-container">
+                            <div class="rating-review-container">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="total-rating-container">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="120">
+                                                        <div class="total-rating-fraction-container">
+                                                            <span>{{ storeRating }}</span>/5
+                                                        </div>
+                                                    </td>
+                                                    <td class="td-rating-review">
+                                                        {{ include('YilinkerCoreBundle:Default:star_rating.html.twig', {rating: storeRating}) }}
+                                                        <span class="total-review">
+                                                            <b>{{ reviews|length }}</b> {{ (reviews|length) == 1 ? 'person': 'people' }} rated this seller
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                           
+                                            <div class="review-items-container">
+                                                {% if reviewItems %}
+                                                    {{ reviewItems|raw }}
+                                                {% else %}
+                                                    <div class="box-container no-rating-container">
+                                                        No rating or review for this seller yet
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                                
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        {{ include('YilinkerFrontendBundle:Store:store_about_right_wing.html.twig') }}
+                    </div>
+                </div>
+            </div>
+            {{ render_esi(controller('YilinkerFrontendBundle:Home:renderStoreFooter')) }}
+        </div>
+    </div>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Review",
+  "itemReviewed": "{{ store.storeName }}",
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "{{ storeRating }}"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingCount": "{{ reviews|length }}"
+  }
+}
+</script>
+
+{% endblock %}
+
+{% block yeahmobi_google_remarketing %}
+    {% include 'analytics/yeahmobi/google-remarketing.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/src/utility/button-loader.js') }}"></script>
+    <script src="{{ asset('js/src/frontend/store/store.js') }}"></script>
+{% endblock %}

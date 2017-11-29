@@ -1,0 +1,110 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Top Sellers CMS</span>
+        </div>
+    </div>
+    <div class="container">
+
+        <!-- Tables -->
+        <div class="row">
+            <div class="box-upper">
+                <div class="col-md-12">
+                    <div class="box-div">
+                        <div class="row sub-tools">
+                            <div class="col-md-12">
+                                <a class="button purple small add-promo-success-trigger" href="{{ path('cms_render_seller') ~ '/storeListOne/new' }}">
+                                    <i class="icon icon-plus"></i>
+                                    Create Seller
+                                </a>
+                                <button class="button purple small add-promo-success-trigger remove-store">
+                                    Remove
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row gutters">
+                            <div class="col-md-12">
+                                <table class="table basic table-vertical-align-top">
+                                    <tr>
+                                        <th>Seller Name</th>
+                                        <th>No. Of Products</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                    {% for node in nodes %}
+                                        <tr>
+                                            <td onclick="location.href='{{ path('cms_render_seller', {id: node.storeId, storeListNodeId: node.storeListNodeId}) }}';">{{ node.storeEntity.storeName|default('Unaccredited') }}</td>
+                                            <td onclick="location.href='{{ path('cms_render_seller', {id: node.storeId, storeListNodeId: node.storeListNodeId}) }}';">{{ node.productCount }}</td>
+                                            <td onclick="location.href='{{ path('cms_render_seller', {id: node.storeId, storeListNodeId: node.storeListNodeId}) }}';">{{ node.isQueued ? 'Queued @ 12:00am' : '' }}</td>
+                                            <td><input type="checkbox" class="store-id" value="{{node.storeId}}" data-store-list-node-id="{{ node.storeListNodeId }}"></td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Tools -->
+        <div class="row">
+            <div class="box-upper">
+                <div class="col-md-12">
+                    <div class="box-blank">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {perPage: perPage, totalResults: totalNodes}) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+    {# START OF CONFIRM MODAL #}
+    <div class="ui modal small" id="confirm-modal">
+        <div class="header">
+            <h4 class="no-margin">Are you sure you want to remove?</h4>
+        </div>
+        <div class="actions">
+            <button class="button cancel close uppercase">Cancel</button>
+            <button class="button blue uppercase approve" id="remove-store">Yes</button>
+        </div>
+    </div>
+    {# END OF CONFIRM MODAL #}
+
+    {# START MODAL MESSAGE #}
+    <div class="ui modal small" id="modal-message">
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-circle-check"></i>
+
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header sub-header-content"></div>
+                </div>
+            </h4>
+        </div>
+        <div class="actions">
+            <button class="button blue approve uppercase">Okay</button>
+        </div>
+    </div>
+    {# END MODAL MESSAGE #}
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('js/src/backend/cms-store-list.js') }}"></script>
+{% endblock %}

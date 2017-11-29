@@ -1,0 +1,632 @@
+<section class="box-section">
+  <div class="container">
+    <div class="row">
+      <ul class="breadcrumb">
+        <li>
+          <a href="#">Manual Creation List</a>
+        </li>
+        <li>
+          <span>Manual Creation Details</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="box-upper">
+        <div class="col-md-12">
+          <div class="box-div tabular-inside">
+            <div class="row gutters group-segment">
+              <div class="col-md-12">
+                <h4>{ New Seller Account Name }</h4>
+                <div class="ui tabular menu">
+                  <div class="item active" data-tab="tab-name">Account Details</div>
+                  <div class="item" data-tab="tab-name1">Legal Documents</div>
+                  <div class="item" data-tab="tab-name2">Account Notes</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui tab row active" data-tab="tab-name">
+      <div class="box-upper">
+        <div class="col-md-12">
+          <div class="box-div">
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>Basic Information</h4>
+                <p class="sub-header">
+                  Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque, scelerisque sit amet elit fermentum, lobortis convallis dui.
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="message-box red hidden" id="errorContainer">
+                  <p id="errorMessage">This transaction has been flagged for further review.</p>
+                </div>
+                <div class="form">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label>Seller Type</label>
+                      <select class="form-ui ui search single selection dropdown">
+                        <option>--</option>
+                        <option>Seller</option>
+                        <option>Affiliate</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>First Name</label>
+                      <input class="form-ui" id="password" placeholder="Enter Password here" type="password">
+                    </div>
+                    <div class="col-md-6">
+                      <label>Last Name</label>
+                      <input class="form-ui" id="confirmPassword" placeholder="Enter Confirm Password here" type="password">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Store Name</label>
+                      <input class="form-ui" id="firstName" placeholder="Enter First name here" type="text">
+                    </div>
+                    <div class="col-md-6">
+                      <label>Business Name</label>
+                      <input class="form-ui" id="lastName" placeholder="Enter Last name here" type="text">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Email Address</label>
+                      <input class="form-ui" id="lastName" placeholder="Enter Last name here" type="text">
+                    </div>
+                    <div class="col-md-6">
+                      <label>Mobile Number</label>
+                      <input class="form-ui" id="lastName" placeholder="Enter Last name here" type="text">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>Address Information</h4>
+                <p class="sub-header">
+                  Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque, scelerisque sit amet elit fermentum, lobortis convallis dui.
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="message-box red hidden" id="errorContainer">
+                  <p id="errorMessage">This transaction has been flagged for further review.</p>
+                </div>
+                <div class="form" id="store-address-div">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label class="required" for="">Addresses</label>
+                    </div>
+                  </div>
+                  <div class="row" id="store-address-collection">
+                    <div class="col-md-12 col-xl-5 store-address div-clone-address partial-0">
+                      <div class="bordered-segment store-address-segment active">
+                        <table class="store-address-table">
+                          <tbody>
+                            <tr class="tr-address">
+                              <td width="2em">
+                                <div class="ui checkbox check-box-div checked">
+                                  <input class="check-box-is-default" data-id="partial-0" name="isDefault" type="checkbox">
+                                  <label>&nbsp;</label>
+                                </div>
+                              </td>
+                              <td class="td-border-bottom-1">
+                                <div class="shipping-label">
+                                  <a class="item-name">Home</a>
+                                  <a class="pull-right">
+                                    <div class="ui buttons">
+                                      <div class="ui floating dropdown ellipsis-dropdown" tabindex="-1">
+                                        <span class="ellipsis-text">...</span>
+                                        <div class="menu transition hidden" tabindex="-1">
+                                            <div class="item edit" data-id="partial-0" style="padding: 1em 1.25em !important">
+                                                <i class="icon icon-edit"></i>Edit Address
+                                            </div>
+                                            <div class="item delete" data-id="partial-0" style="padding: 1em 1.25em !important">
+                                                <i class="icon icon-trash"></i>Delete Address
+                                            </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </a>
+                                  <div class="item-address-line light-color">1234 Building Street 2 Street Subdivision Metro Manila Manila Barangay 2 ,566056</div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    {% for i in 1..2 %}
+                    <div class="col-md-12 col-xl-5 store-address div-clone-address partial-0">
+                      <div class="bordered-segment store-address-segment">
+                        <table class="store-address-table">
+                          <tbody>
+                            <tr class="tr-address">
+                              <td width="2em">
+                                <div class="ui checkbox check-box-div checked">
+                                  <input class="check-box-is-default" data-id="partial-0" name="isDefault" type="checkbox">
+                                  <label>&nbsp;</label>
+                                </div>
+                              </td>
+                              <td class="td-border-bottom-1">
+                                <div class="shipping-label">
+                                  <a class="item-name">Home</a>
+                                  <a class="pull-right">
+                                    <div class="ui buttons">
+                                      <div class="ui floating dropdown ellipsis-dropdown" tabindex="-1">
+                                        <span class="ellipsis-text">...</span>
+                                        <div class="menu transition hidden" tabindex="-1">
+                                            <div class="item edit" data-id="partial-0" style="padding: 1em 1.25em !important">
+                                                <i class="icon icon-edit"></i>Edit Address
+                                            </div>
+                                            <div class="item delete" data-id="partial-0" style="padding: 1em 1.25em !important">
+                                                <i class="icon icon-trash"></i>Delete Address
+                                            </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </a>
+                                  <div class="item-address-line light-color">1234 Building Street 2 Street Subdivision Metro Manila Manila Barangay 2 ,566056</div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <div class="row not-empty-user-address">
+                    <div class="col-md-12 mrg-bt-20">
+                      <button class="button gray small uppercase" id="trigger-modal-address">
+                        <i class="icon icon-plus icon-lg"></i>
+                        Add Address
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>Bank Accounts</h4>
+                <p class="sub-header">
+                  Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque, scelerisque sit amet elit fermentum, lobortis convallis dui.
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="message-box red hidden" id="errorContainer">
+                  <p id="errorMessage">This transaction has been flagged for further review.</p>
+                </div>
+                <div class="form" id="bank-account-div">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label class="required" for="">Bank Accounts</label>
+                    </div>
+                  </div>
+                  <div class="row" id="bank-account-collection">
+                    <div class="col-md-12 col-xl-5 bank-account div-clone-address partial-0">
+                      <div class="bordered-segment bank-account-segment active">
+                        <table class="bank-account-table">
+                          <tbody>
+                            <tr class="tr-address">
+                              <td width="2em">
+                                <div class="ui checkbox check-box-div checked">
+                                  <input class="check-box-is-default" data-id="partial-0" name="isDefault" type="checkbox">
+                                  <label>&nbsp;</label>
+                                </div>
+                              </td>
+                              <td class="td-border-bottom-1">
+                                <div class="shipping-label">
+                                  <a class="item-name">Home</a>
+                                  <a class="pull-right">
+                                    <div class="ui buttons">
+                                      <div class="ui floating dropdown ellipsis-dropdown" tabindex="-1">
+                                        <span class="ellipsis-text">...</span>
+                                        <div class="menu transition hidden" tabindex="-1">
+                                            <div class="item edit" data-id="partial-0" style="padding: 1em 1.25em !important">
+                                                <i class="icon icon-edit"></i>Edit Address
+                                            </div>
+                                            <div class="item delete" data-id="partial-0" style="padding: 1em 1.25em !important">
+                                                <i class="icon icon-trash"></i>Delete Address
+                                            </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </a>
+                                  <div class="item-address-line light-color">
+                                    <div class="account-number">2130909455677</div>
+                                    <div class="account-name">George Georgia</div>
+                                    <div class="account-bank">Metrobank of the Borneo</div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    {% for i in 1..2 %}
+                    <div class="col-md-12 col-xl-5 bank-account div-clone-address partial-0">
+                      <div class="bordered-segment bank-account-segment">
+                        <table class="bank-account-table">
+                          <tbody>
+                            <tr class="tr-address">
+                              <td width="2em">
+                                <div class="ui checkbox check-box-div checked">
+                                  <input class="check-box-is-default" data-id="partial-0" name="isDefault" type="checkbox">
+                                  <label>&nbsp;</label>
+                                </div>
+                              </td>
+                              <td class="td-border-bottom-1">
+                                <div class="shipping-label">
+                                  <a class="item-name">Home</a>
+                                  <a class="pull-right">
+                                    <div class="ui buttons">
+                                      <div class="ui floating dropdown ellipsis-dropdown" tabindex="-1">
+                                        <span class="ellipsis-text">...</span>
+                                        <div class="menu transition hidden" tabindex="-1">
+                                            <div class="item edit" data-id="partial-0" style="padding: 1em 1.25em !important">
+                                                <i class="icon icon-edit"></i>Edit Address
+                                            </div>
+                                            <div class="item delete" data-id="partial-0" style="padding: 1em 1.25em !important">
+                                                <i class="icon icon-trash"></i>Delete Address
+                                            </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </a>
+                                  <div class="item-address-line light-color">
+                                    <div class="account-number">2130909455677</div>
+                                    <div class="account-name">George Georgia</div>
+                                    <div class="account-bank">Metrobank of the Borneo</div>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    {% endfor %}
+                  </div>
+                  <div class="row not-empty-user-address">
+                    <div class="col-md-12 mrg-bt-20">
+                      <button class="button gray small uppercase" id="trigger-modal-address">
+                        <i class="icon icon-plus icon-lg"></i>
+                        Add Bank Account
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>Accreditation Option</h4>
+                <p class="sub-header">
+                  Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque.
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="message-box red hidden" id="errorContainer">
+                  <p id="errorMessage">This transaction has been flagged for further review.</p>
+                </div>
+                <div class="form">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Accreditation Level</label>
+                      <select class="form-ui ui search single selection dropdown">
+                        <option>Unaccredited</option>
+                        <option>Level 1</option>
+                        <option>Level 2</option>
+                        <option>Level 3</option>
+                        <option>Level 4</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>Activation</h4>
+                <p class="sub-header">
+                  Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque.
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="message-box red hidden" id="errorContainer">
+                  <p id="errorMessage">This transaction has been flagged for further review.</p>
+                </div>
+                <div class="form type-1">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h4>This Account currently Locked</h4>
+                      <p>Do you want to Activate it now?</p>
+                      <button class="button purple type-2-trigger mrg-top-20">Yes, Activate this Account</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form type-2 hidden">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h4>This Account is Active</h4>
+                      <p>If you wish to deactivate this account, click
+                        <button class="button small light-gray type-1-trigger">Deactivate Now</button>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mrg-top-20">
+                      <label>Temporary Password</label>
+                      <input class="form-ui" id="lastName" placeholder="Enter Last name here" readonly type="text" value="!jhHG@D*D@JASSdd9348_^^">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>System Information</h4>
+                <p class="sub-header">
+                  Nam metus lectus, bibendum sit amet mauris id, pulvinar.
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="message-box red hidden" id="errorContainer">
+                  <p id="errorMessage">This transaction has been flagged for further review.</p>
+                </div>
+                <div class="form">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Created By</label>
+                      <p>
+                        <u>Karl Cases</u>, 10/22/16 4:43 am</p>
+                    </div>
+                    <div class="col-md-6">
+                      <label>Last Modified By</label>
+                      <p>
+                        <u>Karl Cases</u>, 10/22/16 4:43 am</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row gutters group-segment">
+              <div class="col-md-4"></div>
+              <div class="col-md-8">
+                <div class="form">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <button class="button purple ">Save Changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui tab row" data-tab="tab-name1">
+      <div class="box-upper">
+        <div class="col-md-12">
+          <div class="box-div">
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>Legal Documents</h4>
+                <p class="sub-header">
+                  Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque.
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="form">
+                  <div class="row">
+                    <label class="required">DTI/SEC Permit</label>
+                    <label class="light" for="">Select your DTI/SEC Permit file from your computer</label>
+                    <input class="form-ui disabled" name="file-dti-sec-permit" type="file">
+                    <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                  </div>
+                </div>
+                <div class="form">
+                  <div class="row">
+                    <label class="required">Mayor's Permit</label>
+                    <label class="light" for="">Select your Mayor's Permit file from your computer</label>
+                    <input class="form-ui disabled" name="file-dti-sec-permit" type="file">
+                    <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                  </div>
+                </div>
+                <div class="form">
+                  <div class="row">
+                    <label class="required">BIR Permit</label>
+                    <label class="light" for="">Select your BIR Permit file from your computer</label>
+                    <input class="form-ui disabled" name="file-dti-sec-permit" type="file">
+                    <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                  </div>
+                </div>
+                <div class="form">
+                  <div class="row">
+                    <label class="required">Form MA1501 Permit</label>
+                    <label class="light" for="">Select your Form MA1501 file from your computer</label>
+                    <input class="form-ui disabled" name="file-dti-sec-permit" type="file">
+                    <label class="light download-copy">
+                      <strong>Where to get a copy of Form MA1501?</strong>
+                      <a class="button gray tiny" href="#" target="_blank">
+                        <span class="icon-angle-down"></span>
+                        <em>Download Form MA1501</em>
+                      </a>
+                      You can upload it once you added your signature on it
+                    </label>
+                    <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>Other Documents</h4>
+                <p class="sub-header">
+                  Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque.
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="form">
+                  <div class="row">
+                    <label class="light" for="">Select a document file from your computer</label>
+                    <div class="form other-documents" id="other-file-container">
+                      <div class="input-inner-button">
+                        <input class="form-ui file-other" name="file-other[]" type="file">
+                        <button class="button gray uppercase trigger-delete-other-file">
+                          <i class="icon-trash"></i>
+                        </button>
+                      </div>
+                      <div class="input-inner-button"><input class="form-ui file-other" name="file-other[]" type="file">
+                        <button class="button gray uppercase trigger-delete-other-file">
+                          <i class="icon-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <span class="form form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                  </div>
+                  <div class="row">
+                    <button class="button gray small uppercase" id="btn-add-more">
+                      <i class="icon icon-plus icon-lg"></i>
+                      Add Documents
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui tab row" data-tab="tab-name2">
+      <div class="box-upper">
+        <div class="col-md-12">
+          <div class="box-div">
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>Notes</h4>
+                <p class="sub-header">
+                  Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque.
+                </p>
+              </div>
+              <div class="col-md-8">
+
+                <table class="table basic table-vertical-align-top center notes">
+                  <tr>
+                    <td colspan="4">
+                      <button class="button gray small uppercase pull-right modal-notes-new-trigger">
+                        <i class="icon icon-plus icon-lg"></i>
+                        Add Notes
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Title</th>
+                    <th>Message</th>
+                    <th>Created By</th>
+                    <th>Actions</th>
+                  </tr>
+                  {% for i in 1..5 %}
+                  <tr>
+                    <td>
+                      <p class="semi-bold">About Paul Edward Borja and the Spaghetti</p>
+                    </td>
+                    <td>
+                      <p>Something is wrong with the spaghetti senior, aahh its the sauce, bogz want it spice and sour but also tasty, so gay...</p>
+                      <p class="time-stamp mrg-top-10">
+                        <em>Last Modified: 10/22/16 4:51 am</em>
+                      </p>
+                    </td>
+                    <td>Kevin the Nightstalker</td>
+                    <td>
+                      <a class="button tiny blue modal-notes-view-trigger" href="#">View</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Notes -->
+<div class="ui modal small modal-box modal-notes-new">
+  <a class="close">
+    <i class="icon-times"></i>
+  </a>
+  <div class="header">New Notes</div>
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form">
+          <label>Title</label>
+          <input class="form-ui" placeholder="Placeholder" type="text">
+        </div>
+
+        <div class="form">
+          <label>Message</label>
+          <textarea class="form-ui" placeholder="Enter product description here"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions align-right">
+    <div class="button confirm" data-remodal-action="close">Save</div>
+    <div class="button cancel" data-remodal-action="close">Cancel</div>
+  </div>
+</div>
+
+<div class="ui modal small modal-box modal-notes-view">
+  <a class="close">
+    <i class="icon-times"></i>
+  </a>
+  <div class="header">New Notes</div>
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form">
+          <label>Title</label>
+          <input class="form-ui" placeholder="Placeholder" readonly="readonly" type="text" value="Blahhh Blahhh Blahhh">
+        </div>
+
+        <div class="form">
+          <label>Message</label>
+          <textarea class="form-ui" placeholder="Enter product description here" readonly="readonly">Something is wrong with the spaghetti senior, aahh its the sauce, bogz want it spice and sour but also tasty, so gay...</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions align-right">
+    <div class="button confirm" data-remodal-action="close">Edit</div>
+    <div class="button cancel" data-remodal-action="close">Cancel</div>
+  </div>
+</div>

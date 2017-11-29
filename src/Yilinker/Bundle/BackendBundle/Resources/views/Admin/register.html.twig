@@ -1,0 +1,180 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+            <section class="box-section">
+                <div class="title-bar">
+                    <div class="container">
+                        <span>Manage Administrator</span>
+                    </div>
+                </div>
+                <div class="container">
+                    <!-- Tables -->
+                    <div class="row">
+                        <div class="box-upper">
+                            <div class="col-md-12">
+                                <div class="box-div">
+                                    <div class="row gutters group-segment">
+                                        <div class="col-md-4">
+                                            <h4>Register Administrator</h4>
+                                            <p class="sub-header">
+                                                This is where Users are enrolled in order to gain access into our Admin Tool so take extra caution when setting their User Roles. With great power comes great responsibility.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="message-box red hidden" id='errorContainer'>
+                                                <p id="errorMessage">This transaction has been flagged for further review.</p>
+                                            </div>
+                                            <div class="form">
+                                                <label>Username</label>
+                                                <input type="text" class="form-ui" id="username" placeholder="Enter Username here">
+                                            </div>
+
+                                            <div class="form password-container">
+                                                <label>Password</label>
+                                                <input type="password" class="form-ui" id="password" placeholder="Enter Password here">
+                                                <button class="button gray edit-password-modal-trigger" style="display:none;"> Change Password</button>
+                                            </div>
+
+                                            <div class="form confirm-password-container">
+                                                <label>Confirm Password</label>
+                                                <input type="password" class="form-ui" id="confirmPassword" placeholder="Enter Confirm Password here">
+                                            </div>
+
+                                            <div class="form">
+                                                <label>First Name</label>
+                                                <input type="text" class="form-ui" id="firstName" placeholder="Enter First name here">
+                                            </div>
+
+                                            <div class="form">
+                                                <label>Last Name</label>
+                                                <input type="text" class="form-ui" id="lastName" placeholder="Enter Last name here">
+                                            </div>
+
+                                            <div class="form">
+                                                <label>User Role</label>
+                                                <select name="" id="userRole" class="form-ui ui search single selection dropdown">
+                                                    <option value="0">Select Role</option>
+                                                    {% for adminRoleEntity in adminRoleEntities %}
+                                                        <option value="{{ adminRoleEntity.adminRoleId }}">
+                                                            {{ adminRoleEntity.name }}
+                                                        </option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+
+                                            <div class="form">
+                                                <button class="button purple modal-alert-success-trigger" id="registerBtn" data-id="0" >Register</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                        <div class="row gutters group-segment">
+                                            <div class="col-md-4">
+                                                <h4>Manage Roles</h4>
+                                                <p class="sub-header">
+                                                    This is where you can Activate or Deactivate a User for our Admin Tool.
+                                                </p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <table class="table basic table-vertical-align-top center">
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Username</th>
+                                                        <th>Fullname</th>
+                                                        <th>Role</th>
+                                                        <th class="txtcenter">Activation</th>
+                                                    </tr>
+                                                    <tbody id="adminUserRow">
+                                                    {% for adminUser in adminUserContainer %}
+                                                        <tr id="adminId_{{  adminUser.id }}" class="tableRow" data='{{ adminUser | json_encode() }}'>
+                                                            <td>{{ adminUser.id }}</td>
+                                                            <td>{{ adminUser.username }}</td>
+                                                            <td>{{ adminUser.firstName ~ ' ' ~ adminUser.lastName}}</td>
+                                                            <td>{{ adminUser.role }}</td>
+                                                            <td class="txtcenter">
+                                                                <div>
+                                                                    <input class="toggle-one deactivate" type="checkbox" data-id="{{  adminUser.id }}" data-toggle="toggle" {{ adminUser.isActive ? 'checked' : '' }}>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Start of edit password-->
+            <div class="ui modal small edit-password-modal">
+                 <a class="close"><i class="icon-times"></i></a>
+                 <div class="header">
+                     <h4 class="no-margin">Change Password</h4>
+                 </div>
+                 <div class="content">
+                     <div class="profile-change-prompt error" style="display:none">
+                         <div class="row">
+                              <div class="message-box red with-close-message">
+                                  Something went wrong please try again later
+                              </div>
+                         </div>
+                     </div>
+                     <div class="form">
+                        <label for="" class="required">
+                            New Password
+                        </label>
+                        <input type="password" class="form-ui new-password-input" placeholder="Enter your new password here">
+                     </div>
+                     <div class="form">
+                         <label for="" class="required">
+                             Confirm New Password
+                         </label>
+                         <input type="password" class="form-ui confirm-password-input" placeholder="Confirm your new password here">
+                     </div>
+                 </div>
+                 <div class="actions">
+                     <button class="button cancel uppercase">Cancel</button>
+                     <button class="button confirm submit-to-success approve uppercase">
+                         <span class="text">Submit</span>
+                         <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                     </button>
+                 </div>
+            </div>
+            <!--End of edit password-->
+
+    {# START MODAL = MESSAGE CONTAINER #}
+    <div class="ui modal small" id="modal-message-container">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header detail-content"></div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">Okay</button>
+        </div>
+    </div>
+    {# END MODAL = MESSAGE CONTAINER #}
+
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/admin-register.js"
+        "js/src/backend/register.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

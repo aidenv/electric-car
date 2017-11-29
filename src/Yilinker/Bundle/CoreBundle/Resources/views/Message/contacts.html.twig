@@ -1,0 +1,49 @@
+<div class="search-contact-container">
+    <span class="back-recent desktop-hide">&larr;</span>
+    <div class="input-icon left">
+        <i class="icon icon-search"></i>
+        <input type="text" name="keyword" class="form-ui" placeholder="Search the name of contact here"/>
+    </div>
+</div>
+<div class="right-side-item-container contacts-container">
+    <ul class="list-unstyled list-contacts">
+        {% if contacts is not empty %}
+            {% for contact in contacts %}
+                <li class="contact" data-id="{{ contact.slug }}">
+                    <a>
+                        <table class="table-seller-name">
+                            <thead>
+                                <tr>
+                                    <td class="td-seller-img">
+                                        <div class="img-seller-container">
+                                            <img src="{{ contact.profileThumbnailImageUrl }}" class="img-buyer"/>
+
+                                        </div>
+                                    </td>
+                                    <td class="td-seller-name" style="max-width:120px;">
+                                        <div class="relative">
+                                            <span class="name ellipsis-overflow">
+                                                <a>
+                                                    {{ contact.fullName }}
+                                                </a>
+                                            </span>
+                                            <span class="status">
+                                                <i class="icon icon-circle online-status {{ contact.isOnline is same as("1")? 'online':'offline' }}"></i>
+                                                <span class="light-color online-text">
+                                                    {{ contact.isOnline is same as("1")? 'Online':'Offline' }}
+                                                </span>
+                                            </span>
+                                            <span class="unread-messages-counter" {{ contact.hasUnreadMessage > 0 ? "" : 'style="display: none;"'  }}>
+                                                {{ contact.hasUnreadMessage }}
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </a>
+                </li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+</div>

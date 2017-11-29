@@ -1,0 +1,20 @@
+{% if product is defined %}
+    <div class="col-md-2 col-xs-6">
+        <div class="unit-wrapper">
+            <a class="unit-photo" href="{{ path('product_details', {'slug' : product.slug}) }}">
+                <img data-original="{{ product.medium }}" alt="{{ product.name }}" title="{{ product.name }}" class="lazy">
+                <noscript>
+                    <img src="{{ product.medium }}" alt="{{ product.name }}" title="{{ product.name }}">
+                </noscript>
+            </a>
+            <a class="unit-name" href="{{ path('product_details', {'slug' : product.slug}) }}">{{ product.name }}</a>
+            <div class="unit-price"><b>P {{ product.discountedPrice }}</b></div>
+            {% if product.discountPercentage > 0 %}
+                <div class="unit-discount-price">
+                    <span>P {{ product.price }}</span>
+                    <i>-{{ product.discountPercentage }}%</i>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

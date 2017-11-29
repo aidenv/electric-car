@@ -1,0 +1,28 @@
+merchant_user_warehouse:
+    path: /
+    defaults: { _controller: YilinkerMerchantBundle:UserWarehouse:list }
+
+merchant_user_warehouse_form:
+    path: /form/{warehouseId}
+    defaults: { _controller: YilinkerMerchantBundle:UserWarehouse:form, warehouseId: null }
+
+merchant_user_warehouse_delete:
+    path: /delete/{warehouseId}
+    defaults: { _controller: YilinkerMerchantBundle:UserWarehouse:delete }
+
+merchant_user_warehouse_inventory:
+    path: /{warehouseId}/inventory
+    defaults: { _controller: YilinkerMerchantBundle:UserWarehouse:inventory }
+
+merchant_user_warehouse_inventory_export:
+    path: /{warehouseId}/inventory/export
+    defaults: { _controller: YilinkerMerchantBundle:UserWarehouse:export }
+
+merchant_user_warehouse_inventory_import:
+    path: /{warehouseId}/inventory/import
+    defaults: { _controller: YilinkerMerchantBundle:UserWarehouse:import }
+
+merchant_user_warehouse_inventory_update:
+    path: /inventory/update
+    defaults: { _controller: YilinkerMerchantBundle:UserWarehouse:updateInventory }
+

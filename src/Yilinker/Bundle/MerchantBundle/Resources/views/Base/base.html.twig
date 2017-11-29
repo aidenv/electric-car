@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="csrf-token" content="{{ default_csrf_token() }}" />
+        <title>{% block title %} YilinkerOnline.com  {% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('css/flag-icon-css/css/flag-icon.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/plugin-online-main.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/online-main.css') }}">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {{ render(controller('YilinkerMerchantBundle:Header:renderHeader')) }}
+        {% block body %}{% endblock %}
+        {{ include('YilinkerCoreBundle:Modal:default_modal.html.twig') }}
+
+        <script src="{{ asset('socket.io/socket.io.js') }}"></script>
+        <script src="{{ asset('js/bower/jquery.min.js') }}"></script>
+        {% if app.user %}
+            <script src="{{ asset('js/src/socket-connection.js') }}"></script>
+        {% endif %}
+
+        <script src="{{ asset('js/src/utility/url-utility.js') }}"></script>
+        <script src="{{ asset('js/src/universal.js') }}"></script>
+        <script src="{{ asset('js/bower/popup.min.js') }}"></script>
+        <script src="{{ asset('js/bower/dimmer.min.js') }}"></script>
+        <script src="{{ asset('js/bower/modal.min.js') }}"></script>
+        <script src="{{ asset('js/bower/dropdown.min.js') }}"></script>
+        <script src="{{ asset('js/bower/checkbox.min.js') }}"></script>
+        <script src="{{ asset('js/bower/transition.min.js') }}"></script>
+        <script src="{{ asset('js/bower/twig.min.js') }}"></script>
+        <script src="{{ asset('js/bower/masonry.min.js') }}"></script>
+        <script src="{{ asset('js/bower/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        <script src="{{ asset('js/src/utility/default-modal.js') }}"></script>
+        {% block javascripts %}
+            <script src="{{ asset('reactjs/build/vendor.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

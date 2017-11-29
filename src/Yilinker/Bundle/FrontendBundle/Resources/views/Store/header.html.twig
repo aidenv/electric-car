@@ -1,0 +1,85 @@
+{% set originalRequest = app.request.attributes.get('request') is not null ? app.request.attributes.get('request') : app.request %}
+{% set slug = originalRequest.get('slug') %}
+<div class="navbar-item brand store-name-header-item">
+    <a href="{{ path('home_page') }}">
+        <img src="{{ asset('images/logo-icon.svg') }}" alt="YiLinker" class="brand-icon-logo img-responsive "/>
+    </a>
+    <div class="store-name-header">
+        <table class="table-seller-name">
+        <thead>
+            <tr>
+                <td class="td-seller-img align-center">
+                    <a>
+                        <div class="img-seller-container">
+                            {% if store.user is defined and store.user.primaryImage != null %}
+                                <img src="{{ store.user.primaryImage?
+                                    asset(store.user.primaryImage.getImageLocationBySize('thumbnail'),'user') :
+                                    asset('images/default-merchant.png')
+                                }}" class="img-seller img-round" />
+                            {% endif %}
+                        </div>
+                    </a>
+                </td>
+                <td class="td-seller-name">
+                    <span class="name">
+                        <a>
+                            {{ store.storeName }}
+                        </a>
+                    </span>
+                </td>
+            </tr>
+        </thead>
+        </table>
+    </div>
+ </div>
+ <div class="navbar-item align-center store-menu-header-item">
+    <div class="store-menu-header">
+        <ul class="list-unstyled list-store-menu">
+            <li>
+                <a class="{{ originalRequest.get('_route') == 'store_page_products' ? 'active' : '' }}" href="{{ path('store_page_products', {slug: originalRequest.get('slug')}) }}">
+                    {% trans %} Products {% endtrans %}
+                </a>
+            </li>
+            <li>
+                <a class="{{ originalRequest.get('_route') == 'store_page_about' ? 'active' : '' }}" href="{{ path('store_page_about', {slug: originalRequest.get('slug')}) }}">
+                    {% trans %} Store Information {% endtrans %}
+                </a>
+            </li>
+            <li>
+                <a class="{{ originalRequest.get('_route') == 'store_page_feedback' ? 'active' : '' }}" href="{{ path('store_page_feedback', {slug: originalRequest.get('slug')}) }}">
+                    {% trans %} Feedback {% endtrans %}
+                </a>
+            </li>
+        </ul>
+    </div>
+ </div>
+ {% if originalRequest.get('_route') == 'store_page_products' %}
+     <div class="navbar-item search-store-header-item">
+        <div class="search-store-header">
+            <a class="link-button header-open-search-form-trigger open-search-form-trigger">
+                <i class="icon icon-circle-search"></i>
+            </a>
+            <a class="link-button header-close-search-form-trigger close-search-form-trigger">
+                <i class="icon icon-circle-times"></i>
+            </a>
+        </div>
+     </div>
+ {% endif %}
+
+<script type="application/ld+json">
+{% set fullname = "" %}
+{% if store.user is defined %} 
+    {% set fullname = store.user.getFullName() %}
+{% endif %}
+
+{
+  "@context": "http://schema.org",
+  "@type": "BuyAction",
+  "seller": {
+    "@type": "Person",
+    "name": "{{ fullname }}"
+  },
+  "name": "{{ store.storeName }}",
+  "url": "{{ frontend_hostname ~ path('store_page_products', {slug: originalRequest.get('slug')}) }}" 
+}
+</script>

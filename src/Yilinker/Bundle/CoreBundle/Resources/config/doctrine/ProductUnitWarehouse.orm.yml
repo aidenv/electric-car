@@ -1,0 +1,48 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductUnitWarehouse:
+    type: entity
+    table: ProductUnitWarehouse
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ProductUnitWarehouseRepository
+    indexes:
+        fk_product_unit_user_warehouse:
+            columns:
+                - user_warehouse_id
+        fk_product_unit_product_unit:
+            columns:
+                - product_unit_id
+    id:
+        productUnitWarehouseId:
+            type: bigint
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: product_unit_warehouse_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        quantity:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+    manyToOne:
+        productUnit:
+            targetEntity: ProductUnit
+            cascade: {  }
+            mappedBy: null
+            inversedBy: productUnitWarehouses
+            joinColumns:
+                product_unit_id:
+                    referencedColumnName: product_unit_id
+            orphanRemoval: false
+        userWarehouse:
+            targetEntity: UserWarehouse
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_warehouse_id:
+                    referencedColumnName: user_warehouse_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

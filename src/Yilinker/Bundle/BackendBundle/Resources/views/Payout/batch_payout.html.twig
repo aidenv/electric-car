@@ -1,0 +1,362 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+    {% set merchant = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+    {% set affiliate = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') %}
+    {% set payoutMethodBank = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PayoutRequest::PAYOUT_METHOD_BANK') %}
+    {% set payoutMethodCheque = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PayoutRequest::PAYOUT_METHOD_CHEQUE') %}
+    {% set payoutStatusPending = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PayoutRequest::PAYOUT_STATUS_PENDING') %}
+    {% set payoutStatusPaid = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PayoutRequest::PAYOUT_STATUS_PAID') %}
+    {% set payoutBatchHeadInProcess = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PayoutBatchHead::PAYOUT_BATCH_STATUS_IN_PROCESS') %}
+    {% set payoutBatchHeadDeposited = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PayoutBatchHead::PAYOUT_BATCH_STATUS_DEPOSITED') %}
+
+    <section class="payout box-section">
+        <div class="title-bar">
+            <div class="container">
+                <span>Batch Pay-Out List</span>
+            </div>
+        </div>
+        <div class="container">
+            <!-- Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="tools top form">
+                            <div class="row gutters group-segment">
+                                <div class="col-md-12">
+                                    <div class="form vers-one">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <label>Search</label>
+                                                <input type="text" id="searchKeyword" class="form-ui" placeholder="Search By Batch ID/Process By">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gutters group-segment light-segment">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="" class="col-md-12">Date Range: </label>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-ui dateTime" id="dateFrom" placeholder="Start Date"/>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-ui dateTime" id="dateTo" placeholder="End Date"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-6">
+                                                        <button class="button gray mrg-top-10" type="submit" id="searchPayoutBatch">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tables -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+                            <div class="row sub-tools">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button class="button purple" id="modal-payout-trigger">
+                                                <i class="icon icon-plus"></i>
+                                                Add
+                                            </button>
+                                        </div>
+                                        <div class="grand-amount col-md-6">
+                                            <h5>Grand Batch Amount</h5>
+                                            <p class="purple-color semi-bold">P {{ payoutBatchData.payoutBatchTotalAmount|number_format(2, '.', ',') }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gutters">
+                                <div class="col-md-12">
+                                    <table class="table basic">
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Batch ID</th>
+                                            <th>Count</th>
+                                            <th>Process By</th>
+                                            <th>Amount</th>
+                                            <th>Memo</th>
+                                            <th>Status</th>
+                                            <th class="align-center">Action</th>
+                                        </tr>
+                                        {% for payoutBatchHead in payoutBatchData.payoutBatchHeadEntities %}
+                                            <tr class="tr-{{ payoutBatchHead.entity.payoutBatchHeadId }}" data-id="{{ payoutBatchHead.entity.payoutBatchHeadId }}" data-is-editable="{{ payoutBatchHead.entity.payoutBatchStatus == payoutBatchHeadDeposited ? 'false' : 'true' }}">
+                                                <td class="update-row">{{ payoutBatchHead.entity.dateAdded|date('m/d/Y') }}</td>
+                                                <td class="update-row">{{ payoutBatchHead.entity.batchNumber|default('0000') }}</td>
+                                                <td class="update-row">{{ payoutBatchHead.totalRequest }}</td>
+                                                <td class="update-row">{{ payoutBatchHead.entity.adminUser.fullName }}</td>
+                                                <td class="update-row">P {{ payoutBatchHead.totalAmount|number_format(2, '.', ',') }}</td>
+                                                <td class="update-row">{{ payoutBatchHead.entity.remarks|default('') }}</td>
+                                                <td class="update-row">{{ payoutBatchHead.entity.getPayoutBatchStatus(true) }}</td>
+                                                <td class="align-center remove-td">
+                                                    {% if payoutBatchHead.entity.getPayoutBatchStatus == payoutBatchHeadInProcess  %}
+                                                        <a href="#" class="red-color remove-batch-payout-head" data-value="{{ payoutBatchHead.entity.payoutBatchHeadId }}">
+                                                            <span class="item-icon icon-times"></span>
+                                                        </a>
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-blank">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: payoutBatchData.payoutBatchTotalCount, perPage: limit}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    {# START OF CONFIRM DELETE MODAL #}
+    <div class="ui coupled modal small " id="modal-remove-payout-batch-head">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-trash"></i>
+                <div class="content">
+                    Remove Payout?
+                    <div class="sub-header">Are you sure you want to remove payout?</div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button cancel">Cancel</button>
+            <button class="button red submit-to-success positive">Remove</button>
+        </div>
+    </div>
+    {# END OF CONFIRM DELETE MODAL #}
+
+    {# START OF MODAL BATCH PAYOUT #}
+    <div class="ui coupled modal large modal-box payout" id="modal-batch-payout">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="header">Batch Payout</div>
+
+        <div class="content">
+            <div class="row">
+                <div class="form">
+                    <div class="row">
+                        <div class="col-md-6 md-box zeb">
+                            <div>
+                                <div class="col-md-6"><strong>Batch Number</strong></div>
+                                <div class="col-md-6" id="modal-batch-number"></div>
+                            </div>
+                            <div>
+                                <div class="col-md-6"><strong>Process By</strong></div>
+                                <div class="col-md-6" id="modal-process-by"></div>
+                            </div>
+                            <div>
+                                <div class="col-md-6"><strong>Batch Date</strong></div>
+                                <div class="col-md-6" id="modal-date-added"></div>
+                            </div>
+                            <div>
+                                <div class="col-md-6 mrg-top-10"><strong>Status</strong></div>
+                                <div class="col-md-6">
+                                    <select name="" id="modal-select-payout-batch-status" class="form-ui ui search single selection dropdown">
+                                        {% if payoutBatchStatuses|length > 0 %}
+                                            {% for payoutBatchStatus in payoutBatchStatuses %}
+                                                <option value="{{ payoutBatchStatus.id }}">{{ payoutBatchStatus.name }}</option>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 md-box zeb">
+                            <div>
+                                <strong>Remarks</strong>
+                                <textarea type="text" class="form-ui mrg-bt-10" placeholder="Write your Remarks" id="modal-remarks"></textarea>
+                                <button class="button blue no-margin pull-right" id="modal-payout-batch-save">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content divide">
+            <div class="row">
+                <div class="form">
+                    <div class="row">
+                        <div id="receipt-div" style="display: none">
+                            <div class="col-md-12 md-box">
+                                <h5>Attach Files</h5>
+                            </div>
+                            <div class="col-md-12">
+                                <ul class="receipt-list" id="receipt-container">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="receipt-upload col-md-12">
+                            <label for="" class="semi-bold alerts">Upload Receipt</label>
+                            <input type="file" class="form-ui" id="file-receipt">
+                            <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12 md-box">
+                    <h5>Transaction Update List</h5>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div id="the-basics">
+                                <input class="typeahead form-ui" type="text" placeholder="Search by reference number">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="button blue" id="add-payout-request">Add</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 mrg-top-10" id="payout-request-table" style="display: none">
+                    <table class="table basic">
+                        <tr >
+                            <th>No.</th>
+                            <th>Date</th>
+                            <th>Request By</th>
+                            <th>Method</th>
+                            <th>Bank</th>
+                            <th>Bank Info / Pay To</th>
+                            <th>Amount</th>
+                            <th>Charge</th>
+                            <th>Net Amount</th>
+                            <th>Action</th>
+                        </tr>
+                        <tbody id="modal-payout-batch-detail-list">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="content divide">
+            <div class="row">
+                <div class="total-amount col-md-12">
+                    <h4>Total Batch Amount</h4>
+                    <p id="modal-total-batch-amount">P 0.00</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="button cancel close-modal">Back</button>
+            {#<button class="button">Export Excel</button>#}
+        </div>
+    </div>
+    {# END OF MODAL BATCH PAYOUT #}
+
+    {# START MODAL = MESSAGE CONTAINER #}
+    <div class="ui coupled modal small " id="modal-message-container">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header detail-content"></div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">Okay</button>
+        </div>
+    </div>
+    {# END MODAL = MESSAGE CONTAINER #}
+
+    {# START OF CONFIRM DELETE MODAL #}
+    <div class="ui coupled modal small " id="modal-remove-payout-batch-file">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-trash"></i>
+                <div class="content">
+                    Remove file?
+                    <div class="sub-header">Are you sure you want to remove file?</div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button cancel">Cancel</button>
+            <button class="button red submit-to-success positive" id="remove-payout-batch-file">Remove</button>
+        </div>
+    </div>
+    {# END OF CONFIRM DELETE MODAL #}
+
+    {# START OF CONFIRM DELETE MODAL #}
+    <div class="ui coupled modal small " id="modal-remove-payout-batch-detail">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-trash"></i>
+                <div class="content">
+                    Remove Payout request?
+                    <div class="sub-header">Are you sure you want to remove payout request?</div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button cancel">Cancel</button>
+            <button class="button red submit-to-success positive" id="remove-payout-request">Remove</button>
+        </div>
+    </div>
+    {# END OF CONFIRM DELETE MODAL #}
+
+    <input type="hidden" id="payout-batch-head-id" value="" />
+    <input type="hidden" id="payout-batch-status-deposited" value="{{ payoutBatchHeadDeposited }}" />
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/backend/payout-batch-list.js') }}"></script>
+{% endblock %}

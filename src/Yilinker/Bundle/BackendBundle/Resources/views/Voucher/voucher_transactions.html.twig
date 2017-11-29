@@ -1,0 +1,32 @@
+<div class="ui tab" data-tab="moda-tab-name1">
+    <div class="row sample-bank-blank">
+        <div class="col-md-12">
+            <table class="table basic">
+                <thead>
+                    <tr>
+                        <th>Invoice No</th>
+                        <th>Total Amount</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    {% if transactions is defined and transactions %}
+                        {% for transaction in transactions %}
+                            <tr>
+                                <td>
+                                    <a href="{{ path('yilinker_backend_transaction_list')~'?searchKeyword='~transaction.invoiceNumber }}">
+                                        {{ transaction.invoiceNumber }}
+                                    </a>
+                                </td>
+                                <td>{{ transaction.totalPrice }}</td>
+                                <td>{{ transaction.orderStatus.name }}</td>
+                                <td>{{ transaction.dateAdded|date('F d, Y') }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

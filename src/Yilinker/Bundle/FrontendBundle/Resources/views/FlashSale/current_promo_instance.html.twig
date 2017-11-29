@@ -1,0 +1,37 @@
+{% if promoInstance is not same as(null) %}
+    <div class="current">
+        <div class="item current-sale">
+            <div class="align-center countdown">
+                <h4>Promo ends in </h4>
+                <h2>
+                    <table class="timer">
+                        <tbody>
+                            <tr class="hours-enabled flash-sale-inner table-view" data-expiration="{{ promoInstance.dateEnd|date('U') }}">
+                                <td>{{ remaining_time(promoInstance.dateEnd, constant('Yilinker\\Bundle\\CoreBundle\\Twig\\CustomExtension::REMAINING_TIME_TYPE_HOURS')) }}</td>
+                                <td class="separator"> : </td>
+                                <td>{{ remaining_time(promoInstance.dateEnd, constant('Yilinker\\Bundle\\CoreBundle\\Twig\\CustomExtension::REMAINING_TIME_TYPE_MINUTES')) }}</td>
+                                <td class="separator"> : </td>
+                                <td>{{ remaining_time(promoInstance.dateEnd, constant('Yilinker\\Bundle\\CoreBundle\\Twig\\CustomExtension::REMAINING_TIME_TYPE_SECONDS')) }}</td>
+                            </tr>
+                            <tr class="label">
+                                <td>hrs</td>
+                                <td>&nbsp;</td>
+                                <td>mins</td>
+                                <td>&nbsp;</td>
+                                <td>sec</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </h2>
+            </div>
+            <div class="current-flash-sale-slider">
+                {% for product in products %}
+                    {{ include('YilinkerFrontendBundle:Product:flash_item_list.html.twig', {
+                        'product':product
+                    }) }}
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+{% endif %}

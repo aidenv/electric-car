@@ -1,0 +1,4 @@
+
+yilinker_frontend_international_product_list:
+    path: /
+    defaults: { _controller: YilinkerFrontendBundle:International\Product:list }

@@ -1,0 +1,41 @@
+Yilinker\Bundle\CoreBundle\Entity\ManufacturerProductImage:
+    type: entity
+    table: ManufacturerProductImage
+    id:
+        manufacturerProductImageId:
+            type: integer
+            id: true
+            unsigned: false
+            column: manufacturer_product_image_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        imageLocation:
+            type: string
+            length: 255
+            fixed: false
+            column: image_location
+            options:
+                default: ''
+        isDelete:
+            type: boolean
+            column: is_delete
+            options:
+                default: '0'
+        referenceNumber:
+            type: string
+            column: reference_number
+            options:
+                default: ''
+    manyToOne:
+        manufacturerProduct:
+            targetEntity: ManufacturerProduct
+            inversedBy: images
+            joinColumns:
+                manufacturer_product_id:
+                    referencedColumnName: manufacturer_product_id
+    indexes:
+        fk_manufacturerproductimage_manufacturerproductid_manufacturerproduct_manufacturerproductid_idx:
+            columns:
+                - manufacturer_product_id
+    lifecycleCallbacks: {  }

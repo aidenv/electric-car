@@ -1,0 +1,14 @@
+api_add_seller_review:
+    path: /auth/feedback/addUserFeedback
+    defaults: { _controller: YilinkerCoreBundle:Api/UserFeedbackApi:addUserFeedback }
+    methods: [POST]
+
+api_get_seller_reviews:
+    path: /feedback/getUserFeedbacks
+    defaults: { _controller: YilinkerCoreBundle:Api/UserFeedbackApi:getUserFeedbacks }
+    methods: [POST]
+
+api_auth_get_seller_reviews:
+    path: /auth/feedback/getUserFeedbacks
+    defaults: { _controller: YilinkerCoreBundle:Api/UserFeedbackApi:getUserFeedbacks }
+    methods: [POST]

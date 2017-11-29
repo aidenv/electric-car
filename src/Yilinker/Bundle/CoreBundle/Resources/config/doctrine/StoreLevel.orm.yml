@@ -1,0 +1,22 @@
+Yilinker\Bundle\CoreBundle\Entity\StoreLevel:
+    type: entity
+    table: StoreLevel
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\StoreLevelRepository
+    id:
+        storeLevelId:
+            column: store_level_id
+            type: integer
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+        storeSpace:
+            column: store_space
+            type: integer
+        storeEarning:
+            column: store_earning
+            type: integer
+    lifecycleCallbacks: {  }

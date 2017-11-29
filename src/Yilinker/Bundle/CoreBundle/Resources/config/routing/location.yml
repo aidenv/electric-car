@@ -1,0 +1,19 @@
+core_get_child_cities:
+    path: /location/getChildCities
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getChildCities }
+    methods: [POST]
+
+core_get_child_barangays:
+    path: /location/getChildBarangays
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getChildBarangays }
+    methods: [POST]
+
+core_get_barangays_by_city:
+    path: /location/getBarangaysByCity
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getBarangaysByCity }
+    methods: [POST]
+
+core_get_child_locations:
+    path: /location/getChildLocations
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getChildren }
+    methods: [POST]

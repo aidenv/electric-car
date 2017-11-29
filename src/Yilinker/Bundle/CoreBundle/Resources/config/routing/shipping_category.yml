@@ -1,0 +1,3 @@
+yilinker_core_shipping_category_search:
+    path: /search
+    defaults: { _controller: YilinkerCoreBundle:ShippingCategory:search }

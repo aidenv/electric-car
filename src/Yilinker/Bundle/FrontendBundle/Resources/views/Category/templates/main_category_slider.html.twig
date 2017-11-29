@@ -1,0 +1,37 @@
+
+<!--Advertisement Slider Full Width-->
+<div class="advertisement slider-full-width">
+  <div class="slider wrapper" style="position: relative;">
+	<div class="image-slider">
+
+      {% for banner in cmsContent.header.banner %}
+      <div class="slide item">
+          <a href="{{ banner.target }}">
+		      <img src="{{ asset(banner.image, 'cms') }}" alt="Slider 1"/>
+          </a>
+	  </div>
+      {% endfor %}
+
+	</div>
+  </div>
+</div>
+
+<div class="advertisement brands">
+  <!--Advertisement brands slider-->
+  <div class="brand-slider-title">
+	Shop by Brands
+  </div>
+  <div class="brand-slider-container">
+	<div class="brand-slider">
+      {% if cmsContent.header.brands is defined %}
+	      {% for brand in cmsContent.header.brands %}
+	      <div class="brand-item">
+		       <span class="brand-item-image-wrapper">
+			       <img src="{{ asset(brand.image, 'brand') }}" alt="" class="img-auto-place">
+		       </span>
+	      </div>
+	      {% endfor %}
+      {% endif %}
+	</div>
+  </div>
+</div>

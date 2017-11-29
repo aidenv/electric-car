@@ -1,0 +1,178 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <section class="box-section">
+        <div class="title-bar">
+            <div class="container">
+                <span>SMS</span>
+            </div>
+        </div>
+        <div class="container">
+            <!-- Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="tools top form">
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                    <h4>Number of SMS Sent: <strong>100</strong></h4>
+                                    <p class="sub-header">You may search for a particular message.</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form vers-one">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <label> Search </label>
+                                                <input name="searchInput" type="text" class="form-ui" placeholder="Search" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gutters group-segment light-segment">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-8">
+                                    <div class="form">
+                                        <div class="row">
+                                            <label class="col-md-12">Date Range:</label>
+                                            <div class='input-group col-md-3 start-date-datetimepicker'>
+                                                <input type='text' class="form-control form-ui datetimepicker" name="dateFrom" value="" placeholder="Start Date" />
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-ui datetimepicker" name="dateTo" value="" placeholder="End Date"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button id="searchPromo" class="button gray mrg-top-10">
+                                                    <i class="item-icon icon-search"> Submit</i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tables -->
+            <div class="row">
+                <div class="col-md-5">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+                            <div class="row sub-tools">
+                                <div class="col-md-12">
+                                    <button class="button purple small send-message-trigger">
+                                        <i class="icon icon-plus"></i>
+                                        Send Message
+                                    </button>
+                                    <button class="button gray small delete-message-trigger hidden">
+                                        <i class="icon icon-trash"></i>
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row gutters">
+                                <div class="col-md-12">
+                                    <table class="table basic promo-list">
+                                        <thead>
+                                            <tr>
+                                                <th align="center">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" class="check-all-promo">
+                                                        <label for="">&nbsp;</label>
+                                                    </div>
+                                                </th>
+                                                <th>Date Sent</th>
+                                                <th>Message</th>
+                                                <th>Sender</th>
+                                                <th align="center">Number of Recipients</th>
+                                                <th align="center">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for i in 1..10 %}
+                                                <tr>
+                                                    <td valign="top" align="center">
+                                                        <div>
+                                                            <div class="ui checkbox">
+                                                                <input type="checkbox" class="toggle-one" value="1" data-toggle="toggle">
+                                                                <label for="">&nbsp;</label>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td valign="top">
+                                                        04/29/2016 06:51:59
+                                                    </td>
+                                                    <td width="40%" valign="top">
+                                                        {% set dummy = "We’re relaunching the Globalization features next week on 16 May 2016 since the first attempt was marred with problems that would’ve resulted in an unstable release, and we apologize for that.
+
+                                                        The upgrade will start around 11PM to midnight to prevent any interruptions with the Express operations and should be finished by the early wee hours of Tuesday, before 6 AM.
+
+                                                        These are the people who will be staying up late for this task, so if you need anything from them on Tuesday, expect a reply late in the afternoon. Lee please take note and excuse them from the tardiness policy on Tuesday." %}
+
+                                                        {{ dummy|length > 250 ? dummy|slice(0, 250) ~ '...' : myentity.text  }}
+                                                        
+                                                    </td>
+                                                    <td valign="top" align="center">
+                                                        Peggie
+                                                    </td>
+                                                    <td valign="top" align="center">
+                                                        2
+                                                    </td>
+                                                    <td valign="top" align="center">
+                                                        <button class="options button small default-light view-message-trigger">
+                                                          view message
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-blank">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {
+                                    totalResults:100,
+                                    perPage: 10})
+                                }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ include('YilinkerBackendBundle:Sms:sms_modals.html.twig') }}
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/src/backend/sms-management.js') }}"></script>
+    {# {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/sms-management.js" #}
+    {# "js/src/backend/sms-management.js"  #}
+    {# %} #}
+    {# <script src="{{ asset_url }}"></script> #}
+    {# {% endjavascripts %} #}
+{% endblock %}

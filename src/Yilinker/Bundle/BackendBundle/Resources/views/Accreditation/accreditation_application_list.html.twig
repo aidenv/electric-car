@@ -1,0 +1,136 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+    <section class="box-section">
+        <div class="title-bar">
+            <div class="container">
+                <span>Accreditations</span>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="tools top form">
+                            <div class="row">
+                            
+                             <div class="col-md-3">
+                                    <div class="options">
+                                        <select class="form-ui ui search single selection dropdown" id="drop-down-resource">
+                                            <option value="">Select Resource</option>
+                                            {% for resourceId in resourceIds %}
+                                                <option value="{{ resourceId.id }}">{{ resourceId.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-md-2">
+                                    <div class="options">
+                                        <select class="form-ui ui search single selection dropdown" id="drop-down-user-type">
+                                            <option value="">Select Status</option>
+                                            {% for userAccreditationType in userAccreditationTypes %}
+                                                <option value="{{ userAccreditationType.id }}">{{ userAccreditationType.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5"></div>
+                                <div class="col-md-4">
+                                    <div class="search options">
+                                        <input class="form-ui" id="txt-search-keyword" placeholder="Search" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="options button block cancel" id="btn-search">
+                                        <span class="item-icon icon-search"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tables -->
+            <div class="row">
+              <div class="box-upper">
+                  <div class="col-md-12">
+                      <div class="box-div">
+
+                          <div class="row gutters">
+                              <div class="col-md-12">
+                                  <table class="table basic accreditation-table">
+                                      <tr>
+                                          <th>Owner Name</th>
+                                          <th>Store Name</th>
+                                          <th>Status</th>
+                                          <th>Seller Type</th>
+                                          <th>Resource</th>
+                                          <th class="align-center">Quick Info</th>
+                                      </tr>
+                                      {% for user in accreditationApplications.result %}
+                                          {% set onclick = "onclick=document.location='"~path('admin_accreditation_detail', {'userId': user.userId })~"'" %}
+                                          <tr class="accreditation-item {% if user.sellerStatus == 'Unaccredited' %}unaccredited{% endif %}" data-fullname="{{ user.fullName }}" data-email="{{ user.email }}" data-contactnumber="{{ user.contactNumber }}">
+                                              <td {{ onclick }}>{{ user.fullName }}</td>
+                                              <td {{ onclick }}>{{ user.storeName }}</td>
+                                              <td {{ onclick }}>{{ user.sellerStatus }}</td>
+                                              <td {{ onclick }}>{{ user.sellerType|default('Unaccredited') }}</td>
+                                              <td {{ onclick }}>{{ user.resource}}</td>
+                                              <td class="quick-info align-center" id="sample" data-value="{{ user.accreditationApplicationId|default(0) }}">
+                                                  <a href="javascript:void(0);" class="ui action button tiny gray"><span class="icon-list-view"></span></a>
+                                                  <ul class="ui popup message hidden">
+                                                      {% set image = user.user.primaryImage %}
+                                                      {% if image %}
+                                                          <li class="photo"><img src="{{ asset(image.imageLocation, 'user') }}"></li>
+                                                      {% endif %}
+                                                      <li><strong>Name:</strong>{{ user.fullName }}</li>
+                                                      <li><strong>Phone:</strong>{{ user.contactNumber }}</li>
+                                                      <li><strong>Email:</strong>{{ user.email }}</li>
+                                                  </ul>
+                                              </td>
+                                          </tr>
+                                      {% endfor %}
+                                  </table>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+            <!-- Bottom Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-blank">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: accreditationApplications.count, perPage: pageLimit}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/accreditation-application.js"
+    "js/src/backend/accreditation-application.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

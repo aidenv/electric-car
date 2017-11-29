@@ -1,0 +1,113 @@
+
+yilinker_merchant_user_affiliate_landing_page_old:
+    path: /affiliate-program
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: user_affiliate_landing_page
+        permanent: true
+
+
+yilinker_merchant_user_affiliate_pages_old:
+    path: /affiliate-program/{segment}
+    defaults:
+        path: /
+        _controller: YilinkerMerchantBundle:Redirect:redirect
+        host_redirect: %affiliate_hostname%
+
+default:
+    path: /
+    defaults: { _controller: YilinkerMerchantBundle:User:loginRender }
+    methods: [GET]
+
+user_merchant_logout:
+    path: /logout
+
+user_merchant_authenticate:
+    path: /user/authenticate
+
+user_merchant_login:
+    path: /login
+    defaults: { _controller: YilinkerMerchantBundle:User:loginRender }
+
+user_merchant_register:
+    path: /register
+    defaults: { _controller: YilinkerMerchantBundle:User:loginRender, tab:register }
+
+user_forgot_password_request:
+    path: /forgot-password-request
+    defaults: { _controller: YilinkerMerchantBundle:User:loginRender }
+
+user_merchant_get_image:
+    path: /merchant/get-user-image
+    defaults: { _controller: YilinkerMerchantBundle:User:getMerchantImage }
+
+user_merchant_registration:
+    path: /register/add
+    defaults: { _controller: YilinkerMerchantBundle:User:registerUser }
+    methods: [POST]
+
+user_reset_password_verification_code:
+    path: /reset-password/verification-code
+    defaults: { _controller: YilinkerMerchantBundle:User:resetPasswordVerificationCode }
+
+user_reset_password:
+    path: /reset-password
+    defaults: { _controller: YilinkerMerchantBundle:User:resetPassword }
+
+user_confirm_reset_password:
+    path: /confirm-reset-password
+    defaults: { _controller: YilinkerMerchantBundle:User:confirmResetPassword }
+
+merchant_account_information:
+    path: /dashboard/account-information
+    defaults: { _controller: YilinkerMerchantBundle:User:accountInformation }
+
+user_store_information:
+    path: /dashboard/store-information
+    defaults: { _controller: YilinkerMerchantBundle:User:storeInformation }
+
+user_store_information_submit_store_categories:
+    path: /dashboard/store-information/submit-store-categories
+    defaults: { _controller: YilinkerMerchantBundle:User:submitStoreCategory }
+    methods: [POST]
+
+user_update_info:
+    path: /merchant/updateUserInfo
+    defaults: { _controller: YilinkerMerchantBundle:Api\UserApi:updateUserInfo }
+    methods: [POST]
+
+user_share_via_email:
+    path: /merchant/shareViaEmail
+    defaults: { _controller: YilinkerMerchantBundle:User:shareViaEmail }
+    methods: [POST]
+
+user_update_referrer:
+    path: /update-user-referrer
+    defaults : { _controller: YilinkerMerchantBundle:User:processUserReferrer }
+
+user_affiliate_proccess_accreditation_information:
+    path: /update-affiliate-accreditation-information
+    defaults: { _controller: YilinkerMerchantBundle:User:processAffiliateAccreditationInformation }
+    methods: [POST]
+
+user_affiliate_proccess_legal_document:
+    path: /update-affiliate-legal-document
+    defaults: { _controller: YilinkerMerchantBundle:User:processAffiliateAccreditationLegalDocument }
+    methods: [POST]
+
+user_add:
+    path: /user/register
+
+user_frontend_store:
+    path: /{slug}
+    defaults: { slug: '' }
+
+user_frontend_register:
+    path: /register
+
+user_set_cookie:
+    path: /set-cookie/{referralCode}
+    defaults: { _controller: YilinkerMerchantBundle:User:setCookie }
+
+frontend_privacy_policy:
+    path: /privacy-policy

@@ -1,0 +1,302 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Transaction Invoice: {{ order.invoiceNumber }}
+{% endblock %}
+
+{% block dashboard_stylesheets %}
+{% endblock %}
+
+{% block dashboard_body %}
+        <div class="dashboard-body-container white">
+            <div class="dashboard-submenu-wrapper">
+                <div class="dashboard-submenu-container">
+                    <a href="{{ path('dashboard_transaction') }}" class="button basic-default button-rounded-side no-margin">
+                      <i class="icon icon-arrow-short-left icon-lg ">
+                      </i> Go Back
+                    </a>
+                </div>
+            </div>
+            <div class="dashboard-component top">
+                <div class="component-content">
+                    <h5 class="light-color light">Transaction Number</h5>
+                    <h3 class="semi-bold no-margin">{{ order.invoiceNumber }}</h3>
+                </div>
+            </div>
+
+            <!--Details-->
+            <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Details</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span class="detail-name">Status: </span>
+                                    <span class="detail-value bold">
+                                        <div class="status-container">
+                                            <span class="badge light
+                                             {% if order.orderStatus.orderStatusId ==
+                                                 constant('Yilinker\\Bundle\\CoreBundle\\Entity\\UserOrder::ORDER_STATUS_PAYMENT_CONFIRMED')
+                                             %}
+                                                 blue
+                                             {% else %}
+                                                 transparent
+                                             {% endif %}
+                                            ">
+                                                {{ order.orderStatus.name }}
+                                            </span>
+                                        </div>
+                                    </span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="detail-name">Payment Type: </span>
+                                    <span class="detail-value bold">{{ order.paymentMethod.name }} </span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="detail-name">Date Created: </span>
+                                    <span class="detail-value bold">{{ order.dateAdded|date('F j, Y') }}</span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="detail-name">Total Quantity: </span>
+                                    <span class="detail-value bold">x {{ order.totalProductQuantity }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span class="detail-name">Total Product Cost: </span>
+                                    <span class="detail-value bold">
+                                        P {{ (order.totalPrice(app.user) - order.handlingFee(app.user))|number_format(2, '.', ',') }}
+                                    </span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="detail-name">Total Shipping Fee: </span>
+                                    <span class="detail-value bold">
+                                      {% if order.handlingFee(app.user) == 0 %}
+                                          Free Shipping
+                                      {% else %}
+                                          P {{ order.handlingFee(app.user)|number_format(2, '.', ',') }}
+                                      {% endif %}
+                                    </span>
+                                </div>
+                                <div class="col-md-12">
+                                    <span class="detail-name">Total Cost: </span>
+                                        <span class="detail-value bold"><span class="large-font">
+                                            P {{ order.totalPrice(app.user)|number_format(2, '.', ',') }}
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--Product List-->
+            <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Product List</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    {% for orderProduct in order.orderProducts(app.user) %}
+                         <div class="transaction-product">
+                            <table width="100%" class="table-transaction-product">
+                                <tbody>
+                                    <tr>
+                                        <td class="td-product-image-list" width="150" valign="top">
+                                            <div class="image-holder image-product">
+                                                {% if orderProduct.discount > 0  %}
+                                                <span class="discount pin">{{orderProduct.discount}}% off</span>
+                                                {% endif %}
+                                                <img src="{{ asset(orderProduct.imageLocation, 'product') }}" class="img-auto-place">
+                                            </div>
+                                        </td>
+                                        <td class="td-product-meta" valign="top">
+                                            <div class="product-meta">
+                                                <div class="basic-name">
+                                                    <span class="name">
+                                                        {{ orderProduct.productName }}
+                                                    </span>
+                                                </div>
+                                                <div class="basic-detail">
+                                                   <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="table-display">
+                                                                <span class="detail-name" style="width: 10px;">SKU: </span>
+                                                                <span class="detail-value bold" width="90%" style="max-width: 120px;">{{ orderProduct.sku }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="detail-name">Status: </span>
+                                                            <span class="detail-value">
+                                                                <span class="badge transparent">{{ orderProduct.orderProductStatus ? orderProduct.orderProductStatus.name: '' }}</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="detail-name">Details:</span>
+                                                            <span class="detail-value bold">
+                                                            {% set attributes = orderProduct.attributes|json_decode|cast_to_array %}
+                                                            {% if orderProduct.attributes and attributes|length > 0  %}
+                                                                {% for attribute in attributes  %}
+                                                                    <span class="detail-attribute">
+                                                                        {{ attribute[1] }}
+                                                                    </span>
+                                                                {% endfor %}
+                                                            {% else %}
+                                                                N/A
+                                                            {% endif %}
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="detail-name">Quantity:</span>
+                                                            <span class="detail-value bold">x{{ orderProduct.quantity }}</span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="detail-name">Product Price:</span>
+                                                            <span class="detail-value bold">P {{ orderProduct.unitPrice|number_format(2, '.', ',')}}</span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="detail-name">Condition:</span>
+                                                            <span class="detail-value bold">{{ orderProduct.condition ? orderProduct.condition.name: '' }}</span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="detail-name">Total Price:</span>
+                                                            <span class="detail-value bold purple-color large-font">P {{ orderProduct.totalPrice|number_format(2, '.', ',')}}</span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="table-display">
+                                                                <span class="detail-name" style="width: 10px;">Brand: </span>
+                                                                <span class="detail-value bold" width="90%" style="max-width: 120px;">
+                                                                    {% if orderProduct.brandName == "" %}
+                                                                         {{ orderProduct.brand ? orderProduct.brand.name: 'N/A' }}
+                                                                    {% else %}
+                                                                          {{ orderProduct.brandName }}
+                                                                    {% endif %}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    {% endfor %}
+            </div>
+            </div>
+
+            <!--Consignee-->
+            {% if app.user.store.isAffiliate == false %}
+
+            <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Consignee</span>
+                        {%
+                            if
+                                order.buyer.userType != constant('Yilinker\\Bundle\\CoreBundle\\Entity\\User::USER_TYPE_GUEST')
+                            and
+                                app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT')
+                        %}
+                            <button class="button basic-purple button-rounded-side small uppercase pull-right send-message-trigger" data-id="{{ order.buyer.slug }}">
+                                Message
+                            </button>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <table class="table-details">
+                                            <tbody>
+                                                <tr>
+                                                    <td valign="top">Consignee: </td>
+                                                    <td valign="top">
+                                                        <span class="bold">
+                                                            {%
+                                                                if order.consigneeName is not same as(null) and
+                                                                order.consigneeName is not same as("")
+                                                            %}
+                                                                {{ order.consigneeName }}
+                                                            {% else %}
+                                                                {{ order.buyer.fullName }}
+                                                            {% endif %}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">Address: </td>
+                                                    <td valign="top">
+                                                      <span class="bold">
+                                                        {{ order.address }}
+                                                      </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <table class="table-details">
+                                            <tbody>
+                                                <tr>
+                                                    <td valign="top">Contact Number: </td>
+                                                    <td valign="top">
+                                                        <span class="bold">
+                                                            {%
+                                                                if order.consigneeContactNumber is not same as(null) and
+                                                                order.consigneeContactNumber is not same as("")
+                                                            %}
+                                                                {{ order.consigneeContactNumber }}
+                                                            {% else %}
+                                                                {{ order.buyer.contactNumber }}
+                                                            {% endif %}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{ render(controller('YilinkerCoreBundle:Order:deliveryLog', {order: order.orderId} )) }}
+            {% endif %}
+
+            <div class="dashboard-component dashboard-component-footer gray align-center">
+            </div>
+        </div>
+
+        {{ render(controller('YilinkerCoreBundle:Message:renderMessageModal')) }}
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/bower/checkbox.min.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/order-pickup.js') }}"></script>
+    <script src="{{ asset('js/bower/bootstrap-datepicker.min.js') }}"></script>
+{% endblock %}

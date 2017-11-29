@@ -1,0 +1,39 @@
+<div class="dashboard-component top">
+    <div class="component-content">
+    {% for date, activities in timeline %}
+        <table class="table table-activity-log">
+            <tr>
+                <td valign="top" align="center" class="td-time uppercase">
+                    <h4 class="light no-margin">{{ date|date('l') }}</h4>
+                    <h5 class="light no-margin">{{ date }}</h5>
+                </td>
+                <td rowspan="2">
+                    <div class="segment">
+                        <table class="table table-log-content">
+                            {% for activity in activities %}
+                                {{ activity_log(activity) }}
+                            {% endfor %}
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="td-vertical-line">
+                    <div class="vertical-line">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    {% else %}
+        <div class="align-center">
+            <h3 class="ui header">
+                <i class="icon icon-home"></i>
+                <div class="content">
+                    You have no activities to display.
+                    <div class="sub-header mrg-top-10"></div>
+                </div>
+            </h3>
+        </div>
+    {% endfor %}
+    </div>
+</div>

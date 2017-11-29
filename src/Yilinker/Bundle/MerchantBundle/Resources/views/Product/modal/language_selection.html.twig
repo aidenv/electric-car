@@ -1,0 +1,51 @@
+<!--Start of modal add language-->
+<div class="ui modal coupled-remove small add-language-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">Add Language Translation</h4>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="image-holder image-square">
+                        <img src="http://placehold.it/500x500/d35400/ffffff" alt="Product Image" class="img-auto-place">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h3 class="mrg-top-10" data-title></h3>
+                    <p class="light-color" data-description></p>
+                    <div class="mrg-top-10">
+                        <b>Available Language : </b>
+                        <div data-countries class="mrg-top-10">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 align-right">
+                    <p class="bold mrg-top-10">Add Language: </p>
+                </div>
+                <div class="col-md-8">
+                    <select data-language-selection data-autocomplete="{{ path('autocomplete_languages') }}" class="form-ui ui inverted search">
+                        <option value="">Select language here</option>
+                        {% for language in languages %}
+                            <option value="{{ language.code|lower }}">
+                                {{ language.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="button gray close">
+            Back
+        </button>
+        <button data-add-language class="button blue">
+            Add
+        </button>
+    </div>
+</div>
+<!--End of modal add language-->

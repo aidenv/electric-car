@@ -1,0 +1,281 @@
+{% extends 'YilinkerMerchantBundle:Base:base.html.twig' %}
+{% block title %}
+    YiLinker Affiliate
+{% endblock %}
+
+{% block stylesheets %}
+    <style type="text/css">
+    .navbar {
+        display: none
+    }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper affiliate">
+        <div class="segment first" id="home" style="background: url({{ asset('images/affiliate/background1.jpg') }})">
+            <header>
+                <div class="header-wrapper">
+                    <h2 class="logo">
+                        <a data-scroll href="#home">
+                            <img src="{{ asset('images/logo-affiliate-inverted.png') }}"
+                                 alt="Yilinker Affiliate"
+                                 class="logo logo-main">
+                            <img src="{{ asset('images/logo-affiliate.png') }}"
+                                 alt="Yilinker Affiliate"
+                                 class="logo-inverted">
+                        </a>
+                    </h2>
+                    <div class="nav"><span class="button-label"> Already a member? </span><a href="{{ url('user_affiliate_login') }}" class="sign-in-button">Sign In</a></div>
+                </div>
+            </header>
+            <div class="content">
+                <h1>
+                    Earn up to 60% commission online  with YiLinker
+                </h1>
+                <h4>
+                    <a href="{{ url('user_affiliate_register') }}" class="button blue">
+                        Join Now
+                    </a>
+                </h4>
+                <h5>
+                    Free to join! No cash payment needed.
+                </h5>
+                <div class="video-thumbnail-container image-holder video-modal-trigger">
+                    <img src="{{ asset('images/affiliate/video-thumbnail.png') }}" class="img-auto-place" alt="Yilinker"/>
+                    {<div class="image-overlay"></div>
+                    <img src="{{ asset('images/affiliate/video-thumbnail-play-button.png') }}" class="img-play-button img-auto-place" alt="Play"/>
+                </div>
+            </div>
+            <div class="scroll-down">
+                <a class="trigger" data-scroll href="#the-question">
+                    <span>
+                        Scroll down for <br/> more info
+                    </span><br/>
+                    <h3>
+                        &darr;
+                    </h3>
+                </a>
+            </div>
+        </div>
+        <div class="stick-side-menu-wrapper">
+            <div class="segment white second" id="the-question">
+                <div class="scroll-spy-pager">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a data-scroll href="#the-question" data-href="#the-question">The Question <i class="icon">&#9679;</i></a>
+                        </li>
+                        <li>
+                            <a data-scroll href="#benefits" data-href="#benefits">Benefits <i class="icon">&#9679;</i></a>
+                        </li>
+                        <li>
+                            <a data-scroll href="#system" data-href="#system">System <i class="icon">&#9679;</i></a>
+                        </li>
+                        <li>
+                            <a data-scroll href="#support" data-href="#support">Support <i class="icon">&#9679;</i></a>
+                        </li>
+                    </ul>
+                    <a href="{{ url('user_affiliate_register') }}" class="button large blue">
+                        Join now
+                    </a>
+                </div>
+                <div class="content">
+                    <div class="content-left">
+                        <h1 data-sr="wait 0.25s, then enter left and move 40px over 1s">Want to start-up a business without any investment? Looking for passive income?</h1>
+                        <div data-sr="wait 0.5s, then enter left and move 40px over 1s">
+                            <h4>
+                                Yilinker Affiliate Program helps and encourages students, housewives, existing employees and everyone who are interested on how to monetize their time on earning extra income without affecting their daily routine of activities.
+                                <br/><br/>
+                                For every purchase made through the created affiliate store, they can generate as much as 60% revenue share based on the mark-up price of the sold item. Additional 5% share will be added if they refer a new member or affiliate.
+                                <br/><br/>
+                                <span class="large-font">
+                                    For more details, kindly contact our Affiliate Support Service at:
+                                    <span class="block mrg-top-5">
+                                        09288691787 / 09772474468 / 8695876 loc 120
+                                    </span>
+                                </span>
+                                <span class="block mrg-top-10">
+                                    <i class="icon-envelope"></i>
+                                    <a href="mailto:affiliate@yilinker.ph" class="sky-blue-color">affiliate@yilinker.ph</a>
+                                </span>
+                                 <span class="block mrg-top-5">
+                                    <i class="icon-link"></i>
+                                    <a href="https://www.yilinker.com/" class="sky-blue-color">YiLinker Philippines</a>
+                                </span>
+                                <span class="block mrg-top-5">
+                                    <i class="icon-facebook"></i>
+                                    <a href="https://www.facebook.com/YiLinkerAffiliate" class="sky-blue-color">facebook.com/YiLinkerAffiliate/</a>
+                                </span>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <img src="{{ asset('images/affiliate/background2-girl.png') }}"
+                             alt="The Question"
+                             data-sr="wait 0.1s, then enter right and move 40px over 1s">
+                    </div>
+                </div>
+            </div>
+            <div class="segment third" id="benefits">
+                <div class="content">
+                    <img src="{{ asset('images/affiliate/background3-laptop.png') }}"
+                         alt="Laptop"
+                         class="img-full-width"
+                         data-sr="wait 0.2s, then enter top and move 40px over 1s">
+                    <img src="{{ asset('images/affiliate/background3-phone.png') }}"
+                         alt="Phone"
+                         class="img-full-width"
+                         data-sr="wait 0.2s, then enter top and move 40px over 1s">
+                    <img src="{{ asset('images/affiliate/background3-scarf.png') }}"
+                         alt="Scarf"
+                         class="img-full-width"
+                         data-sr="wait 0.2s, then enter top and move 40px over 1s">
+                    <img src="{{ asset('images/affiliate/background3-makeup.png') }}"
+                         alt="Makeup"
+                         class="img-full-width"
+                         data-sr="wait 0.2s, then enter left and move 40px over 1s">
+                    <img src="{{ asset('images/affiliate/background3-camera.png') }}"
+                         alt="Camera"
+                         class="img-full-width"
+                         data-sr="wait 0.2s, then enter left and move 40px over 1s">
+                    <div class="list-perks">
+                        <ul class="list-unstyled">
+                            <li data-sr="wait 0.8s, then enter top and move 40px over 1s">
+                                <div class="table-cell">
+                                    &#10004;
+                                </div>
+                                <div class="table-cell">
+                                    Free to join
+                                </div>
+                            </li>
+                            <li data-sr="wait 0.9s, then enter top and move 40px over 1s">
+                                <div class="table-cell">
+                                    &#10004;
+                                </div>
+                                <div class="table-cell">
+                                    No cash payment needed.
+                                </div>
+                            </li>
+                            <li data-sr="wait 1s, then enter top and move 40px over 1s">
+                                <div class="table-cell">
+                                    &#10004;
+                                </div>
+                                <div class="table-cell">
+                                    Exclusive Discount Vouchers
+                                </div>
+                            </li>
+                            <li data-sr="wait 1.1s, then enter top and move 40px over 1s">
+                                <div class="table-cell">
+                                    &#10004;
+                                </div>
+                                <div class="table-cell">
+                                    Commission: 60% Revenue share based on mark-up price + 5% share for affiliate referral
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="segment fourth" id="system">
+                <div class="content">
+                     <img src="{{ asset('images/affiliate/background4-website.png') }}"
+                         alt="Yilinker"
+                         class="img-full-width"
+                         data-sr="wait 0.6s, then enter top and move 40px over 1s">
+
+                    <div class="list-perks">
+                        <ul class="list-unstyled">
+                            <li data-sr="wait 0.8s, then enter bottom and move 40px over 1s">
+                                <div class="table-cell">
+                                    &#10004;
+                                </div>
+                                <div class="table-cell">
+                                    User-friendly dashboard
+                                </div>
+                            </li>
+                            <li data-sr="wait 0.9s, then enter bottom and move 40px over 1s">
+                                <div class="table-cell">
+                                    &#10004;
+                                </div>
+                                <div class="table-cell">
+                                    Do It Yourself Customization
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="segment fifth" id="support">
+                <div class="content">
+                     <img src="{{ asset('images/affiliate/background5-csr.png') }}"
+                         alt="Yilinker"
+                         class="img-full-width"
+                         data-sr="wait 0.6s, over 1s">
+                    <div class="list-perks">
+                        <div class="perk-title bold" data-sr="wait 0.3s, then enter top and move 40px over 1s">
+                            Quick support from our<br/>
+                            Affiliate Marketing Team!
+                        </div>
+                        <ul class="list-unstyled">
+                            <li data-sr="wait 0.4s, then enter top and move 40px over 1s">
+                                <div class="table-cell">
+                                    &#10004;
+                                </div>
+                                <div class="table-cell">
+                                    24/7 Support
+                                </div>
+                            </li>
+                            <li data-sr="wait 0.5s, then enter top and move 40px over 1s">
+                                <div class="table-cell">
+                                    &#10004;
+                                </div>
+                                <div class="table-cell">
+                                    Professional Advice
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="segment sixth">
+             <div class="content" style="background: url({{ asset('images/affiliate/background6-footer.png') }}">
+                    <div class="text">
+                        <h1 class="align-center">
+                            Be part of the <br/>
+                            revolution now
+                        </h1>
+                        <h4 class="align-center">
+                            <a href="{{ url('user_affiliate_register') }}" class="button blue">
+                                Join Now
+                            </a>
+                        </h4>
+                        <h5 class="align-center">
+                            Free to join! No cash payment needed.
+                        </h5>
+                    </div>
+            </div>
+            <div class="footer-copyright">
+                Copyright &copy; 2015 YiLinker Inc. All rights reserved.
+            </div>
+        </div>
+    </div>
+
+    <div class="ui basic modal video-modal">
+        <i class="close icon icon-times"></i>
+        <div class="video-me" style="width: 100%; position: relative;">
+            <div class="video-wrapper">
+                <!-- Copy & Pasted from YouTube -->
+                <iframe class="video" src="https://www.youtube.com/embed/kG07xdqmqXo" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/bower/smooth-scroll.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bower/scrollReveal.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/merchant/affiliate-landing-page.js') }}"></script>
+{% endblock %}

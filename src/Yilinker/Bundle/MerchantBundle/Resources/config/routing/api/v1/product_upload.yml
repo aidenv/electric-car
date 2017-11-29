@@ -1,0 +1,19 @@
+api_product_upload:
+    path: /upload
+    defaults: { _controller: YilinkerMerchantBundle:Api/ProductUploadApi:productUpload }
+    methods: [POST]
+
+api_product_upload_details:
+    path: /upload-details
+    defaults: { _controller: YilinkerMerchantBundle:Api/ProductUploadApi:getProductEditDetails }
+    methods: [GET]
+
+api_product_edit:
+    path: /edit
+    defaults: { _controller: YilinkerMerchantBundle:Api/ProductUploadApi:updateProduct }
+    methods: [POST]
+
+api_product_upload_draft:
+    path: /upload/draft
+    defaults: { _controller: YilinkerMerchantBundle:Api/ProductUploadApi:productUploadDraft }
+    methods: [POST]

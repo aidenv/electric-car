@@ -1,0 +1,900 @@
+"Access Denied";"Accesso negato"
+"click here";"clicca qui"
+Accreditation;Accreditamento
+"Business Information";"Informazioni Commerciali"
+"Seller Type";"Tipo Venditore"
+"Owner Name";"Nome Proprietario"
+"Store Name";"Nome Negozio"
+"Primary Address";"Indirizzo Principale"
+"Other Address";"Altro Indirizzo"
+"Contact Number";"Numero di Contatto"
+"Application Status";"Stato Richiesta"
+You;Tu
+Submit;Invia
+"Mark as Complete";"Segna come Completo"
+"Mark as Incomplete";"Segna come Incompleto"
+"Bank Information";"Infomazioni Banca"
+"Bank Name";"Nome Banca"
+"Account Title";"Titolo Conto"
+"Account Name";"Nome Conto"
+"Account Number";"Numero Conto"
+"Legal Files";"File Legali"
+File;File 
+"Date Uploaded";"Data Caricata"
+Remarks;Osservazioni
+"DTI/SEC Permit";"Permesso DTI/SEC"
+"Mayor's Permit";"Permesso Maggiore"
+"BIR Permit";"Permesso BIR"
+"FORM MA11501 Permit";"Permesso FORM MA11501 "
+Others;Altri
+SSS;SSS
+"PAG IBIG";"PAG IBIG"
+Postal;Postale
+Passport;Passaporto
+"Driver's License";"Patente di Guida"
+PRC;PRC
+"Voter's ID";"Documento d'Identità del Votante"
+"School ID";"Documento d'Identità Scolastico"
+TIN;TIN
+"Valid ID";"Documento d'Identità valido"
+"Download this file";"Scarica questo file"
+"Update Accreditation Type";"Aggiorna Tipo Accreditamento"
+Okay;Ok
+Accreditations;Accrediti
+"Select Status";"Seleziona Stato"
+Search;Cerca
+Status;Stato
+"Quick Info";"Informazioni Rapide"
+Name:;Nome:
+Phone:;Telefono:
+Email:;Email:
+"Affiliate Accreditation";"Accreditamento Affiliato"
+"Personal Information";"Informazioni Personali"
+"Identification Document";"Documento d'Identità"
+Username;Nome utente
+Password;Password
+"Sign In";"Accedi"
+"Manage Administrator";"Gestisci Amministratore"
+"Register Administrator";"Registra Amministratore"
+"Enter Username here";"Inserisci Username qui"
+"Enter Password here";"Inserisci Password qui"
+"Change Password";"Cambia Password"
+"Confirm Password";"Conferma Password"
+"Enter Confirm Password here";"Inserisci Conferma Password qui"
+"First Name";"Nome"
+"Enter First name here";"Inserisci Nome qui"
+"Last Name";"Cognome"
+"Enter Last name here";"Inserisci Cognome qui"
+"User Role";"Ruolo Utente"
+"Select Role";"Seleziona Ruolo"
+Register;Registra
+"Manage Roles";"Gestisci Ruoli"
+ID;ID
+Fullname;Nome Completo
+Role;Ruolo
+Activation;Attivazione
+"Enter your new password here";"Inserisci la tua nuova password qui"
+"Confirm your new password here";"Conferma la tua nuova password qui"
+Cancel;Cancella
+"Manually Created Accounts";"Conti Creati Manualmente"
+"Number of Manual Accounts: 227";"Numero di Conti Manuali: 227"
+"Search By Name / ID No. / Business Name";"Cerca per Nome / N. ID / Nome Commerciale"
+"Accreditation Status:";"Stato Accreditamento:"
+Unaccredited;Non Accreditati
+Accredited;Accreditati
+All;Tutti
+"Created By:";"Creato da:"
+--;--
+"George Paulino";"George Paulino"
+"Ryan gVay";"Ryan gVay"
+KarlDub;KarlDub
+"Kevin the Nightstalker";"Kevin the Nightstalker"
+"Account Status:";"Stato Conto:"
+Activated;Attivato
+Locked;Bloccato
+"Create Account";"Crea Account"
+"Customer ID";"ID Cliente"
+"Business Name";"Nome Commerciale"
+192;192
+"Chris Bosh George";"Chris Bosh George"
+"Burger Machine";"Burger Machine"
+Seller;Venditore
+"Ronald McDonald Duck";"Ronald McDonald Duck"
+"McDonalds Fastfood";"McDonalds Fastfood"
+Mechant;Mechant
+"Casper Daprenlygosh";"Casper Daprenlygosh"
+"Haus of Honor";"Haus of Honor"
+Hybrid;Hybrid
+"Manual Creation List";"Lista Creazione Manuale"
+"Manual Creation Details";"Dettagli Creazione Manuale"
+"Account Details";"Dettagli Conto"
+"Account Notes";"Note Conto"
+"Basic Information";"Informazioni Base"
+Affiliate;Affiliato
+"Email Address";"Indirizzo Email"
+"Mobile Number";"Cellulare"
+"Address Information";"Informazioni Indirizzo"
+Addresses;Indirizzi
+"&nbsp";"&nbsp"
+Home;Casa
+"1234 Building Street 2 Street Subdivision Metro Manila Manila Barangay 2 ,566056";"1234 Building Street 2 Street Subdivision Metro Manila Manila Barangay 2 ,566056"
+"Bank Accounts";"Conti Bancari"
+2130909455677;2130909455677
+"George Georgia";"George Georgia"
+"Metrobank of the Borneo";"Metrobank of the Borneo"
+"Accreditation Option";"Opzione di Accreditamento"
+"Accreditation Level";"Livello Accreditamento"
+"Level 1";"Livello 1"
+"Level 2";"Livello 2"
+"Level 3";"Livello 3"
+"Level 4";"Livello 4"
+"Activate this Account?";"Attivare questo Conto?"
+Activate;Attiva
+"This Account is Active";"Questo Conto è Attivo"
+"If you wish to deactivate this account, click";"Se desideri disattivare questo conto, clicca"
+"Deactivate Now";"Disattiva Ora"
+"Temporary Password";"Password Temporanea"
+"System Information";"Informazioni di Sistema"
+"Created By";"Creato Da"
+"Karl Cases";"Karl Cases"
+", 10/22/16 4:43 am";", 10/22/16 4:43"
+"Last Modified By";"Ultima Modifica di"
+"Save Changes";"Salva Modifiche"
+Notes;Note
+Title;Titolo
+Message;Messaggio
+Actions;Azioni
+"About Paul Edward Borja and the Spaghetti";"About Paul Edward Borja and the Spaghetti"
+"Last Modified: 10/22/16 4:51 am";"Ultima Modifica: 10/22/16 4:51"
+View;Vedi
+"New Notes";"Nuovi Note"
+Placeholder;Segnaposto
+"Enter product description here";"Inserisci qui la descrizione del prodotto"
+Save;Salva
+"Bank Account";"Conto Bancario"
+"Enter your bank account title here";"Inserisci qui il titolo del tuo conto bancario"
+"Enter your bank account number here";"Inserisci qui il numero del tuo conto bancario"
+"Enter your bank account name here";"Inserisci qui il nome del tuo conto bancario"
+"Are you sure you want to delete this bank account";"Sei sicuro di voler eliminare questo conto bancario"
+Delete;Elimina
+Log-out;Logout
+English;Inglese
+Chinese;Cinese
+Canada;Canada
+"Transactions List";"Lista Transazioni"
+"Seller Pay-out";"Venditore Pay-out"
+"Buyer Refund";"Rimborso Compratore"
+"Buyer Refund History";"Storico Rimborso Compratore"
+"Promo List";"Lista Promo"
+"Seller Accreditation";"Accreditamento Venditore"
+"Inhouse Products";"Prodotti Inhouse"
+"Buyer List";"Lista Compratori"
+"Seller/Affiliate List";"Lista Venditore / Affiliato"
+"Product Listings";"Schede Prodotto"
+Vouchers;Buoni
+"Request Pay-Outs List";"Richiesta Lista Pay-out"
+"Batch Pay-Out List";"Lista Batch Pay-Out "
+Product;Prodotto
+Notification;Notifica
+"Mobile Web view (CMS)";"Visualizzazione da dispositivo mobile (CMS)"
+"Daily Present";"Presente ogni giorno"
+"Custom Messages";"Messaggi Personalizzati"
+"Message here";"Messaggio qui"
+"Inner Banners";"Banner Interni"
+"Upload Banner";"Carica Banner"
+"Select your Banner Permit file from your computer";"Seleziona il tuo file Permesso Banner dal tuo computer"
+"Compatible files: JPEG and PNG";"File compatibili: JPEG e PNG"
+"Banner URL";"URL Banner"
+"Product CMS";"CMS Prodotto"
+"Created Date/Time";"Data / Ora Creazione"
+Creator;Creatore
+Type;Tipo
+"12/31/16, 3:00pm";"12/31/16, 15:00"
+"George Paul";"George Paul"
+"Homepage Row";"Fila Homepage"
+"Hot Items";"Elementi Principali"
+150;150
+"Queued @ 12:00am";"In coda alle 12:00"
+"Custom Page";"Pagina Personalizzata"
+"Shop Wise";"Negozio"
+Create;Crea
+"Create Product CMS";"Crea Prodotto CMS"
+"Product Title";"Titolo Prodotto"
+"Enter Your Product Title";"Inserisci il Tuo Titolo di Prodotto"
+"Upload Featured Banner (Homepage)";"Carica Banner Presentato"
+"Upload Featured Banners (Homepage) here";"Carica qui Banner Presentato (Homepage)"
+"Compatible files: JPEG, PNG and PDF";"File Compatibili: JPEG, PNG e PDF"
+"Paste Featured Product (Homepage) Link here";"Incolla il Link del Prodotto Consigliato (Homepage) qui"
+Image;Immagine
+"Upload Featured Banner (Inner-Page)";"Carica Banner Consigliato (Pagina Interna)"
+"Upload Featured Banners (Inner-Page) here";"Carica Banner Consigliati (Pagina Interna) qui"
+"Paste Product Link (Inner-Page) here";"Incolla Link Prodotto (Pagina Interna) qui"
+"Product List";"Lista Prodotto"
+Clear;Cancella
+"Add Products";"Aggiungi Prodotti"
+"Date Created";"Data di Creazione"
+"Product Name";"Nome Prodotto"
+"Active Promo";"Promozione Attiva"
+"Original Price";"Prezzo Originale"
+"Discounted Price";"Prezzo Scontato"
+"Available Stock";"Stock Disponibile"
+"Product Sold";"Prodotto Venduto"
+12/16/16;12/16/16
+0.2;0.2
+"PhP 21230";"PhP 21230"
+"PhP 18930";"PhP 18930"
+2003;2003
+122;122
+"By Checking this box";"Selezionando questa casella"
+"Start the Process IMMEDIATELY";"Avvierai IMMEDIATAMENTE il Processo"
+"Enter product list here";"Inserisci lista prodotto qui"
+"Price Range:";"Fascia di Prezzo:"
+Brands:;Marchi:
+"Sort By:";"Ordina Per:"
+Alphabetical;Alfabetico
+"New to Old";"Dal più Recente al più Vecchio"
+"Old to New";"Dal più Vecchio al più Recente"
+Relevance;Rilevanza
+Categories:;Categorie:
+Status:;Stato:
+Active;Attivo
+Inactive;Inattivo
+Manufacturer:;Produttore:
+"Please click on the image you want to set as primary";"Fai clic sull'immagine che desideri impostare come principale"
+Primary;Principale
+Check;Verifica
+Error;Errore
+"Remove file";"Rimuovi file"
+SKU;SKU
+Width;Larghezza
+Height;Altezza
+Length;Lunghezza
+Weight;Peso
+Quantity;Quantità
+"Regular Price";"Prezzo Regolare"
+"Shipping fee";"Spese di spedizione"
+"Retail Price";"Prezzo di Vendita al Dettaglio"
+Commission;Commissione
+Date;Data
+"Promo Name";"Nome Promozione"
+"Promo Discount";"Sconto Promozione"
+42716;42716
+"Perfect Purple Pair";"Perfect Purple Pair "
+"Last Edit By";"Ultima Modifica Di"
+"Time Stamp";"Timestamp"
+"Chris Paul George";"Chris Paul George"
+"Upload 5 Photos";"Carica 5 Foto"
+"0.0833333333333333";"0.0833333333333333"
+"Date Range:";"Intervallo di Date:"
+"Start Date";"Data di Inizio"
+"End Date";"Data di Fine"
+"Quantity Sold";"Quantità venduta"
+50;50
+"Export to Excel";"Esporta in Excel"
+"In-House Listings";"Annunci in-House"
+Item;Articolo
+Category;Categoria
+Brand;Marchio
+Brief;Breve
+Details;Dettagli
+Photos;Foto
+Combinations;Combinazioni
+"Reason of Approval";"Motivo di Approvazione"
+Back;Indietro
+"Reason of Rejection";"Motivo del Rifiuto"
+[[Username]];[[Nome utente]]
+Refund;Rimborso
+"Order ID";"ID Ordine"
+"Invoice No";"N. Fattura"
+"Seller ID";"ID Venditore"
+User;Utente
+"Product ID";"ID Prodotto"
+"Order Quantity";"Quantità Ordine"
+"Unit Price";"Prezzo Unitario"
+"Total Amount";"Importo Totale"
+EasyPoint;EasyPoint
+NET;NET
+144;144
+144-2-1503240909;144-2-1503240909
+2;2
+"man of effin steel";"man of effin steel "
+333;333
+"sammmy sam";"sammmy sam "
+1;1
+On-going;In corso
+182;182
+182-12003-1504280105;182-12003-1504280105
+79;79
+warcraft;warcraft
+14;14
+"Paid - Returned";"Pagato - Restituito"
+"Proceed To Refund";"Procedi al Rimborso"
+"History Information";"Informazioni sulla Cronologia"
+"Shipping Price";"Prezzo di Spedizione"
+"Easyshop Charge";"Addebito EasyShop"
+"Payment Method Charge";"Addebito Metodo di Pagamento"
+Easypoints;Easypoint
+Net;Netto
+201-1-1506040106;201-1-1506040106
+sammyboi22_22;sammyboi22_22
+apple;apple
+"History ID";"ID Cronologia"
+State;Stato
+404;404
+"42157.7480787037";"42157.7480787037"
+"Item has not been shipped";"L’articolo non è stato spedito"
+"Reason of Cancellation";"Motivo della Cancellazione"
+Requestor;Richiedente
+"--Select Requestor--";"--Seleziona Richiedente--"
+Buyer;Compratore
+"Type of Reason";"Tipo di Motivo"
+"--Select Reason--";"--Seleziona Motivo--"
+"Edit/Add Category";"Modifica/Aggiungi categoria"
+Name;Nome
+Description;Descrizione
+Keyword;Parola chiave
+"Sort Order";"Ordina"
+"Order Product Id";"Ordina ID prodotto "
+"Shipping Fee";"Spese di Spedizione"
+"Total Price";"Prezzo Totale"
+"Net Price";"Prezzo Netto"
+"Current Tag";"Tag Attuale"
+209;209
+"Order Details";"Dettagli Ordine"
+Sample;Campione
+KD3-38u123pi;KD3-38u123pi
+"YiLinker Charge";"Addebito YiLinker "
+"Order Product ID";"Ordina ID prodotto "
+"Unflag Transaction";"Deseleziona Transazione"
+"Void Transaction";"Annulla Transazione"
+"Apple Watch";"Apple Watch"
+"Short Description";"Breve Descrizione"
+"Full Description";"Descrizione Completa"
+"Jewellery &amp Watches";"Gioielli e Orologi"
+Custom;Personalizza
+"Dimensions &amp Weight";"Dimensioni e Peso"
+"Length (CM)";"Lunghezza (CM)"
+"Width (CM)";"Larghezza (CM)"
+"Weight (KG)";"Peso (KG)"
+"Height (CM)";"Altezza (CM)"
+"Combination Name";"Nome Combinazione"
+10001;10001
+10;10
+Color;Colore
+Blue;Blu
+Size;Misura
+Large;Grande
+Address;Indirizzo
+"asdsadsad, 123 jkhjk, asdsadsad, BF International Village, Las Pinas, Metro Manila, 1213";"asdsadsad, 123 jkhjk, asdsadsad, BF International Village, Las Pinas, Metro Manila, 1213"
+"Generate Code";"Genera Codice"
+477-344-1;477-344-1
+"This account doesnt have any bank information";"Questo conto non dispone di alcuna informazione bancaria"
+Add;Aggiungi
+"My BPI Bank Account";"Il Mio Conto Bancario BPI"
+283713968540781;283713968540781
+"George Macalulo Winston Lee";"George Macalulo Winston Lee"
+BPI;BPI
+Edit;Modifica
+"Bank Account Title";"Titolo Conto Bancario"
+UCPB;UCPB
+"Allied Bank";"Allied Bank"
+"Returned Item Pickup";"Restituito Pickup Articolo"
+Schedule;Pianifica
+02/29/16;02/29/16
+"Day Hour";"Giorno Ora"
+"eq. 1 Am";"eq. 1 Am"
+Why?;Perché?
+"Bank Name:";"Nome Banca:"
+Payout;Payout
+"Buyer ID";"ID Acquirente"
+"Proceed To Payment";"Procedi al Pagamento"
+"Paid - Forwarded";"Pagato - Inoltrato"
+"Shipment Information";"Informazioni sulla Spedizione"
+Courier;Corriere
+"Boy George Delivery";"Consegna Boy George "
+"Date of Shipment";"Data di Spedizione"
+"42095";"42095"
+"Expected Date of Arrival";"Data Prevista di Arrivo"
+"42098";"42098"
+"Tracking Number";"Numero di Tracking"
+PK-235-137-556;PK-235-137-556
+"Missing Courier";"Corriere Mancante"
+"Last updated on 2015-04-06 17:37:55";"Ultimo aggiornamento al 06-04-2015 17.37.55"
+Cancelled;Annullato
+"&#8230";"& #8230"
+Color:;Colore:
+Red;Rosso
+Size:;Misura:
+Samplenation:;Samplenation:
+"Super Duper Ninja Warrior";"Super Duper Ninja Warrior"
+resolved;risolto
+"George Chris Paul";"George Chris Paul"
+"requested items for cancellations";"articoli richiesti per le cancellazioni"
+"Order ID 209: Shoulder Bag";" ID Ordine 209: Borsa a Tracolla"
+"Posted on 12:30 pm, July 21, 2014";"Pubblicato alle 12:30, 21 luglio 2014"
+"Koya Carl";"Koya Carl"
+"Approve Cancellation";"Approva Cancellazione"
+Reject;Rifiuta
+"Select Reason";"Seleziona Motivo"
+"Resolution Center";"Centro Risoluzioni"
+"Disputed Tag Detected!";"Rilevato Tag Disputato!"
+attachments;allegati
+"Proceed to Resolution Center";"Procedi al Centro Risoluzioni"
+"Flagged Tag Detected!";"Rilevato Tag Contrassegnato!"
+Approve;Approva
+"Search By Batch ID/Process By";"Ricerca per ID serie/Processo Di"
+"Grand Batch Amount";"Valore Grande Serie"
+"Batch ID";"ID Serie"
+Count;Conto
+"Process By";"Processo Di"
+Amount;Importo
+Memo;Memo
+Action;Azione
+"Are you sure you want to remove payout?";"Sei sicuro di voler rimuovere il pagamento?"
+Remove;Rimuovi
+"Batch Payout";"Pagamento Serie"
+"Batch Number";"Numero di Serie"
+"Batch Date";"Data Serie"
+"Write your Remarks";"Inserisci le tue Osservazioni"
+"Attach Files";"Allega File"
+"Upload Receipt";"Carica Ricevuta"
+"Transaction Update List";"Lista Aggiornamento Transazione"
+"Search by reference number";"Ricerca per numero di riferimento"
+"Request By";"Richiesta Di"
+Method;Metodo
+Bank;Banca
+"Bank Info / Pay To";"Informazioni Banca / Paga A"
+Charge;Addebito
+"Net Amount";"Importo Netto"
+"Total Batch Amount";"Importo Totale Serie"
+"Are you sure you want to remove file?";"Sei sicuro di voler rimuovere il file?"
+"Are you sure you want to remove payout request?";"Sei sicuro di voler rimuovere la richiesta di pagamento?"
+"Search (requester fullname, requester email, bank name, bank account number, bank account name, reference no.)";"Ricerca (nome completo richiedente, email del richiedente, nome banca, numero di conto bancario, nome conto bancario, n. riferimento)"
+"Order by Date";"Ordina per Data"
+Ascending;Ascendente
+Descending;Discendente
+"Payment Status:";"Stato del Pagamento:"
+"Payment Method";"Metodo di Pagamento"
+"Reference Id";"ID Riferimento"
+"Proceed Batch Pay-Out";"Procedi a Pagamento Serie "
+"For Review";"Per Revisione"
+InActive;Inattivo
+Store:;Negozio:
+Condition;Condizione
+URL;URL
+Videos;Video
+"Reject Remarks";"Respingi Osservazioni"
+"Item Details";"Dettagli Articolo"
+"Shipping Category";"Categoria Spedizione"
+"Store Details";"Memorizza Dettagli"
+"Seller Name";"Nome Venditore"
+"No youtube video";"Nessun video di youtube"
+"Posted on";"Pubblicato il"
+"Send Reject Remark";"Invia Rifiuto Osservazione"
+"Promo Management";"Gestione Promozione"
+"Promo Type";"Tipo di Promozioe"
+"Promo Details";"Dettagli Promozione"
+"Promo is currently Active";"La Promozione è attualmente Attiva"
+Advertisement;Annuncio
+"Discount %";"Sconto %"
+Discount;Sconto
+Start;Inizio
+End;Fine
+"% per hour";"% all'ora"
+"Percent per hour";"Per cento all'ora"
+"Minimum %";"Minimo %"
+"Quantity Required";"Quantità Richiesta"
+"Max Quantity";"Quantità Massima"
+"Countdown Timer is currently Disabled";"Il Timer Conto alla Rovescia è attualmente Disattivato"
+"Yes, Enable the Countdown timer";"Sì, Attiva il timer Conto alla Rovescia"
+"Countdown Timer is Active";"Il Timer Conto alla Rovescia è Attivo"
+"5 :";"5 :"
+days;giorni
+hrs;ore
+min;min
+sec;sec
+"left until the promo ends";"rimasti fino alla fine della promozione"
+"Disabled Countdown Timer";"Disabilita Timer Conto alla Rovescia "
+"Product list";"Lista prodotti"
+"Item Name";"Nome Articolo"
+Price;Prezzo
+"Activate this Promo";"Attiva questa Promozione"
+"Add Item (separated by line break)";"Aggiungi Articolo (separato da interruzione di riga)"
+"Congratulations! This promo has been successfully enabled";"Congratulazioni! Questa promozione è stata attivata con successo"
+Deactivate;Disattiva
+Notifications;Notifiche
+"Search By Title / Message Content";"Ricerca Per Titolo / Contenuto del Messaggio"
+"IOS (Mobile)";"IOS (Mobile)"
+"Andriod (Mobile)";"Android (Mobile)"
+---;---
+"Custom Pages";"Pagine Personalizzate"
+"Product Search";"Ricerca Prodotto"
+Store;Negozio
+"Store Search";"Ricerca Negozio"
+"Send Notification";"Invia Notifica"
+Devices;Dispositivi
+Target;Destinazione
+Sender;Mittente
+"Is Active";"È Attivo"
+"Recipient Device";"Dispositivo del Destinatario"
+"Message (Max : 100)";"Messaggio (Max: 100)"
+Schedule:;Pianificazione:
+"Set Schedule";"Imposta Pianificazione"
+"Is Active?";"È attivo?"
+"Boy George Dako Wewe";"Boy George Dako Wewe"
+"George Haircut Station";"George Haircut Station "
+"479 9th Street West, Menomonee Falls, WI 53051";"479 9th Street West, Menomonee Falls, WI 53051"
+Position;Posizione
+"Manager / Yaya";"Manager / Yaya"
+"Telephone Number";"Numero di Telefono"
+532-2393;532-2393
+"(63) 937-234-1286";"(63) 937-234-1286"
+"International Bank of the World ever!";"International Bank of the World ever!"
+1872-2783-5869;1872-2783-5869
+"File Name";"Nome File"
+414894;414894
+"Accreditation Level 0";"Livello di Accreditamento 0"
+"Accreditation Level 1";"Livello di Accreditamento  1"
+"Accreditation Level 2";"Livello di Accreditamento  2"
+"Accreditation Level 3";"Livello di Accreditamento  3"
+"Accreditation Level 4";"Livello di Accreditamento  4"
+"Accreditation Level 5";"Livello di Accreditamento  5"
+"Columns Container";"Contenitore Colonne"
+"Order Status";"Stato dell'Ordine"
+41984;41984
+"Transaction ID";"ID Transazione"
+"Date of Transaction";"Data Transazione"
+"Type of Payment Method";"Tipo di Metodo di Pagamento"
+201;201
+PPY-1506040106-1;PPY-1506040106-1
+PAID;PAGATO
+"42159.5457291667";"42159.5457291667"
+PESOPAY;PESOPAY
+11;11
+12;12
+"Storename / Username";"Nome negozio / Nome utente"
+From;Da
+To;A
+Storename;Nome negozio
+Email;Email
+"Asia United Bank";"Asia United Bank "
+aaaaa;aaaaa
+bbbbb;bbbbb
+9876545345;9876545345
+9878263787;9878263787
+"Category Listings";"Elenchi Categoria"
+"Main Category";"Categoria Principale"
+"Sub Category";"Sotto Categoria"
+Filters;Filtri
+Slug;Slug
+"10-24-1991 06:30:05";"24/10/1991 06.30.05"
+0;0
+PROMOTIONAL_ITEMS;ARTICOLI_PROMOZIONALI
+"Special Promotional Items";"Articoli Promozionali Speciali"
+"Special Promotional222";"Speciale Promozione222"
+promo-special;speciale-prmozione
+"Contact Buyer";"Contatta il Compratore"
+"Invoice Number";"Numero di Fattura"
+"Buyer Fullname";"Nome Completo del Compratore "
+"Buyer Store Name";"Nome Negozio del Compratore"
+"Buyer Email";"Email Compratore"
+"Transaction Date";"Data Transazione"
+198;198
+PPY-1506020514-1;PPY-1506020514-1
+198-1-1506020514;198-1-1506020514
+"Omaha maria23";"Omaha maria23"
+"42157.7515856481";"42157.7515856481"
+"Contact Seller";"Contatta Venditore"
+"Seller Fullname";"Nome Completo Venditore "
+"Seller Store Name";"Nome Negozio Venditore"
+"Number of Products";"Numero di Prodotti"
+"Seller Email";"Email del Venditore"
+Dashboard;Dashboard
+Products;Prodotti
+Buyers;Compratori
+Sellers;Venditori
+Transactions;Transazioni
+"Sorry, Your database is currently empty";"Siamo spiacenti, il tuo database è attualmente vuoto"
+"Case ID";"ID Caso"
+"Dispute Type";"Tipo Controversia"
+Complainant;Denunciante
+"Date Filed";"Data Archivio"
+email;email
+"Seller Payout";"Pagamento Venditore"
+"Legal Documents";"Documenti Legali"
+"This Account currently Locked";"Questo Conto è attualmente Bloccato"
+"Do you want to Activate it now?";"Vuoi Attivarlo ora?"
+"Yes, Activate this Account";"Sì, Attiva questo Conto"
+"Select your DTI/SEC Permit file from your computer";"Seleziona il file di permesso DTI/SEC dal tuo computer"
+"Select your Mayor's Permit file from your computer";"Seleziona il file di licenza del Sindaco dal tuo computer"
+"Select your BIR Permit file from your computer";"Seleziona il file di permesso BIR dal tuo computer"
+"Form MA1501 Permit";"Permesso Modulo MA1501"
+"Select your Form MA1501 file from your computer";"Seleziona il file di Modulo MA1501 dal tuo computer"
+"Where to get a copy of Form MA1501?";"Dove trovare una copia del Modulo MA1501?"
+"Download Form MA1501";"Scarica Modulo MA1501"
+"Other Documents";"Altri Documenti"
+"Select a document file from your computer";"Seleziona un documento dal tuo computer"
+"Mobile Management";"Gestione dei Dispositivi Mobili"
+"Push Notification";"Notifica Push"
+"Notification Message";"Messaggio di Notifica"
+;
+"Number of Product Listings:";"Numero di Schede di Prodotto:"
+10145;10145
+"41866.5161574074";"41866.5161574074"
+sfasfas;sfasfas
+"Building Toys";"Costruzione Giocattoli"
+122121;122121
+212;212
+"New other (see details)";"Nuovo altri (vedi dettagli)"
+"Promo Banners";"Banner Promozionali"
+"Create Promo Banner";"Crea Banner Promozionale"
+"Select Product";"Seleziona Prodotto"
+"Enter Product Slug";"Inserisci Slug Prodotto"
+"Add Product";"Aggiungi Prodotto"
+"Change Product";"Cambia Prodotto"
+"This Promo Banner currently Disabled";"Questo Banner Promozionale è attualmente Disabilitato"
+"Do you want to enable it now?";"Si desidera attivarlo ora?"
+"Yes, Enable this Promo Banner";"Sì, Attiva questo Banner Promozionale"
+"This Promo Banner is Enabled";"Questo Banner Promozionale è Abilitato"
+"Disable Now";"Disabilita Ora"
+"Upload Banners";"Carica Banner"
+"Upload Banners here";"Carica Banner qui"
+"Search By Product Name";"Ricerca Per Nome Prodotto"
+Category:;Categoria:
+Electronics;Elettronica
+Gadget;Gadget
+Clothes;Vestiti
+Enable;Abilita
+Disable;Disabilita
+"Banner Count";"Conteggio Banner"
+"Date Added";"Data Inserimento"
+10/20/15;10/20/15
+Enabled;Abilitato
+"Samsung Galaxy j1";"Samsung Galaxy j1"
+5;5
+Disabled;Disabilitato
+"Raffle Manager";"Manager Lotteria"
+"Register Raffle";"Registra Lotteria "
+"Raffle Name";"Nome Lotteria"
+"Pool of Possible Winners";"Gruppo di Possibili Vincitori"
+"Number of Winners to Generate";"Numero di Vincitori da Generare"
+"List of Prices";"Lista dei Prezzi"
+"Raffle Lists";"Liste Lotteria"
+Raffle_Name;Nome_Lotteria
+Winners;Vincitori
+"Time Created";"Ora di Creazione"
+Prices;Prezzi
+2121sadasd;2121sadasd
+test22;test22
+"41898.4718981481";"41898.4718981481"
+"Full Name";"Nome Completo"
+inonbaguio;inonbaguio
+"Inon Baguio";"Inon Baguio"
+Content;Contenuto
+CSR;CSR
+Marketing;Marketing
+Super-User;Super-Utente
+Guest;Ospite
+"Registered Users";"Utenti Registrati"
+"Number of Registered Sellers:";"Numero di Venditori Registrati:"
+141;141
+Affiliates;Affiliati
+"41822.6072685185";"41822.6072685185"
+"sam gavinio";"sam gavinio"
+"Banana Republic";"Banana Republic"
+38;38
+"Report Manager";"Gestione Report"
+"Number of uploaded products per account";"Numero di prodotti caricati per ogni conto"
+"Monthly Sign Up Statistics";"Iscrizione Mensile Statistiche"
+"Users w/ &amp w/out Products";"Utenti w / &amp w/i nostri Prodotti"
+"Number of uploaded items per month";"Numero di articoli caricati al mese"
+"Number of items per parent category";"Numero di elementi per categoria principale"
+"Show Entries";"Mostra Voci"
+20;20
+40;40
+80;80
+160;160
+Monthsss;Mesi
+"Sign-up Count";"Conto Iscrizione"
+2015;2015
+January;Gennaio
+29;29
+February;Febbraio
+March;Marzo
+April;Aprile
+May;Maggio
+2016;2016
+Month;Mese
+"Showing 1 out 39 Entries";"Mostra 1 di 39 Voci"
+"Dispute Details";"Dettagli Controversia"
+KD3-38U123PI;KD3-38U123PI
+12371237837;12371237837
+"Complainant Full Name";"Nome Completo del Denunciante"
+322-3245-59898;322-3245-59898
+"Defendant Full Name";"Nome Completo del Convenuto"
+"Janvan Ding";"Janvan Ding"
+"Transaction Details";"Dettagli Transazione"
+4916699163849;4916699163849
+"Armando Upton";"Armando Upton"
+"Waiting for Payment";"In attesa di Pagamento"
+"Date of transaction";"Data della transazione"
+"42249.5506828704";"42249.5506828704"
+"see attachments";"vedi gli allegati"
+x;x
+Reason;Motivo
+Open;Aperto
+On-Going;In corso
+Rejected;Respinto
+Closed;Chiuso
+"Boy Tigol";"Boy Tigol"
+"George Georgina";"George Georgina"
+42317;42317
+"Search Keyword";"Ricerca Parola chiave "
+"Query String";"Stringa Quesito"
+"Number of Hits";"Numero di Visite"
+"apple UNION ALL SELECT NULL--";"apple UNION ALL SELECT NULL—"
+"Transaction List";"Lista Transazioni"
+!;!
+Cancellation;Cancellazione
+"Dispute Something";"Contesta Qualcosa"
+Flag;Flag
+DENIED;NEGATO
+"Create Vourcher";"Crea Vourcher"
+"Code Name";"Nome Codice"
+"Voucher Type";"Tipo Voucher"
+Duration;Durata
+"Usage Limit";"Limite di Utilizzo"
+"Discount Type";"Tipo di Sconto"
+Ramboo;Ramboo
+"Something for Nothing";"Qualcosa per Niente"
+"10 Days";"10 Giorni"
+"1 per Account";"1 per Conto"
+Utang;Utang
+1000;1000
+"Voucher Code Name";"Nome Codice Voucher"
+"Voucher Code";"Codice Voucher"
+"Generate Voucher Code";"Genera Codice Voucher"
+One-Time;Monouso
+Multi-Use;Multi-uso
+100;100
+"Fixed Amount";"Importo Fisso"
+Percentage;Percentuale
+1;1
+"Voucher is currently Inactive";"Il Voucher è attualmente Inattivo"
+"Yes, Activate this Voucher";"Sì, Attiva questo Voucher"
+"Voucher is Now Active";"Il Voucher è Ora Attivo"
+872378912897;872378912897
+Unknown;Sconosciuto
+42287;42287
+"FullName / Email";"Nome Completo / Email"
+"Remarks from Dispute";"Osservazioni da Controversia"
+"Deposit Slip";"Distinta Deposito"
+Remarks:;Osservazioni:
+"Enter your remarks";"Inserisci i tuoi commenti"
+"Deposit Slip:";"Distinta Deposito:"
+"Compatible files: JPG, JPEG, and PNG";"File compatibili: JPG, JPEG e PNG"
+"Are you sure you want to refund this transaction?";"Sei sicuro di voler rimborsare questa transazione?"
+No;No
+Yes;Sì
+"Refund History Information";"Informazioni sulla Cronologia di Rimborso"
+Print;Stampa
+"Dispute ID:";"ID Controversia:"
+"Buyer Name:";"Nome Compratore:"
+"Buyer Email:";"Email Compratore:"
+"Buyer Contact Number:";"Numero di Contatto del Compratore:"
+"Date Request:";"Data Richiesta:"
+"Date Processed:";"Data di Elaborazione:"
+"Processed By:";"Elaborato Da:"
+"Click here";"Clicca qui"
+"Supplier Payout";"Pagamento Fornitore"
+"Date From";"Data Da"
+"Date To";"Data A"
+"Search for keyword: Manufacturer/Contact number";"Ricerca per parola chiave: Produttore/Contatto"
+"Payout List";"Lista Pagamento"
+"Payout History";"Cronologia Pagamento"
+Manufacturer;Produttore
+"Reference Number";"Numero di Riferimento"
+"Support CSR";"Supporto CSR"
+"Payout Details";"Dettagli Pagamento"
+"WayBill Number";"Numero di Lettera di Vettura"
+Warehouse;Magazzino
+"Payout Order Products";"Prodotti Ordine Pagamento"
+"Deposit Slips";"Polizze Deposito"
+"Date Modified";"Data di Modifica"
+Close;Chiudi
+"Case ID:";"ID Caso:"
+"Date Request";"Data Richiesta"
+"Date Processed";"Data Elaborazione"
+"Processed By";"Elaborato da"
+"Select type of dispute";"Seleziona il tipo di controversia"
+"Select status";"Seleziona lo stato"
+"No case found";"Nessun caso trovato"
+"Dispute Resolution";"Risoluzione Controversia"
+"Voucher Name";"Nome Voucher"
+"Voucher Value";"Valore Voucher"
+"Enter Dispute message here..";"Inserire qui il messaggio di Controversia..."
+"Replace Different Item";"Sostituisci Articolo Diverso"
+Done;Fatto
+"Search for keyword: Store Name";"Ricerca per parola chiave: Nome del Negozio"
+"Supplier Name";"Nome del Fornitore"
+"Commission Amount";"Importo Commissione"
+PHP;PHP
+"Supplier Payout Amount";"Importo Pagamento Fornitore"
+"Search By Invoice No. / Buyer";"Ricerca Per N. Fattura / Compratore"
+"Order Status:";"Stato Ordine:"
+"Payment Type:";"Tipo di Pagamento:"
+Actions:;Azioni:
+"Cancel Request By Buyer";"Annulla Richiesta per Compratore"
+"Cancel Product";"Annulla Prodotto "
+None;Nessuno
+"Collected Amount";"Importo raccolto"
+"Transaction Price";"Prezzo Transazione"
+"Consignee Name";"Nome Destinatario"
+"Consignee Contact Number";"Numero di Contatto del Destinatario"
+"Buyer Details";"Dettagli Compratore "
+"Shipping Address";"Indirizzo di Spedizione"
+"Freight Charge";"Addebito Trasporto "
+"Additional Charge";"Supplemento"
+"Seller Net";"Netto Venditore  "
+"Voucher Details";"Dettagli Voucher"
+Attributes;Attributi
+"Cancel Transaction";"Annulla Transazione"
+Deny;Nega
+"Seller Details";"Dettagli Venditore"
+"Store Address";"Indirizzo Negozio"
+"Remarks for Approval";"Osservazioni per Approvazione"
+"Remarks for Deny";"Osservazioni per Negazione"
+"Registered Buyer";"Acquirente Registrato"
+"Search Buyer here";"Ricerca qui Acquirente"
+"User Information";"Informazioni Utente"
+UPDATE;AGGIORNA
+"Address Title";"Titolo Indirizzo"
+"Home Address";"Indirizzo Casa"
+"Unit Number";"Numero Unità"
+"Building Name";"Nome Edificio"
+"Street Number";"Numero Civico"
+"Street Name";"Nome Via"
+Subdivision;Suddivisione
+Province;Provincia
+"Select your province";"Seleziona la tua provincia"
+City/Municipal;Città/Municipio
+Barangay;Barangay
+"Zip Code";"Codice Postale"
+"Registered Seller/Affiliates";"Venditore/affiliati registrati"
+"Create Voucher";"Crea Voucher"
+Code;Codice
+Used;Usato
+"Voucher Codes";"Codici Voucher"
+"Minimum Purchase";"Acquisto Minimo"
+"By Batch";"Per Serie"
+"Disable Countdown Timer";"Disattiva il Timer Conto alla Rovescia"
+Orientation;Orientamento
+Order;Ordine
+3;3
+"ex. Title";"es. Titolo"
+"Left to Right";"Da Sinistra a Destra"
+"Right to Left";"Da destra a Sinistra"
+"Products Slug (separated by line break)";"Slug Prodotti (separati da interruzione di riga)"
+"Products List";"Lista Prodotti"
+"Product One";"Prodotto Uno"
+"Banner Link";"Link Banner"
+"Paste your Banner Links here";"Incolla i tuoi Link Banner qui"
+"Category Name";"Nome Categoria"
+Show;Mostra
+"Category Header Link";"Link Intestazione Categoria "
+42074;42074
+Time;Tempo
+"Pick a Date";"Scegli una Data"
+"Start Time";"Ora di Inizio"
+"End Time";"Ora di Fine"
+"Flash Sales Discount";"Sconto Vendita Flash"
+"Flash Discounted Price";"Prezzo Scontato Flash"
+"Sales Stock";"Vendite Stock"
+"P 1,000";"P 1.000"
+"10% off";"10% di sconto"
+"P 900";"P 900"
+"ex. 10%";"es. 10%"
+"ex. 1000";"es. 1000"
+"Mobile Webview (CMS)";"Visualizzazione Dispositivo Mobile (CMS)"
+"Cover Photo Link";"Link Foto di Copertina"
+"Paste Link";"Incolla Link"

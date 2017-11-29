@@ -1,0 +1,57 @@
+api_v3_user_activity_log:
+    path: /auth/user/activityLog
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:activityLog }
+    methods: [GET]
+
+api_v3_store_get_info:
+    path: /user/getStoreInfo
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:getStoreInfo }
+
+api_v3_store_auth_get_info:
+    path: /auth/user/getStoreInfo
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:getStoreInfo }
+
+api_v3_user_change_password:
+    path: /auth/user/changePassword
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:changePassword }
+    methods: [POST]
+
+api_v3_user_change_contact_number:
+    path: /auth/user/changeContactNumber
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:changeContactV1Number }
+    methods: [POST]
+
+api_v3_user_request_verification_token:
+    path: /auth/sms/getCode
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:requestVerificationCode }
+    methods: [POST]
+
+api_v3_user_verify_token:
+    path: /auth/sms/verify
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:verifyCode }
+    methods: [POST]
+
+api_v3_user_disabled_account:
+    path: /auth/account/disable
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:disableUser }
+    methods: [POST]
+
+api_v3_email_subscription:
+    path: /auth/email/subscription
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:subscribeUserEmail }
+    methods: [POST]
+
+api_v3_sms_subscription:
+    path: /auth/sms/subscription
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:subscribeUserSms }
+    methods: [POST]
+
+api_v3_change_email:
+    path: /auth/user/changeEmail
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:changeEmail }
+    methods: [POST]
+
+api_v3_user_update_basic_info:
+    path: /auth/update-basic-info
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:updateBasicInfo }
+    methods: [POST]

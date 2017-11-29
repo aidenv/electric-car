@@ -1,0 +1,30 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductVisit:
+    type: entity
+    table: ProductVisit
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ProductVisitRepository
+    id:
+        productVisitId:
+            type: bigint
+            column: product_visit_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ipAddress:
+            column: ip_address
+            type: string
+        dateAdded:
+            column: date_added
+            type: datetime
+    manyToOne:
+        product:
+            targetEntity: Product
+            joinColumn:
+                name: product_id
+                referencedColumnName: product_id
+            orphanRemoval: false
+    indexes:
+        fk_productvisit_productid_product_productid_idx:
+            columns:
+                - product_id
+    lifecycleCallbacks: {  }

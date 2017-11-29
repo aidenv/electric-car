@@ -1,0 +1,58 @@
+api_v3_core_get_transaction_list:
+    path: /auth/getTransactionList
+    defaults: { _controller: YilinkerCoreBundle:Api/TransactionApi:getTransactionList }
+    methods: [GET]
+
+api_v3_core_get_transaction_details:
+    path: /auth/getTransaction
+    defaults: { _controller: YilinkerCoreBundle:Api/TransactionApi:getTransactionDetails }
+    methods: [GET]
+
+api_v3_core_get_transaction_consignee:
+    path: /auth/getTransactionConsignee
+    defaults: { _controller: YilinkerCoreBundle:Api/TransactionApi:getConsigneeDetails }
+    methods: [GET]
+
+api_v3_core_get_invoice_suggestion_search:
+    path: /auth/transaction/searchKeyword
+    defaults: { _controller: YilinkerCoreBundle:Api/TransactionApi:transactionKeywordSearch }
+    methods: [GET]
+
+api_v3_core_cancel_order:
+    path: /auth/transaction/cancel
+    defaults: { _controller: YilinkerCoreBundle:Api/TransactionApi:cancelOrder }
+    methods: [POST]
+
+api_v3_core_cancel_reasons:
+    path: /auth/cancellation/reasons
+    defaults: { _controller: YilinkerCoreBundle:Api/TransactionApi:getCancellationReasons }
+
+api_v3_core_get_order_product_detail:
+    path: /auth/getOrderProductDetail
+    defaults: { _controller: YilinkerCoreBundle:Api/TransactionApi:getOrderProductDetail }
+    methods: [GET]
+
+api_v3_core_schedule_pickup:
+    path: /auth/transaction/pickup
+    defaults: { _controller: YilinkerCoreBundle:Api/TransactionApi:sellerScheduleProductPickup }
+    methods: [POST]
+
+api_v3_core_get_transaction_delivery_logs:
+    path: /auth/getTransactionDeliveryLogs
+    defaults: { _controller: YilinkerCoreBundle:Api/TransactionApi:getTransactionDeliveryLogs }
+    methods: [GET]
+
+api_v3_core_get_package_handler_suggestion:
+    path: /auth/suggestPackageHandler
+    defaults: { _controller: YilinkerCoreBundle:Api/TransactionApi:getPackagePersonInChargeSuggestion }
+    methods: [GET]    
+
+api_v3_core_get_transaction_delivery:
+    path: /auth/getTransactionDeliveryOverview
+    defaults: { _controller: YilinkerCoreBundle:Api/TransactionApi:getTransactionDeliveryOverview }
+    methods: [GET]
+
+api_v3_core_get_payment_methods:
+    path: /auth/getPaymentMethods
+    defaults: { _controller: YilinkerCoreBundle:Api/TransactionApi:getPaymentMethods }
+    methods: [GET]

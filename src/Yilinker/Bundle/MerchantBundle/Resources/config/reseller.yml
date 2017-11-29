@@ -1,0 +1,12 @@
+tables:
+    Product:
+        fields:
+            #name:
+            #    editable: true
+            #    label: Product Name
+            #description:
+            #    editable: true
+            #    label: Product Description
+            #shortDescription:
+            #    editable: true
+            #    label: Product Short Description

@@ -1,0 +1,16 @@
+<div class="main-banner-slider">
+    {% if banners is iterable %}
+        {% for banner in banners %}
+            {% if banner.image is defined %}
+                <div class="item">
+                    <a href="{{ banner.target }}" class="flr">
+                        <img data-original="{{ banner.image }}" alt="{{ banner.alt }}" title="{{ banner.title }}" class="lazy immediate img-full-width" style="outline: 0; text-indent: -9999px;">
+                        <noscript>
+                            <img src="{{ banner.image }}" alt="{{ banner.alt }}" title="{{ banner.title }}" class="img-full-width">
+                        </noscript>
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>

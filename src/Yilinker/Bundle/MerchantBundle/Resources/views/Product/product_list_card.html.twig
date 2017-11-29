@@ -1,0 +1,49 @@
+{% if product.object is defined %}
+    {% set product = product.object %}
+{% endif %}
+
+<div class="col-xl-3 col-xs-4 col-for-product-group" data-id="{{ product.productId }}" data-slug={{ product.slug }}>
+    <div class="product-item-border">
+        <div class="product-item-wrapper">
+            <input name="productId[]" 
+                   value="{{ product.productId }}" 
+                   type="checkbox" 
+                   class="product-checkbox hidden"
+            >
+            <div class="image-wrapper image-display">
+                {% if status is not null %}
+                <div class="ui dimmer">
+                    <div class="content">
+                        <div class="center">
+                            <button class="button purple uppercase select-item-trigger">
+                                <span class="select"><icon class="icon-check"></icon> Select</span>
+                                <span class="deselect hidden"><icon class="icon-minus"></icon> Deselect</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <img src="{{ asset(product.getPrimaryImageLocationBySize('small'), 'product') }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-auto-place">
+            </div>
+            
+            <div class="meta-wrapper">
+                <div class="basic-name">
+                    <div class="row group">
+                        <div class="col-xs-12">
+                            <h4 class="name">
+                                <a data-title href="{{ '/product-detail/' ~ product.slug }}">
+                                    {{ product.name }}
+                                </a>
+                            </h4>
+                            <p data-description style="display:none">
+                                {{ product.shortDescription }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {{ render(controller('YilinkerCoreBundle:Widget:productLanguages', {product: product, status: status})) }}
+                {{ render(controller('YilinkerCoreBundle:Widget:productCountries', {product: product, status: status})) }}
+            </div>
+        </div>
+    </div>
+</div>

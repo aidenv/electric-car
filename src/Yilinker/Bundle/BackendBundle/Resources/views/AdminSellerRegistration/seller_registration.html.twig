@@ -1,0 +1,559 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+    <section class="box-section">
+
+        <div class="container">
+
+            <div class="row">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">Manual Creation List</a>
+                    </li>
+                    <li>
+                        <span>Manual Creation Details</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="ui tabular menu">
+                            <div class="item active" data-tab="tab-name">Account Details</div>
+                            <div class="item" data-tab="tab-name2">Account Notes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui tab row active" data-tab="tab-name">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+
+                            {# START OF BASIC INFORMATION #}
+                            <div class="row gutters group-segment">
+
+                                <div class="col-md-4">
+                                    <h4>Basic Information</h4>
+                                    <p class="sub-header">
+                                        Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque, scelerisque sit amet elit fermentum, lobortis convallis dui.
+                                    </p>
+                                </div>
+
+                                <div class="col-md-8">
+
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label>Seller Type</label>
+                                                <select class="form-ui ui search single selection dropdown">
+                                                    <option>--</option>
+                                                    <option>Seller</option>
+                                                    <option>Affiliate</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>First Name</label>
+                                                <input class="form-ui" id="password" placeholder="Enter Password here" type="password">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Last Name</label>
+                                                <input class="form-ui" id="confirmPassword" placeholder="Enter Confirm Password here" type="password">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Store Name</label>
+                                                <input class="form-ui" id="firstName" placeholder="Enter First name here" type="text">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Business Name</label>
+                                                <input class="form-ui" id="lastName" placeholder="Enter Last name here" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email Address</label>
+                                                <input class="form-ui" id="lastName" placeholder="Enter Last name here" type="text">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Mobile Number</label>
+                                                <input class="form-ui" id="lastName" placeholder="Enter Last name here" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            {# END OF BASIC INFORMATION #}
+
+                            {# START OF ADDRESS #}
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                    <h4>Address Information</h4>
+                                    <p class="sub-header">
+                                        Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque, scelerisque sit amet elit fermentum, lobortis convallis dui.
+                                    </p>
+                                </div>
+                                <div class="col-md-8">
+
+                                    <div class="form" id="store-address-div">
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label class="required" for="">Addresses</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" id="store-address-collection">
+
+                                            <div class="col-md-12 col-xl-5 store-address div-clone-address partial-0">
+                                                <div class="bordered-segment store-address-segment active">
+                                                    <table class="store-address-table">
+                                                        <tbody>
+                                                            <tr class="tr-address">
+                                                                <td width="2em">
+                                                                    <div class="ui checkbox check-box-div checked">
+                                                                        <input class="check-box-is-default" data-id="partial-0" name="isDefault" type="checkbox">
+                                                                        <label>&nbsp;</label>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="td-border-bottom-1">
+                                                                    <div class="shipping-label">
+                                                                        <a class="item-name">Home</a>
+                                                                        <a class="pull-right">
+                                                                            <div class="ui buttons">
+                                                                                <div class="ui floating dropdown ellipsis-dropdown" tabindex="-1">
+                                                                                    <span class="ellipsis-text">...</span>
+                                                                                    <div class="menu transition hidden" tabindex="-1">
+                                                                                        <div class="item edit" data-id="partial-0" style="padding: 1em 1.25em !important">
+                                                                                            <i class="icon icon-edit"></i>Edit Address
+                                                                                        </div>
+                                                                                        <div class="item delete" data-id="partial-0" style="padding: 1em 1.25em !important">
+                                                                                            <i class="icon icon-trash"></i>
+                                                                                            Delete Address
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                        <div class="item-address-line light-color">1234 Building Street 2 Street Subdivision Metro Manila Manila Barangay 2 ,566056</div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row not-empty-user-address">
+                                            <div class="col-md-12 mrg-bt-20">
+                                                <button class="button gray small uppercase" id="trigger-modal-address">
+                                                    <i class="icon icon-plus icon-lg"></i>
+                                                    Add Address
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            {# END OF ADDRESS #}
+
+                            {# START OF BANK ACCOUNT #}
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                    <h4>Bank Accounts</h4>
+                                    <p class="sub-header">
+                                        Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque, scelerisque sit amet elit fermentum, lobortis convallis dui.
+                                    </p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form" id="bank-account-div">
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label class="required" for="">Bank Accounts</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row" id="bank-account-collection">
+
+                                            <div class="col-md-12 col-xl-5 bank-account div-clone-address partial-0">
+                                                <div class="bordered-segment bank-account-segment active">
+                                                    <table class="bank-account-table">
+                                                        <tbody>
+                                                        <tr class="tr-address">
+                                                            <td width="2em">
+                                                                <div class="ui checkbox check-box-div checked">
+                                                                    <input class="check-box-is-default" data-id="partial-0" name="isDefault" type="checkbox">
+                                                                    <label>&nbsp;</label>
+                                                                </div>
+                                                            </td>
+                                                            <td class="td-border-bottom-1">
+                                                                <div class="shipping-label">
+                                                                    <a class="item-name">Home</a>
+                                                                    <a class="pull-right">
+                                                                        <div class="ui buttons">
+                                                                            <div class="ui floating dropdown ellipsis-dropdown" tabindex="-1">
+                                                                                <span class="ellipsis-text">...</span>
+                                                                                <div class="menu transition hidden" tabindex="-1">
+                                                                                    <div class="item edit" data-id="partial-0" style="padding: 1em 1.25em !important">
+                                                                                        <i class="icon icon-edit"></i>Edit Address
+                                                                                    </div>
+                                                                                    <div class="item delete" data-id="partial-0" style="padding: 1em 1.25em !important">
+                                                                                        <i class="icon icon-trash"></i>
+                                                                                        Delete Address
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="item-address-line light-color">
+                                                                        <div class="account-number">2130909455677</div>
+                                                                        <div class="account-name">George Georgia</div>
+                                                                        <div class="account-bank">Metrobank of the Borneo</div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row not-empty-user-address">
+                                            <div class="col-md-12 mrg-bt-20">
+                                                <button class="button gray small uppercase" id="trigger-modal-address">
+                                                    <i class="icon icon-plus icon-lg"></i>
+                                                    Add Bank Account
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            {# END OF BANK ACCOUNT #}
+
+                            {# START OF ACCREDITATION OPTION #}
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                    <h4>Accreditation Option</h4>
+                                    <p class="sub-header">
+                                        Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque.
+                                    </p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="message-box red hidden" id="errorContainer">
+                                        <p id="errorMessage">This transaction has been flagged for further review.</p>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Accreditation Level</label>
+                                                <select class="form-ui ui search single selection dropdown">
+                                                    <option>Unaccredited</option>
+                                                    <option>Level 1</option>
+                                                    <option>Level 2</option>
+                                                    <option>Level 3</option>
+                                                    <option>Level 4</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {# END OF ACCREDITATION OPTION #}
+
+                            {# START OF ACTIVATION #}
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                    <h4>Activation</h4>
+                                    <p class="sub-header">
+                                        Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque.
+                                    </p>
+                                </div>
+                                <div class="col-md-8">
+
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Activate this Account?</label>
+                                                <select class="form-ui ui search single selection dropdown">
+                                                    <option>Locked</option>
+                                                    <option>Activate</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h4>This Account is Active</h4>
+                                                <p>If you wish to deactivate this account, click <a href="#" class="button small light-gray">Deactivate Now</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 mrg-top-20">
+                                                <label>Temporary Password</label>
+                                                <input class="form-ui" id="lastName" placeholder="Enter Last name here" type="text" value="!jhHG@D*D@JASSdd9348_^^" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            {# END OF ACTIVATION #}
+
+                            <div class="row gutters group-segment">
+
+                                <div class="col-md-4">
+                                    <h4>System Information</h4>
+                                    <p class="sub-header">
+                                        Nam metus lectus, bibendum sit amet mauris id, pulvinar.
+                                    </p>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Created By</label>
+                                                <p><u>Karl Cases</u>, 10/22/16 4:43 am</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Last Modified By</label>
+                                                <p><u>Karl Cases</u>, 10/22/16 4:43 am</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <button class="button purple ">Save Changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# START OF NOTES TAB #}
+            <div class="ui tab row" data-tab="tab-name2">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                    <h4>Notes</h4>
+                                    <p class="sub-header">
+                                        Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque.
+                                    </p>
+                                </div>
+                                <div class="col-md-8">
+
+                                    <table class="table basic table-vertical-align-top center notes">
+                                        <tr>
+                                            <td colspan="4">
+                                                <button class="button gray small uppercase pull-right modal-notes-new-trigger">
+                                                    <i class="icon icon-plus icon-lg"></i>
+                                                    Add Notes
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Message</th>
+                                            <th>Created By</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        {% for i in 1..5 %}
+                                            <tr>
+                                                <td><p class="semi-bold">About Paul Edward Borja and the Spaghetti</p></td>
+                                                <td>
+                                                    <p>Something is wrong with the spaghetti senior, aahh its the sauce, bogz want it spice and sour but also tasty, so gay...</p>
+                                                    <p class="time-stamp mrg-top-10"><em>Last Modified: 10/22/16 4:51 am</em></p>
+                                                </td>
+                                                <td>Kevin the Nightstalker</td>
+                                                <td><a href="#" class="button tiny blue modal-notes-view-trigger">View</a></td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {# END OF NOTES TAB #}
+
+        </div>
+
+    </section>
+
+    {# START MODAL = MESSAGE CONTAINER #}
+    <div class="ui modal small" id="modal-message-container">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header detail-content"></div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">Okay</button>
+        </div>
+    </div>
+    {# END MODAL = MESSAGE CONTAINER #}
+
+    {# START MODAL NOTE #}
+    <div class="ui modal small modal-box" id="modal-notes">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="header">New Notes</div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form">
+                        <label>Title</label>
+                        <input type="text" class="form-ui" placeholder="Placeholder">
+                    </div>
+
+                    <div class="form">
+                        <label>Message</label>
+                        <textarea class="form-ui" placeholder="Enter product description here"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <div class="button confirm" data-remodal-action="close">Save</div>
+            <div class="button cancel" data-remodal-action="close">Cancel</div>
+        </div>
+    </div>
+    {# END MODAL NOTE #}
+
+    {# START BANK ACCOUNT MODALS #}
+
+        {# START MODAL = CREATE NEW BANK ACCOUNT #}
+        <div class="ui modal small" id="modal-create-bank-account">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="header">
+                <h4 class="no-margin">Bank Account</h4>
+            </div>
+            <form id="form-add-new-bank-account" class="form ui">
+                <div class="content">
+                    <div class="field">
+                        <label>
+                            Bank Account Title
+                        </label>
+                        <input type="text" name="txt-bank-account-title" class="form-ui" maxlength="255" placeholder="Enter your bank account title here">
+                    </div>
+                    <div class="field">
+                        <label>
+                            Bank Name
+                        </label>
+                        <div class="ui selection dropdown">
+                            <input name="drop-down-bank-name" type="hidden">
+                            <div class="default text">Select Bank...</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                {% for bank in banks %}
+                                    <div class="item" data-value="{{ bank.bankId }}">{{ bank.bankName }}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>
+                                Account Number
+                            </label>
+                            <input type="text" name="txt-bank-account-number" maxlength="25" class="form-ui" placeholder="Enter your bank account number here">
+                        </div>
+                        <div class="field">
+                            <label>
+                                Account Name
+                            </label>
+                            <input type="text" name="txt-bank-account-name" maxlength="255" class="form-ui" placeholder="Enter your bank account name here">
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden" id="server-error-message">
+                </div>
+                <div class="actions">
+                    <div class="button cancel" id="btn-cancel">Cancel</div>
+                    <button class="button " id="btn-create-new-bank-account">Submit</button>
+                </div>
+            </form>
+        </div>
+        {# END MODAL = CREATE NEW BANK ACCOUNT #}
+
+        {# START MODAL = REMOVE BANK ACCOUNT #}
+        <div class="ui modal small" id="modal-delete-bank-account">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h3 class="ui header">
+                    <i class="icon icon-trash"></i>
+                    <div class="content">
+                        Delete  Bank Account Information?
+                        <div class="sub-header">Are you sure you want to delete this bank account</div>
+                    </div>
+                </h3>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Cancel</button>
+                <button class="button red submit-to-success positive">Delete</button>
+            </div>
+        </div>
+        {# END MODAL = REMOVE BANK ACCOUNT #}
+
+    {# END BANK ACCOUNT MODALS #}
+
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/seller-registration.js"
+        "js/src/backend/seller-registration.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

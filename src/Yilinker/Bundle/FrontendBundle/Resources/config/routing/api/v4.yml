@@ -1,0 +1,4 @@
+
+pages_v4:
+    resource: "v4/pages.yml"
+    prefix: /

@@ -1,0 +1,235 @@
+<!-- Modal Transaction Cancellation-->
+<div class="ui modal large modal-box modal-transaction-cancelled">
+    <a class="close"><i class="icon-times"></i></a>
+    <div class="header">Order Details</div>
+    <div class="content divide">
+      <div class="row">
+        <div class="form">
+            <div class="row">
+              <div class="col-md-6 md-box zeb">
+                {% for i in 1..5 %}
+                  <div>
+                    <div class="col-md-6"><strong>Sample</strong></div>
+                    <div class="col-md-6">KD3-38u123pi</div>
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="col-md-1"></div>
+              <div class="col-md-5 md-box">
+                <div>
+                  <div class="col-md-6">Total Amount</div>
+                  <div class="col-md-6 txtright">PHP 999.99</div>
+                </div>
+                <div>
+                  <div class="col-md-6">YiLinker Charge</div>
+                  <div class="col-md-6 txtright">PHP 999.99</div>
+                </div>
+                <div>
+                  <div class="col-md-6">Payment Method Charge</div>
+                  <div class="col-md-6 txtright">PHP 999.99</div>
+                </div>
+                <div class="net">
+                  <div class="col-md-6">Net</div>
+                  <div class="col-md-6 txtright">PHP 999.99</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table basic table-vertical-align-top">
+            <tr>
+              <th align="center"><input type="checkbox" class="cancelOrderProduct"></th>
+              <th>Order Product ID</th>
+              <th>Name</th>
+              <th>Seller</th>
+              <th>Order Quantity</th>
+              <th>Unit Price</th>
+              <th>Shipping fee</th>
+              <th>Total Amount</th>
+              <th>Status</th>
+              <th></th>
+              <th></th>
+            </tr>
+            {% for i in 1..2 %}
+              <tr class="update">
+                <td align="center"><input type="checkbox"></td>
+                <td>209</td>
+                <td>apple</td>
+                <td>man of effin steel</td>
+                <td>1</td>
+                <td>PHP 2,121.00</td>
+                <td>PHP 0.00</td>
+                <td>PHP 2,121.00</td>
+                <td><i>Cancelled</i>&#8230;</td>
+                <td>
+                  <ul class="attribute-list">
+                    <li><strong>Color:</strong> Red</li>
+                    <li><strong>Size:</strong> Large</li>
+                  </ul>
+                </td>
+                <td>
+                  <button class="button tiny default-light modal-order-two-trigger">
+                    view
+                  </button>
+                </td>
+              </tr>
+            {% endfor %}
+            {% for i in 1..2 %}
+              <tr>
+                <td align="center"><input type="checkbox"></td>
+                <td>209</td>
+                <td>apple</td>
+                <td>man of effin steel</td>
+                <td>1</td>
+                <td>PHP 2,121.00</td>
+                <td>PHP 0.00</td>
+                <td>PHP 2,121.00</td>
+                <td>On-going</td>
+                <td>
+                  <ul class="attribute-list">
+                    <li><strong>Color:</strong> Red</li>
+                    <li><strong>Size:</strong> Large</li>
+                    <li><strong>Samplenation:</strong> Super Duper Ninja Warrior</li>
+                  </ul>
+                </td>
+                <td>
+                  <button class="button tiny default-light modal-order-two-trigger">
+                    view
+                  </button>
+                </td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form remarks resolved">
+          <div class="customer">
+            <p class="tag-resolved">resolved</p>
+            <p class="person">
+              <img src="{{ asset('images/buyer-img-1.jpg') }}" border="0">
+              <span class="user">
+                <strong>George Chris Paul</strong>
+                Complainant
+              </span>
+            </p>
+            <p class="words">
+              <strong>I changed my mind. I'm no longer interested in the product.</strong>
+              hmm... how can i say this, im want a refund because i will use the money for my school tuition fee,
+              pls my mother is going to kill me... omg, my mom is here, he got me, its over, im doom...
+              pls send the money back while im holding my mom's wrath for a few minutes, i cant keep this up forever...
+            </p>
+            <p class="attachment">
+              <span>requested items for cancellations</span>
+              <span class="items">Order ID 209: Shoulder Bag</span>
+            </p>
+            <p class="time-stamp">Posted on 12:30 pm, July 21, 2014</p>
+          </div>
+          <div class="csr">
+            <p class="person">
+              <img src="{{ asset('images/logo-icon.png') }}" border="0">
+              <span class="user">
+                <strong>Koya Carl</strong>
+                customer support representative
+              </span>
+            </p>
+            <p class="words">
+              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi posuere
+              blandit libero ut dictum. Nam id elementum augue. Donec iaculis facilisis magna, non rhoncus neque tincidunt sed.
+              Vestibulum malesuada, turpis malesuada feugiat dapibus, nisl ex fringilla arcu, non blandit ligula ligula ac orci.
+            </p>
+            <p class="time-stamp">Posted on 12:30 pm, July 21, 2014</p>
+          </div>
+          <div class="csr">
+            <p class="person">
+              <img src="{{ asset('images/logo-icon.png') }}" border="0">
+              <span class="user">
+                <strong>Koya Carl</strong>
+                customer support representative
+              </span>
+            </p>
+            <p class="words">
+              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi posuere
+              blandit libero ut dictum. Nam id elementum augue. Donec iaculis facilisis magna, non rhoncus neque tincidunt sed.
+              Vestibulum malesuada, turpis malesuada feugiat dapibus, nisl ex fringilla arcu, non blandit ligula ligula ac orci.
+            </p>
+            <p class="time-stamp">Posted on 12:30 pm, July 21, 2014</p>
+          </div>
+        </div>
+        <div class="form remarks">
+          <div class="customer">
+            <p class="person">
+              <img src="{{ asset('images/buyer-img-1.jpg') }}" border="0">
+              <span class="user">
+                <strong>George Chris Paul</strong>
+                Complainant
+              </span>
+            </p>
+            <p class="words">
+              <strong>I changed my mind. I'm no longer interested in the product.</strong>
+              hmm... how can i say this, im want a refund because i will use the money for my school tuition fee,
+              pls my mother is going to kill me... omg, my mom is here, he got me, its over, im doom...
+              pls send the money back while im holding my mom's wrath for a few minutes, i cant keep this up forever...
+            </p>
+            <p class="attachment">
+              <span>requested items for cancellations</span>
+              <span class="items">Order ID 209: Shoulder Bag</span>
+            </p>
+            <p class="time-stamp">Posted on 12:30 pm, July 21, 2014</p>
+          </div>
+          <div class="csr">
+            <p class="person">
+              <img src="{{ asset('images/logo-icon.png') }}" border="0">
+              <span class="user">
+                <strong>Koya Carl</strong>
+                customer support representative
+              </span>
+            </p>
+            <p class="words">
+              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi posuere
+              blandit libero ut dictum. Nam id elementum augue. Donec iaculis facilisis magna, non rhoncus neque tincidunt sed.
+              Vestibulum malesuada, turpis malesuada feugiat dapibus, nisl ex fringilla arcu, non blandit ligula ligula ac orci.
+            </p>
+            <p class="time-stamp">Posted on 12:30 pm, July 21, 2014</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="button blue modal-transaction-cancelled-remarks-trigger">Approve Cancellation</button>
+      <button class="button cancel modal-transaction-cancelled-remarks-trigger">Reject</button>
+      <button class="button default-light close">Back</button>
+    </div>
+</div>
+
+<!--Modal Cancel Transaction -->
+<div class="ui modal small modal-transaction-cancelled-remarks">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">Reason of ...</div>
+    <div class="content">
+        <div class="row">
+            <div class="box-upper">
+                <div class="col-md-12">
+                    <div class="form">
+                        <label>Type of Reason</label>
+                        <select name="" class="cancellation-reason form-ui ui search single selection dropdown">
+                            <option value="0"> Select Reason </option>
+                        </select>
+                    </div>
+                    <div class="form">
+                        <label>Remarks</label>
+                        <textarea class="form-ui"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions align-right">
+        <div class="button blue modal-transaction-cancelled-trigger">Submit</div>
+        <div class="button cancel modal-transaction-cancelled-trigger returnToPreviousModal">Back</div>
+    </div>
+</div>

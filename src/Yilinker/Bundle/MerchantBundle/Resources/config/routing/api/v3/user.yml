@@ -1,0 +1,35 @@
+api_v3_merchant_update_user:
+    path: /auth/affiliate/update-user-info
+    defaults: { _controller: YilinkerMerchantBundle:Api/v2/UserApi:updateUser }
+    methods: [POST]
+
+
+api_v3_merchant_send_verification:
+    path: /auth/affiliate/verify-email
+    defaults: { _controller: YilinkerMerchantBundle:Api/v2/UserApi:verfiyEmail }
+    methods: [POST]
+
+api_v3_merchant_update_info:
+    path: /auth/merchant/updateUserInfo
+    defaults: { _controller: YilinkerMerchantBundle:Api/UserApi:updateUserInfo }
+    methods: [POST]
+api_v3_merchant_get_info:
+    path: /auth/merchant/getUserInfo
+    defaults: { _controller: YilinkerMerchantBundle:Api/UserApi:getUserInfo }
+
+api_v3_merchant_get_sales_report:
+    path: /auth/merchant/getSalesReport
+    defaults: { _controller: YilinkerMerchantBundle:Api/UserApi:getUserSalesReport }
+
+api_v3_merchant_get_qr_code:
+    path: /auth/merchant/getQrCode
+    defaults: { _controller: YilinkerMerchantBundle:Api/UserApi:getQrCode }
+
+api_v3_merchant_followers:
+    path: /auth/merchant/getFollowers
+    defaults: { _controller: YilinkerMerchantBundle:Api/UserFollowApi:getFollowers }
+    methods: [GET]
+
+api_v3_merchant_submit_store_category:
+    path: /auth/merchant/submit-store-category
+    defaults: { _controller: YilinkerMerchantBundle:Api/UserApi:submitStoreCategory }

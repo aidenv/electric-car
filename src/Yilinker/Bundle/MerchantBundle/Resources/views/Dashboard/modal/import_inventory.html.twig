@@ -1,0 +1,65 @@
+<!--Start of modal add warehouse -->
+<div data-import-inventory-modal="{{ path('merchant_user_warehouse_inventory_import', {warehouseId: warehouse.userWarehouseId}) }}" class="ui modal import-inventory-data-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="ui segment">
+        <div class="ui inverted dimmer">
+            <div class="ui text loader"><h4 class="mrg-top-10">Loading data...</h4></div>
+        </div>
+    </div>
+    <div class="header">
+        <h4 class="no-margin">Import Inventory Data</h4>
+    </div>
+    <form class="ui form" data-yi-loader>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="display:none" data-error class="message-box red">
+                        Error message here...
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 align-right">
+                    <p class="bold mrg-top-10">
+                        Choose your file : 
+                    </p>
+                </div>
+                <div class="col-md-4 field form">
+                    <input data-import-inventory type="file" class="form-ui" name="file-bir-permit" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel,text/comma-separated-values, text/csv, application/csv">
+                    <span class="form-ui-note">
+                        Compatible files: xls, csv format
+                    </span>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead data-header style="display:none">
+                    <tr class="inverted">
+                        <th align="center" width="20%">SKU</th>
+                        <th width="40%">Product Name</th>
+                        <th align="center">System Inventory</th>
+                        <th  align="center">Actual Inventory</th>
+                    </tr>
+                </thead>
+                <tbody data-unit-warehoust-list>
+                   
+                </tbody>
+                <tfoot style="display:none">
+                    <tr>
+                        <td colspan="5" align="center">
+                            No data available
+                        </td>
+                    </tr>
+                <tfoot>
+            </table>
+        </div>
+        <div class="actions">
+            <button type="button" class="button gray close">
+                Cancel
+            </button>
+            <button data-save type="button" class="button blue">
+                Save
+            </button>
+        </div>
+    </form>
+</div>
+<!--end of modal add warehouse -->

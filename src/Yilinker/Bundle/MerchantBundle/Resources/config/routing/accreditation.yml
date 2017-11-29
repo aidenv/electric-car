@@ -1,0 +1,48 @@
+merchant_accreditation:
+    path: /accreditation
+    defaults: { _controller: YilinkerMerchantBundle:Accreditation:renderAccreditation }
+
+merchant_accreditation_business_information:
+    path: /accreditation/business-information
+    defaults: { _controller: YilinkerMerchantBundle:Accreditation:renderBusinessInformation }
+
+merchant_accreditation_bank_information:
+    path: /accreditation/bank-information
+    defaults: { _controller: YilinkerMerchantBundle:Accreditation:renderBankInformation }
+
+merchant_accreditation_legal_documents:
+    path: /accreditation/legal-documents
+    defaults: { _controller: YilinkerMerchantBundle:Accreditation:renderLegalDocuments }
+
+merchant_accreditation_submit_business_information:
+    path: /accreditation/business-information/submit
+    defaults: { _controller: YilinkerMerchantBundle:Accreditation:submitBusinessInformation }
+    methods: [POST]
+
+merchant_accreditation_submit_legal_documents:
+    path: /accreditation/legal-documents/submit
+    defaults: { _controller: YilinkerMerchantBundle:Accreditation:submitLegalDocuments }
+    methods: [POST]
+
+merchant_accreditation_submit_affiliate_legal_documents:
+    path: /accreditation/affiliate-legal-documents/submit
+    defaults: { _controller: YilinkerMerchantBundle:Accreditation:submitAffiliateLegalDocuments }
+    methods: [POST]
+
+merchant_store_address_validate:
+    path: /accreditation/address/validate
+    defaults: { _controller: YilinkerMerchantBundle:UserAddress:validateAddress }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+merchant_location_children:
+    path: /accreditation/location/children
+    defaults: { _controller: YilinkerMerchantBundle:UserAddress:getChildrenLocations }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+merchant_accreditation_download_legal_document:
+    path: /accreditation/upload-legal-documents/{legalDocumentId}
+    defaults: { _controller: YilinkerMerchantBundle:Accreditation:downloadLegalDocuments }

@@ -1,0 +1,23 @@
+admin_accreditation_list:
+    path: /applications/{sellerType}
+    defaults: { _controller: YilinkerBackendBundle:Accreditation:renderApplicationList }
+
+admin_accreditation_detail:
+    path: /application/{userId}
+    defaults: { _controller: YilinkerBackendBundle:Accreditation:renderApplicationDetail }
+
+admin_accreditation_submit_remark:
+    path: /submit-remark
+    defaults: { _controller: YilinkerBackendBundle:Accreditation:submitApplicationRemark }
+
+admin_accreditation_update_type:
+    path: /update-type
+    defaults: { _controller: YilinkerBackendBundle:Accreditation:updateAccreditationType }
+
+admin_accreditation_download_legal_document:
+    path: /upload-legal-documents/{legalDocumentId}
+    defaults: { _controller: YilinkerBackendBundle:Accreditation:downloadLegalDocuments }
+
+admin_accreditation_update_status:
+    path: /update-status
+    defaults: { _controller: YilinkerBackendBundle:Accreditation:updateApplicationStatus }

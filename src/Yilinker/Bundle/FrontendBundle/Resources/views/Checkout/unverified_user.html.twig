@@ -1,0 +1,37 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    {% trans %}
+        AENEAS
+    {% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/checkout.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <div class="checkout-wrapper">
+        <div class="checkout-container">
+            <div class="container">
+                <div class="align-center">
+                    <h3 class="ui header">
+                        <i class="icon icon-alert-exclamation"></i>
+                        <div class="content">
+                            {% trans %}
+                                You cannot use the checkout functionality while you're still unverified.
+                            {% endtrans %}
+                        </div>
+                    </h3>
+                    {% set referer = app.request.server.get('HTTP_REFERER') %}
+                    {% if referer %}
+                        <a href="{{ referer }}" class="button purple uppercase mrg-top-20">{% trans %} Back {% endtrans %}</a>
+                    {% else %}
+                        <a href="{{ path('home_page') }}" class="button purple uppercase mrg-top-20">{% trans %} Back to Home Page {% endtrans %}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}

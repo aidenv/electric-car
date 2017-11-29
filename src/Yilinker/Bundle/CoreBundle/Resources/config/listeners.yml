@@ -1,0 +1,270 @@
+services:
+# action listeners
+    yilinker_core.action.check.user.verified:
+        class: Yilinker\Bundle\CoreBundle\Services\User\CheckUserVerifiedListener
+        arguments: ['@security.context']
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: beforeController }
+
+    yilinker_core.action.locale:
+        class: Yilinker\Bundle\CoreBundle\Services\Translation\LocaleListener
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 17 }
+
+    yilinker_core.action.user.hash.login:
+        class: Yilinker\Bundle\CoreBundle\Services\User\HashLoginListener
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    yilinker_core.translatable.listener:
+        class: Yilinker\Bundle\CoreBundle\Services\Translation\YilinkerTranslatableListener
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: doctrine.event_subscriber }
+
+# entity listeners
+
+    yilinker_core.entity.listener.contact.number:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\ContactNumberListener
+        tags:
+            - { name: doctrine.event_listener, event: preUpdate }
+
+    yilinker_core.entity.listener.user.image:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\UserImageListener
+        calls:
+            - [setServiceContainer, ['@service_container']]
+        tags:
+            - { name: doctrine.event_listener, event: postLoad }
+
+    yilinker_core.entity.listener.product.unit:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\ProductUnitListener
+        calls:
+            - [setServiceContainer, ['@service_container']]
+        tags:
+            - { name: doctrine.orm.entity_listener }
+
+    yilinker_core.entity.listener.product.statuses:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\StatusListener
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: doctrine.event_listener, event: prePersist, priority: 100 }
+            - { name: doctrine.event_listener, event: postPersist, priority: 100 }
+            - { name: doctrine.event_listener, event: preUpdate, priority: 50 }
+            - { name: doctrine.event_listener, event: preRemove, priority: 50 }
+
+    yilinker_core.entity.listener.product.image:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\ProductImageListener
+        calls:
+            - [setServiceContainer, ['@service_container']]
+        tags:
+            - { name: doctrine.event_listener, event: postLoad }
+
+    yilinker_core.entity.listener.user.follow.history:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\UserFollowHistoryListener
+        calls:
+            - [setServiceContainer, ['@service_container']]
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+
+    yilinker_core.entity.listener.product.review:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\ProductReviewListener
+        calls:
+            - [setServiceContainer, ['@service_container']]
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+
+    yilinker_core.entity.listener.timestamp:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\TimestampListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+
+    yilinker_core.entity.listener.user.activity:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\UserActivityListener
+        arguments: ['@request_stack', '@security.token_storage', '@service_container']
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: postUpdate }
+            - { name: doctrine.event_listener, event: postRemove }
+
+    yilinker_core.entity.listener.user.point:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\UserPointListener
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+
+    yilinker_core.entity.listener.user.notification:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\UserNotificationListener
+        arguments: ['@yilinker_core.service.log.user.notification', '@yilinker_core.service.log.user.send_notification']
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: postUpdate }
+            - { name: doctrine.event_listener, event: postRemove }
+
+    yilinker_core.entity.listener.user.order:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\UserOrderListener
+        calls:
+            - [setServiceContainer, ['@service_container']]
+            - [setSitePrefix, ['%site_prefix%']]
+        tags:
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: postUpdate }
+
+    yilinker_core.entity.listener.order.voucher:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\OrderVoucherListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+
+    yilinker_core.entity.listener.order.product:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\OrderProductListener
+        arguments: ['@service_container']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: postUpdate }
+            - { name: doctrine.event_listener, event: postLoad }
+
+    yilinker_core.entity.listener.country_code_trait:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\CountryCodeListener
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: doctrine.event_listener, event: postLoad }
+
+    yilinker_core.entity.listener.dispute.message:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\DisputeMessageListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+
+    yilinker_core.entity.listener.payout.request:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\PayoutRequestListener
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }
+
+    yilinker_core.entity.listener.user.identification.card:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\UserIdentificationCardListener
+        calls:
+            - [setKernelRootDirectory, ['%kernel.root_dir%']]
+            - [setImageManipulationService, ['@yilinker_core.service.image_manipulation']]
+            - [setFilesystem, ['@photo_storage_filesystem']]
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: postUpdate }
+
+    yilinker_core.entity.listener.payout:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\PayoutListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+
+    yilinker_core.entity.listener.earning:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\EarningListener
+        arguments: ['@service_container']
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+
+    yilinker_core.entity.listener.manufacturer.payout:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\ManufacturerPayoutListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+
+    yilinker_core.entity.listener.payout.document:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\PayoutDocumentListener
+        calls:
+            - [setKernelRootDirectory, ['%kernel.root_dir%']]
+            - [setImageManipulationService, ['@yilinker_core.service.image_manipulation']]
+            - [setFilesystem, ['@photo_storage_filesystem']]
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: postUpdate }
+
+    yilinker_core.entity.listener.manufacturer.payout.document:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\ManufacturerPayoutDocumentListener
+        calls:
+            - [setKernelRootDirectory, ['%kernel.root_dir%']]
+            - [setImageManipulationService, ['@yilinker_core.service.image_manipulation']]
+            - [setFilesystem, ['@photo_storage_filesystem']]
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: postUpdate }
+
+    yilinker_core.entity.listener.product:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\ProductListener
+        calls:
+            - [setObjectPersister, ['@fos_elastica.object_persister.yilinker_online.store']]
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: doctrine.event_listener, event: postPersist, priority: 2 }
+            - { name: doctrine.event_listener, event: postRemove, priority: 2 }
+            - { name: doctrine.event_listener, event: postUpdate, priority: 2 }
+            - { name: doctrine.event_listener, event: prePersist, priority: 2 }
+
+    yilinker_core.entity.listener.promo_instance:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\PromoInstanceListener
+        calls:
+            - [setObjectPersister, ['@fos_elastica.object_persister.yilinker_online.product']]
+        tags:
+            - { name: doctrine.event_listener, event: postRemove, priority: 2 }
+            - { name: doctrine.event_listener, event: postUpdate, priority: 2 }
+
+    yilinker_core.entity.listener.custom_category_product:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\CustomCategoryProductListener
+        calls:
+            - [setObjectPersister, ['@fos_elastica.object_persister.yilinker_online.product']]
+        tags:
+            - { name: doctrine.event_listener, event: postPersist, priority: 4 }
+            - { name: doctrine.event_listener, event: postRemove, priority: 4 }
+            - { name: doctrine.event_listener, event: postUpdate, priority: 4 }
+
+    yilinker_core.entity.listener.custom_category_product_store:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\CustomCategoryListener
+        calls:
+            - [setProductObjectPersister, ['@fos_elastica.object_persister.yilinker_online.product']]
+            - [setStoreObjectPersister, ['@fos_elastica.object_persister.yilinker_online.store']]
+        tags:
+            - { name: doctrine.event_listener, event: postPersist, priority: 3 }
+            - { name: doctrine.event_listener, event: postRemove, priority: 3 }
+            - { name: doctrine.event_listener, event: postUpdate, priority: 3 }
+
+    yilinker_core.entity.listener.user.profile:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\UserProfileListener
+        arguments: ['@security.password_encoder']
+        tags:
+            - { name: doctrine.event_listener, event: preUpdate, priority: 2 }
+            - { name: doctrine.event_listener, event: prePersist, priority: 2 }
+
+    yilinker_core.entity.listener.one_time_password:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\OneTimePasswordListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+
+    yilinker_core.entity.listener.store:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\StoreListener
+        arguments: ['@yilinker_core.service.qr_code.generator']
+        tags:
+            - { name: doctrine.event_listener, event: preUpdate }
+
+    yilinker_core.entity.listener.product_country:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Listener\ProductCountryListener
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: doctrine.event_listener, event: postPersist, priority: 3 }
+            - { name: doctrine.event_listener, event: postRemove, priority: 3 }
+            - { name: doctrine.event_listener, event: postUpdate, priority: 3 }

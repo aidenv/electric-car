@@ -1,0 +1,8 @@
+feedback_product:
+    path: /product
+    defaults: { _controller: YilinkerFrontendBundle:Feedback:productFeedback }
+    methods: [POST]
+
+feedback_seller_form:
+    path: /seller-form
+    defaults: { _controller: YilinkerFrontendBundle:Feedback:sellerFeedbackForm }

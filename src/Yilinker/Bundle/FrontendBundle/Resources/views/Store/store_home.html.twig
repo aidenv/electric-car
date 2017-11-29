@@ -1,0 +1,82 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block facebook_analytics %}
+    {% embed 'analytics/facebook-pixel.html.twig' %}
+        {% block fbPixel %}
+        fbq('track', 'ViewContent', {
+            content_name: '{{ store.storeName }}',
+            content_category: 'store'
+        });
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block metadata %}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ app.request.getSchemeAndHttpHost() }}{{ path('store_page_products', {'slug':store.getStoreSlug}) }}" />
+    <meta property="og:title" content="{{ store.getStoreName }}" />
+    <meta itemprop="og:headline" content="{{ store.getStoreName }}" />
+    <meta property="og:description" content="{{ store.getStoreDescription }}" />
+    <meta itemprop="og:description" content="{{ store.getStoreDescription }}" />
+    <meta property="og:image" content="{{ asset(store.getQrCodeLocation, 'qr_code') }}" />
+{% endblock %}
+
+{% block title %}
+    {{ store.storeName }}
+{% endblock %}
+
+{% block header  %}
+    {% set currentRoute = path('store_page_products', {"slug":store.storeSlug}) %}
+    {% render controller('YilinkerFrontendBundle:Home:renderHeader', { 'request': app.request, 'store': store, 'currentRoute' : currentRoute}) %}
+{% endblock %}
+
+{% block sidebar %}{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div data-yi-loader>
+        <div class="store">
+            <div class="wrapper-outer" id="searchWrapper">
+                <!--Store search form-->
+                {{ include('YilinkerFrontendBundle:Store:store_top_search.html.twig') }}
+
+                <!--Store top banner-->
+                {{ include('YilinkerFrontendBundle:Store:store_top_banner.html.twig') }}
+
+                <!--Header for product seller-->
+                {{ include('YilinkerFrontendBundle:Store:product_filters.html.twig') }}
+
+                <!--Searched items area-->
+                {{ render(controller('YilinkerFrontendBundle:Store:productList', {request: app.request})) }}
+                {{ render_esi(controller('YilinkerFrontendBundle:Home:renderStoreFooter')) }}
+            </div>
+        </div>
+    </div>
+    <div id="domain-container" data-value="{{ merchantHostName }}"></div>
+{% endblock %}
+
+{% block yeahmobi_google_remarketing %}
+    {% include 'analytics/yeahmobi/google-remarketing.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        (function($) {
+            var $body = $('body');
+            $body.data('sellerId', {{ store.user.userId }});
+        })(jQuery);
+    </script>
+    <script src="{{ asset('js/bower/scrollspy.js') }}"></script>
+    <script src="{{ asset('js/src/frontend/store/mini-pager.js') }}"></script>
+    <script src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/bower/ion.rangeSlider.min.js') }}"></script>
+    <script src="{{ asset('js/src/product-list-header.js') }}"></script>
+    <script src="{{ asset('js/src/universal.js') }}"></script>
+    <script src="{{ asset('js/src/utility/loader.js') }}"></script>
+    <script src="{{ asset('js/src/frontend/store/store.js') }}"></script>
+    <script src="{{ asset('js/src/frontend/product-filter-modal.js') }}"></script>
+    <script src="{{ asset('js/src/frontend/store/store-search.js') }}"></script>
+{% endblock %}

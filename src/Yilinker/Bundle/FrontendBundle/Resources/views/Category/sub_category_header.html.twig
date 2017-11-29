@@ -1,0 +1,24 @@
+{% extends 'YilinkerFrontendBundle:Base:product_list_header.html.twig' %}
+
+{% block menu %}
+
+    <div class="search-header-top-layer">
+        <div class="gutter-container">
+            <div class="search-header-label category-breadcrumb">
+                <ul class="list-unstyled list-category-breadcrumb">
+                    <li>
+                        <a href="{{ path('all_categories') }}">{% trans %} All Categories {% endtrans %}</a>
+                    </li>
+                    <li class="icon-holder"><span class="icon icon-angle-right"></span></li>
+                    {% for crumb in breadcrumbs %}
+                    <li>
+                        <a href="{{ path('get_category' , {'slug': crumb.slug} ) }}">{{ crumb.name }}</a>
+                    </li>
+                    <li class="icon-holder"><span class="icon icon-angle-right"></span></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'YilinkerFrontendBundle:Base:product_list_header.html.twig' %}
+
+{% block menu %}
+        <div class="search-header-top-layer">
+            <div class="gutter-container">
+                <div class="search-header-label search-results-total">
+                    <span class="semi-bold">{{ totalProductResultCount }}</span> result{% if totalProductResultCount > 1 %}s{% endif%} for <span class="semi-bold">{{ query }}</span>
+                </div>
+                <div class="search-result-type">
+                    <ul class="list-unstyled list-search-result-type">
+                        <li>
+                            <a class="active">Product <span class="counter normal">{{ totalProductResultCount | default(0) }}</span></a>
+                        </li>
+                        {% if excludeSeller is not defined %}
+                        <li>
+                            <a href="{{ path('search_seller', {query : query} )}}" >
+                                Seller <span class="counter normal">{{ totalStoreResultCount | default(0)}}</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+{% block filters %}
+    {{ parent() }}
+{% endblock %}

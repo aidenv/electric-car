@@ -1,0 +1,107 @@
+
+<div class="ui modal small {{forAffiliate ? 'total-affiliate-network-modal' : 'total-buyer-network-modal' }}">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">How to Earn More</h4>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-8">
+                {% if forAffiliate == true %}
+                    <div class="mrg-bt-20">
+                        <h3 class="mrg-bt-0 purple-color">P{{constant('Yilinker\\Bundle\\CoreBundle\\Services\\Earner\\Earnings::REGISTER_AFFILIATE')|number_format(2)}}</h3>
+                        <p>
+                            Earn P {{constant('Yilinker\\Bundle\\CoreBundle\\Services\\Earner\\Earnings::REGISTER_AFFILIATE')|number_format(2)}} for every you refer a person to join YiLinker Affiliate using your referral code.
+                        </p>
+                    </div>
+                    <div class="mrg-bt-20">
+                        <h3 class="mrg-bt-0 purple-color">{{constant('Yilinker\\Bundle\\CoreBundle\\Services\\Earner\\Earnings::AFFILIATE_COMMISION_PERCENTAGE')}}%</h3>
+                        <p>
+                            Earn extra {{constant('Yilinker\\Bundle\\CoreBundle\\Services\\Earner\\Earnings::AFFILIATE_COMMISION_PERCENTAGE')}}% on your network affiliate commission
+                        </p>
+                    </div>
+                {% else %}
+                    <div class="mrg-bt-20">
+                        <h3 class="mrg-bt-0 purple-color">P {{constant('Yilinker\\Bundle\\CoreBundle\\Services\\Earner\\Earnings::REGISTER_BUYER')|number_format(2)}}</h3>
+                        <p>
+                            Earn P {{constant('Yilinker\\Bundle\\CoreBundle\\Services\\Earner\\Earnings::REGISTER_BUYER')|number_format(2)}} for every you refer a refer a peron who register a YiLinker buyer account using your referral code.
+                        </p>
+                    </div>
+                    <div class="mrg-bt-20">
+                        <h3 class="mrg-bt-0 purple-color">P {{constant('Yilinker\\Bundle\\CoreBundle\\Services\\Earner\\Earnings::BUYER_TRANSACTION')|number_format(2)}}</h3>
+                        <p>
+                            Earn P {{constant('Yilinker\\Bundle\\CoreBundle\\Services\\Earner\\Earnings::BUYER_TRANSACTION')|number_format(2)}} for every success transaction on your referral buyer made.
+                        </p>
+                    </div>
+                {% endif %}
+                <div class="mrg-bt-20">
+                    <h5 class="bold">Your Referral Code</h5>
+                    <h4 class="purple-color">{{app.user.referralCode|default("")}}</h4>
+                </div>
+                <div class="mrg-bt-20">
+                    <h5 class="bold">Your Referral Link</h5>
+                    <p>
+                        <div class="message-box green copied-referral-success mrg-bt-0 hidden">
+                            <i class="icon icon-check-circle icon-lg"></i> Copied to clipboard
+                        </div>
+
+                        <div class="form-ui">
+                            <a href="{{referralUrl}}">
+                                {{referralUrl}}
+                            </a>
+                        </div>
+
+                        <button data-clipboard-text="{{referralUrl}}" class="button small blue uppercase copy-referral-code-link">Copy Link</button>
+                    </p>
+                </div>
+                <div>
+                    <h5 class="bold">Share on Social Media</h5>
+                    <div class="social-media-set">
+                        <a data-fb-share='{"appId":"{{ merchant_facebook_appId }}","customUrl":"{{referralUrl}}"}'>
+                            <div class="social-media-icon facebook">
+                                <i class="icon-facebook"></i>
+                            </div>
+                        </a>
+
+                        <a data-twitter-share='{"url":"{{referralUrl}}"}' href="#">
+                            <div class="social-media-icon twitter">
+                                <i class="icon-twitter"></i>
+                            </div>
+                        </a>
+                        <a data-google-share='{"customUrl":"{{referralUrl}}"}' href="#">
+                            <div class="social-media-icon google-plus">
+                                <i class="icon-google-plus"></i>
+                            </div>
+                        </a>
+                        <a class="qr-code-modal-trigger">
+                            <div class="social-media-icon">
+                                <img  src="{{ qrcode_data_uri(referralUrl, size=300) }}" data-thumb="{{ qrcode_data_uri(referralUrl, size=240) }}" data-small="{{ qrcode_data_uri(referralUrl, size=480) }}" data-medium="{{ qrcode_data_uri(referralUrl, size=960) }}" data-large="{{ qrcode_data_uri(referralUrl, size=1920) }}" alt="QR Code" class="img-auto-place">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                {% if forAffiliate == true %}
+                    <div class="mrg-bt-20 align-right">
+                        <h4>Total Affiliate Network</h4>
+                        <h2 class="purple-color">{{totalAffiliateReferred}}</h2>
+                    </div>
+                    <div class="align-right">
+                        <h4>Earning on Affiliate Network</h4>
+                        <h2 class="purple-color">P {{totalAffiliateNetwork|number_format(2)}}</h2>
+                    </div>
+                {% else %}
+                    <div class="mrg-bt-20 align-right">
+                        <h4>Total Buyer Network</h4>
+                        <h2 class="purple-color">{{totalBuyerReferred}}</h2>
+                    </div>
+                    <div class="align-right">
+                        <h4>Earning on Buyer Network</h4>
+                        <h2 class="purple-color">P {{totalBuyerNetwork|number_format(2)}}</h2>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

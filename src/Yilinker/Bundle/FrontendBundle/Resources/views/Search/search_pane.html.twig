@@ -1,0 +1,18 @@
+<!--Searched items area-->
+<div class="search-pane">
+    <div class="gutter-container">
+      {{ include('YilinkerFrontendBundle:Search:search_sidebar_filter.html.twig') }}
+      <div class="search-result-product-list-container">
+          {{ include('YilinkerFrontendBundle:Search:search_header_control.html.twig') }}
+          {{ include('YilinkerFrontendBundle:Store:store_product_list.html.twig') }}
+          <div class="align-center mrg-top-20">
+            {{ 
+                include('YilinkerCoreBundle:Default:pagination.html.twig', {
+                    totalResults: 100, 
+                    perPage: 10
+                }) 
+            }}
+          </div>
+      </div>
+    </div>
+</div>

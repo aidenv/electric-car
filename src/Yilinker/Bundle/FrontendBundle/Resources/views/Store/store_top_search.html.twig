@@ -1,0 +1,42 @@
+{% set originalRequest = app.request.attributes.get('request') is not null ? app.request.attributes.get('request') : app.request %}
+{% set slug = originalRequest.get('slug') %}
+{% set q = originalRequest.request.get('q', '') %}
+{% set q = q ? q: originalRequest.query.get('q', '') %}
+<div class="store-search-form-container">
+    <div class="form-large-container">
+        <i class="icon left icon-search icon-3x"></i>
+        <i class="icon right icon-circle-times icon-4x close-search-form-trigger"></i>
+        {% if originalRequest.get('_route') == 'store_page_products' %}
+            <input id="main-search-input" name="q" data-product-search="q" value="{{ q }}" type="text" class="form-large-search" placeholder="Search for store Products"/>
+        {% else %}
+            <form action="{{ path('store_page_products', {slug: slug}) }}" method="GET">
+                <input id="main-search-input" data-product-search="q" name="q" type="text" class="form-large-search" placeholder="Search For Products"/>
+            </form>
+        {% endif %}
+    </div>
+    <div class="suggested-search-container">
+        <ul class="list-unstyled list-suggested-search">
+            {% for i in 1..10 %}
+            <li>
+                <a href="#">Men's Shoes</a>
+            </li>
+            <li>
+                <a href="#">Men's Shoes</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "{{ frontend_hostname ~ path('store_page_products', {slug: originalRequest.get('slug')}) }}",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ frontend_hostname ~ path('store_page_products', {slug: originalRequest.get('slug')}) }}?&q={q}",
+      "query-input": "required name=q"
+    }
+}
+</script>

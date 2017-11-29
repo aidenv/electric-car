@@ -1,0 +1,58 @@
+Yilinker\Bundle\CoreBundle\Entity\BankAccount:
+    type: entity
+    table: BankAccount
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\BankAccountRepository
+    id:
+        bankAccountId:
+            type: integer
+            id: true
+            column: bank_account_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        accountTitle:
+            type: string
+            column: account_title
+            length: '255'
+        accountName:
+            type: string
+            column: account_name
+            length: '255'
+        accountNumber:
+            type: string
+            column: account_number
+            length: '25'
+        isDefault:
+            type: boolean
+            column: is_default
+            options:
+                default: '0'
+        isDelete:
+            type: boolean
+            column: is_delete
+            options:
+                default: '0'
+    manyToOne:
+        bank:
+            targetEntity: Bank
+            joinColumn:
+                name: bank_id
+                referencedColumnName: bank_id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+            inversedBy: bankAccounts
+    indexes:
+        fk_bankaccount_userid_user_userid_idx:
+            columns:
+                - user_id
+        fk_bankaccount_bankid_bank_bankid_idx:
+            columns:
+                - bank_id
+    lifecycleCallbacks: {  }

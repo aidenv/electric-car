@@ -1,0 +1,37 @@
+Yilinker\Bundle\CoreBundle\Entity\UserFollowHistory:
+    type: entity
+    table: UserFollowHistory
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserFollowHistoryRepository
+    id:
+        userFollowHistoryId:
+            type: integer
+            id: true
+            column: user_follow_history_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        isFollow:
+            type: boolean
+            column: is_follow
+            nullable: true
+            options:
+                default: false
+        dateCreated:
+            type: datetime
+            column: date_created
+    manyToOne:
+        follower:
+            targetEntity: User
+            joinColumn:
+                name: follower_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        followee:
+            targetEntity: User
+            joinColumn:
+                name: followee_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

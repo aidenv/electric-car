@@ -1,0 +1,16 @@
+Yilinker\Bundle\CoreBundle\Entity\PaymentMethod:
+    type: entity
+    table: PaymentMethod
+    id:
+        paymentMethodId:
+            type: integer
+            id: true
+            column: payment_method_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }

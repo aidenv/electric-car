@@ -1,0 +1,73 @@
+{% set originalRequest = app.request.attributes.get('request') is not null ? app.request.attributes.get('request') : app.request %}
+{% set slug = originalRequest.get('slug') %}
+<div class="top-banner-container">
+    {% if store.user is defined and store.user.primaryCoverPhoto %}
+        <div id="default-merchant-cover" class="merchant-cover-photo-wrapper" style="background-image: url('{{ asset(store.user.primaryCoverPhoto.getImageLocationBySize('large'), 'user') }}')">
+        </div>
+    {% else %}
+        <div id="default-merchant-cover" class="merchant-cover-photo-wrapper" style="background-image: url('{{ asset('images/merchant-cover-default.jpg') }}')">
+        </div>
+    {% endif %}
+    <div class="store-menu-top-banner {{ originalRequest.get('_route') == 'store_page_products' ? 'home': 'about' }}">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3">
+                <div class="table-seller-name">
+                        <div class="td-seller-img align-center">
+                            <a>
+                                <span class="img-seller-container">
+                                    {% if store.user is defined and store.user.primaryImage != null %}
+                                        <img src="{{ asset(store.user.primaryImage.getImageLocationBySize('thumbnail'), 'user') }}" class="img-seller img-round" />
+                                    {% else %}
+                                        <img src="{{ asset('images/default-merchant.png') }}" class="img-seller img-round" />
+                                    {% endif %}
+                                </span>
+                            </a>
+                        </div>
+                        <div class="td-seller-name">
+                            <div class="name">
+                                <a class="white-color">
+                                    <strong>{{ store.storeName }}</strong>
+                                </a>
+                                <br>
+                                 {{ render(controller('YilinkerFrontendBundle:Store:isFollowing', {'seller' : store.user})) }}
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="store-menu-header align-center">
+                    <ul class="list-unstyled list-store-menu">
+                        <li>
+                            <a class="{{ originalRequest.get('_route') == 'store_page_products' ? 'active' : '' }}" href="{{ path('store_page_products', {slug: slug}) }}">
+                                {% trans %} Products {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="{{ originalRequest.get('_route') == 'store_page_about' ? 'active' : '' }}" href="{{ path('store_page_about', {slug: slug}) }}">
+                                {% trans %} Store Information {% endtrans %} 
+                            </a>
+                        </li>
+                        <li>
+                            <a class="{{ originalRequest.get('_route') == 'store_page_feedback' ? 'active' : '' }}" href="{{ path('store_page_feedback', {slug: slug}) }}">
+                                {% trans %} Feedback {% endtrans %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-3 align-right mobile-hide">
+                <i class="icon icon-circle-search2 icon-4x open-search-form-trigger"></i>
+            </div>
+        </div>
+        <i class="icon icon-circle-search2 icon-4x open-search-form-trigger desktop-hide"></i>
+    </div>
+    <div class="store-title-page-container">
+        {% if originalRequest.get('_route') == 'store_page_about' %}
+            <h1 class="uppercase">About</h1>
+            <h1 class="uppercase">{{ store.storeName }}</h1>
+        {% elseif originalRequest.get('_route') == 'store_page_feedback' %}
+            <h1 class="uppercase">What People</h1>
+            <h1 class="uppercase">Are saying</h1>
+        {% endif %}
+    </div>
+</div>

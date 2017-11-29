@@ -1,0 +1,14 @@
+all_categories:
+    path: /categories
+    defaults: { _controller: YilinkerFrontendBundle:Category:allCategories }
+    methods: [GET]
+
+get_category:
+    path: /category/{slug}
+    defaults: { _controller: YilinkerFrontendBundle:Category:renderCategoryPage }
+    methods: [GET]
+
+get_category_by_id:
+    path: /category-id/{id}
+    defaults: { _controller: YilinkerFrontendBundle:Category:getCategoryById }
+    methods: [GET]

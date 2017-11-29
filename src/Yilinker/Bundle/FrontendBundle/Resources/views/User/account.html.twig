@@ -1,0 +1,3 @@
+{%  if not user.isEmailVerified %}
+    <a href="{{ path('user_send_verification') }}">Resend Email Verification</a>
+{% endif %}

@@ -1,0 +1,57 @@
+<div class="dashboard-submenu-wrapper">
+     <div class="dashboard-submenu-container white recent-messages-submenu">
+       <div class="desktop-hide">
+            <span class="bold">Recent Messages</span>
+            <span class="mobile-contact-trigger">
+                <i class="icon icon-list2"></i>
+            </span>
+        </div>
+        <h5 class="no-margin mobile-hide">Recent Messages</h5>
+     </div>
+ </div>
+ <div class="recent-messages-container">
+    <ul class="list-unstyled list-messages-item recent-messages-ul">
+        {% if messages is not empty %}
+            {% for message in messages %}
+                <li class="message-conversation-head" data-id="{{ message.slug }}">
+                    <a {{ message.hasUnreadMessage > 0? "class='unread'":'' }}>
+                        <table class="table-message-item">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="image-status-container">
+                                            <div class="image-holder img-recent-message-sender">
+                                                <img src="{{ message.profileThumbnailImageUrl }}" alt="" class="img-auto-place"/>
+                                            </div>
+                                            <i class="icon icon-circle online-status {{ message.isOnline is same as("1")? 'online':'offline' }}"></i>
+                                        </div>
+                                    </td>
+                                    <td class="td-sender-name">
+                                        <span>{{ message.fullName }}</span>
+                                    </td>
+                                    <td class="td-time">
+                                        <span class="pull-right">{{ message.lastMessageDate | date("m/d/Y") }}</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="td-message-synopsis light-color">
+                                        <!--64 character limit-->
+                                        {% if message.isImage is same as("0") %}
+                                            {{ message.message|length > 64? message.message|slice(0, 64) ~ '...' : message.message  }}
+                                        {% else %}
+                                            {% if message.userId is same as(message.sender) %}
+                                                {{ message.fullName }} sent a photo.
+                                            {% else %}
+                                                You sent a photo.
+                                            {% endif %}
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </a>
+                </li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+ </div>

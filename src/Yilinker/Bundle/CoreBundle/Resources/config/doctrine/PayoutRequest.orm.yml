@@ -1,0 +1,95 @@
+Yilinker\Bundle\CoreBundle\Entity\PayoutRequest:
+    type: entity
+    table: PayoutRequest
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\PayoutRequestRepository
+    id:
+        payoutRequestId:
+            type: integer
+            id: true
+            column: payout_request_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        referenceNumber:
+            column: reference_number
+            type: string
+            length: 255
+            default:
+                options: ''
+        requestSellerType:
+            column: request_seller_type_id
+            type: smallint
+        payoutRequestMethod:
+            column: payout_request_method
+            type: smallint
+        bankAccountTitle:
+            column: bank_account_title
+            type: string
+        bankAccountName:
+            column: bank_account_name
+            type: string
+            nullable: true
+        bankAccountNumber:
+            column: bank_account_number
+            type: string
+        payoutRequestStatus:
+            column: payout_request_status_id
+            type: smallint
+            default:
+                options: 1
+        requestedAmount:
+            column: requested_amount
+            type: decimal
+            precision: 12
+            scale: 4
+            default:
+                options: '0.00'
+        charge:
+            type: decimal
+            precision: 12
+            scale: 4
+            default:
+                options: '0.00'
+        netAmount:
+            column: net_amount
+            type: decimal
+            precision: 12
+            scale: 4
+            default:
+                options: '0.00'
+        adjustmentAmount:
+            column: adjustment_amount
+            type: decimal
+            precision: 12
+            scale: 4
+            default:
+                options: '0.00'
+        dateAdded:
+            column: date_added
+            type: datetime
+        dateLastModified:
+            column: date_last_modified
+            type: datetime
+    indexes:
+        payout_request_user_id_user_user_id_idx:
+            columns:
+                - user_id
+    manyToOne:
+        bank:
+            targetEntity: Bank
+            joinColumn:
+                name: bank_id
+                referencedColumnName: bank_id
+            orphanRemoval: false
+        requestBy:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    oneToMany:
+        payoutRequests:
+            targetEntity: PayoutBatchDetail
+            mappedBy: payoutRequest
+
+    lifecycleCallbacks: {  }

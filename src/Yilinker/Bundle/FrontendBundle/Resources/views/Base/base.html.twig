@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="csrf-token" content="{{ default_csrf_token() }}" />
+        <meta name="default-latitude" content="{{ default_latitude }}" />
+        <meta name="default-longitude" content="{{ default_longitude }}" />
+        {% block metatags %}{% endblock %}
+        <title>{% block title %} YilinkerOnline.com  {% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('css/flag-icon-css/css/flag-icon.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/plugin-online-main.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/online-main.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/support-chat.css') }}">
+        {% block stylesheets %}
+        {% endblock %}
+        {% block metadata %}{% endblock %}
+
+        <!-- move before facebook pixel because this causes duplicate pixel firing for some reason -->
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+
+        {% block ga_analytics %}
+            {% include 'analytics/google-analytics.html.twig' %}
+        {% endblock %}
+
+        {% block facebook_analytics %}
+            {% include 'analytics/facebook-pixel.html.twig' %}
+        {% endblock %}
+
+        {% block iprice_analytics %}
+             {% include 'analytics/iprice-pixel.html.twig' %}
+        {% endblock %}
+
+        <style>
+            .navbar-default .navbar-item.toggle-side-menu{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        {% if app.user and false %}
+          {{ render(controller('YilinkerFrontendBundle:Home:renderIframes')) }}
+        {% endif %}
+
+        {% block header  %}
+            {% set currentRoute = app.request.get('_route') %}
+            {{ render(controller('YilinkerFrontendBundle:Home:renderHeader', {currentRoute : currentRoute })) }}
+        {% endblock %}
+
+        <div class="ui page dimmer nav-header" style="z-index: 9;"></div>
+
+        <!--Popup modal for BUYER name link-->
+        {{ include('YilinkerFrontendBundle:Base:user_card.html.twig') }}
+        <div class="main-container">
+            {% block body %}{% endblock %}
+        </div>
+        <script src="{{ asset('socket.io/socket.io.js') }}"></script>
+        <script src="{{ asset('js/bower/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/src/utility/sticky-header.js') }}"></script>
+        <script src="{{ asset('js/bower/tipso.min.js') }}"></script>
+        <script src="{{ asset('js/bower/popup.min.js') }}"></script>
+        <script src="{{ asset('js/bower/dimmer.min.js') }}"></script>
+        <script src="{{ asset('js/bower/modal.min.js') }}"></script>
+        <script src="{{ asset('js/bower/dropdown.min.js') }}"></script>
+        <script src="{{ asset('js/bower/checkbox.min.js') }}"></script>
+        <script src="{{ asset('js/bower/transition.min.js') }}"></script>
+        <script src="{{ asset('js/bower/popup.min.js') }}"></script>
+        <script src="{{ asset('js/bower/accordion.min.js') }}"></script>
+        <script src="{{ asset('js/bower/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        <script src="{{ asset('js/bower/flip.min.js') }}"></script>
+        <script src="{{ asset('js/bower/jquery.matchHeight-min.js') }}"></script>
+        <script src="{{ asset('js/bower/twig.min.js') }}"></script>
+        {%
+            set routes = {
+                'cart_add_item': path('cart_add_item'),
+                'wishlist_to_cart': path('wishlist_to_cart'),
+                'product_details': path('product_details', {slug: '{slug}'}),
+                'checkout_type': path('checkout_type')
+            }|json_encode
+        %}
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') or is_granted('IS_AUTHENTICATED_FULLY') %}
+            <script src="{{ asset('js/bower/yamljs.js') }}"></script>
+            <script src="{{ asset('js/src/socket-connection.js') }}"></script>
+        {% endif %}
+        <script src="{{ asset('js/src/utility/url-utility.js') }}"></script>
+        <script src="{{ asset('js/src/utility/athena.js') }}"></script>
+        <script src="{{ asset('js/src/twig-extension.js') }}" id="twig-extension" data-routes="{{ routes }}"></script>
+        <script src="{{ asset('js/bower/hinclude.js') }}"></script>
+        <script src="{{ asset('js/bower/jquery.lazyload.js') }}"></script>
+        <script src="{{ asset('js/src/frontend/base.js') }}"></script>
+        <script src="{{ asset('js/src/product-attribute.js') }}"></script>
+        <script src="{{ asset('js/src/support-chat.js') }}"></script>
+        <script src="{{ asset('js/src/utility/loader.js') }}"></script>
+        <script src="{{ asset('js/src/cart.js') }}"></script>
+        <script src="{{ asset('js/src/utility/data-feeder.js') }}"></script>
+        <script src="{{ asset('socket.io/socket.io.js') }}"></script>
+        {% block javascripts %}
+            <script src="{{ asset('reactjs/build/vendor.js') }}"></script>
+        {% endblock %}
+        <script src="{{ asset('js/src/utility/ajaxed-content.js') }}"></script>
+
+        {% block extendable_body_analytics %}
+            {% include 'analytics/google-remarketing.html.twig' %}
+        {% endblock %}
+
+        {% block yeahmobi_google_remarketing %}
+        {% endblock %}
+
+    </body>
+</html>

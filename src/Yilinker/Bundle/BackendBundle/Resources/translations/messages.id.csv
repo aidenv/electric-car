@@ -1,0 +1,900 @@
+"Access Denied"; "Akses ditolak"
+"click here"; "Klik di sini"
+Accreditation;Akreditasi
+"Business Information"; "Informasi bisnis"
+"Seller Type"; "Jenis Penjual"
+"Owner Name"; "Nama pemilik"
+"Store Name"; "Nama toko"
+"Primary Address"; "Alamat primer"
+"Other Address"; "Alamat lain"
+"Contact Number"; "Nomor kontak"
+"Application Status"; " aplikasi statusnya"
+You;Anda
+Submit;Kirim
+"Mark as Complete"; "Tandai sebagai lengkap"
+"Mark as Incomplete"; "Tandai sebagai tidak lengkap"
+"Bank Information"; "Informasi Bank"
+"Bank Name"; "Nama Bank"
+"Account Title"; "Rekening judul"
+"Account Name"; "Nama account"
+"Account Number"; "Nomor rekening"
+"Legal Files"; "File hukum"
+File;File
+"Date Uploaded"; "Tanggal upload"
+Remarks;Komentar
+"DTI/SEC Permit"; "Izin DTI/SEC"
+"Mayor's Permit"; "Walikota izin"
+"BIR Permit"; "BIR izin"
+"FORM MA11501 Permit"; "BENTUK MA11501 izin"
+Others;Lain
+SSS;SSS
+"PAG IBIG"; "PAG IBIG"
+Postal;Pos
+Passport;Paspor
+"Driver's License"; "SIM"
+PRC;RRC
+"Voter's ID"; "Pemilih ID"
+"School ID"; "Sekolah ID"
+TIN;TIN
+"Valid ID"; "Valid ID"
+"Download this file"; "Download file ini"
+"Update Accreditation Type"; "Memperbarui jenis akreditasi"
+Okay;Oke
+Accreditations;Akreditasi
+"Select Status"; "Pilih statusnya"
+Search;Cari
+Status;statusnya
+"Quick Info"; "Info cepat"
+Name:;Nama:
+Phone:;Telepon:
+Email:;Email:
+"Affiliate Accreditation"; "Afiliasi akreditasi"
+"Personal Information"; "Informasi pribadi"
+"Identification Document"; "Dokumen identifikasi"
+Username;Nama pengguna
+Password;Sandi
+"Sign In"; "Tandatangan"
+"Manage Administrator"; "Mengelola pengelola"
+"Register Administrator"; "Mendaftar pengelola"
+"Enter Username here"; "Masukkan nama pengguna di sini"
+"Enter Password here"; "Masukkan Sandi sini"
+"Change Password"; "Ubah sandi"
+"Confirm Password"; "Konfirmasi Sandi "
+"Enter Confirm Password here"; "Masukkan Confirm Sandi  di sini"
+"First Name"; "Nama pertama"
+"Enter First name here"; "Masukkan nama pertama di sini"
+"Last Name"; "Nama belakang"
+"Enter Last name here"; "Masukkan nama terakhir di sini"
+"User Role"; "Peran pengguna"
+"Select Role"; "Pilih peran"
+Register;Daftar
+"Manage Roles"; "Mengelola peran"
+ID;ID
+Fullname;Lengkap
+Role;Peran
+Activation;Aktivasi
+"Enter your new password here"; "Masukkan sandi baru di sini"
+"Confirm your new password here"; "Konfirmasi  sandi  baru di sini"
+Cancel;Batal
+"Manually Created Accounts"; "Akun dibuat secara manual"
+"Number of Manual Accounts: 227"; "Jumlah account Manual: 227"
+"Search By Name / ID No. / Business Name"; "Cari oleh nama / ID No. / bisnis nama"
+"Accreditation Status:"; "Status akreditasi:"
+Unaccredited;Unaccredited
+Accredited;Terakreditasi
+All;Semua
+"Created By:"; "Dibuat oleh:"
+--;--
+"George Paulino"; "George Paulino"
+"Ryan gVay"; "Ryan gVay"
+KarlDub;KarlDub
+"Kevin the Nightstalker"; "Kevin Nightstalker"
+"Account Status:"; "statusnya akun:"
+Activated;Diaktifkan
+Locked;Terkunci
+"Create Account"; "Membuat akun"
+"Customer ID"; "ID pelanggan"
+"Business Name"; "Nama bisnis"
+192;192
+"Chris Bosh George"; "Chris Bosh George"
+"Burger Machine"; "Burger mesin"
+Seller;Penjual
+"Ronald McDonald Duck"; "Ronald McDonald Duck"
+"McDonalds Fastfood"; "McDonalds Fastfood"
+Mechant;Mechant
+"Casper Daprenlygosh"; "Casper Daprenlygosh"
+"Haus of Honor"; "Haus kehormatan"
+Hybrid;Hibrida
+"Manual Creation List"; "Manual penciptaan daftar"
+"Manual Creation Details"; "Manual penciptaan rincian"
+"Account Details"; "Detail akun"
+"Account Notes"; "Catatan akun"
+"Basic Information"; "Informasi dasar"
+Affiliate;Afiliasi
+"Email Address"; "Alamat email"
+"Mobile Number"; "Nomer HP"
+"Address Information"; "Informasi alamat"
+Addresses;Alamat
+"&nbsp;"; "&nbsp;"
+Home;Rumah
+"1234 Building Street 2 Street Subdivision Metro Manila Manila Barangay 2 ,566056"; "1234 bangunan Street 2 jalan subdivisi Metro Manila Manila Barangay 2, 566056"
+"Bank Accounts"; "Rekening bank"
+2130909455677;2130909455677
+"George Georgia"; "George Georgia"
+"Metrobank of the Borneo"; "Metrobank Kalimantan"
+"Accreditation Option"; "Akreditasi pilihan"
+"Accreditation Level"; "Tingkat akreditasi"
+"Level 1"; "Tingkat 1"
+"Level 2"; "Tingkat 2"
+"Level 3"; "Tingkat 3"
+"Level 4"; "Tingkat 4"
+"Activate this Account?"; "Aktifkan Account ini?"
+Activate;Aktifkan
+"This Account is Active"; "Account ini adalah aktif"
+"If you wish to deactivate this account, click"; "Jika Anda ingin menonaktifkan account ini, klik"
+"Deactivate Now"; "Menonaktifkan sekarang"
+"Temporary Password"; "Sandi  Sementara"
+"System Information"; "Sistem informasi"
+"Created By"; "Dibuat oleh"
+"Karl Cases"; "Karl kasus"
+" 10/22/16 4:43 am"; " 10/22/16 4:43 am"
+"Last Modified By"; "Terakhir diubah oleh"
+"Save Changes"; "Simpan perubahan"
+Notes;Catatan
+Title;Judul
+Message;Pesan
+Actions;Tindakan
+"About Paul Edward Borja and the Spaghetti"; "Tentang Paul Edward Borja dan Spaghetti"
+"Last Modified: 10/22/16 4:51 am"; "Terakhir dimodifikasi: 10/22/16 4:51 am"
+View;Pemandangan
+"New Notes"; "Catatan baru"
+Placeholder;Pengganti
+"Enter product description here"; "Masukkan keterangan produk di sini"
+Save;Simpan
+"Bank Account"; "Rekening bank"
+"Enter your bank account title here"; "Masukkan judul rekening bank Anda di sini"
+"Enter your bank account number here"; "Masukkan nomor rekening bank Anda di sini"
+"Enter your bank account name here"; "Masukkan nama rekening bank Anda di sini"
+"Are you sure you want to delete this bank account"; "Apakah Anda yakin Anda ingin menghapus akun bank ini"
+Delete;Hapus
+Log-out;Log-out
+English;Inggris
+Chinese;Cina
+Canada;Kanada
+"Transactions List"; "Daftar transaksi"
+"Seller Pay-out"; "Penjual bayar keluar"
+"Buyer Refund"; "Pembeli pengembalian"
+"Buyer Refund History"; "Pembeli pengembalian sejarah"
+"Promo List"; "Daftar promo"
+"Seller Accreditation"; "Penjual akreditasi"
+"Inhouse Products"; "In-House produk"
+"Buyer List"; "Daftar pembeli"
+"Seller/Affiliate List"; "Penjual/afiliasi daftar"
+"Product Listings"; "Daftar produk"
+Vouchers;Kupon
+"Request Pay-Outs List"; "Meminta daftar membayar-Out"
+"Batch Pay-Out List"; "Daftar batch bayar keluar"
+Product;Produk
+Notification;Pemberitahuan
+"Mobile Web view (CMS)"; "Lihat mobile Web (CMS)"
+"Daily Present"; "Harian sekarang"
+"Custom Messages"; "Pesan kustom"
+"Message here"; "Pesan di sini"
+"Inner Banners"; "Banner batin"
+"Upload Banner"; "Meng-upload Banner"
+"Select your Banner Permit file from your computer"; "Pilih Banner izin file Anda dari komputer Anda"
+"Compatible files: JPEG and PNG"; "File yang kompatibel: JPEG dan PNG"
+"Banner URL"; "Banner URL"
+"Product CMS"; "Produk CMS"
+"Created Date/Time"; "Tanggal/waktu dibuat"
+Creator;Pencipta
+Type;Jenis
+"12/31/16, 3:00pm"; "12/31/16, 3:00 pm"
+"George Paul"; "George Paul"
+"Homepage Row"; "Homepage baris"
+"Hot Items"; "Item panas"
+150;150
+"Queued @ 12:00am"; "Antri @ 12:00 am"
+"Custom Page"; "Custom Halaman"
+"Shop Wise"; "Berbelanja bijaksana"
+Create;Membuat
+"Create Product CMS"; "Menciptakan produk CMS"
+"Product Title"; "Judul produk"
+"Enter Your Product Title"; "Masukkan judul produk Anda"
+"Upload Featured Banner (Homepage)"; "Meng-upload Banner Terpilih (Homepage)"
+"Upload Featured Banners (Homepage) here"; "Meng-upload Feature banner (Homepage) di sini"
+"Compatible files: JPEG, PNG and PDF"; "File yang kompatibel: JPEG, PNG dan PDF"
+"Paste Featured Product (Homepage) Link here"; "Sisipkan Product unggulan (Homepage) Link di sini"
+Image;Gambar
+"Upload Featured Banner (Inner-Page)"; "Meng-upload Banner Terpilih (Inner-halaman)"
+"Upload Featured Banners (Inner-Page) here"; "Meng-upload fitur banner (Inner-halaman) di sini"
+"Paste Product Link (Inner-Page) here"; "Menempelkan Product Link (Inner-halaman) di sini"
+"Product List"; "Daftar produk"
+Clear;Jelas
+"Add Products"; "Menambahkan produk"
+"Date Created"; "Tanggal dibuat"
+"Product Name"; "Nama Produk"
+"Active Promo"; "Promo aktif"
+"Original Price"; "Harga asli"
+"Discounted Price"; "Potongan harga"
+"Available Stock"; "Stok"
+"Product Sold"; "Produk yang dijual"
+12/16/16;12/16/16
+20%;20%
+"PhP 21230"; "PhP 21230"
+"PhP 18930"; "PhP 18930"
+2003;2003
+122;122
+"By Checking this box"; "Dengan mencentang kotak ini"
+"Start the Process IMMEDIATELY"; "Memulai proses segera"
+"Enter product list here"; "Masukkan daftar produk di sini"
+"Price Range:"; "Rentang harga:"
+Brands:;Merek:
+"Sort By:"; "Urutkan oleh:"
+Alphabetical;Abjad
+"New to Old"; "Baru ke lama"
+"Old to New"; "Lama ke baru"
+Relevance;Relevansi
+Categories:;Kategori:
+Status:;Status:
+Active;Aktif
+Inactive;Tidak aktif
+Manufacturer:;Produsen:
+"Please click on the image you want to set as primary"; "Silakan klik pada gambar yang Anda ingin tetapkan sebagai primer"
+Primary;Utama
+Check;Periksa
+Error;Kesalahan
+"Remove file"; "Menghapus berkas"
+SKU;SKU
+Width;Lebar
+Height;Tinggi
+Length;Panjang
+Weight;Berat badan
+Quantity;Kuantitas
+"Regular Price"; "Harga regular"
+"Shipping fee"; "Biaya pengiriman"
+"Retail Price"; "Harga eceran"
+Commission;Komisi
+Date;Tanggal
+"Promo Name"; "Nama promo"
+"Promo Discount"; "Promo DISKON"
+12/12/16;2012/12/16
+"Perfect Purple Pair"; "Pasangan ungu yang sempurna"
+"Last Edit By"; "Suntingan terakhir oleh"
+"Time Stamp"; "Cap waktu"
+"Chris Paul George"; "Chris Paul George"
+"Upload 5 Photos"; "unggah foto 5"
+"2:00 am"; "2:00 am"
+"Date Range:"; "Rentang tanggal:"
+"Start Date"; "Tanggal mulai"
+"End Date"; "Tanggal akhir"
+"Quantity Sold"; "Jumlah yang terjual"
+50;50
+"Export to Excel"; "Ekspor ke Excel"
+"In-House Listings"; "Listing rumah"
+Item;Item
+Category;Kategori
+Brand;Merek
+Brief;Singkat
+Details;Rincian
+Photos;Foto
+Combinations;Kombinasi
+"Reason of Approval"; "Alasan persetujuan"
+Back;Kembali
+"Reason of Rejection"; "Alasan penolakan"
+[[Username]];[[Username]]
+Refund;Pengembalian dana
+"Order ID"; "ID pesanan"
+"Invoice No"; "No faktur"
+"Seller ID"; "Penjual ID"
+User;Pengguna
+"Product ID"; "ID Produk"
+"Order Quantity"; "Kuantitas order"
+"Unit Price"; "Harga satuan"
+"Total Amount"; "Jumlah total"
+EasyPoint;Titik mudah
+NET;BERSIH
+144;144
+144-2-1503240909;144-2-1503240909
+2;2
+"man of effin steel"; "manusia effin baja"
+333;333
+"sammmy sam"; "sammmy sam"
+1;1
+On-going;Terus-menerus
+182;182
+182-12003-1504280105;182-12003-1504280105
+79;79
+warcraft;Warcraft
+14;14
+"Paid - Returned"; "Dibayar - kembali"
+"Proceed To Refund"; "Lanjutkan untuk pengembalian dana"
+"History Information"; "Informasi sejarah"
+"Shipping Price"; "Harga pengiriman"
+"Easyshop Charge"; "Mudah toko biaya"
+"Payment Method Charge"; "Metode pembayaran biaya"
+Easypoints;Mudah poin
+Net;Bersih
+201-1-1506040106;201-1-1506040106
+sammyboi22_22;sammyboi22_22
+apple;Apple
+"History ID"; "Sejarah ID"
+State;Negara
+404;404
+"2015-06-02 17:57:14"; "2015-06-02 17:57:14"
+"Item has not been shipped"; "Item belum dikirim"
+"Reason of Cancellation"; "Alasan pembatalan"
+Requestor;Pemohon
+"--Select Requestor--"; "--Pilih Passive--"
+Buyer;Pembeli
+"Type of Reason"; "Jenis alasan"
+"--Select Reason--"; "--Pilih alasan--"
+"Edit/Add Category"; "Ubah/Tambah Kategori"
+Name;Nama
+Description;Deskripsi
+Keyword;Kata kunci
+"Sort Order"; "Urutan"
+"Order Product Id"; "Id produk pesanan"
+"Shipping Fee"; "Biaya pengiriman"
+"Total Price"; "Total harga"
+"Net Price"; "Harga bersih"
+"Current Tag"; "Saat ini Tag"
+209;209
+"Order Details"; "Rincian pesanan"
+Sample;Sampel
+KD3-38u123pi;KD3-38u123pi
+"YiLinker Charge"; "Biaya YiLinker"
+"Order Product ID"; "ID Produk pesanan"
+"Unflag Transaction"; "Unflag transaksi"
+"Void Transaction"; "Membatalkan transaksi"
+"Apple Watch"; "Apple Watch"
+"Short Description"; "Deskripsi singkat"
+"Full Description"; "Deskripsi lengkap"
+"Jewellery &amp; Watches"; "Jam tangan perhiasan & amp"
+Custom;Kebiasaan
+"Dimensions &amp; Weight"; "Dimensi & amp berat"
+"Length (CM)"; "Panjang (CM)"
+"Width (CM)"; "Lebar (CM)"
+"Weight (KG)"; "Berat (KG)"
+"Height (CM)"; "Tinggi (CM)"
+"Combination Name"; "Kombinasi nama"
+10001;10001
+10;10
+Color;Warna
+Blue;Biru
+Size;Ukuran
+Large;Besar
+Address;Alamat
+"asdsadsad, 123 jkhjk, asdsadsad, BF International Village, Las Pinas, Metro Manila, 1213"; "asdsadsad, 123 jkhjk, asdsadsad, BF International Village, Las Pinas, Metro Manila, 1213"
+"Generate Code"; "Menghasilkan kode"
+477-344-1;477-344-1
+"This account doesnt have any bank information"; "Account ini tidak memiliki informasi bank"
+Add;Tambahkan
+"My BPI Bank Account"; "Rekening BPI Bank saya"
+283713968540781;283713968540781
+"George Macalulo Winston Lee"; "George Macalulo Winston Lee"
+BPI;BPI
+Edit;Mengedit
+"Bank Account Title"; "Rekening bank judul"
+UCPB;UCPB
+"Allied Bank"; "Sekutu Bank"
+"Returned Item Pickup"; "Kembali Item Pickup"
+Schedule;Jadwal
+02/29/16;02/29/16
+"Day Hour"; "Hari jam"
+"eq. 1 Am"; "eq. 1 Am"
+Why?;Mengapa?
+"Bank Name:"; "Nama Bank:"
+Payout;Pembayaran
+"Buyer ID"; "Pembeli ID"
+"Proceed To Payment"; "Lanjutkan ke pembayaran"
+"Paid - Forwarded"; "Dibayar - diteruskan"
+"Shipment Information"; "Pengiriman informasi"
+Courier;Kurir
+"Boy George Delivery"; "Boy George pengiriman"
+"Date of Shipment"; "Tanggal akan pengiriman"
+"2015-04-01 00:00:00"; "2015-04-01 00:00:00"
+"Expected Date of Arrival"; "Perkiraan tanggal kedatangan"
+"2015-04-04 00:00:00"; "2015-04-04 00:00:00"
+"Tracking Number"; "Nomor pelacakan"
+PK-235-137-556;PK-235-137-556
+"Missing Courier"; "Hilang kurir"
+"Last updated on 2015-04-06 17:37:55"; "Terakhir Diperbaharui pada tahun 2015-04-06 17:37:55"
+Cancelled;Dibatalkan
+"&#8230;"; "&#8230;"
+Color:;Warna:
+Red;Merah
+Size:;Ukuran:
+Samplenation:;Samplenation:
+"Super Duper Ninja Warrior"; "Super Duper Ninja prajurit"
+resolved;diselesaikan
+"George Chris Paul"; "George Chris Paul"
+"requested items for cancellations"; "barang-barang yang diminta untuk pembatalan"
+"Order ID 209: Shoulder Bag"; "ID pesanan 209: tas bahu"
+"Posted on 12:30 pm, July 21, 2014"; "Dikirim pada 12:30 pm, 21 Juli 2014"
+"Koya Carl"; "Koya Carl"
+"Approve Cancellation"; "Menyetujui pembatalan"
+Reject;Menolak
+"Select Reason"; "Pilih alasan"
+"Resolution Center"; "Resolusi Pusat"
+"Disputed Tag Detected!"; "Tag sengketa terdeteksi!"
+attachments;Lampiran
+"Proceed to Resolution Center"; "Lanjutkan ke pusat resolusi"
+"Flagged Tag Detected!"; "Tag ditandai terdeteksi!"
+Approve;Menyetujui
+"Search By Batch ID/Process By"; "Cari berdasarkan ID/proses Batch oleh"
+"Grand Batch Amount"; "Grand Batch jumlah"
+"Batch ID"; "Batch ID"
+Count;Jumlah
+"Process By"; "Proses"
+Amount;Jumlah
+Memo;Memo
+Action;Aksi
+"Are you sure you want to remove payout?"; "Apakah Anda yakin Anda ingin menghapus pembayaran?"
+Remove;Hapus
+"Batch Payout"; "Batch pembayaran"
+"Batch Number"; "Nomor bets"
+"Batch Date"; "Bets tanggal"
+"Write your Remarks"; "Menulis komentar Anda"
+"Attach Files"; "Lampirkan file"
+"Upload Receipt"; "Meng-upload penerimaan"
+"Transaction Update List"; "Transaksi Update daftar"
+"Search by reference number"; "Cari nomor referensi"
+"Request By"; "Permintaan oleh"
+Method;Metode
+Bank;Bank
+"Bank Info / Pay To"; "Bank Info / bayar untuk"
+Charge;Biaya
+"Net Amount"; "Jumlah bersih"
+"Total Batch Amount"; "Jumlah total Batch"
+"Are you sure you want to remove file?"; "Apakah Anda yakin Anda ingin menghapus file?"
+"Are you sure you want to remove payout request?"; "Apakah Anda yakin Anda ingin menghapus permintaan pembayaran?"
+"Search (requester fullname, requester email, bank name, bank account number, bank account name, reference no.)"; "Cari (Penanya lengkap, email Penanya, bank nama, nomor rekening bank, rekening bank nama referensi tidak.)"
+"Order by Date"; "Diurutkan sesuai tanggal"
+Ascending;Naik
+Descending;Menurun
+"Payment Status:"; "Status pembayaran:"
+"Payment Method"; "Metode pembayaran"
+"Reference Id"; "Id referensi"
+"Proceed Batch Pay-Out"; "Melanjutkan Batch membayar-Out"
+"For Review"; "Untuk Review"
+InActive;Tidak aktif
+Store:;Toko:
+Condition;Kondisi
+URL;URL
+Videos;Video
+"Reject Remarks"; "Menolak komentar"
+"Item Details"; "Rincian item"
+"Shipping Category"; "Pengiriman Kategori"
+"Store Details"; "Menyimpan rincian"
+"Seller Name"; "Nama Penjual"
+"No youtube video"; "Tidak ada video youtube"
+"Posted on"; "Dikirim pada"
+"Send Reject Remark"; "Kirim menolak pernyataan"
+"Promo Management"; "Promo manajemen"
+"Promo Type"; "Tipe promo"
+"Promo Details"; "Promo rincian"
+"Promo is currently Active"; "Promo aktif"
+Advertisement;Iklan
+"Discount %"; "Diskon %"
+Discount;Diskon
+Start;Mulai
+End;Akhir
+"% per hour"; "% per jam"
+"Percent per hour"; "Persen per jam"
+"Minimum %"; "Minimum %"
+"Quantity Required"; "Kuantitas yang diperlukan"
+"Max Quantity"; "Max jumlah"
+"Countdown Timer is currently Disabled"; "Penghitung waktu saat ini dinonaktifkan"
+"Yes, Enable the Countdown timer"; "Ya, mengaktifkan timer hitung mundur"
+"Countdown Timer is Active"; "Countdown Timer adalah aktif"
+"5 :"; "5 :"
+days;hari
+hrs;jam
+min;min
+sec;SEC
+"left until the promo ends"; "kiri sampai promo berakhir"
+"Disabled Countdown Timer"; "Penghitung Penyandang Cacat"
+"Product list"; "Daftar produk"
+"Item Name"; "Nama barang"
+Price;Harga
+"Activate this Promo"; "Aktifkan Promo ini"
+"Add Item (separated by line break)"; "Tambahkan Item (dipisahkan oleh baris)"
+"Congratulations! This promo has been successfully enabled"; "Selamat! Promo ini telah berhasil diaktifkan"
+Deactivate;Menonaktifkan
+Notifications;Pemberitahuan
+"Search By Title / Message Content"; "Cari menurut judul / pesan konten"
+"IOS (Mobile)"; "IOS (Mobile)"
+"Andriod (Mobile)"; "Android (Mobile)"
+---;---
+"Custom Pages"; "Halaman kustom"
+"Product Search"; "Pencarian produk"
+Store;Toko
+"Store Search"; "Cari Toko"
+"Send Notification"; "Kirim pemberitahuan"
+Devices;Perangkat
+Target;menarget
+Sender;Pengirim
+"Is Active"; "Aktif"
+"Recipient Device"; "Perangkat Penerima"
+"Message (Max : 100)"; "Pesan (Max: 100)"
+Schedule:;Jadwal:
+"Set Schedule"; "Mengatur jadwal"
+"Is Active?"; "Apakah aktif?"
+"Boy George Dako Wewe"; "Boy George Dako Wewe"
+"George Haircut Station"; "George Haircut Stasiun"
+"479 9th Street West, Menomonee Falls, WI 53051"; "479 9th street West, Menomonee Falls, WI 53051"
+Position;Posisi
+"Manager / Yaya"; "Manajer / Yaya"
+"Telephone Number"; "Nomor telepon"
+532-2393;532-2393
+"(63) 937-234-1286"; "(63) 937-234-1286"
+"International Bank of the World ever!"; "International Bank Dunia pernah!"
+1872-2783-5869;1872-2783-5869
+"File Name"; "Nama file"
+9/12/3035;9/12/3035
+"Accreditation Level 0"; "Tingkat akreditasi 0"
+"Accreditation Level 1"; "Akreditasi tingkat 1"
+"Accreditation Level 2"; "Akreditasi tingkat 2"
+"Accreditation Level 3"; "Akreditasi tingkat 3"
+"Accreditation Level 4"; "Akreditasi tingkat 4"
+"Accreditation Level 5"; "Akreditasi tingkat 5"
+"Columns Container"; "Kolom kontainer"
+"Order Status"; "statusnya pesanan"
+11/12/14;2011/12/14
+"Transaction ID"; "ID transaksi"
+"Date of Transaction"; "Tanggal transaksi"
+"Type of Payment Method"; "Jenis pembayaran"
+201;201
+PPY-1506040106-1;PPY-1506040106-1
+PAID;DIBAYAR
+"2015-06-04 13:05:51"; "2015-06-04 13:05:51"
+PESOPAY;PESOPAY
+11;11
+12;12
+"Storename / Username"; "Simpanlah nama / Nama pengguna"
+From;Dari
+To;Untuk
+Storename;Nama toko
+Email;Email
+"Asia United Bank"; "Bank Amerika Asia"
+aaaaa;aaaaa
+bbbbb;bbbbb
+9876545345;9876545345
+9878263787;9878263787
+"Category Listings"; "Daftar kategori"
+"Main Category"; "Kategori utama"
+"Sub Category"; "Sub Kategori"
+Filters;Filter
+Slug;Siput
+"10-24-1991 06:30:05"; "10-24-1991 06:30:05"
+0;0
+PROMOTIONAL_ITEMS;PROMOTIONAL_ITEMS
+"Special Promotional Items"; "Barang-barang promosi khusus"
+"Special Promotional222"; "222 promosi khusus"
+promo-special;promo khusus
+"Contact Buyer"; "Menghubungi pembeli"
+"Invoice Number"; "Faktur jumlah"
+"Buyer Fullname"; "Pembeli lengkap"
+"Buyer Store Name"; "Nama toko pembeli"
+"Buyer Email"; "Pembeli Email"
+"Transaction Date"; "Tanggal transaksi"
+198;198
+PPY-1506020514-1;PPY-1506020514-1
+198-1-1506020514;198-1-1506020514
+"Omaha maria23"; "Omaha maria23"
+"2015-06-02 18:02:17"; "2015-06-02 18:02:17"
+"Contact Seller"; "Menghubungi Penjual"
+"Seller Fullname"; "Penjual lengkap"
+"Seller Store Name"; "Nama Penjual Toko"
+"Number of Products"; "Jumlah produk"
+"Seller Email"; "Penjual Email"
+Dashboard;Dasbor
+Products;Produk
+Buyers;Pembeli
+Sellers;Penjual
+Transactions;Transaksi
+"Sorry, Your database is currently empty"; "Maaf, database Anda saat ini kosong"
+"Case ID"; "Kasus ID"
+"Dispute Type"; "Jenis sengketa"
+Complainant;Pengadu
+"Date Filed"; "Tanggal diajukan"
+email;email
+"Seller Payout"; "Penjual pembayaran"
+"Legal Documents"; "Dokumen-dokumen hukum"
+"This Account currently Locked"; "Account ini saat ini terkunci"
+"Do you want to Activate it now?"; "Apakah Anda ingin mengaktifkannya sekarang?"
+"Yes, Activate this Account"; "Ya, mengaktifkan Account ini"
+"Select your DTI/SEC Permit file from your computer"; "Pilih file DTI SEC mengizinkan Anda dari komputer Anda"
+"Select your Mayor's Permit file from your computer"; "Pilih Anda Walikota izin file dari komputer Anda"
+"Select your BIR Permit file from your computer"; "Pilih file BIR izin Anda dari komputer Anda"
+"Form MA1501 Permit"; "Bentuk MA1501 izin"
+"Select your Form MA1501 file from your computer"; "Pilih file MA1501 bentuk Anda dari komputer Anda"
+"Where to get a copy of Form MA1501?"; "Dimana mendapatkan salinan formulir MA1501?"
+"Download Form MA1501"; "Download formulir MA1501"
+"Other Documents"; "Dokumen lainnya"
+"Select a document file from your computer"; "Pilih file dokumen dari komputer Anda"
+"Mobile Management"; "Mobile manajemen"
+"Push Notification"; "Push Notifikasi"
+"Notification Message"; "Pesan Notifikasi"
+;
+"Number of Product Listings:"; "Jumlah Daftar Produk:"
+10145;10145
+"2014-08-15 12:23:16"; "2014-08-15 12:23:16"
+sfasfas;sfasfas
+"Building Toys"; "Bangunan mainan"
+122121;122121
+212;212
+"New other (see details)"; "Baru lain (Lihat detail)"
+"Promo Banners"; "Promo banner"
+"Create Promo Banner"; "Membuat Promo Banner"
+"Select Product"; "Pilih produk"
+"Enter Product Slug"; "Masukkan produk siput"
+"Add Product"; "Tambahkan produk"
+"Change Product"; "Perubahan produk"
+"This Promo Banner currently Disabled"; "Banner Promo ini saat ini dinonaktifkan"
+"Do you want to enable it now?"; "Apakah Anda ingin menyalakan?"
+"Yes, Enable this Promo Banner"; "Ya, mengaktifkan Banner Promo ini"
+"This Promo Banner is Enabled"; "Banner Promo ini diaktifkan"
+"Disable Now"; "Menonaktifkan sekarang"
+"Upload Banners"; "Meng-upload banner"
+"Upload Banners here"; "Meng-upload banner di sini"
+"Search By Product Name"; "Cari oleh nama produk"
+Category:;Kategori:
+Electronics;Elektronik
+Gadget;Gadget
+Clothes;Pakaian
+Enable;Mengaktifkan
+Disable;Menonaktifkan
+"Banner Count"; "Banner Count"
+"Date Added"; "Tanggal ditambahkan"
+10/20/15;10/20/15
+Enabled;Diaktifkan
+"Samsung Galaxy j1"; "Samsung Galaxy j1"
+5;5
+Disabled;Penyandang Cacat
+"Raffle Manager"; "Manajer undian"
+"Register Raffle"; "Mendaftar undian"
+"Raffle Name"; "Nama undian"
+"Pool of Possible Winners"; "Kolam renang tersedia pemenang"
+"Number of Winners to Generate"; "Jumlah pemenang untuk menghasilkan"
+"List of Prices"; "Daftar harga"
+"Raffle Lists"; "Daftar undian"
+Raffle_Name;Raffle_Name
+Winners;Pemenang
+"Time Created"; "Waktu dibuat"
+Prices;Harga
+2121sadasd;2121sadasd
+test22;menguji 22
+"2014-09-16 11:19:32"; "2014-09-16 11:19:32"
+"Full Name"; "Nama lengkap"
+inonbaguio;inonbaguio
+"Inon Baguio"; "Inon Baguio"
+Content;Konten
+CSR;CSR
+Marketing;Pemasaran
+Super-User;Pengguna super
+Guest;Tamu
+"Registered Users"; "Pengguna terdaftar"
+"Number of Registered Sellers:"; "Jumlah Penjual terdaftar:"
+141;141
+Affiliates;Afiliasi
+"2014-07-02 14:34:28"; "2014-07-02 14:34:28"
+"sam gavinio"; "Sam gavinio"
+"Banana Republic"; "Banana Republic"
+38;38
+"Report Manager"; "Manajer laporan"
+"Number of uploaded products per account"; "Jumlah upload produk per akun"
+"Monthly Sign Up Statistics"; "Bulanan mendaftar Statistik"
+"Users w/ &amp; w/out Products"; "Pengguna w / & amp tanpa produk"
+"Number of uploaded items per month"; "Jumlah upload item per bulan"
+"Number of items per parent category"; "Jumlah item per parent Kategori"
+"Show Entries"; "Tampilkan entri"
+20;20
+40;40
+80;80
+160;160
+Monthsss;Berbulan
+"Sign-up Count"; "Mendaftar Hitungan"
+2015;2015
+January;Januari
+29;29
+February;Februari
+March;Maret
+April;April
+May;Mungkin
+2016;2016
+Month;Bulan
+"Showing 1 out 39 Entries"; "Menampilkan 1 keluar 39 entri"
+"Dispute Details"; "Sengketa rincian"
+KD3-38U123PI;KD3-38U123PI
+12371237837;12371237837
+"Complainant Full Name"; "Nama lengkap pengadu"
+322-3245-59898;322-3245-59898
+"Defendant Full Name"; "Nama lengkap terdakwa"
+"Janvan Ding"; "Janvan Ding"
+"Transaction Details"; "Rincian transaksi"
+4916699163849;4916699163849
+"Armando Upton"; "Armando Upton"
+"Waiting for Payment"; "Menunggu pembayaran"
+"Date of transaction"; "Tanggal transaksi"
+"2015-09-02 13:12:59"; "2015-09-02 13:12:59"
+"see attachments"; "Lihat Lampiran"
+x;x
+Reason;Alasan
+Open;Buka
+On-Going;Terus-menerus
+Rejected;Ditolak
+Closed;Ditutup
+"Boy Tigol"; "Tigol anak laki-laki"
+"George Georgina"; "George Georgina"
+09/11/15;09/11/15
+"Search Keyword"; "Kata kunci pencarian"
+"Query String"; "String permintaan"
+"Number of Hits"; "Jumlah Hits"
+"apple UNION ALL SELECT NULL--"; "Apple Uni Pilih Semua NULL--"
+"Transaction List"; "Daftar transaksi"
+!;!
+Cancellation;Pembatalan
+"Dispute Something"; "Sengketa sesuatu"
+Flag;Bendera
+DENIED;DITOLAK
+"Create Vourcher"; "Membuat Vourcher"
+"Code Name"; "Nama kode"
+"Voucher Type"; "Jenis voucher"
+Duration;Durasi
+"Usage Limit"; "Batas penggunaan"
+"Discount Type"; "DISKON TERBAIK untuk jenis"
+Ramboo;Ramboo
+"Something for Nothing"; "Sesuatu untuk apa-apa"
+"10 Days"; "10 hari"
+"1 per Account"; "1 per akun"
+Utang;Utang
+1000;1000
+"Voucher Code Name"; "Nama kode voucher"
+"Voucher Code"; "Kode voucher"
+"Generate Voucher Code"; "Menghasilkan Kode Voucher"
+One-Time;Satu kali
+Multi-Use;Multi-Gunakan
+100;100
+"Fixed Amount"; "Jumlah tetap"
+Percentage;Persentase
+100%;100%
+"Voucher is currently Inactive"; "Voucher saat ini adalah Inactive"
+"Yes, Activate this Voucher"; "Ya, Aktifkan Voucher ini"
+"Voucher is Now Active"; "Voucher ini sekarang aktif"
+872378912897;872378912897
+Unknown;Unknown
+10/10/15;10/10/15
+"FullName / Email"; "Lengkap / Email"
+"Remarks from Dispute"; "Sambutan dari sengketa"
+"Deposit Slip"; "Bukti transfer"
+Remarks:;Catatan:
+"Enter your remarks"; "Masukkan komentar Anda"
+"Deposit Slip:"; "Slip simpanan:"
+"Compatible files: JPG, JPEG, and PNG"; "Kompatibel file: JPG, JPEG dan PNG"
+"Are you sure you want to refund this transaction?"; "Apakah Anda yakin ingin mengembalikan transaksi ini?"
+No;Tidak
+Yes;Ya
+"Refund History Information"; "Mengembalikan sejarah informasi"
+Print;Cetak
+"Dispute ID:"; "Sengketa ID:"
+"Buyer Name:"; "Nama pembeli:"
+"Buyer Email:"; "Pembeli Email:"
+"Buyer Contact Number:"; "Pembeli nomor kontak:"
+"Date Request:"; "Tanggal permintaan:"
+"Date Processed:"; "Tanggal diproses:"
+"Processed By:"; "Diproses oleh:"
+"Click here"; "Klik di sini"
+"Supplier Payout"; "Pembayaran supplier"
+"Date From"; "Tanggal dari"
+"Date To"; "Ke tanggal"
+"Search for keyword: Manufacturer/Contact number"; "Pencarian untuk kata kunci: produsen/kontak nomor"
+"Payout List"; "Daftar pembayaran"
+"Payout History"; "Sejarah pembayaran"
+Manufacturer;Produsen
+"Reference Number"; "Nomor referensi"
+"Support CSR"; "Dukungan CSR"
+"Payout Details"; "Rincian pembayaran"
+"WayBill Number"; "Nomor wayBill"
+Warehouse;Gudang
+"Payout Order Products"; "Pembayaran pesanan produk"
+"Deposit Slips"; "Slip deposit"
+"Date Modified"; "Tanggal dimodifikasi"
+Close;Tutup
+"Case ID:"; "Kasus ID:"
+"Date Request"; "Tanggal permintaan"
+"Date Processed"; "Tanggal yang diproses"
+"Processed By"; "Diproses oleh"
+"Select type of dispute"; "Pilih jenis sengketa"
+"Select status"; "Pilih status"
+"No case found"; "Tidak ditemukan"
+"Dispute Resolution"; "Penyelesaian sengketa"
+"Voucher Name"; "Nama voucher"
+"Voucher Value"; "Nilai voucher"
+"Enter Dispute message here.."; "Masukkan pesan sengketa di sini..."
+"Replace Different Item"; "Menggantikan Item yang berbeda"
+Done;Dilakukan
+"Search for keyword: Store Name"; "Pencarian untuk kata kunci: nama toko"
+"Supplier Name"; "Nama pemasok"
+"Commission Amount"; "Jumlah komisi"
+PHP;PHP
+"Supplier Payout Amount"; "Jumlah pembayaran supplier"
+"Search By Invoice No. / Buyer"; "Cari berdasarkan nomor Invoice / pembeli"
+"Order Status:"; "Status pesanan:"
+"Payment Type:"; "Jenis pembayaran:"
+Actions:;Tindakan:
+"Cancel Request By Buyer"; "Membatalkan permintaan oleh pembeli"
+"Cancel Product"; "Membatalkan produk"
+None;Tidak ada
+"Collected Amount"; "Jumlah dikumpulkan"
+"Transaction Price"; "Harga transaksi"
+"Consignee Name"; "Nama penerima barang"
+"Consignee Contact Number"; "Consignee nomor kontak"
+"Buyer Details"; "Pembeli rincian"
+"Shipping Address"; "Alamat pengiriman"
+"Freight Charge"; "Biaya pengiriman"
+"Additional Charge"; "Biaya tambahan"
+"Seller Net"; "Penjual bersih"
+"Voucher Details"; "Voucher rincian"
+Attributes;Atribut
+"Cancel Transaction"; "Membatalkan transaksi"
+Deny;Menyangkal
+"Seller Details"; "Penjual rincian"
+"Store Address"; "Menyimpan alamat"
+"Remarks for Approval"; "Komentar untuk persetujuan"
+"Remarks for Deny"; "Komentar untuk Deny"
+"Registered Buyer"; "Terdaftar pembeli"
+"Search Buyer here"; "Cari pembeli di sini"
+"User Information"; "Informasi pengguna"
+UPDATE;TERBARU
+"Address Title"; "Alamat judul"
+"Home Address"; "Alamat rumah"
+"Unit Number"; "Jumlah unit"
+"Building Name"; "Nama Gedung"
+"Street Number"; "Jalan"
+"Street Name"; "Nama jalan"
+Subdivision;Subdivisi
+Province;Provinsi
+"Select your province"; "Pilih Propinsi Anda"
+City/Municipal;City Municipal
+Barangay;Barangay
+"Zip Code"; "Kode pos"
+"Registered Seller/Affiliates"; "Penjual/afiliasi terdaftar"
+"Create Voucher"; "Membuat Voucher"
+Code;Kode
+Used;Digunakan
+"Voucher Codes"; "Kode voucher"
+"Minimum Purchase"; "Minimal pembelian"
+"By Batch"; "Oleh Batch"
+"Disable Countdown Timer"; "Menonaktifkan penghitung waktu mundur"
+Orientation;Orientasi
+Order;Urutan
+3;3
+"ex. Title"; "Keluaran judul"
+"Left to Right"; "Kiri ke kanan"
+"Right to Left"; "Kanan ke kiri"
+"Products Slug (separated by line break)"; "Produk siput (dipisahkan oleh baris)"
+"Products List"; "Daftar produk"
+"Product One"; "Produk satu"
+"Banner Link"; "Banner Link"
+"Paste your Banner Links here"; "Sisipkan link Banner Anda di sini"
+"Category Name"; "Nama kategori"
+Show;Tampilkan
+"Category Header Link"; "Kategori Header Link"
+11/03/2015;11/03/2015
+Time;Waktu
+"Pick a Date"; "Pilihlah tanggal"
+"Start Time"; "Waktu mulai"
+"End Time"; "Akhir zaman"
+"Flash Sales Discount"; "Flash diskon penjualan"
+"Flash Discounted Price"; "Flash potongan harga"
+"Sales Stock"; "Penjualan saham"
+"P 1,000"; "P 1,000"
+"10% off"; "10% off"
+"P 900"; "P 900"
+"ex. 10%"; "Keluaran 10%"
+"ex. 1000"; "Keluaran 1000"
+"Mobile Webview (CMS)"; "Mobile Webview (CMS)"
+"Cover Photo Link"; "Link foto sampul"
+"Paste Link"; "Menempelkan link"

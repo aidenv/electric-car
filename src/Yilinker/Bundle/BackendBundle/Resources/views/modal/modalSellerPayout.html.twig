@@ -1,0 +1,189 @@
+<!-- Modal Seller Type One -->
+<div class="ui modal large modal-box modal-seller-payout-one">
+    <a class="close"><i class="icon-times"></i></a>
+    <div class="header">[[Username]]</div>
+    <div class="content">
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="tools box-div top form">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="options">
+                    <div class="labeled-input">
+                      <div class="label line readonly">Account Name</i></div>
+                      <input type="text" class="form-ui" placeholder="02/29/16" readonly>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="options">
+                    <div class="labeled-input">
+                      <div class="label line readonly">Account Number</i></div>
+                      <input type="text" class="form-ui" placeholder="02/29/16" readonly>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="options">
+                    <div class="labeled-input">
+                      <div class="label line readonly">Bank Name:</i></div>
+                      <input type="text" class="form-ui" placeholder="02/29/16" readonly>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table basic table-vertical-align-top">
+            <tr>
+                <th>Payout</th>
+                <th>Order ID</th>
+                <th>Invoice No</th>
+                <th>Buyer ID</th>
+                <th>User</th>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Order Quantity</th>
+                <th>Unit Price</th>
+                <th>Total Amount</th>
+                <th>EasyPoint</th>
+                <th>NET</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+
+            {% for i in 1..3 %}
+              <tr>
+                  <td><input type="checkbox" checked=""></td>
+                  <td>144</td>
+                  <td>144-2-1503240909</td>
+                  <td>2</td>
+                  <td>man of effin steel</td>
+                  <td>333</td>
+                  <td>sammmy sam</td>
+                  <td>1</td>
+                  <td>212.00</td>
+                  <td>212.00</td>
+                  <td>0.00</td>
+                  <td><strong>187.67</strong></td>
+                  <td>On-going</td>
+                  <td>
+                    <button class="button tiny blue modal-seller-payout-two-trigger">
+                      view
+                    </button>
+                  </td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="actions align-right">
+      <div class="button confirm modal-seller-payout-three-trigger">Proceed To Payment</div>
+    </div>
+</div>
+
+<!-- Modal Seller Type Two -->
+<div class="ui modal large modal-box modal-seller-payout-two">
+    <a class="close"><i class="icon-times"></i></a>
+    <div class="header">History Information</div>
+    <div class="content form">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table basic table-vertical-align-top mrg-bt-30">
+            <tr>
+                <th>Invoice No</th>
+                <th>User</th>
+                <th>Product Name</th>
+                <th>Order Quantity</th>
+                <th>Unit Price</th>
+                <th>Shipping Price</th>
+                <th>Total Amount</th>
+                <th>Easyshop Charge</th>
+                <th>Payment Method Charge</th>
+                <th>Easypoints</th>
+                <th>Net</th>
+                <th>Status</th>
+            </tr>
+
+            {% for i in 1..3 %}
+              <tr>
+                  <td>144-2-1503240909</td>
+                  <td>man of effin steel</td>
+                  <td>sammmy sam</td>
+                  <td>1</td>
+                  <td>212.00</td>
+                  <td>0.00</td>
+                  <td>212.00</td>
+                  <td>0.00</td>
+                  <td>24.33</td>
+                  <td>0.00</td>
+                  <td>187.67</td>
+                  <td>Paid - Forwarded</td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table basic table-vertical-align-top mrg-bt-30">
+            <tr >
+                <th>History ID</th>
+                <th>State</th>
+                <th>Date</th>
+            </tr>
+
+            {% for i in 1..3 %}
+              <tr>
+                <td>404</td>
+                <td>On-going</td>
+                <td>2015-06-02 17:57:14</td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+                <div class="col-md-12 md-box zeb">
+                  <h5>Shipment Information</h5>
+                  <div>
+                    <div class="col-md-6"><strong>Courier</strong></div>
+                    <div class="col-md-6">Boy George Delivery</div>
+                  </div>
+                  <div>
+                    <div class="col-md-6"><strong>Date of Shipment</strong></div>
+                    <div class="col-md-6">2015-04-01 00:00:00</div>
+                  </div>
+                  <div>
+                    <div class="col-md-6"><strong>Expected Date of Arrival</strong></div>
+                    <div class="col-md-6">2015-04-04 00:00:00</div>
+                  </div>
+                  <div>
+                    <div class="col-md-6"><strong>Tracking Number</strong></div>
+                    <div class="col-md-6">PK-235-137-556</div>
+                  </div>
+                  <div>
+                    <div class="col-md-6"><strong>Remarks</strong></div>
+                    <div class="col-md-6">Missing Courier</div>
+                  </div>
+                </div>
+          </div>
+          <div class="row">
+            <div class="message-box with-close-message">
+              <p>Last updated on 2015-04-06 17:37:55</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions align-right">
+      <div class="button cancel modal-seller-payout-one-trigger">Back</div>
+    </div>
+</div>

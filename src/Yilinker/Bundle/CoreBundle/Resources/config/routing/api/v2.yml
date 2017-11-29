@@ -1,0 +1,15 @@
+
+yilinker_user_api_route_v2:
+    resource: "v2/user.yml"
+    prefix: /
+
+yilinker_mobilefeedback_api_route_v2:
+    resource: "v2/mobile_feedback.yml"
+    
+yilinker_image_api_route_v2:
+    resource: "v2/image.yml"
+    prefix: /
+
+yilinker_device_api_route_v2:
+    resource: "v2/device.yml"
+    prefix: /

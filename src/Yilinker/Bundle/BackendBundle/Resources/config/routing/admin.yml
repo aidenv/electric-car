@@ -1,0 +1,33 @@
+admin_login_page:
+    path: /login
+    defaults: { _controller: YilinkerBackendBundle:Login:renderLogin }
+
+admin_authenticate:
+    path: /user/authenticate
+
+admin_logout:
+    path: /logout
+
+admin_account_register_page:
+    path: /admin/register
+    defaults: { _controller: YilinkerBackendBundle:AdminAccount:renderRegisterAccount }
+
+admin_account_register:
+    path: /admin/register/account
+    defaults: { _controller: YilinkerBackendBundle:AdminAccount:registerAccount }
+    methods: [POST]
+
+admin_account_edit:
+    path: /admin/register/account-edit
+    defaults: { _controller: YilinkerBackendBundle:AdminAccount:editAccount }
+    methods: [POST]
+
+admin_account_deactivate:
+    path: /admin/deactivate
+    defaults: { _controller: YilinkerBackendBundle:AdminAccount:deactivateAccount }
+    methods: [POST]
+
+admin_account_password_change:
+    path: /admin/passowrd/change
+    defaults: { _controller: YilinkerBackendBundle:AdminAccount:updateAdminPassword }
+    methods: [POST]

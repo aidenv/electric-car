@@ -1,0 +1,58 @@
+ <div data-feed="[data-product-feedback]" class="ui modal small modal coupled-feedback-product feedback-product-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">{% trans %} Feedback for Product {% endtrans %}</h4>
+    </div>
+    <form id="product-feedback-form" action="{{ path('feedback_product') }}" method="POST">
+        <input type="hidden" name="orderProductId" data-fed="data.orderProductId">
+        <input type="hidden" name="productId" data-fed="data.productId">
+        <input type="hidden" name="rating" data-capture-actives=".feedback-rating-container">
+        <div class="content">
+            <p class="message-box red" style="display:none;" data-product-feedback-form-modal-message class="">
+                {% trans %}Feedback title and content cannot be empty{% endtrans %}
+            </p>
+            <p class="light mrg-bt-20 light-color">
+               {% trans %} Let other people know what you think about this product. {% endtrans %}
+            </p>
+            <div class="dashboard-component">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><h4 class="no-margin">{% trans %}Rating:{% endtrans %} </h4></td>
+                            <td class="td-rating-container">
+                                <h3 class="no-margin">
+                                    <div data-star-rating
+                                         data-fed-attributes="data.hasOwnProperty('productReviewId') ? {class: 'rating-container feedback-rating-container disabled'}: {class: 'rating-container feedback-rating-container'}"
+                                         data-fed="data.rating"
+                                         class="rating-container feedback-rating-container">
+                                        <span class="rating-icons">
+                                            <i class="icon icon-star-o"></i>
+                                            <i class="icon icon-star-o"></i>
+                                            <i class="icon icon-star-o"></i>
+                                            <i class="icon icon-star-o"></i>
+                                            <i class="icon icon-star-o"></i>
+                                        </span>
+                                    </div>
+                                </h3>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="form mrg-top-20">
+                    <h4>
+                        <label for="product_feedback_title" class="required">Title: </label>
+                    </h4>
+                    <input id="product_feedback_title" data-fed-readonly="data.productReviewId" data-fed="data.title" name="title" type="text" class="form-ui" placeholder="Enter review title here"/>
+                </div>
+                <div class="form mrg-top-20">
+                    <h4><label for="product_feedback_feedback" class="required">Comment: </label></h4>
+                    <textarea id="product_feedback_feedback" data-fed-readonly="data.productReviewId" data-fed="data.review" name="review" class="form-ui" placeholder="Leave a comment"></textarea>
+                </div>
+            </div>
+        </div>
+        <div data-fed-show="!data.productReviewId" class="actions">
+            <a class="button cancel uppercase">{% trans %}Cancel{% endtrans %}</a>
+            <button class="button blue uppercase submit-to-success">{% trans %}Submit{% endtrans %}</button>
+        </div>
+    </form>
+</div>

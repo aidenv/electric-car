@@ -1,0 +1,131 @@
+<section class="box-section">
+  <div class="title-bar">
+    <div class="container">
+      <span>Promo Banners</span>
+    </div>
+  </div>
+  <div class="container">
+<!-- Tools -->
+    <div class="row">
+      <div class="box-upper">
+        <div class="col-md-12">
+          <div class="tools top form">
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>No. of Promo Banners Created: 227</h4>
+                <p class="sub-header">
+                  Nam egestas est quis sapien commodo mattis. Morbi tortor libero, fermentum vitae euismod fermentum.
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="form vers-one">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <label>Search</label>
+                      <input class="form-ui" id="searchKeyword" placeholder="Search By Product Name" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row gutters group-segment light-segment">
+              <div class="col-md-4"></div>
+
+              <div class="col-md-8">
+                <div class="form">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Category:</label>
+                      <select class="form-ui ui search single selection dropdown" id="" name="">
+                        <option value="0">Electronics</option>
+                        <option value="1">Gadget</option>
+                        <option value="2">Clothes</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label>Status:</label>
+                      <select class="form-ui ui search single selection dropdown" id="" name="">
+                        <option value="0">Enable</option>
+                        <option value="1">Disable</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <button class="button gray mrg-top-10" id="searchTransaction" type="submit">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+<!-- Tables -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-div">
+              <div class="row sub-tools">
+                <div class="col-md-12">
+                  <button class="button gray small">Create Promo Banner</button>
+                </div>
+              </div>
+              <div class="row gutters">
+                <div class="col-md-12">
+                  <table class="table basic">
+                    <tr>
+                      <th>ID</th>
+                      <th>Product</th>
+                      <th>Banner Count</th>
+                      <th>Date Added</th>
+                      <th>Status</th>
+                    </tr>
+                    {% for i in 1..4 %}
+                    <tr>
+                      <td >192</td>
+                      <td>Nexus X5 (Andriod 6.0 Marshmallow)</td>
+                      <td>2</td>
+                      <td>10/20/15</td>
+                      <td>Enabled</td>
+                    </tr>
+                    {% endfor %}
+                    {% for i in 1..4 %}
+                    <tr>
+                      <td >192</td>
+                      <td>Samsung Galaxy j1</td>
+                      <td>5</td>
+                      <td>10/20/15</td>
+                      <td>Disabled</td>
+                    </tr>
+                    {% endfor %}
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- Bottom Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-blank">
+              <div class="row">
+                <div class="col-md-12">
+                  {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {lastPage: 30}) }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>

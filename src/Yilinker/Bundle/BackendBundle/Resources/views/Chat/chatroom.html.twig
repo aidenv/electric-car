@@ -1,0 +1,155 @@
+{% extends 'YilinkerBackendBundle:Chat:base/base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+<div class="your-chat col-md-3">
+    <h2 class="sub-header">Your Chats</h2>
+    <ul class="chatmate-list">
+        <li class="active">
+            <div class="person">
+                <div class="msg-log">9</div>
+                <img align="left" border="0" src="https://cdn1.iconfinder.com/data/icons/bella-bunny/182/03-512.png" width="48">
+                Kawai Gurl
+                <time>5 hrs ago</time>
+            </div>
+
+        </li>
+        <li>
+            <div class="person">
+                <div class="msg-log">99</div>
+                <img align="left" border="0" src="http://www.photo137.com/html/HRS1/ZK563302-C-3-3.jpg" width="48">
+                Georgina Georgia
+                <time>5 hrs ago</time>
+            </div>
+
+        </li>
+        <li>
+            <div class="person">
+                <div class="msg-log">999</div>
+                <img align="left" border="0" src="https://33.media.tumblr.com/672486608a33bffbdf4b76503a363546/tumblr_nxp9oto58P1t8mvj8o1_250.gif" width="48">
+                Asar Lito Nakalilito
+                <time>5 hrs ago</time>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="chat-msg col-md-6">
+    <h2 class="sub-header">Conversation with
+        <span>Krain 143</span>
+        <div class="ctrl-group">
+            <button><span class="item-icon icon-arrow-right"></span> Transfer</button>
+            <button><span class="item-icon icon-flag"></span> Mark as Resolved</button>
+        </div>
+    </h2>
+    <div class="msg-box">
+        <ul class="cd-accordion-menu">
+            <li class="has-children">
+                <ul class="chat-msg-list">
+                    <li class="status">
+                        <h3>June 4, 2015</h3>
+                    </li>
+                    <li class="client">
+                        <time>5 hrs ago</time>
+                        <img align="left" border="0" src="https://cdn1.iconfinder.com/data/icons/bella-bunny/182/03-512.png" width="48">
+                        <div class="msg">
+                            <p>This is to inform everyone that starting tomorrow (March 30 2016), we will be using our biometrics/door access for our Daily Time Record. Each employee must also time in and time out if lunch breaks will be spent outside the office. Moreover, we encourage everyone to individually use the biometrics/door access during breaks (Restroom, Smoke or Short breaks) and to always close the door to avoid other people from entering/leaving our office without using the biometrics/door access.</p>
+                            <p>
+                                To those who have yet to register on the biometrics/door access, kindly proceed to HR Office and look for Ms. Vanessa for registration. For our DTR, a login sheet will be provided and should also be filled up by everyone upon timing in and out for the next two cutoffs. After that, only the biometrics will be used for our DTR.</p>
+                        </div>
+                    </li>
+                    <li class="client">
+                        <time>5 hrs ago</time>
+                        <img align="left" border="0" src="https://cdn1.iconfinder.com/data/icons/bella-bunny/182/03-512.png" width="48">
+                        <div class="msg">
+                            <p>To those who have yet to register on the biometrics/door access, kindly proceed to HR Office and look for Ms. Vanessa for registration. For our DTR, a login sheet will be provided and should also be filled up by everyone upon timing in and out for the next two cutoffs. After that, only the biometrics will be used for our DTR.</p>
+                        </div>
+                    </li>
+                    <li class="admin">
+                        <time>5 hrs ago</time>
+                        <div class="msg">
+                            <p>Oh my gulay</p>
+                        </div>
+                    </li>
+                </ul>
+                <label for="group-5">
+                    <span class="item-icon icon-messages"></span>
+                    View previous conversation with
+                    <span>Rambo Braso</span>
+                    <time>7/4/15</time>
+                </label>
+                <input id="group-5" name="group-5" type="checkbox">
+            </li>
+            <li class="has-children">
+                <ul class="chat-msg-list">
+                    <li class="status">
+                        <h3>December 12, 2015</h3>
+                        <p class="notes">Boy George transferred this chat to you</p>
+                    </li>
+                    <li class="client">
+                        <time>5 hrs ago</time>
+                        <img align="left" border="0" src="https://cdn1.iconfinder.com/data/icons/bella-bunny/182/03-512.png" width="48">
+                        <div class="msg">
+                            <p>This is to inform everyone that starting tomorrow (March 30 2016), we will be using our biometrics/door access for our Daily Time Record. Each employee must also time in and time out if lunch breaks will be spent outside the office. Moreover, we encourage everyone to individually use the biometrics/door access during breaks (Restroom, Smoke or Short breaks) and to always close the door to avoid other people from entering/leaving our office without using the biometrics/door access.</p>
+                            <p>
+                                To those who have yet to register on the biometrics/door access, kindly proceed to HR Office and look for Ms. Vanessa for registration. For our DTR, a login sheet will be provided and should also be filled up by everyone upon timing in and out for the next two cutoffs. After that, only the biometrics will be used for our DTR.</p>
+                        </div>
+                    </li>
+                    <li class="client">
+                        <time>5 hrs ago</time>
+                        <img align="left" border="0" src="https://cdn1.iconfinder.com/data/icons/bella-bunny/182/03-512.png" width="48">
+                        <div class="msg">
+                            <p>To those who have yet to register on the biometrics/door access, kindly proceed to HR Office and look for Ms. Vanessa for registration. For our DTR, a login sheet will be provided and should also be filled up by everyone upon timing in and out for the next two cutoffs. After that, only the biometrics will be used for our DTR.</p>
+                        </div>
+                    </li>
+                    <li class="admin">
+                        <time>5 hrs ago</time>
+                        <div class="msg">
+                            <p>Oh my gulay</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <label for="group-6">
+                    <span class="item-icon icon-messages"></span>View previous conversation with
+                    <span>Rambo Braso</span>
+                    <time>12/12/15</time>
+                </label>
+                <input id="group-6" name="group-6" type="checkbox">
+            </li>
+        </ul>
+        <ul class="chat-msg-list">
+            <li class="status">
+                <h3>March 22, 2016</h3>
+                <p class="notes">Vincent Tambao transferred this chat to you</p>
+            </li>
+            <li class="client">
+                <time>5 hrs ago</time>
+                <img align="left" border="0" src="https://cdn1.iconfinder.com/data/icons/bella-bunny/182/03-512.png" width="48">
+                <div class="msg">
+                    <p>This is to inform everyone that starting tomorrow (March 30 2016), we will be using our biometrics/door access for our Daily Time Record. Each employee must also time in and time out if lunch breaks will be spent outside the office. Moreover, we encourage everyone to individually use the biometrics/door access during breaks (Restroom, Smoke or Short breaks) and to always close the door to avoid other people from entering/leaving our office without using the biometrics/door access.</p>
+                    <p>
+                        To those who have yet to register on the biometrics/door access, kindly proceed to HR Office and look for Ms. Vanessa for registration. For our DTR, a login sheet will be provided and should also be filled up by everyone upon timing in and out for the next two cutoffs. After that, only the biometrics will be used for our DTR.</p>
+                </div>
+            </li>
+            <li class="client">
+                <time>5 hrs ago</time>
+                <img align="left" border="0" src="https://cdn1.iconfinder.com/data/icons/bella-bunny/182/03-512.png" width="48">
+                <div class="msg">
+                    <p>To those who have yet to register on the biometrics/door access, kindly proceed to HR Office and look for Ms. Vanessa for registration. For our DTR, a login sheet will be provided and should also be filled up by everyone upon timing in and out for the next two cutoffs. After that, only the biometrics will be used for our DTR.</p>
+                </div>
+            </li>
+            <li class="admin">
+                <time>5 hrs ago</time>
+                <div class="msg">
+                    <p>Oh my gulay</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="msg-input">
+        <textarea placeholder="Type your message here"></textarea>
+    </div>
+</div>
+{% endblock %}

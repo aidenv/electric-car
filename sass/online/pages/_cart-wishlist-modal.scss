@@ -1,0 +1,201 @@
+.cart-wishlist-modal{
+    .row{
+        margin: 0px -5px;
+
+        [class^="col-"], [class*=" col-"]{
+            padding: 5px;
+        }
+    }
+
+    .items-counter-text{
+        font-size: 1em;
+        font-weight: bold;
+        margin-bottom: 1.5em;
+    }
+
+    .items-container{
+        max-height: 32.5em;
+        overflow: auto;
+    }
+
+    tfoot{
+        tr:first-child td{
+            padding-top: 20px !important;
+        }
+    }
+}
+
+.item-breakdown-table{
+    width: 100%;
+    font-size: 1.08em;
+
+    &>tbody>tr>td{
+        vertical-align: middle;
+        padding: 1.5em 0.5em;
+    }
+
+    .td-border-bottom-1{
+        border-bottom: solid $brand-gray-light 1px;
+    }
+
+    .item-image-container{
+        width: 6.67em;
+        height: 6.67em;
+        border: solid $brand-gray-light 1px;
+        border-radius: $border-radius-default;
+        background: #fff;
+        position: relative;
+        overflow: hidden;
+
+        img{
+            position: absolute;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    .item-name,
+    .item-price,
+    .item-remove{
+        font-weight: 500;
+        font-size: 1.33em;
+    }
+
+    .item-name{
+        color: $text-color;
+    }
+
+    .item-details-group{
+        font-size: 0.75em;
+
+        .form{
+            margin-bottom: 0;
+        }
+
+        .form-ui{
+            border-radius: 0px !important;
+            background: $input-border-color;
+            &:hover{
+                background: #fff;
+            }
+        }
+
+        .ui.dropdown{
+            max-width: 100%;
+            min-width: 1em;
+            width: 100%;
+            transition: $transition-default;
+            background: $input-border-color;
+            border-color: $input-border-color;
+            &:hover,
+            &.active{
+                border-color: rgba(34,36,38,.35);
+                background: #fff;
+            }
+        }
+    }
+
+    .td-number-of-order{
+        width: 9em;
+    }
+
+    .item-remove{
+        font-weight: 900;
+        color: $brand-gray-light;
+        font-size: 2em;
+        transition: $transition-default;
+        &:hover{
+            color: $brand-red;
+        }
+    }
+
+    .td-item-summary-total{
+        padding: 1em 0.5em;
+        font-size: 1.33em;
+    }
+
+
+    .td-payment-method{
+        vertical-align: top;
+    }
+
+    .payment-method-container{
+        .title{
+            margin-bottom: 0.83em;
+            display: inline-block;
+        }
+
+        img{
+            width: 3.33em;
+            height: 3.33em;
+            margin-right: 0.33em;
+        }
+    }
+}
+
+.number-of-wished-items{
+    .icon{
+        font-size: 0.67em;
+    }
+}
+
+.wished-item-attributes{
+    display: block;
+    font-size: 0.83em;
+    margin: 0 -0.83em;
+
+    span{
+        padding: 0 0.83em;
+        display: inline-block;
+        border-right: solid #dedede 1px;
+
+        &:last-child{
+            border: none;
+        }
+    }
+}
+
+.wishlist-modal{
+    tbody{
+        tr:first-child{
+            .td-border-bottom-1{
+                border: 0;
+            }
+        }
+    }
+}
+
+.ui.checkbox .box:before,
+.ui.checkbox label:before{
+    width: 13px;
+    height: 13px;
+    border-width: 2px;
+    border-color: $brand-gray;
+    border-radius: 4px;
+}
+
+.ui.checkbox input:checked~.box:before,
+.ui.checkbox input:checked~label:before{
+    background: $brand-blue;
+    border-color: $brand-blue;
+}
+
+.ui.checkbox .box:after,
+.ui.checkbox label:after{
+    color:#fff !important;
+}
+
+.ui.checkbox input[type="checkbox"]:indeterminate:focus ~ .box:before,
+.ui.checkbox input[type="checkbox"]:indeterminate:focus ~ label:before,
+.ui.checkbox input[type="checkbox"]:checked:focus ~ .box:before,
+.ui.checkbox input[type="checkbox"]:checked:focus ~ label:before {
+    background: $brand-blue;
+    border-color: $brand-blue;
+}

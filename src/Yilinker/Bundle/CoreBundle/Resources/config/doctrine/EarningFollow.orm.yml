@@ -1,0 +1,23 @@
+Yilinker\Bundle\CoreBundle\Entity\EarningFollow:
+    type: entity
+    table: EarningFollow
+    id:
+        earningFollowId:
+            type: integer
+            id: true
+            column: earning_follow_id
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        userFollowHistory:
+            targetEntity: UserFollowHistory
+            joinColumn:
+                name: user_follow_history_id
+                referencedColumnName: user_follow_history_id
+    oneToOne:
+        earning:
+            targetEntity: Earning
+            inversedBy: earningFollow
+            joinColumn:
+                name: earning_id
+                referencedColumnName: earning_id

@@ -1,0 +1,202 @@
+Yilinker\Bundle\CoreBundle\Entity\UserOrder:
+    type: entity
+    table: UserOrder
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserOrderRepository
+    indexes:
+        user_order_order_status_id_idx:
+            columns:
+                - order_status_id
+        user_order_payment_method_id_idx:
+            columns:
+                - payment_method_id
+        user_order_buyer_id_idx:
+            columns:
+                - buyer_id
+        user_order_invoice_fulltext:
+            columns: [ invoice_number ]
+            flags: [ fulltext ]
+        user_order_user_order_flagged_id_idx:
+            columns:
+                - user_order_flagged_id
+    id:
+        orderId:
+            type: bigint
+            nullable: false
+            unsigned: true
+            id: true
+            column: order_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        invoiceNumber:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            column: invoice_number
+        address:
+            type: string
+            nullable: false
+            length: 500
+            fixed: false
+            column: address
+        totalPrice:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            column: total_price
+        net:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+        paymentMethodCharge:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            column: payment_method_charge
+        paymentMethodStatus:
+            type: string
+            nullable: false
+            length: 50
+            column: payment_method_status
+        yilinkerCharge:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            column: yilinker_charge
+        handlingFee:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            column: handling_fee
+        additionalCost:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            options:
+                default: '0'
+            column: additional_cost
+        ipAddress:
+            type: string
+            nullable: false
+            length: 45
+            fixed: false
+            column: ip_address
+        dateAdded:
+            type: datetime
+            nullable: false
+            column: date_added
+        lastDateModified:
+            type: datetime
+            nullable: false
+            column: last_date_modified
+        consigneeFirstName:
+            type: string
+            length: 60
+            nullable: false
+            column: consignee_first_name
+            options:
+                default: ''
+        consigneeLastName:
+            type: string
+            length: 60
+            nullable: false
+            column: consignee_last_name
+            options:
+                default: ''
+        consigneeLatitude:
+            column:
+                consignee_latitude
+            precision: 10
+            scale: 6
+            nullable: true
+            options:
+                default: ''
+        consigneeLongitude:
+            column:
+                consignee_longitude
+            precision: 10
+            scale: 6
+            nullable: true
+            options:
+                default: ''
+        consigneeName:
+            type: string
+            length: 60
+            nullable: true
+            column: consignee_name
+            options:
+                default: ''
+        consigneeContactNumber:
+            type: string
+            length: 60
+            column: consignee_contact_number
+            nullable: true
+            default:
+                options: ''
+        checkoutType:
+            type: smallint
+            column: checkout_type
+            default: '0'
+    manyToOne:
+        orderStatus:
+            targetEntity: OrderStatus
+            joinColumn:
+                name: order_status_id
+                referencedColumnName: order_status_id
+            orphanRemoval: false
+        buyer:
+            targetEntity: User
+            inversedBy: orders
+            cascade: ['persist']
+            joinColumn:
+                name: buyer_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        paymentMethod:
+            targetEntity: PaymentMethod
+            joinColumn:
+                name: payment_method_id
+                referencedColumnName: payment_method_id
+        consigneeLocation:
+            targetEntity: Location
+            joinColumn:
+                name: consignee_location_id
+                referencedColumnName: location_id
+    oneToOne:
+        userOrderFlagged:
+            targetEntity: UserOrderFlagged
+            joinColumn:
+                name: user_order_flagged_id
+                referencedColumnName: user_order_flagged_id
+        orderConsigneeAddress:
+            targetEntity: OrderConsigneeAddress
+            joinColumn:
+                name: order_consignee_address_id
+                referencedColumnName: order_consignee_address_id
+            orphanRemoval: false
+    oneToMany:
+        orderProducts:
+            targetEntity: OrderProduct
+            mappedBy: order
+            fetch: EXTRA_LAZY
+            cascade: ['persist']
+        orderHistories:
+            targetEntity: OrderHistory
+            mappedBy: order
+        orderFeedbacks:
+            targetEntity: UserFeedback
+            mappedBy: order
+        packages:
+            targetEntity: Package
+            mappedBy: userOrder
+        orderVouchers:
+            targetEntity: OrderVoucher
+            mappedBy: order
+    lifecycleCallbacks: { }

@@ -1,0 +1,7 @@
+api_get_user_points:
+    path: /auth/user/getPoints
+    defaults: { _controller: YilinkerCoreBundle:Api/UserPointApi:getUserPoint }
+
+api_get_user_point_history:
+    path: /auth/user/getPointHistory
+    defaults: { _controller: YilinkerCoreBundle:Api/UserPointApi:getUserPointHistory }

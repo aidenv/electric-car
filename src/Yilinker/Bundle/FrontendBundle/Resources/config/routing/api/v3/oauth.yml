@@ -1,0 +1,4 @@
+oauth_v3_token_generation:
+    path: /login
+    defaults: { _controller: YilinkerFrontendBundle:Api/v2/UserApi:token }
+    methods: [POST]

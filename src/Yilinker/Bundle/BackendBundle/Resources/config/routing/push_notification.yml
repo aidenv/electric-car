@@ -1,0 +1,11 @@
+backend_push_notification_index:
+    path: /
+    defaults: { _controller: YilinkerBackendBundle:PushNotification:index }
+
+backend_push_notification_create:
+    path: /create
+    defaults: { _controller: YilinkerBackendBundle:PushNotification:create }
+
+backend_push_notification_update:
+    path: /update
+    defaults: { _controller: YilinkerBackendBundle:PushNotification:update }

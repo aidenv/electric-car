@@ -1,0 +1,61 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    Gift Voucher
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper static">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="content-container">
+                    <div class="content-segment">
+                        <div class="content-description row">
+                            <div class="col-md-6">
+                                <img src="{{ asset('images/promo/gift-voucher/gift-voucher.jpg') }}" alt="Gift Voucher" class="img-full-width mrg-bt-20">
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="pd-left-20">
+                                    <h3 class="mrg-bt-30">PROMO CODE: </h3>
+                                    <p class="mrg-bt-15">
+                                        <strong>Terms and Conditions:</strong>
+                                    </p>
+                                    <ul class="pd-left-20">
+                                        <li>
+                                            Yilinker Gift Voucher("GV") can be used on www.yilinker.com only.
+                                        </li>
+                                        <li>
+                                            Minimum spending of Php 500.00 is required for the use of the voucher.
+                                        </li>
+                                        <li>
+                                            If the order value exceeds the gift voucher's amount, the balance must be paid by other payment options available only on Yilinker website.
+                                        </li>
+                                        <li>
+                                            The value of the gift voucher must be utilized in one single receipt or is good only for one transaction. Any unused value will be forfeited.
+                                        </li>
+                                        <li>
+                                            Gift voucher is non-transferable, cannot be exchanged for cash, refunded or resold.
+                                        </li>
+                                        <li>
+                                            Yilinker Inc. reserves the right to change any of these terms and conditions from time to time without notice and to take appropriate action including cancellation of the voucher if, at its discretion, it deems such action is necessary.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}
+{% block javascripts %}
+    
+{% endblock %}

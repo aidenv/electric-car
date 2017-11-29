@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Welcome | Aeneasusa.com
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock stylesheets %}
+
+{% block body %}
+<div class="login">
+    <div class="login-wrapper login-buyer">
+          <div class="align-center">
+              <a href="{{ path('admin_home_page') }}">
+                  <img src="{{ asset('images/logo-icon.png') }}" class="logo" />
+              </a>
+          </div>
+          <div class="tagline align-center mrg-bt-20">
+              Administrator
+          </div>
+          <div class="form-segment">
+            <form action="{{ path('admin_authenticate') }}" method="post">
+                {% if error %}
+                   <div class="message-box red with-close-message">
+                     {{ error.messageKey|trans(error.messageData, 'security') }}
+                   </div>
+                {% endif %}
+
+                <div class="form" id="email-div">
+                  <input type="text" id="username" class="form-ui" name="_username" value="{{ last_username }}" placeholder="Username" />
+                </div>
+                <div class="form success" id="password-div">
+                  <input type="password" id="password" class="form-ui" name="_password" placeholder="Password" />
+                </div>
+                <div class="form">
+                   {# If you want to control the URL the user
+                      is redirected to on success (more details below)
+                      <input type="hidden" name="_target_path" value="/account" />
+                   #}
+                  <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
+                  <button type="submit" class="button purple block">Sign In</button>
+                </div>
+            </form>
+        </div>
+        <div class="footer-wrapper align-center">
+            Copyright 2015 YiLinker. All Rights Reserved
+        </div>
+    </div>
+    <input type="hidden" id="is-backed" value="0" />
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/admin-login.js"
+        "js/src/vendor/forms.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

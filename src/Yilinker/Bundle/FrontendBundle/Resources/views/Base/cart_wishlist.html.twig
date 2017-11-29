@@ -1,0 +1,277 @@
+
+<!--Start of modal cart-->
+<div class="ui modal cart-wishlist-modal cart-modal modal">
+    <a class="close"><i class="icon-times"></i></a>
+    <div class="content">
+        <div class="message-box red">
+            You have remove <b>Schonning Watch (red, metal, large)</b> from your shopping cart.
+        </div>
+        <div class="items-counter-text">
+            You have 2 items on your shopping cart
+        </div>
+        <div class="items-container">
+            <table class="item-breakdown-table">
+                <tbody>
+                    <tr>
+                        <td width="1em">
+                            <div class="ui checkbox">
+                              <input type="checkbox" name="example" checked>
+                              <label>&nbsp;</label>
+                            </div>
+                        </td>
+                        <td class="align-center" width="9em">
+                            <div class="item-image-container">
+                                <img src="{{ asset('images/featured-prod-1.jpg') }}" alt="">
+                            </div>
+                        </td>
+                        <td class="td-border-bottom-1">
+                            <a href="" class="item-name">Schonning Watch</a>
+                            <div class="row item-details-group">
+                                <div class="col-md-3">
+                                    <div class="form">
+                                        <select class="form-ui ui single search selection dropdown">
+                                            <option value="">Size</option>
+                                            <option value="1">
+                                               Small
+                                            </option>
+                                            <option value="2">
+                                                Medium
+                                            </option>
+                                            <option value="3" selected>
+                                                Large
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form">
+                                        <select class="form-ui ui single search selection dropdown">
+                                            <option value="">Color</option>
+                                            <option value="1">
+                                               Red
+                                            </option>
+                                            <option value="2" selected>
+                                                Yellow
+                                            </option>
+                                            <option value="3">
+                                                Green
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form">
+                                        <select class="form-ui ui single search selection dropdown">
+                                            <option value="">Metal</option>
+                                            <option value="1">
+                                               Leather
+                                            </option>
+                                            <option value="2" selected>
+                                                Steel
+                                            </option>
+                                            <option value="3">
+                                                Rubber
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </td>
+                        <td class="td-border-bottom-1 td-number-of-order">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    <div class="number-spinner number-of-order">
+                                        <input type="text" data-ride="spinner" id="quantity" class="form-ui" value="1" data-min="1" data-max="10" readonly>
+                                        <div class="number-spinner-button-group">
+                                            <button type="button" class="button-spinner" data-value="increase" data-target="#quantity" data-toggle="spinner">
+                                                <i class="icon icon-caret-up"></i>
+                                            </button>
+                                            <button type="button" class="button-spinner" data-value="decrease" data-target="#quantity" data-toggle="spinner">
+                                                <i class="icon icon-caret-down"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="td-border-bottom-1">
+                            <span class="item-price">
+                                P 2500.00
+                            </span>
+                        </td>
+                        <td width="2em">
+                            <a class="item-remove">
+                                <i class="icon icon-circle-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="1em">
+                            <div class="ui checkbox">
+                              <input type="checkbox" name="example" checked>
+                              <label>&nbsp;</label>
+                            </div>
+                        </td>
+                        <td class="align-center" width="9em">
+                            <div class="item-image-container">
+                                <img src="{{ asset('images/featured-prod-2.jpg') }}" alt="">
+                            </div>
+                        </td>
+                        <td class="td-border-bottom-1">
+                            <a href="" class="item-name">Philips Series 500</a>
+                        </td>
+                        <td class="td-border-bottom-1 td-number-of-order">
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    <div class="number-spinner number-of-order">
+                                        <input type="text" data-ride="spinner" id="quantity2" class="form-ui" value="1" data-min="1" data-max="10" readonly>
+                                        <div class="number-spinner-button-group">
+                                            <button type="button" class="button-spinner" data-value="increase" data-target="#quantity2" data-toggle="spinner">
+                                                <i class="icon icon-caret-up"></i>
+                                            </button>
+                                            <button type="button" class="button-spinner" data-value="decrease" data-target="#quantity2" data-toggle="spinner">
+                                                <i class="icon icon-caret-down"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="td-border-bottom-1">
+                            <span class="item-price">
+                                P 2500.00
+                            </span>
+                        </td>
+                        <td width="2em">
+                            <a class="item-remove">
+                                <i class="icon icon-circle-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" rowspan="3" class="td-payment-method">
+                            <div class="payment-method-container">
+                                <b class="title">Payment Method</b>
+                                <br/>
+                                <img src="{{ asset('images/payment-methods/cod.png') }}" alt="COD">
+                                <img src="{{ asset('images/payment-methods/dragonpay.png') }}" alt="Dragonpay">
+                                <img src="{{ asset('images/payment-methods/master-card.png') }}" alt="Master Card">
+                                <img src="{{ asset('images/payment-methods/pesopay.png') }}" alt="PesoPay">
+                                <img src="{{ asset('images/payment-methods/visa.png') }}" alt="VISA">
+                            </div>
+                        </td>
+                        <td colspan="1" class="td-border-bottom-1 td-item-summary-total">Subtotal</td>
+                        <td colspan="1" class="td-border-bottom-1 td-item-summary-total">P 5,000.00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" class="td-border-bottom-1 td-item-summary-total">Shipping Fee</td>
+                        <td colspan="1" class="td-border-bottom-1 td-item-summary-total">Free<br/>(Metro Manila only)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" class="td-border-bottom-1 td-item-summary-total"><b>Total</b></td>
+                        <td colspan="1" class="td-border-bottom-1 td-item-summary-total"><b>P 5,000.00</b></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="actions">
+        <a href="#" class="pull-left action-link close"> Continue Shopping</a>
+        <button class="button purple">Proceed to Checkout</button>
+    </div>
+</div>
+<!--End of modal cart-->
+
+<!--Start of modal wishlist-->
+<div class="ui modal small cart-wishlist-modal wishlist-modal modal">
+    <a class="close"><i class="icon-times"></i></a>
+    <div class="content">
+        <div class="message-box red">
+            You have remove <b>Schonning Watch (red, metal, large)</b> from your wishlist.
+        </div>
+        <div class="items-counter-text">
+            You have 2 items on your wishlist
+        </div>
+        <div class="items-container">
+            <table class="item-breakdown-table">
+                <tbody>
+                    <tr>
+                        <td width="1em">
+                            <div class="ui checkbox">
+                              <input type="checkbox" name="example" checked>
+                              <label>&nbsp;</label>
+                            </div>
+                        </td>
+                        <td class="align-center" width="9em">
+                            <div class="item-image-container">
+                                <img src="{{ asset('images/featured-prod-1.jpg') }}" alt="">
+                            </div>
+                        </td>
+                        <td class="td-border-bottom-1">
+                            <a href="" class="item-name">Schonning Watch</a>
+                            <div class="wished-item-attributes">
+                                <span>Small</span>
+                                <span>Red</span>
+                                <span>Steel</span>
+                            </div>
+                        </td>
+                        <td class="td-border-bottom-1 td-number-of-order">
+                            <span class="number-of-wished-items">
+                                <i class="icon icon-times"></i> 1
+                            </span>
+                        </td>
+                        <td class="td-border-bottom-1">
+                            <span class="item-price">
+                                P 2500.00
+                            </span>
+                        </td>
+                        <td width="2em">
+                            <a class="item-remove">
+                                <i class="icon icon-circle-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="1em">
+                            <div class="ui checkbox">
+                              <input type="checkbox" name="example" checked>
+                              <label>&nbsp;</label>
+                            </div>
+                        </td>
+                        <td class="align-center" width="9em">
+                            <div class="item-image-container">
+                                <img src="{{ asset('images/featured-prod-2.jpg') }}" alt="">
+                            </div>
+                        </td>
+                        <td class="td-border-bottom-1">
+                            <a href="" class="item-name">Philips Series 500</a>
+                        </td>
+                        <td class="td-border-bottom-1 td-number-of-order">
+                            <span class="number-of-wished-items">
+                                <i class="icon icon-times"></i> 1
+                            </span>
+                        </td>
+                        <td class="td-border-bottom-1">
+                            <span class="item-price">
+                                P 2500.00
+                            </span>
+                        </td>
+                        <td width="2em">
+                            <a class="item-remove">
+                                <i class="icon icon-circle-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="actions">
+        <a href="#" class="pull-left action-link close"> Continue Shopping</a>
+        <button class="button purple">Add to Cart</button>
+    </div>
+</div>
+<!--End of modal wishlist-->

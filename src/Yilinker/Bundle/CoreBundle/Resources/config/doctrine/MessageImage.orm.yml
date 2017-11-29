@@ -1,0 +1,33 @@
+Yilinker\Bundle\CoreBundle\Entity\MessageImage:
+    type: entity
+    table: MessageImage
+    id:
+        messageImageId:
+            type: integer
+            id: true
+            column: message_image_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        fileLocation:
+            type: string
+            column: file_location
+            length: '1024'
+            nullable: true
+        dateAdded:
+            type: datetime
+            column: date_added
+    manyToOne:
+        message:
+            targetEntity: Message
+            joinColumn:
+                name: message_id
+                referencedColumnName: message_id
+            orphanRemoval: false
+    indexes:
+        fk_message_messageid_messageimage_messageimageid_idx:
+            columns:
+                - message_id
+    lifecycleCallbacks: {  }

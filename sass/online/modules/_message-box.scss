@@ -1,0 +1,26 @@
+@import "mixins/_message-box.scss";
+
+.message-box{
+    border: solid darken($brand-gray-light, 20%) 1px;
+    padding: (($padding-vertical-default+5)) $padding-horizontal-default;
+    border-radius: $border-radius-default;
+    margin-bottom: 14px;
+
+    &.red{
+        @include message-box-variant($message-box-red-color, $message-box-red-bg, $message-box-red-border-color);
+    }
+
+    &.green{
+        @include message-box-variant($message-box-green-color, $message-box-green-bg, $message-box-green-border-color);
+    }
+
+    ul{
+        list-style-type: none;
+    }
+
+    &.small{
+        padding: (($padding-vertical-default)) $padding-horizontal-default;
+        font-size: 0.83em;
+        border-radius: (($border-radius-default - 2));
+    }
+}

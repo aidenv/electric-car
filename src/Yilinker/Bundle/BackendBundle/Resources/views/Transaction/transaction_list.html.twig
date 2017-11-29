@@ -1,0 +1,492 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block body %}
+
+    <section class="box-section">
+        <div class="title-bar">
+            <div class="container">
+                <span>Transaction List</span>
+            </div>
+        </div>
+
+        <div class="container">
+            {{ include('YilinkerBackendBundle:sections:flash_message.html.twig') }}
+            <!-- Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="tools top form">
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                    <h4>Number of Transactions: {{ transactionCount }}</h4>
+                                    <p class="sub-header">
+                                        You may search for a particular transaction.
+                                    </p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form vers-one">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <label>Search</label>
+                                                <input type="text" id="searchKeyword" class="form-ui" placeholder="Search By Invoice No. / Buyer">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gutters group-segment light-segment">
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form">
+                                        <div class="row">
+                                            <label for="" class="col-md-12">Date Range: </label>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-ui datetimepicker" id="dateFrom" placeholder="Start Date"/>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-ui datetimepicker" id="dateTo" placeholder="End Date"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label for="">Order Status: </label>
+                                                <select name="" id="orderStatus" class="form-ui ui search single selection dropdown">
+                                                    <option value="" selected>Order Status</option>
+                                                    {% for orderStatus in orderStatusEntity %}
+                                                        <option value="{{ orderStatus.orderStatusId }}">{{ orderStatus.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="">Payment Type: </label>
+                                                <select name="" id="paymentMethod" class="form-ui ui search single selection dropdown">
+                                                    <option value="">Payment Method</option>
+                                                    {% for paymentMethod in paymentMethodEntity %}
+                                                        <option value="{{ paymentMethod.paymentMethodId }}">{{ paymentMethod.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="">Actions: </label>
+                                                <select name="" id="hasAction" class="form-ui ui search single selection dropdown">
+                                                    <option value="">Action</option>
+                                                    <option value="1">Cancel Request By Buyer</option>
+                                                    <option value="2">Cancel Product</option>
+                                                    <option value="3">None</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button class="button gray mrg-top-10" type="submit" id="searchTransaction">Submit</button>
+                                                <button class="button gray mrg-top-10" type="submit" value="export" id="exportTransaction">Export</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tables -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+                            <div class="row gutters">
+                                <div class="col-md-12">
+                                    <table class="table basic table-vertical-align-top">
+                                        <thead>
+                                          <tr>
+                                              <th></th>
+                                              <th></th>
+                                              <th>Order ID</th>
+                                              <th>Invoice No</th>
+                                              <th>Collected Amount</th>
+                                              <th>Transaction Price</th>
+                                              <th>Buyer</th>
+                                              <th>Status</th>
+                                              <th>Transaction Date</th>
+                                              <th>Payment Method</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody id="transactionListContainer">
+                                        {% for transaction in transactions %}
+                                            <tr data-feeder="{{ transaction|json_encode }}" class="order-trigger modal-order-one-trigger {{ transaction.hasAction and not (transaction.flagReason and not transaction.flagStatus) ? 'update' : '' }} {{ transaction.flagReason and not transaction.flagStatus ? 'flag': '' }}" data-id="{{ transaction.orderId }}">
+                                                <td>
+                                                    {% if transaction.flagReason and not transaction.flagStatus %}
+                                                        <span class="icon-flag"></span>
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if transaction.hasAction %}
+                                                        !
+                                                    {% endif %}
+                                                </td>
+                                                <td align="center">{{ transaction.orderId }}</td>
+                                                <td>{{ transaction.invoiceNumber }}</td>
+                                                <td>{{ transaction.totalPrice|number_format(2, '.', ',') }}</td>
+                                                <td>
+                                                    {% set preVoucherAmount = transaction.totalPrice + transaction.totalVoucherAmount %}
+                                                    {{ preVoucherAmount|default(0)|number_format(2) }}
+                                                </td>
+                                                <td>{{ transaction.buyerName }}</td>
+                                                <td>{{ transaction.orderStatus }}</td>
+                                                <td>{{ transaction.dateCreated|date('m/d/Y') }}</td>
+                                                <td>{{ transaction.paymentType }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-blank">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: transactionCount, perPage: pageLimit}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    {{ include('YilinkerBackendBundle:modal:modal_transaction_flagged.html.twig') }}
+
+    <!-- Modal Order Details -->
+    <div data-feed=".order-trigger" class="ui modal large modal-box modal-order-one">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="header">Order Details</div>
+        <div class="content divide">
+            <div data-fed-show="data.flagId && !parseInt(data.flagStatus)" class="row">
+                <div class="group form">
+                    <div class="message-box red">
+                        <p class="title">Flagged Tag Detected!</p>
+                        <p data-fed="data.flagReason">This transaction has been flagged for further review.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form">
+                    <div class="row">
+                        <div class="col-md-6 md-box zeb">
+                            <div>
+                                <div class="col-md-6"><strong>Invoice No.</strong></div>
+                                <div class="col-md-6" id="orderDetailsModal-invoice"></div>
+                            </div>
+                            <div>
+                                <div class="col-md-6"><strong>Status</strong></div>
+                                <div class="col-md-6" id="orderDetailsModal-status"></div>
+                            </div>
+                            <div class="mrg-bt-20">
+                                <div class="col-md-6"><strong>Date of transaction</strong></div>
+                                <div class="col-md-6" id="orderDetailsModal-dateCreated"></div>
+                            </div>
+                            <div>
+                                <div class="col-md-6"><strong>Consignee Name</strong></div>
+                                <div class="col-md-6" id="orderDetailsModal-buyer-consignee-name"></div>
+                            </div>
+                            <div class="mrg-bt-20">
+                                <div class="col-md-6"><strong>Consignee Contact Number</strong></div>
+                                <div class="col-md-6" id="orderDetailsModal-buyer-contact-number"></div>
+                            </div>
+                            <div class="header"><div class="col-md-12"><p>Buyer Details</p></div></div>
+                            <div>
+                                <div class="col-md-6"><strong>Buyer</strong></div>
+                                <div class="col-md-6" id="orderDetailsModal-buyer"></div>
+                            </div>
+                            <div>
+                                <div class="col-md-6"><strong>Shipping Address</strong></div>
+                                <div class="col-md-6" id="orderDetailsModal-buyer-shipping-address"></div>
+                            </div>
+                            <div class="mrg-bt-20">
+                                <div class="col-md-6"><strong>Contact Number</strong></div>
+                                <div class="col-md-6" id="orderDetailsModal-buyer-contact-number"></div>
+                            </div>
+                            {#<div class="header"><div class="col-md-12"><strong>Seller Details</strong></div></div>#}
+                            {#<div>#}
+                                {#<div class="col-md-6"><strong>Shipping Address</strong></div>#}
+                                {#<div class="col-md-6" id="orderDetailsModal-seller-shipping-address"></div>#}
+                            {#</div>#}
+                            {#<div>#}
+                                {#<div class="col-md-6"><strong>Contact Number</strong></div>#}
+                                {#<div class="col-md-6" id="orderDetailsModal-seller-contact-number"></div>#}
+                            {#</div>#}
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5 md-box">
+                            <div>
+                                <div class="col-md-6">Total Amount</div>
+                                <div class="col-md-6 txtright orderDetailsModal-totalAmount"></div>
+                            </div>
+                            <div>
+                                <div class="col-md-6">YiLinker Charge</div>
+                                <div class="col-md-6 txtright" id="orderDetailsModal-yilinker-charge"></div>
+                            </div>
+                            <div>
+                                <div class="col-md-6">Freight Charge</div>
+                                <div class="col-md-6 txtright" id="orderDetailsModal-freight-charge"></div>
+                            </div>
+                            <div>
+                                <div class="col-md-6">Additional Charge</div>
+                                <div class="col-md-6 txtright" id="orderDetailsModal-additional-charge"></div>
+                            </div>
+                            <div class="total">
+                                <div class="col-md-6">Seller Net</div>
+                                <div class="col-md-6 txtright" id="orderDetailsModal-sub-total"></div>
+                            </div>
+                            <div class="voucher-details">
+                                <strong>Voucher Details</strong>
+                                <div class="total-amount">
+                                    <div class="col-md-6">Total Amount</div>
+                                    <div class="col-md-6 txtright orderDetailsModal-totalAmount"></div>
+                                </div>
+                                <div id="voucher-container" class="voucher-used">
+                                </div>
+                            </div>
+                            <div class="net">
+                                <div class="col-md-6">Collected Amount</div>
+                                <div class="col-md-6 txtright" id="orderDetailsModal-net"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table basic table-vertical-align-top">
+                        <thead>
+                          <tr>
+                              <th><input type="checkbox" id="checkAllBoxes"></th>
+                              <th>Order Product ID</th>
+                              <th>Name</th>
+                              <th>Seller</th>
+                              <th>Order Quantity</th>
+                              <th>Unit Price</th>
+                              <th>Shipping fee</th>
+                              <th>Total Amount</th>
+                              <th>Status</th>
+                              <th>Attributes</th>
+                              <th></th>
+                          </tr>
+                        </thead>
+                        <tbody id="orderDetailsModal-orderProductDetailContainer">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div data-fed-show="data.flagStatus == 1" class="row">
+                <div class="form remarks">
+                    <div class="csr">
+                        <p class="person">
+                        <img src="{{ asset('images/logo-icon.png') }}" border="0">
+                        <span class="user">
+                            <strong data-fed="(data.flagStatus == 1 ? 'Approved': '')+(data.flagStatus == 2 ? 'Rejected': '')+' by '+data.flagUser"></strong>
+                            customer support representative
+                        </span>
+                        </p>
+                        <p class="words" data-fed="data.flagRemarks"></p>
+                        <p class="time-stamp">Posted on <span data-fed="data.flagRemarkDate"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="remarksContainer">
+            </div>
+
+        </div>
+
+        <div class="actions">
+            <button data-fed-show="data.flagId && !parseInt(data.flagStatus)" class="button gray modal-remarks-approved-trigger">Approve</button>
+            <button data-fed-show="data.flagId && !parseInt(data.flagStatus)" class="button cancel modal-remarks-reject-trigger">Reject</button>
+            <span data-fed-show="!(data.flagId && !parseInt(data.flagStatus))">
+                <button class="button blue" id="cancelTransactionsBtn">Cancel Transaction</button>
+            </span>
+            <button class="button blue approveDeny" id="approveTransactionBtn">Approve Cancellation</button>
+            <button class="button cancel approveDeny" id="denyTransactionBtn">Deny</button>
+            <div class="button default-light closeModalAction" data-remodal-action="close">Back</div>
+        </div>
+    </div>
+
+    <!-- Modal Order Type Two -->
+    <div class="ui modal large modal-box modal-order-two">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="header">History Information</div>
+
+        <div class="content divide">
+            <div class="row">
+                <div class="form">
+                    <div class="row">
+                        <div class="col-md-6 md-box zeb">
+                            <div class="header"><div class="col-md-12"><p>Seller Details</p></div></div>
+                            <div>
+                                <div class="col-md-6"><strong>Store Address</strong></div>
+                                <div class="col-md-6" id="historyInformationModal-seller-shipping-address"></div>
+                            </div>
+                            <div>
+                                <div class="col-md-6"><strong>Contact Number</strong></div>
+                                <div class="col-md-6" id="historyInformationModal-seller-contact-number"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table basic table-vertical-align-top mrg-bt-30">
+                        <tr >
+                            <th>Order Product Id</th>
+                            <th>User</th>
+                            <th>Product Name</th>
+                            <th>Order Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Shipping Price</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                        </tr>
+                        <tbody id="historyInformationModal-orderProductDetailsContainer">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table basic table-vertical-align-top">
+                        <tr >
+                            <th>History ID</th>
+                            <th>State</th>
+                            <th>Date</th>
+                        </tr>
+                        <tbody id="historyInformationModal-historyContainer">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6" id="historyInformationModal-shipment-information-container">
+                    <table class="table basic table-vertical-align-top" id="table-shipping-history">
+                        <tr >
+                            <th>WayBill Number</th>
+                            <th>Warehouse</th>
+                            <th>Quantity</th>
+                            <th>Date</th>
+                        </tr>
+                        <tbody id="historyInformationModal-shipment-information">
+                        </tbody>
+                    </table>
+                    <span class="hidden" id="no-shipping-history"></span>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <div class="button cancel modal-order-one-trigger returnToPreviousModal">Back</div>
+        </div>
+    </div>
+
+    <!--Modal Cancel Transaction - Buyer-->
+    <div class="ui modal small " id="cancelTransactionModal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">Reason of Cancellation</div>
+        <div class="content">
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="form">
+                            <label class="required">Type of Reason</label>
+                            <select name="" id="reasonId" class="cancellation-reason form-ui ui search single selection dropdown">
+                                <option value="0"> Select Reason </option>
+                                {% for reason in cancellationReason %}
+                                    <option value="{{ reason.orderProductCancellationReasonId }}">{{ reason.reason }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form">
+                            <label class="required">Remarks</label>
+                            <textarea class="form-ui" id="remarks"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <div class="button blue " id="proceedToCancel">Submit</div>
+            <div class="button cancel modal-order-one-trigger returnToPreviousModal">Back</div>
+        </div>
+    </div>
+
+    <!--Modal Approve Cancellation of Transaction -->
+    <div class="ui modal small " id="approveCancelTransactionModal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">Remarks for Approval</div>
+        <div class="content">
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="form">
+                            <label>Remarks</label>
+                            <textarea class="form-ui" id="approveCancelTransaction-remarks"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <div class="button blue " id="approveCancelTransaction-proceedToCancel">Submit</div>
+            <div class="button cancel modal-order-one-trigger returnToPreviousModal">Back</div>
+        </div>
+    </div>
+
+    <!--Modal Deny Cancellation of Transaction -->
+    <div class="ui modal small " id="denyCancelTransactionModal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">Remarks for Deny</div>
+        <div class="content">
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="form">
+                            <label>Remarks</label>
+                            <textarea class="form-ui" id="denyCancelTransaction-remarks"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <div class="button blue" id="denyCancelTransactionModal-proceedToCancel">Submit</div>
+            <div class="button cancel modal-order-one-trigger returnToPreviousModal">Back</div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/admin-transaction-list.js"
+        "js/src/backend/transaction-list.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script src="{{ asset('js/src/utility/data-feeder.js') }}"></script>
+{% endblock %}

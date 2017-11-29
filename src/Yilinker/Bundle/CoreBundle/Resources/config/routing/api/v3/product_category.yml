@@ -1,0 +1,4 @@
+api_v3_product_category:
+    path: /product/getCategories
+    defaults: { _controller: YilinkerCoreBundle:Api/ProductCategoryApi:getCategory }
+    methods: [GET]

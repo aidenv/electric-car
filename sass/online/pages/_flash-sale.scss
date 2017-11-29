@@ -1,0 +1,136 @@
+.advertisement.flash-sale{
+    .col-md-12{
+        padding: 0;
+    }
+}
+
+.flash-loader{
+    position: relative !important;
+    height: 68px !important;
+    margin-bottom: 20px !important;
+    background: none !important;
+    background-color: none !important;
+
+    .dimmer{
+        background-color: #f2f2f2 !important;
+    }
+}
+
+.flash-product-container{
+    display: none;
+    .item{
+        min-height: 30px;
+        clear: both;
+        width: 100%;
+        border: solid #dedede 1px;
+        margin-bottom: 30px;
+        padding: 10px;
+        display: inline-block;
+        background: #fff;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    // .item.current-sale{
+    //     width: 380px;
+    //     float: left;
+    //     padding-bottom: 207px;
+    // }
+
+    // .item.upcoming-sale{
+    //     width: 180px;
+    //     float: left;
+    // }
+
+    .flash-upcoming-slider, .current-flash-sale-slider{
+        width: 100%;
+        float: left;
+        padding: 0 33px;
+        position: relative;
+        .control{
+            position: absolute;
+            font-size: 29px;
+            top: 44%;
+            cursor: pointer;
+            &.previous{
+                left: 0;
+            }
+
+            &.next{
+                right: 0px;
+            }
+        }
+    }
+
+    .flash-item{
+        margin-bottom: 10px;
+        width: 180px;
+        margin: 5px 10px;
+
+        .name,
+        .price{
+            padding: 0 10px;
+            margin-bottom: 3px;
+        }
+
+        .name{
+            margin-bottom: 0;
+            height: 26px;
+            overflow: hidden;
+            word-break: break-word;
+            font-weight: normal;
+        }
+
+        &.disabled{
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.65;
+            filter: alpha(opacity=65);
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+    }
+
+    .timer{
+        margin: auto;
+        td{
+            padding: 0 5px
+        }
+        .label{
+            font-size: 14px;
+            font-weight: normal;
+        }
+    }
+
+    .countdown{
+        color: #fff;
+        background: #D02549;
+        padding: 10px;
+        padding-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .upcoming-time-label{
+        padding: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        background: #21BDDA;
+        margin-bottom: 10px;
+        margin: -10px -11px 15px -11px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .ended-time-label{
+        padding: 12px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        background: #BFBFBF;
+        margin-bottom: 10px;
+        margin: -10px -11px 15px -11px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+}

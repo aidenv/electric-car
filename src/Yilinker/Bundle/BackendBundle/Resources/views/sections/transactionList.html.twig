@@ -1,0 +1,166 @@
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Transaction List</span>
+        </div>
+    </div>
+    <div class="container">
+      <!-- Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="tools top form">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="search options">
+                    <input type="text" class="form-ui" placeholder="Search">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <select name="" id="" class="form-ui ui search single selection dropdown">
+                      <option value="0">Order Status</option>
+                      <option value="1">Order Status</option>
+                      <option value="2">Order Status</option>
+                      <option value="3">Order Status</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <select name="" id="" class="form-ui ui search single selection dropdown">
+                      <option value="">Payment Method</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <div class=" datepicker">
+                    <input type="text" class="form-ui datetimepicker" placeholder="11/12/14">
+                  </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <input type="text" class="form-ui datetimepicker" placeholder="02/29/16">
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <button class="options button block cancel">
+                    <span class="item-icon icon-search"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tables -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+              <div class="box-div">
+
+                <div class="row gutters">
+                  <div class="col-md-12">
+                    <table class="table basic table-vertical-align-top">
+                      <tr>
+                        <th></th>
+                        <th>Order ID</th>
+                        <th>Invoice No</th>
+                        <th>Total Amount</th>
+                        <th>Buyer</th>
+                        <th>Status</th>
+                        <th>Transaction Date</th>
+                        <th>Payment Method</th>
+                      </tr>
+                      {% for i in 1..2 %}
+                      <tr class="modal-transaction-cancelled-trigger update">
+                        <td>!</td>
+                        <td>192</td>
+                        <td>201-1-1506040106</td>
+                        <td>2121.00</td>
+                        <td>sammyboi22_22</td>
+                        <td><i>Cancellation</i>&#8230;</td>
+                        <td>2015-06-04 13:05:51</td>
+                        <td>PESOPAY</td>
+                      </tr>
+                      {% endfor %}
+                      {% for i in 1..2 %}
+                      <tr class="modal-transaction-dispute-trigger update">
+                        <td>!</td>
+                        <td>192</td>
+                        <td>201-1-1506040106</td>
+                        <td>2121.00</td>
+                        <td>sammyboi22_22</td>
+                        <td><i>Dispute Something</i>&#8230;</td>
+                        <td>2015-06-04 13:05:51</td>
+                        <td>PESOPAY</td>
+                      </tr>
+                      {% endfor %}
+                      {% for i in 1..2 %}
+                      <tr class="modal-transaction-flagged-trigger flag">
+                        <td><span class="icon-flag"></span></td>
+                        <td>192</td>
+                        <td>201-1-1506040106</td>
+                        <td>2121.00</td>
+                        <td>sammyboi22_22</td>
+                        <td>Flag</td>
+                        <td>2015-06-04 13:05:51</td>
+                        <td>PESOPAY</td>
+                      </tr>
+                      {% endfor %}
+                      {% for i in 1..2 %}
+                      <tr class="modal-order-one-trigger">
+                        <td class="clr-status-"></td>
+                        <td>192</td>
+                        <td>201-1-1506040106</td>
+                        <td>2121.00</td>
+                        <td>sammyboi22_22</td>
+                        <td>DENIED</td>
+                        <td>2015-06-04 13:05:51</td>
+                        <td>PESOPAY</td>
+                      </tr>
+                      {% endfor %}
+                      {% for i in 1..7 %}
+                        <tr class="modal-order-one-trigger">
+                          <td class="clr-status-"></td>
+                          <td>192</td>
+                          <td>201-1-1506040106</td>
+                          <td>PHP 2121.00</td>
+                          <td>sammyboi22_22</td>
+                          <td>PAID</td>
+                          <td>2015-06-04 13:05:51</td>
+                          <td>PESOPAY</td>
+                        </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-blank">
+                <div class="row">
+                  <div class="col-md-12">
+                    {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {lastPage: 30}) }}
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+</section>

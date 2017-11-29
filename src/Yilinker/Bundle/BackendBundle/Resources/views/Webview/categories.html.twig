@@ -1,0 +1,138 @@
+<div class="box-div">
+  <div class="row gutters group-segment">
+    <div class="col-md-12">
+      <h4 class="mrg-bt-30">
+        Categories
+        <button class="button small pull-right gray modal-create-category-trigger">
+          <span class="item-icon icon-plus"></span>
+          Add Category
+        </button>
+      </h4>
+      <table class="table basic table-vertical-align-top">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Category Name</th>
+            <th>No. of Items</th>
+            <th>Order</th>
+            <th class="align-center">Show</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in 1..10  %}
+          <tr>
+            <td>
+              <img src="#">
+            </td>
+            <td>
+              Christmas Special
+            </td>
+            <td>
+              20
+            </td>
+            <td>
+              <select class="form-ui ui search single selection dropdown">
+                <option value="0">1</option>
+                <option value="1">2</option>
+                <option value="2">3</option>
+              </select>
+            </td>
+            <td class="align-center">
+              <div class="ui checkbox">
+                <input type="checkbox" name="isEnabled">
+                <label></label>
+              </div>
+            </td>
+            <td class="align-right">
+              <button class="button small light-gray">
+                <span class="item-icon icon-edit"></span>
+                Edit
+              </button>
+              <button class="button small light-gray">
+                <span class="item-icon icon-trash"></span>
+                Delete
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <button class="button pull-right gray">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="ui modal modal-box small modal-create-category">
+  <a class="close">
+    <i class="icon-times"></i>
+  </a>
+  <div class="header">
+    Category
+  </div>
+  <form class="ui form segment">
+    <div class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="form col-md-12">
+              <div class="form">
+                <div class="row">
+                  <img src="#">
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Upload Banner</label>
+                    <label class="light" for="">Select your Banner Permit file from your computer</label>
+                    <input class="form-ui disabled" name="banner" type="file">
+                    <span class="form-ui-note mrg-bt-20">Compatible files: JPEG, PNG and PDF</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form col-md-12">
+                    <label class="required">Category Header Link</label>
+                    <input class="form-ui" placeholder="" type="text" value=""/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form col-md-12">
+              <label class="required">Products List</label>
+              <div class="table-scroller">
+                <table class="table basic table-vertical-align-top center">
+                  <thead>
+                    <tr>
+                      <th>Product Name</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for i in 1..5  %}
+                    <tr>
+                      <td>Product One</td>
+                      <td class="align-right">
+                        <a href="#">x</a>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="actions">
+    <div class="row">
+      <div class="col-md-12 align-right">
+        <a class="button ui submit blue">Save</a>
+        <a class="button cancel">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+Yilinker\Bundle\CoreBundle\Entity\ShippingLeadTime:
+    type: entity
+    table: ShippingLeadTime
+    indexes:
+        fk_shipping_lead_time_location_idx:
+            columns:
+                - location_id
+    id:
+        shippingLeadTimeId:
+            type: integer
+            id: true
+            column: shipping_lead_time_id
+            unsigned: false
+            generator:
+                strategy: IDENTITY
+    fields:
+        leadTime:
+            type: string
+            length: 255
+    oneToOne:
+        location:
+            targetEntity: Location
+            inversedBy: shippingLeadTime
+            joinColumn:
+                name: location_id
+                referencedColumnName: location_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

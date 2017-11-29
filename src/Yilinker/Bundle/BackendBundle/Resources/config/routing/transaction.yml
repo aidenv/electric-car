@@ -1,0 +1,103 @@
+yilinker_backend_transaction_list:
+    path: /transactions
+    defaults: { _controller: YilinkerBackendBundle:Transaction:renderTransactionList }
+    methods : [GET]
+
+yilinker_backend_transaction_export:
+    path: /transactions/export
+    defaults: { _controller: YilinkerBackendBundle:Transaction:export }
+    methods : [GET]
+
+yilinker_approve_or_reject_order:
+    path: /transactions/approve-or-reject
+    defaults: { _controller: YilinkerBackendBundle:Transaction:approveOrRejectOrder }
+    methods: [POST]
+
+yilinker_backend_transaction_order_details:
+    path: /transactions/order-details
+    defaults: { _controller: YilinkerBackendBundle:Transaction:getTransactionOrderDetail }
+    methods : [GET]
+
+yilinker_backend_transaction_cancel:
+    path: /transactions/cancel-transaction
+    defaults: { _controller: YilinkerBackendBundle:Transaction:cancelTransaction }
+    methods : [POST]
+
+yilinker_backend_approve_deny_cancelled_transaction:
+    path: /transactions/approve-deny-cancellation
+    defaults: { _controller: YilinkerBackendBundle:Transaction:approveOrDenyCancelledTransaction }
+    methods : [POST]
+
+yilinker_backend_transaction_order_product_detail_history:
+    path: /transactions/history-detail
+    defaults: { _controller: YilinkerBackendBundle:Transaction:getOrderProductDetailAndHistory }
+    methods : [GET]
+
+yilinker_backend_seller_payout_list:
+    path: /seller-payout
+    defaults: { _controller: YilinkerBackendBundle:Transaction:renderSellerPayout }
+    methods : [GET]
+
+yilinker_backend_seller_payout_list_history:
+    path: /seller-payout-history
+    defaults: { _controller: YilinkerBackendBundle:Transaction:renderSellerPayoutHistory }
+    methods : [GET]
+
+yilinker_backend_manufacturer_payout_list:
+    path: /manufacturer-payout
+    defaults: { _controller: YilinkerBackendBundle:Transaction:renderManufacturerPayout }
+    methods : [GET]
+
+yilinker_backend_manufacturer_payout_list_history:
+    path: /manufacturer-payout-history
+    defaults: { _controller: YilinkerBackendBundle:Transaction:renderManufacturerPayoutHistory }
+    methods : [GET]
+
+yilinker_backend_order_product:
+    path: /transactions/order-product
+    defaults: { _controller: YilinkerBackendBundle:Transaction:getTransactionOrderProduct }
+    methods : [GET]
+
+yilinker_backend_buyer_refund_order_product:
+    path: /transactions/buyer-refund/order-product
+    defaults: { _controller: YilinkerBackendBundle:Transaction:getBuyerRefundOrderProduct }
+    methods : [GET]
+
+yilinker_backend_seller_payout_proceed_payment:
+    path: /seller-payout/proceed-payment
+    defaults: { _controller: YilinkerBackendBundle:Transaction:proceedToPayment }
+    methods : [POST]
+
+yilinker_backend_manufacturer_payout_proceed_payment:
+    path: /manufacturer-payout/proceed-payment
+    defaults: { _controller: YilinkerBackendBundle:Transaction:proceedToManufacturerPayment }
+    methods : [POST]
+
+yilinker_backend_buyer_refund:
+    path: /buyer-refund
+    defaults: { _controller: YilinkerBackendBundle:Transaction:renderBuyerRefund }
+    methods : [GET]
+
+yilinker_backend_buyer_refund_proceed_refund:
+    path: /buyer-refund/proceed-refund
+    defaults: { _controller: YilinkerBackendBundle:Transaction:proceedToRefund }
+    methods : [POST]
+
+yilinker_backend_buyer_refund_history:
+    path: /buyer-refund/history
+    defaults: { _controller: YilinkerBackendBundle:Transaction:renderBuyerRefundHistory }
+
+yilinker_backend_buyer_refund_history_detail:
+    path: /buyer-refund/history/detail
+    defaults: { _controller: YilinkerBackendBundle:Transaction:refundHistoryDetail }
+
+yilinker_backend_buyer_refund_overview:
+    path: /buyer-refund/overview
+    defaults: { _controller: YilinkerBackendBundle:Transaction:renderBuyerRefundOverview }
+
+yilinker_backend_buyer_refund_overview_print:
+    path: /buyer-refund/overview-print
+    defaults: { _controller: YilinkerBackendBundle:Transaction:renderBuyerRefundOverviewPrint }
+
+yilinker_backend_product_frontend:
+    path: /item/{slug}

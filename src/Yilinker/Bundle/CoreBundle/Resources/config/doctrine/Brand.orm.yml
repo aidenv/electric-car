@@ -1,0 +1,46 @@
+Yilinker\Bundle\CoreBundle\Entity\Brand:
+    type: entity
+    table: Brand
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\BrandRepository
+    id:
+        brandId:
+            type: integer
+            id: true
+            column: brand_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            comment: ''
+        image:
+            type: string
+            length: 255
+            comment: ''
+            options:
+                default: ''
+        referenceNumber:
+            type: string
+            length: 16
+            nullable: true
+            column: reference_number
+        isDeleted:
+            type: boolean
+            column: is_deleted
+            options:
+                default: false
+        description:
+            type: string
+            length: 1024
+            options:
+                default: ''
+        dateAdded:
+            type: datetime
+            column: date_added
+            nullable: false
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+            nullable: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,91 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    Criteria for Claiming the Prize | Make A Wish
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+            {{ include('YilinkerFrontendBundle:MakeAWish:breadcrumb.html.twig') }}a
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-xs-3 col-xl-2">
+                        <h4 class="bold mrg-bt-20">Promo Mechanics:</h4>
+                        <ul class="list-unstyled list-sidemenu">
+                            <li>
+                                <a href="{{ path('about_make_a_wish') }}">
+                                    About the Promo
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('how_to_join_make_a_wish') }}">
+                                    How to Join
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('how_to_register_make_a_wish') }}">
+                                    How to Register
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('how_to_create_an_entry_make_a_wish') }}">
+                                    How to Create an Entry
+                                </a>
+                            </li>
+                            <li>
+                                <a class="active">
+                                    Criteria for Claiming the Prize
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-9 col-xl-10">
+                        <div class="content-container">
+                            <div class="content-segment">
+                                <h3 class="bold mrg-bt-20">
+                                    Criteria for Claiming the Prize
+                                </h3>
+                                <div class="content-description">
+                                    <ol>
+                                        <li>
+                                            Upon claiming of prize, fans must present a photocopy of two (2) valid IDs (government issued: Driver’s license, Passport, SSS, TIN, Professional license, Student ID, etc).
+                                        </li>
+                                        <li>
+                                            Prizes may be claimed within 60 days upon notification of Yilinker.
+                                        </li>
+                                        <li>
+                                            All winners in Metro Manila should be willing to claim their prize at the YiLinker Philippines office, <b>6F Five E-Com Center Pacific Drive, MOA Complex, Pasay City, Metro Manila, Philippines</b>.
+                                        </li>
+                                        <li>
+                                            <p class="mrg-bt-10">
+                                                For winners residing outside Metro Manila but within the Philippines, prizes will be delivered to the winner but must provide the following details:
+                                            </p>
+                                            <ol class="lower-alpha bold">
+                                                <li>
+                                                    2 Valid IDs
+                                                </li>
+                                                <li>
+                                                    Registered mailing address 
+                                                </li>
+                                                <li>
+                                                    Contact Number
+                                                </li>
+                                            </ol>
+                                        </li>
+                                        <li>
+                                            Should the Winner allow an Authorized Representative to receive his/her prize on his/her behalf, the Authorized Representative surrender a signed Authorization Letter and a photocopy his valid ID in addition to the documents stated above.
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+{% block javascripts %}
+    
+{% endblock %}

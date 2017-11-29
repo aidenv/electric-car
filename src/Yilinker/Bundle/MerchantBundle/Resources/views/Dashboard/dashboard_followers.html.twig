@@ -1,0 +1,105 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Dashboard Followers
+{% endblock %}
+
+{% block dashboard_stylesheets %}
+{% endblock %}
+
+{% block dashboard_body %}
+        <div class="dashboard-body-container gray">
+            <div class="dashboard-submenu-wrapper">
+                <div class="dashboard-submenu-container">
+                    <ul class="list-unstyle list-submenu">
+                        <li>
+                            <a href="{{ path('home_page') }}">
+                                Overview
+                            </a>
+                        </li>
+                        <li>
+                            <a class="active">
+                                Followers
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dashboard_activity_log') }}">
+                                Activity Log
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+             </div>
+             <div class="dashboard-component top">
+                {%  if (followersContainer|length > 0) %}
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">You have {{ followersContainer|length }} followers</span>
+                    </div>
+                </div>
+                <!--Followers table-->
+                <table class="table table-striped-inverted table-followers">
+                    <thead>
+                        <tr>
+                            <th width="30%">Name</th>
+                            {% if app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+                                <th width="20%">Contact Number</th>
+                                <th width="30%">Email Address</th>
+                                <th  width="20%%" align="center">Action</th>
+                            {% endif %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for follower in followersContainer %}
+                        <tr>
+                            <td>
+                                <table class="table-seller-name">
+                                    <tr>
+                                        <td class="td-seller-img">
+                                            <div class="img-seller-container">
+                                                <img src="{{ follower.thumbnailImageUrl }}" class="img-buyer"/>
+                                            </div>
+                                        </td>
+                                        <td class="td-seller-name">
+                                            <span class="name">
+                                                <span>
+                                                    {{ follower.fullName }}
+                                                </span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            {% if app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+                                <td>{{ follower.contactNumber|default('None') }}</td>
+                                <td class="light-color">{{ follower.email }}</td>
+                                <td align="center">
+                                    <button class="button purple small uppercase send-message-trigger" data-id="{{ follower.slug }}">
+                                        <i class="icon icon-messages icon-lg"></i> Message</button>
+                                </td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                    <div class="align-center">
+                        <h3 class="ui header">
+                            <i class="icon icon-home"></i>
+                            <div class="content">
+                                You don't have any followers yet.
+                                <div class="sub-header mrg-top-10">Promoting your products and creating enticing product descriptions helps in generating a huge following from our Users. Good luck!</div>
+                            </div>
+                        </h3>
+                    </div>
+                {% endif %}
+             </div>
+        </div>
+
+        {{ render(controller('YilinkerCoreBundle:Message:renderMessageModal')) }}
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/dashboard-followers.js') }}"></script>
+{% endblock %}

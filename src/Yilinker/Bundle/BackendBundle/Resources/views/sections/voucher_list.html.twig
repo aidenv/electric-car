@@ -1,0 +1,204 @@
+<section class="box-section">
+  <div class="title-bar">
+    <div class="container">
+      <span>Vouchers</span>
+    </div>
+  </div>
+  <div class="container">
+<!-- Tables -->
+    <div class="row">
+      <div class="box-upper">
+        <div class="col-md-12">
+          <div class="box-div">
+            <div class="row sub-tools">
+              <div class="col-md-12">
+                <button class="button gray small">Create Vourcher</button>
+              </div>
+            </div>
+            <div class="row gutters">
+              <div class="col-md-12">
+                <table class="table basic">
+                  <tr>
+                    <th>Code Name</th>
+                    <th>Voucher Type</th>
+                    <th>Duration</th>
+                    <th>Usage Limit</th>
+                    <th>Discount Type</th>
+                    <th>Quantity</th>
+                  </tr>
+                  {% for i in 1..5 %}
+                  <tr class="modal-voucher-one-trigger">
+                    <td>Ramboo</td>
+                    <td>Something for Nothing</td>
+                    <td>10 Days</td>
+                    <td>1 per Account</td>
+                    <td>Utang</td>
+                    <td>1000</td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Bottom Tools -->
+    <div class="row">
+      <div class="box-upper">
+        <div class="col-md-12">
+          <div class="box-blank">
+            <div class="row">
+              <div class="col-md-12">
+                {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {lastPage: 30}) }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+
+<!-- Modal Buyer Refund Type One -->
+<div class="ui modal small modal-box modal-voucher-one">
+  <a class="close">
+    <i class="icon-times"></i>
+  </a>
+  <div class="header">
+    Voucher Details
+    <div class="ui tabular menu">
+      <div class="item active" data-tab="moda-tab-name">Details</div>
+      <div class="item" data-tab="moda-tab-name1">Transactions</div>
+    </div>
+  </div>
+  <form class="ui form segment" name="promo">
+    <div class="content">
+      <div class="ui tab active" data-tab="moda-tab-name">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="form col-md-6">
+                <label class="required">Voucher Code Name</label>
+                <input class="ui fluid input field" maxlength="255" placeholder="Voucher Code Name" required type="text">
+              </div>
+              <div class="form col-md-6">
+                <label class="required">Voucher Code</label>
+                <input class="ui fluid input field" maxlength="30" placeholder="" required type="text">
+                <span class="form-ui-note align-right">
+                  <a href="#">Generate Voucher Code</a>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form col-md-12">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label class="required">Usage Limit</label>
+                    <select class="form-ui ui search single selection dropdown" required>
+                      <option>One-Time</option>
+                      <option>Multi-Use</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="required">Quantity</label>
+                    <input class="ui fluid input field" placeholder="100" required type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form col-md-12">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label class="required">Discount Type</label>
+                    <select class="form-ui ui search single selection dropdown" required>
+                      <option>Fixed Amount</option>
+                      <option>Percentage</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="required">Amount</label>
+                    <input class="ui fluid input field" placeholder="100%" required type="text">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form col-md-12">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label class="required">Start</label>
+                    <input class="ui fluid input field start-date datetimepicker" name="dateStart" placeholder="Start Date" type="text" value=""/>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="required">End</label>
+                    <input class="ui fluid input field end-date datetimepicker" name="dateEnd" placeholder="End Date" type="text" value=""/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form col-md-12">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="countdown-timer">
+                      <div class="toggle-me">
+                        <h4>Voucher is currently Inactive</h4>
+                        <p class="mrg-bt-10">Do you want to enable this voucher? Please be advise that any <br>alteration will affect any transactions under this voucher.</p>
+                        <a class="button purple small toggle-me">Yes, Activate this Voucher</a>
+                      </div>
+                      <div class="toggle-me hidden">
+                        <h4 class="blue-color">Voucher is Now Active</h4>
+                        <p class="mrg-bt-10">Do you want to enable this voucher? Please be advise that any <br>alteration will affect any transactions under this voucher.</p>
+                        <a class="button light-gray small mrg-tp-30 toggle-me">Disabled Countdown Timer</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui tab" data-tab="moda-tab-name1">
+        <div class="row sample-bank-blank">
+          <div class="col-md-12">
+            <table class="table basic">
+              <thead>
+                <tr>
+                  <th>Invoice No</th>
+                  <th>Total Amount</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                </tr>
+              <thead>
+              <tbody>
+                {% for i in 1..5 %}
+                <tr>
+                  <td>872378912897 </td>
+                  <td>P1,238.23</td>
+                  <td>Unknown</td>
+                  <td>10/10/15</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </form>
+  <div class="actions">
+    <div class="row">
+      <div class="col-md-12 align-right">
+        <a class="button ui submit blue">Save</a>
+        <a class="button cancel">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>

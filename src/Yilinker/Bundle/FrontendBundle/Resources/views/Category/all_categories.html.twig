@@ -1,0 +1,66 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    {% trans %}
+        All Categories
+    {% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="category-page">
+        <div class="wrapper-outer">
+            <!--Header for product seller-->
+            {{ include('YilinkerFrontendBundle:Category:all_categories_header.html.twig') }}
+
+            <!--Category list-->
+            <div class="search-body-wrapper">
+                <div class="row">
+                    {% for category in categories %}
+                    <div class="col-md-4">
+                        <div class="category-item-wrapper">
+                            <a href="{{ path('get_category',{'slug': category.slug}) }}">
+                                <div class="category-image-wrapper">
+                                    <span style="
+                                    background-image: url({{ asset(category.image, 'category')}});
+                                    " class="maxed-category-height">
+                                </span>
+                                </div>
+                                <div class="category-name">
+                                    {{ category.name }}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+        </div>
+    </div>
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {% for category in categories %}
+    "{{ category.name }}",
+    {% endfor %}
+    ""    
+  ],
+
+  "itemListOrder": "http://schema.org/ItemListOrderDescending",
+  "name": "Top Categories"
+}
+
+</script>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('js/src/category.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,302 @@
+{{ form_start(form, {action: path('admin_inhouse_form')}) }}
+    <div data-form-error class="ui error message message-box red error-container hidden">
+        Failed to save changes. Please check for form errros.
+    </div>
+    <div class="content mrg-bt-20">
+        <div class="ui tab active" data-tab="moda-tab-name">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row short-desc">
+                        <div class="form col-md-12">
+                            {{ form_label(form.name) }}
+                            {{ form_widget(form.name) }}
+                            <span class="form-ui-note error">
+                                {{ form_errors(form.name) }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row short-desc">
+                        <div class="form col-md-12">
+                            {{ form_label(form.description) }}
+                            {{ form_widget(form.description) }}
+                        </div>
+                    </div>
+                    <div class="row details">
+                        <div class="form col-md-6">
+                            {{ form_label(form.productCategory) }}
+                            {% if form.vars.value.productCategory %}
+                                {% set productCategoryOption = {attr: {'data-dropdown-default-option': {name: form.vars.value.productCategory.name, value: form.vars.value.productCategory.productCategoryId}|json_encode}} %}
+                            {% else %}
+                                {% set productCategoryOption = {} %}
+                            {% endif %}
+                            {{ form_widget(form.productCategory, productCategoryOption) }}
+                        </div>
+                        <div class="form col-md-6">
+                            {% if form.vars.value.brand %}
+                                {% set brandOption = {attr: {'data-dropdown-default-option': {name: form.vars.value.brand.name, value: form.vars.value.brand.brandId}|json_encode}} %}
+                            {% else %}
+                                {% set brandOption = {} %}
+                            {% endif %}
+                            {{ form_label(form.brand) }}
+                            {{ form_widget(form.brand, brandOption) }}
+                        </div>
+                    </div>
+                    {#
+                    <div class="row details">
+                        <div class="form col-md-6">
+                            <label>Product Link</label>
+                            <input type="text" required="required" maxlength="255" class="form-ui" readonly value="https://www.yilinker.com/item/5600-mah-powerbank-black-1">
+                            <span class="form-ui-note error">
+                            </span>
+                        </div>
+                    </div>
+                    #}
+                </div>
+            </div>
+        </div>
+        <div class="ui tab" data-tab="moda-tab-name1">
+            <div class="row">
+                <div class="col-md-12">
+                    <em>Please click on the image you want to set as primary</em>
+                    <div class="dropzone" id="manufacturer-product-images" data-directory="{{ form.vars.value.imageDir }}">
+                        {% for image in form.vars.value.images %}
+                            {% if not image.isDeleted %}
+                                {% set isPrimary = form.vars.value.primaryImage == image %}
+                                <div data-manufacturer-product-image-id="{{ image.productImageId }}" class="{{ isPrimary ? 'active': '' }} dz-preview dz-processing dz-image-preview dz-success dz-complete"> {% if isPrimary %} <span class="primary-tag"><i class="icon icon-check"></i>Primary</span> {% endif %} <div class="dz-image"><img data-dz-thumbnail="" alt="{{ image.imageLocation }}" src="{{ asset(image.imageLocation, 'product') }}"></div>  <div class="dz-details">    <div class="dz-size"><span data-dz-size=""><strong>0.1</strong> MB</span></div>    <div class="dz-filename"><span data-dz-name="">tumblr_nkcjuq8Tdr1tnacy1o1_500.jpg</span></div>  </div>  <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress="" style="width: 100%;"></span></div>  <div class="dz-error-message"><span data-dz-errormessage=""></span></div>  <div class="dz-success-mark">    <svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">      <title>Check</title>      <defs></defs>      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">        <path d="M23.5,31.8431458 L17.5852419,25.9283877 C16.0248253,24.3679711 13.4910294,24.366835 11.9289322,25.9289322 C10.3700136,27.4878508 10.3665912,30.0234455 11.9283877,31.5852419 L20.4147581,40.0716123 C20.5133999,40.1702541 20.6159315,40.2626649 20.7218615,40.3488435 C22.2835669,41.8725651 24.794234,41.8626202 26.3461564,40.3106978 L43.3106978,23.3461564 C44.8771021,21.7797521 44.8758057,19.2483887 43.3137085,17.6862915 C41.7547899,16.1273729 39.2176035,16.1255422 37.6538436,17.6893022 L23.5,31.8431458 Z M27,53 C41.3594035,53 53,41.3594035 53,27 C53,12.6405965 41.3594035,1 27,1 C12.6405965,1 1,12.6405965 1,27 C1,41.3594035 12.6405965,53 27,53 Z" id="Oval-2" stroke-opacity="0.198794158" stroke="#747474" fill-opacity="0.816519475" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>      </g>    </svg>  </div>  <div class="dz-error-mark">    <svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">      <title>Error</title>      <defs></defs>      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">        <g id="Check-+-Oval-2" sketch:type="MSLayerGroup" stroke="#747474" stroke-opacity="0.198794158" fill="#FFFFFF" fill-opacity="0.816519475">          <path d="M32.6568542,29 L38.3106978,23.3461564 C39.8771021,21.7797521 39.8758057,19.2483887 38.3137085,17.6862915 C36.7547899,16.1273729 34.2176035,16.1255422 32.6538436,17.6893022 L27,23.3431458 L21.3461564,17.6893022 C19.7823965,16.1255422 17.2452101,16.1273729 15.6862915,17.6862915 C14.1241943,19.2483887 14.1228979,21.7797521 15.6893022,23.3461564 L21.3431458,29 L15.6893022,34.6538436 C14.1228979,36.2202479 14.1241943,38.7516113 15.6862915,40.3137085 C17.2452101,41.8726271 19.7823965,41.8744578 21.3461564,40.3106978 L27,34.6568542 L32.6538436,40.3106978 C34.2176035,41.8744578 36.7547899,41.8726271 38.3137085,40.3137085 C39.8758057,38.7516113 39.8771021,36.2202479 38.3106978,34.6538436 L32.6568542,29 Z M27,53 C41.3594035,53 53,41.3594035 53,27 C53,12.6405965 41.3594035,1 27,1 C12.6405965,1 1,12.6405965 1,27 C1,41.3594035 12.6405965,53 27,53 Z" id="Oval-2" sketch:type="MSShapeGroup"></path>        </g>      </g>    </svg>  </div><a class="dz-remove" href="javascript:undefined;" data-dz-remove="">Remove file</a></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui tab" data-tab="moda-tab-name2">
+            <div class="row">
+                <div class="col-md-12">
+                    {% for unit in form.units %}
+                        <div class="row combination">
+                            <div class="combination-item">
+                                <div class="col-md-12">
+                                    <div class="combo  mrg-bt-30">
+                                      <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-4 mrg-top-10">
+                                                <strong>SKU</strong>
+                                            </div>
+                                            <div class="col-md-8 unit-sku">
+                                                <input type="text" value="{{ unit.vars.value.sku }}" readonly class="form-ui">
+                                            </div>
+                                        </div>
+
+                                        <div class="combination-clone">
+                                            {% for productAttributeValue in unit.productAttributeValues %}
+                                                <div class="row">
+                                                    <div class="col-md-4 mrg-top-10">
+                                                        <strong class="combination-name">{{ productAttributeValue.vars.value.productAttributeName.name }}</strong>
+                                                    </div>
+                                                    <div class="col-md-8 combination-value">
+                                                        {{ form_widget(productAttributeValue.value) }}
+                                                    </div>
+                                                </div>
+                                            {% else %}
+                                                {{ form_widget(unit.productAttributeValues) }}
+                                            {% endfor %}
+                                        </div>
+                                        <div class="combination-container"></div>
+                                        <div class="row">
+                                            <div class="col-md-4 mrg-top-10">
+                                                <strong>Width</strong>
+                                            </div>
+                                            <div class="col-md-8 unit-width">
+                                                {{ form_widget(unit.width) }}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 mrg-top-10">
+                                                <strong>Height</strong>
+                                            </div>
+                                            <div class="col-md-8 unit-height">
+                                                {{ form_widget(unit.height) }}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 mrg-top-10">
+                                                <strong>Length</strong>
+                                            </div>
+                                            <div class="col-md-8 unit-length">
+                                                {{ form_widget(unit.length) }}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 mrg-top-10">
+                                                <strong>Weight</strong>
+                                            </div>
+                                            <div class="col-md-8 unit-weight">
+                                                {{ form_widget(unit.weight) }}
+                                            </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-4 mrg-top-10">
+                                                <strong>Quantity</strong>
+                                            </div>
+                                            <div class="col-md-8 unit-quantity">
+                                                {{ form_widget(unit.quantity) }}
+                                                <span class="form-ui-note error">
+                                                    {{ form_errors(unit.quantity) }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <strong>Regular Price</strong>
+                                            </div>
+                                            <div class="col-md-8 unit-price">
+                                                {{ form_widget(unit.price) }}
+                                                <span class="form-ui-note error">
+                                                    {{ form_errors(unit.price) }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <strong>Discounted Price</strong>
+                                            </div>
+                                            <div class="col-md-8 unit-discounted-price">
+                                                {{ form_widget(unit.discounted) }}
+                                                <span class="form-ui-note error">
+                                                    {{ form_errors(unit.discounted) }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 mrg-top-10">
+                                                <strong>Shipping fee</strong>
+                                            </div>
+                                            <div class="col-md-8 unit-shipping-fee">
+                                                {{ form_widget(unit.shippingFee) }}
+                                                <span class="form-ui-note error">
+                                                    {{ form_errors(unit.shippingFee) }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 mrg-top-10">
+                                                <strong>Retail Price</strong>
+                                            </div>
+                                            <div class="col-md-8 unit-retail-price">
+                                                {{ form_widget(unit.retailPrice) }}
+                                                <span class="form-ui-note error">
+                                                    {{ form_errors(unit.retailPrice) }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 mrg-top-10">
+                                                <strong>Commission</strong>
+                                            </div>
+                                            <div class="col-md-8 unit-commission">
+                                                {{ form_widget(unit.commission) }}
+                                                <span class="form-ui-note error">
+                                                    {{ form_errors(unit.commission) }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                      </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="combination-list"></div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="ui tab" data-tab="moda-tab-name3">
+          <table class="table basic table-vertical-align-top">
+            <thead>
+              <tr>
+                <th width="20%"> Date </th>
+                <th width="60%"> Promo Name </th>
+                <th width="20%" align="center"> Promo Discount </th>
+              </tr>
+            </thead>
+            <tbody>
+              {%  for i in 1..5 %}
+              <tr>
+                <td> 12/12/16</td>
+                <td> Perfect Purple Pair</td>
+                <td align="center"> 20% </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="ui tab" data-tab="moda-tab-name4">
+          <table class="table basic table-vertical-align-top">
+            <thead>
+              <tr>
+                <th width="20%"> Date </th>
+                <th width="30%"> Last Edit By </th>
+                <th width="30%"> Status </th>
+                <th width="20%" align="center"> Time Stamp </th>
+              </tr>
+            </thead>
+            <tbody>
+              {%  for i in 1..5 %}
+              <tr>
+                <td> 12/12/16 </td>
+                <td> Chris Paul George </td>
+                <td> Upload 5 Photos </td>
+                <td align="center"> 2:00 am </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="ui tab" data-tab="moda-tab-name5">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="form col-md-12">
+                  <label for="" class="col-md-12">Date Range: </label>
+                  <div class="col-md-3">
+                      <input type="text" class="form-ui datetimepicker" id="dateFrom" placeholder="Start Date"/>
+                  </div>
+                  <div class="col-md-3">
+                      <input type="text" class="form-ui datetimepicker" id="dateTo" placeholder="End Date"/>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form col-md-12">
+                  <table class="table basic table-vertical-align-top">
+                    <thead>
+                      <tr>
+                        <th width="20%"> Date </th>
+                        <th width="80%"> Quantity Sold </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {%  for i in 1..5 %}
+                      <tr>
+                        <td> 12/12/16 </td>
+                        <td> 50 </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form col-md-12">
+                  <button class="button small blue">Export to Excel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+{{ form_end(form) }}

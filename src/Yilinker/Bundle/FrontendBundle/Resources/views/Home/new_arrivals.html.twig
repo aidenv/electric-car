@@ -1,0 +1,39 @@
+<div class="title-bar">
+    <span class="title-name">{% trans %} New Arrivals {% endtrans %}</span>
+    <a href="#" class="view-more">view more &rarr;</a>
+</div>
+<div class="product-card-list-wrapper">
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="featured-item-ad-container">
+                <div class="ribbon"><span>FEATURED</span></div>
+                <a href="#">
+                    <img src="{{ asset('images/new-homepage/top-sellers_06.jpg') }}" title="Banner Title" alt="Banner Title" class="img-full-width"/>
+                </a>
+            </div>
+            
+        </div>
+        <div class="col-xs-9">
+            <div class="product-card-slider">
+                <div class="item">
+                    {{ include('YilinkerFrontendBundle:Home:product_card_bordered.html.twig') }}
+                </div>
+                <div class="item">
+                    {{ include('YilinkerFrontendBundle:Home:product_card_bordered.html.twig') }}
+                </div>
+                <div class="item">
+                    {{ include('YilinkerFrontendBundle:Home:product_card_bordered.html.twig') }}
+                </div>
+                <div class="item">
+                    {{ include('YilinkerFrontendBundle:Home:product_card_bordered.html.twig') }}
+                </div>
+                <div class="item">
+                    {{ include('YilinkerFrontendBundle:Home:product_card_bordered.html.twig') }}
+                </div>
+                <div class="item">
+                    {{ include('YilinkerFrontendBundle:Home:product_card_bordered.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

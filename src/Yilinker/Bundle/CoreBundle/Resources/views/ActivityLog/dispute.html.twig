@@ -1,0 +1,32 @@
+{% set disputeType = 'Dispute' %}
+{% if activity.activityData.dispute.orderProductStatus.orderProductStatusId is defined %}
+    {% if activity.activityData.dispute.orderProductStatus.orderProductStatusId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\OrderProductStatus::STATUS_ITEM_REFUND_REQUESTED') %}
+        {% set disputeType = 'Refund' %}
+    {% elseif activity.activityData.dispute.orderProductStatus.orderProductStatusId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\OrderProductStatus::STATUS_ITEM_REPLACEMENT_REQUESTED') %}
+        {% set disputeType = 'Replacement' %}
+    {% endif %}
+{% endif %}
+
+{% set orderProduct = activity.activityData.orderProduct is defined ? activity.activityData.orderProduct: null %}
+{% set invoiceNumber = orderProduct.order is defined ? orderProduct.order.invoiceNumber: null %}
+
+<tr>
+    <td width="90">{{ activity.dateAdded('g:i A') }}</td>
+    <td colspan="2">
+        <p>
+            <em>
+                Filed a
+                {{ disputeType }}
+                for 
+                <strong>
+                    x{{ orderProduct.quantity }} {{ orderProduct ? orderProduct.productName: ' a Product' }}
+                </strong>
+                {% if invoiceNumber %}
+                    <p>
+                        on Transaction #{{ invoiceNumber }}               
+                    </p>
+                {% endif %}
+            </em>
+        </p>
+    </td>
+</tr>

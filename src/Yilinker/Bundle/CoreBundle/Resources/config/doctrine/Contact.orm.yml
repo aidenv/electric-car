@@ -1,0 +1,38 @@
+Yilinker\Bundle\CoreBundle\Entity\Contact:
+    type: entity
+    table: Contact
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ContactRepository
+    id:
+        contactId:
+            type: integer
+            id: true
+            column: contact_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        dateAdded:
+            type: datetime
+            column: date_added
+    manyToOne:
+        requestor:
+            targetEntity: User
+            joinColumn:
+                name: requestor_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        requestee:
+            targetEntity: User
+            joinColumn:
+                name: requestee_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    indexes:
+        fk_user_userid_contact_requestorid_idx:
+            columns:
+                - requestor_id
+        fk_user_userid_contact_requesteeid_idx:
+            columns:
+                - requestee_id
+    lifecycleCallbacks: {  }

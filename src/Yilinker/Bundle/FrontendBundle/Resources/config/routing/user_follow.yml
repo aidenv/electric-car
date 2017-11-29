@@ -1,0 +1,13 @@
+user_follow:
+    path: /followSeller
+    defaults: { _controller: YilinkerFrontendBundle:Store:followSeller }
+    requirements:
+        _locale: en
+    methods: [POST]
+
+user_un_follow:
+    path: /unFollowSeller
+    defaults: { _controller: YilinkerFrontendBundle:Store:unFollowSeller }
+    requirements:
+        _locale: en
+    methods: [POST]

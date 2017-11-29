@@ -1,0 +1,44 @@
+
+<div class="dashboard-side-notifications-container">
+     {{ render(controller('YilinkerCoreBundle:Widget:notifications')) }}
+    {% if app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+	    <div class="right-side-title-bar">
+	        <span class="title-name">
+	            Contacts
+	        </span>
+	    </div>
+	    {{ render(controller('YilinkerCoreBundle:Message:renderContacts')) }}
+    {% else %} 
+        <div class="right-side-title-bar">
+            <span class="title-name">
+                Need Assistance?
+            </span>
+        </div>
+        <div class="right-side-item-container support-container">
+            
+            <div class="assistance-wrapper">
+                Have any more questions and clarifications? <br/><br/> The YiLinker Affiliate Team is happy to help! Send us an email or give us a call.
+                <table class="table table-about-contact">
+                    <tbody>
+                        <tr>
+                            <td width="15%">
+                                <i class="icon icon-telephone icon-2x"></i>
+                            </td>
+                            <td>
+                              {{ support_mobile }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="15%">
+                                <i class="icon icon-envelope icon-2x"></i>
+                            </td>
+                            <td>
+                                affiliate@yilinker.ph
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endif %}
+</div>

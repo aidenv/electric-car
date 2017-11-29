@@ -1,0 +1,12 @@
+
+<div class="row">
+    {% for advertisement in homeXml.advertisements.advertisement %}
+        <div class="col-xs-3">
+            <div class="advertisement-wrapper">
+                <a href="{{ advertisement.target }}">
+                    <img src="{{ asset(advertisement.image, 'cms') }}" />
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>

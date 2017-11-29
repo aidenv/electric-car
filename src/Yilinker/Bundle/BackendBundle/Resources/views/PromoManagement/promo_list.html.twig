@@ -1,0 +1,168 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+  <section class="box-section">
+      <div class="title-bar">
+          <div class="container">
+              <span>Promo Management</span>
+          </div>
+      </div>
+      <div class="container">
+      <!-- Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="tools top form">
+              <div class="row gutters group-segment">
+                <div class="col-md-4">
+                  <h4>Number of Promo Listings: <strong>{{ promos.totalCount }}</strong></h4>
+                  <p class="sub-header">You may search for a particular promo.</p>
+                </div>
+                <div class="col-md-8">
+                  <div class="form vers-one">
+                    <div class="row">
+                      <div class="col-md-9">
+                        <label> Search </label>
+                        <input name="searchInput" type="text" class="form-ui" placeholder="Search" value="{{ keyword is same as(null)? '' :keyword }}">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row gutters group-segment light-segment">
+                <div class="col-md-4"></div>
+                <div class="col-md-8">
+                  <div class="form">
+                    <div class="row">
+                      <label class="col-md-12">Date Range:</label>
+                      <div class='input-group col-md-3 start-date-datetimepicker'>
+                        <input type='text' class="form-control form-ui datetimepicker" name="dateFrom" value="{{ dateFrom is same as(null) or dateFrom is same as ('')? '' : dateFrom|date("m-d-Y H:i:s") }}" placeholder="Start Date" />
+                      </div>
+                      <div class="col-md-3">
+                        <input type="text" class="form-ui datetimepicker" name="dateTo" value="{{ dateTo is same as(null) or dateFrom is same as ('')? '' : dateTo|date("m-d-Y H:i:s") }}" placeholder="End Date"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <button id="searchPromo" class="button gray mrg-top-10">
+                          <i class="item-icon icon-search"> Submit</i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!-- Tables -->
+        <div class="row">
+          <div class="col-md-5">
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="box-upper">
+            <div class="col-md-12">
+                <div class="box-div">
+                  <div class="row sub-tools">
+                    <div class="col-md-12">
+                      <button class="button purple small add-promo-success-trigger">
+                          <i class="icon icon-plus"></i>
+                          Add
+                      </button>
+                      <button class="button gray small delete-promo-success-trigger">
+                          <i class="icon icon-trash"></i>
+                          Delete
+                      </button>
+
+                    </div>
+                  </div>
+                  <div class="row gutters">
+                    <div class="col-md-12">
+                      <table class="table basic promo-list">
+                        <thead>
+                          <tr>
+                            <th align="center">
+                              <div class="ui checkbox">
+                                <input type="checkbox" class="check-all-promo">
+                                <label for="">&nbsp;</label>
+                              </div>
+                            </th>
+                            <th>Promo Name</th>
+                            <th>Promo Type</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th align="center">No. of Products</th>
+                            <th align="center">Status</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for instance in promos.instances %}
+                            <tr data-id="{{ instance.promoInstanceId }}">
+                              <td align="center" valign="middle">
+                                <div>
+                                  <div class="ui checkbox">
+                                    <input type="checkbox" class="promo-checkbox toggle-one" value="{{ instance.promoInstanceId }}" data-toggle="toggle">
+                                    <label for="">&nbsp;</label>
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="title" valign="middle">{{ instance.title }}</td>
+                              <td class="promo-type" valign="middle">{{ instance.promoType.name }}</td>
+                              <td class="date-start" valign="middle">{{ instance.dateStart.date|date('m/d/Y H:i:s') }}</td>
+                              <td class="date-end" valign="middle">{{ instance.dateEnd.date|date('m/d/Y H:i:s') }}</td>
+                              <td class="product-count" align="center" valign="middle">{{ instance.productCount }}</td>
+                              <td class="is-enabled" align="center" valign="middle">{{ instance.isEnabled is same as(true)? 'Enabled':'Disabled' }}</td>
+                              <td align="center" valign="middle">
+                                <button class="options button small default-light modal-edit-promo-trigger" data-instance="{{ instance|json_encode() }}">
+                                  view promo
+                                </button>
+                              </td>
+                            </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <!-- Bottom Tools -->
+        <div class="row">
+          <div class="box-upper">
+            <div class="col-md-12">
+              <div class="box-blank">
+                  <div class="row">
+                    <div class="col-md-12">
+                      {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {
+                        totalResults:promos.totalCount,
+                        perPage: limit})
+                      }}
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  {{ include('YilinkerBackendBundle:PromoManagement:promo_modals.html.twig') }}
+{% endblock %}
+{% block javascripts %}
+  {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/promo-management.js"
+    "js/src/backend/promo-management.js" 
+  %}
+  <script src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+{% endblock %}

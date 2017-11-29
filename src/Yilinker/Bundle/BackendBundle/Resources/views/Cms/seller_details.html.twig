@@ -1,0 +1,196 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+    <section class="box-section">
+        <div class="container">
+            <div class="row">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="{{ path('cms_render_store_list') }}">Top Store CMS</a>
+                    </li>
+                    <li>
+                        <span>Store Details</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                    <h4>Store Name</h4>
+
+                                    <p class="sub-header">
+                                        Enter your store name here...
+                                    </p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form type-3">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form" id="brand-loader-image">
+                                                    <label for="">Store</label>
+                                                    <div class="form-autosuggest" id="stores">
+                                                        <input class="form-ui typeahead" type="text" placeholder="Enter store here" value="{{ data.storeName|default('') }}"/>
+                                                    </div>
+                                                    <img src="{{ asset('images/loader.gif') }}" alt="Loading" class="loading-img">
+                                                </div>
+                                                <input type="hidden" name="store-id" id="store-id" value="{{ data.storeId|default('') }}" data-name="{{ data.storeName|default('') }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if data.storeListNodeId is defined %}
+                                <input type="hidden" id="store-list-node-id" value="{{ data.storeListNodeId }}"/>
+                            {% else %}
+                                <div class="row gutters group-segment">
+                                    <div class="col-md-4">
+                                        <h4>Store List Section</h4>
+                                        <p class="sub-header">
+                                        </p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form type-3">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Section</label>
+                                                    <select id="store-list-node-id" class="form-ui ui search single selection dropdown">
+                                                        {% for storeListNode in storeListNodes %}
+                                                            <option value="{{ storeListNode.id }}">{{ storeListNode.name }}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="row gutters group-segment">
+                                <div class="col-md-6">
+                                    <h4>Product List</h4>
+
+                                    <p class="sub-header">
+                                        Add your product using slug link(product links)...
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="button gray small mrg-top-20 pull-right" id="remove-products">Clear</button>
+                                    <button class="button purple small mrg-top-20 modal-trigger-add-product pull-right">
+                                        Add Products
+                                    </button>
+                                </div>
+                                <div class="col-md-12 mrg-top-20">
+                                    <table class="table basic">
+                                        <tr>
+                                            <th>Date Created</th>
+                                            <th>Product Name</th>
+                                            <th>Active Promo</th>
+                                            <th>Original Price</th>
+                                            <th>Discounted Price</th>
+                                            <th>Available Stock</th>
+                                            <th><input type="checkbox" id="selectAll"></th>
+                                        </tr>
+                                        <tbody class="productRowContainer">
+                                        {% if data.products is defined and data.products|length > 0 %}
+                                            {% for product in data.products %}
+                                                {% set defaultProduct = product.getDefaultUnit %}
+                                                <tr class="product-{{ product.productId }} row-data">
+                                                    <td>{{ product.dateCreated|date('Y-m-d H:i:s') }}</td>
+                                                    <td>{{ product.name }}</td>
+                                                    <td>{{ defaultProduct.discount }}%</td>
+                                                    <td>P {{ defaultProduct.price|number_format(2) }}</td>
+                                                    <td>
+                                                        <strong>P {{ defaultProduct.discountedPrice|number_format(2) }}</strong>
+                                                    </td>
+                                                    <td>{{ defaultProduct.quantity }}</td>
+                                                    <td>
+                                                        <input type="checkbox" class="productIds" name="product-id" value="{{ product.productId }}">
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% else %}
+                                            <tr class="noProductsRow">
+                                                <td colspan="7" align="center">No products found.</td>
+                                            </tr>
+                                        {% endif %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                    <div class="ui checkbox mrg-top-10 pull-right">
+                                        <input name="apply-immediate" id="apply-immediate" type="checkbox"/>
+                                        <label class="light">
+                                            <strong>By Checking this box</strong>, you will
+                                            <strong>
+                                                <u>Start the Process IMMEDIATELY</u>
+                                            </strong>.</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <button class="button blue" id="update-store">Save</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# START OF MODAL FOR ADD PRODUCTS #}
+    <div class="ui modal small modal-box modal-add-product">
+        <div class="header">Add Products</div>
+        <div class="error-container message-box red with-close-message"></div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form">
+                        <textarea class="form-ui" id="txt-slugs" placeholder="Enter product list here"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <div class="button approve">Save</div>
+            <div class="button cancel" data-remodal-action="close">Cancel</div>
+        </div>
+    </div>
+    {# END OF MODAL FOR ADD PRODUCTS #}
+
+    {# START MODAL MESSAGE #}
+    <div class="ui modal small" id="modal-message">
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header sub-header-content"></div>
+                </div>
+            </h4>
+        </div>
+        <div class="actions">
+            <button class="button blue approve uppercase">Okay</button>
+        </div>
+    </div>
+    {# END MODAL MESSAGE #}
+
+    <input type="hidden" id="max-allowable-store-products" value="{{ data.maxAllowableStoreProducts|default(6) }}"/>
+    <input type="hidden" id="is-new" value="{{ data.storeId is defined ? 0 : 1 }}"/>
+    <input type="hidden" id="old-store-id" value="{{ data.storeId|default(0) }}"/>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/backend/cms-seller.js') }}"></script>
+{% endblock %}

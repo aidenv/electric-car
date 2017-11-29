@@ -1,0 +1,28 @@
+Yilinker\Bundle\CoreBundle\Entity\PromoType:
+    type: entity
+    table: PromoType
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\PromoTypeRepository
+    id:
+        promoTypeId:
+            type: integer
+            id: true
+            column: promo_type_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            column: name
+            length: 255
+        description:
+            type: string
+            column: description
+            length: 1024
+            nullable: true
+        dateCreated:
+            type: datetime
+            column: date_created
+
+    lifecycleCallbacks: {  }

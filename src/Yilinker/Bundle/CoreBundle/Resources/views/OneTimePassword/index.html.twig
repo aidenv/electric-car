@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+   
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+<section class="box-section">
+        <div class="title-bar">
+            <div class="container">
+                <span>One Time Password</span>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Tables -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+                            <div class="row gutters">
+                                <div class="col-md-12">
+                                    <table class="table basic table-vertical-align-top">
+                                        <tr>
+                                            <th>Contact #</th>
+                                            <th> Type </th>
+                                            <th> Date </th>
+                                            <th> Code </th>
+                                        </tr>
+                                        {% for onetimePassword in list %}
+                                            <tr>
+                                                <td>{{ onetimePassword.contactNumber }}</td>
+                                                <td>{{ onetimePassword.tokenType }}</td>
+                                                <td>{{ onetimePassword.dateLastModified|date('M d Y h:i a') }}</td>
+                                                <td>{{ onetimePassword.token }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-blank">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: list.count, perPage: list.query.maxResults }) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>        
+
+{% endblock %}
+
+

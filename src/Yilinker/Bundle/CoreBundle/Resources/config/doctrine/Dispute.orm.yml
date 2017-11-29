@@ -1,0 +1,60 @@
+Yilinker\Bundle\CoreBundle\Entity\Dispute:
+    type: entity
+    table: Dispute
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\DisputeRepository
+    indexes:
+        dispute_dispute_status_type_id_user_order_dispute_status_type_status_type_id_idx:
+            columns:
+                - dispute_status_type_id
+        dispute_disputer_id_user_user_id_idx:
+            columns:
+                - disputer_id
+        dispute_order_product_cancellation_reason_id_order_product_cancellation_reason_order_product_cancellation_reason_id_idx:
+            columns:
+                - order_product_cancellation_reason_id
+    id:
+        disputeId:
+            type: bigint
+            id: true
+            column: dispute_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            length: 255
+            nullable: true
+        dateAdded:
+            type: datetime
+            column: date_time
+        lastModifiedDate:
+            type: datetime
+            column: last_modified_date
+        ticket:
+            length: 255
+    manyToOne:
+        disputeStatusType:
+            targetEntity: DisputeStatusType
+            joinColumn:
+                name: dispute_status_type_id
+                referencedColumnName: dispute_status_type_id
+            orphanRemoval: false
+        disputer:
+            targetEntity: User
+            joinColumn:
+                name: disputer_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        orderProductCancellationReason:
+            targetEntity: OrderProductCancellationReason
+            joinColumn:
+                name: order_product_cancellation_reason_id
+                referencedColumnName: order_product_cancellation_reason_id
+            orphanRemoval: false
+    oneToMany:
+        disputeDetails:
+            targetEntity: DisputeDetail
+            mappedBy: dispute
+        disputeMessages:
+            targetEntity: DisputeMessage
+            mappedBy: dispute
+    lifecycleCallbacks: {  }

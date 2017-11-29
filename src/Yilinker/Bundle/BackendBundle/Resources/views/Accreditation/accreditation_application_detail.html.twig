@@ -1,0 +1,432 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+  <section class="box-section">
+      <div class="container">
+          {% set applicationType = applicationDetails.accreditationApplication.sellerType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\AccreditationApplication::SELLER_TYPE_MERCHANT') ? 'Seller' : 'Affiliate' %}
+          <div class="row">
+              <ul class="breadcrumb">
+                  <li>
+                      <a href="{{ path('admin_accreditation_list', {sellerType: applicationType}) }}">Accreditation</a>
+                  </li>
+                  <li>
+                      <span>{{ applicationDetails.accreditationApplication.accreditationApplicationId }}</span>
+                  </li>
+              </ul>
+          </div>
+
+          <div class="row">
+              <div class="box-upper">
+                  <div class="col-md-12">
+                      <div class="box-div">
+
+                          {# START OF BUSINESS INFO #}
+                          <div class="row">
+                              <div class="accreditation">
+                                  <div class="title-bar">
+                                      <div class="container">
+                                          <span>Business Information</span>
+                                      </div>
+                                  </div>
+                                  <div class="row gutters">
+
+                                      {# START OF LEFT #}
+                                      <div class="col-md-6 md-box">
+                                          <div>
+                                              <div class="col-md-5">
+                                                <strong>Seller Type</strong>
+                                              </div>
+                                              <div class="col-md-7">
+                                              {% if applicationDetails.accreditationApplication.sellerType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\AccreditationApplication::SELLER_TYPE_MERCHANT') %}
+                                                Seller
+                                              {% elseif applicationDetails.accreditationApplication.sellerType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\AccreditationApplication::SELLER_TYPE_RESELLER') %}
+                                                Affiliate
+                                              {% endif %}
+                                              </div>
+                                          </div>
+                                          <div>
+                                              <div class="col-md-5">
+                                                <strong>Owner Name</strong>
+                                              </div>
+                                              <div class="col-md-7">{{ applicationDetails.userEntity.fullName }}</div>
+                                          </div>
+                                          <div>
+                                              <div class="col-md-5">
+                                                  <strong>Store Name</strong>
+                                              </div>
+                                              <div class="col-md-7">{{ applicationDetails.storeEntity.storeName|default("") }}</div>
+                                          </div>
+                                          {% for userAddress in applicationDetails.userAddresses %}
+                                          <div>
+                                              {% if userAddress.isDefault == true %}
+                                              <div class="col-md-5">
+                                                  <strong>Primary Address</strong>
+                                              </div>
+                                              <div class="col-md-7">{{ userAddress.fullLocation }} </div>
+                                              {% else %}
+                                              <div class="col-md-5">
+                                                  <strong>Other Address</strong>
+                                              </div>
+                                              <div class="col-md-7">{{ userAddress.fullLocation }} </div>
+                                              {% endif %}
+                                          </div>
+                                          {% endfor %}
+                                          <div>
+                                              <div class="col-md-5">
+                                                  <strong>Contact Number</strong>
+                                              </div>
+                                              <div class="col-md-7">{{ applicationDetails.userEntity.contactNumber|default("") }}</div>
+                                          </div>
+                                          <div>
+                                              <div class="col-md-5">
+                                                  <strong>Application Status</strong>
+                                              </div>
+                                              <div class="col-md-7">{{ applicationDetails.accreditationApplication.applicationStatus |default("") }}</div>
+                                          </div>
+                                      </div>
+                                      {# END OF LEFT #}
+
+                                      {# START OF RIGHT #}
+                                      <div class="col-md-6 md-box">
+                                          <div class="form remarks">
+                                              {% if applicationDetails.remarks is not empty %}
+                                                  {% for remark in applicationDetails.remarks %}
+                                                      {% if remark.applicationRemarkType.applicationRemarkTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_BUSINESS_INFORMATION') %}
+                                                      <div class="csr">
+                                                          <p class="person">
+                                                              <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                              <span class="user">
+                                                                  <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                                                  Customer Support Representative
+                                                              </span>
+                                                          </p>
+                                                          <p class="words">
+                                                              {{ remark.message|default("") }}
+                                                          </p>
+                                                          <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                      </div>
+                                                      {% endif %}
+                                                  {% endfor %}
+                                              {% endif %}
+                                              <div class="csr">
+                                                  <p class="person">
+                                                      <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                      <span class="user">
+                                                          <strong>You</strong>
+                                                          customer support representative
+                                                      </span>
+                                                  </p>
+                                                  <p class="words">
+                                                      <textarea class="form-ui text-area-message"></textarea>
+                                                      <button class="button small gray btn-submit-remarks" data-id="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_BUSINESS_INFORMATION') }}">
+                                                          <span class="text">Submit</span>
+                                                          <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                                                      </button>
+                                                  </p>
+                                                  <p class="words">
+                                                      {% if applicationDetails.accreditationApplication.isBusinessApproved == 0 %}
+                                                          <button class="button small gray btn-submit-complete" data-value="1" data-id="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_BUSINESS_INFORMATION') }}">
+                                                              <span class="text">Mark as Complete</span>
+                                                              <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                                                          </button>
+                                                      {% else %}
+                                                          <button class="button small gray btn-submit-complete" data-value="0" data-id="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_BUSINESS_INFORMATION') }}">
+                                                              <span class="text">Mark as Incomplete</span>
+                                                              <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                                                          </button>
+                                                      {% endif %}
+                                                  </p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      {# END OF RIGHT #}
+
+                                  </div>
+                              </div>
+                          </div>
+                          {# END OF BUSINESS INFO #}
+
+                          {# START OF BANK INFO #}
+                          {% if applicationDetails.bankData %}
+                          <div class="row">
+                              <div class="accreditation">
+                                  <div class="title-bar">
+                                      <div class="container">
+                                          <span>Bank Information</span>
+                                      </div>
+                                  </div>
+                                  <div class="row gutters">
+
+                                      {# START OF LEFT #}
+                                      <div class="col-md-6 md-box">
+                                      {% for bank in applicationDetails.bankData %}
+                                          <div>
+                                              <div class="col-md-5">
+                                                  <strong>Bank Name</strong>
+                                              </div>
+                                              <div class="col-md-7">{{ bank.bankName }}</div>
+                                          </div>
+                                            <div>
+                                                <div class="col-md-5">
+                                                    <strong>Account Title</strong>
+                                                </div>
+                                                <div class="col-md-7">{{ bank.accountTitle }}</div>
+                                            </div>
+                                            <div>
+                                                <div class="col-md-5">
+                                                    <strong>Account Name</strong>
+                                                </div>
+                                                <div class="col-md-7">{{ bank.accountName }}</div>
+                                            </div>
+                                            <div>
+                                                <div class="col-md-5">
+                                                    <strong>Account Number</strong>
+                                                </div>
+                                                <div class="col-md-7">{{ bank.accountNumber }}</div>
+                                            </div>
+                                      {% endfor %}
+                                      </div>
+                                      {# END OF LEFT #}
+
+                                      {# START OF RIGHT #}
+                                      <div class="col-md-6 md-box">
+                                          <div class="form remarks">
+                                              {% if applicationDetails.remarks is not empty %}
+                                                  {% for remark in applicationDetails.remarks %}
+                                                      {% if remark.applicationRemarkType.applicationRemarkTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_BANK_INFORMATION') %}
+                                                      <div class="csr">
+                                                          <p class="person">
+                                                              <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                              <span class="user">
+                                                                  <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                                                  Customer Support Representative
+                                                              </span>
+                                                          </p>
+                                                          <p class="words">
+                                                              {{ remark.message|default("") }}
+                                                          </p>
+                                                          <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                      </div>
+                                                      {% endif %}
+                                                  {% endfor %}
+                                              {% endif %}
+                                              <div class="csr">
+                                                  <p class="person">
+                                                      <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                      <span class="user">
+                                                          <strong>You</strong>
+                                                          customer support representative
+                                                      </span>
+                                                  </p>
+                                                  <p class="words">
+                                                      <textarea class="form-ui text-area-message"></textarea>
+                                                      <button class="button small gray btn-submit-remarks" data-id="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_BANK_INFORMATION') }}">
+                                                          <span class="text">Submit</span>
+                                                          <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                                                      </button>
+                                                  </p>
+                                                  <p class="words">
+                                                      {% if applicationDetails.accreditationApplication.isBankApproved == 0 %}
+                                                          <button class="button small gray btn-submit-complete" data-value="1" data-id="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_BANK_INFORMATION') }}">
+                                                              <span class="text">Mark as Complete</span>
+                                                              <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                                                          </button>
+                                                      {% else %}
+                                                          <button class="button small gray btn-submit-complete" data-value="0" data-id="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_BANK_INFORMATION') }}">
+                                                              <span class="text">Mark as Incomplete</span>
+                                                              <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                                                          </button>
+                                                      {% endif %}
+                                                  </p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      {# END OF RIGHT #}
+
+                                  </div>
+                              </div>
+                          </div>
+                          {% endif %}
+                          {# END OF BANK INFO #}
+
+                          {# START OF LEGAL DOCS #}
+                          {% if applicationDetails.legalDocuments %}
+                          <div class="row">
+                              <div class="accreditation">
+                                  <div class="title-bar">
+                                      <div class="container">
+                                          <span>Legal Files</span>
+                                      </div>
+                                  </div>
+                                  <div class="row gutters">
+                                      <div class="col-md-12">
+                                          <table class="table basic table-vertical-align-top">
+                                              <tr>
+                                                  <th></th>
+                                                  <th>File</th>
+                                                  <th>Date Uploaded</th>
+                                                  <th width="35%">Remarks</th>
+                                              </tr>
+                                              {% for legalDocument in applicationDetails.legalDocuments %}
+                                              <tr>
+                                                  <td>
+                                                    {% if legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_DTI_SEC_PERMIT') %}
+                                                      <strong>DTI/SEC Permit</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_MAYORS_PERMIT') %}
+                                                      <strong>Mayor's Permit</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_BIR_PERMIT') %}
+                                                      <strong>BIR Permit</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_FORM_M11501') %}
+                                                      <strong>FORM MA11501 Permit</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_OTHERS') %}
+                                                      <strong>Others</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_SSS') %}
+                                                        <strong>SSS</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PAG_IBIG') %}
+                                                        <strong>PAG IBIG</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_POSTAL') %}
+                                                        <strong>Postal</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PASSPORT') %}
+                                                        <strong>Passport</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_DRIVERS_LICENSE') %}
+                                                        <strong>Driver's License</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PRC') %}
+                                                        <strong>PRC</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_VOTERS_ID') %}
+                                                        <strong>Voter's ID</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_SCHOOL_ID') %}
+                                                        <strong>School ID</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_TIN') %}
+                                                        <strong>TIN</strong>
+                                                    {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_VALID_ID') %}
+                                                        <strong>Valid ID</strong>
+                                                    {% endif %}
+                                                  </td>
+                                                  <td>
+                                                      <a class="button small" href="{{ path('admin_accreditation_download_legal_document', {'legalDocumentId': legalDocument.entity.legalDocumentsId  })}}" target="_blank"><span class="icon-arrow-short-down"></span> Download this file</a>
+                                                  </td>
+                                                  <td>{{ legalDocument.entity.dateAdded|date('Y/m/d') }}</td>
+                                                  <td>
+                                                      {% if legalDocument.remarkTypeId != constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_OTHER') %}
+                                                      <div class="form remarks">
+                                                          {% if applicationDetails.remarks is not empty %}
+                                                              {% for remark in applicationDetails.remarks %}
+                                                                  {% if remark.applicationRemarkType.applicationRemarkTypeId == legalDocument.remarkTypeId %}
+                                                                      <div class="csr">
+                                                                          <p class="person">
+                                                                              <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                              <span class="user">
+                                                                                  <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                                                                  Customer Support Representative
+                                                                              </span>
+                                                                          </p>
+                                                                          <p class="words">
+                                                                              {{ remark.message }}
+                                                                          </p>
+                                                                          <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                      </div>
+                                                                  {% endif %}
+                                                              {% endfor %}
+                                                          {% endif %}
+                                                          <div class="csr">
+                                                              <p class="person">
+                                                                  <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                  <span class="user">
+                                                                      <strong>You</strong>
+                                                                      customer support representative
+                                                                  </span>
+                                                              </p>
+                                                              <p class="words">
+                                                                  <textarea class="form-ui text-area-message"></textarea>
+                                                                  <button class="button small gray btn-submit-remarks" data-id="{{ legalDocument.remarkTypeId }}">
+                                                                      <span class="text">Submit</span>
+                                                                      <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                                                                  </button>
+                                                              </p>
+                                                              <p class="words">
+                                                                  {% if legalDocument.entity.isApproved == 0 %}
+                                                                      <button class="button small gray btn-submit-complete" data-value="1" data-id="{{ legalDocument.remarkTypeId }}">
+                                                                          <span class="text">Mark as Complete</span>
+                                                                          <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                                                                      </button>
+                                                                  {% else %}
+                                                                      <button class="button small gray btn-submit-complete" data-value="0" data-id="{{ legalDocument.remarkTypeId }}">
+                                                                          <span class="text">Mark as Incomplete</span>
+                                                                          <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                                                                      </button>
+                                                                  {% endif %}
+                                                              </p>
+                                                          </div>
+                                                      </div>
+                                                      {% endif %}
+                                                  </td>
+                                              </tr>
+                                              {% endfor %}
+                                          </table>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          {% endif %}
+                          {# END OF LEGAL DOCS #}
+
+                          <div class="row gutters">
+                              <div class="actions">
+                                <div class="row">
+                                  <div class="col-md-4">
+                                      <select class="form-ui ui search single selection dropdown" id="drop-down-accreditation-type">
+                                          {% for accreditationType in accreditationTypes %}
+                                              <option value="{{ accreditationType.id }}">{{ accreditationType.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                  </div>
+                                  <div class="col-md-8 align-right">
+                                      <button class="button blue" id="btn-update-accreditation-type">Update Accreditation Type</button>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </section>
+
+    {# START MODAL = MESSAGE CONTAINER #}
+    <div class="ui modal small" id="modal-message-container">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header detail-content"></div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">Okay</button>
+        </div>
+    </div>
+    {# END MODAL = MESSAGE CONTAINER #}
+
+    <input type="hidden" id="accreditation-application-id" value="{{ applicationDetails.accreditationApplication.accreditationApplicationId|default(0) }}">
+    <input type="hidden" id="accreditation-application-type-id" value="{{ applicationDetails.accreditationApplication.accreditationApplicationType.accreditationApplicationTypeId|default(0) }}">
+    <input type="hidden" id="application-can-update" value="{{ applicationDetails.bankData is empty ? 0 : 1 }}" />
+
+{% endblock%}
+
+{% block javascripts %}
+    {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/accreditation-application-detail.js"
+        "js/src/backend/accreditation-application-detail.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

@@ -1,0 +1,76 @@
+Yilinker\Bundle\CoreBundle\Entity\Location:
+    type: entity
+    table: Location
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\LocationRepository
+    id:
+        locationId:
+            type: integer
+            id: true
+            column: location_id
+            unsigned: false
+            generator:
+                strategy: IDENTITY
+    fields:
+        location:
+            type: string
+            length: 255
+        code:
+            type: string
+            length: 10
+            fixed: false
+            options:
+                default: ''
+        isActive:
+            type: boolean
+            column: is_active
+            nullable: true
+            options:
+                default: true
+        lookupId:
+            type: integer
+            column: lookup_id
+            unsigned: true
+            nullable: true
+        dateAdded:
+            type: datetime
+            column: date_added
+            nullable: true
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+            nullable: true
+    manyToOne:
+        parent:
+            targetEntity: Location
+            cascade: {  }
+            fetch: EAGER
+            joinColumns:
+                parent_id:
+                    referencedColumnName: location_id
+            orphanRemoval: true
+        locationType:
+            targetEntity: LocationType
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                location_type_id:
+                    referencedColumnName: location_type_id
+                    nullable: false
+            orphanRemoval: false
+    oneToMany:
+        children:
+            targetEntity: Location
+            mappedBy: parent
+    oneToOne:
+        shippingLeadTime:
+            targetEntity: ShippingLeadTime
+            mappedBy: location
+    indexes:
+        fk_location_parentid_location_locationid_idx:
+            columns:
+                - parent_id
+        fk_location_locationtypeid_locationtype_locationtypeid_idx:
+            columns:
+                - location_type_id
+    lifecycleCallbacks: {  }

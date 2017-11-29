@@ -1,0 +1,54 @@
+
+<section class="box-section">
+  <div class="title-bar">
+    <div class="container">
+      <span>Mobile Webview (CMS)</span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="box-upper">
+        <div class="col-md-3 webview-sidebar">
+          <a href="#" class="box-div active">
+            <span class="col-md-12">
+              Main Menu
+            </span>
+          </a>
+          <a href="#" class="box-div">
+            <span class="col-md-12">
+              Flash Sales
+            </span>
+          </a>
+          <a href="#" class="box-div">
+            <span class="col-md-12">
+              Blocks
+            </span>
+          </a>
+          <a href="#" class="box-div">
+            <span class="col-md-12">
+              Stores
+            </span>
+          </a>
+          <a href="#" class="box-div">
+            <span class="col-md-12">
+              Categories
+            </span>
+          </a>
+          <a href="#" class="box-div">
+            <span class="col-md-12">
+              Customized Webview
+            </span>
+          </a>
+        </div>
+
+        <div class="col-md-9 webview-content">
+          {#{ include('YilinkerBackendBundle:Webview:main-menu.html.twig') }#}
+          {#{ include('YilinkerBackendBundle:Webview:flash-sales.html.twig') }#}
+          {#{ include('YilinkerBackendBundle:Webview:blocks.html.twig') }#}
+          {#{ include('YilinkerBackendBundle:Webview:stores.html.twig') }#}
+          {{ include('YilinkerBackendBundle:Webview:categories.html.twig') }}
+          {{ include('YilinkerBackendBundle:Webview:customized-webview.html.twig') }}
+        </div>
+      </div>
+    </div>
+  </section>

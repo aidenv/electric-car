@@ -1,0 +1,61 @@
+user_buyer_login:
+    path: /login
+    defaults: { _controller: YilinkerFrontendBundle:User:login, tab':'login'}
+
+user_buyer_register:
+    path: /register
+    defaults: { _controller: YilinkerFrontendBundle:User:login, tab:'register'}
+
+user_buyer_forgot_password_request:
+    path: /forgot-password-request
+    defaults: { _controller: YilinkerFrontendBundle:User:login, tab:'forgot_password'}
+
+user_buyer_authenticate:
+    path: /user/authenticate
+
+user_logout:
+    path: /logout
+    defaults: { _controller: YilinkerFrontendBundle:User:logout }
+
+user_register_success:
+    path: /register/success
+    defaults: { _controller: YilinkerFrontendBundle:User:registerSuccess }
+
+user_reset_password:
+    path: /reset-password
+    defaults: { _controller: YilinkerFrontendBundle:User:resetPassword }
+
+user_confirm_reset_password:
+    path: /confirm-reset-password
+    defaults: { _controller: YilinkerFrontendBundle:User:confirmResetPassword }
+
+user_reset_password_verification_code:
+    path: /reset-password/verification-code
+    defaults: { _controller: YilinkerFrontendBundle:User:resetPasswordVerificationCode }
+
+user_socialmedia_authenticate_facebook:
+    path: /socialmedia/facebook-auth
+
+user_socialmedia_authenticate_google:
+    path: /socialmedia/google-auth
+
+user_socialmedia_render_merge:
+    path: /socialMedia/renderMerge
+    defaults: { _controller: YilinkerFrontendBundle:User:renderSocialMediaMerge }
+
+user_merge_social_media_send_notification:
+    path: /socialMedia/sendMergeNotification
+    defaults: { _controller: YilinkerFrontendBundle:User:sendMergeNotification }
+    methods: [POST]
+
+user_socialmedia_merge:
+    path: /socialMedia/mergeAccount
+    defaults: { _controller: YilinkerFrontendBundle:User:socialMediaMerge }
+    methods: [GET]
+
+user_affiliate_landing_page:
+    path: /affiliate-program
+
+user_set_cookie:
+    path: /set-cookie/{referralCode}
+    defaults: { _controller: YilinkerFrontendBundle:User:setCookie }

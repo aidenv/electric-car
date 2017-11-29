@@ -1,0 +1,24 @@
+gcm_add_auth_v3:
+    path: /auth/device/addRegistrationId
+    defaults: { _controller: YilinkerCoreBundle:Api/DeviceApi:addRegistrationId }
+    methods: [POST]
+
+gcm_add_v3:
+    path: /device/addRegistrationId
+    defaults: { _controller: YilinkerCoreBundle:Api/DeviceApi:addRegistrationId }
+    methods: [POST]
+
+gcm_delete_v3:
+    path: /auth/device/deleteRegistrationId
+    defaults: { _controller: YilinkerCoreBundle:Api/DeviceApi:deleteRegistrationId }
+    methods: [POST]
+
+gcm_unauth_delete_v3:
+    path: /device/deleteRegistrationId
+    defaults: { _controller: YilinkerCoreBundle:Api/DeviceApi:deleteRegistrationId }
+    methods: [POST]
+
+gcm_update_v3:
+    path: /auth/device/updateRegistrationId
+    defaults: { _controller: YilinkerCoreBundle:Api/DeviceApi:updateRegistrationId }
+    methods: [POST]

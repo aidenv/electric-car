@@ -1,0 +1,295 @@
+<div class="product-top-right-layer">
+    <div class="rating-container">
+        <span class="rating-icons">
+             {% for i in 1..5 %}
+                 <i class="icon icon-star-o {{ product.reviewRating >= i ? 'active' : '' }}"></i>
+             {% endfor %}
+        </span>
+        <span class="number-of-review">
+            {% transchoice product.getVisibleReviewsCount %}
+                {0} no reviews|{1} %count% review|]1,Inf[ %count% reviews
+            {% endtranschoice %}
+        </span>
+    </div>
+    {% if app.user %}
+        {% for productUnit in product.units %}
+            {% set isDefaultUnit = product.defaultUnit == productUnit %}
+            {%
+                set addtocart = {
+                    'productId': product.productId,
+                    'unitId':    productUnit.productUnitId,
+                    'sellerId':  store ? store.user.userId: null
+                }
+            %}
+            <div data-product-unit-partial="{{ productUnit.productUnitId }}" {{ isDefaultUnit ? '': 'style="display:none"' }} class="wishlist-container pull-right">
+                <i data-href="{{ path('cart_add_item') }}?mode=wishlist"
+                   data-addtocart="{{ addtocart|json_encode }}"
+                   class="icon icon-heart-o {{ productUnit.inWishlist ? 'active': '' }} icon-lg"></i>
+                <span class="number-of-review">{% trans %} Add to Wishlist {% endtrans %}</span>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="product-name-and-category-container">
+        <span class="product-category-name">
+            {{ product.productCategory ? product.productCategory.getName: '' }}
+        </span>
+        <div class="product-name-container">
+            <h1 class="product-name breakword">{{ product.getName }}</h1>
+        </div>
+    </div>
+    <div class="product-price-and-discount-container mobile">
+        <div class="row">
+            <div class="col-sm-8 col-product-price">
+                {% for productUnit in product.units %}
+                    {% set isDefaultUnit = product.defaultUnit == productUnit %}
+                    {% if productUnit.getAppliedDiscountPrice is null %}
+                        {% set price = productUnit.getDiscountedPrice %}
+                    {% else %}
+                        {% set price = productUnit.getAppliedDiscountPrice %}
+                    {% endif %}
+                    <span data-product-unit-partial="{{ productUnit.productUnitId }}" {{ isDefaultUnit ? '': 'style="display:none"' }}
+                          class="product-current-price"
+                          id="product-price">P {{ price | number_format(2) }}</span>
+                    {% if productUnit.discount > 0 %}
+                        <span data-product-unit-partial="{{ productUnit.productUnitId }}"
+                             {{ isDefaultUnit ? '': 'style="display:none"' }}
+                             class="original-price-container">
+                            <span class="original-price original-price2">
+                                P {{productUnit.appliedBaseDiscountPrice}}
+                            </span>
+                            <span class="discount-txt">{{productUnit.discount}}% OFF</span>
+                        </span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-sm-4">
+                <div class="product-featured-delivery-perks-container">
+                    {% if product.isCod %}
+                        <span class="perk">
+                            <i class="icon icon-circle-check"></i> {% trans %} Cash on Delivery {% endtrans %}
+                        </span>
+                    {% endif %}
+                    <span class="perk">
+                        <i class="icon icon-circle-check"></i> {% trans %} 7-Day Return {% endtrans %}
+                    </span>
+                    {% if product.isFreeShipping %}
+                        <span class="perk">
+                            <i class="icon icon-circle-check"></i> {% trans %} Free Shipping (Metro Manila only) {% endtrans %}
+                        </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-seller-and-short-description-container">
+        <div class="product-description-tab list-unstyled">
+            <a data-href="short-description" class="active">{% trans %} Short Description {% endtrans %}</a>
+            <a data-href="seller">{% trans %} Seller {% endtrans %}</a>
+        </div>
+        <div class="tab-content-wrapper">
+            <div class="tab-item-container breakword" id="short-description">{{ product.getShortDescription }}</div>
+            <div class="tab-item-container" id="seller">
+                <div class="row">
+                    <div class="col-sm-6 col-seller-name">
+                        {{ render_esi(controller('YilinkerFrontendBundle:Product:renderProductSeller', {'productId' : product.getProductId, 'storeId': store ? store.storeId: null})) }}
+                    </div>
+                    <div class="col-sm-6 col-seller-badge">
+                        <img src="{{ asset('images/seller-badges/100-percent-genuine.png') }}"
+                             alt=""
+                             height="40">
+                        <img src="{{ asset('images/seller-badges/product-guarantee.png') }}"
+                             alt=""
+                             height="40">
+                        <img src="{{ asset('images/seller-badges/verified-seller.png') }}"
+                            alt=""
+                            height="40">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-price-and-discount-container web">
+        <div class="row">
+            <div class="col-sm-8 col-product-price">
+                {% for productUnit in product.units %}
+                    {% set isDefaultUnit = product.defaultUnit == productUnit %}
+                    {% if productUnit.getAppliedDiscountPrice is null %}
+                        {% set price = productUnit.getDiscountedPrice %}
+                    {% else %}
+                        {% set price = productUnit.getAppliedDiscountPrice %}
+                    {% endif %}
+                    <span data-product-unit-partial="{{ productUnit.productUnitId }}" {{ isDefaultUnit ? '': 'style="display:none"' }}
+                          class="product-current-price"
+                          id="product-price">P {{ price | round(2) | number_format(2) }}</span>
+                    {% if productUnit.discount > 0 %}
+                        <span data-product-unit-partial="{{ productUnit.productUnitId }}"
+                             {{ isDefaultUnit ? '': 'style="display:none"' }}
+                             class="original-price-container">
+                            <span class="original-price original-price2">
+                                P {{productUnit.appliedBaseDiscountPrice}}
+                            </span>
+                            <span class="discount-txt">{{productUnit.discount}}% OFF</span>
+                        </span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-sm-4">
+                <div class="product-featured-delivery-perks-container">
+                    {% if product.hasCOD %}
+                        <span class="perk">
+                            <i class="icon icon-circle-check"></i> {% trans %} Cash on Delivery {% endtrans %}
+                        </span><br/>
+                    {% endif %}
+                    <span class="perk">
+                        <i class="icon icon-circle-check"></i> {% trans %} 7-Day Return {% endtrans %}
+                    </span><br/>
+                    {% if product.isFreeShipping %}
+                        <span class="perk">
+                            <i class="icon icon-circle-check"></i> {% trans %} Free Shipping (Metro Manila only) {% endtrans %}
+                        </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if product.getDetails.attributes is not empty %}
+        <div class="product-attributes-container">
+            <div class="form">
+                <label for="" class="desktop-hide">
+                    Product Attributes:
+                </label>
+                <div id="product-attr-chooser"
+                     data-unit-control="[data-product-page-add-to-cart][data-addtocart]"
+                     data-default="{{ product.defaultUnit.productUnitId }}"
+                     data-attribute-chooser="{{ product.getDetails.productUnits | json_encode }}"
+                     class="row">
+                    {% for attribute in product.getDetails.attributes %}
+                        <div {{ (attribute.groupName|lower != 'custom' or (attribute.items|length != 1)) ? '': 'style="display:none"' }} class="col-sm-3">
+                            <select data-dropdown="{{ attribute.groupName }}"
+                                    class="form-ui ui single selection dropdown">
+                                <option value="">{{ attribute.groupName }}</option>
+                                {% for attrvalue in attribute.items %}
+                                    <option value="{{ attrvalue.id }}">{{ attrvalue.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="product-buy-and-cart-container">
+        <div class="row">
+            <div class="col-sm-2">
+            {% for productUnit in product.units %}
+                {% set isDefaultUnit = product.defaultUnit == productUnit %}
+                    <div data-product-unit-partial="{{ productUnit.productUnitId }}" {{ isDefaultUnit ? '': 'style="display:none"' }}  class="form">
+                        <label for="" class="desktop-hide">Quantity:</label>
+                        {% if productUnit.toArray()['quantity'] > 0 %}
+                            <select data-model="quantity"
+                                    data-quantity-control="[data-product-page-add-to-cart][data-addtocart]"
+                                    data-href="{{ path('product_change_quantity') }}"
+                                    class="form-ui ui single search selection dropdown large quantityDropdown">
+                                {% for i in 1..productUnit.toArray()['quantity'] %}
+                                    <option value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                            </select>
+                        {% elseif productUnit.toArray()['quantity'] == 0 and productUnit.toArray()['promoInstanceNotYetStarted']|length > 0 %}
+                            <strong>Not yet available.</strong>
+                        {% else %}
+                            <strong>Sold Out</strong>
+                        {% endif %}
+                    </div>
+            {% endfor %}
+            </div>
+
+            {% for productUnit in product.units %}
+                {% set isDefaultUnit = product.defaultUnit == productUnit %}
+                {%
+                    set addtocart = {
+                        'productId': product.productId,
+                        'unitId':    productUnit.productUnitId,
+                        'sellerId':  store ? store.user.userId: null
+                    }
+                %}
+                <div data-product-unit-partial="{{ productUnit.productUnitId }}" {{ isDefaultUnit ? '': 'style="display:none"' }} class="col-sm-4 mobile-hide">
+                    <div class="product-cart-button-flip">
+                        {% if productUnit.toArray()['quantity'] > 0 %}
+                            <div
+                                data-product-page-add-to-cart
+                                data-href="{{ path('cart_add_item') }}"
+                                data-addtocart="{{ addtocart|json_encode }}"
+                                class="button purple block large button-cart front"
+                            >
+                                {% trans %} Add to Cart {% endtrans %}
+                                <div class="icon-container">
+                                    <i class="icon icon-shopping-cart"></i>
+                                </div>
+                            </div>
+                            <div class="button gray block large button-cart disabled back">
+                                <i class="icon icon-check"></i>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div data-product-unit-partial="{{ productUnit.productUnitId }}" {{ isDefaultUnit ? '': 'style="display:none"' }} class="col-sm-4 mobile-hide">
+                    {% if productUnit.toArray()['quantity'] > 0 %}
+                        <a {{ disable_payment ? 'disabled="disabled"': '' }} data-buynow="{{ addtocart|json_encode }}" class="button blue block large button-buy-now">
+                            {% trans %} Buy now {% endtrans %}
+                            <div class="icon-container">
+                                <i class="icon icon-arrow-short-right"></i>
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            {# <div class="col-xs-4">
+                <div class="form">
+                    <div class="button gray block large disabled mrg-bt-10">
+                        Sold Out
+                    </div>
+                </div>
+            </div> #}
+        </div>
+    </div>
+    <div class="product-social-media-share">
+        <span class="social-media-share-title">{% trans %} Share this product {% endtrans %}:</span>
+        <div class="social-media-share-button-container">
+            <button data-fb-share='{"appId":"{{ frontend_facebook_appId }}"}' class="button facebook"><div class="icon-container"><i class="icon icon-facebook"></i></div> {% trans %} Facebook {% endtrans %}</button>
+            <button data-twitter-share class="button twitter"><div class="icon-container"><i class="icon icon-twitter"></i></div> {% trans %} Twitter {% endtrans %}</button>
+            <button data-google-share class="button google-plus"><div class="icon-container"><i class="icon icon-google-plus"></i></div> {% trans %} Google+ {% endtrans %}</button>
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{% set specification = '' %}
+{% if product.isCod %}
+    {% set specification = 'Cash on Delivery' %}
+{% endif %}
+
+{% if product.isFreeShipping %}
+{% set specification = 'Free Shipping (Metro Manila only)' %}
+{% endif %}
+
+{
+    "@context": "http://schema.org",
+    "@type": "Product",
+    "image": "{{ asset(product.getPrimaryImage.getImageLocationBySize('thumbnail'), 'product') }}",
+    "name": "{{ product.getName }}",
+    "description": "{{ product.getShortDescription }}",
+    "offers": {
+        "@type": "Offer",
+        "category": "{{ product.productCategory ? product.productCategory.getName: '' }}"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ product.reviewRating }}",
+        "reviewCount": "{{ product.getVisibleReviewsCount }}"
+    },
+    "priceSpecification": {
+        "@type": "PriceSpecification",
+        "name": "{{ specification }}"
+    }
+}
+</script>

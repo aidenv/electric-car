@@ -1,0 +1,4 @@
+api_brand:
+    path: /product/getBrands
+    defaults: { _controller: YilinkerMerchantBundle:Api/BrandApi:getBrand }
+    methods: [GET]

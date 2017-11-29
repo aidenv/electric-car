@@ -1,0 +1,24 @@
+api_merchant_add_bank_account:
+    path: /auth/bank/account/addBankAccount
+    defaults: { _controller: YilinkerMerchantBundle:Api/BankAccountApi:addBankAccount }
+    methods: [POST]
+
+api_merchant_edit_bank_account:
+    path: /auth/bank/account/editBankAccount
+    defaults: { _controller: YilinkerMerchantBundle:Api/BankAccountApi:editBankAccount }
+    methods: [POST]
+
+api_merchant_delete_bank_account:
+    path: /auth/bank/account/deleteBankAccount
+    defaults: { _controller: YilinkerMerchantBundle:Api/BankAccountApi:deleteBankAccount }
+    methods: [POST]
+
+api_merchant_get_bank_accounts:
+    path: /auth/bank/account/getBankAccounts
+    defaults: { _controller: YilinkerMerchantBundle:Api/BankAccountApi:getBankAccounts }
+    methods: [POST]
+
+api_merchant_set_default_bank_account:
+    path: /auth/bank/account/setDefaultBankAccount
+    defaults: { _controller: YilinkerMerchantBundle:Api/BankAccountApi:setDefaultBankAccount }
+    methods: [POST]

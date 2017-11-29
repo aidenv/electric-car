@@ -1,0 +1,33 @@
+api_core_get_custom_categories:
+    path: /category/getCustomCategories
+    defaults: { _controller: YilinkerMerchantBundle:Api/CustomizedCategoryApi:getCustomCategories }
+
+api_core_add_custom_categories:
+    path: /auth/category/addCustomCategory
+    defaults: { _controller: YilinkerMerchantBundle:Api/CustomizedCategoryApi:addCustomCategory }
+    methods: [POST]
+
+api_core_update_custom_categories:
+    path: /auth/category/updateCustomCategory
+    defaults: { _controller: YilinkerMerchantBundle:Api/CustomizedCategoryApi:updateCustomCategory }
+    methods: [POST]
+
+api_core_check_category_validity:
+    path: /auth/category/checkIfCategoryExists
+    defaults: { _controller: YilinkerMerchantBundle:Api/CustomizedCategoryApi:checkIfCategoryExists }
+    methods: [POST]
+
+api_core_sort_parent_categories:
+    path: /auth/category/sortParentCategories
+    defaults: { _controller: YilinkerMerchantBundle:Api/CustomizedCategoryApi:sortParentCategories }
+    methods: [POST]
+
+api_core_get_all_category_products:
+    path: /auth/category/getAllCategoryProducts
+    defaults: { _controller: YilinkerMerchantBundle:Api/CustomizedCategoryApi:getAllCategoryProducts }
+    methods: [POST]
+
+api_core_delete_custom_category:
+    path: /auth/category/deleteCustomCategory
+    defaults: { _controller: YilinkerMerchantBundle:Api/CustomizedCategoryApi:deleteCustomCategory }
+    methods: [POST]

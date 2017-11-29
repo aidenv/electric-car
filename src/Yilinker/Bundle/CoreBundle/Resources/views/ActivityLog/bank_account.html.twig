@@ -1,0 +1,48 @@
+<tr>
+    <td width="90">{{ activity.dateAdded('g:i A') }}</td>
+    <td colspan="2">
+        <p>
+            <em>
+                {% set actionTxt = '' %}
+                {% if activity.activityData.__changes is defined %}
+                    {% for column, change in activity.activityData.__changes %}
+                        {% if column == 'isDelete' %}
+                            {% set actionTxt = 'Deleted' %}
+                            {{ actionTxt }}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {{ not actionTxt and activity.mysqlAction == 'UPDATE' ? 'Updated' : '' }}
+                {{ not actionTxt and activity.mysqlAction == 'INSERT' ? 'Created' : '' }}
+                {{ not actionTxt and activity.mysqlAction == 'DELETE' ? 'Deleted' : '' }}
+                Bank Account {{ activity.activityData.accountTitle }}
+            </em>
+        </p>
+        {% if not actionTxt and activity.mysqlAction == 'UPDATE' and activity.activityData.__changes is defined %}
+            <ol class="bulleted">
+                {% for column, change in activity.activityData.__changes %}
+                    <li>
+                        {% if column == 'isDefault' %}
+                            {% if activity.activityData.isDefault %}
+                                set as default
+                            {% else %}
+                                removed as default
+                            {% endif %}
+                        {% else %}
+                            {{ column|phrasify }} changed
+                        {% endif %}
+                        
+                        {% set before = change|first %}
+                        {% set after = change|last %}
+                        {% if (before and before is not iterable and after and after is not iterable) %}
+                            from {{ change|first }} to {{ change|last }}
+                        {% elseif column == 'bank' %}
+                            from {{ before.bankName }} to {{ after.bankName }}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </td>
+</tr>

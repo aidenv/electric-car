@@ -1,0 +1,79 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    {{ category.name }}
+{% endblock %}
+
+{% block stylesheets %}
+    {% if cmsContent.header is defined and cmsContent.header.template == 'slider' %}
+        <link href="{{ asset('css/bower/slick.css') }}" rel="stylesheet" />
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="wrapper-outer category-page">
+       
+        {% if cmsContent.header is defined %}
+        <!--Header for product category-->
+        {{ include('YilinkerFrontendBundle:Category:category_page_header.html.twig') }}
+        <div class="category-container">
+
+            {% if cmsContent.header.template == 'simple' %}
+                    {{ include('YilinkerFrontendBundle:Category/templates:main_category_simple.html.twig')  }}
+            {% elseif cmsContent.header.template == 'grid' %}
+                    {{ include('YilinkerFrontendBundle:Category/templates:main_category_grid.html.twig')  }}
+            {% elseif cmsContent.header.template == 'slider' %}
+                    {{ include('YilinkerFrontendBundle:Category/templates:main_category_slider.html.twig')  }}
+            {% endif %}
+
+            {% if cmsContent.subcategories is defined %}
+            {% for subcategory in cmsContent.subcategories%}
+            
+            <div class="category-set">
+                <div class="title-bar">
+                    <div class="container-title">
+                        <span>{{ subcategory.category.name }}</span>
+                        <span class="view-more"><a href="">{% trans %} view more {% endtrans %} <i class="icon icon-arrow-short-right"></i></a></span>
+                    </div>
+                </div>
+                {% set bannerData = {'banner': subcategory.banner} %}
+
+                {% if subcategory.banner.template == 'full' %}
+                    {% include 'YilinkerFrontendBundle:Category:main_category_ad_full.html.twig' with bannerData only %}
+                {% elseif subcategory.banner.template == 'split' %}
+                    {% include 'YilinkerFrontendBundle:Category:main_category_ad_split.html.twig' with bannerData only %}
+                {% endif %}
+                
+                <div class="category-body-wrapper product-group-wrapper">
+                    <div class="row">
+                        {% for product in subcategory.products %}
+                            {% set productData = {'product': product} %}
+                            {% include 'YilinkerFrontendBundle:Product:product_card.html.twig' with productData only %}
+                        {% endfor %}
+                        
+                        {{ include('YilinkerFrontendBundle:Base:product_list_schema.script.twig', {'products':subcategory.products}) }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}	    
+            {% endif %}
+
+            {% set featuredData = {'featured' : cmsContent.footer } %}
+            {% include 'YilinkerFrontendBundle:Category:main_category_featured.html.twig' with featuredData only %}
+        </div>
+        {% endif %}
+  
+        {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    {% if cmsContent.header is defined and cmsContent.header.template == 'slider' %}
+        <script src="{{ asset('js/bower/slick.min.js') }}"></script>
+    {% endif %}
+    <script src="{{ asset('js/src/category.js') }}"></script>
+
+{% endblock %}

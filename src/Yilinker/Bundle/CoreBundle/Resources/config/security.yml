@@ -1,0 +1,89 @@
+parameters:
+    yilinker_core.entity.admin_user.class: Yilinker\Bundle\CoreBundle\Entity\AdminUser
+    yilinker_core.entity.user.class: Yilinker\Bundle\CoreBundle\Entity\User
+    yilinker_core.usertype.buyer: 0
+    yilinker_core.usertype.merchant: 1
+    yilinker_core.storetype.merchant: 0
+    yilinker_core.storetype.affiliate: 1
+
+services:
+
+    yilinker_core.security.authentication_failure_event_listener:
+        class: Yilinker\Bundle\CoreBundle\Security\Http\Authentication\AuthenticationListener
+        tags:
+            - { name: kernel.event_listener, event: security.authentication.failure, method: onAuthenticationFailure }
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']
+    
+    yilinker_core.security.authentication_success_event_listener:
+        class: Yilinker\Bundle\CoreBundle\Security\Http\Authentication\AuthenticationListener
+        tags:
+            - { name: kernel.event_listener, event: security.interactive_login, method: onAuthenticationSuccess }
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']
+
+    yilinker_core.security.authentication_handler:
+        class: Yilinker\Bundle\CoreBundle\Security\Authentication\AuthenticationHandler
+        public: false
+        arguments:
+            - @router
+            - @session
+            - @service_container
+
+    yilinker_core.security.logout_handler:
+        class: Yilinker\Bundle\CoreBundle\Security\Authentication\LogoutHandler
+        public: false
+        arguments: ['@service_container']
+
+    yilinker_core.security.backend_logout_handler:
+        class: Yilinker\Bundle\CoreBundle\Security\Authentication\BackendLogoutHandler
+        public: false
+        arguments: ['@service_container']
+
+    yilinker_core.user.manager:
+        class: Doctrine\ORM\EntityManager
+        factory_method: getManagerForClass
+        factory_service: doctrine
+        arguments: ['%yilinker_core.entity.user.class%']
+
+    yilinker_core.admin_user.manager:
+        class: Doctrine\ORM\EntityManager
+        factory_method: getManagerForClass
+        factory_service: doctrine
+        arguments: ['%yilinker_core.entity.admin_user.class%']
+
+    yilinker_core.user.repository:
+        class: Yilinker\Bundle\CoreBundle\Repository\UserRepository
+        factory_method: getRepository
+        factory_service: yilinker_core.user.manager
+        arguments: ['%yilinker_core.entity.user.class%']
+
+    yilinker_core.admin_user.repository:
+        class: Yilinker\Bundle\CoreBundle\Repository\AdminUserRepository
+        factory_method: getRepository
+        factory_service: yilinker_core.admin_user.manager
+        arguments: ['%yilinker_core.entity.admin_user.class%']
+
+    yilinker_core.security.authentication_failure_event_listener:
+        class: Yilinker\Bundle\CoreBundle\Security\Http\Authentication\AuthenticationListener
+        tags:
+            - { name: kernel.event_listener, event: security.authentication.failure, method: onAuthenticationFailure }
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']
+
+    yilinker_core.security.authentication_success_event_listener:
+        class: Yilinker\Bundle\CoreBundle\Security\Http\Authentication\AuthenticationListener
+        tags:
+            - { name: kernel.event_listener, event: security.interactive_login, method: onAuthenticationSuccess }
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']
+
+    yilinker_core.security.authentication:
+        class: Yilinker\Bundle\CoreBundle\Security\Services\Authentication
+        calls:
+            - [setContainer, ['@service_container']]
+        arguments: 
+             - @security.token_storage
+             - @security.csrf.token_manager
+             - %csrf_default_intention%
+
+    yilinker_core.request_matcher.affiliate:
+        class: Yilinker\Bundle\CoreBundle\Security\Services\DomainRequestMatcher
+        arguments: 
+            host: %affiliate_hostname%

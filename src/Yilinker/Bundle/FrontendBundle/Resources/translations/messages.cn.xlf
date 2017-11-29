@@ -1,0 +1,2215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="cn" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="707436a5aa13b82a4d777f64c717a625" resname="Payment Method">
+        <source>Payment Method</source>
+        <target>支付方式</target>
+      </trans-unit>
+      <trans-unit id="2194aaec8cc7086ab0e93f74547e5f53" resname="Subtotal">
+        <source>Subtotal</source>
+        <target>小计</target>
+      </trans-unit>
+      <trans-unit id="96b0141273eabab320119c467cdcaf17" resname="Total">
+        <source>Total</source>
+        <target>总计</target>
+      </trans-unit>
+      <trans-unit id="c20905e8fdd34a1bf81984e597436134" resname="Continue Shopping">
+        <source>Continue Shopping</source>
+        <target>继续购物</target>
+      </trans-unit>
+      <trans-unit id="a499a495da5ef80e907a6690a93be3b6" resname="Proceed to Checkout">
+        <source>Proceed to Checkout</source>
+        <target>确认付款</target>
+      </trans-unit>
+      <trans-unit id="80ebdccece38141cd9c0f9b3b623091f" resname="Are you sure you want to delete this item?">
+        <source>Are you sure you want to delete this item?</source>
+        <target>是否确认删除此项？</target>
+      </trans-unit>
+      <trans-unit id="ea4788705e6873b424c65e91c2846b19" resname="Cancel">
+        <source>Cancel</source>
+        <target>取消</target>
+      </trans-unit>
+      <trans-unit id="f2a6c498fb90ee345d997f888fce3b18" resname="Delete">
+        <source>Delete</source>
+        <target>删除</target>
+      </trans-unit>
+      <trans-unit id="cc7819055cde3194bb3b136bad5cf58d" resname="&amp;nbsp;">
+        <source>&amp;nbsp;</source>
+        <target><![CDATA[__&nbsp;]]></target>
+      </trans-unit>
+      <trans-unit id="3ff8e6d8a2a2003f8d302ab7edbfd998" resname="Schonning Watch (red, metal, large)">
+        <source>Schonning Watch (red, metal, large)</source>
+        <target>__Schonning Watch (red, metal, large)</target>
+      </trans-unit>
+      <trans-unit id="0635c591a06afbde47ecd51c9e8a1356" resname="Schonning Watch">
+        <source>Schonning Watch</source>
+        <target>__Schonning Watch</target>
+      </trans-unit>
+      <trans-unit id="6f6cb72d544962fa333e2e34ce64f719" resname="Size">
+        <source>Size</source>
+        <target>尺寸</target>
+      </trans-unit>
+      <trans-unit id="cb5feb1b7314637725a2e73bdc9f7295" resname="Color">
+        <source>Color</source>
+        <target>颜色</target>
+      </trans-unit>
+      <trans-unit id="eaa57a9b4248ce3968e718895e1c2f04" resname="Metal">
+        <source>Metal</source>
+        <target>__Metal</target>
+      </trans-unit>
+      <trans-unit id="df8aecf79151ac809560729ed81bc32e" resname="Philips Series 500">
+        <source>Philips Series 500</source>
+        <target>__Philips Series 500</target>
+      </trans-unit>
+      <trans-unit id="e0aff0317256ad8edc6cc6619b172692" resname="Shipping Fee">
+        <source>Shipping Fee</source>
+        <target>运费</target>
+      </trans-unit>
+      <trans-unit id="b24ce0cd392a5b0b8dedc66c25213594" resname="Free">
+        <source>Free</source>
+        <target>免邮</target>
+      </trans-unit>
+      <trans-unit id="a9ac99ea17e301fd6514c871d5c5108d" resname="(Metro Manila only)">
+        <source>(Metro Manila only)</source>
+        <target>__(Metro Manila only)</target>
+      </trans-unit>
+      <trans-unit id="2660064e68655415da2628c2ae2f7592" resname="Small">
+        <source>Small</source>
+        <target>__Small</target>
+      </trans-unit>
+      <trans-unit id="ee38e4d5dd68c4e440825018d549cb47" resname="Red">
+        <source>Red</source>
+        <target>__Red</target>
+      </trans-unit>
+      <trans-unit id="4668112d7c5f80a73a826dd8150989df" resname="Steel">
+        <source>Steel</source>
+        <target>__Steel</target>
+      </trans-unit>
+      <trans-unit id="638f592f71fc3fac3351534e69f9d29f" resname="Add to Cart">
+        <source>Add to Cart</source>
+        <target>添加到购物车</target>
+      </trans-unit>
+      <trans-unit id="902355c0dbc765cfffcb09d5d7b25479" resname="All in One Place">
+        <source>All in One Place</source>
+        <target>一站式购物</target>
+      </trans-unit>
+      <trans-unit id="068f80c7519d0528fb08e82137a72131" resname="Products">
+        <source>Products</source>
+        <target>产品</target>
+      </trans-unit>
+      <trans-unit id="839f4d959affa0625b283e528b77d1e9" resname="Sellers">
+        <source>Sellers</source>
+        <target>卖家</target>
+      </trans-unit>
+      <trans-unit id="78657bac83c0d4f4d86f22710119667a" resname="Selling">
+        <source>Selling</source>
+        <target>线上销售</target>
+      </trans-unit>
+      <trans-unit id="0441892ff1081ff226702136158c30b6" resname="Start selling with us">
+        <source>Start selling with us</source>
+        <target>和我们一起开启线上销售</target>
+      </trans-unit>
+      <trans-unit id="458e9d384033634af8d09feb7b5d27a9" resname="How to sell">
+        <source>How to sell</source>
+        <target>怎样进行线上销售</target>
+      </trans-unit>
+      <trans-unit id="e417c160d0462a9759e1f228e9719dcf" resname="Login as merchant">
+        <source>Login as merchant</source>
+        <target>卖家登录</target>
+      </trans-unit>
+      <trans-unit id="4152cc60841c8169b75edd03a72559c8" resname="Register as merchant">
+        <source>Register as merchant</source>
+        <target>卖家注册</target>
+      </trans-unit>
+      <trans-unit id="b4b81361db645b44e73ede8c42bddf8e" resname="Help &amp;amp; Support">
+        <source>Help &amp;amp; Support</source>
+        <target><![CDATA[帮助&支持]]></target>
+      </trans-unit>
+      <trans-unit id="f2fc7490cbdb0db5cd6f1a4e7edb0da1" resname="Your account">
+        <source>Your account</source>
+        <target>您的账户</target>
+      </trans-unit>
+      <trans-unit id="5238bd0d26ee4c221badd6e6c6475412" resname="Your order">
+        <source>Your order</source>
+        <target>您的订单 </target>
+      </trans-unit>
+      <trans-unit id="9783374e9ccdf4da2924477e87446430" resname="Resolution Center">
+        <source>Resolution Center</source>
+        <target>客服中心</target>
+      </trans-unit>
+      <trans-unit id="1fe917b01f9a3f87fa2d7d3b7643fac1" resname="FAQ">
+        <source>FAQ</source>
+        <target>常见问题</target>
+      </trans-unit>
+      <trans-unit id="5e2b335303782d8e591ae29512882f6d" resname="Shipping &amp;amp; delivery">
+        <source>Shipping &amp;amp; delivery</source>
+        <target><![CDATA[物流&配送]]></target>
+      </trans-unit>
+      <trans-unit id="3eba0a8f3356b9d9c3059dc7859fd4f5" resname="Return Policy">
+        <source>Return Policy</source>
+        <target>退货政策</target>
+      </trans-unit>
+      <trans-unit id="b5b7b6c5b5f08dd62ed2dc52c7a4cfe8" resname="Terms of use">
+        <source>Terms of use</source>
+        <target>使用条款</target>
+      </trans-unit>
+      <trans-unit id="fa2ead697d9998cbc65c81384e6533d5" resname="Privacy Policy">
+        <source>Privacy Policy</source>
+        <target>隐私政策</target>
+      </trans-unit>
+      <trans-unit id="02d4482d332e1aef3437cd61c9bcc624" resname="Contact us">
+        <source>Contact us</source>
+        <target>联系我们</target>
+      </trans-unit>
+      <trans-unit id="c453a4b8e8d98e82f35b67f433e3b4da" resname="Payment">
+        <source>Payment</source>
+        <target>支付</target>
+      </trans-unit>
+      <trans-unit id="af1b98adf7f686b84cd0b443e022b7a0" resname="Categories">
+        <source>Categories</source>
+        <target>品类</target>
+      </trans-unit>
+      <trans-unit id="1f7e1834bcc6ce8af1970f8903fc6ddc" resname="See More">
+        <source>See More</source>
+        <target>查看更多 </target>
+      </trans-unit>
+      <trans-unit id="1fd1b16aa8843d1edfe24b17e3396874" resname="Email Newsletter">
+        <source>Email Newsletter</source>
+        <target>邮件订阅电子报刊</target>
+      </trans-unit>
+      <trans-unit id="9c5924c85052c8c0ec0072badd8af929" resname="Get the word out. Make sure you don't miss out on interesting events, sale, and more by joining our newsletter program.">
+        <source>Get the word out. Make sure you don't miss out on interesting events, sale, and more by joining our newsletter program.</source>
+        <target>邮件订阅壹零客电子报刊，您将不会错过壹零客定期举办的推广和促销活动。</target>
+      </trans-unit>
+      <trans-unit id="dd96598e7ccb24884c7ae334de530948" resname="Enter your email address here">
+        <source>Enter your email address here</source>
+        <target>输入您的邮件地址</target>
+      </trans-unit>
+      <trans-unit id="b26917587d98330d93f87808fc9d7267" resname="Subscribe">
+        <source>Subscribe</source>
+        <target>订阅</target>
+      </trans-unit>
+      <trans-unit id="33800e8a343a7e63e63181c96577d68a" resname="&amp;copy; 2015 Aeneas are the property of their respective owners.">
+        <source>&amp;copy; 2015 Aeneas are the property of their respective owners.</source>
+        <target>伊尼尔斯2015。卖家拥有其自有商标和品牌的所有权。</target>
+      </trans-unit>
+      <trans-unit id="4b7960b9f0125c8b3b8746d82dc53ed9" resname="Powered by:">
+        <source>Powered by:</source>
+        <target>版权所有：</target>
+      </trans-unit>
+      <trans-unit id="ca0fd020d2eaff24c873e8f978e21ed5" resname="Download our app">
+        <source>Download our app</source>
+        <target>下载壹零客APP</target>
+      </trans-unit>
+      <trans-unit id="30f6a7a9a4abc79644ea38ee9790a713" resname="Get the word out. Make sure you didn't miss interesting events, sale, and more by joining our newsletter program.">
+        <source>Get the word out. Make sure you didn't miss interesting events, sale, and more by joining our newsletter program.</source>
+        <target>邮件订阅壹零客电子报刊，您将不会错过壹零客定期举办的推广和促销活动。</target>
+      </trans-unit>
+      <trans-unit id="2a37324bb4c331c859044121df3f576b" resname="Search...">
+        <source>Search...</source>
+        <target>搜索...</target>
+      </trans-unit>
+      <trans-unit id="1b82b943285b6b0c2926c8105675a705" resname="Suggested Search">
+        <source>Suggested Search</source>
+        <target>推荐搜索</target>
+      </trans-unit>
+      <trans-unit id="0956d2fbd5d5c29844a4d21ed2f76e0c" resname="Lorem ipsum">
+        <source>Lorem ipsum</source>
+        <target>__Lorem ipsum</target>
+      </trans-unit>
+      <trans-unit id="c9950a6b2fa0fc8d35bc7b3ce4300c0a" resname="(eg. mobile, dress, toys, etc...)">
+        <source>(eg. mobile, dress, toys, etc...)</source>
+        <target>（例如：手机，裙装，玩具，等等）</target>
+      </trans-unit>
+      <trans-unit id="41aceb86e7eb448e7c1328a220a0d7b1" resname="0 items">
+        <source>0 items</source>
+        <target>__0 items</target>
+      </trans-unit>
+      <trans-unit id="09f0c5159c5e34504e453eff3fc70324" resname="Account Management">
+        <source>Account Management</source>
+        <target>用户中心</target>
+      </trans-unit>
+      <trans-unit id="f4f70727dc34561dfde1a3c529b6205c" resname="Settings">
+        <source>Settings</source>
+        <target>设置</target>
+      </trans-unit>
+      <trans-unit id="41de6d6cfb8953c021bbe4ba0701c8a1" resname="Messages">
+        <source>Messages</source>
+        <target>信息</target>
+      </trans-unit>
+      <trans-unit id="6a26f548831e6a8c26bfbbd9f6ec61e0" resname="Help">
+        <source>Help</source>
+        <target>帮助</target>
+      </trans-unit>
+      <trans-unit id="0323de4f66a1700e2173e9bcdce02715" resname="Logout">
+        <source>Logout</source>
+        <target>退出</target>
+      </trans-unit>
+      <trans-unit id="80c12fde6671324ab83924ba526ef812" resname="Sign-Up">
+        <source>Sign-Up</source>
+        <target>注册</target>
+      </trans-unit>
+      <trans-unit id="bc1053bdee5a01a1a77795b6c9214c6b" resname="Log-In">
+        <source>Log-In</source>
+        <target>登录</target>
+      </trans-unit>
+      <trans-unit id="8fcdb61208f2b56a00779c4b91571299" resname="Filter Area:">
+        <source>Filter Area:</source>
+        <target>筛选:</target>
+      </trans-unit>
+      <trans-unit id="cc5bba4ff17cbcceb1c857bfab46a4b9" resname="Sub-Category">
+        <source>Sub-Category</source>
+        <target>分类</target>
+      </trans-unit>
+      <trans-unit id="3601146c4e948c32b6424d2c0a7f0118" resname="Price">
+        <source>Price</source>
+        <target>价格</target>
+      </trans-unit>
+      <trans-unit id="048af7b74c6719b139cfa16608cd90e0" resname="Price Range">
+        <source>Price Range</source>
+        <target>价格范围</target>
+      </trans-unit>
+      <trans-unit id="1be6f9eb563f3bf85c78b4219bf09de9" resname="Brand">
+        <source>Brand</source>
+        <target>品牌</target>
+      </trans-unit>
+      <trans-unit id="f4960b0380adddaf3bc2f9cfb062e8e9" resname="More Filter">
+        <source>More Filter</source>
+        <target>__More Filter</target>
+      </trans-unit>
+      <trans-unit id="ae141c4cf6b3b89b476d381e4e66f0c6" resname="Sort By:">
+        <source>Sort By:</source>
+        <target>排序方式:</target>
+      </trans-unit>
+      <trans-unit id="4f8b021d7e1bac1fc102c6c47b1f5af5" resname="New to Old">
+        <source>New to Old</source>
+        <target>由近到远</target>
+      </trans-unit>
+      <trans-unit id="4d55c00a854619b683e7ae217184eaca" resname="Old to New">
+        <source>Old to New</source>
+        <target>由远到进</target>
+      </trans-unit>
+      <trans-unit id="4d55c00a854619b683e7ae217184eaca2rf34f4" resname="Relevance">
+        <source>Relevance</source>
+        <target>相关产品</target>
+      </trans-unit>
+      <trans-unit id="a0ee51ab33d5ba89aafaa01217622395" resname="Alphabetical">
+        <source>Alphabetical</source>
+        <target>字母排序</target>
+      </trans-unit>
+      <trans-unit id="e22269bb51f9f2394e148716babbafbb" resname="Popularity">
+        <source>Popularity</source>
+        <target>人气</target>
+      </trans-unit>
+      <trans-unit id="8bf8854bebe108183caeb845c7676ae4" resname="of">
+        <source>of</source>
+        <target>第X页，共X页</target>
+      </trans-unit>
+      <trans-unit id="00edcc00c025d81d0a1cc430cff40a6e" resname="View By:">
+        <source>View By:</source>
+        <target>排列方式:</target>
+      </trans-unit>
+      <trans-unit id="2d0f6b8300be19cf35e89e66f0677f95" resname="Add to cart">
+        <source>Add to cart</source>
+        <target>添加至购物车</target>
+      </trans-unit>
+      <trans-unit id="a0f4fd446e6dd8d44d297ab02a18db2a" resname="TV &amp;amp; Video">
+        <source>TV &amp;amp; Video</source>
+        <target><![CDATA[__TV &amp; Video]]></target>
+      </trans-unit>
+      <trans-unit id="c08af2843a194208ac5db80fc0492767" resname="Camera &amp;amp; Accessories">
+        <source>Camera &amp;amp; Accessories</source>
+        <target>相机及其配件</target>
+      </trans-unit>
+      <trans-unit id="e983dc011c4a42d7e613b8f2861c9a45" resname="Cellphone &amp;amp; Accessories">
+        <source>Cellphone &amp;amp; Accessories</source>
+        <target><![CDATA[__Cellphone &amp; Accessories]]></target>
+      </trans-unit>
+      <trans-unit id="dcbedde0ce401a37130de9628240c6aa" resname="Headphones">
+        <source>Headphones</source>
+        <target>耳机</target>
+      </trans-unit>
+      <trans-unit id="b133ad579435cfc931fc4843bcf0256d" resname="Women">
+        <source>Women</source>
+        <target>女士</target>
+      </trans-unit>
+      <trans-unit id="bbbcb4ecce212f38c5dcfefbb03a8533" resname="Men">
+        <source>Men</source>
+        <target>男士</target>
+      </trans-unit>
+      <trans-unit id="64e4aca4297806247f62a7b5f8cbd3df" resname="Children">
+        <source>Children</source>
+        <target>儿童</target>
+      </trans-unit>
+      <trans-unit id="3a481bee83219f662b6f07856b6b1f79" resname="Watches">
+        <source>Watches</source>
+        <target>手表</target>
+      </trans-unit>
+      <trans-unit id="d7248a4bc42f8ef6a9b10be929f71186" resname="DVDs, CDs &amp;amp; Blu-Ray">
+        <source>DVDs, CDs &amp;amp; Blu-Ray</source>
+        <target>DVD,CD,蓝光DVD</target>
+      </trans-unit>
+      <trans-unit id="de410f1e9bfbb4b9aa250733a7b8599d" resname="Video Games &amp;amp; Console">
+        <source>Video Games &amp;amp; Console</source>
+        <target>游戏机</target>
+      </trans-unit>
+      <trans-unit id="f846dcea315979c4ef80d1f63e2c1d79" resname="Music Instrument">
+        <source>Music Instrument</source>
+        <target>乐器</target>
+      </trans-unit>
+      <trans-unit id="98edb85b00d9527ad5acebe451b3fae6" resname="Accessories">
+        <source>Accessories</source>
+        <target>配饰</target>
+      </trans-unit>
+      <trans-unit id="652aa4e7993e9f6e4e223853eebf8219" resname="Hair &amp;amp; Body Care">
+        <source>Hair &amp;amp; Body Care</source>
+        <target><![CDATA[头发护理&身体护理]]></target>
+      </trans-unit>
+      <trans-unit id="59d377213780675dc310bfe324aedab7" resname="Makeup &amp;amp; Perfume">
+        <source>Makeup &amp;amp; Perfume</source>
+        <target><![CDATA[彩妆&香水]]></target>
+      </trans-unit>
+      <trans-unit id="58e1df399f452dbbf85e45e3dba7baac" resname="Nail Polish">
+        <source>Nail Polish</source>
+        <target>指甲油</target>
+      </trans-unit>
+      <trans-unit id="fe37e386b185b3d924935f52cb56182c" resname="Skin Care">
+        <source>Skin Care</source>
+        <target>皮肤护理</target>
+      </trans-unit>
+      <trans-unit id="86f847149d50dca2220a90392cc3a237" resname="More Categories">
+        <source>More Categories</source>
+        <target>更多品类</target>
+      </trans-unit>
+      <trans-unit id="c916dc45b227fe49bb0dd7c69d22181c" resname="Men Watch">
+        <source>Men Watch</source>
+        <target>__Men Watch</target>
+      </trans-unit>
+      <trans-unit id="c6a74ad2cc9c96b34eae0a8ea531c252" resname="Women Watch">
+        <source>Women Watch</source>
+        <target>__Women Watch</target>
+      </trans-unit>
+      <trans-unit id="eb987669c9f433542fa024155f35f5e3" resname="Children Watch">
+        <source>Children Watch</source>
+        <target>__Children Watch</target>
+      </trans-unit>
+      <trans-unit id="182a0e44af51ce7dadd0ffbafec36492" resname="Smart Watch">
+        <source>Smart Watch</source>
+        <target>__Smart Watch</target>
+      </trans-unit>
+      <trans-unit id="a6a2a55bea8760389dfca77132905b11" resname="All Categories">
+        <source>All Categories</source>
+        <target>所有类别</target>
+      </trans-unit>
+      <trans-unit id="8cf04a9734132302f96da8e113e80ce5" resname="Home">
+        <source>Home</source>
+        <target>首页</target>
+      </trans-unit>
+      <trans-unit id="2b9c2063c307edae9c5fc3982b4a33b9" resname="Sub Category:">
+        <source>Sub Category:</source>
+        <target>子类别:</target>
+      </trans-unit>
+      <trans-unit id="d3da97e2d9aee5c8fbe03156ad051c99" resname="More">
+        <source>More</source>
+        <target>更多</target>
+      </trans-unit>
+      <trans-unit id="1cfdf0e8d0c87a228c1f40d9bee7888b" resname="Less">
+        <source>Less</source>
+        <target>__Less</target>
+      </trans-unit>
+      <trans-unit id="d89dc5dc1aede197cfebb0528fe39838" resname="view more">
+        <source>view more</source>
+        <target>__view more</target>
+      </trans-unit>
+      <trans-unit id="9a2dbbe31720570240ae498f10dbf089" resname="Delete Address">
+        <source>Delete Address</source>
+        <target>删除地址</target>
+      </trans-unit>
+      <trans-unit id="0dbd2559b7f2c43a6e5f0a649c4b172a" resname="Edit Address">
+        <source>Edit Address</source>
+        <target>编辑地址</target>
+      </trans-unit>
+      <trans-unit id="336944ae5cd1b2499666e157ac81a909" resname="Ship To">
+        <source>Ship To</source>
+        <target>收货地址</target>
+      </trans-unit>
+      <trans-unit id="df96fcb565aa7ca076514dfb1f7d94a7" resname="New Address">
+        <source>New Address</source>
+        <target>使用新地址</target>
+      </trans-unit>
+      <trans-unit id="db430cdaeca534ee052949e7305f436c" resname="Continue as Guest">
+        <source>Continue as Guest</source>
+        <target>以游客身份继续浏览页面</target>
+      </trans-unit>
+      <trans-unit id="8140ed14583313f6793f3bfa67ec7fe4" resname="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optari clamat elaboraret meminerimus elaboraret illis deserunt. Mollitia probatum invidi maioribus quocirca necessarius disciplina, probarem neglexerit comparat re.">
+        <source>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optari clamat elaboraret meminerimus elaboraret illis deserunt. Mollitia probatum invidi maioribus quocirca necessarius disciplina, probarem neglexerit comparat re.</source>
+        <target>__Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optari clamat elaboraret meminerimus elaboraret illis deserunt. Mollitia probatum invidi maioribus quocirca necessarius disciplina, probarem neglexerit comparat re.</target>
+      </trans-unit>
+      <trans-unit id="add3df7ab84caab59b62f89fdd35ac1f" resname="Address Line 1">
+        <source>Address Line 1</source>
+        <target>地址栏1</target>
+      </trans-unit>
+      <trans-unit id="bcabcf837d9db9cd636bffb1248b3564" resname="Enter your primary address here">
+        <source>Enter your primary address here</source>
+        <target>请输入地址</target>
+      </trans-unit>
+      <trans-unit id="d193b87c0969b3f4dedbf604f9c088b6" resname="Error on this field">
+        <source>Error on this field</source>
+        <target>此处错误</target>
+      </trans-unit>
+      <trans-unit id="e1c80238e5a1d9a0fed306fee3e09fb4" resname="Checkout Type">
+        <source>Checkout Type</source>
+        <target>结算方式</target>
+      </trans-unit>
+      <trans-unit id="290612199861c31d1036b185b4e69b75" resname="Summary">
+        <source>Summary</source>
+        <target>信息汇总</target>
+      </trans-unit>
+      <trans-unit id="3b878279a04dc47d60932cb294d96259" resname="Overview">
+        <source>Overview</source>
+        <target>信息概览</target>
+      </trans-unit>
+      <trans-unit id="ccd943f86a83b9411cf31a2d05054356" resname="View Profile">
+        <source>View Profile</source>
+        <target>查看“我的信息”</target>
+      </trans-unit>
+      <trans-unit id="ce8ae9da5b7cd6c3df2929543a9af92d" resname="Email">
+        <source>Email</source>
+        <target>邮件地址</target>
+      </trans-unit>
+      <trans-unit id="0879300c429c6fd85dae81b3ca77c48c" resname="Enter your email here">
+        <source>Enter your email here</source>
+        <target>在这里输入您的电子邮件</target>
+      </trans-unit>
+      <trans-unit id="dc647eb65e6711e155375218212b3964" resname="Password">
+        <source>Password</source>
+        <target>密码</target>
+      </trans-unit>
+      <trans-unit id="3ef89ab73b7f3df1259ab0d123370f3e" resname="Enter your password here">
+        <source>Enter your password here</source>
+        <target>在这里输入您的密码</target>
+      </trans-unit>
+      <trans-unit id="e317a6be4cf96ef945e83f1ffb732ca8" resname="Sign In &amp;amp; Continue">
+        <source>Sign In &amp;amp; Continue</source>
+        <target>登录</target>
+      </trans-unit>
+      <trans-unit id="91d96b907eb6099a4f401f3e03a41b81" resname="or sign in with">
+        <source>or sign in with</source>
+        <target>使用合作网站账号登录</target>
+      </trans-unit>
+      <trans-unit id="d85544fce402c7a2a96a48078edaf203" resname="Facebook">
+        <source>Facebook</source>
+        <target>Facebook</target>
+      </trans-unit>
+      <trans-unit id="5b2c8bfd1bc974966209b7be1cb51a72" resname="Google+">
+        <source>Google+</source>
+        <target>Google +</target>
+      </trans-unit>
+      <trans-unit id="fe052c248fb8c2b8cf08c44f17341c3c" resname="Order Summary">
+        <source>Order Summary</source>
+        <target>订单汇总</target>
+      </trans-unit>
+      <trans-unit id="0751a67302d1e1fe80ab383eafcfe080" resname="Lorem ipsum dolor sit amet, consectetur adipisicing elit.">
+        <source>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</source>
+        <target>__Lorem ipsum dolor sit amet, consectetur adipisicing elit.</target>
+      </trans-unit>
+      <trans-unit id="4dcaea1b2d8f025a39f1dec679a6186e" resname="Go back to checkout">
+        <source>Go back to checkout</source>
+        <target>返回选择</target>
+      </trans-unit>
+      <trans-unit id="2e781e46cd473612f108b29a62e711ab" resname="Congratulations">
+        <source>Congratulations</source>
+        <target>恭喜您</target>
+      </trans-unit>
+      <trans-unit id="888ef036cdfa3e1a7b864a0f7c339b9f" resname="Your purchase was a success">
+        <source>Your purchase was a success</source>
+        <target>购买成功</target>
+      </trans-unit>
+      <trans-unit id="7e9b562c5f6974064e93c17073a2e84f" resname="Want to buy more items similar to this?">
+        <source>Want to buy more items similar to this?</source>
+        <target>猜您喜欢？</target>
+      </trans-unit>
+      <trans-unit id="d1ced95f1e0f67bf38d1eda0f68f8c11" resname="Congratulations on a successful purchase! While waiting for your product to arrive, we suggest checking out other related products that you just bought.">
+        <source>Congratulations on a successful purchase! While waiting for your product to arrive, we suggest checking out other related products that you just bought.</source>
+        <target>恭喜您已购买成功！推荐您购买其它相关产品</target>
+      </trans-unit>
+      <trans-unit id="fc097f5ea2d877e3573fba1527521261" resname="View Transaction">
+        <source>View Transaction</source>
+        <target>查看交易</target>
+      </trans-unit>
+      <trans-unit id="e81c4e4f2b7b93b481e13a8553c2ae1b" resname="or">
+        <source>or</source>
+        <target>或者</target>
+      </trans-unit>
+      <trans-unit id="1bcaa2a3fb0cacf1fd6452d1805a4a08" resname="Would you like to register an account?">
+        <source>Would you like to register an account?</source>
+        <target>是否需要注册？</target>
+      </trans-unit>
+      <trans-unit id="07f8cac6683a2e9b7e287243112f66d3" resname="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adversa coerceri isti perpetuam. Nihil quodsi leniat laudem comit harum, vituperatum fecerit, minuti minus, impetum adipisci pro profecta. Quanto laboriosam placeat concursionibus maestitiam. Nos utilitatibus quot sequamur sentiamus dissidens torquato inciderit">
+        <source>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adversa coerceri isti perpetuam. Nihil quodsi leniat laudem comit harum, vituperatum fecerit, minuti minus, impetum adipisci pro profecta. Quanto laboriosam placeat concursionibus maestitiam. Nos utilitatibus quot sequamur sentiamus dissidens torquato inciderit</source>
+        <target>__Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adversa coerceri isti perpetuam. Nihil quodsi leniat laudem comit harum, vituperatum fecerit, minuti minus, impetum adipisci pro profecta. Quanto laboriosam placeat concursionibus maestitiam. Nos utilitatibus quot sequamur sentiamus dissidens torquato inciderit</target>
+      </trans-unit>
+      <trans-unit id="98f9aaca12e8998fc97120d9fc5999b1" resname="Sign Up Now">
+        <source>Sign Up Now</source>
+        <target>登录</target>
+      </trans-unit>
+      <trans-unit id="469bba5decc8775acd456d1a52727fbc" resname="YiLinker adheres to the highest standards when it comes to protecting our user's sensitive data. We currently don't save your Credit/Debit Card details on our website.">
+        <source>YiLinker adheres to the highest standards when it comes to protecting our user's sensitive data. We currently don't save your Credit/Debit Card details on our website.</source>
+        <target>壹零客严格保护用户的机密信息数据。网站不保存您的信用卡信息</target>
+      </trans-unit>
+      <trans-unit id="5daa2f2d78cdfd828049194c2d2d1a11" resname="Deliver To:">
+        <source>Deliver To:</source>
+        <target>收件地址:</target>
+      </trans-unit>
+      <trans-unit id="8359ba147aa0cd1eff66a41f039a75ad" resname="How Do You Wish To Pay?">
+        <source>How Do You Wish To Pay?</source>
+        <target>您希望如何支付？</target>
+      </trans-unit>
+      <trans-unit id="466f6ed9ca64b940b3bcf475e5e6c2cd" resname="Click one of the options below">
+        <source>Click one of the options below</source>
+        <target>选择下列其中一种支付方式</target>
+      </trans-unit>
+      <trans-unit id="469ded86e4fce0e962b4d91cc7d426ce" resname="Cash on Delivery">
+        <source>Cash on Delivery</source>
+        <target>货到付款</target>
+      </trans-unit>
+      <trans-unit id="27985e2a9e466cb1f15800cf9f08a2c9" resname="To ensure that you'll have a smooth shopping &amp; delivery experience, please prepare the exact amount upon the date of delivery.">
+        <source>To ensure that you'll have a smooth shopping &amp; delivery experience, please prepare the exact amount upon the date of delivery.</source>
+        <target>为确保您的购物及派送顺畅，请在收货时准备需缴付的准确金额的现金</target>
+      </trans-unit>
+      <trans-unit id="dcc3d871020a709f69aff1070ff792ce" resname="Your payment solution for Over-the-Counter (OTC) payments if you don't have a Credit/Debit card.">
+        <source>Your payment solution for Over-the-Counter (OTC) payments if you don't have a Credit/Debit card.</source>
+        <target>如果您没有信用卡，请到银行柜台进行转账付款</target>
+      </trans-unit>
+      <trans-unit id="7fbc545abb3f92a7deb7aec2ce47954e" resname="The Philippines' leading payment solution for Credit/Debit Card transactions.">
+        <source>The Philippines' leading payment solution for Credit/Debit Card transactions.</source>
+        <target>__The Philippines' leading payment solution for Credit/Debit Card transactions.</target>
+      </trans-unit>
+      <trans-unit id="22b653bd8d2edcebb9e0036b4ac79262" resname="Go back">
+        <source>Go back</source>
+        <target>返回</target>
+      </trans-unit>
+      <trans-unit id="a0bfb8e59e6c13fc8d990781f77694fe" resname="Continue">
+        <source>Continue</source>
+        <target>下一步</target>
+      </trans-unit>
+      <trans-unit id="1f99a0d1d93ed024f492e245c90251be" resname="Your Contact Number">
+        <source>Your Contact Number</source>
+        <target>请输入联系方式</target>
+      </trans-unit>
+      <trans-unit id="9741dd9dfccfca815bb031f061e5b6f9" resname="Enter your mobile number here">
+        <source>Enter your mobile number here</source>
+        <target>在这里输入您的手机号码</target>
+      </trans-unit>
+      <trans-unit id="f4ec5f57bd4d31b803312d873be40da9" resname="Change">
+        <source>Change</source>
+        <target>更改</target>
+      </trans-unit>
+      <trans-unit id="1d00e7dce692e8dc3f6877f035e3a616" resname="OR">
+        <source>OR</source>
+        <target>或者</target>
+      </trans-unit>
+      <trans-unit id="5a750f86ef41f22f852c43351e3ff383" resname="Verify">
+        <source>Verify</source>
+        <target>验证 </target>
+      </trans-unit>
+      <trans-unit id="f775956fcad80b957b707f23d5666e91" resname="YiLinker Express is capable of shipping anywhere in the Philippines at affordable rates">
+        <source>YiLinker Express is capable of shipping anywhere in the Philippines at affordable rates</source>
+        <target>壹零客速递提供实惠的国内配送服务</target>
+      </trans-unit>
+      <trans-unit id="a157e5be7973506d3c23af18b436182a" resname="YiLinker Express offers FREE shipping on Metro Manila orders only">
+        <source>YiLinker Express offers FREE shipping on Metro Manila orders only</source>
+        <target>壹零客速递在大马尼拉内免运费配送</target>
+      </trans-unit>
+      <trans-unit id="e3e862ed6f748c14205f83933d62feee" resname="You'll receive the tracking details for your parcel soon after the dispatch of your order.">
+        <source>You'll receive the tracking details for your parcel soon after the dispatch of your order.</source>
+        <target>下单后，您将立即接收到运单号以及配送进度的详细信息。</target>
+      </trans-unit>
+      <trans-unit id="1c6ff7b384400485d36cf8a241bc3b1e" resname="Ships in">
+        <source>Ships in</source>
+        <target>天送达</target>
+      </trans-unit>
+      <trans-unit id="12ce12c82cca450875413aed0bbbe82a" resname="No hidden fees">
+        <source>No hidden fees</source>
+        <target>无隐藏费用</target>
+      </trans-unit>
+      <trans-unit id="a47c3fa50e62376c7cff8b783cfb864d" resname="7 days return policy">
+        <source>7 days return policy</source>
+        <target>七天内退换货政策</target>
+      </trans-unit>
+      <trans-unit id="ae11a4e63c23cdfe97e11161b32e31ca" resname="New Shipping Address">
+        <source>New Shipping Address</source>
+        <target>添加新地址</target>
+      </trans-unit>
+      <trans-unit id="d0c6639b5f4c3ef41e7863ea920a625a" resname="Delete Address?">
+        <source>Delete Address?</source>
+        <target>删除地址？</target>
+      </trans-unit>
+      <trans-unit id="316d416ea955fbe02b289e52e6f9e4b3" resname="Are you sure you want to delete this address">
+        <source>Are you sure you want to delete this address</source>
+        <target>您是否确定将此地址删除？</target>
+      </trans-unit>
+      <trans-unit id="3d144b58c7f56931cfc8d7cf0252a37a" resname="Update Shipping Address">
+        <source>Update Shipping Address</source>
+        <target>更新送货地址</target>
+      </trans-unit>
+      <trans-unit id="abc7706483a00aa1b773e42df3fded43" resname="Shipping address has been successfully updated">
+        <source>Shipping address has been successfully updated</source>
+        <target>__Shipping address has been successfully updated</target>
+      </trans-unit>
+      <trans-unit id="26b63f278101527e06a5547719568bb5" resname="Okay">
+        <source>Okay</source>
+        <target>确认</target>
+      </trans-unit>
+      <trans-unit id="2946b63c291f30157cc9fad6eb409ee6" resname="Change Mobile Number">
+        <source>Change Mobile Number</source>
+        <target>更改手机号码</target>
+      </trans-unit>
+      <trans-unit id="6fe1295d7178117f46fa71eaeb23f367" resname="Invalid contact number">
+        <source>Invalid contact number</source>
+        <target>电话号码无效</target>
+      </trans-unit>
+      <trans-unit id="a5592047b7fe25f12b44f0920c40c93c" resname="Enter New Number">
+        <source>Enter New Number</source>
+        <target>输入新号码</target>
+      </trans-unit>
+      <trans-unit id="f62e6a7faf47a56a6d26904be288e0a0" resname="Enter your new number here">
+        <source>Enter your new number here</source>
+        <target>在这里输入新号码</target>
+      </trans-unit>
+      <trans-unit id="a4d3b161ce1309df1c4e25df28694b7b" resname="Submit">
+        <source>Submit</source>
+        <target>提交</target>
+      </trans-unit>
+      <trans-unit id="ca8d9ce1ea0c79f097de4f1fd925113b" resname="Verify Number">
+        <source>Verify Number</source>
+        <target>验证号码</target>
+      </trans-unit>
+      <trans-unit id="ebea5520aa56dc18114de4b4e784e374" resname="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fatemur illo hominum percurri, labefactant, utilitate, putent variis illo intellegaturque. Vicinum perveniri orationis modice partis.">
+        <source>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fatemur illo hominum percurri, labefactant, utilitate, putent variis illo intellegaturque. Vicinum perveniri orationis modice partis.</source>
+        <target>__Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fatemur illo hominum percurri, labefactant, utilitate, putent variis illo intellegaturque. Vicinum perveniri orationis modice partis.</target>
+      </trans-unit>
+      <trans-unit id="0e294a582ffb053577fe91277c423346" resname="Please enter the 6 digit code that was sent to your mobile phone">
+        <source>Please enter the 6 digit code that was sent to your mobile phone</source>
+        <target>请输入发送至您手机的6位验证码</target>
+      </trans-unit>
+      <trans-unit id="39eed84f005446f260a306adc287a14d" resname="Time Left:">
+        <source>Time Left:</source>
+        <target>剩余时间:</target>
+      </trans-unit>
+      <trans-unit id="3840196b3c126eadf992a0571e7d0753" resname="Enter Code">
+        <source>Enter Code</source>
+        <target>输入代码</target>
+      </trans-unit>
+      <trans-unit id="c65d7bcbf5f633efa9e535c89abb4317" resname="Enter your verification code">
+        <source>Enter your verification code</source>
+        <target>输入验证码</target>
+      </trans-unit>
+      <trans-unit id="a34a3c13729224c7c9bc2437c87de9a0" resname="The code is either invalid or is already expired.">
+        <source>The code is either invalid or is already expired.</source>
+        <target>验证码无效或已过期.</target>
+      </trans-unit>
+      <trans-unit id="7ea59883cfdebbadcf4caae4b2f288e8" resname="Contact number has been successfully verified.">
+        <source>Contact number has been successfully verified.</source>
+        <target>__Contact number has been successfully verified.</target>
+      </trans-unit>
+      <trans-unit id="5479ffc04d27b373e5ad73ba8bdb79b5" resname="Check As">
+        <source>Check As</source>
+        <target>支票</target>
+      </trans-unit>
+      <trans-unit id="f2fdea440d768b85591e936a803c3631" resname="Sign In">
+        <source>Sign In</source>
+        <target>登陆</target>
+      </trans-unit>
+      <trans-unit id="31c71ced3e84685eeb36fb7ac893242e" resname="Guest Checkout">
+        <source>Guest Checkout</source>
+        <target>游客结算</target>
+      </trans-unit>
+      <trans-unit id="1ea5e70c73f09f9e2dab29ed6b676030" resname="Aeneasusa">
+        <source>Aeneasusa</source>
+        <target>伊尼尔斯</target>
+      </trans-unit>
+      <trans-unit id="8be8d0955401279c6834c4e762bb0948" resname="Sign In | Aeneasusa.com">
+      	<source>Sign In |Aeneasusa.com</source>
+      	<target>登录|伊尼尔斯</target>
+      </trans-unit>
+      <trans-unit id="986405b622e4a082000fe7e8b2c467a2" resname="Invalid email/contact number or password.">
+      	<source>Invalid email/contact number or password.</source>
+      	<target>无效的电子邮件/联络号码或密码。</target>
+      </trans-unit>
+      <trans-unit id="14bc9e3be1c85186466d305b80c0e628" resname="Enter your email/contact number here">
+      	<source>Enter your email/contact number here</source>
+      	<target>在这里输入你的电子邮件/联络号码</target>
+      </trans-unit>
+      <trans-unit id="002f73011bfa5dc2d59a10766dd26942" resname="You will receive a confirmation email or SMS message where you can reset your password">
+      	<source>You will receive a confirmation email or SMS message where you can reset your password</source>
+      	<target>您会收到一封确认邮件或短信，你可以重置您的密码</target>
+      </trans-unit>
+      <trans-unit id="36079b3cd0368478212445f0b7c0ec83" resname="Back to sign in">
+      	<source>Back to sign in</source>
+      	<target>返回登录</target>
+      </trans-unit>
+      <trans-unit id="1cbb79ce0e58c4684da7c870b37b2bb6" resname="You cannot use the checkout functionality while you're still unverified.">
+        <source>You cannot use the checkout functionality while you're still unverified.</source>
+        <target>由于您的账户未经认证，暂时无法进行结算</target>
+      </trans-unit>
+      <trans-unit id="0557fa923dcee4d0f86b1409f5c2167f" resname="Back">
+        <source>Back</source>
+        <target>返回</target>
+      </trans-unit>
+      <trans-unit id="5c4859785f1fad702b9e660e77b5dd18" resname="Back to Home Page">
+        <source>Back to Home Page</source>
+        <target>返回主页</target>
+      </trans-unit>
+      <trans-unit id="427b49bb918d4747f0995f2811311445" resname="See What Others are Selling">
+        <source>See What Others are Selling</source>
+        <target>其他卖家商铺信息</target>
+      </trans-unit>
+      <trans-unit id="f92c7b3a71401fe3597bde4354df517d" resname="view more sellers">
+        <source>view more sellers</source>
+        <target>更多卖家</target>
+      </trans-unit>
+      <trans-unit id="226f27a1bda0dde4ef546ca015f19f3f" resname="Specialty:">
+        <source>Specialty:</source>
+        <target>品类:</target>
+      </trans-unit>
+      <trans-unit id="a7e11e8340f19fb4e25488874fe7c249" resname="Items You May Like">
+        <source>Items You May Like</source>
+        <target>你可能喜欢</target>
+      </trans-unit>
+      <trans-unit id="9b6665ed55b2025e703b05f1be021a94" resname="Our Recommendation">
+        <source>Our Recommendation</source>
+        <target>推荐品类</target>
+      </trans-unit>
+      <trans-unit id="038839d50b5abb0a15046cff88b71438" resname="Trending Categories">
+        <source>Trending Categories</source>
+        <target>潮流品类</target>
+      </trans-unit>
+      <trans-unit id="afe5e2013f03d5817cace589a8dada3e" resname="Recommended Seller">
+        <source>Recommended Seller</source>
+        <target>推荐卖家</target>
+      </trans-unit>
+      <trans-unit id="3262d48df5d75e3452f0f16b313b7808" resname="off">
+        <source>off</source>
+        <target>折</target>
+      </trans-unit>
+      <trans-unit id="3bb84cbcbe38025f9c3af44dbe6385ea" resname="7-Day Return">
+        <source>7-Day Return</source>
+        <target>支持七天退换</target>
+      </trans-unit>
+      <trans-unit id="80d39f429221513579d70eaba5089ae3" resname="Free Shipping (Metro Manila only)">
+        <source>Free Shipping (Metro Manila only)</source>
+        <target>__Free Shipping (Metro Manila only)</target>
+      </trans-unit>
+      <trans-unit id="1009fe245a4c7630a7234cbde0f80588" resname="scroll down">
+        <source>scroll down</source>
+        <target>下滑</target>
+      </trans-unit>
+      <trans-unit id="1a975c4cd32690e1dfbe6c2c2268ecaf" resname="for more info">
+        <source>for more info</source>
+        <target>更多信息</target>
+      </trans-unit>
+      <trans-unit id="b9ea4105a653e29274b4eb218db3c276" resname="{0} no reviews|{1} %count% review|]1,Inf[ %count% reviews">
+        <source>{0} no reviews|{1} %count% review|]1,Inf[ %count% reviews</source>
+        <target>__{0} no reviews|{1} %count% review|]1,Inf[ %count% reviews</target>
+      </trans-unit>
+      <trans-unit id="6a5373df703ab2827a4ba7facdfcf779" resname="Add to Wishlist">
+        <source>Add to Wishlist</source>
+        <target>收藏</target>
+      </trans-unit>
+      <trans-unit id="36e3402e4ddef43e92b99aef016c057e" resname="Short Description">
+        <source>Short Description</source>
+        <target>商品简介</target>
+      </trans-unit>
+      <trans-unit id="1e62e6ce22608229f9e7d30baae981ee" resname="Seller">
+        <source>Seller</source>
+        <target>卖家</target>
+      </trans-unit>
+      <trans-unit id="faf0155bd589a720a0e0e930c6e77821" resname="Specialty">
+        <source>Specialty</source>
+        <target>品类</target>
+      </trans-unit>
+      <trans-unit id="eeceac1af4e7620894d6d2083921bb73" resname="Buy now">
+        <source>Buy now</source>
+        <target>立即购买</target>
+      </trans-unit>
+      <trans-unit id="0fa8f74aff2929436de85a217003cb80" resname="Share this product">
+        <source>Share this product</source>
+        <target>分享商品至朋友圈</target>
+      </trans-unit>
+      <trans-unit id="2491bc9c7d8731e1ae33124093bc7026" resname="Twitter">
+        <source>Twitter</source>
+        <target>Twitter</target>
+      </trans-unit>
+      <trans-unit id="b5a7adde1af5c87d7fd797b6245c2a39" resname="Description">
+        <source>Description</source>
+        <target>商品描述</target>
+      </trans-unit>
+      <trans-unit id="b36d2184563e1bcc51472085da9e4a72" resname="Specifications">
+        <source>Specifications</source>
+        <target>产品属性</target>
+      </trans-unit>
+      <trans-unit id="9e2941b3c81256fac10392aaca4ccfde" resname="Condition">
+        <source>Condition</source>
+        <target>商品状态</target>
+      </trans-unit>
+      <trans-unit id="6665e3761028c84e1d228de3432229ed" resname="SKU">
+        <source>SKU</source>
+        <target>库存单位</target>
+      </trans-unit>
+      <trans-unit id="979f4abd1a393f5a688fe92c8e2cea20" resname="Length (CM)">
+        <source>Length (CM)</source>
+        <target>长 (CM)</target>
+      </trans-unit>
+      <trans-unit id="210a577ac07b3dac533c183b7e1e9401" resname="Height (CM)">
+        <source>Height (CM)</source>
+        <target>高 (CM)</target>
+      </trans-unit>
+      <trans-unit id="61cd5c23f1fe1669ec68d913fca1563a" resname="Width (CM)">
+        <source>Width (CM)</source>
+        <target>宽 (CM)</target>
+      </trans-unit>
+      <trans-unit id="06752dfc0286b9fa9e541f204f32f201" resname="Weight (KG)">
+        <source>Weight (KG)</source>
+        <target>__Weight (KG)</target>
+      </trans-unit>
+      <trans-unit id="426ed5998893e1481c79cfc05f26ff4c" resname="Payment &amp;amp; Shipping">
+        <source>Payment &amp;amp; Shipping</source>
+        <target>支付与配送</target>
+      </trans-unit>
+      <trans-unit id="b54cae027174159a78c651b2875617cf" resname="Payment Options">
+        <source>Payment Options</source>
+        <target>付款方式选择</target>
+      </trans-unit>
+      <trans-unit id="137863fe507d9dde4662a42b6bd5baf9" resname="We accept all major credit cards through DragonPay &amp;amp; PesoPay.">
+        <source>We accept all major credit cards through DragonPay &amp;amp; PesoPay.</source>
+        <target>我们接受信用卡和储蓄卡支付</target>
+      </trans-unit>
+      <trans-unit id="ee15703a73a0f728bc2105f31978d6e6" resname="We accept C.O.Ds for amount P 10,000 per shipment">
+        <source>We accept C.O.Ds for amount P 10,000 per shipment</source>
+        <target>我们支持金额在10,000人民币以下的货到付款方式</target>
+      </trans-unit>
+      <trans-unit id="d902a9074d0c8709565d0f00a24bc41a" resname="We do not accept other currency in any amount">
+        <source>We do not accept other currency in any amount</source>
+        <target>我们不接受任何金额的其他货币</target>
+      </trans-unit>
+      <trans-unit id="5cfbd1bd838d17fd31ad4eec99831062" resname="Sellers can't require buyers to pay using methods that aren't allowed on Aeneasusa">
+        <source>Sellers can't require buyers to pay using methods that aren't allowed on Aeneasusa</source>
+        <target>卖家不能要求买家使用其他伊尼尔斯不支持的支付方式支付货款</target>
+      </trans-unit>
+      <trans-unit id="0eee983d3b7a76aa5f8d77bc59de5d2b" resname="Shipping &amp;amp; Handling">
+        <source>Shipping &amp;amp; Handling</source>
+        <target><![CDATA[__Shipping &amp; Handling]]></target>
+      </trans-unit>
+      <trans-unit id="6e825d95a15611a7baff0d259dc28b41" resname="Special Promotions">
+        <source>Special Promotions</source>
+        <target>特别促销</target>
+      </trans-unit>
+      <trans-unit id="e0c7dea4760421fd4add26a89903e928" resname="Add to wislist">
+        <source>Add to wislist</source>
+        <target>收藏</target>
+      </trans-unit>
+      <trans-unit id="2d96bb66d8541a89620d3c158ceef42b" resname="Add to wishlist">
+        <source>Add to wishlist</source>
+        <target>收藏</target>
+      </trans-unit>
+      <trans-unit id="3543023e6210ccbd464e4b57cd91cb94" resname="Product Rating &amp;amp; Review">
+        <source>Product Rating &amp;amp; Review</source>
+        <target>商品评价</target>
+      </trans-unit>
+      <trans-unit id="d2b079a98460483b50ebf5fb13bbd8bf" resname="No rating or review for this product yet">
+        <source>No rating or review for this product yet</source>
+        <target>尚未有对该产品的评价</target>
+      </trans-unit>
+      <trans-unit id="91f51a2f9a8b4ea27d0a2d5c6b00c7ac" resname="Mark your Address">
+        <source>Mark your Address</source>
+        <target>标记您的地址</target>
+      </trans-unit>
+      <trans-unit id="60c471781857c56024ea20d46f08ad49" resname="Mark Location">
+        <source>Mark Location</source>
+        <target>标记位置</target>
+      </trans-unit>
+      <trans-unit id="6ee03741ed4d078514f17ade4403d081" resname="Feedback for Product">
+        <source>Feedback for Product</source>
+        <target>评价</target>
+      </trans-unit>
+      <trans-unit id="4a873f28e0440c37cb2d378d6b43b375" resname="Rating:">
+        <source>Rating:</source>
+        <target>评分:</target>
+      </trans-unit>
+      <trans-unit id="51ec9bf4aaeab1b25bb57f9f8d4de557" resname="Title:">
+        <source>Title:</source>
+        <target>标题:</target>
+      </trans-unit>
+      <trans-unit id="c1969d2c134416358ec42f57446f1ada" resname="Enter review title here">
+        <source>Enter review title here</source>
+        <target>请在此输入关键字</target>
+      </trans-unit>
+      <trans-unit id="240f3031f25601fa128bd4e15f0a37de" resname="Comment:">
+        <source>Comment:</source>
+        <target>评价:</target>
+      </trans-unit>
+      <trans-unit id="4d475654cf26db0264212bc50e9cf6d2" resname="Leave a comment">
+        <source>Leave a comment</source>
+        <target>留下您的评价吧~</target>
+      </trans-unit>
+      <trans-unit id="3ed6cc9ef4f51c81b69e617c0c422793" resname="Feedback for Seller">
+        <source>Feedback for Seller</source>
+        <target>给卖家评价</target>
+      </trans-unit>
+      <trans-unit id="266cae2087af23c12b8c71919ae57792" resname="Product List">
+        <source>Product List</source>
+        <target>商品清单</target>
+      </trans-unit>
+      <trans-unit id="2bf5ae55eb0ead91dda7d1f6c8524b98" resname="SKU:">
+        <source>SKU:</source>
+        <target>库存单位:</target>
+      </trans-unit>
+      <trans-unit id="3d0d1f906e27800531e054a3b6787b7c" resname="Quantity:">
+        <source>Quantity:</source>
+        <target>数量:</target>
+      </trans-unit>
+      <trans-unit id="2babe53026309ed1bc4d26626dbaf9b3" resname="Details:">
+        <source>Details:</source>
+        <target>商品信息:</target>
+      </trans-unit>
+      <trans-unit id="ed51222f31afbf17ca5f3b0654db8969" resname="Condition:">
+        <source>Condition:</source>
+        <target>商品状态:</target>
+      </trans-unit>
+      <trans-unit id="62cd06d4b9d14705d5da40557f15288f" resname="Product Price:">
+        <source>Product Price:</source>
+        <target>商品价格:</target>
+      </trans-unit>
+      <trans-unit id="fb437d90e0b282eb818e8e9978bb2f77" resname="Brand:">
+        <source>Brand:</source>
+        <target>品牌:</target>
+      </trans-unit>
+      <trans-unit id="24a23d787190f2c4812ff9ab11847a72" resname="Status:">
+        <source>Status:</source>
+        <target>状态:</target>
+      </trans-unit>
+      <trans-unit id="66c4c5112f455a19afde47829df363fa" resname="Total:">
+        <source>Total:</source>
+        <target>总计:</target>
+      </trans-unit>
+      <trans-unit id="87cabb0c5e5abac7a37df3f21bf09d17" resname="Basic Information">
+        <source>Basic Information</source>
+        <target>基本信息</target>
+      </trans-unit>
+      <trans-unit id="bc910f8bdf70f29374f496f05be0330c" resname="First Name">
+        <source>First Name</source>
+        <target>名</target>
+      </trans-unit>
+      <trans-unit id="69a946dd52045824b4001669b810b164" resname="Enter your first name here">
+        <source>Enter your first name here</source>
+        <target>在这里输入你的名字</target>
+      </trans-unit>
+      <trans-unit id="77587239bf4c54ea493c7033e1dbf636" resname="Last Name">
+        <source>Last Name</source>
+        <target>姓</target>
+      </trans-unit>
+      <trans-unit id="8ad3ae8ed0df0b5f9744997a80d6259a" resname="Enter your last name here">
+        <source>Enter your last name here</source>
+        <target>在这里输入您的姓氏</target>
+      </trans-unit>
+      <trans-unit id="5abf6f695a643a66bb52b831dffca609" resname="Click here to verify">
+        <source>Click here to verify</source>
+        <target>单击此处验证</target>
+      </trans-unit>
+      <trans-unit id="6647aaa5aa21f02ecdb174cdea5ae9f7" resname="Account Information">
+        <source>Account Information</source>
+        <target>账户信息</target>
+      </trans-unit>
+      <trans-unit id="48974cc3df177e6b565c39aa155458cd" resname="Shipping Address">
+        <source>Shipping Address</source>
+        <target>寄件地址</target>
+      </trans-unit>
+      <trans-unit id="f5d6040ed78ca86ddc73296a49b18510" resname="Save Changes">
+        <source>Save Changes</source>
+        <target>保存更改</target>
+      </trans-unit>
+      <trans-unit id="ccd4e05ec39921cb98ff71fde5bd3fc9" resname="New Shippping Address">
+        <source>New Shippping Address</source>
+        <target>新送货地址</target>
+      </trans-unit>
+      <trans-unit id="41a49399971995e52c904a438fb688af" resname="Pin your address to map">
+        <source>Pin your address to map</source>
+        <target>请在地图上标注您的地址</target>
+      </trans-unit>
+      <trans-unit id="9c9d1674420681239f48d5fa8e181533" resname="Home Address">
+        <source>Home Address</source>
+        <target>家庭住址</target>
+      </trans-unit>
+      <trans-unit id="7c7af2cd10f2623f2ff006ee46f9f29e" resname="Unit Number">
+        <source>Unit Number</source>
+        <target>房间号</target>
+      </trans-unit>
+      <trans-unit id="1b08a6f064638ab9a5660a1bf14e0d3f" resname="Building Name">
+        <source>Building Name</source>
+        <target>单元号</target>
+      </trans-unit>
+      <trans-unit id="070a6f943470aec6d12c7090f290e10f" resname="Street Number">
+        <source>Street Number</source>
+        <target>__Street Number</target>
+      </trans-unit>
+      <trans-unit id="a110c5c194a15bdec2f8390a8454c3c8" resname="Street Name">
+        <source>Street Name</source>
+        <target>街道号</target>
+      </trans-unit>
+      <trans-unit id="7a620d438361c15161512c4d98341ef1" resname="Subdivision">
+        <source>Subdivision</source>
+        <target>区/县</target>
+      </trans-unit>
+      <trans-unit id="7aea8217f3b5d9d6e1e55140e7a02d31" resname="Select your province">
+        <source>Select your province</source>
+        <target>选择您所在的省份</target>
+      </trans-unit>
+      <trans-unit id="4d8229fe0ea7f7076208298baa0e3fee" resname="Select your city">
+        <source>Select your city</source>
+        <target>选择您所在的城市</target>
+      </trans-unit>
+      <trans-unit id="e4233f91d872fdfcbe9ec123e9f0b168" resname="Select your Barangay">
+        <source>Select your Barangay</source>
+        <target>选择你的镇</target>
+      </trans-unit>
+      <trans-unit id="e0ed8e71dbd22a1e91cb570b52443fd5" resname="Zipcode">
+        <source>Zipcode</source>
+        <target>邮政编码</target>
+      </trans-unit>
+      <trans-unit id="37677b5ba107c18c7421babcfa86cfe5" resname="Select your City">
+        <source>Select your City</source>
+        <target>选择您所在的城市</target>
+      </trans-unit>
+      <trans-unit id="0ec157e0e15e12c56bfe1c72e0e7515a" resname="Apply Changes">
+        <source>Apply Changes</source>
+        <target>更改</target>
+      </trans-unit>
+      <trans-unit id="0d98d15e617ed62fdc4e98b222da2b29" resname="Change Email Address">
+        <source>Change Email Address</source>
+        <target>更改邮件地址</target>
+      </trans-unit>
+      <trans-unit id="9b66db058f76654713ae888a66f9658e" resname="Enter your new email address here">
+        <source>Enter your new email address here</source>
+        <target>输入新邮件地址</target>
+      </trans-unit>
+      <trans-unit id="87c289900eab161d5924faea869bcc4e" resname="Confirm your new email address here">
+        <source>Confirm your new email address here</source>
+        <target>在此确认新邮件地址</target>
+      </trans-unit>
+      <trans-unit id="8f1e77e0d2be21da93cd4d9a939148f7" resname="Change Password">
+        <source>Change Password</source>
+        <target>更改密码</target>
+      </trans-unit>
+      <trans-unit id="349aa56e44951fd66cc5b0153ba8d785" resname="Enter your current password here">
+        <source>Enter your current password here</source>
+        <target>在此输入旧密码</target>
+      </trans-unit>
+      <trans-unit id="fe9324a37ceec24d7bd4fe84f3125b8c" resname="Enter your new password here">
+        <source>Enter your new password here</source>
+        <target>在此输入新密码</target>
+      </trans-unit>
+      <trans-unit id="302d8fcfddc4ec70ef6b5d2d8f4bcf40" resname="Confirm your new password here">
+        <source>Confirm your new password here</source>
+        <target>在此确认新密码</target>
+      </trans-unit>
+      <trans-unit id="e8956174978be0a343e1e582cf681e4c" resname="My Profile">
+        <source>My Profile</source>
+        <target>卖家介绍</target>
+      </trans-unit>
+      <trans-unit id="1b0ffaae3973401f71cd000ab9f7856e" resname="Transaction">
+        <source>Transaction</source>
+        <target>交易</target>
+      </trans-unit>
+      <trans-unit id="2e33d882beae521f02fa7c0b14e33a23" resname="My Points">
+        <source>My Points</source>
+        <target>积分</target>
+      </trans-unit>
+      <trans-unit id="253d507a8f41e7d7b27f33de38da95e9" resname="Crop Photo">
+        <source>Crop Photo</source>
+        <target>裁剪照片</target>
+      </trans-unit>
+      <trans-unit id="d388632d05e8826abe4b95de0b110529" resname="Crop">
+        <source>Crop</source>
+        <target>裁切</target>
+      </trans-unit>
+      <trans-unit id="f18d700c58f38e40c913a965f0cae794" resname="Select Products">
+        <source>Select Products</source>
+        <target>选择产品</target>
+      </trans-unit>
+      <trans-unit id="3adbdb3ac060038aa0e6e6c138ef9873" resname="Category">
+        <source>Category</source>
+        <target>品类</target>
+      </trans-unit>
+      <trans-unit id="31d87ad6b853e34f36d1af6414358b6b" resname="Electronics &amp;amp; Gadgets">
+        <source>Electronics &amp;amp; Gadgets</source>
+        <target>电子商品及配件</target>
+      </trans-unit>
+      <trans-unit id="37f3d033e10d2edede1b684211226344" resname="Product to Sell">
+        <source>Product to Sell</source>
+        <target>__Product to Sell</target>
+      </trans-unit>
+      <trans-unit id="f3be76903ac20c97acaaa1a66a1107ee" resname="Search item here">
+        <source>Search item here</source>
+        <target>这里搜索项目</target>
+      </trans-unit>
+      <trans-unit id="a40de094ebb292b72fa2a4f3a1cf1209" resname="All Products">
+        <source>All Products</source>
+        <target>所有产品</target>
+      </trans-unit>
+      <trans-unit id="d30a56e0a62bde2faf4940dccb2437a0" resname="Sample er wer wer wer we rwe r">
+        <source>Sample er wer wer wer we rwe r</source>
+        <target>__Sample er wer wer wer we rwe r</target>
+      </trans-unit>
+      <trans-unit id="ad76c8d857b3f8a057d1f3b2932d9f6d" resname="Point Earned">
+        <source>Point Earned</source>
+        <target>赚积分</target>
+      </trans-unit>
+      <trans-unit id="15f2edbc1c359d13a40f962a24c058f8" resname="Breakdown">
+        <source>Breakdown</source>
+        <target>分解</target>
+      </trans-unit>
+      <trans-unit id="b1f0b866ff1e540503531b72d365a681" resname="Cases">
+        <source>Cases</source>
+        <target>情况说明</target>
+      </trans-unit>
+      <trans-unit id="2ab6dc8e89738aae0f74d0d97e5da16b" resname="Search By Case Id">
+        <source>Search By Case Id</source>
+        <target>搜索通过案例ID</target>
+      </trans-unit>
+      <trans-unit id="13348442cc6a27032d2b4aa28b75a5d3" resname="Search">
+        <source>Search</source>
+        <target>搜索 </target>
+      </trans-unit>
+      <trans-unit id="d7778d0c64b6ba21494c97f77a66885a" resname="Filter">
+        <source>Filter</source>
+        <target>筛选器</target>
+      </trans-unit>
+      <trans-unit id="8669a07ee358f45e27373045738579ba" resname="Case ID">
+        <source>Case ID</source>
+        <target>请人ID</target>
+      </trans-unit>
+      <trans-unit id="fffcb4d1e12c96b2f571f77ad25878b8" resname="Reason">
+        <source>Reason</source>
+        <target>__Reason</target>
+      </trans-unit>
+      <trans-unit id="ec53a8c4f07baed5d8825072c89799be" resname="Status">
+        <source>Status</source>
+        <target>状态</target>
+      </trans-unit>
+      <trans-unit id="a7244011b9f5c22e38c9b4406ffa80a1" resname="Other Party">
+        <source>Other Party</source>
+        <target>对方当事人</target>
+      </trans-unit>
+      <trans-unit id="8fc66dcc3ce65115454a7375ac143e53" resname="Date Opened">
+        <source>Date Opened</source>
+        <target>发生日期</target>
+      </trans-unit>
+      <trans-unit id="c3bf447eabe632720a3aa1a7ce401274" resname="Open">
+        <source>Open</source>
+        <target>关闭n</target>
+      </trans-unit>
+      <trans-unit id="03f4a47830f97377a35321051685071e" resname="Closed">
+        <source>Closed</source>
+        <target>打开</target>
+      </trans-unit>
+      <trans-unit id="2c40c54eaefe49177a436c26edde690a" resname="No case found">
+        <source>No case found</source>
+        <target>没有找到任何案例</target>
+      </trans-unit>
+      <trans-unit id="e16563f6ab5d41985927b6cd331485ed" resname="Dispute Title">
+        <source>Dispute Title</source>
+        <target>请用一句话描述您的纠纷</target>
+      </trans-unit>
+      <trans-unit id="96f13fce7c9d952d395552c5e2294d26" resname="Enter title here">
+        <source>Enter title here</source>
+        <target>在此填写您的纠纷描述</target>
+      </trans-unit>
+      <trans-unit id="93fff8d710e8df972e76219e4914c0da" resname="Select dispute type here">
+        <source>Select dispute type here</source>
+        <target>请在此选择纠纷类型</target>
+      </trans-unit>
+      <trans-unit id="f1d078071f725ba1436a916a0f13b0fd" resname="Select reason here">
+        <source>Select reason here</source>
+        <target>请选着理由</target>
+      </trans-unit>
+      <trans-unit id="3b4d8262aca97445950c583118a46cd2" resname="Select transaction here">
+        <source>Select transaction here</source>
+        <target>请选择您的交易单号</target>
+      </trans-unit>
+      <trans-unit id="4d7a995b2605c5674719987ae3982ef8" resname="Select item to dispute:">
+        <source>Select item to dispute:</source>
+        <target>选择纠纷产品:</target>
+      </trans-unit>
+      <trans-unit id="0217ceef61df405a8f1b55fa8ddf9db0" resname="Leave your remarks here">
+        <source>Leave your remarks here</source>
+        <target>请在此留下评论</target>
+      </trans-unit>
+      <trans-unit id="a38bd5138bf35514df41a1795ebbf5c3" resname="OPEN">
+        <source>OPEN</source>
+        <target>关闭</target>
+      </trans-unit>
+      <trans-unit id="110ccf2f5d2ff4eda1fd1a494293467d" resname="CLOSED">
+        <source>CLOSED</source>
+        <target>打开</target>
+      </trans-unit>
+      <trans-unit id="ccb168b5a6a86eb100dc2dee754a316b" resname="Reason:">
+        <source>Reason:</source>
+        <target>__Reason:</target>
+      </trans-unit>
+      <trans-unit id="a274f4d4670213a9045ce258c6c56b80" resname="Notifications">
+        <source>Notifications</source>
+        <target>通知</target>
+      </trans-unit>
+      <trans-unit id="4c5dad7059e8fbad01cfddf659b1f1e0" resname="Account setting">
+        <source>Account setting</source>
+        <target>账户设置</target>
+      </trans-unit>
+      <trans-unit id="65f13145802f7e6f8f02c1d7d3afc32d" resname="Confirm your password">
+        <source>Confirm your password</source>
+        <target>__Confirm your password</target>
+      </trans-unit>
+      <trans-unit id="109fec06829bd79d222cfc8af52aaaf1" resname="Deactivate">
+        <source>Deactivate</source>
+        <target>删除账户</target>
+      </trans-unit>
+      <trans-unit id="b4e146e706e4a87ad29b44e1f8f556c6" resname="Confirm SMS Subscription Change">
+        <source>Confirm SMS Subscription Change</source>
+        <target>确认更新短信服务</target>
+      </trans-unit>
+      <trans-unit id="ee7dbd72229f2932b4c624e0294848be" resname="This Year">
+        <source>This Year</source>
+        <target>今年</target>
+      </trans-unit>
+      <trans-unit id="983268bc2eba161bbc25dd3e73ecdba0" resname="This Week">
+        <source>This Week</source>
+        <target>本周</target>
+      </trans-unit>
+      <trans-unit id="93f558cb7b3fc8ef642cfe051b63ad7b" resname="This Month">
+        <source>This Month</source>
+        <target>本月</target>
+      </trans-unit>
+      <trans-unit id="44749712dbec183e983dcd78a7736c41" resname="Date">
+        <source>Date</source>
+        <target>日期</target>
+      </trans-unit>
+      <trans-unit id="03ab340b3f99e03cff9e84314ead38c0" resname="Qty">
+        <source>Qty</source>
+        <target>数量</target>
+      </trans-unit>
+      <trans-unit id="7c9a3504dd4ce74b8021267ae1802968" resname="Payment Type">
+        <source>Payment Type</source>
+        <target>支付类型</target>
+      </trans-unit>
+      <trans-unit id="bbd3a18e6d45b8331cf8a715f3f0008d" resname="Order Status">
+        <source>Order Status</source>
+        <target>订单状态</target>
+      </trans-unit>
+      <trans-unit id="ac1d3ccc1bcfd04b713a97b7421639b5" resname="Transaction Number">
+        <source>Transaction Number</source>
+        <target>交易单号</target>
+      </trans-unit>
+      <trans-unit id="80ce9a0d01e8e876dc976ec61b24e57b" resname="* This transaction is currently flagged and is being reviewed by our Custom Service Department">
+        <source>* This transaction is currently flagged and is being reviewed by our Custom Service Department</source>
+        <target>__* This transaction is currently flagged and is being reviewed by our Custom Service Department</target>
+      </trans-unit>
+      <trans-unit id="3ec365dd533ddb7ef3d1c111186ce872" resname="Details">
+        <source>Details</source>
+        <target>详细信息</target>
+      </trans-unit>
+      <trans-unit id="76d27e36c60cd0af334f2a096c3d8f19" resname="Payment Type:">
+        <source>Payment Type:</source>
+        <target>支付类型:</target>
+      </trans-unit>
+      <trans-unit id="d5a141a2ec9057f27c80b07408de56d1" resname="Date Created:">
+        <source>Date Created:</source>
+        <target>创建日期:</target>
+      </trans-unit>
+      <trans-unit id="44c107462c394c020275ba5a0d23e167" resname="Total Quantity:">
+        <source>Total Quantity:</source>
+        <target>总数量:</target>
+      </trans-unit>
+      <trans-unit id="856ab109229e8acfcddd5c6766a8d956" resname="Subtotal:">
+        <source>Subtotal:</source>
+        <target>小计:</target>
+      </trans-unit>
+      <trans-unit id="d711c9526faa9d7ce23bf020d54b1ab9" resname="Shipping Fee:">
+        <source>Shipping Fee:</source>
+        <target>运费:</target>
+      </trans-unit>
+      <trans-unit id="a131af32f37d590af9a959381d0b35d9" resname="Total Cost:">
+        <source>Total Cost:</source>
+        <target>除了邮件，您将通过手机收到系统信息。您可以选择是否接受短信通知:</target>
+      </trans-unit>
+      <trans-unit id="7a81290ee441a191f9b57490136f0390" resname="Upload your document">
+        <source>Upload your document</source>
+        <target>上传您的文件</target>
+      </trans-unit>
+      <trans-unit id="91412465ea9169dfd901dd5e7c96dd99" resname="Upload">
+        <source>Upload</source>
+        <target>上传</target>
+      </trans-unit>
+      <trans-unit id="292659c2de7f3de1a9ab2abfef6839a4" resname="Uploaded Documents">
+        <source>Uploaded Documents</source>
+        <target>__Uploaded Documents</target>
+      </trans-unit>
+      <trans-unit id="f20b9ab6ef06a2badfadccc493594b1e" resname="Communication Rating:">
+        <source>Communication Rating:</source>
+        <target>服务态度:</target>
+      </trans-unit>
+      <trans-unit id="929b941f12e55db2ba1777b3e33b2984" resname="Quality Rating:">
+        <source>Quality Rating:</source>
+        <target>质量评价:</target>
+      </trans-unit>
+      <trans-unit id="b1c94ca2fbc3e78fc30069c8d0f01680" resname="All">
+        <source>All</source>
+        <target>所有</target>
+      </trans-unit>
+      <trans-unit id="600d05c2f80f542047d0ecec1ba57f7b" resname="Replacement Policy">
+        <source>Replacement Policy</source>
+        <target>退换</target>
+      </trans-unit>
+      <trans-unit id="4337f2520c18528cac9f46239191f22b" resname="Store Location">
+        <source>Store Location</source>
+        <target>商铺地址</target>
+      </trans-unit>
+      <trans-unit id="80029e057164f3699117504b74515267" resname="Need Assistance?">
+        <source>Need Assistance?</source>
+        <target>需帮助？</target>
+      </trans-unit>
+      <trans-unit id="4d39e1ab74389429ae59abb683404a0a" resname="SEND MESSAGE">
+        <source>SEND MESSAGE</source>
+        <target>发送信息</target>
+      </trans-unit>
+      <trans-unit id="1432f32780bbd9cde496343b060fd75d" resname="Send Message">
+        <source>Send Message</source>
+        <target>发送信息</target>
+      </trans-unit>
+      <trans-unit id="2595b9c83ec46aa0a62aaf543d304f6e" resname="Enter your message here">
+        <source>Enter your message here</source>
+        <target>请在此处填写信息</target>
+      </trans-unit>
+      <trans-unit id="4ad2e4b3f0d592a1aa4614958c58f2e5" resname="Unfollow Seller">
+        <source>Unfollow Seller</source>
+        <target>离开卖家页面</target>
+      </trans-unit>
+      <trans-unit id="52a3a5c42c601b74d83f6c2031c0405a" resname="Follow Seller">
+        <source>Follow Seller</source>
+        <target>__Follow Seller</target>
+      </trans-unit>
+      <trans-unit id="8f7f4c1ce7a4f933663d10543562b096" resname="About">
+        <source>About</source>
+        <target>关于</target>
+      </trans-unit>
+      <trans-unit id="f6f7c63f5827e7de0da04d8e5f4fd791" resname="What People">
+        <source>What People</source>
+        <target>什么人？</target>
+      </trans-unit>
+      <trans-unit id="11c1dffbce1dc2f6b51f30790cec9734" resname="Are saying">
+        <source>Are saying</source>
+        <target>__Are saying</target>
+      </trans-unit>
+      <trans-unit id="80a11d2a54a677f6fadd9c041c0d6b98" resname="Store Information">
+        <source>Store Information</source>
+        <target>店铺信息</target>
+      </trans-unit>
+      <trans-unit id="2ab3354648e12695bb775913ea90af73sddf232f" resname="Feedback">
+        <source>Feedback</source>
+        <target>客户反馈</target>
+      </trans-unit>
+      <trans-unit id="2ab3354648e12695bb775913ea90af73" resname="Feedbacks">
+        <source>Feedbacks</source>
+        <target>评价</target>
+      </trans-unit>
+      <trans-unit id="21b6eeed33c519ce823cd63780c2c57d" resname="Search For Products">
+        <source>Search For Products</source>
+        <target>搜索商品</target>
+      </trans-unit>
+      <trans-unit id="f505975b98ace0e7950192992cdb7c4a" resname="Men's Shoes">
+        <source>Men's Shoes</source>
+        <target>__Men's Shoes</target>
+      </trans-unit>
+      <trans-unit id="b00ecbe763966ce2b654ad96c5282361" resname="Resend Email Verification">
+        <source>Resend Email Verification</source>
+        <target>重新发送电子邮件验证</target>
+      </trans-unit>
+      <trans-unit id="b6d4223e60986fa4c9af77ee5f7149c5" resname="Sign in">
+        <source>Sign in</source>
+        <target>登陆</target>
+      </trans-unit>
+      <trans-unit id="0ba7583639a274c434bbe6ef797115a4" resname="Register">
+        <source>Register</source>
+        <target>注册</target>
+      </trans-unit>
+      <trans-unit id="38c8c1f4156fa91158ebbcee727da0b0" resname="Forgot Password?">
+        <source>Forgot Password?</source>
+        <target>忘记密码?</target>
+      </trans-unit>
+      <trans-unit id="babc2ec4735ad9526c9998701c1d7386" resname="Lorem ipsum dolor sit amet, consectetur">
+        <source>Lorem ipsum dolor sit amet, consectetur</source>
+        <target>__Lorem ipsum dolor sit amet, consectetur</target>
+      </trans-unit>
+      <trans-unit id="6574f322a764d4892119ddf83f22bbd8" resname="Merge with Social Media Account">
+        <source>Merge with Social Media Account</source>
+        <target>与社交媒体账号绑定</target>
+      </trans-unit>
+      <trans-unit id="6d28dfbb40f33ec862f86882e9c238a0" resname="Browse our products">
+        <source>Browse our products</source>
+        <target>商品浏览</target>
+      </trans-unit>
+      <trans-unit id="6072e83b7f35887c76e64920bd370f4a" resname="Reset Password">
+        <source>Reset Password</source>
+        <target>重置密码</target>
+      </trans-unit>
+      <trans-unit id="032fc2734c7c9e8c48dcfbf9f4d6326d" resname="YiLinker - All you need in one place">
+        <source>YiLinker - All you need in one place</source>
+        <target>__YiLinker - All you need in one place</target>
+      </trans-unit>
+      <trans-unit id="81151a1669ebd695e837f304a0d8ec79" resname="Coming soon">
+        <source>Coming soon</source>
+        <target>即将推出</target>
+      </trans-unit>
+      <trans-unit id="d41d8cd98f00b204e9800998ecf8427e" resname="">
+        <source></source>
+        <target>__</target>
+      </trans-unit>
+      <trans-unit id="658b018e59065bff6b2125ec44c36b5d" resname="Be a Buyer">
+        <source>Be a Buyer</source>
+        <target>成为买家</target>
+      </trans-unit>
+      <trans-unit id="d111635607b07e841244eac816a84d2b" resname="Be a Seller">
+        <source>Be a Seller</source>
+        <target>成为卖家</target>
+      </trans-unit>
+      <trans-unit id="329183be5a1da825c32eb2004e825503" resname="Join Now">
+        <source>Join Now</source>
+        <target>现在加入</target>
+      </trans-unit>
+      <trans-unit id="053df29286561cadb75293e0dcdd65c6" resname="Be an Affiliate">
+        <source>Be an Affiliate</source>
+        <target>成为会员</target>
+      </trans-unit>
+      <trans-unit id="f5395c9793af8a11b406ca7c1ac70da9" resname="Learn More">
+        <source>Learn More</source>
+        <target>了解更多信息</target>
+      </trans-unit>
+      <trans-unit id="5cab4e6342319b6ad365fcaaade2d06b" resname="Stay tuned! You can subscribe to our newsletter to get">
+        <source>Stay tuned! You can subscribe to our newsletter to get</source>
+        <target>__Stay tuned! You can subscribe to our newsletter to get</target>
+      </trans-unit>
+      <trans-unit id="0206accaf32c13720441e3adbbc09290" resname="a notification when we launch!">
+        <source>a notification when we launch!</source>
+        <target>__a notification when we launch!</target>
+      </trans-unit>
+      <trans-unit id="45b73ef479821e71be9f69a190f2bb86" resname="SUBSCRIBE">
+        <source>SUBSCRIBE</source>
+        <target>订阅</target>
+      </trans-unit>
+      <trans-unit id="a081bbfc52168e1ce91238bd6fb27dcf" resname="+63 977-7265481">
+        <source>+63 977-7265481</source>
+        <target>__+63 977-7265481</target>
+      </trans-unit>
+      <trans-unit id="03b55d8ed61b625c209cc42ea0a35b8c" resname="Thank You!">
+        <source>Thank You!</source>
+        <target>谢谢！</target>
+      </trans-unit>
+      <trans-unit id="9d592ff6b2e387a64aef155a1f478a56" resname="See you Soon!">
+        <source>See you Soon!</source>
+        <target>__See you Soon!</target>
+      </trans-unit>
+      <trans-unit id="e990b6285ed2a575c561235378a5e691" resname="Out of Stock">
+        <source>Out of Stock</source>
+        <target>__Out of Stock</target>
+      </trans-unit>
+      <trans-unit id="2e7b98e864e4018e01209ea80f66e712" resname="out of stock">
+        <source>out of stock</source>
+        <target>__out of stock</target>
+      </trans-unit>
+      <trans-unit id="3d9fc44c67766954b12410d1ba835722" resname="Description &amp;amp; Specifications">
+        <source>Description &amp;amp; Specifications</source>
+        <target><![CDATA[__Description &amp; Specifications]]></target>
+      </trans-unit>
+      <trans-unit id="e2449e94370ab2208e6bc5c387975999" resname="Buyer Reviews">
+        <source>Buyer Reviews</source>
+        <target>买家评论</target>
+      </trans-unit>
+      <trans-unit id="22940c038891698eeded778f249e5ccd" resname="Special Offers">
+        <source>Special Offers</source>
+        <target>特别优惠</target>
+      </trans-unit>
+      <trans-unit id="2d25c72c1b18e562f6654fff8e11711e" resname="Not available">
+        <source>Not available</source>
+        <target>无效</target>
+      </trans-unit>
+      <trans-unit id="9e813107dc6c11ab7e59287342fc2655" resname="Top Brands">
+      	<source>Top Brands</source>
+      	<target>顶级大牌</target>
+      </trans-unit>
+      <trans-unit id="6ca112c81ca4d132881f394a2e76e30b" resname="Shop This Brand">
+      	<source>Shop This Brand</source>
+      	<target>购买</target>
+      </trans-unit>
+      <trans-unit id="866ec3b56be671ed3cccb3443fc42482" resname="Top Categories">
+      	<source>Top Categories</source>
+      	<target>热门分类</target>
+      </trans-unit>
+      <trans-unit id="66e62da010cc26ad96d9bd574c97bf32" resname="Get Our App for FREE">
+      	<source>Get Our App for FREE</source>
+      	<target>下载免费app</target>
+      </trans-unit>
+      <trans-unit id="4b0c65982dea1e8b7026bcdf1c591559" resname="Shop Now">
+      	<source>Shop Now</source>
+      	<target>购买</target>
+      </trans-unit>
+      <trans-unit id="daa459b7afc22950ebea9c1ac580c912" resname="Free Shipping Nationwide">
+      	<source>Free Shipping Nationwide</source>
+      	<target>全国免费送货</target>
+      </trans-unit>
+      <trans-unit id="535aa7513a15e07771743186dced48c0" resname="No minimum purchase required">
+      	<source>No minimum purchase required</source>
+      	<target>无需最低购买价</target>
+      </trans-unit>
+      <trans-unit id="a660b892172c7efbac35d6136df4f99d" resname="7-day return">
+      	<source>7-day return</source>
+      	<target>7天退货</target>
+      </trans-unit>
+      <trans-unit id="381712fa6fa2a5790562f9b488bb2f7b" resname="Money back guaranteed">
+      	<source>Money back guaranteed</source>
+      	<target>退款保证</target>
+      </trans-unit>
+      <trans-unit id="b2a08288b60ffa94bcfda2b2d6045006" resname="24/7 Support">
+      	<source>24/7 Support</source>
+      	<target>24/7技术支持</target>
+      </trans-unit>
+      <trans-unit id="eb15e81d7b0cbbdfeb8f3decbc8c7c62" resname="Online help">
+      	<source>Online help</source>
+      	<target>在线帮助</target>
+      </trans-unit>
+      <trans-unit id="bf41fac320ffe99d1669a66cac1d5640" resname="Safe Shopping">
+      	<source>Safe Shopping</source>
+      	<target>安全购物</target>
+      </trans-unit>
+      <trans-unit id="9a86a548262b8f7b9c73db2878ef47b0" resname="Product guaranteed">
+      	<source>Product guaranteed</source>
+      	<target>产品保证</target>
+      </trans-unit>
+      <trans-unit id="e152f05e375a55f266d09587bea53081" resname="To Do business">
+      	<source>To Do business</source>
+      	<target>合作商</target>
+      </trans-unit>
+      <trans-unit id="d05fb20ac6055cdb789dcf20c8999b10" resname="Login as seller">
+      	<source>Login as seller</source>
+      	<target>卖家登录</target>
+      </trans-unit>
+      <trans-unit id="0c595be5eaab6af294f15ebe3e59e6d0" resname="Login as affiliate">
+      	<source>Login as affiliate</source>
+      	<target>公司登录</target>
+      </trans-unit>
+      <trans-unit id="738f3d8b5c72a8cbb8381b75c5b6fcf8" resname="English">
+      	<source>English</source>
+      	<target>英语</target>
+      </trans-unit>
+      <trans-unit id="9638cfd171cc88330eafd8643a8e9b24" resname="Chinese">
+      	<source>Chinese</source>
+      	<target>中文</target>
+      </trans-unit>
+      <trans-unit id="a14ccbb1e47b0af1c6328dba2bd8a893" resname="Canada">
+      	<source>Canada</source>
+      	<target>加拿大</target>
+      </trans-unit>
+      <trans-unit id="28614658f5e51a3b2e44831265aac76d" resname="For IOS">
+      	<source>For IOS</source>
+      	<target>IOS</target>
+      </trans-unit>
+      <trans-unit id="9c82182eba64867dd78eadb274764f0b" resname="For Android">
+      	<source>For Android</source>
+      	<target>Android</target>
+      </trans-unit>
+      <trans-unit id="bd126a1099f9c6561d28d4575f099542" resname="Complaints">
+      	<source>Complaints</source>
+      	<target>投诉</target>
+      </trans-unit>
+      <trans-unit id="c37243dbfc7ea3ae86527cfb8c78f9f3" resname="You have">
+      	<source>You have</source>
+      	<target>您有</target>
+      </trans-unit>
+      <trans-unit id="2f8eb9614010b2b8a2b65a8b51141cd8" resname="on your cart">
+      	<source>on your cart</source>
+      	<target>件商品，在您的购物车中</target>
+      </trans-unit>
+      <trans-unit id="83772ac42669480e27237bd82bbc42ea" resname="Download our app (via QR Code)">
+      	<source>Download our app (via QR Code)</source>
+      	<target>扫描二维码，下载app</target>
+      </trans-unit>
+      <trans-unit id="c6877920abd31cac4ec35bc8446fa296" resname="for apple">
+      	<source>for apple</source>
+      	<target>apple</target>
+      </trans-unit>
+      <trans-unit id="c11d85aee52a7f13e71948213e2d994b" resname="for android">
+      	<source>for android</source>
+      	<target>android</target>
+      </trans-unit>
+      <trans-unit id="273e8971711d49a9c5a64f1d9271fa6f" resname="Contact Us">
+      	<source>Contact Us</source>
+      	<target>联系我们</target>
+      </trans-unit>
+      <trans-unit id="37da40baaa13f2eab08fa32e2108c4fc" resname="Electric bicycle">
+      	<source>Electric bicycle</source>
+      	<target>电动自行车</target>
+      </trans-unit>
+      <trans-unit id="df888c9b81a3c3633464c10b8821e248" resname="Shoes in one place">
+      	<source>Shoes in one place</source>
+      	<target>一站式购物商城</target>
+      </trans-unit>
+      <trans-unit id="2ca8f71af1e5ef8b2b36754b2e99f40e" resname="Camera in one place">
+      	<source>Camera in one place</source>
+      	<target>一站式购物商城</target>
+      </trans-unit>
+      <trans-unit id="6824cd35c9ffe34f5dde5c5ec3c04353" resname="Password reset success.">
+      	<source>Password reset success.</source>
+      	<target>密码重置成功。</target>
+      </trans-unit>
+      <trans-unit id="a27642eea02355ac82aca5eb5e9e576a" resname="Email Verified.">
+      	<source>Email Verified.</source>
+      	<target>电子邮件验证。</target>
+      </trans-unit>
+      <trans-unit id="c611f8208e56c5f742c568e46a72788c" resname="Failed merging account. Please try again later.">
+      	<source>Failed merging account. Please try again later.</source>
+      	<target>合并失败帐户。 请稍后再试。</target>
+      </trans-unit>
+      <trans-unit id="83294a8292872bd90c2287ea753a65df" resname="Failed merging account. Account is already registered.">
+      	<source>Failed merging account. Account is already registered.</source>
+      	<target>合并失败帐户。帐户已注册。</target>
+      </trans-unit>
+      <trans-unit id="34bd36dd3305fd876243ad5bb5550199" resname="Enter your email or contact number here">
+      	<source>Enter your email or contact number here</source>
+      	<target>输入您的电子邮件或联系号码</target>
+      </trans-unit>
+      <trans-unit id="5600dad5bac9dcec1d7e8321a4d528d1" resname="Remember Me">
+      	<source>Remember Me</source>
+      	<target>记住我</target>
+      </trans-unit>
+      <trans-unit id="b1a534e9620fb22e41394c2e5e34c99c" resname="Sign in with social media">
+      	<source>Sign in with social media</source>
+      	<target>第三方登录</target>
+      </trans-unit>
+      <trans-unit id="e3cfd2491a93dfcd4788cd39992a8e2b" resname="Confirmation Code*">
+      	<source>Confirmation Code*</source>
+      	<target>验证码*</target>
+      </trans-unit>
+      <trans-unit id="1c71db089e89e113f0de17620a1d5b97" resname="Edit Address">
+      	<source>Edit Address</source>
+      	<target>修改地址</target>
+      </trans-unit>
+      <trans-unit id="12de522e928fdcc3ef3deee10870207e" resname="Delete Address">
+      	<source>Delete Address</source>
+      	<target>删除地址</target>
+      </trans-unit>
+      <trans-unit id="054eaa06849e6d26e810b39b9fc46018" resname="Mark your Address">
+      	<source>Mark your Address</source>
+      	<target>标记您的地址</target>
+      </trans-unit>
+      <trans-unit id="a51cb8eb695a61d15294994f1ead2224" resname="Mark Location">
+      	<source>Mark Location</source>
+      	<target>标记地址</target>
+      </trans-unit>
+      <trans-unit id="4b4a05c009892d7e60b032411f6feb46" resname="Feedback for Product">
+      	<source>Feedback for Product</source>
+      	<target>产品反馈</target>
+      </trans-unit>
+      <trans-unit id="4d2e66400e756d8d900211c4c9b95bc9" resname="Feedback title and content cannot be empty">
+      	<source>Feedback title and content cannot be empty</source>
+      	<target>反馈标题和内容不能为空</target>
+      </trans-unit>
+      <trans-unit id="bd35033feb72045616dc1795bcd31754" resname="Let other people know what you think about this product.">
+      	<source>Let other people know what you think about this product.</source>
+      	<target>让其他人知道一下这款产品。</target>
+      </trans-unit>
+      <trans-unit id="e9be283d4eb05d7c9099b69c0d8127e2" resname="Rating:">
+      	<source>Rating:</source>
+      	<target>等级：</target>
+      </trans-unit>
+      <trans-unit id="b68019a8669af0d07a55780a5f551b53" resname="Enter review title here">
+      	<source>Enter review title here</source>
+      	<target>在此输入评论标题</target>
+      </trans-unit>
+      <trans-unit id="bd3145113eaf10c6d0d8cac339c02793" resname="Leave a comment">
+      	<source>Leave a comment</source>
+      	<target>发表评论</target>
+      </trans-unit>
+      <trans-unit id="e8a36e51daed3219f120a6b55e89f31f" resname="Cancel">
+      	<source>Cancel</source>
+      	<target>取消</target>
+      </trans-unit>
+      <trans-unit id="1e8ae4be843fb24bd4169760d9e237aa" resname="Submit">
+      	<source>Submit</source>
+      	<target>提交</target>
+      </trans-unit>
+      <trans-unit id="f7bd667f88db1bb498c8de7acc7bcc11" resname="Feedback for Seller">
+      	<source>Feedback for Seller</source>
+      	<target>卖家反馈</target>
+      </trans-unit>
+      <trans-unit id="ab14cfd3a277e2ef7ac8dcdb1172eb02" resname="Product List">
+      	<source>Product List</source>
+      	<target>产品列表</target>
+      </trans-unit>
+      <trans-unit id="6993cf1cf978a5a7662b00b4b2a3e47f" resname="Quantity:">
+      	<source>Quantity:</source>
+      	<target>数量：</target>
+      </trans-unit>
+      <trans-unit id="d33b52c3a0a525624f26f6b1bcf21354" resname="Details:">
+      	<source>Details:</source>
+      	<target>联系方式：</target>
+      </trans-unit>
+      <trans-unit id="e435a218fa5be24f307b8f08688d59da" resname="Condition:">
+      	<source>Condition:</source>
+      	<target>条件：</target>
+      </trans-unit>
+      <trans-unit id="51ef4b452c5a08031850e2570d13a0e0" resname="Product Price:">
+      	<source>Product Price:</source>
+      	<target>产品价格：</target>
+      </trans-unit>
+      <trans-unit id="377c364e2e40f1ba9fc6d1d34613d3dc" resname="Brand:">
+      	<source>Brand:</source>
+      	<target>品牌：</target>
+      </trans-unit>
+      <trans-unit id="16d8803ec0101f032d55259774b86cd8" resname="Status:">
+      	<source>Status:</source>
+      	<target>状态：</target>
+      </trans-unit>
+      <trans-unit id="85ab1fd98b16077ebb04d52fb6e06a30" resname="Total:">
+      	<source>Total:</source>
+      	<target>总计：</target>
+      </trans-unit>
+      <trans-unit id="2cb588b0dfbad832b1946f74ba3e85be" resname="Feedback to Seller">
+      	<source>Feedback to Seller</source>
+      	<target>反馈给卖家</target>
+      </trans-unit>
+      <trans-unit id="558964986d2013748f7e0a5f915d0511" resname="Go to seller page">
+      	<source>Go to seller page</source>
+      	<target>转到卖家页面</target>
+      </trans-unit>
+      <trans-unit id="3bae6ffb7dfde2387938fc5cfb6ef1e7" resname="Activity Log">
+      	<source>Activity Log</source>
+      	<target>活动日志</target>
+      </trans-unit>
+      <trans-unit id="1c5f7c4f720fc0d721147c43b968b8c9" resname="Information">
+      	<source>Information</source>
+      	<target>个人信息</target>
+      </trans-unit>
+      <trans-unit id="17cbb492673e40b1cf46b19e152074e8" resname="Followed Seller">
+      	<source>Followed Seller</source>
+      	<target>关注的卖家</target>
+      </trans-unit>
+      <trans-unit id="d86353f4a2e811a3c1156f6e6cb0d85c" resname="Activity Log">
+      	<source>Activity Log</source>
+      	<target>操作日志</target>
+      </trans-unit>
+      <trans-unit id="97bce77e45e44adc67443ebb032c5909" resname="Upload Document">
+      	<source>Upload Document</source>
+      	<target>上传文档</target>
+      </trans-unit>
+      <trans-unit id="d3282750dff125834f488a26a4fc7404" resname="OOOooops!!!">
+      	<source>OOOooops!!!</source>
+      	<target>噢！</target>
+      </trans-unit>
+      <trans-unit id="ec27d7482142b000efe711e10a886b99" resname="It looks like you haven't followed any Sellers yet. Checkout our homepage and follow some of the best Sellers that we have on YiLinker.">
+      	<source>It looks like you haven't followed any Sellers yet. Checkout our homepage and follow some of the best Sellers that we have on YiLinker.</source>
+      	<target>你好像还没有关注的卖家，去主页逛逛然后关注一些卖家吧！</target>
+      </trans-unit>
+      <trans-unit id="d531601e6b7be8d71f137e8f62bc06bc" resname="Help">
+      	<source>Help</source>
+      	<target>帮助</target>
+      </trans-unit>
+      <trans-unit id="5e794c742fdd17785c4cd95572782615" resname="Basic Information">
+      	<source>Basic Information</source>
+      	<target>基本信息</target>
+      </trans-unit>
+      <trans-unit id="ba56fb5a52f92e00b75ca46be3912267" resname="Email verification sent.">
+      	<source>Email verification sent.</source>
+      	<target>电子邮件发送的验证。</target>
+      </trans-unit>
+      <trans-unit id="7e43051fa4d009a9b6758d1ea4f893ad" resname="Something went wront. Please try again later">
+      	<source>Something went wront. Please try again later</source>
+      	<target>出了些问题。 请稍后再试</target>
+      </trans-unit>
+      <trans-unit id="8562c5ca62f7fd47e268473a505f9677" resname="Information successfully updated.">
+      	<source>Information successfully updated.</source>
+      	<target>信息更新成功。</target>
+      </trans-unit>
+      <trans-unit id="42ed6c5cde6a87df422a4a50a66009d0" resname="Mobile Number">
+      	<source>Mobile Number</source>
+      	<target>手机号</target>
+      </trans-unit>
+      <trans-unit id="32c0922fd4aec3088da6a727984bb9f7" resname="Mobile number is not yet verified.">
+      	<source>Mobile number is not yet verified.</source>
+      	<target>手机号码尚未验证。</target>
+      </trans-unit>
+      <trans-unit id="cf7f6fad0ae11a7d78157e369f68eed2" resname="Kindly enter your contact number.">
+      	<source>Kindly enter your contact number.</source>
+      	<target>请输入您的联系号码。</target>
+      </trans-unit>
+      <trans-unit id="7f9fab8c493b0cac5425fb4ac20875c6" resname="Verified mobile number">
+      	<source>Verified mobile number</source>
+      	<target>验证手机号码</target>
+      </trans-unit>
+      <trans-unit id="63bdc731dda872cc454dcc07b3343dd5" resname="Transaction">
+      	<source>Transaction</source>
+      	<target>交易</target>
+      </trans-unit>
+      <trans-unit id="0b6fbfaeb6d78ae5e3089723ce99745f" resname="All Transactions">
+      	<source>All Transactions</source>
+      	<target>全部交易</target>
+      </trans-unit>
+      <trans-unit id="88c46aad7c6f0d28c4d6afe111c6a5f2" resname="On-Delivery">
+      	<source>On-Delivery</source>
+      	<target>投递中</target>
+      </trans-unit>
+      <trans-unit id="d13c915752671bbe34f56d7068d71045" resname="For Feedback">
+      	<source>For Feedback</source>
+      	<target>对于反馈</target>
+      </trans-unit>
+      <trans-unit id="14abbd207d062486d781e32c2a1f6207" resname="Your inbox is currently empty.">
+      	<source>Your inbox is currently empty.</source>
+      	<target>您的消息暂时为空。</target>
+      </trans-unit>
+      <trans-unit id="28e82f582c66f949bc84f9937b8c6d9c" resname="But it doesn't have to be this way. Check out our diverse list of sellers and start inquiring about the products that they have to offer.">
+      	<source>But it doesn't have to be this way. Check out our diverse list of sellers and start inquiring about the products that they have to offer.</source>
+      	<target>没关系，来向我们的卖家咨询他们的商品信息吧。</target>
+      </trans-unit>
+      <trans-unit id="3e0bcaa8f7f58019d2710b8baeb5d297" resname="You can use your points to purchase items from all the available Yilinker Online stores.">
+      	<source>You can use your points to purchase items from all the available Yilinker Online stores.</source>
+      	<target>您可以使用您的积分从所有可用的Yilinker网上商店购买物品。</target>
+      </trans-unit>
+      <trans-unit id="007ff5d71cf39a86e2259e693c52fabf" resname="Points">
+      	<source>Points</source>
+      	<target>积分</target>
+      </trans-unit>
+      <trans-unit id="f8b6f880904f5ab77b9baea5ab69a512" resname="We understand how frustrating it can be when there's a problem with one of your transactions. One of the benefits of using Aeneasusa is that you can take advantage of our Resolution Center to help you track, manage and resolve it as quickly as possible with absolute transparency.">
+      	<source>We understand how frustrating it can be when there's a problem with one of your transactions. One of the benefits of using Aeneasusa is that you can take advantage of our Resolution Center to help you track, manage and resolve it as quickly as possible with absolute transparency.</source>
+      	<target>我们能够理解在您的交易中出现问题是多么令人沮丧。Aeneasusa争议调解中心将尽快帮助你，使用绝对透明的方式来跟踪，管理和解决争议。</target>
+      </trans-unit>
+      <trans-unit id="e29732f037c12209e1dd874a76ea061b" resname="Before filing for a dispute, please make sure that you've exhausted all efforts in reaching an agreement with the the other party. Decisions made by our specialists will be deemed final and will only be reopened when new evidence has been presented by one of the parties. We try to resolve cases as quickly as possible, but some may take longer depending on its circumstances.">
+      	<source>Before filing for a dispute, please make sure that you've exhausted all efforts in reaching an agreement with the the other party. Decisions made by our specialists will be deemed final and will only be reopened when new evidence has been presented by one of the parties. We try to resolve cases as quickly as possible, but some may take longer depending on its circumstances.</source>
+      	<target>在提出争议之前，请确保您已经尽力希望与对方达成一致。由我们的专家作出的决定将被视为最终决定，并且只有在某一方提出新的证据时才会重新启动此争议。我们尽可能迅速地解决问题，但有些争议根据情况可能需要花费较长时间。</target>
+      </trans-unit>
+      <trans-unit id="a6088b273b1153a279743132c28172b5" resname="File a dispute">
+      	<source>File a dispute</source>
+      	<target>争议文件</target>
+      </trans-unit>
+      <trans-unit id="02c013d409e36985861c004655372b08" resname="Open">
+      	<source>Open</source>
+      	<target>打开</target>
+      </trans-unit>
+      <trans-unit id="82443029f1e6a75c776ef73ad9bee8fb" resname="Closed">
+      	<source>Closed</source>
+      	<target>关闭</target>
+      </trans-unit>
+      <trans-unit id="e7dc87ba1996970a3b9848ad4e0f377f" resname="No case found">
+      	<source>No case found</source>
+      	<target>没有找到的情况下</target>
+      </trans-unit>
+      <trans-unit id="74afe286a9bf247030af5982b4cab2f2" resname="Dispute Type">
+      	<source>Dispute Type</source>
+      	<target>争议类型</target>
+      </trans-unit>
+      <trans-unit id="87f302cff6b6374d9e9ec8f68b907be1" resname="Select dispute type here">
+      	<source>Select dispute type here</source>
+      	<target>在此选择的争议类型</target>
+      </trans-unit>
+      <trans-unit id="87032da7eb463d2aec0c8658a413207a" resname="Transaction No.">
+      	<source>Transaction No.</source>
+      	<target>交易编号</target>
+      </trans-unit>
+      <trans-unit id="20ac6476f48e179c25d973cc52e492f9" resname="Select transaction here">
+      	<source>Select transaction here</source>
+      	<target>在此选择交易</target>
+      </trans-unit>
+      <trans-unit id="855371a6486341acaf44b52e345cb3fe" resname="Select reason here">
+      	<source>Select reason here</source>
+      	<target>在此选择的原因</target>
+      </trans-unit>
+      <trans-unit id="e0d389ca509f24415c0c2310a9d2799d" resname="Select item to dispute:">
+      	<source>Select item to dispute:</source>
+      	<target>选择项争议：</target>
+      </trans-unit>
+      <trans-unit id="f8964d720cafca08d7416c2e8b7543ff" resname="Remarks">
+      	<source>Remarks</source>
+      	<target>备注</target>
+      </trans-unit>
+      <trans-unit id="79652e77ddce072851c0d6cecf968208" resname="Leave your remarks here">
+      	<source>Leave your remarks here</source>
+      	<target>留下您的言论</target>
+      </trans-unit>
+      <trans-unit id="b4b4edb411373db35493eea324799671" resname="Your case has been successfully submitted">
+      	<source>Your case has been successfully submitted</source>
+      	<target>你的情况我已经成功提交</target>
+      </trans-unit>
+      <trans-unit id="d04b37d421b344089c11a8f07784cebc" resname="To be approved by Admin.">
+      	<source>To be approved by Admin.</source>
+      	<target>要通过管理员的批准。</target>
+      </trans-unit>
+      <trans-unit id="7d4a4794d7ea37e5fb8c6e66156d43e5" resname="Okay">
+      	<source>Okay</source>
+      	<target>好的</target>
+      </trans-unit>
+      <trans-unit id="45d8c96baead53a1a0927f76ca3f765c" resname="Status:">
+      	<source>Status:</source>
+      	<target>状态：</target>
+      </trans-unit>
+      <trans-unit id="cf26ad5c80b79987b6a7d9f6f46521e0" resname="OPEN">
+      	<source>OPEN</source>
+      	<target>开</target>
+      </trans-unit>
+      <trans-unit id="c23054e30b59446730bbde3dfa07f030" resname="CLOSED">
+      	<source>CLOSED</source>
+      	<target>关</target>
+      </trans-unit>
+      <trans-unit id="d70e66827cbb30d44bb9c9f1dcd217c8" resname="Contacts">
+      	<source>Contacts</source>
+      	<target>联系人</target>
+      </trans-unit>
+      <trans-unit id="4e333daed3fdfa6d84aaa8313b3ccee8" resname="on your wishlist">
+      	<source>on your wishlist</source>
+      	<target>件商品，在您的关注栏中</target>
+      </trans-unit>
+      <trans-unit id="13aa4962fd4d63596eb3585c16370a3c" resname="You have 0 items on your wishlist">
+      	<source>You have 0 items on your wishlist</source>
+      	<target>您还没有关注的商品</target>
+      </trans-unit>
+      <trans-unit id="323116c331adfa27dc7fc5f51ae3f80f" resname="on your shopping cart">
+      	<source>on your shopping cart</source>
+      	<target>件商品，在您的购物车中</target>
+      </trans-unit>
+      <trans-unit id="007b95143d17890a60888c84e877af38" resname="See More">
+      	<source>See More</source>
+      	<target>查看更多</target>
+      </trans-unit>
+      <trans-unit id="e2debeab22ae1a4aad7a24aedb6f3faa" resname="Enter your verification code">
+      	<source>Enter your verification code</source>
+      	<target>输入您的验证码</target>
+      </trans-unit>
+      <trans-unit id="eef9500733f7c483adf5c6241db8d786" resname="Aside from your email, you'll also receive marketing announcements on your mobile by default. You can choose whether you want to receive SMS notifications.">
+      	<source>Aside from your email, you'll also receive marketing announcements on your mobile by default. You can choose whether you want to receive SMS notifications.</source>
+      	<target>除了电子邮件，您还可以在您的手机默认收到营销公告。您可以选择是否要收到短信通知。</target>
+      </trans-unit>
+      <trans-unit id="34f19b9e80cd7752a71d72af0abc9316" resname="Deactivate My Account">
+      	<source>Deactivate My Account</source>
+      	<target>停用我的帐户</target>
+      </trans-unit>
+      <trans-unit id="880a613694397b65f0ce7ffad015c50f" resname="We'd really hate to see you go but, you still get to decide whether you want to keep your account active or deactivate it. Other people with whom you have transacted with will still have a record of your transactions details including, but not limited to your name and contact number. You will also receive an email that contains a reactivation link should you wish to reactivate your account at a future time.">
+      	<source>We'd really hate to see you go but, you still get to decide whether you want to keep your account active or deactivate it. Other people with whom you have transacted with will still have a record of your transactions details including, but not limited to your name and contact number. You will also receive an email that contains a reactivation link should you wish to reactivate your account at a future time.</source>
+      	<target>我们会很讨厌看到你离开，但你仍然可以决定是否要保留您的帐户主动或停用。与你曾与办理其他人仍然将有你的交易记录详细信息，包括但不限于您的姓名和联系电话。您还将收到包含如果您希望在将来某个时候重新激活您的帐号激活一个链接的电子邮件。</target>
+      </trans-unit>
+      <trans-unit id="c57b695764e8b218cdaa49406aae373b" resname="The password you entered is invalid.">
+      	<source>The password you entered is invalid.</source>
+      	<target>您输入的密码是无效的。</target>
+      </trans-unit>
+      <trans-unit id="ee750760112677873d9f6d3ce171c3f8" resname="Please enter your password to confirm your account deactivation.">
+      	<source>Please enter your password to confirm your account deactivation.</source>
+      	<target>请输入您的密码以确认您的帐户停用。</target>
+      </trans-unit>
+      <trans-unit id="d745af31d66efba0eac3d826f918c737" resname="Deactivate">
+      	<source>Deactivate</source>
+      	<target>停用</target>
+      </trans-unit>
+      <trans-unit id="c9476320ee2a6aebbaa0e3c35da754f0" resname="Account has been successfully deactivated.">
+      	<source>Account has been successfully deactivated.</source>
+      	<target>帐户已停用成功。</target>
+      </trans-unit>
+      <trans-unit id="57014d25e3a2ee771cdc99ca7ef738e8" resname="A reactivation email has been to your email should you wish to reneable your account.You will be logged out now.">
+      	<source>A reactivation email has been to your email should you wish to reneable your account.You will be logged out now.</source>
+      	<target>重新激活电子邮件已到您的电子邮件，你应该要重新启用自己的帐户。您现在将注销。</target>
+      </trans-unit>
+      <trans-unit id="4cb4be448797945cd3c8fde2be1cc29a" resname="Are you sure you want to proceed?">
+      	<source>Are you sure you want to proceed?</source>
+      	<target>你确定要继续？</target>
+      </trans-unit>
+      <trans-unit id="7c3ab079d9c7c8415443af37bec489f7" resname="You are about to change the subscription status of your active mobile number.">
+      	<source>You are about to change the subscription status of your active mobile number.</source>
+      	<target>您将要更改活动手机号码的预订状态。</target>
+      </trans-unit>
+      <trans-unit id="85a95b52b31198a7e51b5a77d7844ef7" resname="Payment Method">
+      	<source>Payment Method</source>
+      	<target>付款方法</target>
+      </trans-unit>
+      <trans-unit id="bcd45740847f5a33be0bf47338834424" resname="No transaction available">
+      	<source>No transaction available</source>
+      	<target>无交易</target>
+      </trans-unit>
+      <trans-unit id="144ae071e666e7770f7c937eab70989c" resname="Voucher Code:">
+      	<source>Voucher Code:</source>
+      	<target>优惠券码：</target>
+      </trans-unit>
+      <trans-unit id="e79d18d62d1e2cfe5fa3f62d0deb63eb" resname="Voucher Price Deduction:">
+      	<source>Voucher Price Deduction:</source>
+      	<target>券价格扣除：</target>
+      </trans-unit>
+      <trans-unit id="260e776a8d2303fc61c62223e0e54b4c" resname="Consignee">
+      	<source>Consignee</source>
+      	<target>收货人</target>
+      </trans-unit>
+      <trans-unit id="d1ff77d5cb9b8cbce3b24122438540ce" resname="Consignee Name:">
+      	<source>Consignee Name:</source>
+      	<target>收货人姓名：</target>
+      </trans-unit>
+      <trans-unit id="2cf2824f6e5cf49967cd4b6a301fef21" resname="Consignee Contact Number:">
+      	<source>Consignee Contact Number:</source>
+      	<target>收货人联系电话：</target>
+      </trans-unit>
+      <trans-unit id="f72344a736b38dd610e4194eeb197cb5" resname="Cancel Order">
+      	<source>Cancel Order</source>
+      	<target>取消订单</target>
+      </trans-unit>
+      <trans-unit id="a2a1ae516b4b9b843d220bf313a2dadd" resname="Feedback sent">
+      	<source>Feedback sent</source>
+      	<target>发送反馈</target>
+      </trans-unit>
+      <trans-unit id="bec9d58138ec8746e8b2aa404ba1b05e" resname="Feedback has been successfully submitted.">
+      	<source>Feedback has been successfully submitted.</source>
+      	<target>反馈已成功提交。</target>
+      </trans-unit>
+      <trans-unit id="8a4bcc33de47e87200f41150dbf50506" resname="Upload your document">
+      	<source>Upload your document</source>
+      	<target>上传文件</target>
+      </trans-unit>
+      <trans-unit id="472829aac05c9305cb49e135b7d3bce3" resname="Only PDF, PNG, JPEG files are accepted">
+      	<source>Only PDF, PNG, JPEG files are accepted</source>
+      	<target>仅PDF，PNG，JPG文件被接受</target>
+      </trans-unit>
+      <trans-unit id="93b1201f7aecd35be69c166fdd293fee" resname="Feedback title and content cannot be empty">
+      	<source>Feedback title and content cannot be empty</source>
+      	<target>反馈标题和内容不能为空</target>
+      </trans-unit>
+      <trans-unit id="1496c9ba1e5d6a984ae151b92e526d46" resname="Add a feedback to this store to let other people know what you think. Your opinions matter to us.">
+      	<source>Add a feedback to this store to let other people know what you think. Your opinions matter to us.</source>
+      	<target>反馈添加到这家店来让其他人知道你在想什么。您的意见对我们非常重要。</target>
+      </trans-unit>
+      <trans-unit id="d2763b269f85b62ab555b58f6c798d81" resname="Communication Rating:">
+      	<source>Communication Rating:</source>
+      	<target>通讯评级：</target>
+      </trans-unit>
+      <trans-unit id="c407ed42e1e41a6b386a25d05994a3a3" resname="Quality Rating:">
+      	<source>Quality Rating:</source>
+      	<target>质量等级：</target>
+      </trans-unit>
+      <trans-unit id="47e034c39b9a5b80284227c4b3777b3d" resname="Proceed">
+      	<source>Proceed</source>
+      	<target>继续</target>
+      </trans-unit>
+      <trans-unit id="49d8d2e8bbd947163ad9a7edd589ecbd" resname="Guest Checkout allows you to purchase from our website even if you aren't registered. After your purchase has been completed you'll still have the option to register for an account.">
+      	<source>Guest Checkout allows you to purchase from our website even if you aren't registered. After your purchase has been completed you'll still have the option to register for an account.</source>
+      	<target>客户结帐，您可以从我们的网站上购买，即使你还没有注册。购买完成后，你仍然必须注册帐户。</target>
+      </trans-unit>
+      <trans-unit id="1b388d2ffd451b83ac35dc7673c44ad5" resname="Verify Number">
+      	<source>Verify Number</source>
+      	<target>验证码</target>
+      </trans-unit>
+      <trans-unit id="87a865457d50527c5834bc2079cda068" resname="Verification code has been successfully resent">
+      	<source>Verification code has been successfully resent</source>
+      	<target>验证码已成功重置</target>
+      </trans-unit>
+      <trans-unit id="bbbe88e39eb4ce6c762321a8d5366b6f" resname="You are about to change your contact number, please ensure that your mobile phone is within reach before you proceed with this step.">
+      	<source>You are about to change your contact number, please ensure that your mobile phone is within reach before you proceed with this step.</source>
+      	<target>您将要改变你的联系电话，请确保您的手机内到达这一步再继续。</target>
+      </trans-unit>
+      <trans-unit id="8e3031c79846b083bf9f44ec62df2ff3" resname="Please enter the 6 digit code that was sent to your mobile phone">
+      	<source>Please enter the 6 digit code that was sent to your mobile phone</source>
+      	<target>请输入发送到您的手机的6位密码</target>
+      </trans-unit>
+      <trans-unit id="436ca97ef1fcc74ed1138b1f134005c3" resname="Time Left:">
+      	<source>Time Left:</source>
+      	<target>剩下的时间：</target>
+      </trans-unit>
+      <trans-unit id="9200ee476b539195fbb5239ee9b84c65" resname="Enter Code">
+      	<source>Enter Code</source>
+      	<target>输入号码</target>
+      </trans-unit>
+      <trans-unit id="40a9c44afc1a69671ee448aeb42db341" resname="Enter your verification code">
+      	<source>Enter your verification code</source>
+      	<target>输入您的验证码</target>
+      </trans-unit>
+      <trans-unit id="a52d85d204b855c177e116e6a3f01ff7" resname="Resend Code">
+      	<source>Resend Code</source>
+      	<target>重新发送验证码</target>
+      </trans-unit>
+      <trans-unit id="8a3ff1018a9211c91bf5ac170922562f" resname="Verify and Continue">
+      	<source>Verify and Continue</source>
+      	<target>验证并继续</target>
+      </trans-unit>
+      <trans-unit id="cd1cdfe13f3dfb51330b23be404d5229" resname="There are no items to checkout.">
+      	<source>There are no items to checkout.</source>
+      	<target>等待付款的商品</target>
+      </trans-unit>
+      <trans-unit id="8a7ec55748e1077bb2a52de61e38c1f3" resname="Apply">
+      	<source>Apply</source>
+      	<target>使用</target>
+      </trans-unit>
+      <trans-unit id="9cce403ecd5e7e47d2f1f841cff38d75" resname="Ship this transaction with the consignee details below.">
+      	<source>Ship this transaction with the consignee details below.</source>
+      	<target>收货人详细信息</target>
+      </trans-unit>
+      <trans-unit id="f6205c38d8bd79c8b02fb76cd2552a54" resname="Name">
+      	<source>Name</source>
+      	<target>姓名</target>
+      </trans-unit>
+      <trans-unit id="1297b4b04da14fecbf005bb89def3621" resname="Warehouse List">
+        <source>Warehouse List</source>
+        <target>仓库信息</target>
+      </trans-unit>
+      <trans-unit id="4390b6ac67f8497a8a8bcf0f21295175" resname="Balance Record">
+        <source>Balance Record</source>
+        <target>余额记录</target>
+      </trans-unit>
+      <trans-unit id="8e675be575e3487689bdac6998e9f90e" resname="Withdrawal">
+        <source>Withdrawal</source>
+        <target>提现</target>
+      </trans-unit>
+      <trans-unit id="a679e1febd7d463e948fe62692e5677c" resname="Report">
+        <source>Report</source>
+        <target>报告</target>
+      </trans-unit>
+      <trans-unit id="ed6d5afe76c74c6895537cd70bcc1b9c" resname="Sales Report">
+        <source>Sales Report</source>
+        <target>销售报告</target>
+      </trans-unit>
+      <trans-unit id="d600ffd408c94479b5dbc41ce282a4e6" resname="Earning">
+        <source>Earning</source>
+        <target>积分</target>
+      </trans-unit>
+      <trans-unit id="c647857405824954a337e9f5b0c31b00" resname="Followers">
+        <source>Followers</source>
+        <target>关注人</target>
+      </trans-unit>
+      <trans-unit id="231a5fce14fe43e8a19bdf3bdf22f649" resname="Activity Log">
+        <source>Activity Log</source>
+        <target>活动日记</target>
+      </trans-unit>
+      <trans-unit id="6e5bfce468ae4783a448ce0784ca1673" resname="Download our App">
+        <source>Download our App</source>
+        <target>下载手机版</target>
+      </trans-unit>
+      <trans-unit id="ca29b0b526084735b6bc6b0e175b42c4" resname="Be a Seller">
+        <source>Be a Seller</source>
+        <target>成为卖家</target>
+      </trans-unit>
+      <trans-unit id="ca29b0b526084735b6bc6b0e175b42c4xwer" resname="BE A SELLER">
+        <source>BE A SELLER</source>
+        <target>成为卖家</target>
+      </trans-unit>
+      <trans-unit id="e605112586eb41afb636dc69916e7c98" resname="Be an Affiliate">
+        <source>Be an Affiliate</source>
+        <target>成为代理</target>
+      </trans-unit>
+      <trans-unit id="5d23570d16264c628435cf10df86d586" resname="Log In">
+        <source>Log In</source>
+        <target>登入</target>
+      </trans-unit>
+      <trans-unit id="189a120ab6714aae97a3776517b828ce" resname="Sign Up">
+        <source>Sign Up</source>
+        <target>注册</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

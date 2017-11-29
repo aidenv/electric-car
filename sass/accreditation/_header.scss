@@ -1,0 +1,17 @@
+// Header
+.navbar {
+  .search,
+  .sign-in-link {
+   display: none;
+  }
+
+  .navbar-group {
+   @extend %container;
+  }
+
+  .brand {
+    img {
+      margin: auto 0; 
+    }
+  }
+}

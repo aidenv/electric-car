@@ -1,0 +1,151 @@
+
+<!--Start of select product modal-->
+<div class="ui modal large modal select-product-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">Select Products</h4>
+    </div>
+    <div class="content">
+        <div class="form">
+            <div class="product-selection-prompt error" style="display:none;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="message-box red with-close-message">
+                            Product has already been selected.
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="">Sub-Category</label>
+                    <select class="form-ui single selection dropdown product-category-selection">
+                        <option value="0" disabled selected>Select a category to filter the results</option>
+                        {% for category in categories %}
+                            <option value="{{ category.productCategoryId }}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="customization-container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Product to Sell</h5>
+                    <div class="bordered-segment inverted">
+                        <div class="form">
+                            <div class="input-icon left">
+                                <i class="icon icon-search"></i>
+                                <input type="text" class="form-ui selected-product-search" placeholder="Search item here"/>
+                            </div>
+                        </div>
+                        <div class="draggable-content">
+                            <ul id="selected-products-container" class="connected-droppable list-unstyled list-category-products">
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 product-selection-container">
+                    <h5>All Products</h5>
+                    <div class="bordered-segment inverted">
+                        <div class="form reseller-search-form">
+                            <div class="input-icon left">
+                                <i class="icon icon-search"></i>
+                                <input type="text" class="form-ui reseller-search" placeholder="Search item here"/>
+                            </div>
+                        </div>
+                        <div class="draggable-content reseller-product-container" data-iscomplete="false" data-isprocessing="false" data-page="0">
+                            <ul id="reseller-all-products" class="connected-droppable list-unstyled list-category-products">
+                            </ul>
+                            <div id="product-base-card" style="display:none">
+                                <li class="product-list-item" data-manufacturerproductid="0" data-productname="">
+                                    <div class="custom-product-body">
+                                        <table width="100%" class="table-custom-product">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="td-product-image-list" valign="top">
+                                                        <div class="image-holder image-product">
+                                                            <img src="" class="img-auto-place product-image">
+                                                        </div>
+                                                    </td>
+                                                    <td class="td-product-meta" valign="top">
+                                                        <div class="product-meta">
+                                                            <div class="basic-name">
+                                                                <span class="name product-title">
+                                                                    
+                                                                </span>
+                                                            </div>
+                                                            <div class="basic-detail">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p class="breakword product-description"></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <span class="detail-name" style="display:none">Details</span>
+                                                                        <span class="breakword detail-value product-detail bold"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <span class="detail-name">Price:</span>
+                                                                        <span class="detail-value bold purple-color large-font product-price"></span>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <span class="detail-name">Comission:</span>
+                                                                        <span class="detail-value bold purple-color large-font product-comission"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="custom-product-footer align-right">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button class="button small purple button-rounded-side add-reseller-product">Add to Selected</button>
+                                                <button class="button small purple button-rounded-side remove-reseller-product" style="display:none;">
+                                                     Remove from Selected
+                                                </button>
+                                                <a href="javascript:void(0)" class="button small basic-purple button-rounded-side product-view-button" target="_blank">View product</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="actions">
+        <button class="button cancel uppercase">Cancel</button>
+        <button class="button blue uppercase submit-to-success approve submit-product-selection">Submit</button>
+    </div>
+</div>
+<!--End of select product modal-->
+
+
+<!--Start of verify cancel modal-->
+<div class="ui modal tiny success-reseller-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <h4 class="ui header">
+            <i class="icon icon-circle-check"></i>
+            <div class="content">
+                Products have been successfully updated.
+            </div>
+        </h4>
+    </div>
+    <div class="actions">
+        <button class="button confirm close">Okay</button>
+    </div>
+</div>

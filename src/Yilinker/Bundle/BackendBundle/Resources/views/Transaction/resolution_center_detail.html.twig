@@ -1,0 +1,415 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block body %}
+
+    <section class="box-section">
+        <div class="container">
+            <div class="row">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="{{ path('yilinker_backend_resolution_center') }}">Dispute Resolution</a>
+                    </li>
+                    <li>
+                        <span>Dispute Details</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+
+                            {# START OF DISPUTE DETAIL #}
+                            <div class="row">
+                                <div class="customer-details">
+                                    <div class="title-bar">
+                                        <div class="container">
+                                            <span>Dispute Details</span>
+                                        </div>
+                                    </div>
+                                    <div class="row gutters">
+                                        <div class="col-md-6 md-box">
+                                            <div>
+                                                <div class="col-md-5"><strong>Case ID</strong></div>
+                                                <div class="col-md-7">{{ ticket }}</div>
+                                            </div>
+                                            <div>
+                                                <div class="col-md-5"><strong>Transaction ID</strong></div>
+                                                <div class="col-md-7">{{ transaction.orderId }}</div>
+                                            </div>
+                                            <div>
+                                                <div class="col-md-5"><strong>Complainant Full Name</strong></div>
+                                                <div class="col-md-7">{{ transaction.buyer.fullName }}</div>
+                                            </div>
+                                            <div>
+                                                <div class="col-md-5"><strong>Complainant Contact No.</strong></div>
+                                                <div class="col-md-7">{{ transaction.buyer.contactNumber }}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 md-box">
+                                            <div>
+                                                <div class="col-md-4"><strong>Defendant Full Name</strong></div>
+                                                <div class="col-md-8">{{ disputeeFullName }}</div>
+                                            </div>
+                                            <div>
+                                                <div class="col-md-4"><strong>Defendant Contact No.</strong></div>
+                                                <div class="col-md-8">{{ disputeeContactNumber }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {# END OF DISPUTE DETAIL #}
+
+                            {# START OF TRANSACTION DETAIL #}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="title-bar">
+                                        <div class="container">
+                                            <span>Transaction Details</span>
+                                        </div>
+                                    </div>
+                                    <div class="row gutters transaction-details">
+                                        <div class="col-md-6 md-box">
+                                            <div>
+                                                <div class="col-md-5"><strong>Invoice No.</strong></div>
+                                                <div class="col-md-7">{{ transaction.invoiceNumber }}</div>
+                                            </div>
+                                            <div>
+                                                <div class="col-md-5"><strong>Buyer</strong></div>
+                                                <div class="col-md-7">{{ transaction.buyer.fullName }}</div>
+                                            </div>
+                                            <div>
+                                                <div class="col-md-5"><strong>Status</strong></div>
+                                                <div class="col-md-7">{{ transaction.orderStatus.name }}</div>
+                                            </div>
+                                            <div>
+                                                <div class="col-md-5"><strong>Date of transaction</strong></div>
+                                                <div class="col-md-7">{{ transaction.dateAdded|date('m/d/Y') }}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 md-box">
+                                            <div>
+                                                <div class="col-md-4">Total Amount</div>
+                                                <div class="col-md-8">PHP {{ transaction.totalPrice|number_format(2, '.', ',') }}</div>
+                                            </div>
+                                            {% if transaction.paymentMethodCharge > 0 %}
+                                                <div>
+                                                    <div class="col-md-4">Payment Method Charge</div>
+                                                    <div class="col-md-8">PHP {{ transaction.paymentMethodCharge|default(0)|number_format(2) }}</div>
+                                                </div>
+                                            {% endif %}
+                                            <div>
+                                                <div class="col-md-4">YiLinker Charge</div>
+                                                <div class="col-md-8">PHP {{ transaction.yilinkerCharge|default(0)|number_format(2) }}</div>
+                                            </div>
+                                            <div>
+                                                <div class="col-md-4">Freight Charge</div>
+                                                <div class="col-md-8">PHP {{ transaction.handlingFee|default(0)|number_format(2) }}</div>
+                                            </div>
+                                            <div>
+                                                <div class="col-md-4">Additional Charge</div>
+                                                <div class="col-md-8">PHP {{ transaction.additionalCost|default(0)|number_format(2) }}</div>
+                                            </div>
+                                            <div>
+                                                <div class="col-md-4"><strong>Net</strong></div>
+                                                <div class="col-md-8"><strong>PHP {{ transaction.net|number_format(2, '.', ',') }}</strong></div>
+                                            </div>
+                                        </div>
+                                        {% for orderVoucher in transaction.orderVouchers %}
+                                            {% set voucher = orderVoucher.voucherCode.voucher %}
+                                            <div class="col-md-6 md-box">
+                                                <div>
+                                                    <div class="col-md-4"><strong>Voucher Name</strong></div>
+                                                    <div class="col-md-8"> {{ voucher.name }}</div>
+                                                </div>
+                                                <div>
+                                                    <div class="col-md-4"><strong>Voucher Value</strong></div>
+                                                    <div class="col-md-8">{{ voucher.value(true) }}</div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="row gutters transaction-product">
+                                        <div class="col-md-12">
+                                            <table class="table basic table-vertical-align-top" id="orderProductTable">
+                                                <tr>
+                                                    <th align="center">
+                                                        {% if disputeStatusTypeId == 1 %}
+                                                        <input type="checkbox" class="cancelOrderProduct" id="order-product-check-all">
+                                                        {% endif %}
+                                                    </th>
+                                                    <th>Order Product ID</th>
+                                                    <th>Name</th>
+                                                    <th>Seller</th>
+                                                    <th>Order Quantity</th>
+                                                    <th>Unit Price</th>
+                                                    <th>Shipping fee</th>
+                                                    <th>Total Amount</th>
+                                                    <th>Status</th>
+                                                    <th></th>
+                                                </tr>
+                                                {% for disputeDetail in disputeDetails %}
+                                                    <tr>
+                                                        <td align="center">
+                                                            {% if disputeDetail.status == 1 %}
+                                                            <input type="checkbox" class="dispute-detail-check-box" data-dispute-detail-id="{{ disputeDetail.disputeDetailId }}" />
+                                                            {% endif %}
+                                                        </td>
+                                                        <td>{{ disputeDetail.orderProduct.orderProductId }}</td>
+                                                        <td>{{ disputeDetail.orderProduct.productName }}</td>
+                                                        <td>{{ disputeDetail.orderProduct.seller.fullName }}</td>
+                                                        <td>{{ disputeDetail.orderProduct.quantity }}</td>
+                                                        <td>PHP {{ disputeDetail.orderProduct.unitPrice|number_format(2, '.', ',') }}</td>
+                                                        <td>PHP {{ disputeDetail.orderProduct.handlingFee|default(0)|number_format(2) }}</td>
+                                                        <td>PHP {{ disputeDetail.orderProduct.totalPrice|number_format(2, '.', ',') }}</td>
+                                                        <td><i>{{ disputeDetail.orderProduct.orderProductStatus.name }}</i></td>
+                                                        <td>
+                                                            <button class="button tiny default-light btnOrderProductHistory" data-order-product-id="{{ disputeDetail.orderProduct.orderProductId }}">
+                                                                view
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {# END OF TRANSACTION DETAIL #}
+
+                            {# START OF REMARKS #}
+                            <div class="row">
+                                <div class="title-bar">
+                                    <div class="container">
+                                        <span>Remarks</span>
+                                    </div>
+                                </div>
+                                <div class="row gutters">
+                                    <div class="col-md-12">
+
+                                        <div class="form remarks mrg-bt-30 {{ disputeStatusTypeId != 1 ? 'resolved' : '' }}">
+
+                                            {% for remarks in message %}
+
+                                                {% if not remarks.isAdmin %}
+
+                                                <div class="customer">
+
+                                                    {% if disputeStatusTypeId != 1 %}
+                                                    <p class="tag-resolved">resolved</p>
+                                                    {% endif %}
+                                                    <p class="person">
+                                                        <img src="{{ asset('images/buyer-img-1.jpg') }}" border="0">
+                                                        <span class="user">
+                                                            <strong>{{ remarks.authorEntity.getFullName }}</strong>
+                                                            Complainant
+                                                        </span>
+                                                    </p>
+                                                    <p class="words">
+                                                        <strong>{{ orderProductStatus }}</strong>
+                                                        {{ remarks.message }}
+                                                    </p>
+                                                    <p class="attachment">
+                                                        <span>Requested items for {{ orderProductStatus }}</span>
+                                                        {% for product in products %}
+                                                        <span class="items">Order Product ID {{ product.orderProductId }}: {{ product.productName }}</span>
+                                                        {% endfor %}
+                                                    </p>
+                                                    <p class="time-stamp">Posted on {{ remarks.dateAdded|date('Y/m/d h:m:s') }}</p>
+                                                </div>
+
+                                                {% else %}
+
+                                                <div class="csr">
+                                                    <p class="person">
+                                                        <img src="{{ asset('images/logo-icon.png') }}" border="0">
+                                                        <span class="user">
+                                                            <strong>{{ remarks.authorEntity.firstName ~ ' ' ~ remarks.authorEntity.lastName}}</strong>
+                                                            customer support representative
+                                                        </span>
+                                                    </p>
+                                                    <p class="words">
+                                                        {{ remarks.message }}
+                                                    </p>
+                                                    <p class="time-stamp">Posted on {{ remarks.dateAdded|date('Y/m/d h:m:s') }}</p>
+                                                </div>
+
+                                                {% endif %}
+
+                                            {% endfor %}
+
+                                            {% if disputeStatusTypeId == 1 %}
+                                            <div class="csr">
+                                                <p class="words">
+                                                    <textarea class="form-ui" id="disputeMessage" placeholder="Enter Dispute message here.."></textarea>
+                                                    <div class="button small gray" data-dispute-id="{{ disputeId }}" id="btnDisputeMessage">Submit</div>
+                                                </p>
+                                            </div>
+                                            {% endif %}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {# END OF REMARKS #}
+
+                            {% if disputeStatusTypeId == 1 %}
+                                {# START OF ACTIONS #}
+                                <div class="row">
+                                    <div class="title-bar">
+                                        <div class="container">
+                                            <span>Actions</span>
+                                        </div>
+                                    </div>
+                                    <div class="row gutters">
+                                        <div class="col-md-12">
+                                          <div class="ui radiobox mrg-bt-10">
+                                              <input id="dispute_approve_refund" type="radio" name="approve_action" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Dispute::APPROVE_REFUND') }}" checked/>
+                                              <label for="dispute_approve_refund" class="light">&nbsp;<strong>Refund</strong></label>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="row gutters">
+                                        <div class="col-md-12">
+                                          <div class="ui radiobox">
+                                              <input id="dispute_approve_replacement" type="radio" name="approve_action" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Dispute::APPROVE_REPLACE_DIFF_ITEM') }}"/>
+                                              <label for="dispute_approve_replacement" class="light">&nbsp;<strong>Replace Different Item</strong></label>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# END OF ACTIONS #}
+
+                                <div class="row gutters">
+                                    <div class="actions align-center">
+                                        <div class="button blue modal-success-trigger" id="modal-dispute-approve-trigger" >Approve</div>
+                                        <div class="button cancel" id="modal-dispute-reject-trigger" >Reject</div>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <input type="hidden" id="dispute-id" value="{{ disputeId }}">
+
+    {# START OF ORDER PRODUCT HISTORY MODAL #}
+    <div class="ui modal large modal-box modal-order-two">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="header">History Information</div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table basic table-vertical-align-top mrg-bt-30">
+                        <tr >
+                            <th>Order Product Id</th>
+                            <th>User</th>
+                            <th>Product Name</th>
+                            <th>Order Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Shipping Price</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                        </tr>
+                        <tbody id="historyInformationModal-orderProductDetailsContainer">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table basic table-vertical-align-top">
+                        <tr >
+                            <th>History ID</th>
+                            <th>State</th>
+                            <th>Date</th>
+                        </tr>
+                        <tbody id="historyInformationModal-historyContainer">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <div class="button cancel modal-order-one-trigger returnToPreviousModal">Back</div>
+        </div>
+</div>
+    {# END OF ORDER PRODUCT HISTORY MODAL #}
+
+    {# START OF DISPUTE APPROVAL MODAL #}
+    <div class="ui modal small modal-dispute-approve">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-circle-question-mark"></i>
+                <div class="content" data-message></div>
+            </h3>
+        </div>
+        <div class="actions align-right">
+            <div class="button blue" id="btnApproveDispute">Yes</div>
+            <div class="button cancel close">Back</div>
+        </div>
+    </div>
+    {# END OF DISPUTE APPROVAL MODAL #}
+
+    {# START MODAL = MESSAGE CONTAINER #}
+    <div class="ui modal small" id="modal-message-container">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header detail-content"></div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">Okay</button>
+        </div>
+    </div>
+    {# END MODAL = MESSAGE CONTAINER #}
+
+    {# SUCCESS MODAL AFTER REFUND SELECTION #}
+    <div class="ui modal small modal-success">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-check"></i>
+                <div class="content">Request for Refund has been Approved.</div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">Done</button>
+        </div>
+    </div>
+
+    {# SUCCESS MODAL AFTER REPLACE SELECTION #}
+    <div class="ui modal small modal-success">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-check"></i>
+                <div class="content">Voucher has been sent.</div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">Done</button>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/resolution-center-detail.js"
+        "js/src/backend/resolution-center-detail.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

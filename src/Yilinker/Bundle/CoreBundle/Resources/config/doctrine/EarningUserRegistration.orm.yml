@@ -1,0 +1,41 @@
+Yilinker\Bundle\CoreBundle\Entity\EarningUserRegistration:
+    type: entity
+    table: EarningUserRegistration
+    indexes:
+        fk_earning_earning:
+            columns:
+                - earning_id
+        fk_user_user:
+            columns:
+                - user_id
+    id:
+        earningUserRegistrationId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: earning_user_registration_id
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: user_id
+            orphanRemoval: false
+    oneToOne:
+        earning:
+            targetEntity: Earning
+            cascade: {  }
+            mappedBy: null
+            inversedBy: earningUserRegistration
+            joinColumns:
+                earning_id:
+                    referencedColumnName: earning_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

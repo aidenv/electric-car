@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Buyer Refund
+    </title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}"/>
+</head>
+<body>
+     <div class="container">
+        <div class="box-div buyer-refund-overview print">
+            <div class="row sub-tools">
+                <div class="align-center">
+                    <h4 class="uppercase bold mrg-top-20">
+                        Buyer Refund Receipt
+                    </h4>
+                </div>
+            </div>
+            
+            <div class="content form">
+                <div class="row mrg-bt-20 large-font">
+                    {% if payout.dispute is not null %}
+                        <div class="col-sm-6">
+                            <div class="mrg-top-10">
+                                <span class="bold">Dispute ID: </span>{{payout.dispute.ticket}}
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="col-xs-6">
+                        <div class="mrg-top-10">
+                            <span class="bold">Buyer Name: </span>{{payout.user.fullName}}
+                        </div>
+                    </div>
+                     <div class="col-xs-6">
+                        <div class="mrg-top-10">
+                            <span class="bold">Buyer Email: </span>{{payout.user.email}}
+                        </div>
+                    </div>
+                     <div class="col-xs-6">
+                        <div class="mrg-top-10">
+                            <span class="bold">Buyer Contact Number: </span>{{payout.user.contactNumber}}
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="mrg-top-10">
+                            <span class="bold">Date Request: </span>{{payout.dateCreated|date('m/d/Y')}}
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="mrg-top-10">
+                            <span class="bold">Date Processed: </span>{{payout.dateModified|date('m/d/Y')}}
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="mrg-top-10">
+                            <span class="bold">Processed By: </span>{{payout.adminUser.fullName}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-12">
+                            <table class="table basic table-vertical-align-top mrg-bt-30">
+                                <thead>
+                                  <tr>
+                                      <th>Date</th>
+                                      <th>Order Product Id</th>
+                                      <th>Product Name</th>
+                                      <th>Order Quantity</th>
+                                      <th>Unit Price</th>
+                                      <th>Total Amount</th>
+                                      <th>Status</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="historyInformationModal-orderProductDetailsContainer">
+                                    {% for payoutOrderProduct in payout.payoutOrderProducts %}
+                                        {% set orderProduct = payoutOrderProduct.orderProduct %}
+                                        <tr>
+                                            <td>
+                                                {{payoutOrderProduct.dateCreated|date('m/d/Y')}}
+                                            </td>
+                                            <td>
+                                                {{orderProduct.orderProductId}}
+                                            </td>
+                                            <td>
+                                                {{orderProduct.productName}}
+                                            </td>
+                                            <td>
+                                                {{orderProduct.quantity}}
+                                            </td>
+                                            <td>
+                                                P {{ orderProduct.unitPrice|number_format(2) }}
+                                            </td>
+                                            <td>
+                                                P {{ orderProduct.totalPrice|number_format(2) }}
+                                            </td>
+                                            <th>
+                                                {{orderProduct.orderProductStatus.name}}
+                                            </th>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                {% if payout.refundNotes[0] is defined %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table basic table-vertical-align-top mrg-bt-30">
+                                <thead>
+                                  <tr>
+                                      <th>Remarks</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            {{payout.refundNotes[0].note}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if payout.payoutDocuments|length > 0 %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table basic table-vertical-align-top mrg-bt-30">
+                                <thead>
+                                  <tr>
+                                      <th>Deposit Slip</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="historyInformationModal-historyContainer">
+                                    {% for payoutDocument in payout.payoutDocuments %}
+                                        <tr>
+                                            <td >
+                                                <img src="{{ asset(payout.payoutId ~ '/' ~ payoutDocument.filename, 'payout') }}" class="img-responsive">
+                                                <br>
+                                                <br>
+                                                <p class="download">
+                                                    <a href="#">
+                                                         <b>Click here </b>
+                                                    </a>to download image
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="align-center">
+                <img src="{{ asset('images/logo.jpg') }}" alt="YiLinker" class="logo" />
+            </div>
+        </div>
+    </div>
+</body>
+{% block javascripts %}
+<script type="text/javascript">
+    window.onload = function () {
+        window.print();
+        setTimeout(function(){window.close();}, 1);
+    }
+</script>
+{% endblock %}
+</html>

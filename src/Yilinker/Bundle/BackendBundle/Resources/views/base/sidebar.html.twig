@@ -1,0 +1,151 @@
+<div class="sidebar-submenu-background-overlay"></div>
+<div class="sidebar sidebar-wrapper">
+    <ul class="list-for-sidebar list-unstyled">
+        <li>
+            <a href="{{ path('admin_home_page') }}">
+              <i class="item-icon icon-home icon-2x"></i>
+              <span class="item-title">
+                Dashboard
+              </span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+              <i class="item-icon icon-shopping-cart icon-2x"></i>
+              <span class="item-title">
+                Transactions
+              </span>
+            </a>
+            <div class="board">
+              <ul class="board-content list-unstyled">
+                  <li><a href="{{ path('yilinker_backend_transaction_list') }}">Transactions List</a></li>
+                  <li><a href="{{ path('yilinker_backend_seller_payout_list') }}">Seller Pay-out</a></li>
+                  <li><a href="{{ path('yilinker_backend_buyer_refund') }}">Buyer Refund</a></li>
+                  <li><a href="{{ path('yilinker_backend_buyer_refund_history') }}">Buyer Refund History</a></li>
+              </ul>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+              <i class="item-icon icon-discount-tag icon-2x"></i>
+              <span class="item-title">
+                Promo
+              </span>
+            </a>
+            <div class="board">
+              <ul class="board-content list-unstyled">
+                  <li><a href="{{ path('yilinker_backend_promo_list') }}">Promo List</a></li>
+                  {#<li><a href="#">Promo Banners</a></li> #}
+                  {#<li><a href="#">Custom Promo Page</a></li>#}
+              </ul>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+              <i class="item-icon icon-customized icon-2x"></i>
+              <span class="item-title">
+                Accreditation
+              </span>
+            </a>
+            <div class="board">
+                <ul class="board-content list-unstyled">
+                    <li><a href="{{ path('admin_accreditation_list', {sellerType:'Seller'}) }}">Seller Accreditation</a></li>
+                    <li><a href="{{ path('admin_accreditation_list', {sellerType:'Affiliate'}) }}">Affiliate Accreditation</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+              <i class="item-icon icon-eye icon-2x"></i>
+              <span class="item-title">
+                  Data
+              </span>
+            </a>
+            <div class="board">
+              <ul class="board-content list-unstyled">
+                  <li><a href="{{ path('admin_inhouse_list') }}">Inhouse Products</a></li>
+                  <li><a href="{{ path('admin_registered_buyer_page') }}">Buyer List</a></li>
+                  <li><a href="{{ path('admin_registered_merchant_page') }}">Seller/Affiliate List</a></li>
+                  <li><a href="{{ path('yilinker_backend_product_listings') }}">Product Listings</a></li>
+                  <li><a href="{{ path('admin_voucher_list') }}">Vouchers</a></li>
+              </ul>
+            </div>
+        </li>
+        <li>
+            <a href="#">
+              <i class="item-icon icon-bills-coins icon-2x"></i>
+              <span class="item-title">
+                Payout
+              </span>
+            </a>
+            <div class="board">
+              <ul class="board-content list-unstyled">
+                  <li><a href="{{ path('yilinker_backend_request_payout_list') }}">Request Pay-Outs List</a></li>
+                  <li><a href="{{ path('yilinker_backend_batch_payout_list') }}">Batch Pay-Out List</a></li>
+              </ul>
+            </div>
+        </li>
+        <li>
+            <a href="{{ path('admin_account_register_page') }}">
+              <i class="item-icon icon-user icon-2x"></i>
+              <span class="item-title">
+                Account
+              </span>
+            </a>
+            <div class="board">
+              <ul class="board-content list-unstyled">
+                  <li><a href="{{ path('admin_account_register_page') }}">Manage Administrator</a></li>
+              </ul>
+            </div>
+        </li>
+        <li>
+            <a href="{{ path('yilinker_backend_resolution_center') }}">
+              <i class="item-data"><span>{{ disputeCount|default(0) }}</span></i>
+              <span class="item-title">
+                  Dispute
+              </span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+              <i class="item-icon icon-grid-view icon-2x"></i>
+              <span class="item-title">
+                  CMS
+              </span>
+            </a>
+            <div class="board">
+              <ul class="board-content list-unstyled">
+                <li><a href="{{ path('cms_render_product_list') }}">Product CMS</a></li>
+                <li><a href="{{ path('cms_render_brand_list') }}">Top Brands</a></li>
+                <li><a href="{{ path('cms_render_store_list') }}">Seller Section</a></li>
+                <li><a href="{{ path('cms_render_main_banner') }}">Banners</a></li>
+                <li><a href="{{ path('backend_push_notification_index') }}">Send Notification</a></li>
+              </ul>
+            </div>
+        </li>
+        <li>
+            <a href="{{ path('yilinker_backend_feedback_listings') }}">
+              <i class="item-icon icon-messages icon-2x"></i>
+              <span class="item-title">
+                Feedback
+              </span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('admin_sms_list') }}">
+              <i class="item-icon icon-envelope icon-2x"></i>
+              <span class="item-title">
+                Send SMS
+              </span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ crmHostName }}/#/auth/agent/loading">
+              <i class="item-icon icon-messages icon-2x"></i>
+              <span class="item-title">
+                Chat
+              </span>
+            </a>
+        </li>
+    </ul>
+</div>

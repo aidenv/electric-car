@@ -1,0 +1,7 @@
+yilinker_checkout_api_v2_route:
+    resource: "v2/checkout.yml"
+    prefix: /
+
+yilinker_oauth_api_v2_route:
+    resource: "v2/oauth.yml"
+    prefix: /

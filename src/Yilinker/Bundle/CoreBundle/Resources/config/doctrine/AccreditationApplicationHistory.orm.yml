@@ -1,0 +1,35 @@
+Yilinker\Bundle\CoreBundle\Entity\AccreditationApplicationHistory:
+    type: entity
+    table: AccreditationApplicationHistory
+    id:
+        accreditationApplicationHistoryId:
+            type: bigint
+            column: accreditation_application_history_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    indexes:
+        fk_acc_application_history_accreditation_application_status_id_accreditation_application_status_accreditation_application_status_id_idx:
+            columns:
+                - accreditation_application_status_id
+        fk_acc_application_accreditation_application_id_accreditation_application_accreditation_application_id_idx:
+            columns:
+                - accreditation_application_id
+    fields:
+        dateAdded:
+            column: date_added
+            type: datetime
+    manyToOne:
+        accreditationApplicationStatus:
+            targetEntity: AccreditationApplicationStatus
+            joinColumn:
+                name: accreditation_application_status_id
+                referencedColumnName: accreditation_application_status_id
+            orphanRemoval: false
+        accreditationApplication:
+            targetEntity: AccreditationApplication
+            joinColumn:
+                name: accreditation_application_id
+                referencedColumnName: accreditation_application_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

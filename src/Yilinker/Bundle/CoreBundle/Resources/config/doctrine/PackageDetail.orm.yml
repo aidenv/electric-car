@@ -1,0 +1,39 @@
+Yilinker\Bundle\CoreBundle\Entity\PackageDetail:
+    type: entity
+    table: PackageDetail
+    indexes:
+        fk_packagedetail_packageid_package_packageid_idx:
+            columns:
+                - package_id
+    id:
+        packageDetailId:
+            type: integer
+            id: true
+            column: package_detail_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateAdded:
+            type: datetime
+            column: date_added
+        quantity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        package:
+            targetEntity: Package
+            joinColumn:
+                name: package_id
+                referencedColumnName: package_id
+            orphanRemoval: false
+            inversedBy: packageDetails
+        orderProduct:
+            targetEntity: OrderProduct
+            joinColumn:
+                name: order_product_id
+                referencedColumnName: order_product_id
+            orphanRemoval: false
+            inversedBy: packageDetails
+    lifecycleCallbacks: {  }

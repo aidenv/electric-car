@@ -1,0 +1,482 @@
+{% extends 'YilinkerCoreBundle:EmailNotifications:base.html.twig' %}
+
+{% block body %}
+    
+    {% set order = (data.orderProductCancellationDetails|first).orderProduct.order %}
+
+    <table id="bg" width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#ecebeb; table-layout:fixed;">
+        <!--Start of Email Header-->
+        <tr mc:repeatable="Select" mc:variant="Nav menu" >
+            <td mc:hideable valign="top">
+                 <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" style="margin:0 auto;">
+                    <tr>
+                        <td align="center" valign="top">
+                            <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="container">
+                                <tr>
+                                    <td valign="top">
+                                        <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="full-width">
+                                                <!-- start space -->
+                                                <tr>
+                                                    <td valign="top" height="20">
+                                                    </td>
+                                                </tr>
+                                                <!-- end space -->
+                                                <tr>
+                                                    <td valign="middle">
+                                                        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="container">
+                                                          <tr>
+                                                            <td align="center" valign="top" width="100%">
+                                                                <a href="{baseUrl}" style="text-decoration: none; display: inline-block" target="_blank">
+                                                                    <center>
+                                                                    <img mc:edit="Top logo TB10" mc:allowdesigner mc:allowtex src="{{ asset('images/logo-alter-main.png') }}" width="120" style="max-width:120px;" alt="YiLinker" border="0" hspace="0" vspace="0">
+                                                                    </center>
+                                                                </a>
+                                                            </td>
+                                                          </tr>
+                                                        </table>
+                                                   </td>
+                                                </tr>
+                                                <!-- start space -->
+                                                <tr>
+                                                    <td valign="top" height="20">
+                                                    </td>
+                                                </tr>
+                                                <!-- end space -->
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                 </table>
+            </td>
+        </tr>
+        <!--End of email header-->
+        <!-- Start of paragraph intro -->
+        <tr mc:repeatable="Select" mc:variant="layout-1/2">
+            <td mc:hideable align="center" valign="top" class="fix-box">
+                <!-- start  container width 600px --> 
+                <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="container" style="background-color: #ffffff; ">
+                    <tr>
+                        <td valign="top">
+                            <!-- start container width 560px --> 
+                            <table width="540" align="center" border="0" cellspacing="0" cellpadding="0" class="full-width" bgcolor="#ffffff" style="background-color:#ffffff;">
+                                <!-- start text content --> 
+                                <tr>
+                                    <td valign="top">
+                                        <!-- start content left --> 
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="left" class="full-width-text" style="padding-left:20px;">
+                                            <!-- start text content --> 
+                                            <tr>
+                                                <td valign="top">
+                                                    <table border="0" cellspacing="0" cellpadding="0" align="left">
+                                                        <!--start space height --> 
+                                                        <tr>
+                                                            <td height="15"></td>
+                                                        </tr>
+                                                        <!--end space height --> 
+                                                        <tr>
+                                                            <td mc:edit="content (layout-4) TB27" style="font-size: 13px; line-height: 22px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; color:#a3a2a2; font-weight:300; text-align:left; ">
+                                                                <p style="margin-top: 20px; margin-bottom: 20px;">Dear <span style=" font-weight: 400;">{{ user.isSeller ? user.storename: user.fullName }}</span>,</p>
+                                                                Order Product Cancellation Details are as follows:
+                                                            </td>
+                                                        </tr>
+                                                        <!--start space height -->
+                                                        <tr>
+                                                            <td height="20"></td>
+                                                        </tr>
+                                                        <!--end space height --> 
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <!-- end text content --> 
+                                            <!--start space height --> 
+                                            <tr>
+                                                <td height="20"></td>
+                                            </tr>
+                                            <!--end space height --> 
+                                        </table>
+                                        <!-- end content left -->
+                                    </td>
+                                </tr>
+                                <!-- end text content --> 
+                            </table>
+                            <!-- end  container width 560px --> 
+                        </td>
+                    </tr>
+                </table>
+                <!-- end  container width 600px --> 
+            </td>
+        </tr>
+        <!-- End of paragraph intro-->
+        <!-- Start of title plate --> 
+         <tr mc:repeatable="Select" mc:variant="layout-1/1">
+            <td mc:hideable align="center" valign="top" class="fix-box">
+                <!-- start  container width 600px --> 
+                <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="container" style="background-color: #ffffff; ">
+                    <tr>
+                        <td valign="top">
+                           <!-- start container width 560px --> 
+                           <table width="540" align="center" border="0" cellspacing="0" cellpadding="0" class="full-width" bgcolor="#ffffff" style="background-color:#ffffff;">
+                                <!-- start text content --> 
+                                <tr>
+                                    <td valign="top">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                                            <tr>
+                                                <td valign="top" width="auto" align="center">
+                                                    <!-- start button -->                         
+                                                    <table border="0" align="center" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                           <td mc:edit="heading (layout-1/1) TB13" width="auto" align="center" valign="middle" height="28" style=" background-color:#ffffff; border:1px solid #ececed; background-clip: padding-box; font-size:18px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; text-align:center;  color:#a3a2a2; font-weight: 300; padding-left:18px; padding-right:18px; ">
+                                                                <span style="color: #a3a2a2; font-weight: 300;">
+                                                                    <span style="text-decoration: none; color: #a3a2a2; font-weight: 300;">
+                                                                        TRANSACTION <span style="color: #75338a; font-weight: 300;">DETAILS</span>
+                                                                    </span>
+                                                                </span>
+                                                           </td>
+                                                        </tr>
+                                                    </table>
+                                                    <!-- end button -->   
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                             <!-- end text content --> 
+                           </table>
+                           <!-- end  container width 560px --> 
+                        </td>
+                    </tr>
+                    <!--start space height --> 
+                    <tr>
+                        <td height="20"></td>
+                    </tr>
+                    <!--end space height --> 
+                </table>
+                <!-- end  container width 600px --> 
+            </td>
+         </tr>
+        <!-- End of title plate --> 
+        <!--Start of transaction details records-->
+        <tr mc:repeatable="Select" mc:variant="layout-2">
+            <td mc:hideable align="center" valign="top" class="fix-box">
+                <!-- start layout-2 container width 600px --> 
+                <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="full-width" style="background-color: #ffffff;  ">
+                    <tr>
+                        <td valign="top">
+                            <!-- start layout-2 container width 600px --> 
+                            <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="full-width" style="background-color:#ffffff;">
+                                <tr>
+                                    <td height="20"></td>
+                                </tr>
+                                <!-- start image and content --> 
+                                <tr>
+                                    <td valign="top" width="100%">
+                                        <!-- start content left --> 
+                                        <table width="270" border="0" cellspacing="0" cellpadding="0" align="left" style="padding-left:50px;">
+                                            <tr>
+                                                <td valign="top">
+                                                    <table border="0" cellspacing="0" cellpadding="0" align="left" width="100%">
+                                                        <tr>
+                                                            <td mc:edit="content (layout-2) TB21" style="font-size: 13px; line-height: 22px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; color:#a3a2a2; font-weight:300; text-align:left; ">
+                                                                <table width="100%">
+                                                                    <tr>
+                                                                        <td valign="top" width="50%" style="color: #555555; font-weight: bold; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; ">
+                                                                            Transaction # : 
+                                                                        </td>
+                                                                        <td valign="top" width="50%" align="left" style="word-break: break-all">
+                                                                            {{ order.invoiceNumber }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td valign="top" width="50%" style="color: #555555; font-weight: bold; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; ">
+                                                                            Paid through: 
+                                                                        </td>
+                                                                        <td valign="top" width="50%" align="left" style=" font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif;">
+                                                                            {% if order.paymentMethod.paymentMethodId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PaymentMethod::PAYMENT_METHOD_PESOPAY') %}
+                                                                                Pesopay
+                                                                            {% elseif order.paymentMethod.paymentMethodId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PaymentMethod::PAYMENT_METHOD_DRAGONPAY') %}
+                                                                                Dragonpay
+                                                                            {% elseif order.paymentMethod.paymentMethodId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PaymentMethod::PAYMENT_METHOD_COD') %}
+                                                                                (COD) not yet paid
+                                                                            {% else %}
+                                                                                unidentified
+                                                                            {% endif %}
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <!--start space height --> 
+                                                        <tr>
+                                                            <td height="20"></td>
+                                                        </tr>
+                                                        <!--end space height --> 
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <!--start space height --> 
+                                            <tr>
+                                                <td height="20"></td>
+                                            </tr>
+                                            <!--end space height --> 
+                                        </table>
+                                        <!-- end content left --> 
+                                        <!-- start space width --> 
+                                        <table class="remove" width="1" border="0" cellpadding="0" cellspacing="0" align="left" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                            <tr>
+                                                <td width="0" height="2" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                                    <p style="padding-left: 20px;">&nbsp;</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- end space width --> 
+                                        <!-- start content right --> 
+                                        <table width="270" border="0" cellspacing="0" cellpadding="0" align="right" class="full-width-text">
+                                             <tr>
+                                                <td valign="top">
+                                                    <table border="0" cellspacing="0" cellpadding="0" align="left" width="100%">
+                                                        <tr>
+                                                            <td mc:edit="content (layout-2) TB21" style="font-size: 13px; line-height: 22px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; color:#a3a2a2; font-weight:300; text-align:left; ">
+                                                                <table width="100%">
+                                                                    <tr>
+                                                                        <td valign="top" width="50%" style="color: #555555; font-weight: bold; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; ">
+                                                                            Date : 
+                                                                        </td>
+                                                                        <td valign="top" width="50%" align="left" style="padding-right: 10px; ">
+                                                                            {{ order.dateAdded.format('M d, Y g:ia') }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td valign="top" width="50%" style="color: #555555; font-weight: bold; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; ">
+                                                                            Total Price: 
+                                                                        </td>
+                                                                        <td valign="top" width="50%" align="left" style="padding-right: 10px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; word-break: break-word;">
+                                                                             &#8369; {{ order.totalPrice|number_format(2) }}
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <!--start space height --> 
+                                                        <tr>
+                                                            <td height="20"></td>
+                                                        </tr>
+                                                        <!--end space height --> 
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <!-- end text content --> 
+                                        </table>
+                                        <!-- end content right --> 
+                                    </td>
+                                </tr>
+                                <!-- end image and content --> 
+                                <!--start space height --> 
+                                <tr>
+                                    <td height="10"></td>
+                                </tr>
+                                <!--end space height --> 
+                            </table>
+                            <!-- end layout-2 container width 600px --> 
+                        </td>
+                    </tr>
+                </table>
+                <!-- end layout-2 container width 600px -->
+            </td>
+        </tr>
+        <!--End of transaction details record-->
+        <!-- START SHADOW-->
+        <tr mc:repeatable="Select" mc:variant="shadow space">
+            <td mc:hideable valign="top" align="center" class="fix-box">
+                <table width="600" height="11" align="center" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff;" class="full-width">
+                    <tr>
+                        <td valign="top" height="11" class="image-100-percent">  
+                            <img mc:edit="shadow 1 TB18" src="{{ asset('images/shadow.png') }}" width="600" alt="Connect to Yilinker.ph" style="display:block; max-height:11px; max-width:600px;">
+                        </td>
+                    </tr>
+                    <!--start space height --> 
+                    <tr>
+                        <td height="40"></td>
+                    </tr>
+                    <!--end space height --> 
+                </table>
+            </td>
+        </tr>
+        <!-- END SHADOW-->
+         <!-- Start of title plate --> 
+         <tr mc:repeatable="Select" mc:variant="layout-1/1">
+            <td mc:hideable align="center" valign="top" class="fix-box">
+                <!-- start  container width 600px --> 
+                <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="container" style="background-color: #ffffff; ">
+                    <tr>
+                        <td valign="top">
+                           <!-- start container width 560px --> 
+                           <table width="540" align="center" border="0" cellspacing="0" cellpadding="0" class="full-width" bgcolor="#ffffff" style="background-color:#ffffff;">
+                                <!-- start text content --> 
+                                <tr>
+                                    <td valign="top">
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+                                            <tr>
+                                                <td valign="top" width="auto" align="center">
+                                                    <!-- start button -->                         
+                                                    <table border="0" align="center" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                           <td mc:edit="heading (layout-1/1) TB13" width="auto" align="center" valign="middle" height="28" style=" background-color:#ffffff; border:1px solid #ececed; background-clip: padding-box; font-size:18px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; text-align:center;  color:#a3a2a2; font-weight: 300; padding-left:18px; padding-right:18px; ">
+                                                                <span style="color: #a3a2a2; font-weight: 300;">
+                                                                    <span style="text-decoration: none; color: #a3a2a2; font-weight: 300;">
+                                                                        SUMMARY OF <span style="color: #75338a; font-weight: 300;">ITEMS</span>
+                                                                    </span>
+                                                                </span>
+                                                           </td>
+                                                        </tr>
+                                                    </table>
+                                                    <!-- end button -->   
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                             <!-- end text content --> 
+                           </table>
+                           <!-- end  container width 560px --> 
+                        </td>
+                    </tr>
+                    <!--start space height --> 
+                    <tr>
+                        <td height="20"></td>
+                    </tr>
+                    <!--end space height --> 
+                </table>
+                <!-- end  container width 600px --> 
+            </td>
+         </tr>
+        <!-- End of title plate --> 
+        <!-- Start of item -->
+        {% for orderProductCancellationDetail in data.orderProductCancellationDetails  %}
+            {% set orderProduct = orderProductCancellationDetail.orderProduct %}
+            {% if not user.isSeller or orderProduct.seller.userId == user.userId %}
+                {% include('YilinkerCoreBundle:EmailNotifications:order_product.html.twig') %}
+            {% endif %}
+        {% endfor %} 
+        <!-- End of item  -->
+        
+        {#
+        <!-- Start of Social Media Footer -->
+        <tr mc:repeatable="Select" mc:variant="layout-16">
+            <td mc:hideable align="center" valign="top" class="fix-box">
+                <!-- start  container width 600px -->
+                <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="container" style="background-color: #ffffff; border-bottom:1px solid #c7c7c7;">
+                    <!--start space height -->
+                    <tr>
+                        <td height="10"></td>
+                    </tr>
+                    <!--end space height -->
+                    <tr>
+                        <td valign="top">
+                            <!-- start logo footer and address -->
+                            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td valign="top">
+                                        <!--start icon socail navigation -->
+                                        <table border="0" align="center" cellpadding="0" cellspacing="0" class="container">
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <table border="0" align="left" cellpadding="0" cellspacing="0" class="container">
+                                                        <tr>
+                                                            <td height="30" align="center" valign="middle" class="clear-padding">
+                                                                <a href="#" target="_blank" style="text-decoration: none;">
+                                                                    <img mc:edit="icon-facebook-color TB113" src="icon-facebook.png" width="30" alt="icon-facebook" style="max-width:30px;" border="0" hspace="0" vspace="0">
+                                                                </a>
+                                                            </td>
+                                                            <td style="padding-left:5px; " height="30" align="center" valign="middle" class="clear-padding">
+                                                                <a href="#" target="_blank" style="text-decoration: none;">
+                                                                    <img mc:edit="icon-twitter-color TB114" src="icon-twitter.png" width="30" alt="icon-twitter" style="max-width:30px;" border="0" hspace="0" vspace="0">
+                                                                </a>
+                                                            </td>
+                                                            <td style="padding-left:5px; " height="30" align="center" valign="middle" class="clear-padding">
+                                                                <a href="#" target="_blank" style="text-decoration: none;">
+                                                                    <img mc:edit="icon-googleplus-color TB115" src="icon-googleplus.png" width="30" alt="icon-googleplus" style="max-width:30px;" border="0" hspace="0" vspace="0">
+                                                                </a>
+                                                            </td>
+                                                            <td style="padding-left:5px;" height="30" align="center" valign="middle" class="clear-padding">
+                                                                <a href="#" target="_blank" style="text-decoration: none;">
+                                                                    <img mc:edit="icon-rss-color TB116" src="icon-rss.png" width="30" alt="icon-rss" style="max-width:30px;" border="0" hspace="0" vspace="0">
+                                                                </a>
+                                                            </td>
+                                                            <td style="padding-left:5px;" height="30" align="center" valign="middle" class="clear-padding">
+                                                                <a href="#" target="_blank" style="text-decoration: none;">
+                                                                    <img mc:edit="icon-vimeo-color TB117" src="icon-vimeo.png" width="30" alt="icon-vimeo" style="max-width:30px;" border="0" hspace="0" vspace="0">
+                                                                </a>
+                                                            </td>
+                                                            <td style="padding-left:5px;" height="30" align="center" valign="middle" class="clear-padding">
+                                                                <a href="#" target="_blank" style="text-decoration: none;">
+                                                                    <img mc:edit="icon-pinterest-color TB118" src="icon-pinterest.png" width="30" alt="icon-pinterest" style="max-width:30px;" border="0" hspace="0" vspace="0">
+                                                                </a>
+                                                            </td>
+                                                            <td style="padding-left:5px;" height="30" align="center" valign="middle" class="clear-padding">
+                                                                <a href="#" target="_blank" style="text-decoration: none;">
+                                                                    <img mc:edit="icon-linkedIn-color TB119" src="icon-linkedIn.png" width="30" alt="icon-Linkedin" style="max-width:30px;" border="0" hspace="0" vspace="0">
+                                                                </a>
+                                                            </td>
+                                                            <td style="padding-left:5px;" height="30" align="center" valign="middle" class="clear-padding">
+                                                                <a href="#" target="_blank" style="text-decoration: none;">
+                                                                    <img mc:edit="icon-instagram-color TB120" src="icon-instagram.png" width="30" alt="icon-instagram" style="max-width:30px;" border="0" hspace="0" vspace="0">
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!--end icon socail navigation -->
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- end logo footer and address -->
+                        </td>
+                    </tr>
+                    <!--start space height -->
+                    <tr>
+                        <td height="10"></td>
+                    </tr>
+                    <!--end space height -->
+                </table>
+            </td>
+        </tr>
+        <!-- End of Social Media Footer -->
+        #}
+
+        <!--  Start of Copyright footer -->
+        <tr mc:repeatable>
+            <td mc:hideable align="center" valign="top" >
+                <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="container" style="background-color:#75338a;">
+                    <tr>
+                        <td valign="top">
+                            <table width="560"  align="center" border="0" cellspacing="0" cellpadding="0" class="container" style="background-color:#75338a;">
+                                <!--start space height -->
+                                <tr>
+                                    <td height="10"></td>
+                                </tr>
+                                <!--end space height -->
+                                <tr>
+                                    <!-- start COPY RIGHT content -->
+                                    <td mc:edit="company (footer) TB123" valign="top" style="font-size: 13px; line-height: 22px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; color:#ffffff; font-weight:normal; text-align:center; ">
+                                        YiLinker Online , All rights reserved 2015 ©
+                                    </td>
+                                    <!-- end COPY RIGHT content -->
+                                </tr>
+                                <!--start space height -->
+                                <tr>
+                                    <td height="10"></td>
+                                </tr>
+                                <!--end space height -->
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <!--  End of Copyright footer -->
+    </table>
+{% endblock %}

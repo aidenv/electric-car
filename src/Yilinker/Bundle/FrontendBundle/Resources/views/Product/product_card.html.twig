@@ -1,0 +1,159 @@
+{% set productUnit = product.defaultUnit.toArray %}
+{%
+    set addtocart = {
+        'productId': productUnit.productId,
+        'unitId':    productUnit.productUnitId ? productUnit.productUnitId: 0
+    }
+%}
+{# {% if storeSlug is defined and storeSlug %}
+    {% set url = path('store_product_details', {'storeSlug': storeSlug, 'slug': productUnit.slug}) %}
+{% else %}
+    {% set url = path('product_details', { 'slug': productUnit.slug }) %}
+{% endif %} #}
+{% set url = path('product_details', { 'slug': productUnit.slug }) %}
+    
+<div class="col-xl-2 col-md-2 col-sm-2 col-xs-6 col-for-product-group">
+    <div class="product-item-wrapper">
+        <a href="{{ url }}">
+            <div class="image-wrapper image-display">
+                {% if productUnit.discount > 0 %}
+                    <span class="discount pin">{{ productUnit.promoTypeId is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PromoType::BULK'))? 'UP TO' : '' }}   {{ productUnit.discount }}% {% trans %} off {% endtrans %}</span>
+                {% endif %}
+                {% if not productUnit.quantity > 0 %}
+                    <span class="out-of-stock pin">Sold Out</span>
+                {% endif %}
+                {% if 
+                    productUnit.primaryImage is not same as(null) and
+                    productUnit.primaryImage is not same as(false) 
+                %}
+                    <img src="{{ asset(product.getPrimaryImage.getImageLocationBySize('thumbnail'), 'product') }}" alt="{{ product.name }}">
+                {% else %}
+                    <img src="{{ asset(product.getPrimaryImageLocation, 'product') }}">
+                {% endif %}
+            </div>
+        </a>
+        {% if product.elastica is defined and product.elastica.internationalWarehouses %}
+            <div class="international-shipping-pin">
+                <img src="{{ asset('images/globalization/international-icon.png') }}">
+            </div>
+        {% endif %}
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td class="td-product-image-list"
+                        width="150"
+                        valign="top">
+                        <a href="{{ url }}">
+                            <div class="image-wrapper-list-view">
+                                {% if productUnit.discount > 0 %}
+                                    <span class="discount pin"> {{ productUnit.discount }}% {% trans %} off {% endtrans %}</span>
+                                {% endif %}
+                                {% if not productUnit.quantity > 0 %}
+                                    <span class="out-of-stock pin">Sold Out</span>
+                                {% endif %}
+                                {% if 
+                                    product.getPrimaryImage is not same as(null) and
+                                    product.getPrimaryImage is not same as(false) 
+                                %}
+                                    <img src="{{ asset(productUnit.primaryThumbnailImage, 'product') }}" class="img-auto-place"  alt="{{ product.name }}">
+                                {% else %}
+                                    <img src="{{ asset(product.getPrimaryImageLocation, 'product') }}" class="img-auto-place">
+                                {% endif %}
+                            </div>
+                        </a>
+                    </td>
+                    <td valign="middle"
+                        style="max-width: 120px;">
+                        <div class="meta-wrapper">
+                            <div class="basic-name">
+                                <div class="row group">
+                                    <div class="col-md-12">
+                                        <h1 class="name">
+                                            {% if productUnit.slug %}
+                                                <a href="{{ url }}">
+                                                    {{ product.name }}
+                                                </a>
+                                            {% else %}
+                                                <span>
+                                                    {{ product.name }}
+                                                </span>
+                                            {% endif %}
+                                            {% if productUnit and app.user %}
+                                                <span class="wishlist pull-right {{ productUnit.inWishlist ? 'active': '' }}" data-href="{{ path('cart_add_item') }}?mode=wishlist" data-addtocart="{{ addtocart|json_encode }}">
+                                                    <i class="icon-heart-o"></i>
+                                                </span>
+                                            {% endif %}
+                                        </h1>
+                                        <h5 class="category no-margin">
+                                            {% if product.productCategory %}
+                                                <a href="{{ path('get_category', { 'slug': product.productCategory.slug }) }}">
+                                                    {{ product.productCategory.name }}
+                                                </a>
+                                            {% endif %}
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="basic-description">
+                                    {{ product.shortDescription }}
+                                    <div class="featured-delivery-perks-container light-color">
+                                    <span class="perk">
+                                        <i class="icon icon-circle-check"></i> {% trans %} Cash on Delivery {% endtrans %}
+                                    </span>
+                                    <span class="perk">
+                                        <i class="icon icon-circle-check"></i> {% trans %} 7-Day Return {% endtrans %}
+                                    </span>
+                                    <span class="perk">
+                                        <i class="icon icon-circle-check"></i> {% trans %} Free Shipping {% endtrans %}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="basic-amount">
+                                <div class="row group">
+                                    <div class="col-md-7 col-price-button-container align-center">
+                                        <div class="old-price-cart-container">
+                                            <span class="old-price">
+                                                {% if productUnit.price != productUnit.discountedPrice %}
+                                                    P {{ productUnit.price|number_format(2) }}
+                                               {% endif %}
+                                            </span>
+                                            {% if productUnit.quantity > 0 %}
+                                                <div class="product-cart-button-flip">
+                                                    <div data-href="{{ path('cart_add_item') }}" data-addtocart="{{ addtocart|json_encode }}"  class="button purple block cart front">
+                                                        <span class="current-price">
+                                                            P {{ productUnit.discountedPrice|number_format(2) }}
+                                                        </span>
+                                                        <span class="cart text">Add to cart</span>
+                                                    </div>
+                                                    <div class="button gray block cart disabled added-to-cart back">
+                                                        <span>
+                                                            <i class="icon icon-check"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            {% else %}
+                                                <div class="button purple block cart disabled">
+                                                    P {{ productUnit.discountedPrice|number_format(2) }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-5 col-star-rating-container">
+                                        <div class="rating-container">
+                                            <span class="rating-icons">
+                                                {% for i in 1..5 %}
+                                                    <i class="icon icon-star-o {{ product.getReviewRating >= i ? 'active' : '' }}"></i>
+                                                {% endfor %}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

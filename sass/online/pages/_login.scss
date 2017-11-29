@@ -1,0 +1,440 @@
+.login{
+    .row{
+        margin: 0px -5px;
+
+        [class^="col-"], [class*=" col-"]{
+            padding: 0 5px;
+        }
+    }
+
+    .dimmable{
+        position: absolute;
+        height:100%;
+        width: 100%;
+    }
+
+    .bg{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: -webkit-radial-gradient(circle, #d2d2d2, $body-bg); /* For Safari 5.1 to 6.0 */
+        background: -o-radial-gradient(circle, #d2d2d2, $body-bg); /* For Opera 11.6 to 12.0 */
+        background: -moz-radial-gradient(circle, #d2d2d2, $body-bg); /* For Fx 3.6 to 15 */
+        background: radial-gradient(circle, #d2d2d2, $body-bg); /* Standard syntax (must be last) */
+        border-top: solid $brand-purple 3px;
+        top: 0;
+    }
+
+    .hidden{
+        display: none;
+    }
+
+    .slick-slide:focus{
+        outline: none;
+    }
+
+    .affiliate-logo,
+    .login-taglines,
+    .tagline,
+    .login-tagline-dummy{
+        font-size: $font-size-h4;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 1px;
+        padding: 10px 0;
+    }
+
+    .login-taglines{
+        display: none;
+    }
+
+
+    .login-wrapper{
+        margin: auto;
+        width: 100%;
+        z-index: 3;
+        padding-top: 2.83em;
+        position: relative;
+        &.login-buyer{
+            margin-top: calc(25% - 292px);
+            opacity: 1;
+        }
+
+        .img-member-container{
+            width: 4em;
+            height: 4em;
+            position: relative;
+            overflow: hidden;
+            border: solid $brand-gray-light 1px;
+            text-align: center;
+            border-radius: $border-radius-50;
+            background: #fff;
+            margin: auto;
+
+            img{
+                position: absolute;
+                margin: auto;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: auto;
+                height: auto;
+                max-height: 100%;
+            }
+        }
+
+        .logo{
+            width: 50px;
+        }
+
+        .login-logo-alt{
+            width: 220px;
+            height: auto;
+        }
+
+        .button{
+            font-weight: bold;
+
+            i{
+                display: inline-block;
+                margin-right: 5px;
+            }
+        }
+
+        a.forgot-password-trigger{
+            font-weight: bold;
+            color: #297eb5;
+        }
+
+        .form.text{
+            font-size: 11px;
+        }
+
+        .form-segment{
+            position: relative;
+            margin:auto;
+            max-width: 353px;
+            padding: 25px;
+            -webkit-box-shadow: 0px 0px 21px 0px rgba(186,182,182, 0.4);
+            -moz-box-shadow:    0px 0px 21px 0px rgba(186,182,182, 0.4);
+            box-shadow:         0px 0px 21px 0px rgba(186,182,182, 0.4);
+            z-index: 10;
+        }
+
+        .horizontal-divider{
+            text-transform: uppercase;
+            font-weight: bold;
+            color: $brand-gray;
+            margin: 25px 0;
+            font-size: 10px;
+        }
+
+        .footer-wrapper{
+            display: block;
+            margin-top: 15px;
+            color: $brand-gray;
+            padding-top: 0;
+        }
+    }
+
+    .login-tab-panel{
+        display: none;
+
+        &.active{
+            display: block;
+        }
+
+        &#login-form,
+        &#register-form{
+            transition: $transition-default;
+        }
+        .field{
+            margin-bottom: 0 !important;
+        }
+
+        .form-ui{
+            margin-bottom: 15px;
+        }
+
+        .email-social-media{
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+
+    .login-tab-selection{
+        position: relative;
+        text-align: center;
+        display: block;
+        margin: 5px 0;
+        z-index: 5;
+        a{
+            display: inline-block;
+            margin: 10px 10px;
+            color: $text-color;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            font-size: ((1.5em-0.25em));
+            cursor: pointer;
+
+            &.active{
+                color: $brand-purple;
+            }
+
+            &.active:before{
+                content: '';
+                position: absolute;
+                border-style: solid;
+                border-width: 0 11px 11px;
+                border-color: #FFFFFF transparent;
+                display: block;
+                width: 0;
+                z-index: 1;
+                top: 32px;
+                left: 37%;
+            }
+
+            &.single:before{
+                left: 46%;
+            }
+        }
+    }
+
+    .forgot-password-form{
+        width: 100%;
+
+        &.transition.visible{
+            margin-left: 0;
+        }
+    }
+
+    .merchant-cover-photo-wrapper{
+        .tagline{
+            top: 15%;
+            bottom: 0;
+            margin: auto;
+            position: absolute;
+            display: block;
+            text-align: center;
+            width: 100%;
+            color: #fff;
+            height: 130px;
+
+            img {
+                width: 60px;
+                height: auto;
+            }
+        }
+    }
+
+    .login-merchant{
+        margin-top: -120px;
+        .merchant-image-wrapper{
+            position: relative;
+            width: 70px;
+            height: 70px;
+            border: solid $brand-gray-light 1px;
+            overflow: hidden;
+            border-radius: $border-radius-50;
+            margin: auto;
+            margin-bottom: 0.83em;
+
+            img{
+                width: 70px;
+                height: 70px;
+
+                &.verified{
+                    position: absolute;
+                    top: 100%;
+                    left:0;
+                }
+            }
+        }
+
+        .login-tab-selection{
+            a,
+            a.active{
+                color: #fff;
+            }
+        }
+    }
+
+    .login-affliate{
+        margin-top: calc(25% - 254px);
+        padding-top: 0;
+
+        .merchant-image-wrapper{
+            position: relative;
+            width: 70px;
+            height: 70px;
+            border: solid $brand-gray-light 1px;
+            overflow: hidden;
+            border-radius: $border-radius-50;
+            margin: auto;
+            margin-bottom: 0.83em;
+
+            img{
+                width: 70px;
+                height: 70px;
+
+                &.verified{
+                    position: absolute;
+                    top: 100%;
+                    left:0;
+                }
+            }
+        }
+
+        .login-tab-selection{
+            a,
+            a.active{
+                color: #fff;
+            }
+        }
+
+        .login-taglines {
+            color: #fff;
+        }
+
+        .form-segment{
+            box-shadow: none;
+        }
+
+        .footer-wrapper{
+            color: #fff;
+            opacity: 0.7;
+        }
+    }
+
+    .back-slider,
+    .back-slider-dummy{
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .front-slider,
+    .front-slider-dummy{
+        position: absolute;
+        top: -8.83em;
+        left:0;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        z-index: 3;
+    }
+
+    .back-slider,
+    .front-slider{
+        display: none;
+    }
+
+    .logo-link{
+        z-index: 999;
+    }
+
+    .language-selector{
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        z-index: 999;
+
+        .language-dropdown{
+            transition: all 0.3s ease;
+            border-radius: 6px !important;
+            padding: 5px 3px !important;
+            min-width: auto !important;
+            width: auto;
+
+            &>.text{
+                padding-right: 0 !important;
+                padding-bottom: 0 !important;
+                width: auto;
+                display: inline-block;
+                text-overflow: initial;
+                white-space: normal;
+                overflow: auto;
+                position: relative;
+                top: 3px;
+
+                .code{
+                    display: none;
+                }
+            }
+
+            .dropdown.icon{
+                top: 36% !important;
+                position: absolute;
+                right: 14px;
+                color: #fff;
+            }
+
+            &.active{
+                 border-radius: 0 6px 0px 0 !important;
+            }
+
+            .menu{
+                -webkit-box-shadow: 13px 10px 18px -10px rgba(201,201,201,1);
+                -moz-box-shadow: 13px 10px 18px -10px rgba(201,201,201,1);
+                box-shadow: 13px 10px 18px -10px rgba(201,201,201,1);
+                border-width: 0;
+            }
+        }
+
+        .country-code{
+            margin-right: 20px;
+        }
+
+        .table-cell{
+            vertical-align: middle;
+            padding: 0 5px;
+            width: 35px;
+        }
+
+        .image-holder{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-bottom: -5px;
+            border: solid #fff 2px;
+        }
+    }
+
+    .login-affliate{
+        .language-dropdown{
+            .menu{
+                box-shadow: none;
+            }
+        }
+    }
+
+
+    input[readonly] {
+      background-color: lighten($brand-gray-light, 5);
+      color: rgba($brand-gray-base, 0.5);
+
+      &:focus {
+        background-color: lighten($brand-gray-light, 5);
+        color: rgba($brand-gray-base, 0.5);
+      }
+    }
+
+    .local-captcha{
+        img{
+            width: calc(100% - 108px);
+        }
+
+        .button{
+            margin-left: 10px;
+            margin-top: 26px;
+            position: absolute;
+        }
+    }
+}

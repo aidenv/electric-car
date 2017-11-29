@@ -1,0 +1,136 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductUnit:
+    type: entity
+    table: ProductUnit
+    inheritanceType: JOINED
+    discriminatorColumn:
+        name: discriminator
+        type: string
+    discriminatorMap:
+        ProductUnit: ProductUnit
+        InhouseProductUnit: InhouseProductUnit
+    gedmo:
+        translation:
+            locale: locale
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ProductUnitRepository
+    entityListeners:
+        Yilinker\Bundle\CoreBundle\Doctrine\Listener\ProductUnitListener:
+            postLoad: [applyDiscountHandler, checkInWishlist]
+    indexes:
+        fk_productunit_productid_product_productid_idx:
+            columns:
+                - product_id
+    id:
+        productUnitId:
+            type: bigint
+            id: true
+            column: product_unit_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        quantity:
+            type: integer
+            options:
+                default: '0'
+        sku:
+            length: 255
+            options:
+                default: ''
+        price:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: price
+            options:
+                default: '0.00'
+        discountedPrice:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: discounted_price
+            options:
+                default: '0.00'
+        commission:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: commission
+            options:
+                default: '0.00'
+            gedmo:
+                - translatable
+        dateCreated:
+            type: datetime
+            column: date_created
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+        status:
+            type: integer
+            unsigned: true
+            options:
+                default: '1'
+            gedmo:
+                - translatable
+        weight:
+            type: decimal
+            nullable: true
+            precision: 5
+            scale: 2
+            options:
+                default: '0.0000'
+        length:
+            type: decimal
+            nullable: true
+            precision: 5
+            scale: 2
+            options:
+                default: '0.0000'
+        width:
+            type: decimal
+            nullable: true
+            precision: 5
+            scale: 2
+            options:
+                default: '0.0000'
+        height:
+            type: decimal
+            nullable: true
+            precision: 5
+            scale: 2
+            options:
+                default: '0.0000'
+        internalSku:
+            type: string
+            column: internal_sku
+            length: 255
+            options:
+                default: ''
+    manyToOne:
+        product:
+            targetEntity: Product
+            inversedBy: units
+            joinColumn:
+                name: product_id
+                referencedColumnName: product_id
+            orphanRemoval: false
+    oneToMany:
+        productUnitImages:
+            targetEntity: ProductUnitImage
+            fetch: EXTRA_LAZY
+            mappedBy: productUnit
+            cascade: ['persist']
+        productAttributeValues:
+            targetEntity: ProductAttributeValue
+            mappedBy: productUnit
+            cascade: ['persist', 'remove']
+        productPromoMaps:
+            targetEntity: ProductPromoMap
+            mappedBy: productUnit
+        productUnitWarehouses:
+            targetEntity: ProductUnitWarehouse
+            mappedBy: productUnit
+    oneToOne:
+        manufacturerProductUnitMap:
+            targetEntity: ManufacturerProductUnitMap
+            mappedBy: productUnit
+    lifecycleCallbacks: {  }

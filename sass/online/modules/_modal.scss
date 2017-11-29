@@ -1,0 +1,87 @@
+.ui.modal{
+
+    border-radius: $border-radius-default !important;
+
+    &>.header{
+        font-family: $font-family-default !important;
+        color: $text-color !important;
+        border-radius: $border-radius-default $border-radius-default 0 0;
+        padding: 1.17em 1.8em !important;
+    }
+
+    &>.content,
+    &>form > .content
+    {
+        font-size: 1.2em !important;
+        padding: 3rem !important;
+        border-radius: $border-radius-default !important;
+        line-height: $line-height-default !important;
+        .row{
+            margin: 0px -7px; 
+            [class^="col-"], [class*=" col-"]{
+                padding: 0 7px;
+            }
+        }
+    }
+
+    .actions,
+    &> form .actions{
+        padding: 1em 2.4em !important;
+        border-bottom-left-radius: $border-radius-default !important;
+        border-bottom-right-radius: $border-radius-default !important;
+        font-size: 1.2em !important;
+        background: #f9fafb;
+        padding: 1rem;
+        border-top: 1px solid rgba(34,36,38,.15);
+        text-align: right;
+        
+        .action-link{
+            padding: 1.25em 0em;
+            font-size: 1em;
+            color: $brand-sky-blue;
+        }
+
+        .button{
+            margin-top: 3px;
+        }
+    }
+
+    .header .content{
+        .icon{
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+
+        .sub-header{
+            margin-top: 10px;
+        }
+    }
+
+    &>.form{
+        margin-bottom: -1em;
+    }
+}
+
+.actions.align-center{
+    text-align: center !important;
+}
+
+.ui.modal .content{
+    &>.ui.header{
+        &>.content{
+            margin-top: -0.75em;
+        }
+    }
+}
+
+@media (min-width: 1200px){
+    .ui.tiny.modal{
+        width: 330px;
+        margin: 0px 0 0 -175px;
+    }
+
+    .ui.crop.modal{
+        width: 441px;
+        margin: 0px 0 0 -216px;
+    }
+}

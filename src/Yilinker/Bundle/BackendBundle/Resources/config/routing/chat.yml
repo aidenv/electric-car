@@ -1,0 +1,7 @@
+chat_room:
+    path: /chatroom
+    defaults: { _controller: YilinkerBackendBundle:Chat:renderChatRoom }
+
+chat_ticket:
+    path: /ticket
+    defaults: { _controller: YilinkerBackendBundle:Chat:renderTicket }

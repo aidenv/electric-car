@@ -1,0 +1,48 @@
+{% set orderProduct = notification.data.orderProduct is defined ?
+                      notification.data.orderProduct: null
+%}
+{% set user  = notification.data.orderProductCancellationHead.user %}
+{% set user  = user ? user: notification.data.orderProductCancellationHead.admin %}
+
+{% set transactionURL = '#' %}
+{% if orderProduct %}
+    {% set invoiceNumber = orderProduct.order is defined ? orderProduct.order.invoiceNumber: null %}
+{% else %}
+    {% set invoiceNumber = null %}
+{% endif %}
+{% if invoiceNumber %}
+    {% set transactionURL = safe_route('dashboard_transaction_view', {invoice: invoiceNumber}) %}
+    {% if not transactionURL %}
+        {% set transactionURL = safe_route('profile_transaction_view', {invoice: invoiceNumber}) %}
+    {% endif %}
+{% endif %}
+
+<a href="{{ transactionURL }}">
+    <div class="notification-icon-container">
+        <span class="icon-circle-container">
+            <i class="icon icon-check"></i>
+        </span>
+    </div>
+    <div class="notification-details">
+        <span class="notification-description semi-bold">
+            Cancel Request for
+            x{{ orderProduct.quantity }} {{ orderProduct.productName }}
+
+            {% if user.store is defined and user.store %}
+                filed by {{ user.store.storeName }}
+            {% else %}
+                {% 
+                    if app.user.store is defined and 
+                    app.user.store is not null and
+                    app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') 
+                %}
+                {% else %}
+                    {{ user.firstName }} {{ user.lastName }}
+                {% endif %}
+            {% endif %}
+        </span>
+        <span class="notification-time light-color">
+            {{ notification.dateAdded.format('M d, Y g:i:sa')|time_elapsed }}
+        </span>
+    </div>
+</a>

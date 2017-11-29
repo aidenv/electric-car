@@ -1,0 +1,884 @@
+.form-ui{
+    display: block;
+    width: 100%;
+    padding: ((0.5em + 0.17em)) 1em;
+    font-size: 1em;
+    font-family: $font-family-default;
+    line-height: $line-height-default;
+    background-color: $input-bg;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid $input-border-color;
+    border-radius: $input-border-radius;
+    outline: none;
+    transition: $transition-default;
+    margin-bottom: 0.42em;
+    letter-spacing: 0.5px;
+    min-height: 3.33em;
+
+    &:focus{
+        border-radius: 0 $input-border-radius $input-border-radius 0;
+        -webkit-box-shadow: inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+        -moz-box-shadow:    inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+        box-shadow:         inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+        border-color:       rgba(124, 122, 122, 0.5);
+        background: #fff;
+    }
+
+    &.small{
+        padding: 0.33em 0.83em;
+        font-size: 0.9em;
+    }
+
+    &.large{
+        padding: $padding-large-vertical $padding-large-horizontal;
+        font-size: 1.4em;
+    }
+
+    &.inverted{
+        background: #f2f2f2;
+        &:focus{
+            background: #fff;
+        }
+    }
+
+    &.rounded{
+        border-radius: 100px;
+    }
+
+    &[readonly]{
+         &:focus{
+            -webkit-box-shadow: none;
+            -moz-box-shadow:    none;
+            box-shadow:         none;
+            border-color:       $input-border-color;
+            background: #fff;
+        }
+    }
+
+    &.error {
+      border-color: lighten($brand-red, 25%);
+    }
+}
+
+textarea.form-ui{
+    min-height: 12em;
+    max-height: 24em;
+    resize: vertical;
+}
+
+.form-ui-note{
+    font-size: 0.9em;
+    display: block;
+    color: lighten($text-color, 20%);
+
+    &.error {
+      color: lighten($brand-red, 25%);
+    }
+}
+
+.labeled-input{
+    display: table;
+    width: 100%;
+    margin-bottom: 0.83em;
+    .label{
+        position: relative;
+        padding: 10px 15px;
+        margin-bottom: 5px;
+        background: $brand-gray;
+        vertical-align: middle;
+        color: $brand-gray-lighter;
+        display: table-cell;
+        text-align: center;
+        border-radius:  $input-border-radius 0 0 $input-border-radius ;
+    }
+
+    .form-ui{
+        margin-left: -2px;
+        border-left: none;
+        margin-bottom: 0;
+        border-radius: 0 $input-border-radius  $input-border-radius 0;
+    }
+
+    &.right{
+        .label{
+            border-radius:  0 $input-border-radius $input-border-radius 0;
+            &.tag{
+                &:before{
+                    position: absolute;
+                    -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+                    -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+                    transform: translateY(-50%) translateX(50%) rotate(-45deg);
+                    top: 50%;
+                    right: 100%;
+                    content: '';
+                    background-color: #633535;
+                    background-image: none;
+                    width: 1.56em;
+                    height: 1.56em;
+                    -webkit-transition: background 0.2s ease;
+                    transition: background 0.2s ease;
+                }
+                &:after{
+                    position: absolute;
+                    content: '';
+                    top: 50%;
+                    left: -0.25em;
+                    margin-top: -0.25em;
+                    background-color: #ffffff;
+                    width: 0.5em;
+                    height: 0.5em;
+                    box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+                    border-radius: 500rem;
+                }
+            }
+        }
+
+        .form-ui{
+            margin-left: 0px;
+            border: 1px solid $input-border-color;
+            border-radius: $input-border-radius 0 0 $input-border-radius;
+            &:focus{
+                border-radius: 0 0 0 0;
+                -webkit-box-shadow: inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+                -moz-box-shadow:    inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+                box-shadow:         inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+                border-color:       rgba(124, 122, 122, 0.5);
+            }
+        }
+    }
+}
+
+.input-icon{
+    position: relative;
+
+    .icon{
+        position: absolute;
+        top: 0.33em;
+        right: 00.33em;
+        font-size: 1.33em;
+        color: $input-border-color;
+        z-index: 9;
+    }
+
+    &.left{
+
+        .form-ui{
+            padding-left: 2.5em;
+        }
+
+        .icon{
+            left: 0.33em;
+            right: auto;
+        }
+    }
+
+    &.small{
+        .icon{
+            top: 0em;
+        }
+    }
+
+    &.right{
+        .icon{
+            top: 0.33em;
+            right: 0.5em;
+        }
+    }
+}
+
+.input-inner-button{
+    position: relative;
+
+    .form-ui{
+        padding-right: 6.33em;
+    }
+
+    .button{
+        position: absolute;
+        top: 0.4em;
+        right: 0.33em;
+        padding: 0.25em 1em;
+        margin-right: 0;
+    }
+
+}
+
+.form-segment{
+    width: 100%;
+    min-height: 100px;
+    background: #fff;
+    border-radius: $form-segment-border-radius;
+    padding: 1.25em;
+    margin-bottom: 0.83em;
+}
+
+.form{
+    position: relative;
+    margin-bottom: 1.25em;
+    .row{
+        margin: 0px -7px;
+
+        [class^="col-"], [class*=" col-"]{
+            padding: 0 0.58em;
+        }
+    }
+
+    label{
+        font-weight: bold;
+        margin-bottom: 0.42em;
+        display: block;
+
+        &.required:after{
+            content: "*";
+            color: $brand-red;
+        }
+
+        .light{
+            font-size: 1.17em;
+            display: inline-block;
+            margin-left: 5px;
+            color: #666;
+            font-weight: bold !important;
+        }
+    }
+
+    .form-state-icon-success{
+        font-weight: bold;
+        color: $brand-green;
+        position: absolute;
+        right: 0.42em;
+        top: 0.33em;
+        font-size: 1.5em;
+    }
+
+    .loading-img{
+        display: none;
+    }
+
+    &.loading{
+        .loading-img{
+            position: absolute;
+            width: 29px;
+            right: 9px;
+            top: 37px;
+            display: inline-block;
+        }
+
+        .form-ui{
+            padding-right: 45px;
+        }
+    }
+
+    &.dropdown-loading{
+        .loading-img{
+            position: absolute;
+            width: 29px;
+            right: 35px;
+            top: 37px;
+            display: inline-block;
+        }
+
+        .form-ui{
+            padding-right: 45px;
+        }
+    }
+}
+
+.form-segment{
+     .error{
+        .form-ui{
+            background: #fff6f6;
+            border-color: #e0b4b4;
+            color: #9f3a38;
+
+             &:focus{
+                -webkit-box-shadow: inset 1px 0px 0px 0px rgba(241,162,167, 1);
+                -moz-box-shadow:    inset 1px 0px 0px 0px rgba(241,162,167, 1);
+                box-shadow:         inset 1px 0px 0px 0px rgba(241,162,167, 1);
+                border-color:       rgba(241,162,167, 1);
+            }
+        }
+
+        ::-webkit-input-placeholder{
+            color: #e7bdbc;
+        }
+
+        ::-moz-input-placeholder{
+            color: #e7bdbc;
+        }
+
+        ::-ms-input-placeholder{
+            color: #e7bdbc;
+        }
+    }
+}
+
+input[type='checkbox'],
+input[type='radio']{
+    margin-right: 0.25em;
+}
+
+.form-ui-checkbox{
+    position: relative;
+
+    label{
+        cursor: pointer;
+    }
+
+    label:before{
+        content: '';
+        display: none;
+        border: solid #e2e2e2 1px;
+        width: 11px;
+        height: 11px;
+        border-radius: 2px;
+        position: absolute;
+        left: 0;
+        top: 0.17em;
+        overflow: hidden;
+    }
+
+    &.checked label:after{
+        font-family: 'icomoon';
+        font-weight: 900;
+        content: "\e611";
+        font-size: 9px;
+        position: absolute;
+        left: 0.17em;
+        top: 0.17em;
+    }
+}
+
+.form-error-prompt{
+    position: relative;
+    display: inline-block;
+    vertical-align: baseline;
+    margin-top: -0.83em;
+    background-image: none;
+    padding: 0.42em 1em;
+    text-transform: none;
+    font-weight: 300;
+    border-radius: $border-radius-default;
+    box-sizing: border-box;
+    -webkit-transition: background 0.2s ease;
+    transition: background 0.2s ease;
+    font-size: 0.83em;
+    background: lighten($brand-red, 10%);
+    color: #fff;
+    &:after
+    {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 0 6px 4px;
+        border-color: lighten($brand-red, 10%) transparent;
+        display: block;
+        width: 0;
+        z-index: 1;
+        top: -0.33em;
+        left: 43%;
+    }
+
+    ul{
+        list-style-type: none;
+    }
+}
+
+.number-spinner{
+    position: relative;
+    .number-spinner-button-group{
+        position: absolute;
+        top: 0;
+        right: 0;
+        .button-spinner{
+            display: block;
+            background: transparent;
+            border: 0;
+            outline: none;
+            padding: 0.2em 0.7em;
+            .icon{
+                font-size: 1em;
+            }
+        }
+    }
+}
+
+//Form overwrites from third party plug-ins
+.dropzone{
+    position: relative;
+    border: dashed $input-border-color 1px !important;
+    border-radius: $border-radius-default !important;
+    color: $brand-gray-light;
+    min-height: 17.67em !important;
+    max-height: 17.67em !important;
+    margin-bottom: 2.17em !important;
+    padding: 0.83em !important;
+    transition: $transition-default;
+    cursor: pointer;
+    overflow: auto;
+    
+    &.inverted{
+        background: #f7f7f7;
+        border-color: #f7f7f7 !important;
+    }
+
+    .dz-progress{
+        border-radius: $border-radius-default !important;
+        height: 5px !important;
+        opacity: 0;
+
+        .dz-upload{
+            background: $brand-purple !important;
+        }
+    }
+
+    .dz-details{
+        display: none !important;
+    }
+
+    .dz-remove{
+        font-size: 0.8em !important;
+        margin-top: 0.33 !important;
+    }
+
+    .dz-message{
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        top: 0;
+        left: 0;
+        font-size: 1.5em;
+
+
+        .icon{
+            font-size: 3em;
+        }
+    }
+
+    &:hover{
+        color: rgba(124, 122, 122, 0.7);
+        border-color: rgba(124, 122, 122, 0.7);
+    }
+
+    .dz-preview{
+        margin: 0.5em !important;
+
+        .dz-image{
+            border-radius: 0 !important;
+            width: 6.5em !important;
+            height: 6.5em !important;
+            border: solid #dedede 1px !important;
+            position: relative !important;
+            img{
+                max-width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+        }
+    }
+
+    .dz-error-message,
+    .dz-preview.dz-error .dz-error-message{
+            display: none !important;
+    }
+
+    .dz-preview.dz-image-preview{
+        background: white;
+        padding: 3px;
+        border: solid #fff 3px;
+
+        &.active{
+            border: solid $brand-blue 3px;
+        }
+    }
+
+    .primary-tag{
+        display: block;
+        position: absolute;
+        z-index: 999;
+        background: rgba(84, 182, 167, 0.8);
+        width: 100%;
+        left: 0;
+        top: 0;
+        text-align: center;
+        color: white;
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+}
+
+.ui.selection.dropdown .menu>.item{
+    padding: 1em 1.25em !important;
+}
+
+.ui.dropdown{
+    transition: $transition-default;
+    border-radius: $border-radius-default !important;
+    padding: 1.6em 1.25em !important;
+    min-width: 0 !important;
+    width: 100%;
+
+    .menu > .item{
+        display: block;
+        padding: 11.5px 15px !important;
+        font-size: 1em !important;
+    }
+
+    .label{
+        border: 1px solid #d9d9d9;
+        background-color: #ededed;
+        color: $text-color;
+        font-weight: normal;
+        box-shadow: none !important;
+        border-radius: $border-radius-default;
+
+        .delete.icon:before{
+            content: "\e620";
+            font-family: "icomoon";
+            font-style: normal;
+            display: inline-block;
+            margin-left: 0.42em;
+            font-size: 0.7em;
+        }
+    }
+
+    .default.text{
+        padding-left: 0.33em !important;
+    }
+
+    &>.text{
+        padding-right: 1.3em !important;
+        padding-bottom: 0.33em !important;
+        width: 100%;
+        display: inline-block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        position: absolute;
+        width: 86%;
+        top: 1em;
+    }
+
+    &.small>.text{
+        top: 0.83em;
+    }
+
+    .dropdown.icon{
+        top: 1em !important;
+    }
+
+    &.active{
+
+        input[type="text"]{
+            -webkit-box-shadow: inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+            -moz-box-shadow:    inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+            box-shadow:         inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+            border-color:       rgba(124, 122, 122, 0.5);
+        }
+
+    }
+
+    &.inverted{
+        background: #f2f2f2 !important;
+        transition: $transition-default;
+
+        &.active{
+            background: #fff !important;
+        }
+    }
+
+    &.ellipsis-dropdown{
+        padding: 0;
+        line-height: 1;
+        border-radius: 0 !important;
+        padding: 0em 0.5em;
+        background: #f2f2f2;
+        background: #f2f2f2;
+        line-height: 0.4;
+        display: inline-block;
+        padding: 0.17em !important;
+        padding-top: 0;
+        padding-bottom: 0.64em !important;
+        border: solid $brand-gray-light 1px;
+        border-radius: 3px !important;
+
+        &:hover,
+        &.active{
+            background: $brand-gray-light;
+        }
+
+        .ellipsis-text{
+            letter-spacing: 2px;
+            font-size: 1.35em;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .item{
+            color: $text-color !important;
+        }
+
+        .menu{
+            background: #f2f2f2;
+            border-color: $brand-gray-light;
+        }
+    }
+
+    // &:hover,
+    // .active{
+    //     border: solid $brand-gray-light 1px !important;
+    // }
+
+    &.search{
+        padding-top: 0.83em !important;
+        padding-bottom: 0.83em !important;
+        .search{
+            padding-top: 1em !important;
+        }
+
+        .text{
+            top: 0.25em;
+        }
+    }
+}
+
+.tokenfield{
+    border: solid $input-border-color 1px;
+    padding: ((0.5em + 0.17)) 1em;
+    border-radius: $border-radius-default;
+    margin-bottom: 0.33em;
+
+    .token-input{
+        margin-bottom: 0px;
+        width: 10.83em !important;
+    }
+
+    &.focus{
+        border-radius: 0 $input-border-radius $input-border-radius 0;
+        -webkit-box-shadow: inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+        -moz-box-shadow:    inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+        box-shadow:         inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+        border-color:       rgba(124, 122, 122, 0.5);
+    }
+}
+
+.ui.toggle.checkbox input:checked~.box:before, .ui.toggle.checkbox input:checked~label:before{
+    background-color: $brand-confirm !important;
+    content: "\e611";
+    color: #fff;
+    font-family: "icomoon";
+    line-height: $line-height-default;
+    font-size: 1.5em;
+    padding-left: 0.75em;
+    margin-left: -0.58em;
+    text-align: left;
+}
+
+.ui.toggle.checkbox input[type="checkbox"]:indeterminate:focus ~ .box:before,
+.ui.toggle.checkbox input[type="checkbox"]:indeterminate:focus ~ label:before,
+.ui.toggle.checkbox input[type="checkbox"]:checked:focus ~ .box:before,
+.ui.toggle.checkbox input[type="checkbox"]:checked:focus ~ label:before {
+  background: $brand-confirm !important;
+  border-color: rgba(34, 36, 38, 0.35) !important;
+}
+
+.ui.toggle.checkbox .box:before, .ui.toggle.checkbox label:before{
+    width: 4.5rem !important;
+    height: 2.5rem !important;
+}
+
+.ui.toggle.checkbox .box:after, .ui.toggle.checkbox label:after{
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+}
+
+.ui.checkbox,
+.ui.radiobox {
+    label{
+        font-size: 1.3em;
+        color: $text-color;
+        cursor: pointer;
+    }
+}
+
+.form-autosuggest{
+    width: 100%;
+}
+
+.twitter-typeahead{
+    display: block !important;
+}
+
+.tt-dropdown-menu{
+    background: #fff;
+    width: 100%;
+    border: solid rgba(124, 122, 122, 0.5) 1px;
+    border-top: 0px;
+    border-radius: 0 0 $border-radius-default $border-radius-default;
+    margin-top: -0.33em;
+    color: $brand-gray;
+    max-height: 150px !important;
+    overflow: auto;
+    font-family: $font-family-default;
+    .tt-suggestion{
+        padding: 0.5em 0.67em;
+        border-top: solid #fafafa 1px;
+        font-weight: normal;
+        &:hover{
+            background: rgba(0,0,0,.05);
+            cursor: pointer;
+        }
+    }
+}
+
+strong.tt-highlight{
+    color: $text-color;
+}
+
+.cropper-bg{
+    background-image: none;
+}
+
+.cropper-container{
+    margin: auto;
+}
+
+.img-preview{
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.cropper-view-box{
+    border: 1px solid #69f;
+    outline: 0 !important;
+}
+
+.crop-circle{
+    .cropper-view-box{
+        border-radius: 50%;
+    }
+}
+
+.cropper-modal {
+    background-color: #000;
+    filter: alpha(opacity=80) !important;
+    opacity: .8 !important;
+}
+
+.dimmer{
+    &.inverted{
+        &>.content>*{
+            color: $brand-purple !important;
+        }
+    }
+}
+
+.ui.form{
+    .input:not([type]),
+    .input[type=date],
+    .input[type=datetime-local],
+    .input[type=email],
+    .input[type=number],
+    .input[type=password],
+    .input[type=search],
+    .input[type=tel],
+    .input[type=time],
+    .input[type=text],
+    .input[type=url]{
+        display: block;
+        width: 100%;
+        padding: ((0.5em + 0.17em)) 1em;
+        font-size: 1em;
+        font-family: $font-family-default;
+        line-height: $line-height-default;
+        background-color: $input-bg;
+        background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+        border: 1px solid $input-border-color;
+        border-radius: $input-border-radius;
+        outline: none;
+        transition: $transition-default;
+        margin-bottom: 0.42em;
+        letter-spacing: 0.5px;
+        &:focus{
+            border-radius: 0 $input-border-radius $input-border-radius 0;
+            -webkit-box-shadow: inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+            -moz-box-shadow:    inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+            box-shadow:         inset 1px 0px 0px 0px rgba(124, 122, 122, 0.5);
+            border-color:       rgba(124, 122, 122, 0.5);
+            background: #fff;
+        }
+    }
+
+    .field{
+        clear: none;
+        margin-bottom: 0.83em;
+    }
+
+    .field>label{
+        font-size: 1em;
+        color: $text-color;
+    }
+}
+
+//Voucher
+
+#voucher-form {
+  .start-date,
+  .end-date {
+    input {
+      background-color: transparent;
+      border: 0;
+
+      &:first-of-type {
+        border-right: 1px solid  $brand-gray-light;
+      }
+    }
+  }
+}
+
+.tag.ui.dropdown{
+    padding-top: 0.4em !important;
+    padding-bottom: 0.4em !important;
+
+    .dropdown.icon{
+        top: 8px !important;
+    }
+
+    .search{
+        margin: 0 !important;
+        padding-top: 7px !important;
+        padding-bottom: 7px !important;
+    }
+
+    .default.text{
+        top: 1px;
+        left: 4px;
+    }
+}
+
+//Ckeditor
+.form {
+  .cke_chrome {
+    border: 1px solid $input-border-color;
+    border-radius: $input-border-radius;
+  }
+
+  .cke_inner {
+    @include border-radius($input-border-radius);
+  }
+
+  .cke_top {
+    @include border-radius(6px 6px 0 0);
+  }
+
+  .cke_bottom {
+    @include border-radius(0 0 6px 6px);
+    z-index: 1;
+  }
+}

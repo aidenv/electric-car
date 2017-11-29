@@ -1,0 +1,10 @@
+
+api_core_mobile_feedback_add:
+    path: /mobile-feedback/add
+    defaults: { _controller: YilinkerCoreBundle:Api/MobileFeedBackApi:add }
+    methods: [POST]
+
+api_core_mobile_feedback_auth_add:
+    path: /auth/mobile-feedback/add
+    defaults: { _controller: YilinkerCoreBundle:Api/MobileFeedBackApi:add }
+    methods: [POST]

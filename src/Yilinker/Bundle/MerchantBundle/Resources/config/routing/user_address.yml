@@ -1,0 +1,5 @@
+merchant_store_address:
+    path: /dashboard/store-address
+    defaults: { _controller: YilinkerMerchantBundle:UserAddress:renderUserAddresses }
+    requirements:
+        _locale: en

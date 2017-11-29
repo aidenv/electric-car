@@ -1,0 +1,50 @@
+<div class="col-md-6 col-xl-4 masonry-item" {% if address is not defined %} style="display:none;" id="empty-address-container" {% endif %}>
+    <div class="bordered-segment shipping-address-segment {{ (address is defined and address.isDefault)? 'active':'' }}">
+        <table class="shipping-address-table" 
+               data-addressid="{{ address.userAddressId|default('') }}"
+               data-title="{{ address.title|default('') }}"
+               data-unitnumber="{{ address.unitNumber|default('') }}"
+               data-buildingname="{{ address.buildingName|default('')  }}"
+               data-streetnumber="{{ address.streetNumber|default('') }}"
+               data-streetname="{{ address.streetName|default('') }}"
+               data-subdivision="{{ address.subdivision|default('') }}"
+               data-zipcode="{{ address.zipCode|default('') }}"
+               data-locationTree="{{ address.location.getLocalizedLocationTree(true)|default('')|json_encode }}"
+               data-latitude="{{ address.latitude|default('') }}"
+               data-longitude="{{ address.longitude|default('') }}"
+               >
+            <tbody>
+                <tr class="tr-address">
+                    <td width="2em">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="isDefault" class="address-default-checkbox" {% if address is defined and address.isDefault %}checked{% endif %} data-id="{{ address.userAddressId|default('') }}">
+                            <label for="">&nbsp;</label>
+                        </div>
+                    </td>
+                    <td class="td-border-bottom-1">
+                        <div class="shipping-label">
+                            <a class="item-name">{{ address.title|default('') }}</a>
+                            <a class="pull-right">
+                            <div class="ui buttons">
+                                <div class="ui floating dropdown ellipsis-dropdown">
+                                <span class="ellipsis-text">...</span>
+                                <div class="menu">
+                                    <div class="item edit address-edit-btn">
+                                      <i class="icon icon-edit"></i> {% trans %} Edit Address {% endtrans %}
+                                    </div>
+                                    <div class="item delete address-delete-btn">
+                                      <i class="icon icon-trash"></i> {% trans %} Delete Address {% endtrans %}
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </a>
+                            <div class="item-address-line light-color">{{ address.getAddressString|default('') }}</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

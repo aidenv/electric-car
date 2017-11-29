@@ -1,0 +1,336 @@
+.product-price-and-discount-container{
+    &.mobile{
+        display: none;
+    }
+}
+
+.desktop-hide{
+    display: none !important;
+}
+
+.sticky-cart-button{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 999;
+    width: 100%;
+    border-top: solid #dedede 1px;
+    background: #ececec;
+    padding: 5px;
+    display: none;
+
+    .product-cart-button-flip{
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .row{
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .desktop-hide{
+        display: block !important;
+    }
+
+    .active-cart-button{
+        margin-bottom: 68px;
+    }
+
+    .mobile-hide{
+        display: none !important;
+    }
+
+    .product-page{
+        .product-top-layer-wrapper{
+            margin-top: 35px;
+        }
+
+        .col-thumbnail{
+            display: none;
+        }
+
+        .product-top-left-layer,
+        .thumbnail-nav-container,
+        .product-image-slider, 
+         .col-image-slider{
+            min-height: auto !important;
+        }
+
+        .product-image-slider .item-slide{
+            min-height: auto;
+            height: 100vw !important;
+        }
+
+        .product-image-slider .slick-track{
+            height: 100vw !important;
+        }
+
+        .control-vertical{
+            display: none;
+        }
+
+        .product-description-tab{
+            border-top: solid #dedede 1px;
+            width: 100%;
+            display: table;
+
+            a{
+                display: table-cell;
+                width: 50%;
+                text-align: center;
+            }
+        } 
+
+        .product-top-right-layer{
+            padding: 20px 0;
+            padding-bottom: 0;
+
+            &>.rating-container{
+                margin-left: 10px;
+            }
+
+            .wishlist-container{
+                margin-right: 10px;
+            }
+
+            .product-name-and-category-container{
+                padding: 0 10px;
+                margin-top: 20px;
+            }
+        }
+
+        .product-name-and-category-container .product-name{
+            font-size: 2em;
+        }
+
+        .col-product-price{
+            text-align: center;
+            padding-top: 10px !important;
+        }
+
+        .col-seller-name{
+            .table-seller-name{
+                width: auto;
+                margin: auto;
+            }
+
+            .td-seller-img{
+                width: 100%;
+                min-width: 200px;
+                text-align: center;
+            }
+
+            .td-seller-name{
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+
+        .col-seller-badge{
+            text-align: center;
+            img{
+                margin: auto 5px;
+                height: 30px;
+                width: auto;
+            }
+        }
+
+        .product-featured-delivery-perks-container{
+            text-align: center;
+        }
+
+        .product-price-and-discount-container{
+            border-bottom: 0;
+             padding: 0.5em 0;
+            .row{
+                margin: 0;
+            }
+
+            &.mobile{
+                display: block;
+            }
+
+            [class^="col-"], &>[class*=" col-"]{
+                padding: 0px;
+            }
+
+            &.web{
+                display: none;
+            }
+
+            .discount-txt{
+                display: none;
+            }
+
+            .product-current-price{
+                font-size: 1.5em;
+            }
+
+            .original-price2{
+                font-size: 1em !important;
+            }
+        }
+
+        .tab-content-wrapper .tab-item-container{
+            padding: 1.5em 10px;
+        }
+
+        .product-attributes-container,
+        .product-buy-and-cart-container {
+            padding-top: 1.33em;
+            border-top: solid #dedede 1px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .product-attributes-container{
+            
+        }
+
+        .product-social-media-share{
+            padding-left: 10px;
+            padding-right: 10px;
+            background: #ececec;
+            padding: 20px 10px;
+        }
+
+        .product-bottom-layer{
+            padding: 2em 0;
+            padding-top: 0;
+
+            .row{
+                margin: 0;
+            }
+
+            .col-bottom{
+                padding: 0;
+            }
+
+            .tab-wrapper{
+                overflow: auto;
+            }
+
+            .product-bottom-tab {
+                width: 800px;
+
+                &>a{
+                    font-size: 10px;
+                    padding: 10px;
+                }
+            }
+
+            .product-bottom-tab-container .tab-content-wrapper .tab-item-container {
+                display: none;
+                padding: 1.5em 10px;
+            }
+
+            .product-bottom-tab-container{
+                margin-top: -8px;
+            }
+
+            .title-bar{
+                margin-bottom: 10px;
+
+                .title-name{
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .product-rating-review-container{
+            .rating-review-container{
+                padding: 1.25em 0;
+            }
+
+            .review-items-container {
+                margin-top: 30px;
+            }
+
+            .review-wrapper{
+                border: solid #dedede 1px;
+                display: block;
+                padding: 5px;
+                margin-bottom: 10px;
+                margin-bottom: 15px;
+                border-radius: 6px;
+
+            }
+
+            .review-buyer-info{
+                width: 27px;
+                padding-right: 12px;
+                padding-top: 8px;
+            }
+
+            .td-buyer-img{
+                vertical-align: top;
+            }
+
+            .img-buyer-container{
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .review-item{
+                border: 0;
+                margin-top: 0;
+            }
+
+            .review-item-head{
+                padding: 0 10px !important;
+                width: 100%;
+            }
+
+            .review-title-td{
+                .name{
+                    font-size: 12px;
+                }
+            }
+
+            .review-item-body{
+                padding: 10px 0 !important;
+            }
+
+            .review-item-cell{
+                width: 100%;
+            }
+
+            .review-fraction-td{
+                width: 60px !important;
+            }
+
+            .total-rating-fraction-container{
+                width: 50px;
+                height: 50px;
+                font-size: 1em;
+            }
+
+            .total-review{
+                font-size: 1em;
+            }
+
+            .rating-container{
+                font-size: 1.3em;
+            }
+        }
+
+        .related-items-container{
+            .title-bar{
+                padding: 0 10px;
+                margin-bottom: 0px;
+            }
+
+            .title-bar .title-name{
+                font-size: 12px;
+            }
+        }
+    }
+
+    .product-recommendation-container{
+        padding: 0 !important;
+    }
+    
+}

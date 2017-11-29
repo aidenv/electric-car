@@ -1,0 +1,153 @@
+{% extends 'YilinkerMerchantBundle:Base:base.html.twig' %}
+{% block title %}
+    Welcome | YilinkerOnline.com
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .navbar{
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="login">
+        <div class="merchant-cover-photo-wrapper mobile-hide">
+             <img src="{{ asset('images/merchant-cover-login.jpg') }}" id="default-merchant-cover" alt="">
+             <img src="{{ asset('defaults/merchant-default-cover.jpg', 'user') }}" id="verified-merchant-cover" alt="" style="position:absolute; top: 100%;">
+             <div class="tagline align-center">
+                 <a href="{{ path('default') }}">
+                     <img src="{{ asset('images/logo-icon-inverted.png') }}" alt="" class="logo">
+                 </a>
+                 <div>{% trans %} All in one place {% endtrans  %}</div>
+             </div>
+        </div>
+        <div class="login-wrapper login-merchant">
+            <div class="align-center desktop-hide">
+                <a href="{{ path('home_page') }}">
+                    <img src="{{ asset('images/logo-icon.svg') }}" class="logo" />
+                </a>
+            </div>
+            <div class="login-tab-selection">
+                {% if not tab %}
+                    {% set tab = 'login' %}
+                {% endif %}            
+                <a id="sign-in-tab" data-href="login-form" class="{% if tab=='login' %}active{% endif %}">{% trans %} Sign in {% endtrans %}</a>
+                <a id="register-tab" data-href="register-form" class="{% if tab=='register' %}active{% endif %}">{% trans %} Register {% endtrans %}</a>
+            </div>
+            <div class="form-segment">
+                <div class="login-tab-panel {% if tab=='login' %}active{% endif %}" id="login-form" data-sitekey="{{ siteKey }}">
+                    <div class="login-form">
+                        <div class="form align-center merchant-login-image-wrapper">
+                            <div class="merchant-image-wrapper">
+                                <img src="{{ asset('images/merchant-default-image.jpg') }}" class="default" alt="">
+                                <img src="{{ asset('defaults/merchant-default-image.png', 'user') }}" class="verified" id="verified-merchant-photo" alt="">
+                            </div>
+                        </div>
+                        <div class="message-box red with-close-message" id="generalErrorMessage" style="display:none;">
+                            {% trans %} Invalid email/contact number or password. {% endtrans %}
+                        </div>
+                        {% if app.session.flashbag.has('verifyEmail') %}
+                            {% if app.session.flashbag.get('verifyEmail') %}
+                                <div class="message-box green with-close-message">
+                                    {% trans %} Email Verified. {% endtrans %}
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        {% if app.session.flashbag.has('resetPassword') %}
+                            {% if app.session.flashbag.get('resetPassword') %}
+                                <div class="message-box green with-close-message">
+                                    {% trans %} Password reset success. {% endtrans %}
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        <div class="form" id="email-div">
+                            <input type="text" id="email" class="form-ui" placeholder="Enter your email or contact number here"/>
+                        </div>
+                        <div class="form success" id="password-div">
+                            <input type="password" id="password" class="form-ui" placeholder="Password"/>
+                        </div>
+                        <div class="form text">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="form">
+                                        <div class="form-ui-checkbox">
+                                            <label>
+                                                <input id="rememberMe" type="checkbox" class="" />
+                                                {% trans %} Remember Me {% endtrans %}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 align-right">
+                                    <a class="forgot-password-trigger">{% trans %} Forgot Password? {% endtrans %}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form">
+                            <button id="merchant-sign-in" class="button purple block">
+                                {% trans %} Sign In {% endtrans %}
+                            </button>
+                        </div>
+                    </div>
+                    {{ render(controller('YilinkerCoreBundle:User:renderForgotPassword', {
+                            userType : constant('Yilinker\\Bundle\\CoreBundle\\Entity\\User::USER_TYPE_SELLER'),
+                            storeType : constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT')
+                        })) 
+                    }}
+                </div>
+                <div class="login-tab-panel {% if tab=='register' %}active{% endif %}" id="register-form">
+                    {{ render(controller('YilinkerCoreBundle:User:renderRegister', {
+                            'actionUrl':'core_user_create',
+                            'successUrl':'merchant_accreditation',
+                            'referral':true,
+                            'storeType': constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT')
+                        })) 
+                    }}
+                </div>
+            </div>
+            <div class="footer-wrapper align-center">
+                {% trans %} Copyright 2015 YiLinker. All Rights Reserved {% endtrans %}
+            </div>
+        </div>
+
+        <!--Start of modal success message-->
+        <div class="ui modal small success modal">
+            <div class="content align-center">
+                <h3 class="ui header">
+                    <i class="icon icon-check"></i>
+                        <div class="content">
+                            {% trans %} Reset password request sent {% endtrans %}
+                        <div class="sub-header">Password reset has been sent to your email, don't forget to check your SPAM folder if you haven't received it in your inbox.</div>
+                    </div>
+                </h3>
+            </div>
+            <div class="actions">
+                <button class="button confirm close forgot-password-hide-trigger">{% trans %} Okay {% endtrans %}</button>
+            </div>
+        </div>
+        <!--End of modal success message-->
+        <input type="hidden" id="authenticatePath" value="{{ path('user_merchant_authenticate') }}" />
+        <input type="hidden" id="getImagePath" value="{{ path('user_merchant_get_image') }}" />
+        <input type="hidden" id="csrfToken" value="{{ csrf_token('authenticate') }}" />
+        <div id="domain-container" data-value="{{ frontendHostName }}">
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bower/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/utility/timer.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/utility/form-validator.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/utility/button-loader.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/universal.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/register.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/login-merchant.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/forgot-password.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/vendor/forms.js') }}"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
+{% endblock %}

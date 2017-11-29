@@ -1,0 +1,29 @@
+{% set orderProduct = activity.activityData.orderProduct is defined ?
+                      activity.activityData.orderProduct: null
+%}
+
+{% if orderProduct %}
+    {% set invoiceNumber = orderProduct.order is defined ? orderProduct.order.invoiceNumber: null %}
+{% else %}
+    {% set invoiceNumber = null %}
+{% endif %}
+
+<tr>
+    <td width="90">{{ activity.dateAdded('g:i A') }}</td>
+    <td colspan="2">
+        <p>
+            <em>
+                Filed Cancel Request for
+                <strong>
+                    x{{ orderProduct.quantity }} {{ orderProduct.productName }}
+                </strong>
+                {% if invoiceNumber %}
+                    <p>
+                        on Transaction #{{ invoiceNumber }}               
+                    </p>
+                {% endif %}
+            </em>
+        </p>
+        
+    </td>
+</tr>

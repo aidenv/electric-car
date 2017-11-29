@@ -1,0 +1,114 @@
+<div class="box-container">
+    <div class="row">
+        <div class="col-md-12 mrg-top-10">
+            <div class="title-bar align-center">
+                <h4 class="no-margin semi-bold">Store Location</h4>
+            </div>
+            <table class="table table-about-contact mrg-top-20 mrg-bt-20">
+                <tbody>
+                    <tr>
+                        <td width="15%">
+                            <i class="icon icon-location icon-3x"></i>
+                        </td>
+                        <td>
+                            {{ store.user.defaultAddress ? store.user.defaultAddress.addressString : 'Location unknown' }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="title-bar align-center">
+                <h4 class="no-margin semi-bold">Need Assistance?</h4>
+            </div>
+            <table class="table table-about-contact mrg-top-20 mrg-bt-10">
+                <tbody>
+                    <tr>
+                        <td width="15%">
+                            <i class="icon icon-telephone icon-3x"></i>
+                        </td>
+                        <td>
+                            {{ supportMobile }}
+                        </td>
+                    </tr>
+                    {% if app.user and store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+                        <tr>
+                            <td width="15%">
+                                <i class="icon icon-envelope icon-3x"></i>
+                            </td>
+                            <td>
+                                <a class="send-message-trigger">
+                                    <span class="uppercase">SEND MESSAGE</span>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+                        
+{% if app.user and store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+
+    <!--Start of send message-->
+    <div class="ui modal small modal coupled send-message-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">Send Message</h4>
+        </div>
+        <form name="send-message" class="form ui" data-id="{{ store.storeSlug }}">
+            <div class="content">
+                <div class="form">
+                    <label for="" class="required">
+                        Message
+                    </label>
+                    <textarea class="form-ui" name="message" required maxlength="1024" placeholder="Enter your message here"></textarea>
+                </div>
+            </div>
+            <div class="actions">
+                <span class="button cancel">Cancel</span>
+                <button class="button confirm submit-to-success submit-button">
+                    <span class="text">Submit</span>
+                </button>
+            </div>
+        </form>
+    </div>
+    <!--End of send message-->
+
+    <!--Start of modal success message-->
+    <div class="ui modal small success-send-message-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    Message Sent
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">Okay</button>
+        </div>
+    </div>
+    <!--End of modal success message-->
+
+{% endif %}
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BuyAction",
+  "location": {
+    "@type": "Place",
+    "name": "STORE LOCATION",
+    "address": "{{ store.user.defaultAddress ? store.user.defaultAddress.addressString : 'Location unknown' }}"
+  } 
+}
+
+</script>

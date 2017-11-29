@@ -1,0 +1,84 @@
+Yilinker\Bundle\CoreBundle\Entity\Voucher:
+    type: entity
+    table: Voucher
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\VoucherRepository
+    id:
+        voucherId:
+            type: bigint
+            id: true
+            column: voucher_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            column: name
+        usageType:
+            type: smallint
+            column: usage_type
+            options:
+                default: 0
+        quantity:
+            type: integer
+            column: quantity
+            unsigned: true
+            options:
+                default: 0
+        discountType:
+            type: smallint
+            column: discount_type
+            options:
+                default: 0
+        value:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: value
+            unsigned: true
+            options:
+                default: 0
+        minimumPurchase:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: minimum_purchase
+            options:
+                default: '0.00'
+        isActive:
+            type: boolean
+            column: is_active
+        startDate:
+            type: datetime
+            column: start_date
+        endDate:
+            type: datetime
+            column: end_date
+        dateAdded:
+            type: datetime
+            nullable: false
+            column: date_added
+        includeAffiliates:
+            type: boolean
+            column: include_affiliates
+            nullable: true
+            options:
+                default: false
+    oneToMany:
+        voucherCodes:
+            targetEntity: VoucherCode
+            cascade: ['persist']
+            mappedBy: voucher
+        voucherProducts:
+            targetEntity: VoucherProduct
+            cascade: ['persist']
+            mappedBy: voucher
+        voucherProductCategories:
+            targetEntity: VoucherProductCategory
+            cascade: ['persist']
+            mappedBy: voucher
+        voucherStores:
+            targetEntity: VoucherStore
+            cascade: ['persist']
+            mappedBy: voucher
+

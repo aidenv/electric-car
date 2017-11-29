@@ -1,0 +1,29 @@
+{% if completedPromoInstances|length > 0 %}
+    <div class="bg-brown mrg-top-20">
+        <div class="container pad-top-1em pad-bt-1em">
+            <div class="row">
+                <div class="col-xs-12 align-center white-color">
+                    <h1 class="no-margin">
+                        Ended Flash Sale
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% for completedPromoInstance in completedPromoInstances %}
+        <div class="container align-center">
+            <div class="flash product-sub-wrapper">
+                <div class="sub-flash-sale">
+                    <h4 class="title-upcoming">
+                        Ended at {{ completedPromoInstance.dateTimeEnd|date('g:i A') }}
+                    </h4>
+                    <div class="flash-upcoming-slider">
+                        {% for product in completedPromoInstance.products %}
+                            {{ include('YilinkerFrontendBundle:Product:previous_flash_item.html.twig', {'product' : product}) }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

@@ -1,0 +1,58 @@
+<div class="box wht">
+  <div class="business">
+    <div class="row">
+      <div class="col span-12">
+        <div class="title-bar">
+          <div class="component-content">
+            <span class="uppercase">Seller Product</span>
+          </div>
+        </div>
+        <div class="form">
+          <label for="" class="light">Choose the product categories you plan to sell in.</label>
+        </div>
+        <div class="form">
+          <table class="table table-striped-inverted">
+            <thead>
+                <tr>
+                    <th width="30%">Category</th>
+                    <th width="40%">Brand</th>
+                    <th width="10%" align="center">Warranty</th>
+                    <th  width="20%" align="center">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in 0..3 %}
+                <tr>
+                    <td><strong>Basketball Shoes</strong></td>
+                    <td><input type="text" class="form-ui" placeholder="Enter your product brand"></td>
+                    <td align="center">
+                      <select class="form-ui ui single selection dropdown no-margin">
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                    </select></td>
+                    <td align="center"><input type="text" class="form-ui"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+
+        </div>
+        <div class="form">
+          <button class="button gray small uppercase add-product-category-trigger">
+            <i class="icon icon-plus icon-lg"></i> Add a Product
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navigation">
+    <div class="row">
+      <div class="col-md-6">
+        <button class="button basic-default button-rounded-side"><i class="icon icon-arrow-short-left icon-lg "></i>Go Back</button>
+      </div>
+      <div class="col-md-6 align-right">
+        <button class="button blue button-rounded-side uppercase see-more">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

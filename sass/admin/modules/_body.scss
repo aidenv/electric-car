@@ -1,0 +1,164 @@
+.box-div {
+  .title-bar {
+    margin: 0 -10px 20px;
+    padding: 0 10px;
+    font-size: 10px;
+  }
+
+  .customer-details {
+    margin-bottom: 20px;
+  }
+
+  .actions {
+    @include border-radius(0 0 6px 6px);
+    background-color: lighten($brand-gray-light, 11);
+    border-top: 1px solid lighten($brand-gray-light, 7);
+    margin: 20px -10px -10px;
+    padding: 20px 20px 20px;
+  }
+}
+
+.transaction-product {
+  margin: 30px 0 20px;
+
+  table {
+    border: 1px solid $brand-gray-light;
+  }
+}
+
+.accreditation-table{
+    tr.accreditation-item {
+        cursor: pointer;
+    }
+}
+
+.accreditation {
+  .csr {
+    @include border-radius(0);
+    border: 0;
+    border-bottom: 1px solid $brand-gray-light;
+    margin-bottom: 20px;
+    padding: 0 0 10px;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+}
+
+.store-address-segment, .bank-account-segment {
+  @include border-radius;
+  border: 1px solid $brand-gray-light;
+  margin-bottom: 5px;
+
+  &.active {
+    border-color: $brand-blue;
+
+    .item-name {
+      color: darken($brand-blue, 5);
+    }
+
+    .item-address-line {
+      color: lighten($brand-blue, 10);
+    }
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .item-name {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .checkbox {
+    left: 10px;
+  }
+}
+
+.breadcrumb {
+  list-style: none;
+  display: inline-block;
+
+  li {
+    float: left;
+    margin-right: 8px;
+    font-size: 14px;
+
+    &:after {
+      font-family: 'icomoon';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      display: inline-block;
+      /* Better Font Rendering =========== */
+
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      content: "\e604";
+      font-size: 8px;
+      margin-left: 5px;
+    }
+
+    &:last-of-type {
+      opacity: .7;
+
+      &:after {
+        content: '';
+      }
+    }
+  }
+}
+
+//Webview
+.box-section {
+  .webview-sidebar {
+    margin-top: 10px;
+
+    a.box-div {
+      background-color: darken($brand-gray-lighter, 10);
+      display: block;
+      height: 85px;
+      margin-bottom: 20px;
+      margin-top: 0;
+
+      &:hover {
+        background-color: darken($brand-gray-lighter, 20);
+        color: white;
+      }
+
+
+      &.active {
+        @include border-radius(4px 0 0 4px);
+        background-color: $brand-gray-lighter;
+        margin-right: -10px;
+        color: $brand-gray;
+      }
+
+      span {
+        @include vertical-align;
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+  }
+
+  .webview-content {
+    .box-div {
+      min-height: 610px;
+    }
+
+    .webview-option {
+      margin: 20px 0;
+
+      input {
+        width: 25%;
+      }
+    }
+  }
+}

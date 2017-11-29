@@ -1,0 +1,38 @@
+Yilinker\Bundle\CoreBundle\Entity\Warehouse:
+    type: entity
+    table: Warehouse
+    id:
+        warehouseId:
+            type: bigint
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: warehouse_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        referenceNumber:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+            column: reference_number
+        dateCreated:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: date_created
+        dateLastModified:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: date_last_modified
+    lifecycleCallbacks: {  }

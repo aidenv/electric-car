@@ -1,0 +1,45 @@
+{% for currentPromoInstance in currentPromoInstances %}
+    <div class="title">
+          <div class="container pad-top-1em pad-bt-1em">
+            {% if currentPromoInstance|length > 0 %}
+            <div class="row">
+                <div class="col-xs-12  align-center">
+                    <p id="timer-base" class="large-font mrg-bt-10 mrg-top-20">
+                        Time Left
+                    </p>
+                    <div class="flash-timer div-view hours-enabled" data-expiration="{{ currentPromoInstance.dateTimeEnd|date('U') }}">
+                      <h1 class="no-margin">
+                        <div class="time">
+                          <div class="value" id="hours-left">00</div>
+                          <span class="time-label">Hours</span>
+                        </div>
+                        <div class="time">
+                          <div class="value" id="minutes-left">00</div>
+                          <span class="time-label">Minutes</span>
+                        </div>
+                        <div class="time">
+                          <div class="value" id="seconds-left">00</div>
+                          <span class="time-label">Seconds</span>
+                        </div>
+                      </h1>
+                    </div>
+                    <div class="label-time-duration">
+                        Started at {{ currentPromoInstance.dateTimeStart|date('h:m A') }} / Ends at {{ currentPromoInstance.dateTimeEnd|date('g:m A') }}
+                    </div>
+                </div>
+                <div class="col-xs-4 align-left" >
+                    
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="container align-center">
+        <div class="current-flash-sale-slider">
+            {% for product in currentPromoInstance.products %}
+                {{ include('YilinkerFrontendBundle:Product:current_flash_item.html.twig', {'product' : product}) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}

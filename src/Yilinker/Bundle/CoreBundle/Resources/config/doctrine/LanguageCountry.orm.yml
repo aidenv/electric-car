@@ -1,0 +1,32 @@
+Yilinker\Bundle\CoreBundle\Entity\LanguageCountry:
+    type: entity
+    table: LanguageCountry
+    id:
+        languageCountryId:
+            type: integer
+            id: true
+            column: language_country_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        isPrimary:
+            type: boolean
+            column: is_primary
+            options:
+                default: '0'
+    manyToOne:
+        language:
+            targetEntity: Language
+            inversedBy: languageCountries
+            joinColumn:
+                name: language_id
+                referencedColumnName: language_id
+            orphanRemoval: false
+        country:
+            targetEntity: Country
+            inversedBy: languageCountries
+            joinColumn:
+                name: country_id
+                referencedColumnName: country_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

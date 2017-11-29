@@ -1,0 +1,153 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block body %}
+
+    <section class="box-section">
+
+        <div class="title-bar">
+            <div class="container">
+                <span>Resolution Center</span>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="tools top form">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="options">
+                                        <select class="form-ui ui search single selection dropdown" id="orderProductStatusId">
+                                            <option value="" selected>Select type of dispute</option>
+                                            {% for orderProductStatus in orderProductStatuses  %}
+                                                <option value="{{ orderProductStatus.orderProductStatusId }}">
+                                                    {{ orderProductStatus.status }}
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="options">
+                                        <select class="form-ui ui search single selection dropdown" id="disputeStatusTypeId">
+                                            <option value="" selected>Select status</option>
+                                            {% for disputeStatusType in disputeStatusTypes  %}
+                                                <option value="{{ disputeStatusType.disputeStatusTypeId}}">
+                                                    {{ disputeStatusType.name }}
+                                                </option>
+                                            {% endfor %}
+                                            <option value="0">All</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="options">
+                                        <input type="text" class="form-ui datePicker" id="dateFrom" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="options">
+                                        <input type="text" class="form-ui datePicker" id="dateTo" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="search options">
+                                        <input type="text" class="form-ui" placeholder="Search" id="searchKeyword" />
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="button block gray" id="searchBtn">
+                                        <span class="item-icon icon-search"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tables -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+
+                            <div class="row gutters">
+                                <div class="col-md-12">
+                                    <table class="table basic">
+                                        <tr>
+                                            <th>Case ID</th>
+                                            <th>Dispute Type</th>
+                                            <th width="30%">Reason</th>
+                                            <th>Status</th>
+                                            <th>Complainant Full Name</th>
+                                            <th>Defendant Full Name</th>
+                                            <th>Date Filed</th>
+                                        </tr>
+                                        {% if listOfComplainedTransaction.cases|length > 0 %}
+                                            {% for dispute in listOfComplainedTransaction.cases %}
+                                                {%  if dispute.disputeStatusTypeId == 1 %}
+                                                <tr class="booked disputeLink" data-dispute-id="{{ dispute.disputeId }}" >
+                                                {% else %}
+                                                <tr class="disputeLink" data-dispute-id="{{ dispute.disputeId }}">
+                                                {% endif %}
+                                                    <td align="center">{{ dispute.ticket }}</td>
+                                                    <td align="center">
+                                                      {{
+                                                         dispute.orderProductStatusId == constant(
+                                                           'Yilinker\\Bundle\\CoreBundle\\Entity\\OrderProduct::STATUS_ITEM_REFUND_REQUESTED'
+                                                         ) ? 'Refund' : 'Replacement'
+                                                      }}
+                                                    </td>
+                                                    <td>{{ dispute.description }}</td>
+                                                    <td><i>{{ dispute.status }}</i></td>
+                                                    <td>{{ dispute.disputerFullName }}</td>
+                                                    <td>{{ dispute.disputeeFullName }}</td>
+                                                    <td>{{ dispute.dateAdded|date('m-d-Y') }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% else %}
+                                            <tr>
+                                              <td class="align-center" colspan="7">No case found</td>
+                                            </tr>
+                                        {% endif %}
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-blank">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: listOfComplainedTransaction.count, perPage: pageLimit}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/resolution-center.js"
+        "js/src/backend/resolution-center.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

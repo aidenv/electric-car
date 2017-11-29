@@ -1,0 +1,420 @@
+{% extends 'YilinkerMerchantBundle:Base:accreditation_base.html.twig' %}
+
+{% block title %}
+    Accreditation Legal Information
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+    {% set fileSssType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_SSS') %}
+    {% set filePagIbigType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_PAG_IBIG') %}
+    {% set filePostalType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_POSTAL') %}
+    {% set filePassportType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_PASSPORT') %}
+    {% set fileDriversLicenseType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_DRIVERS_LICENSE') %}
+    {% set filePrcType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_PRC') %}
+    {% set fileVotersIdType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_VOTERS_ID') %}
+    {% set fileSchoolIdType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_SCHOOL_ID') %}
+    {% set fileTinType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_TIN') %}
+    {% set affiliateType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\AccreditationApplication::SELLER_TYPE_RESELLER') %}
+
+    <div class="accreditation">
+
+        <!-- Breadcrumb -->
+        <div class="row gutters">
+            <ul class="breadcrumb">
+                <li><a href="{{ path('merchant_accreditation')}}">Summary</a></li>
+                <li>Legal Information</li>
+            </ul>
+        </div>
+
+        <div class="row gutters">
+
+            {# MAIN CONTAINER #}
+            <div class="col span-9">
+                <div class="box wht">
+                    <div class="documents">
+                        <div class="row">
+                            <div class="col span-12">
+                                <div class="title-bar">
+                                    <div class="component-content">
+                                        <span class="uppercase">Legal Requirements</span>
+                                    </div>
+                                </div>
+
+                                {# START OF PERMITS #}
+                                <div class="col-md-12">
+                                    {% if legalDocuments %}
+                                        {% for legalDocument in legalDocuments %}
+                                            {% if legalDocument.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_TIN') %}
+                                                <div class="form">
+                                                    <div class="row">
+                                                        <label class="required">TIN File</label>
+                                                        <label for="" class="semi-bold alerts"><span class="icon-alert-exclamation icon-lg"></span> You have already uploaded a file. If you wish to upload a new one, your previous file will be replaced.</label>
+                                                        <input type="file" class="form-ui" {{ editableFiles[fileTinType] is defined ? '' : 'disabled' }} name="file-tin">
+                                                        <label class="light download-copy">
+                                                            <a href="{{ path('merchant_accreditation_download_legal_document', {'legalDocumentId': legalDocument.legalDocumentsId })}}" target="_blank" class="button gray tiny">
+                                                                <span class="icon-angle-down"></span>
+                                                                <em>Download TIN File</em>
+                                                            </a> You can upload it once you added your signature on it
+                                                        </label>
+                                                        <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                                    </div>
+                                                </div>
+                                            {% elseif legalDocument.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_SSS') %}
+                                                <input type="hidden" id="legal-doc-type-id" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_SSS') }}" />
+                                                <div class="form">
+                                                    <div class="row">
+                                                        <label class="required">SSS File</label>
+                                                        <label for="" class="semi-bold alerts"><span class="icon-alert-exclamation icon-lg"></span> You have already uploaded a file. If you wish to upload a new one, your previous file will be replaced.</label>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <select name="" id="drop-down-valid-id" class="form-ui ui single selection dropdown">
+                                                                    <option value="">Select Valid ID</option>
+                                                                    {% for validId in validIds %}
+                                                                        <option value="{{ validId.id }}" {{ validId.id == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PAG_IBIG') ? 'selected' : '' }}>{{ validId.name }}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="file" class="form-ui" name="file-valid-id" {{ editableFiles[fileSssType] is defined ? '' : 'disabled' }}>
+                                                            </div>
+                                                        </div>
+                                                        <label class="light download-copy">
+                                                            <a href="{{ path('merchant_accreditation_download_legal_document', {'legalDocumentId': legalDocument.legalDocumentsId })}}" target="_blank" class="button gray tiny">
+                                                                <span class="icon-angle-down"></span>
+                                                                <em>Download SSS File</em>
+                                                            </a> You can upload it once you added your signature on it
+                                                        </label>
+                                                        <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                                    </div>
+                                                </div>
+                                            {% elseif legalDocument.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PAG_IBIG') %}
+                                                <input type="hidden" id="legal-doc-type-id" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PAG_IBIG') }}" />
+                                                <div class="form">
+                                                    <div class="row">
+                                                        <label class="required">PAG-IBIG File</label>
+                                                        <label for="" class="semi-bold alerts"><span class="icon-alert-exclamation icon-lg"></span> You have already uploaded a file. If you wish to upload a new one, your previous file will be replaced.</label>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <select name="" id="drop-down-valid-id" class="form-ui ui single selection dropdown">
+                                                                    <option value="">Select Valid ID</option>
+                                                                    {% for validId in validIds %}
+                                                                        <option value="{{ validId.id }}" {{ validId.id == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PAG_IBIG') ? 'selected' : '' }}>{{ validId.name }}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="file" class="form-ui" name="file-valid-id" {{ editableFiles[filePagIbigType] is defined ? '' : 'disabled' }}>
+                                                            </div>
+                                                        </div>
+                                                        <label class="light download-copy">
+                                                            <a href="{{ path('merchant_accreditation_download_legal_document', {'legalDocumentId': legalDocument.legalDocumentsId })}}" target="_blank" class="button gray tiny">
+                                                                <span class="icon-angle-down"></span>
+                                                                <em>Download PAG-IBIG File</em>
+                                                            </a> You can upload it once you added your signature on it
+                                                        </label>
+                                                        <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                                    </div>
+                                                </div>
+                                            {% elseif legalDocument.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_POSTAL') %}
+                                                <div class="form">
+                                                    <div class="row">
+                                                        <label class="required">Postal File</label>
+                                                        <label for="" class="semi-bold alerts"><span class="icon-alert-exclamation icon-lg"></span> You have already uploaded a file. If you wish to upload a new one, your previous file will be replaced.</label>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <select name="" id="drop-down-valid-id" class="form-ui ui single selection dropdown">
+                                                                    <option value="">Select Valid ID</option>
+                                                                    {% for validId in validIds %}
+                                                                        <option value="{{ validId.id }}" {{ validId.id == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_POSTAL') ? 'selected' : '' }}>{{ validId.name }}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="file" class="form-ui" name="file-valid-id" {{ editableFiles[filePostalType] is defined ? '' : 'disabled' }}>
+                                                            </div>
+                                                        </div>
+                                                        <label class="light download-copy">
+                                                            <a href="{{ path('merchant_accreditation_download_legal_document', {'legalDocumentId': legalDocument.legalDocumentsId })}}" target="_blank" class="button gray tiny">
+                                                                <span class="icon-angle-down"></span>
+                                                                <em>Download Postal File</em>
+                                                            </a> You can upload it once you added your signature on it
+                                                        </label>
+                                                        <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" id="legal-doc-type-id" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_POSTAL') }}" />
+                                            {% elseif legalDocument.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PASSPORT') %}
+                                                <input type="hidden" id="legal-doc-type-id" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PASSPORT') }}" />
+                                                <div class="form">
+                                                    <div class="row">
+                                                        <label class="required">Passport File</label>
+                                                        <label for="" class="semi-bold alerts"><span class="icon-alert-exclamation icon-lg"></span> You have already uploaded a file. If you wish to upload a new one, your previous file will be replaced.</label>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <select name="" id="drop-down-valid-id" class="form-ui ui single selection dropdown">
+                                                                    <option value="">Select Valid ID</option>
+                                                                    {% for validId in validIds %}
+                                                                        <option value="{{ validId.id }}" {{ validId.id == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PASSPORT') ? 'selected' : '' }}>{{ validId.name }}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="file" class="form-ui" name="file-valid-id" {{ editableFiles[filePassportType] is defined ? '' : 'disabled' }}>
+                                                            </div>
+                                                        </div>
+                                                        <label class="light download-copy">
+                                                            <a href="{{ path('merchant_accreditation_download_legal_document', {'legalDocumentId': legalDocument.legalDocumentsId })}}" target="_blank" class="button gray tiny">
+                                                                <span class="icon-angle-down"></span>
+                                                                <em>Download Passport File</em>
+                                                            </a> You can upload it once you added your signature on it
+                                                        </label>
+                                                        <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                                    </div>
+                                                </div>
+                                            {% elseif legalDocument.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_DRIVERS_LICENSE') %}
+                                                <input type="hidden" id="legal-doc-type-id" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_DRIVERS_LICENSE') }}" />
+                                                <div class="form">
+                                                    <div class="row">
+                                                        <label class="required">Driver's License File</label>
+                                                        <label for="" class="semi-bold alerts"><span class="icon-alert-exclamation icon-lg"></span> You have already uploaded a file. If you wish to upload a new one, your previous file will be replaced.</label>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <select name="" id="drop-down-valid-id" class="form-ui ui single selection dropdown">
+                                                                    <option value="">Select Valid ID</option>
+                                                                    {% for validId in validIds %}
+                                                                        <option value="{{ validId.id }}" {{ validId.id == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_DRIVERS_LICENSE') ? 'selected' : '' }}>{{ validId.name }}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="file" class="form-ui" name="file-valid-id" {{ editableFiles[fileDriversLicenseType] is defined ? '' : 'disabled' }}>
+                                                            </div>
+                                                        </div>
+                                                        <label class="light download-copy">
+                                                            <a href="{{ path('merchant_accreditation_download_legal_document', {'legalDocumentId': legalDocument.legalDocumentsId })}}" target="_blank" class="button gray tiny">
+                                                                <span class="icon-angle-down"></span>
+                                                                <em>Download Driver's License File</em>
+                                                            </a> You can upload it once you added your signature on it
+                                                        </label>
+                                                        <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                                    </div>
+                                                </div>
+                                            {% elseif legalDocument.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PRC') %}
+                                                <input type="hidden" id="legal-doc-type-id" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PRC') }}" />
+                                                <div class="form">
+                                                    <div class="row">
+                                                        <label class="required">PRC File</label>
+                                                        <label for="" class="semi-bold alerts"><span class="icon-alert-exclamation icon-lg"></span> You have already uploaded a file. If you wish to upload a new one, your previous file will be replaced.</label>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <select name="" id="drop-down-valid-id" class="form-ui ui single selection dropdown">
+                                                                    <option value="">Select Valid ID</option>
+                                                                    {% for validId in validIds %}
+                                                                        <option value="{{ validId.id }}" {{ validId.id == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PRC') ? 'selected' : '' }}>{{ validId.name }}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="file" class="form-ui" name="file-valid-id" {{ editableFiles[filePrcType] is defined ? '' : 'disabled' }}>
+                                                            </div>
+                                                        </div>
+                                                        <label class="light download-copy">
+                                                            <a href="{{ path('merchant_accreditation_download_legal_document', {'legalDocumentId': legalDocument.legalDocumentsId })}}" target="_blank" class="button gray tiny">
+                                                                <span class="icon-angle-down"></span>
+                                                                <em>Download PRC File</em>
+                                                            </a> You can upload it once you added your signature on it
+                                                        </label>
+                                                        <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                                    </div>
+                                                </div>
+                                            {% elseif legalDocument.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_VOTERS_ID') %}
+                                                <input type="hidden" id="legal-doc-type-id" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_VOTERS_ID') }}" />
+                                                <div class="form">
+                                                    <div class="row">
+                                                        <label class="required">Voter's ID File</label>
+                                                        <label for="" class="semi-bold alerts"><span class="icon-alert-exclamation icon-lg"></span> You have already uploaded a file. If you wish to upload a new one, your previous file will be replaced.</label>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <select name="" id="drop-down-valid-id" class="form-ui ui single selection dropdown">
+                                                                    <option value="">Select Valid ID</option>
+                                                                    {% for validId in validIds %}
+                                                                        <option value="{{ validId.id }}" {{ validId.id == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_VOTERS_ID') ? 'selected' : '' }}>{{ validId.name }}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="file" class="form-ui" name="file-valid-id" {{ editableFiles[fileVotersIdType] is defined ? '' : 'disabled' }}>
+                                                            </div>
+                                                        </div>
+                                                        <label class="light download-copy">
+                                                            <a href="{{ path('merchant_accreditation_download_legal_document', {'legalDocumentId': legalDocument.legalDocumentsId })}}" target="_blank" class="button gray tiny">
+                                                                <span class="icon-angle-down"></span>
+                                                                <em>Download Voter's ID File</em>
+                                                            </a> You can upload it once you added your signature on it
+                                                        </label>
+                                                        <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                                    </div>
+                                                </div>
+                                            {% elseif legalDocument.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_SCHOOL_ID') %}
+                                                <input type="hidden" id="legal-doc-type-id" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_SCHOOL_ID') }}" />
+                                                <div class="form">
+                                                    <div class="row">
+                                                        <label class="required">School ID File</label>
+                                                        <label for="" class="semi-bold alerts"><span class="icon-alert-exclamation icon-lg"></span> You have already uploaded a file. If you wish to upload a new one, your previous file will be replaced.</label>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <select name="" id="drop-down-valid-id" class="form-ui ui single selection dropdown">
+                                                                    <option value="">Select Valid ID</option>
+                                                                    {% for validId in validIds %}
+                                                                        <option value="{{ validId.id }}" {{ validId.id == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_SCHOOL_ID') ? 'selected' : '' }}>{{ validId.name }}</option>
+                                                                    {% endfor %}
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <input type="file" class="form-ui" name="file-valid-id" {{ editableFiles[fileSchoolIdType] is defined ? '' : 'disabled' }}>
+                                                            </div>
+                                                        </div>
+                                                        <label class="light download-copy">
+                                                            <a href="{{ path('merchant_accreditation_download_legal_document', {'legalDocumentId': legalDocument.legalDocumentsId })}}" target="_blank" class="button gray tiny">
+                                                                <span class="icon-angle-down"></span>
+                                                                <em>Download School ID File</em>
+                                                            </a> You can upload it once you added your signature on it
+                                                        </label>
+                                                        <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% else %}
+
+                                        <div class="form">
+                                            <div class="row">
+                                                <label class="required">TIN</label>
+                                                <label for="" class="light">Select your TIN file from your computer</label>
+                                                <input type="file" class="form-ui" name="file-tin">
+                                                <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form">
+                                            <div class="row">
+                                                <label class="required">Valid ID</label>
+                                                <label class="light">Select the type of Valid ID you want to upload from your computer</label>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <select name="" id="drop-down-valid-id" class="form-ui ui single selection dropdown">
+                                                            <option value="">Select Valid ID</option>
+                                                            {% for validId in validIds %}
+                                                                <option value="{{ validId.id }}">{{ validId.name }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="file" class="form-ui" name="file-valid-id">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    {% endif %}
+                                </div>
+                                {# END OF PERMITS #}
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col span-12 mrg-top-20">
+                                <div class="form mrg-bt-30">
+                                    <div class="title-bar">
+                                        <div class="component-content">
+                                        </div>
+                                    </div>
+                                    <div class="ui checkbox">
+                                        <input type="checkbox" name="check-box-terms-and-condition" />
+                                        <label for="check-box-terms-and-condition" class="light"><strong>By Checking this box</strong>, I acknowledge that i have read, understand and agree to the &nbsp;<a class="purple-color terms-modal-trigger">YiLinker's terms and conditions</a>.</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button class="button basic-default button-rounded-side" id="btn-go-back"><i class="icon icon-arrow-short-left icon-lg "></i>Go Back</button>
+                            </div>
+                            <div class="col-md-6 align-right">
+                                <button class="button blue button-rounded-side uppercase" id="btn-submit-legal-documents">
+                                    <span class="text">Save</span>
+                                    <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# LEFT CONTAINER #}
+            <aside class="col span-3">
+                {{ include('YilinkerMerchantBundle:Accreditation:acc_sub_legal_side.html.twig') }}
+            </aside>
+
+        </div>
+    </div>
+    <div class="footer-wrapper align-center">
+        Copyright 2015 YiLinker. All Rights Reserved
+    </div>
+
+    {{ include('YilinkerMerchantBundle:Accreditation:acc_terms_affiliate_modal.html.twig') }}
+
+    {# START MODAL MESSAGE #}
+    <div class="ui modal small" id="modal-message">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header sub-header-content"></div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close uppercase">Okay</button>
+        </div>
+    </div>
+    {# END MODAL MESSAGE #}
+
+    {# START MODAL CONFIRM BACK #}
+    <div class="ui modal small" id="modal-confirm-back">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <div class="content">
+                    Continue?
+                    <div class="sub-header">All changes will be discarded.</div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button cancel uppercase">Cancel</button>
+            <button class="button red submit-to-success positive uppercase">
+                <span class="text">Ok</span>
+                <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+            </button>
+        </div>
+    </div>
+    {# END MODAL CONFIRM BACK #}
+
+    <input type="hidden" id="is-update" value="{{ legalDocuments is not empty ? 1 : 0 }}" />
+    <input type="hidden" id="is-affiliate" value="{{ accreditationApplicationEntity.sellerType }}" />
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/universal.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/accreditation/legal-document-affiliate.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,16 @@
+Yilinker\Bundle\CoreBundle\Entity\OrderProductShipmentStatus:
+    type: entity
+    table: OrderProductShipmentStatus
+    id:
+        orderProductShipmentStatusId:
+            type: bigint
+            column: order_product_shipment_status_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        shipmentStatus:
+            length: 255
+            nullable: true
+            column: shipment_status
+    lifecycleCallbacks: {  }

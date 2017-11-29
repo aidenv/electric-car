@@ -1,0 +1,183 @@
+<div class="product-bottom-layer">
+    <div class="row">
+        <div class="col-xs-12 col-bottom">
+            <div class="product-bottom-tab-container">
+                <div class="tab-wrapper">
+                    <div class="product-bottom-tab list-unstyled">
+                        <a data-href="full-description" class="active">Description &amp; Specifications</a>
+                        <a data-href="payment-shipping">Payment &amp; Shipping</a>
+                        <a data-href="buyer-reviews">Buyer Reviews</a>
+                        <a data-href="special-offers">Special Offers</a>
+                    </div>
+                </div>
+                
+                <div class="tab-content-wrapper">
+                    <div class="tab-item-container" id="full-description">
+                        <br>
+                        <div class="title-bar">
+                            <span class="title-name">Description</span>
+                        </div>
+                        <div class="breakword">{{ product.getDescription|purify }}</div>
+                        {% if product.getYoutubeVideoUrl != '' %}
+                            <br>
+                            <br>
+                            <div class="title-bar">
+                                <span>Related Video</span>
+                            </div>
+                            <div class="video-holder">
+                                <div class="video-me" style="width: 100%; position: relative;">
+                                    <div class="video-wrapper">
+                                        <!-- Copy & Pasted from YouTube -->
+                                        <input type="hidden" id="youtube-url" value="{{ product.getYoutubeVideoUrl }}">
+                                        <iframe class="video" id="youtube-frame" src="" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        <br>
+                        <br>
+                        <div class="title-bar">
+                            <span class="title-name">Specifications</span>
+                        </div>
+                        <div class="specs-table-container">
+                            <table class="table table-bordered inverted">
+                                <tbody>
+                                    <tr>
+                                        <td width="50%"><b>{% trans %} Brand {% endtrans %}:</b></td>
+                                        <td width="50%" style="max-width:120px;">
+                                            <p class="breakword">{{ product.brandName }}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%"><b>{% trans %} Condition {% endtrans %}:</b></td>
+                                        <td width="50%">{{ product.condition ? product.condition.name: '' }}</td>
+                                    </tr>
+                                    {% for productUnit in product.units %}
+                                        {% set isDefaultUnit = product.defaultUnit == productUnit %}
+                                        <tr data-product-unit-partial="{{ productUnit.productUnitId }}" {{ isDefaultUnit ? '': 'style="display:none"' }}>
+                                            <td width="50%"><b>{% trans %} SKU {% endtrans %}:</b></td>
+                                            <td width="50%" style="max-width:120px;">
+                                                <p class="breakword">{{ productUnit.sku }}</p>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-item-container" id="buyer-reviews">
+                        {{ include('YilinkerFrontendBundle:Product:product_reviews.html.twig') }}
+                    </div>
+                    <div class="tab-item-container" id="payment-shipping">
+                        <div class="payment-options-container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="box-container">
+                                        <span class="title align-center">{% trans %} Payment Options {% endtrans %}</span>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="image-container">
+                                                    {% if product.hasCOD %}
+                                                        <img src="{{ asset('images/payment-options-cod.png') }}" class="img-responsive" />
+                                                    {% endif %}
+                                                    <img src="{{ asset('images/payment-options-credit.png') }}" class="img-responsive" />
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <ul class="list-bulleted list-product-page-bulleted">
+                                                    <li>
+                                                        {% trans %}
+                                                            We accept all major credit cards through DragonPay &amp; PesoPay.
+                                                        {% endtrans %}
+                                                    </li>
+                                                    <li>
+                                                        {% trans %}
+                                                            We do not accept other currency in any amount
+                                                        {% endtrans %}
+                                                    </li>
+                                                    <li>
+                                                        {% trans %}
+                                                           Sellers can't require buyers to pay using methods that aren't allowed on Aeneasusa
+                                                        {% endtrans %}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="box-container">
+                                        <span class="title align-center">{% trans %} Shipping &amp; Handling {% endtrans %}</span>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="image-container">
+                                                     <img src="{{ asset('images/yilinker-express.png') }}" class="img-responsive" />
+                                                 </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <ul class="list-bulleted list-product-page-bulleted">
+                                                    <li>
+                                                        {% trans %}
+                                                            YiLinker Express is capable of shipping anywhere in the Philippines at affordable rates
+                                                        {% endtrans %}
+                                                    </li>
+                                                    <li>
+                                                        {% trans %}
+                                                            YiLinker Express offers FREE shipping on Metro Manila orders only
+                                                        {% endtrans %}
+                                                    </li>
+                                                    <li>
+                                                        {% trans %}
+                                                            You'll receive the tracking details for your parcel soon after the dispatch of your order.
+                                                        {% endtrans %}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-item-container" id="special-offers">
+                        <div class="special-offers-container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box-container">
+                                        <ul class="list-bulleted list-product-page-bulleted">
+                                            {% for promotion in product.getDefaultUnit.getPromotions %}
+                                                <li>{{ promotion }}</li>
+                                            {% else %}
+                                                <i>Not available</i>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Product",
+    "description": "{{ product.getDescription|purify }}",
+    "brand": {
+        "@type": "Brand",
+        "name": "{{ product.brandName }}"       
+    },
+    "itemCondition": "{{ product.condition ? product.condition.name: '' }}",
+    "offers": {
+        "@type": "Offer",
+        "priceSpecification": {
+            "@type": "PriceSpecification",
+            "description": "We accept all major credit cards through DragonPay &amp; PesoPay."
+        }
+    }
+}
+</script>

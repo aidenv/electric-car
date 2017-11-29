@@ -1,0 +1,23 @@
+Yilinker\Bundle\CoreBundle\Entity\ApiAccessLog:
+    type: entity
+    table: ApiAccessLog
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ApiAccessLogRepository
+    id:
+        apiAccessLogId:
+            type: integer
+            id: true
+            column: api_access_log_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateAdded:
+            type: datetime
+            column: date_created
+        apiType:
+            type: smallint
+            column: api_type
+        data:
+            length: 2048
+            options:
+                default: ''
+

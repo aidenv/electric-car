@@ -1,0 +1,53 @@
+<div class="navbar navbar-default" data-base-uri="{{ baseUri }}" data-node-port="{{ nodePort }}">
+    <div class="navbar-group">
+        {% if app.user %}
+            <div class="navbar-item brand">
+                <a href="{{ path('home_page') }}">
+                    <img src="{{ asset('images/logo-main.png') }}" alt="YiLinker" class="img-responsive"/>
+                </a>
+            </div>
+            <div class="navbar-item link-icons view-menu toggle-side-menu">
+                <a class="link-button cart-icon-link">
+                    <i class="icon icon-list-view"></i>
+                </a>
+            </div>
+            <div class="navbar-item">&nbsp;</div>
+            <div href="#" class="navbar-item user-link">
+                <span class="item-counter unread-messages-badge" {% if messages == 0 %} style="display:none;" {% endif %}>
+                        {{ messages  }}
+                </span>
+                <div class="navbar-dropdown">
+                    <div class="user-image-container">
+                        <img data-token="{{ jwt }}" src="{{ app.user.primaryImage?
+                            asset(app.user.primaryImage.getImageLocationBySize("thumbnail")|default(''), 'user') :
+                            asset('images/default-merchant.png')
+                        }}" alt="{{ app.user.store.storeName }}">
+                    </div>
+                </div>
+                <div class="navbar-dropdown-container hidden">
+                    <ul class="list-unstyled">
+                        <li><a href="{{ path('user_store_information') }}">View Store Info</a></li>
+                        <li><a href="{{ path('dashboard_settings') }}">Settings</a></li>
+                        {% if app.user is defined %}
+                            {% if app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+                                <li>
+                                    <a href="{{ path('dashboard_messages') }}">Messages
+                                        <span class="badge pull-right unread-messages-text" {% if messages == 0 %} style="display:none;" {% endif %}>
+                                            {{ messages }}
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        <li><a href="{{ path('dashboard_help') }}">Help</a></li>
+                        {% if app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') %}
+                            <li><a href="{{ path('user_affiliate_logout') }}">Logout</a></li>
+                        {% else %}
+                            <li><a href="{{ path('user_merchant_logout') }}">Logout</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

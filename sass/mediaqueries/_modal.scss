@@ -1,0 +1,14 @@
+@media screen and (max-width: 768px){
+    .ui.modal>.content, 
+    .ui.modal>form>.content{
+            padding: 2rem !important;
+    }
+
+    .ui.modal>.header{
+        padding: 1.17em 1em !important;
+    }
+
+    .ui.modal .actions, .ui.modal>form .actions{
+        padding: 1em 1.2em !important;
+    }
+}

@@ -1,0 +1,120 @@
+services:
+
+    yilinker_core_bundle.repository.user:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\User
+
+    yilinker_core_bundle.repository.user_image:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\UserImage
+
+    yilinker_core_bundle.repository.manufacturer_product:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\ManufacturerProduct
+
+    yilinker_core_bundle.repository.store:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\Store
+
+    yilinker_core_bundle.repository.contact_number:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\ContactNumber
+
+    yilinker_core_bundle.repository.product:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\Product
+
+    yilinker_core_bundle.repository.product_unit:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\ProductUnit
+
+    yilinker_core_bundle.repository.email_newsletter_subscription:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\EmailNewsletterSubscription
+
+    yilinker_core_bundle.repository.user_verification_token:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\UserVerificationToken
+
+    yilinker_core_bundle.repository.one_time_password:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\OneTimePassword
+
+    yilinker_core_bundle.repository.country:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\Country
+
+    yilinker_core_bundle.repository.legal_document_type:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\LegalDocumentType
+
+    yilinker_core_bundle.repository.device:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\Device
+
+    yilinker_core_bundle.repository.device_notification:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\DeviceNotification
+
+    yilinker_core_bundle.repository.product_unit:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\ProductUnit
+
+    yilinker_core_bundle.repository.promo_type:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\PromoType
+
+    yilinker_core_bundle.repository.product_image:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Yilinker\Bundle\CoreBundle\Entity\ProductImage

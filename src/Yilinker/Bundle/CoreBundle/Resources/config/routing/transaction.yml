@@ -1,0 +1,7 @@
+core_delivery_log:
+    path: /transaction/delivery-log
+    defaults: { _controller: YilinkerCoreBundle:Order:deliveryLog }
+
+core_postback_express:
+    path: /express/postback-create-package
+    defaults: { _controller: YilinkerCoreBundle:Order:processExpressSchedulePickupPostback }

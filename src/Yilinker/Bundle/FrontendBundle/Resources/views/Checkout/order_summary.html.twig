@@ -1,0 +1,45 @@
+{% set total = 0 %}
+{% set shippingCost = 0 %}
+<div class="checkout-segment">
+    <div class="title">
+        {% trans %}
+            Order Summary
+        {% endtrans %}
+    </div>
+    {% if not canCOD %}
+        <div class="message-box red">
+            <i class="icon icon-alert-exclamation"></i> There are items that are not available for Cash on Delivery.
+        </div>
+    {% endif %}
+    <table class="checkout-breakdown-table">
+        <tbody>
+            {% for product in cart %}
+                {% set price = product.productUnits[product.unitId].discountedPrice %}
+                {% set total = total + (price * product.quantity) %}
+                {% set shippingCost = shippingCost + product.shippingCost %}
+                {{ include('YilinkerFrontendBundle:Product:product_preview3.html.twig') }}
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr {{ (voucherData is defined and voucherData) or shippingCost > 0 ? '' : 'style="display:none"' }}>
+                <td colspan="2" class="td-item-summary-total"><b>Subtotal</b></td>
+                <td colspan="2" class="td-item-summary-total align-right"><b> P <span data-checkout-grand-total>{{ total|number_format(2) }}</span></b></td>
+            </tr>
+            {% if shippingCost > 0 %}
+                <tr>
+                    <td colspan="2" class="td-item-summary-total"><b>Shipping Cost</b></td>
+                    <td colspan="2" class="td-item-summary-total align-right"><b>+ P {{ shippingCost }}</b></td>
+                </tr>
+            {% endif %}
+            {% set total = total + shippingCost %}
+            <tr {{ voucherData is defined and voucherData ? '' : 'style="display:none"' }}>
+                <td colspan="2" class=" td-item-summary-total"><b>{% trans %} Voucher Deduction {% endtrans %}</b></td>
+                <td colspan="2" class=" td-item-summary-total align-right"><b>- P <span data-voucher-discount>{{ (voucherData is defined and voucherData ? voucherData.less : total)|number_format(2) }}</span></b></td>
+            </tr>
+            <tr>
+                <td colspan="2" class=" td-item-summary-total"><b>{% trans %} Total {% endtrans %}</b></td>
+                <td colspan="2" class=" td-item-summary-total align-right"><b>P <span data-checkout-total="{{ total|number_format(2) }}">{{ (voucherData is defined and voucherData ? voucherData.voucherPrice : total)|number_format(2) }}</span></b></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

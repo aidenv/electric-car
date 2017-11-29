@@ -1,0 +1,22 @@
+{% block captcha_widget %}
+    <div class="local-captcha">
+        {% if is_human %}
+        -
+        {% else %}
+        {% spaceless %}
+            <img id="{{ image_id }}" src="{{ captcha_code }}" alt="" title="captcha" />
+            {% if reload %}
+            <script type="text/javascript">
+                function reload_{{ image_id }}() {
+                    var img = document.getElementById('{{ image_id }}');
+                    img.src = '{{ captcha_code }}?n=' + (new Date()).getTime();
+                }
+            </script>
+            <a class="captcha_reload button small gray" href="javascript:reload_{{ image_id }}();">{{ 'Refresh'|trans({}, 'gregwar_captcha') }}</a>
+            
+            {% endif %}
+            {{ form_widget(form) }}
+        {% endspaceless %}
+        {% endif %}
+    </div>
+{% endblock %}

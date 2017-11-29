@@ -1,0 +1,182 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body_container %}
+
+    <section class="box-outer">
+
+        <div class="box-wrapper">
+
+            <section class="box-section">
+                <div class="title-bar">
+                    <div class="container">
+                        <span>Mobile Web view (CMS)</span>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="box-upper">
+                            <div class="col-md-9 webview-content">
+                                <div class="box-div">
+                                    <div class="row gutters group-segment">
+                                        <div class="col-md-12">
+                                            <h4>
+                                                Customized Web view
+                                            </h4>
+
+                                            <div class="tabular-inside segment">
+                                                <div class="ui tabular menu">
+                                                    <div class="item main-tab active" data-tab="tab-name0">
+                                                        <a href="#">Daily Present</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="ui tab row active" data-tab="tab-name0">
+
+                                                <div class="row gutters group-segment">
+                                                    <h5 class="mrg-bt-20 mrg-top-10">Custom Messages</h5>
+                                                    <div class="col-md-12">
+                                                        <div class="form">
+                                                            <label>
+                                                                Success message
+                                                            </label>
+                                                            <input class="form-ui" id="input-first-message" value="{{ dailyLoginData.successMessage }}" placeholder="Message here" type="text">
+                                                        </div>
+                                                        <div class="form">
+                                                            <label>
+                                                                Failed message
+                                                            </label>
+                                                            <input class="form-ui" id="input-second-message" value="{{ dailyLoginData.errorMessage }}" placeholder="Message here" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row gutters group-segment">
+                                                    <h5 class="mrg-bt-20 mrg-top-10">Inner Banners</h5>
+                                                    <div class="col-md-12">
+
+                                                        <div class="row">
+                                                            <div class="col-md-5" id="container-first-inner-banner">
+                                                                <img src="{{ asset(dailyLoginData.images[0].fileDir) }}" style="width: 150px; height: 100px">
+                                                            </div>
+                                                            <div class="col-md-7">
+                                                                <div class="form">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <label>Upload Banner</label>
+                                                                            <label class="light" for="">Select your Banner Permit file from your computer</label>
+                                                                            <input class="form-ui disabled" id="input-first-inner-banner" type="file">
+                                                                            <span class="form-ui-note">Compatible files: JPEG and PNG</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <label>Banner URL</label>
+                                                                            <input class="form-ui" id="input-first-inner-banner-url" value="{{ asset(dailyLoginData.images[0].src) }}" type="text">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-5" id="container-second-inner-banner">
+                                                                <img src="{{ asset(dailyLoginData.images[1].fileDir) }}" style="width: 150px; height: 100px">
+                                                            </div>
+                                                            <div class="col-md-7">
+                                                                <div class="form">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <label>Upload Banner</label>
+                                                                            <label class="light" for="">Select your Banner Permit file from your computer</label>
+                                                                            <input class="form-ui disabled" id="input-second-inner-banner" type="file">
+                                                                            <span class="form-ui-note">Compatible files: JPEG and PNG</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <label>Banner URL</label>
+                                                                            <input class="form-ui" id="input-second-inner-banner-url" value="{{ asset(dailyLoginData.images[1].src) }}" type="text">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-5" id="container-third-inner-banner">
+                                                                <img src="{{ asset(dailyLoginData.images[2].fileDir) }}" style="width: 150px; height: 100px">
+                                                            </div>
+                                                            <div class="col-md-7">
+                                                                <div class="form">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <label>Upload Banner</label>
+                                                                            <label class="light" for="">Select your Banner Permit file from your computer</label>
+                                                                            <input class="form-ui disabled" id="input-third-inner-banner" type="file">
+                                                                            <span class="form-ui-note">Compatible files: JPEG and PNG</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <label>Banner URL</label>
+                                                                            <input class="form-ui" id="input-third-inner-banner-url" value="{{ asset(dailyLoginData.images[2].src) }}" type="text">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-5">
+                                                            </div>
+                                                            <div class="col-md-7">
+                                                                <div class="form">
+                                                                    <input class="button" type="button" id="btn-submit" value="submit">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+    </section>
+
+    {# START MODAL = MESSAGE CONTAINER #}
+    <div class="ui modal small coupled-first" id="modal-message-container">
+        <a class="close" data-remodal-action="close">
+            <i class="icon-times"></i>
+        </a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header detail-content"></div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">Okay</button>
+        </div>
+    </div>
+    {# END MODAL = MESSAGE CONTAINER #}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/backend/daily-login.js') }}"></script>
+{% endblock %}
+

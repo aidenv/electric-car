@@ -1,0 +1,141 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Balance Record
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+    <div class="dashboard-body-container white">
+        {% if app.user.store.ableToWithdraw %}
+            <div class="dashboard-submenu-wrapper">
+                <div class="dashboard-submenu-container">
+                    <ul class="list-unstyle list-submenu">
+                        <li>
+                            <a href="{{ path('dashboard_balance_withdrawal') }}">
+                                {% trans %} Withdrawal {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="active">
+                                {% trans %} Balance Record {% endtrans %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+        <div class="dashboard-component top">
+            {{ include('YilinkerMerchantBundle:Dashboard:dashboard_balance_record_filter_form.html.twig') }}
+        </div>
+        {{ include('YilinkerMerchantBundle:Dashboard:dashboard_balance_record_earnings_report.html.twig') }}
+        {{ include('YilinkerMerchantBundle:Dashboard:earning_list.html.twig') }}
+    </div>
+
+    <!--Start of modal total comments: not implemented-->
+    {#
+    <div class="ui modal small transaction-summary-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">Transaction Summary</h4>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-8">
+                    <table class="table table-summary-modal">
+                        <tbody>
+                            <tr>
+                                <td class="bold">Transaction Date: </td>
+                                <td align="right">01/06/2016</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Transaction No.: </td>
+                                <td align="right">213123123123123</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Product SKU: </td>
+                                <td align="right">2345KJ3233</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Product Name: </td>
+                                <td align="right">Iphone 6 Plus 64G Silver</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Product Category: </td>
+                                <td align="right">Mobile and Tablets</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Transaction Amount: </td>
+                                <td align="right">P 45,000.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Transaction Qty: </td>
+                                <td align="right">2</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Transaction Amount: </td>
+                                <td align="right">P 90,000.00</td>
+                            </tr>
+                            <tr class="inverted">
+                                <td class="bold" colspan="2">
+                                    <p class="pd-left-10">Charges</p>
+                                </td>
+                            </tr>
+                            <tr class="inverted">
+                                <td class="bold"><p class="pd-left-30">Marketing Cost (1.50%): </p></td>
+                                <td align="right">P 1,350.00</td>
+                            </tr>
+                            <tr class="inverted">
+                                <td class="bold"><p class="pd-left-30">Additional Charge (1.20%): </p></td>
+                                <td align="right">P 1,080.00</td>
+                            </tr>
+                            <tr class="inverted">
+                                <td class="bold"><p class="pd-left-30">Shipping Cost: </p></td>
+                                <td align="right">P 800.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Total Charges: </td>
+                                <td align="right">- P 2,510.00</td>
+                            </tr>
+                            <tr>
+                                <td class="bold">Net Receive Amount: </td>
+                                <td align="right"><b>P 87,490.00</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <div class="mrg-bt-20 align-right">
+                        <h5>Transaction Status</h5>
+                        <h4 class="purple-color">
+                            Delivered (01/07/2016)
+                        </h4>
+                    </div>
+                    <div class="mrg-bt-20 align-right">
+                        <h5>Receivable Status</h5>
+                        <h4 class="purple-color">
+                            Tentative
+                        </h4>
+                    </div>
+                    <div class="mrg-bt-20 align-right">
+                        <h5>Net Receive Amount</h5>
+                        <h4 class="purple-color">P 87,490.00</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    #}
+    <!--End of modal total comments-->
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="{{ asset('js/bower/chart.min.js') }}"></script>
+    <script src="{{ asset('js/bower/moment.min.js') }}"></script>
+    <script src="{{ asset('js/bower/daterangepicker.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/dashboard-balance-record.js') }}"></script>
+{% endblock %}

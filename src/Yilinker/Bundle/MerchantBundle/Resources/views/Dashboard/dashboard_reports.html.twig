@@ -1,0 +1,219 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Sales Report
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+    <div class="dashboard-body-container white">
+        {{ include('YilinkerMerchantBundle:Dashboard/Partial:reports_header.html.twig') }}
+        <div class="dashboard-component top">
+            <form>
+                <div class="component-content">
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-3 align-right">
+                                        <label for="" class="bold mrg-top-10">Search type :</label>
+                                    </div>
+                                    <div class="col-xs-9">
+                                        <select name="searchType" id="" class="form-ui inverted ui single selection dropdown">
+                                            <option value="">Select Here</option>
+                                            {% for key, name in filters %}
+                                                <option {{ app.request.get('searchType') == key ? 'selected' : ''}} value="{{key}}">{{ name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-3 align-right">
+                                        <label for="" class="bold mrg-top-10">Keyword :</label>
+                                    </div>
+                                    <div class="col-xs-9">
+                                        <div class="input-icon left">
+                                            <i class="icon icon-search"></i>
+                                            <input value="{{app.request.get('keyword')}}" name="keyword" type="text" class="form-ui inverted" placeholder="Search keyword here">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-3 align-right">
+                                        <label for="" class="bold">Status :</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="filter-checkbox-set">
+                                            <div class="ui checkbox">
+                                                <input
+                                                    {{app.request.query.has('sales') or queryCount <= 0 ? 'checked="checked"' : ''}} 
+                                                    type="checkbox" id="earning_filter_type_0" name="sales">
+                                                <label for="earning_filter_type_0">Sales (Tentative/Complete)</label>
+                                            </div>
+                                             <div class="ui checkbox">
+                                                <input
+                                                    {{app.request.query.has('invalid') ? 'checked="checked"' : ''}}
+                                                    type="checkbox" id="earning_filter_type_1" name="invalid">
+                                                <label for="earning_filter_type_1">Invalid (Cancelled/Disputed)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-3 align-right">
+                                        <label for="" class="bold mrg-top-10">Date :</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form">
+                                            <input type="text" required="required" class="form-ui inverted align-center sales-report-daterange block">
+                                            <input type="hidden" value="{{dateFrom}}" name="dateFrom" id="dateFrom" />
+                                            <input type="hidden" value="{{dateTo}}" name="dateTo" id="dateTo" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="form">
+                        <div class="col-md-6 col-md-offset-6 align-right">
+                            <button class="button blue uppercase">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="dashboard-component">
+            <div class="title-bar">
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-xs-8"><span class="uppercase">Sales Report</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="component-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="legend-chart light-color">
+                            <i class="icon icon-circle blue-color"></i> Sales
+                        </span>
+                        <span class="legend-chart light-color">
+                            <i class="icon icon-circle red-color"></i> Invalid
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="component-content">
+                <div class="sales-chart-container mrg-bt-20">
+                    <canvas id="sales-report" class="sales-chart"></canvas>
+                </div>
+            </div>
+            <div class="component-content">
+                {% if app.user.store.isAffiliate() %}
+                    {{ include('YilinkerMerchantBundle:Dashboard/Partial:partial.affiliate_total_earning.html.twig') }}
+                {% else %}
+                    {{ include('YilinkerMerchantBundle:Dashboard/Partial:partial.seller_total_earning.html.twig') }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="dashboard-component bottom">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Recent Earning</span>
+                    </div>
+                </div>
+                <!--Recent order table-->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th width="10%">Date</th>
+                            <th width="10%" align="center">Buyer</th>
+                            <th width="25%">Description</th>
+                            <th width="10%" align="right">Transaction Amount</th>
+                            <th width="15%" align="right">Charges</th>
+                            <th width="10%" align="right">Receivable</th>
+                            <th width="10%" align="center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for orderProduct in orderProducts %}
+                            {% set earning = null %}
+                            {% for earningTransaction in orderProduct.earningTransactions %}
+                                {% if earningTransaction.earning.user.userId == app.user.userId %}
+                                    {% set earning = earningTransaction.earning %}
+                                {% endif %}
+                            {% endfor %}
+                            {% set order = orderProduct.order %}
+                            <tr>
+                                <td>{{ orderProduct.lastDateModified|date('m/d/Y') }}</td>
+                                <td align="center">
+                                    {{ order.buyer.getFullName() }}
+                                </td>
+                                <td>
+                                    <a href="#" class="bold">{{ order.invoiceNumber }}</a>
+                                    <p class="light-color">
+                                        {{ orderProduct.quantity }} x {{ orderProduct.productName }}
+                                    </p>
+                                    <p class="blue-color">
+                                        {{ order.paymentMethod.name }} | {{ orderProduct.orderProductStatus.name|default("") }}
+                                    </p>
+                                </td>
+                                <td align="right">
+                                    {{ orderProduct.totalPrice|number_format(2) }}
+                                </td>
+                                <td align="right">
+                                    <p>MC: P {{ orderProduct.yilinkerCharge|number_format(2) }}</p>
+                                    <p>AC: P {{ orderProduct.additionalCost|number_format(2) }}</p>
+                                    <p>FC: P {{ orderProduct.handlingFee|number_format(2) }}</p>
+                                </td>
+                                <td align="right">
+                                    {{ earning.amount|default(0)|number_format(2) }}
+                                </td>
+                                <td align="center">
+                                    {% if earning is not null %}
+                                        {{ earning.getStatuses()[earning.status]|default("") }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="7" class="align-center">No data available.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% if orderProducts.count is defined %}
+                    <div class="align-center mrg-top-20">
+                        {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults:orderProducts.count, perPage: orderProducts.getQuery().getMaxResults()}) }}
+                    </div>
+                {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script type="text/javascript">
+        var salesDataCount = '{{ salesDataCount|json_encode|raw }}',
+            invalidDataCount = '{{ invalidDataCount|json_encode|raw }}',
+            filterSales = '{{ app.request.query.has("sales") or queryCount <= 0 ? 1 : 0 }}',
+            filterInvalid = '{{ app.request.query.has("invalid") ? 1 : 0 }}';
+    </script>
+    <script src="{{ asset('js/bower/chart.min.js') }}"></script>
+    <script src="{{ asset('js/bower/moment.min.js') }}"></script>
+    <script src="{{ asset('js/bower/daterangepicker.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/dashboard-reports.js') }}"></script>
+{% endblock %}

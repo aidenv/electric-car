@@ -1,0 +1,10 @@
+admin_registred_seller_list:
+  path: /seller-registration/list
+  defaults: { _controller: YilinkerBackendBundle:AdminSellerRegistration:renderManuallyCreatedAccount }
+  methods: [GET]
+
+admin_seller_registration:
+  path: /seller-registration/register
+  defaults: { _controller: YilinkerBackendBundle:AdminSellerRegistration:renderSellerRegistration }
+  methods: [GET]
+

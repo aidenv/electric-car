@@ -1,0 +1,56 @@
+Yilinker\Bundle\CoreBundle\Entity\EarningTypeRange:
+    type: entity
+    table: EarningTypeRange
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\EarningTypeRangeRepository
+    indexes:
+        fk_earning_type:
+            columns:
+                - earning_type
+    id:
+        earningTypeRange:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: earning_type_range
+            generator:
+                strategy: IDENTITY
+    fields:
+        from:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            default: '0'
+        to:
+            type: integer
+            nullable: true
+            unsigned: false
+            comment: ''
+            default: '0'
+        earning:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            comment: ''
+            default: '0.0000'
+        bonus:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            comment: ''
+            default: '0.0000'
+    manyToOne:
+        earningType:
+            targetEntity: EarningType
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                earning_type:
+                    referencedColumnName: earning_type_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

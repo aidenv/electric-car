@@ -1,0 +1,181 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %}
+        Summary
+    {% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <section class="print-receipt checkout">
+        <div class="text-center">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="align-center uppercase mrg-bt-10">
+                        Payment Receipt
+                    </h3>
+                    <p class="mrg-top-20">
+                        You have made a successful purchase on Easyshop.ph. An e-mail has been sent to you and the people from whom you purchased regarding the status of your transaction.
+                    </p>
+                    <table width="100%" class="table mrg-top-20">
+                        <tbody>
+                            <tr>
+                                <td width="50%" valign="top">
+                                    <p class="bold">Consignee Name: </p>
+                                    <p>Justine Carl Duazo</p>
+                                </td>
+                                <td width="50%" valign="top">
+                                    <p class="bold">Full Address: </p>
+                                    <p>6F Five E-com Tower, Pacific Drive, Mall of Asia Complex, Pasay City</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%" valign="top">
+                                    <p class="bold">Mobile Number: </p>
+                                    <p>09271234567</p>
+                                </td>
+                                <td width="50%" valign="top">
+                                    <p class="bold">City/ Municipality: </p>
+                                    <p>Manila</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <!--Start of shipping details-->
+                <div class="col-xs-5">
+                    <h4 class="uppercase">Transaction Details</h4>
+                    <table class="table" width="100%">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p class="bold">Transaction Number: </p>
+                                    <p>123324234</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="bold">Invoice Number: </p>
+                                    <p>2342q42342q34</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="bold">Payment Method: </p>
+                                    <p>Cash on Delivery</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="bold">Total Amount: </p>
+                                    <p>&#8369; 1200.00</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="bold">Transaction Date: </p>
+                                    <p>01/21/2016</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--End of shipping details-->
+                <!--Start of order summary-->
+                <div class="col-xs-7">
+                    <div class="checkout-segment">
+                        <p class="title">Your Order Details</p>
+                        <table class="table table-receipt-items" width="100%" style="font-size: 10px;">
+                            <thead>
+                                <tr>
+                                    <th width="40%" valign="top">Product</th>
+                                    <th width="20%" valign="top" align="center">Quantity</th>
+                                    <th width="20%" valign="top" align="right">Shipping Fee</th>
+                                    <th width="20%" valign="top" align="right">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="checkout-item">
+                                    <td valign="top">
+                                        Adidas Yeezy Boost Shoes
+                                        <div class="checkout-item-attribute-container">
+                                            <div class="checkout-item-attribute-container-body-receipt">
+                                                <div class="checkout-item-attribute-name">
+                                                    <b>Size : </b> 32
+                                                </div>
+                                                <div class="checkout-item-attribute-name">
+                                                    <b>Color : </b> Gray
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td valign="top" align="center">1</td>
+                                    <td valign="top" align="right">P 100.00</td>
+                                    <td valign="top" align="right">1250.00</td>
+                                </tr>
+                                <tr class="checkout-item">
+                                    <td valign="top">
+                                        Roshe Run Red
+                                    </td>
+                                    <td valign="top" align="center">1</td>
+                                    <td valign="top" align="right">P 100.00</td>
+                                    <td valign="top" align="right">1250.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="bold">
+                                        Subtotal
+                                    </td>
+                                    <td colspan="3" align="right">&#8369; 1350.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="bold">
+                                        Total Shipping Fee
+                                    </td>
+                                    <td colspan="3" align="right">&#8369; 100.00</td>
+                                </tr>
+                                
+                                <tr class="td-border-bottom-1">
+                                    <td class="bold">
+                                        Voucher Deduction
+                                    </td>
+                                    <td colspan="3" align="right">- &#8369; 50.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="bold">
+                                        <h4 class="bold">Order Total</h4>
+                                    </td>
+                                    <td  colspan="3" align="right"><h4 class="bold">&#8369; 100.00</h4></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <!--End of order summary-->
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-12 align-center mrg-top-20">
+                    <img src="{{ asset('images/logo-main.png')}}" alt="YiLinker" style="width: 120px; height: auto;">
+                </div>
+            </div>
+        </div>
+        <div class="hide-border-bottom">
+            <div class="border-1"></div>
+            <div class="border-2"></div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+    window.onload = function () {
+        window.print();
+        setTimeout(function(){window.close();}, 1);
+    }
+</script>
+{% endblock %}

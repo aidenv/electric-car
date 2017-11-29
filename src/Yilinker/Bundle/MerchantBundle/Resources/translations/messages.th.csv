@@ -1,0 +1,566 @@
+"click here";"คลิกที่นี่"
+"out of";"จาก"
+"requirements are already completed";"กำหนดแล้วเสร็จสมบูรณ์"
+"Frequently Ask Questions";"คำถามที่ถามบ่อย"
+"Add Product Category";"เพิ่มหมวดหมู่สินค้า"
+"Category One";"ประเภทหนึ่ง"
+"&nbsp;";"เพอร์ ฟูม nbsp;"
+"Add this Category";"เพิ่มประเภทนี้"
+"Verify Email Address";"ตรวจสอบอีเมล์"
+Code;รหัส
+"Resend Verification Code";"ส่งรหัสยืนยัน"
+Verify;ตรวจสอบ
+"New Store Address";"ที่อยู่ร้านใหม่"
+"Enter your address line 1 here";"ป้อนของคุณที่อยู่สาย 1"
+Cancel;ยกเลิก
+Submit;ส่ง
+Okay;โอเค
+"Are you sure you want to delete this address";"คุณแน่ใจหรือคุณต้องการลบที่อยู่"
+Delete;ลบ
+"Progress Overview";"ภาพรวมความคืบหน้า"
+"This is to ensure that YiLinker is working with only legitimate businesses";"ทั้งนี้เพื่อให้แน่ใจว่า YiLinker ทำงานกับธุรกิจที่ถูกกฎหมายเท่านั้น"
+"Seller Product";"ผู้ขายสินค้า"
+Category;ประเภท
+Brand;แบรนด์
+Warranty;การรับประกัน
+Quantity;ปริมาณ
+"Basketball Shoes";"รองเท้าบาสเกตบอล"
+"Enter your product brand";"ใส่แบรนด์สินค้าของคุณ"
+Yes;ใช่
+No;ไม่ใช่
+"Go Back";"ย้อนกลับ"
+Save;บันทึก
+"AFFILIATE AGREEMENT";"ข้อตกลงพันธมิตร"
+"6/F Five E-com, Mall of Asia, Pacific Drive, Pasay City";"6/F 5 E com ศูนย์การค้าของเอเชีย เมืองแปซิฟิกไดรฟ์ ปา"
+"Advertising Media";"สื่อโฆษณา"
+"Affiliate Program";"โปรแกรมพันธมิตร"
+"Affiliate鈥檚 Website";"พันธมิตรâ€™ s เว็บไซต์"
+Customer;ลูกค้า
+EDM;EDM
+Marks;เครื่องหมาย
+Merchant;ร้านค้า
+Platform;แพลตฟอร์ม
+Site;เว็บไซต์
+SEM;SEM
+SEO;SEO
+"MERCHANT SERVICES AGREEMENT";"ข้อตกลงการให้บริการของร้านค้า"
+"6/F Five E-com, Mall of Asia, Pacific Drive";"6/F 5 E com มอลล์ออ ไดรฟ์แปซิฟิก"
+"Merchant Agreement";"ข้อตกลงร้านค้า"
+"Site, Website";"เว็บไซต์ เว็บไซต์"
+Payout;จ่ายเงิน
+Products;ผลิตภัณฑ์
+Buyer;ผู้ซื้อ
+"Selling Price";"ราคาขาย"
+"Corporate Name / Business Name";"ชื่อบริษัท / ชื่อธุรกิจ"
+Owner/President;เจ้าของ/กรรมการผู้จัดการ
+"Company Phone Number";"หมายเลขโทรศัพท์บริษัท"
+"Registered Office Address";"สำนักงานทะเบียน"
+"Business Address (If different to registered office)";"ที่อยู่ธุรกิจ (ถ้าแตกต่างกันไปจดทะเบียน)"
+"Contact Person";"ผู้ติดต่อ"
+"Phone and Fax";"โทรศัพท์และโทรสาร"
+"Email Address";"ที่อยู่อีเมล"
+Website/Facebook/Twitter/Instagram;เว็บ ไซต์/Facebook/Twitter/Instagram
+a);a)
+b);b)
+c);c)
+Summary;สรุป
+"Bank Information";"ข้อมูลธนาคาร"
+"Edit Bank Account";"แก้ไขบัญชีธนาคาร"
+"Bank Account";"บัญชีธนาคาร"
+"Bank Details are Permanent";"รายละเอียดธนาคารถาวร"
+"Enter your bank account title here";"ป้อนชื่อบัญชีธนาคารของคุณที่นี่"
+"Enter bank here";"ระบุธนาคารที่นี่"
+"Account Number";"หมายเลขบัญชี"
+"Enter your bank account number here";"ป้อนหมายเลขบัญชีธนาคารของคุณที่นี่"
+"Account Name";"ชื่อบัญชี"
+"Enter your bank account name here";"ป้อนชื่อบัญชีธนาคารของคุณที่นี่"
+"Are you sure you want to delete this bank account";"คุณต้องการลบบัญชีธนาคารนี้แน่ใจหรือไม่"
+Ok;ตกลง, ได้
+"Business Information";"ข้อมูลทางธุรกิจ"
+"Store Name";"ชื่อร้านค้า"
+"Enter your display name";"ป้อนชื่อที่แสดงของคุณ"
+"Store Link";"ลิงค์ร้าน"
+"Store Name and Store Link are Permanent";"มีร้านชื่อและลิงก์ถาวร"
+"First Name";"ชื่อแรก"
+"Last Name";"ชื่อสุดท้าย"
+"Mobile Number";"หมายเลขโทรศัพท์"
+"Company / School";"บริษัท / โรงเรียน"
+"Current Job / Course & Year Level";"งานปัจจุบัน / ปีและหลักสูตรระดับ"
+TIN;ดีบุก
+Address;ที่อยู่
+"Edit Address";"แก้ไขที่อยู่"
+"Delete Address";"ลบที่อยู่"
+"Business Website";"เว็บไซต์ธุรกิจ"
+"Ex. https://yourWebSite.com";"Https://yourWebSite.com เช่น"
+"Social Media Account";"บัญชีสื่อสังคมออนไลน์"
+"Select your Product Categories";"เลือกประเภทผลิตภัณฑ์ของคุณ"
+"Address Title";"ชื่อที่อยู่"
+"Home Address";"ที่อยู่บ้าน"
+"Unit Number";"จำนวนหน่วย"
+"Building Name";"ชื่ออาคาร"
+"Street Number";"หมายเลขถนน"
+"Street Name";"ชื่อถนน"
+Subdivision;แผนผัง
+Province;จังหวัด
+"Select your province";"เลือกจังหวัดของคุณ"
+City/Municipal;ซิตี้/เทศบาลเมือง
+Barangay;รังเกย์
+"Zip Code";"รหัสไปรษณีย์"
+Continue;ดำเนินการต่อไป
+"Legal Information";"ข้อมูลทางกฎหมาย"
+"Legal Requirements";"ข้อกำหนดทางกฎหมาย"
+"DTI/SEC Permit";"ใบอนุญาต DTI/SEC"
+"Download DTI/SEC Permit";"ดาวน์โหลดใบอนุญาต DTI/SEC"
+"Compatible files: JPEG, PNG and PDF";"รองรับไฟล์: JPEG, PNG และ PDF"
+"Mayor's Permit";"ใบอนุญาตของนายกเทศมนตรี"
+"Download Mayor's Permit";"ดาวน์โหลดใบอนุญาตของนายกเทศมนตรี"
+"BIR Permit";"ใบอนุญาต BIR"
+"Download BIR Permit";"ดาวน์โหลดใบอนุญาต BIR"
+"Select your DTI/SEC Permit file from your computer";"เลือกไฟล์ DTI/SEC อนุญาตจากคอมพิวเตอร์ของคุณ"
+"Select your Mayor's Permit file from your computer";"เลือกของนายกเทศมนตรีอนุญาตแฟ้มจากคอมพิวเตอร์ของคุณ"
+"Select your BIR Permit file from your computer";"เลือกไฟล์ใบอนุญาต BIR จากคอมพิวเตอร์ของคุณ"
+"Other Documents";"เอกสารอื่น ๆ"
+"Select a document file from your computer";"เลือกไฟล์เอกสารจากคอมพิวเตอร์ของคุณ"
+"By Checking this box";"โดยช่องนี้"
+"YiLinker's terms and conditions";"เงื่อนไขและข้อกำหนดของ YiLinker"
+"TIN File";"แฟ้มดีบุก"
+"Download TIN File";"ดาวน์โหลดไฟล์ดีบุก"
+"SSS File";"แฟ้มพู"
+"Select Valid ID";"เลือกรหัสที่ถูกต้อง"
+"Download SSS File";"ดาวน์โหลดไฟล์พู"
+"PAG-IBIG File";"แฟ้ม IBIG ปลายแห่งชาติ"
+"Download PAG-IBIG File";"ดาวน์โหลดไฟล์ IBIG ปลายแห่งชาติ"
+"Postal File";"แฟ้มที่ไปรษณีย์"
+"Download Postal File";"ดาวน์โหลดแฟ้มที่ไปรษณีย์"
+"Passport File";"ไฟล์หนังสือ"
+"Download Passport File";"ดาวน์โหลดไฟล์หนังสือ"
+"Driver's License File";"แฟ้มใบอนุญาตขับขี่"
+"Download Driver's License File";"ดาวน์โหลดไฟล์ใบอนุญาตขับขี่"
+"PRC File";"ไฟล์ PRC"
+"Download PRC File";"ดาวน์โหลดไฟล์ PRC"
+"Voter's ID File";"แฟ้มรหัสของต่อ"
+"Download Voter's ID File";"แฟ้มรหัสดาวน์โหลดต่อ"
+"School ID File";"แฟ้มรหัสโรงเรียน"
+"Download School ID File";"นักเรียนดาวน์โหลดแฟ้ม"
+"Select your TIN file from your computer";"เลือกไฟล์ดีบุกจากคอมพิวเตอร์ของคุณ"
+"Valid ID";"รหัสถูกต้อง"
+"Select the type of Valid ID you want to upload from your computer";"เลือกชนิดของรหัสการใช้ที่คุณต้องการอัพโหลดจากคอมพิวเตอร์ของคุณ"
+"Seller Type:";"ประเภทผู้ขาย:"
+Seller;ผู้ขาย
+Affiliate;พันธมิตร
+"Owner Name:";"ชื่อเจ้าของ:"
+"Store Name:";"ชื่อร้าน:"
+"Primary Address:";"อยู่หลัก:"
+"Contact Number:";"หมายเลขติดต่อ:"
+"Change Content";"เปลี่ยนแปลงเนื้อหา"
+Edit;แก้ไข
+Start;เริ่มการทำงาน
+"Bank Name:";"ชื่อธนาคาร:"
+"Account Title:";"ชื่อบัญชี:"
+"Account Name:";"ชื่อบัญชี:"
+"Account Number:";"เลขที่บัญชี:"
+"Document Name";"ชื่อเอกสาร"
+"Date Uploaded";"วันที่อัปโหลด"
+Status;สถานะ
+Message;ข้อความ
+"FORM MA11501 Permit";"แบบฟอร์มใบอนุญาต MA11501"
+Others;ผู้อื่น
+SSS;SSS
+"PAG IBIG";"ปลายแห่งชาติ IBIG"
+Postal;ไปรษณีย์
+Passport;หนังสือเดินทาง
+"Driver's License";"ใบอนุญาตขับขี่"
+PRC;สาธารณรัฐประชาชนจีน
+"Voter's ID";"ID ของต่อ"
+"School ID";"นักเรียน"
+"Legal Documents";"เอกสารทางกฎหมาย"
+Comments;ความคิดเห็น
+Close;ปิด
+"Already a member?";"เป็นสมาชิกแล้ว"
+"Sign In";"เข้าสู่ระบบ"
+"The Question";"คำถาม"
+"&#9679;";"เพอร์ ฟูม #9679;"
+Benefits;สิทธิประโยชน์
+System;ระบบ
+Support;การสนับสนุน
+"Want to start-up a business without any investment? Looking for passive income?";"ต้องการเริ่มต้นธุรกิจโดยไม่ต้องลงทุนใด ๆ หรือไม่ หารายได้"
+"Sign in";"เข้าสู่ระบบ"
+Register;ลงทะเบียน
+"Enter your email or contact number here";"ป้อนอีเมลหรือหมายเลขติดต่อที่นี่"
+Password;รหัสผ่าน
+"Forgot Password?";"ลืมรหัสผ่าน"
+Administrator;ผู้ดูแล
+View;ดู
+Hide;ซ่อน
+"New Bank Account";"บัญชีธนาคารใหม่"
+"Update Bank Account";"ปรับปรุงบัญชีธนาคาร"
+Logout;ออกจากระบบ
+"View Store Info";"ดูเก็บข้อมูล"
+Settings;การตั้งค่า
+Help;วิธีใช้
+Categories;หมวดหมู่
+"Current Order:";"สั่งปัจจุบัน:"
+"New Category";"ประเภทใหม่"
+"Add new category";"เพิ่มประเภทใหม่"
+"Delete Categories";"ลบประเภท"
+"Customize Category";"กำหนดประเภท"
+"Category Name";"ชื่อประเภท"
+"Parent Category";"ประเภทหลัก"
+"Select a parent category";"เลือกหมวดหมู่หลัก"
+"Custom Category Products";"ผลิตภัณฑ์ประเภทแบบกำหนดเอง"
+"Search item here";"ค้นหาสินค้าที่นี่"
+"All Products";"ผลิตภัณฑ์ทั้งหมด"
+"Total Earning";"รายได้"
+"Active Earning";"ใช้งานได้"
+"Tentative Earning";"รายได้ไม่แน่นอน"
+"Total Withdrew";"ผลรวมออก"
+"Search :";"ค้นหา:"
+"Keyword :";"คำสำคัญ:"
+"Type :";"ชนิด:"
+"Status :";"สถานะ:"
+"Date :";"วัน:"
+"Net Receivables";"ลูกหนี้สุทธิ"
+"Tentative Receivable";"ลูกหนี้ที่ไม่แน่นอน"
+"Available Balance";"ยอดคงเหลือ"
+"Available Balance:";"ยอดคงเหลือ:"
+"Withdrawal Amount:";"เงิน:"
+"Withdrawal Method:";"วิธีการถอนเงิน:"
+"Deposit to Bank";"เงินฝากธนาคาร"
+"Deposit To:";"ฝากถึง:"
+"Mobile Number:";"มือถือ:"
+"Confirmation Code:";"รหัสยืนยัน:"
+"Confirm Withdrawal";"ยืนยันการถอนเงิน"
+"Withdrawal Request List";"รายการขอถอนเงิน"
+Date;วัน
+Method;วิธี
+"Deposit To/Pay To";"ฝากเงินไปยัง / จ่าย"
+Requested;การร้องขอ
+"Bank Charge";"ค่าธรรมเนียมธนาคาร"
+Amount;จํานวน
+"Your QR Code";"รหัส QR ของคุณ"
+"Download your QR Code";"ดาวน์โหลด รหัส QR  ของคุณ"
+"240 x 240";"240 x 240"
+"480 x 480";"480 x 480"
+"960 x 960";"960 x 960"
+"1920 x 1920";"1920 x 1920"
+"SVG Format";"รูปแบบ SVG"
+"How to Earn More";"วิธีการสร้างรายได้มากขึ้น"
+Comment;ความคิดเห็น
+"Earn Per Comment";"รับต่อความคิดเห็น"
+"Bonus Earning";"รับโบนัส"
+"1 - 5";"1 - 5"
+"6 - 20";"6 - 20"
+"21 - 50";"21 - 50"
+"51 - 100";"51 - 100"
+"100 - 500";"100 - 500"
+"501 - above";"501 - เหนือ"
+-;-
+"Total Comments";"ความคิดเห็นทั้งหมด"
+32;32
+"Earning on Comment";"รายได้บนข้อคิดเห็น"
+Followers;ผู้ติดตาม
+"Earn Per Follower";"ได้รับต่อผู้ติดตาม"
+"1 - 20";"1 - 20"
+"101 - 500";"101 - 500"
+"501 - 2,000";"501 - 2000"
+"Total Followers";"ผู้ติดตามทั้งหมด"
+106;106
+"Earning on Followers";"รายได้บนผู้ติดตาม"
+"Your Referral Code";"รหัสอ้างอิงของคุณ"
+100-043-210;100-043-210
+"Your Referral Link";"ลิ้งค์ของคุณ"
+"Copy Link";"คัดลอกลิงก์"
+"Share on Social Media";"แบ่งปันสังคม"
+"Total Buyer Network";"เครือข่ายผู้ซื้อทั้งหมด"
+"Earning on Buyer Network";"รายได้บนเครือข่ายผู้ซื้อ"
+"Affiliate Level";"ตัวแทนระดับ"
+"Store Space";"พื้นที่จัดเก็บ"
+Silver;สีเงิน
+"Below P 5,000";"ด้านล่าง P 5,000"
+"150 Products";"ผลิตภัณฑ์ 150"
+"Current Level";"ระดับปัจจุบัน"
+Gold;ทอง
+"P 5,001 to P 20,000";"5,001 P กับ P 20,000"
+"200 Products";"200 รายการสินค้า"
+Platinum;แพลทินัม
+"P 20,001 to P 50,000";"20,001 P กับ P 50,000"
+"300 Products";"ผลิตภัณฑ์ 300"
+Diamond;เพชร
+"Above P 50,000";"ข้างต้น P 50,000"
+"500 Products";"ผลิตภัณฑ์ 500"
+Name;ชื่อ
+"Contact Number";"หมายเลขติดต่อ"
+Action;การดำเนินการ
+Dashboard;แดชบอร์ด
+"Store Information";"จัดเก็บข้อมูล"
+Transaction;ธุรกรรม
+"Product Management";"การจัดการผลิตภัณฑ์"
+"Customized Category";"ประเภทที่กำหนดเอง"
+"Upload Product";"อัปโหลดสินค้า"
+"Select Product";"เลือกผลิตภัณฑ์"
+Reports;รายงาน
+Messages;ข้อความ
+"Resolution Center";"ความละเอียดที่ศูนย์"
+"Point Earned";"จุดที่ได้รับ"
+Breakdown;การเสีย
+"+ 10 Points";"+ 10 คะแนน"
+"- 10 Points";"-10 จุด"
+Status:;สถานะ:
+"Seller ID:";"ขาย ID:"
+;
+"Total Sales";"ยอดขายรวม"
+"Total Net Sales";"ยอดขายสุทธิ"
+"Buyer Networks";"เครือข่ายผู้ซื้อ"
+"Success Transaction";"ธุรกรรมสำเร็จ"
+"Total Earnings";"รายได้รวม"
+"Search type :";"ประเภท:"
+"Select Here";"เลือกที่นี่"
+"Search keyword here";"คำค้นหาที่นี่"
+"Sales (Tentative/Complete)";"เซลส์ (ที่คาด / เสร็จสมบูรณ์)"
+"Invalid (Cancelled/Disputed)";"ไม่ถูกต้อง (ถูกยกเลิก / แน่นอน)"
+"Sales Report";"รายงานการขาย"
+"Recent Earning";"รายได้ล่าสุด"
+Description;คำอธิบาย
+"Transaction Amount";"ยอดเงินธุรกรรม"
+Charges;ค่าธรรมเนียม
+Receivable;ลูกหนี้
+"Select Products";"เลือกผลิตภัณฑ์"
+Sub-Category;ประเภทย่อย
+"Select a category to filter the results";"เลือกหมวดหมู่เพื่อกรองผลลัพธ์"
+"Product to Sell";"ผลิตภัณฑ์การขาย"
+Details;รายละเอียด
+Price:;ราคา:
+Comission:;ค่าคอมมิชชั่น:
+"Add to Selected";"เพิ่มการเลือก"
+"View product";"ดูผลิตภัณฑ์"
+Cases;กรณี
+"Search By Case Id";"ค้นหาตามรหัสกรณี"
+Search;ค้นหา
+Filter;ตัวกรอง
+"Case ID";"รหัสกรณี"
+"Dispute Title";"ชื่อเรื่องของข้อพิพาท"
+"Other Party";"บุคคลอื่น ๆ"
+"Date Opened";"วันที่เปิด"
+Open;เปิด
+Closed;ปิด
+"No case found";"กรณีไม่พบ"
+"Enter title here";"ใส่ชื่อที่นี่"
+"Select dispute type here";"เลือกชนิดข้อโต้แย้งที่นี่"
+"Select reason here";"เหตุผลที่เลือกที่นี่"
+"Select transaction here";"เลือกธุรกรรมที่นี่"
+"Select item to dispute:";"เลือกรายการการโต้แย้ง:"
+"Leave your remarks here";"จากข้อสังเกตของคุณที่นี่"
+OPEN;เปิด
+CLOSED;ปิด
+Reason:;เหตุผล:
+Notifications;การแจ้งเตือน
+"Account setting";"บัญชีการตั้ง"
+"Enter your password here";"ป้อนรหัสผ่านของคุณที่นี่"
+Deactivate;ปิดใช้งาน
+"This Year";"ปีนี้"
+"This Week";"สัปดาห์นี้"
+"This Month";"เดือนนี้"
+"Payment Method";"วิธีการชำระเงิน"
+Qty;ปริมาณ
+"Payment Type";"ชนิดการชำระเงิน"
+"Order Status";"สถานะของใบสั่ง"
+Total;รวมทั้งหมด
+"Transaction Number";"หมายเลขธุรกรรม"
+"Payment Type:";"ชนิดการชำระเงิน:"
+"Date Created:";"วันที่สร้าง:"
+"Total Quantity:";"ปริมาณรวม:"
+"Total Product Cost:";"ต้นทุนผลิตภัณฑ์ทั้งหมด:"
+"Total Shipping Fee:";"ค่าบริการรวมค่าจัดส่ง:"
+"Total Cost:";"ต้นทุน:"
+"Product List";"รายการผลิตภัณฑ์"
+SKU:;SKU:
+Details:;รายละเอียด:
+Quantity:;ปริมาณ:
+"Product Price:";"ราคาสินค้า:"
+Condition:;เงื่อนไข:
+"Total Price:";"ราคารวม:"
+Brand:;ยี่ห้อ:
+Consignee;ผู้รับ
+Consignee:;ผู้รับ:
+Address:;ที่อยู่:
+Type;ชนิด
+"Earning Report";"รายงานรายได้"
+Resources;ทรัพยากร
+Percent;ร้อยละ
+"View Detail";"ดูรายละเอียด"
+Weekly;รายสัปดาห์
+Monthly;รายเดือน
+Earnings;กำไร
+"View All";"ดูทั้งหมด"
+"Total Tentative Earning";"ทั้งหมดรายได้ที่คาด"
+"Total Complete Earning";"ทั้งหมดรายได้สมบูรณ์"
+"Total Affiliate Network";"เครือข่ายพันธมิตรทั้งหมด"
+"Earning on Affiliate Network";"รายได้บนเครือข่ายพันธมิตร"
+"Total Charges";"รวมค่าธรรมเนียม"
+"Total Net Receivables";"ลูกหนี้สุทธิรวม"
+"Total Active Receivables";"รวมลูกหนี้ที่ใช้งานอยู่"
+"Requested Amount";"ยอดเงินที่ร้องขอ"
+"Amount to be Received";"ยอดเงินจะได้รับ"
+All;ทั้งหมด
+"Submit for Review";"ส่งรีวิว"
+"Activate Product";"เปิดใช้งานผลิตภัณฑ์"
+"Deactivate Product";"ปิดใช้งานผลิตภัณฑ์"
+"Delete Product";"ลบผลิตภัณฑ์"
+"Date Updated";"วันที่ปรับปรุง"
+"Product Name";"ชื่อสินค้า"
+"Total Quantity";"ปริมาณรวม"
+"Product Price";"ราคาผลิตภัณฑ์"
+Condition;เงื่อนไข
+Active;ใช้งานอยู่
+Deleted;ลบ
+Inactive;ไม่ได้ใช้งาน
+Draft;ร่าง
+"Under Review";"ภายใต้การทบทวน"
+Rejected;ปฏิเสธ
+"Manage your preferences";"จัดการการตั้งค่าของคุณ"
+"Upload it now";"อัปโหลดในขณะนี้"
+"Save as Draft";"บันทึกเป็นแบบร่าง"
+"Product Details";"รายละเอียดสินค้า"
+"Enter product name here";"ป้อนชื่อผลิตภัณฑ์ที่นี่"
+"Short Description";"คำอธิบายโดยย่อ"
+"Enter short product description here";"ป้อนคำอธิบายผลิตภัณฑ์สั้นนี่"
+"characters remaining";"อักขระที่เหลือ"
+"Upload Video";"อัปโหลดวิดีโอ"
+"Enter youtube video url here";"ใส่ url ของวิดีโอ youtube ที่นี่"
+Upload;อัปโหลด
+"Invalid video embed URL";"วิดีโอต้องฝัง URL"
+"Verifying video";"ตรวจสอบวิดีโอ"
+"Complete Description";"คำอธิบายที่สมบูรณ์"
+"Enter product description here";"ป้อนคำอธิบายสินค้าที่นี่"
+"Enter brand here";"ใส่แบรนด์นี่"
+"Select Condition";"เลือกเงื่อนไข"
+"Select your Category";"เลือกประเภทของคุณ"
+"Select Category";"เลือกประเภท"
+"Inventory and Variants";"สินค้าคงคลังและตัวแปร"
+"Detail Name";"รายละเอียดชื่อ"
+Values;ค่า
+Actions;การดำเนินการ
+"Product Combinations";"ชุดผลิตภัณฑ์"
+Images;รูปภาพ
+Combinations;ชุด
+Price;ราคา
+Stocks;หุ้น
+0.00;0
+"Add Discount";"เพิ่มส่วนลด"
+"Final Price";"ราคาสุดท้าย"
+"SKU (Stock Keeping Unit)";"SKU (รักษาหน่วยหุ้น)"
+"Enter stock keeping unit here";"ป้อนหน่วยการเก็บสต็อกที่นี่"
+"You can assign any code in order to keep track of your items";"คุณสามารถกำหนดรหัสใด ๆ เพื่อติดตามสินค้าของคุณ"
+"Number of Stocks Available";"จำนวนหุ้นที่มี"
+0;0
+"Maximum quantity allowed is 999";"ปริมาณสูงสุดที่อนุญาตคือ 999"
+"Dimensions and Weight";"ขนาดและน้ำหนัก"
+"Length (CM)";"ความยาว (ซม.)"
+"Height (CM)";"ความสูง (ซม)"
+"Width (CM)";"ความกว้าง (ซม)"
+"Weight (KG)";"น้ำหนัก (กก.)"
+"Variant Name";"ชื่อตัวแปร"
+"Enter keywords here";"ป้อนคำค้นที่นี่"
+"Variant Choice";"เลือกตัวแปร"
+"Hit enter to add another";"กด enter เพื่อเพิ่มอีก"
+"You can search your category here";"คุณสามารถค้นหาประเภทของคุณที่นี่"
+Back;ย้อนกลับ
+Size;ขนาด
+"Select Size Here";"เลือกขนาดที่นี่"
+"Upload image first";"อัพโหลดภาพครั้งแรก"
+"Variant Successfully Added";"ตัวแปรเพิ่มเรียบร้อยแล้ว"
+"Crop Photo";"ครอบตัดภาพถ่าย"
+Crop;การครอบตัด
+"All Categories";"หมวดหมู่ทั้งหมด"
+"Category Search Suggestion";"ข้อเสนอแนะการค้นหาประเภท"
+Select;เลือก
+"&larr;";"เพอร์ ฟูม larr;"
+Photos;รูปภาพ
+"Full Description";"คำอธิบายแบบเต็ม"
+"See More";"ดูเพิ่มเติม"
+Video;วิดีโอ
+Category:;หมวดหมู่:
+"Regular Price:";"ราคาปกติ:"
+"Discounted Price:";"ราคาพิเศษ:"
+Commission:;ค่าคอมมิชชั่น:
+"Length (CM):";"ความยาว (ซม.):"
+"Width (CM):";"ความกว้าง (ซม):"
+"Height (CM):";"ความสูง (ซม):"
+"Weight (KG):";"น้ำหนัก (กก.):"
+"Additional Details";"รายละเอียดเพิ่มเติม"
+"Edit Product";"แก้ไขผลิตภัณฑ์"
+Email;อีเมล
+"Enter your email here";"ป้อนอีเมลของคุณที่นี่"
+Change;การเปลี่ยนแปลง
+"Click here to verify";"คลิกที่นี่เพื่อตรวจสอบ"
+"Change Email Address";"เปลี่ยนที่อยู่อีเมล"
+"Enter your new email address here";"ป้อนอยู่อีเมใหม่นี่"
+"Confirm your new email address here";"ยืนยันอยู่อีเมใหม่นี่"
+"Change Password";"เปลี่ยนรหัสผ่าน"
+"Current Password";"รหัสผ่านปัจจุบัน"
+"Enter your current password here";"ป้อนรหัสผ่านปัจจุบันของคุณที่นี่"
+"New Password";"รหัสผ่านใหม่"
+"Confirm New Password";"ยืนยันรหัสผ่านใหม่"
+"Confirm your new password here";"ยืนยันรหัสผ่านใหม่"
+"All in one place";"ในเดียว"
+"Invalid email/contact number or password.";"หมายเลขติดต่อไม่ถูกต้องอีเมล์หรือรหัสผ่าน"
+"Email Verified.";"อีเมล์ยืนยัน"
+"Password reset success.";"ตั้งรหัสผ่านใหม่สำเร็จ"
+"Enter your email contact number here";"ป้อนหมายเลขผู้ติดต่ออีเมนี่"
+"Remember Me";"จำฉันไว้"
+"Copyright 2015 YiLinker. All Rights Reserved";"ลิขสิทธิ์ 2558  YiLinker สงวนลิขสิทธิ์ทั้งหมด"
+"Reset password request sent";"ส่งการร้องขอรหัสผ่านใหม่"
+"Reset Password";"รีเซ็ตรหัสผ่าน"
+"Confirm new password";"ยืนยันรหัสผ่านใหม่"
+"Verify Number";"ตรวจสอบหมายเลข"
+"Profile Photo";"รูปโปรไฟล์"
+"Select an image from your computer (10mb max)";"เลือกรูปภาพจากคอมพิวเตอร์ของคุณ (สูงสุด 10mb)"
+"Cover Photo";"รูปภาพหน้าปก"
+"Enter your store name here";"ใส่ชื่อร้านค้าของคุณที่นี่"
+"Mobile Phone";"โทรศัพท์มือถือ"
+"Enter your mobile number here";"ป้อนหมายเลขโทรศัพท์ได้นี่"
+"Enter your store slug here";"ป้อนของคุณบุ้งเก็บนี่"
+"Store Description";"เก็บรายละเอียด"
+"Enter your store description here";"ป้อนคำอธิบายร้านค้าของคุณที่นี่"
+"Save Changes";"บันทึกการเปลี่ยนแปลง"
+Undo;เลิกทำ
+"Select your categories";"เลือกประเภทของคุณ"
+"QR Code";"รหัส QR"
+"Share with";"ใช้ร่วมกับ"
+"Generate your QR Code";"สร้าง QR Code ของคุณ"
+"Copy Link.";"คัดลอกลิงก์"
+"Copy Code";"คัดลอกรหัส"
+"Referral Person";"บุคคลอ้างอิง"
+"Referrers Name:";"ชื่อที่ผู้อ้างอิง:"
+"Referrers Code:";"รหัสที่ผู้อ้างอิง:"
+"Change Mobile Number";"เปลี่ยนมือถือ"
+"Old Number";"หมายเลขเดิม"
+"Enter New Number";"ป้อนหมายเลขใหม่"
+"Enter your new number here";"หมายเลขใหม่ที่นี่"
+"Time Left:";"เวลาที่เหลือ:"
+5:00;5:00
+"Enter Code";"ป้อนรหัส"
+"Crop Profile Photo";"ครอบตัดรูป"
+"Crop Cover Photo";"ครอบตัดรูปภาพหน้าปก"
+"Share via Email";"แบ่งปันผ่านทางอีเมล์"
+"Enter recipient email here. Separated with commas.";"ป้อนอีเมลของผู้รับที่นี่ คั่น ด้วยเครื่องหมายจุลภาค"
+"Enter your message here";"ข้อความที่นี่"
+"Personal Information";"ข้อมูลส่วนบุคคล"
+"Enter your first name here";"ใส่ชื่อที่นี่"
+"Enter your last name here";"ใส่นามสกุลที่นี่"
+"TIN ID:";"รหัสดีบุก:"
+"Enter your TIN here";"ป้อนของคุณทินนี่"
+"Upload Valid ID Photo:";"อัพโหลดภาพถ่าย ID ที่ถูกต้อง:"
+"You already uploaded your valid ID";"อัพโหลด ID ของคุณถูกต้องแล้ว"
+"Why am i being asked for my TIN?";"เหตุใดฉันจึงถูกขอทินของฉัน"
+"Enter your address title here";"ป้อนชื่อที่อยู่ของคุณที่นี่"
+"Enter your address unit number here";"ป้อนจำนวนของหน่วยที่อยู่"
+"Enter your address building name here";"ป้อนที่อยู่ของคุณสร้างชื่อที่นี่"
+"Enter your address street number here";"ป้อนหมายเลขถนนที่อยู่ที่นี่"
+"Enter your address street name here";"ป้อนชื่อของคุณที่อยู่ถนนนี่"
+"Enter your address subdivision here";"ใส่ของต่าง ๆ ที่อยู่ที่นี่"
+"Select your city";"เลือกเมืองของคุณ"
+"Select your barangay";"เลือกของคุณบา"
+"Enter your zip code here";"ป้อนรหัสไปรษณีย์ของคุณที่นี่"
+"Do you want to set this new address as the default location for every Product Pick-up request?";"คุณต้องการกำหนดที่อยู่ใหม่นี้เป็นที่ตั้งเริ่มต้นสำหรับทุกผลิตภัณฑ์รับ"
+"Update Shipping Address";"ปรับปรุงที่อยู่จัดส่ง"

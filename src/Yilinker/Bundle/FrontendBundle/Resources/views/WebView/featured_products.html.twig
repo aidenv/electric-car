@@ -1,0 +1,27 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+        <title>Yilinker - Featured Products</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Maven+Pro">
+        <link rel="stylesheet" href="{{ asset('css/webview.css') }}" media="screen,print">
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />
+    </head>
+    <body>
+        <div class="body-mobile align-center download-app">
+            <div class="col-xs-12 mrg-bt-15">
+                <a href="/back-to-school-packages">
+                    <img src="{{ asset('images/featured-products/feat-main-banner.jpg') }}" alt="Back to School" class="img-full-width">
+                </a>
+            </div>
+            
+            {% for promo in backToSchoolPromo %}
+                <div class="col-xs-12 border-bt">
+                    <a href="{{ path('api_v3_product_detail',{country_code: 'ph', language_code: 'en',}) }}?productId={{ promo.slug }}">
+                        <img src="{{ asset('images/featured-products/' ~ promo.image) }}" alt="{{ promo.alt }}" class="img-full-width">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

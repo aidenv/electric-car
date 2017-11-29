@@ -1,0 +1,40 @@
+tables:
+    UserOrder:
+        UPDATE:
+            loggable: 'activityLoggable'
+        user: 
+            - orderProducts.seller
+            - buyer
+        associations:
+            orderProducts:
+                product:
+                image:
+                    product:
+                seller:
+                    store:
+            paymentMethod:
+        includes:
+            - getVoucherCodes
+            - getVoucherDeduction
+    OrderProductCancellationHead:
+        INSERT:
+        user:
+            orderProductCancellationDetails.orderProduct.seller:
+                user: null
+                user.userType: 0
+            orderProductCancellationDetails.orderProduct.order.buyer:
+                user: null
+                user.userType: 1
+        associations:
+            user:
+                store:
+            admin:
+            orderProductCancellationDetails:
+                orderProduct:
+                    order:
+                        paymentMethod:
+                    product:
+                    image:
+                        product:
+                    seller:
+                        store:

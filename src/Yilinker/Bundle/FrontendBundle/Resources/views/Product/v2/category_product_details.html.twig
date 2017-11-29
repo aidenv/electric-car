@@ -1,0 +1,42 @@
+{% if product is defined %}
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="unit-wrapper clearfix">
+                    <div>
+                        <a
+                            href="{{ path('product_details', {'slug' : product.slug}) }}"
+                            title="{{ product.name }}"
+                            alt="{{ product.name }}"
+                        >
+                            {{ product.name }}
+                        </a>
+                        <span class="unit-price"><b>P {{ product.discountedPrice }}</b></span>
+                    </div>
+                    <div>
+                        <a
+                            href="{{ path('product_details', {'slug' : product.slug}) }}"
+                            title="{{ product.name }}"
+                            alt="{{ product.name }}"
+                        >
+                            <img
+                                data-original="{{ product.medium }}"
+                                title="{{ product.name }}"
+                                alt="{{ product.name }}"
+                                class="lazy img-full-width"
+                            >
+                            <noscript>
+                                <img
+                                    src="{{ product.medium }}"
+                                    title="{{ product.name }}"
+                                    alt="{{ product.name }}"
+                                    class="img-full-width"
+                                >
+                            </noscript>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

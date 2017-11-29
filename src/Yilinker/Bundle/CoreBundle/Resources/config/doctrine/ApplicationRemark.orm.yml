@@ -1,0 +1,46 @@
+Yilinker\Bundle\CoreBundle\Entity\ApplicationRemark:
+    type: entity
+    table: ApplicationRemark
+    indexes:
+        fk_application_remark_application_remark_type_id_application_remark_type_application_remark_type_id_idx:
+            columns:
+                - application_remark_type_id
+        fk_application_remark_admin_user_id_admin_user_admin_user_id_idx:
+            columns:
+                - admin_user_id
+        fk_application_remark_accreditation_application_id_accreditation_application_accreditation_application_id_idx:
+            columns:
+                - accreditation_application_id
+    id:
+        applicationRemarkId:
+            type: bigint
+            id: true
+            column: application_remark_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        message:
+            length: 1024
+        dateAdded:
+            column: date_added
+            type: datetime
+    manyToOne:
+        adminUser:
+            targetEntity: AdminUser
+            joinColumn:
+                name: admin_user_id
+                referencedColumnName: admin_user_id
+            orphanRemoval: false
+        applicationRemarkType:
+            targetEntity: ApplicationRemarkType
+            joinColumn:
+                name: application_remark_type_id
+                referencedColumnName: application_remark_type_id
+            orphanRemoval: false
+        accreditationApplication:
+            targetEntity: AccreditationApplication
+            joinColumn:
+                name: accreditation_application_id
+                referencedColumnName: accreditation_application_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

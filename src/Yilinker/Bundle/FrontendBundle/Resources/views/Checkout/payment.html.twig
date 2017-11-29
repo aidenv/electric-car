@@ -1,0 +1,228 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %}
+        Summary
+    {% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="checkout mobile-checkout-payment">
+        {{ include('YilinkerFrontendBundle:Checkout:header.html.twig', {active: 'payment', messages: messages, token: token, baseUri: baseUri, nodePort: nodePort}) }}
+        <div class="checkout-wrapper">
+            <form action="" 
+                  method="POST" 
+                  name="payment">
+                <div class="checkout-container">
+                    {% for flashMessage in app.session.flashbag.get('error') %}
+                        <div class="container">
+                            <div class="message-box red">{{ flashMessage }}</div>
+                        </div>
+                    {% endfor %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h4>{% trans %} Payment Method {% endtrans %}</h4>
+                                <p class="light-color">
+                                    {% trans %}
+                                        YiLinker adheres to the highest standards when it comes to protecting our user's sensitive data. We currently don't save your Credit/Debit Card details on our website.
+                                    {% endtrans %}
+                                </p>
+                                <div class="checkout-segment delivery-address-segment">
+                                    <div class="form">
+                                        <h5 class="bold no-margin">{% trans %} Delivery Address: {% endtrans %}</h5>
+                                        <p class="light-color">
+                                            {{ address.addressString }}
+                                        </p>
+                                    </div>
+                                    <div class="form">
+                                        <h5 class="bold no-margin">{% trans %} Consignee Name: {% endtrans %}</h5>
+                                        <p class="light-color">
+                                            {% 
+                                                if consigneeName is defined and
+                                                consigneeName is not same as(null) and
+                                                consigneeName is not same as("") 
+                                            %}
+                                                {{ consigneeName }}
+                                            {% else %}
+                                                {{ user.fullName }}
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                    <div class="form no-margin">
+                                        <h5 class="bold no-margin">{% trans %} Consignee Contact Number: {% endtrans %}</h5>
+                                        <p class="light-color">
+                                            {% 
+                                                if consigneeContactNumber is defined and
+                                                consigneeContactNumber is not same as(null) and
+                                                consigneeContactNumber is not same as("") 
+                                            %}
+                                                {{ consigneeContactNumber }}
+                                            {% else %}
+                                                {{ user.contactNumber }}
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                                {% if not hasFlashSaleItem %}
+                                <div id="voucher-segment" class="checkout-segment">
+                                    <div class="title">{% trans %} Voucher Code {% endtrans %}</div>
+                                    <div data-voucher-error class="message-box small red" style="display:none">Invalid Or Expired Code</div>
+                                    <div data-voucher-success class="message-box small green" style="display:none">Successfully applied code</div>
+                                    <div class="form">
+                                        <input data-checkout-voucher value="{{ app.session.get('voucherCode') }}" name="voucherCode" type="text" class="form-ui" placeholder="Enter your voucher code here">
+                                    </div>
+                                    <div class="form no-margin">
+                                        <button class="button blue">
+                                            {% trans %}Apply{% endtrans %}
+                                        </button>
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                                {{ render(controller('YilinkerFrontendBundle:Checkout:orderSummary')) }}
+                            </div>
+                            <div class="col-md-8">
+                                <h4 class="title-bordered-bottom">{% trans %} How Do You Wish To Pay? {% endtrans %} <small>{% trans %} Click one of the options below {% endtrans %}</small></h4>
+                                <div class="payment-options-container">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="{{ canCOD ? '': 'disabled' }} checkout-segment inverted-bordered payment-option-segment" data-cod-container>
+                                                <div class="payment-option-name-container">
+                                                    <div class="payment-option-name">
+                                                        <div class="ui checkbox">
+                                                            <input name="paymentType" 
+                                                                   value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PaymentMethod::PAYMENT_METHOD_COD') }}" 
+                                                                   type="checkbox">
+                                                            <label for="">&nbsp;</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="payment-option-name">
+                                                        <b>{% trans %} Cash on Delivery {% endtrans %}</b>
+                                                    </div>
+                                                </div>
+                                                <div class="payment-description">
+                                                    {% trans %}
+                                                        To ensure that you'll have a smooth shopping & delivery experience, please prepare the exact amount upon the date of delivery.
+                                                    {% endtrans %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="checkout-segment inverted-bordered payment-option-segment" data-dragonpay-container>
+                                                <div class="payment-option-name-container">
+                                                    <div class="payment-option-name">
+                                                        <div class="ui checkbox">
+                                                            <input name="paymentType" 
+                                                                   value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PaymentMethod::PAYMENT_METHOD_DRAGONPAY') }}" 
+                                                                   type="checkbox">
+                                                            <label for="">&nbsp;</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="payment-option-name">
+                                                        <img src="{{ asset('images/payment-methods/img-payment-dragonpay.png') }}" 
+                                                             alt="Dragonpay" 
+                                                             class="img-responsive img-payment-logo">
+                                                    </div>
+                                                </div>
+                                                <div class="payment-description">
+                                                    {% trans %}
+                                                        Your payment solution for Over-the-Counter (OTC) payments if you don't have a Credit/Debit card.
+                                                    {% endtrans %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="checkout-segment inverted-bordered payment-option-segment" data-pesopay-container>
+                                                <div class="payment-option-name-container">
+                                                    <div class="payment-option-name">
+                                                        <div class="ui checkbox">
+                                                            <input name="paymentType" 
+                                                                   value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PaymentMethod::PAYMENT_METHOD_PESOPAY') }}" 
+                                                                   type="checkbox">
+                                                            <label for="">&nbsp;</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="payment-option-name">
+                                                        <img src="{{ asset('images/payment-methods/img-payment-pesopay.png') }}" 
+                                                             alt="PesoPay" 
+                                                             class="img-responsive img-payment-logo">
+                                                    </div>
+                                                </div>
+                                                <div class="payment-description">
+                                                    {% trans %}
+                                                        The Philippines' leading payment solution for Credit/Debit Card transactions.
+                                                    {% endtrans %}
+                                                    <br/>
+                                                    <br/>
+                                                    <img src="{{ asset('images/payment-methods/credit-cart-payment.png') }}" 
+                                                         alt="PesoPay" 
+                                                         class="img-full-width">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="checkout-footer">
+                                            <div class="checkout-footer-item align-left ">
+                                                <p class="normal-weight remember-payment-text">
+                                                    Remember payment option?
+                                                </p>
+                                            </div>
+                                            <div class="checkout-footer-item align-right">
+                                                    <div class="ui green toggle checkbox pull-right remember-payment-option">
+                                                    <input type="checkbox" class="free-shipping-checkbox">
+                                                    <label>&nbsp;</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> #}
+                            </div>
+                            <input type="hidden" 
+                                   name="refresh" 
+                                   value="paymentType">
+                            <input type="hidden" name="consigneeName" value="{{ consigneeName }}">
+                            <input type="hidden" name="consigneeContactNumber" value="{{ consigneeContactNumber }}">
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="checkout-footer">
+                                    <div class="checkout-footer-item align-left">
+                                        <a href="{{ path('checkout_summary') }}">
+                                            <div class="icon-container"><i class="icon icon-arrow-short-left"></i></div> {% trans %} Go back {% endtrans %}
+                                        </a>
+                                    </div>
+                                    <!-- <div class="checkout-footer-item align-right payment-reminder">
+                                        <span class="light-color block pd-right-10">Click on the CONTINUE button to be re-directed to DragonPay website to complete your transaction.</span>
+                                    </div> -->
+                                    <!--Remove disabled class there is selected shipping location-->
+                                    <div class="checkout-footer-item align-right">
+                                        <button type="submit" class="button purple">{% trans %} Continue {% endtrans %}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="checkout-footer">
+        {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {% if app.user %}
+        <script src="{{ asset('socket.io/socket.io.js') }}"></script>
+        <script src="{{ asset('js/src/socket-connection.js') }}"></script>
+    {% endif %}
+    <script src="{{ asset('js/src/utility/loader.js') }}"></script>
+    <script src="{{ asset('js/src/checkout.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,140 @@
+<div class="row">
+    <div class="box-upper">
+        <div class="col-md-12">
+            <div class="tools top form">
+                <form class="product-filters">
+                    <div class="row gutters group-segment">
+                        <div class="col-md-4">
+                            <h4>Number of Product Listings: {{ productSearch.totalResultCount }}</h4>
+                            <p class="sub-header">
+                                    You may search for a particular product name.
+                            </p>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form vers-one">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <label>Search</label>
+                                        <input value="{{ app.request.query.get('q') }}" name="q" type="text" placeholder="Search" class="form-ui query-string">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gutters group-segment light-segment">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form">
+                                <div class="row">
+                                    <label for="" class="col-md-12">Price Range: </label>
+                                    <div class="col-md-3">
+                                        <input type="number" value="{{ app.request.query.get('priceFrom') }}" name="priceFrom" class="form-ui" min="0">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" value="{{ app.request.query.get('priceTo') }}" name="priceTo" class="form-ui" min="0">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="">Brands: </label>
+                                        {% if aggregations.brands %}
+                                            <select name="brand" id="" class="form-ui ui search single selection dropdown">
+                                                <option value=" ">All</option>
+                                                {% for brand in aggregations.brands %}
+                                                    <option {{ brand == app.request.query.get('brand') ? 'selected="selected"': '' }} value="{{ brand }}">{{ brand }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">Sort By: </label>
+                                        <select name="sorting" class="search-sort form-ui ui search single selection dropdown">
+                                            {% set sort_new2old = constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::BYDATE')~'~'~constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') %}
+                                            <option {{ sort_new2old == app.request.query.get('sorting') ? 'selected="selected"': '' }} value="{{ sort_new2old }}">
+                                                New to Old
+                                            </option>
+                                            {% set old2new = constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::BYDATE')~'~'~constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_ASC') %}
+                                            <option {{ old2new == app.request.query.get('sorting') ? 'selected="selected"': '' }} value="{{ old2new }}">
+                                                Old to New
+                                            </option>
+                                            {% set alphabetical = constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::ALPHABETICAL')~'~'~constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_ASC') %}
+                                            <option {{ alphabetical == app.request.query.get('sorting') ? 'selected="selected"': '' }} value="{{ alphabetical }}">
+                                                Alphabetical
+                                            </option>
+                                            {% set popularity = constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::BYPOPULARITY')~'~'~constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') %}
+                                            <option {{ popularity == app.request.query.get('sorting') ? 'selected="selected"': '' }} value="{{ popularity }}">
+                                                Popularity
+                                            </option>
+                                            {% set sort_relevance = constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::RELEVANCE')~'~'~constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') %}
+                                            <option class="sort-by-relevance" {{ sort_relevance == app.request.query.get('sorting') ? 'selected="selected"': '' }} value="{{ sort_relevance }}">
+                                                Relevance
+                                            </option>
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">Categories: </label>
+                                        {% if aggregations.categories %}
+                                            <select name="category" class="form-ui ui search single selection dropdown">
+                                                <option value="0">All</option>
+                                                {% for category in aggregations.categories %}
+                                                    <option {{ app.request.query.get('category') == category.id ? 'selected="selected"': '' }} value="{{ category.id }}">{{ category.name }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="">Status: </label>
+                                        <select name="status" class="form-ui ui search single selection dropdown">
+                                            <option value=" ">All</option>
+                                            <option {{ app.request.query.get('status') == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::ACTIVE') ? 'selected="selected"': '' }} value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::ACTIVE') }}">Active</option>
+                                            <option {{ app.request.query.get('status') == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_REVIEW') ? 'selected="selected"': '' }} value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_REVIEW') }}">For Review</option>
+                                            <option {{ app.request.query.get('status') == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DELETE') ? 'selected="selected"': '' }} value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DELETE') }}">Delete</option>
+                                            <option {{ app.request.query.get('status') == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::REJECT') ? 'selected="selected"': '' }} value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::REJECT') }}">Reject</option>
+                                            <option {{ app.request.query.get('status') == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::INACTIVE') ? 'selected="selected"': '' }} value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::INACTIVE') }}">InActive</option>
+                                        </select>
+                                    </div>
+                                    <div id="store-search" class="col-md-6">
+                                        <div class="form loading no-margin">
+                                            <label for="">Store: </label>
+                                            <input value="{{app.request.get('store')}}" name="store" class="form-ui typeahead input-search-store" type="text" />
+                                            <img src="{{ asset('images/loader.gif')}}" alt="Loading" class="loading-img" style="display:none">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="">Country: </label>
+                                        <select name="countryCode" class="form-ui ui search single selection dropdown">
+                                            {% for country in countries %}
+                                            <option {{ app.request.query.get('countryCode') == country.code ? 'selected' : '' }} value="{{country.code}}">
+                                                {{country.name}}
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button class="button gray mrg-top-10" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

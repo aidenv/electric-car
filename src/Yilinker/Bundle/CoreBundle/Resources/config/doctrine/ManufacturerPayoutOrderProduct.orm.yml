@@ -1,0 +1,48 @@
+Yilinker\Bundle\CoreBundle\Entity\ManufacturerPayoutOrderProduct:
+    type: entity
+    table: ManufacturerPayoutOrderProduct
+    id:
+        manufacturerPayoutOrderProductId:
+            type: integer
+            id: true
+            column: manufacturer_payout_order_product_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        dateCreated:
+            type: datetime
+            nullable: false
+            column: date_created
+        dateModified:
+            type: datetime
+            nullable: false
+            column: date_modified
+        amount:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            column: amount
+    manyToOne:
+        orderProduct:
+            targetEntity: OrderProduct
+            joinColumn:
+                name: order_product_id
+                referencedColumnName: order_product_id
+            orphanRemoval: false
+        manufacturer:
+            targetEntity: Manufacturer
+            joinColumn:
+                name: manufacturer_id
+                referencedColumnName: manufacturer_id
+            orphanRemoval: false
+        manufacturerPayout:
+            targetEntity: ManufacturerPayout
+            joinColumn:
+                name: manufacturer_payout_id
+                referencedColumnName: manufacturer_payout_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
+

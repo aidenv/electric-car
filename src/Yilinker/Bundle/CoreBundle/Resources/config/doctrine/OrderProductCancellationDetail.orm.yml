@@ -1,0 +1,50 @@
+Yilinker\Bundle\CoreBundle\Entity\OrderProductCancellationDetail:
+    type: entity
+    table: OrderProductCancellationDetail
+    indexes:
+        order_product_cancellation_detail_order_product_cancellation_head_id_order_product_cancellation_head_order_product_cancellation_head_id_idx:
+            columns:
+                - order_product_cancellation_head_id
+        order_product_cancellation_detail_order_product_id_order_product_order_product_id_idx:
+            columns:
+                - order_product_id
+        order_product_cancellation_detail_admin_user_id_admin_user_admin_user_id_idx:
+            columns:
+                - admin_user_id
+    id:
+        orderProductCancellationDetailId:
+            type: bigint
+            column: order_product_cancellation_detail_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        remarks:
+            length: 1024
+            nullable: true
+        status:
+            type: smallint
+            options:
+                default: 1
+    manyToOne:
+        orderProduct:
+            targetEntity: OrderProduct
+            joinColumn:
+                name: order_product_id
+                referencedColumnName: order_product_id
+            orphanRemoval: false
+            inversedBy: orderProductCancellationDetails
+        orderProductCancellationHead:
+            targetEntity: OrderProductCancellationHead
+            inversedBy: orderProductCancellationDetails
+            joinColumn:
+                name: order_product_cancellation_head_id
+                referencedColumnName: order_product_cancellation_head_id
+            orphanRemoval: false
+        adminUser:
+            targetEntity: AdminUser
+            joinColumn:
+                name: admin_user_id
+                referencedColumnName: admin_user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

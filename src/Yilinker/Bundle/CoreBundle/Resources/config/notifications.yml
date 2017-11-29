@@ -1,0 +1,66 @@
+tables:
+    Package:
+        INSERT:
+        UPDATE:
+        user: packageDetails.orderProduct.seller
+        associations:
+            userOrder:
+            packageDetails:
+                orderProduct:
+                    seller:
+            packageStatus:
+    DisputeDetail:
+        INSERT:
+        UPDATE:
+            user:
+                - disputee
+                - dispute.disputer
+        user: disputee
+        associations:
+            dispute:
+                disputeStatusType:
+                disputer:
+            orderProduct:
+                orderProductStatus:
+        fields:
+            status:
+    DisputeMessage:
+        INSERT:
+        user: 
+            - dispute.disputeDetails.disputee
+            - dispute.disputer
+        associations:
+            dispute:
+                disputeStatusType:
+                disputeDetails:
+                    disputee:
+                disputer:
+    UserOrder:
+        UPDATE:
+            loggable: 'activityLoggable'
+        user: orderProducts.seller
+        associations:
+            orderProducts:
+                seller:
+    OrderProductCancellationDetail:
+        INSERT:
+        UPDATE:
+            user:
+                - orderProduct.seller
+                - orderProduct.order.buyer
+        user:
+            orderProduct.seller:
+                orderProductCancellationHead.user: null
+                orderProductCancellationHead.user.userType: 0
+            orderProduct.order.buyer:
+                orderProductCancellationHead.user: null
+                orderProductCancellationHead.user.userType: 1
+        associations:
+            orderProductCancellationHead:
+                user:
+                    store:
+                admin:
+            orderProduct:
+                order:
+        fields:
+            status:

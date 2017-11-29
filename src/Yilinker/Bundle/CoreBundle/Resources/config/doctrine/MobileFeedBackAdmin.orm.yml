@@ -1,0 +1,36 @@
+Yilinker\Bundle\CoreBundle\Entity\MobileFeedBackAdmin:
+    type: entity
+    table: MobileFeedBackAdmin
+    indexes:
+        admin_user_id:
+            columns:
+                - admin_user_id
+        mobile_feedback_id:
+            columns:
+                - mobile_feedback_id
+    id:
+        mobileFeedbackAdminId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: mobile_feedback_admin_id
+            generator:
+                strategy: AUTO
+    manyToOne:
+        adminUser:
+            targetEntity: AdminUser
+            joinColumn:
+                name: admin_user_id
+                referencedColumnName: admin_user_id
+            orphanRemoval: false
+        mobileFeedback:
+            targetEntity: MobileFeedBack
+            cascade: {  }
+            inversedBy: mobileFeedbackAdmins
+            joinColumn:
+                name: mobile_feedback_id
+                referencedColumnName: mobile_feedback_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

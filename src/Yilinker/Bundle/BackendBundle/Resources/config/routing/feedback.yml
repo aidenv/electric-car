@@ -1,0 +1,7 @@
+yilinker_backend_feedback_listings:
+    path: /feedback
+    defaults: { _controller: YilinkerBackendBundle:Feedback:index }
+
+yilinker_backend_feedback_details:
+    path: /feedback/details
+    defaults: { _controller: YilinkerBackendBundle:Feedback:details }

@@ -1,0 +1,4 @@
+
+core_access_denied:
+    path: /403
+    defaults: { _controller: yilinker.twig.controller.exception:showAccessDeniedAction }

@@ -1,0 +1,19 @@
+api_v3_facebook_authenticate:
+    path: /facebook/auth
+    defaults: { _controller: YilinkerFrontendBundle:Api/SocialMediaApi:authenticateFacebookUser }
+    methods: [POST]
+
+api_v3_google_authenticate:
+    path: /google/auth
+    defaults: { _controller: YilinkerFrontendBundle:Api/SocialMediaApi:authenticateGoogleUser }
+    methods: [POST]
+
+api_v3_get_merge_email:
+    path: /socialmedia/merge
+    defaults: { _controller: YilinkerFrontendBundle:Api/SocialMediaApi:requestAccountMerge } 
+    methods: [POST]
+
+api_v3_google_token:   
+    path: /test/google
+    defaults: { _controller: YilinkerFrontendBundle:Api/SocialMediaApi:getGoogleToken }
+    condition: "request.getScriptName() == '/app_frontend_dev.php'"

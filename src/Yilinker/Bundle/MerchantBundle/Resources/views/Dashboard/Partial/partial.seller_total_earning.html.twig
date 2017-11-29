@@ -1,0 +1,35 @@
+
+<div class="row">
+    <div class="col-xs-3">
+        <div class="align-center">
+            <h3 class="purple-color">
+                P {{ totalSales|number_format(2) }}
+            </h3>
+            <h5 class="uppercase">Total Sales</h5>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div class="align-center">
+            <h3 class="purple-color">
+                P {{ sellerData.totalCharges|number_format(2) }}
+            </h3>
+            <h5 class="uppercase">Total Charges</h5>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div class="align-center">
+            <h3 class="purple-color">
+                P {{ sellerData.totalNetReceivables|number_format(2) }}
+            </h3>
+            <h5 class="uppercase">Total Net Receivables</h5>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div class="align-center">
+            <h3 class="purple-color">
+                P {{ totalCompleteEarning|number_format(2) }}
+            </h3>
+            <h5 class="uppercase">Total Active Receivables</h5>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,152 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    My Points
+{% endblock %}
+
+{% block dashboard_stylesheets %}
+{% endblock %}
+
+{% block dashboard_body %}
+    <div class="dashboard-body-container gray">
+      <div class="dashboard-submenu-wrapper">
+           <div class="dashboard-submenu-container purple align-center">
+              <table class="table-my-points-header">
+                  <tbody>
+                      <tr>
+                          <td>
+                              <i class="icon icon-3x icon-trophy"></i>
+                          </td>
+                          <td>
+                              <h2 class="bold no-margin">120.00</h2>
+                          </td>
+                           <td>
+                              <span class="points-earned-label uppercase">Point Earned</span>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+           </div>
+       </div>
+       <div class="dashboard-component top bottom">
+        <div class="title-bar">
+            <div class="component-content">
+                <span class="uppercase">Breakdown</span>
+            </div>
+        </div>
+        <!--Points breakdown-->
+        <div class="component-content">
+            <table class="table table-activity-log table-my-points-breakdown">
+                <tr>
+                    <td valign="top" align="center" class="td-time uppercase" width="20%">
+                        <h5 class="large-font blue-color bold mrg-top-20">+ 10 Points</h5>
+                    </td>
+                    <td width="80%">
+                        <div class="segment">
+                            <table class="table table-log-content" style="font-size: 12px;">
+                                <tr>
+                                    <td width="20%" valign="top">
+                                        01/21/2016<br/>
+                                        01:13:45 PM
+                                    </td>
+                                    <td valign="top">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Venandi praeterierunt.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" align="center" class="td-time uppercase" width="20%">
+                        <h5 class="large-font red-color bold mrg-top-20">- 10 Points</h5>
+                    </td>
+                    <td width="80%">
+                        <div class="segment">
+                            <table class="table table-log-content" style="font-size: 12px;">
+                                <tr>
+                                    <td width="20%" valign="top">
+                                        01/21/2016<br/>
+                                        01:13:45 PM
+                                    </td>
+                                    <td valign="top">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Venandi praeterierunt.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" align="center" class="td-time uppercase" width="20%">
+                        <h5 class="large-font blue-color bold mrg-top-20">+ 10 Points</h5>
+                    </td>
+                    <td width="80%">
+                        <div class="segment">
+                            <table class="table table-log-content" style="font-size: 12px;">
+                                <tr>
+                                    <td width="20%" valign="top">
+                                        01/21/2016<br/>
+                                        01:13:45 PM
+                                    </td>
+                                    <td valign="top">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Venandi praeterierunt.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" align="center" class="td-time uppercase" width="20%">
+                        <h5 class="large-font red-color bold mrg-top-20">- 10 Points</h5>
+                    </td>
+                    <td width="80%">
+                        <div class="segment">
+                            <table class="table table-log-content" style="font-size: 12px;">
+                                <tr>
+                                    <td width="20%" valign="top">
+                                        01/21/2016<br/>
+                                        01:13:45 PM
+                                    </td>
+                                    <td valign="top">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Venandi praeterierunt.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" align="center" class="td-time uppercase" width="20%">
+                        <h5 class="large-font blue-color bold mrg-top-20">+ 10 Points</h5>
+                    </td>
+                    <td width="80%">
+                        <div class="segment">
+                            <table class="table table-log-content" style="font-size: 12px;">
+                                <tr>
+                                    <td width="20%" valign="top">
+                                        01/21/2016<br/>
+                                        01:13:45 PM
+                                    </td>
+                                    <td valign="top">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Venandi praeterierunt.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="transaction-pagination-container mrg-top-20">
+                {{ 
+                include('YilinkerCoreBundle:Default:pagination.html.twig', {
+                totalResults: 100, 
+                perPage: 10
+            }) 
+        }}
+    </div>
+{% endblock %}
+
+{% block dashboard_javascripts %}
+{% endblock %}

@@ -1,0 +1,172 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Store Information
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+    <link rel="me" href="https://twitter.com/twitterdev">
+{% endblock %}
+
+{% block dashboard_body %}
+        <div class="ui modal small" id="modal-message">
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                    <div class="content">
+                        <div class="header-content"></div>
+                        <div class="sub-header sub-header-content"></div>
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button blue approve uppercase">Okay</button>
+            </div>
+        </div>
+        {% set validIdType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_VALID_ID') %}
+        <div class="dashboard-body-container white">
+            <div class="dashboard-submenu-wrapper">
+                 <div class="dashboard-submenu-container">
+                    <ul class="list-unstyle list-submenu">
+                        <li>
+                            <a href="{{ path('user_store_information') }}">
+                                {% trans %} General Information {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_store_address') }}">
+                                {% trans %} Store Address {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_bank_account_information') }}">
+                                {% trans %} Bank Account Information {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="active">
+                                {% trans %} Legal Information {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_account_information') }}">
+                                {% trans %} Account Information {% endtrans %}
+                            </a>
+                        </li>
+                    </ul>
+                 </div>
+             </div>
+             <!--Store Info-->
+            <!--TIN-->
+            <div class="dashboard-component top">
+                <div class="component-content">
+                    <div class="message-box red error-message-container" style="display:none">
+                    </div>
+                </div>
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Legal Information</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                {# REMARKS #}
+                {% if applicationDetails.remarkArray[validIdType] is defined and applicationDetails.isLegalDocsEditable %}
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div class="panel-item row">
+                                <span class="col-md-1">
+                                    <span class="admin-notif-image">
+                                        <img src="{{ asset('images/logo-icon.png') }}" alt="Yilinker">
+                                    </span>
+                                </span>
+                                {% set tinRemarkLength = applicationDetails.remarkArray[validIdType]|length %}
+                                {% set lastTinRemarkKey = tinRemarkLength - 1 %}
+                                <span class="col-md-11">
+                                    <p>{{ applicationDetails.remarkArray[validIdType][lastTinRemarkKey].message }}</p>
+                                    <span class="admin-notif-txt">
+                                        Posted By:
+                                        <strong>Administrator</strong>
+                                        <span>{{ applicationDetails.remarkArray[validIdType][lastTinRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</span>
+                                    </span>
+                                </span>
+                            </div>
+                            {% if tinRemarkLength > 1 %}
+                                <div class="panel-item row align-center">
+                                    <span class="show-prev-remarks">
+                                        <span class="remarks-txt-view">View</span>
+                                        <span class="remarks-txt-hide">Hide</span>
+                                        previous remarks <strong>({{ tinRemarkLength - 1 }})</strong>
+                                    </span>
+                                </div>
+                                {% for remarks in applicationDetails.remarkArray[validIdType] %}
+                                    {% if remarks.applicationRemarkId != applicationDetails.remarkArray[validIdType][lastTinRemarkKey].applicationRemarkId %}
+                                        <div class="panel-item row prev-remarks">
+                                            <span class="col-md-1">
+                                                <span class="admin-notif-image">
+                                                    <img src="{{ asset('images/logo-icon.png') }}" alt="Yilinker">
+                                                </span>
+                                            </span>
+                                            <span class="col-md-11">
+                                                <p>{{ remarks.message }}</p>
+                                                <span class="admin-notif-txt">
+                                                    Posted By:
+                                                    <strong>Administrator</strong>
+                                                    <span>{{ remarks.dateAdded|date('h:i:s, Y/m/d') }}</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+                {# END OF REMARKS FOR VALID ID #}
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form">
+                                <label for="">TIN or Tax Identification Number</label>
+                                <input type="text" name="tinId" class="form-ui" placeholder="Enter your TIN here" {{ applicationDetails.accreditationApplication.isBusinessEditable or app.user.tin == '' ? '' : 'disabled' }} value="{{ app.user.tin }}">
+                            </div>
+                            <div class="form">
+                                <label for="" class="">Upload Valid ID Photo:</label>
+                                {% if applicationDetails.legalDocuments is empty or applicationDetails.isLegalDocsEditable %}
+                                    <input type="file" name="tinImage" id="tinImage" class="form-ui" {{ applicationDetails.legalDocuments is empty or applicationDetails.isLegalDocsEditable ? '' : 'disabled' }}>
+                                    <span class="form-ui-note">
+                                        Compatible files: JPEG and PNG format
+                                    </span>
+                                {% else %}
+                                    <div class="message-box green">You already uploaded your valid ID</div>
+                                {% endif %}
+                                <input type="hidden" id="hasValidId" value="{{ applicationDetails.legalDocuments is empty ? '0' : '1' }}" class="form-ui">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="align-center">
+                                <span class="icon icon-alert-exclamation icon-3x"></span>
+                                <h4><strong>Why am I being asked for my TIN?</strong></h4>
+                                <p>This is for compliance with BIR regulations. If you're a student applying as an affiliate, you can request for a TIN at your nearest BIR Office. Submitted TIN and valid ID will be verify by our customer service representatives</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Save button-->
+            <div class="dashboard-component dashboard-component-footer gray align-center">
+                <button class="button blue button-rounded-side uppercase" id="btn-save-user-info">Save Changes</button>
+            </div>
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>
+    <script src="https://apis.google.com/js/client:platform.js" async defer></script>
+    <script src="{{ asset('js/bower/zeroclipboard.min.js') }}"></script>
+    <script src="{{ asset('js/bower/tipso.min.js') }}"></script>
+    <script src="{{ asset('js/bower/cropper.js') }}"></script>
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/bower/moment.min.js') }}"></script>
+    <script src="{{ asset('js/src/utility/button-loader.js') }}"></script>
+    <script src="{{ asset('js/src/utility/social/google.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/store-info-affiliate-legal-information.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% set total = 0 %}
+{% for product in wishlist %}
+    {% set total = total + product.quantity  %}
+{% endfor %}
+
+<div id="wishlist-modal" class="ui modal cart-wishlist-modal wishlist-modal modal">
+    <a class="close"><i class="icon-times"></i></a>
+    {% if total > 0 %}
+        <div class="content">
+            <div data-flash-message class="message-box green" style="display: none">
+            </div>
+            <div class="items-counter-text">
+                {% trans %}You have{% endtrans %} {{ total }} {{ total == 1 ?(app.request.locale=='cn'?'': 'item ') : (app.request.locale=='cn'?'':'items ') }}{% trans %}on your wishlist{% endtrans %}
+            </div>
+            <div class="items-container">
+                <table class="item-breakdown-table">
+                    <tbody>
+                        {% for product in wishlist %}
+                            {{ include('YilinkerFrontendBundle:Base:wishlist_item.html.twig') }}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% else %}
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-heart-o"></i>
+                <div class="content">
+                    {% trans %}You have 0 items on your wishlist{% endtrans %}
+                    <div class="sub-header">Your wishlist is currently empty and that's really sad. You might want to check out our New Arrivals or our Hot Discounts page for items you might be interested.</div>
+                </div>
+            </h4>
+        </div>   
+    {% endif %}
+    <div class="actions">
+        {% if total > 0 %}
+            <a href="#" class="pull-left action-link close"> Continue Shopping</a>
+            <button data-href="{{ path('wishlist_to_cart') }}" data-transfertocart="input[name='wishlist[]']:checked" class="button purple">Add to Cart</button>
+        {% else %}
+            <button class="button purple close">Continue Shopping</button>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,77 @@
+admin_registered_buyer_page:
+    path: /user/buyer
+    defaults: { _controller: YilinkerBackendBundle:User:renderRegisteredBuyer }
+    methods: [GET]
+
+admin_registered_merchant_page:
+    path: /user/seller
+    defaults: { _controller: YilinkerBackendBundle:User:renderRegisteredSeller, type: seller }
+    methods: [GET]
+
+admin_registered_affliate_page:
+    path: /user/affiliate
+    defaults: { _controller: YilinkerBackendBundle:User:renderRegisteredSeller, type: affiliate }
+    methods: [GET]
+
+admin_user_detail:
+    path: /user/detail
+    defaults: { _controller: YilinkerBackendBundle:User:getUserDetail }
+    methods: [GET]
+
+admin_seller_generate_referral_code:
+    path: /user/seller/generate-referral-code
+    defaults: { _controller: YilinkerBackendBundle:User:generateReferralCode }
+    methods: [POST]
+
+admin_add_user_bank:
+    path: /user/add/bank
+    defaults:  { _controller: YilinkerBackendBundle:User:addUserBank }
+    methods: [POST]
+
+admin_edit_user_bank:
+    path: /user/update/bank
+    defaults:  { _controller: YilinkerBackendBundle:User:updateUserBank }
+    methods: [POST]
+
+user_frontend_store:
+    path: /store/{slug}
+    defaults: { slug: '' }
+
+backend_location_children:
+    path: /user/location/children
+    defaults: { _controller: YilinkerBackendBundle:User:getChildrenLocations }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+backend_store_address_validate:
+    path: /user/address/validate
+    defaults: { _controller: YilinkerBackendBundle:User:validateAddress }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+backend_user_address_submit:
+    path: /user/address/bulk-process
+    defaults: { _controller: YilinkerBackendBundle:User:submitAddresses }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+backend_merchant_login:
+    path: /login
+
+backend_merchant_register:
+    path: /register
+
+backend_affiliate_login:
+    path: /affiliate-program/login
+
+backend_affiliate_register:
+    path: /affiliate-program/register
+
+frontend_search_seller_route:
+    path: /search/seller
+
+frontend_seller_route:
+    path: /

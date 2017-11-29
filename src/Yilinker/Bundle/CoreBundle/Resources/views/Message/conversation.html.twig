@@ -1,0 +1,83 @@
+<div class="dashboard-submenu-wrapper conversation-view" data-room="{{ contactDetails.namespace }}" data-id="{{ contactDetails.userId }}">
+     <div class="dashboard-submenu-container purple align-center">
+        <table class="table-seller-name table-active-message-name pull-left mobile-hide">
+            <thead>
+                <tr>
+                    <td>
+                        <div class="mrg-top-5">
+                            <button class="button basic-white button-rounded-side small delete-thread">Delete Thread</button>
+                        </div>
+                        
+                    </td>
+                </tr>
+            </thead>
+        </table>
+        <table class="table-seller-name table-active-message-name pull-right mobile-hide">
+            <thead>
+                <tr>
+                    <td class="td-seller-name">
+                        <span class="status"><i class="icon icon-circle online-status {{ contactDetails.isOnline is same as(true)? 'online':'offline' }}"></i><span class="online-text">{{ contactDetails.isOnline is same as(true)? 'Online':'Offline' }}</span></span>
+                        <span class="name">
+                            {% if contactDetails.isMerchant is same as(true) %}
+                                <a href="{{ path("store_about", {'slug':contactDetails.slug}) }}">{{ contactDetails.fullName }}</a>
+                            {% else %}
+                                <span>
+                                    {{ contactDetails.fullName }}
+                                <span>
+                            {% endif %}
+                        </span>
+                    </td>
+                    <td class="td-seller-img">
+                        <div class="image-holder image-active-name">
+                            <img src="{{ contactDetails.profileThumbnailImageUrl }}" class="img-auto-place"/>
+                        </div>
+                    </td>
+                </tr>
+            </thead>
+        </table>
+        <div class="desktop-hide">
+            <span class="button-message back-recent-messages">&larr;</span>
+            <span class="bold">{{ contactDetails.fullName }}</span>
+            <span class="button-message delete-thread pull-right"><i class="icon icon-trash icon-lg pull-right"></i></span>
+        </div>
+     </div>
+</div>
+
+<div class="thread-container-wrapper">
+    <div class="thread-container">
+        <ul class="list-unstyled list-thread messages-container" data-id="{{ contactDetails.userId }}">
+            {% for message in messages %}
+                {% if message.senderId is same as(contactDetails.userId) %}
+                    <!-- sender -->
+                    {% if message.isImage is same as("0") %}
+                        {{ include('YilinkerCoreBundle:Message:sender_message_text.html.twig') }}
+                    {% else %}
+                        {{ include('YilinkerCoreBundle:Message:sender_message_image.html.twig') }}
+                    {% endif %}
+                {% else %}
+                    <!-- recipient -->
+                    {% if message.isImage is same as("0") %}
+                        {{ include('YilinkerCoreBundle:Message:recipient_message_text.html.twig') }}
+                    {% else %}
+                        {{ include('YilinkerCoreBundle:Message:recipient_message_image.html.twig') }}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="message-field-container">
+    <div class="row">
+        <div class="col-xs-9">
+            <i class="icon icon-image attachment-trigger tooltip" title="Attach Image"></i>
+            <input type="file" name="messageImages" multiple class="hidden" />   
+            <textarea name="message" class="message-field-textarea" placeholder="Type your message"></textarea>
+        </div>
+        <div class="col-xs-3">
+            <button class="send-message-button uppercase submit-button">
+                <span class="text">Send</span>
+                <span class="loader hidden">Sending</span>
+            </button>
+        </div>
+    </div>
+</div>

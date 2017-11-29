@@ -1,0 +1,164 @@
+<div class="box-div">
+  <div class="row gutters group-segment">
+    <div class="col-md-12">
+      <h4>
+        Flash Sales
+        <button class="button small pull-right gray modal-sales-trigger">
+          <span class="item-icon icon-plus"></span>
+          Create Sales
+        </button>
+      </h4>
+
+      <div class="webview-option">
+        <div>
+          <input class="ui form-ui datetimepicker" placeholder="11/03/2015" type="text"/>
+        </div>
+      </div>
+
+      <table class="table basic table-vertical-align-top">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>No. of Products</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in 1..10  %}
+          <tr>
+            <td>
+              1:00 - 2:00
+            </td>
+            <td>
+              20 Products Included
+            </td>
+            <td class="align-right">
+              <button class="button small light-gray">
+                <span class="item-icon icon-edit"></span>
+                Edit
+              </button>
+              <button class="button small light-gray">
+                <span class="item-icon icon-trash"></span>
+                Delete
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<div class="ui modal modal-box modal-sales">
+  <a class="close">
+    <i class="icon-times"></i>
+  </a>
+  <div class="header">
+    Create Sales
+  </div>
+  <form class="ui form segment" name="promo">
+    <div class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="form col-md-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="required">Date</label>
+                  <input class="ui fluid input field start-date datetimepicker" placeholder="Pick a Date" type="text" value=""/>
+                </div>
+                <div class="col-md-6"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form col-md-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="required">Start Time</label>
+                  <input class="ui fluid input field start-date datetimepicker" placeholder="Start Date" type="text" value=""/>
+                </div>
+                <div class="col-md-6">
+                  <label class="required">End Time</label>
+                  <input class="ui fluid input field end-date datetimepicker" placeholder="End Date" type="text" value=""/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form col-md-12">
+              <label class="required">Products Slug (separated by line break)</label>
+              <textarea class="form-ui"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form col-md-12">
+              <label class="required">Products List</label>
+              <div class="table-scroller long">
+                <table class="table basic table-vertical-align-top center">
+                  <thead>
+                    <tr>
+                      <th width="20%">Item Name</th>
+                      <th width="25%">Price</th>
+                      <th width="15%">Flash Sales Discount</th>
+                      <th width="15%">Flash Discounted Price</th>
+                      <th width="10%">Sales Stock</th>
+                      <th width="10%">Order</th>
+                      <th width="5%"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for i in 1..5  %}
+                    <tr>
+                      <td width="20%">
+                        Product One
+                      </td>
+                      <td width="25%">
+                        Original Price:
+                        <strong>P 1,000</strong><br>
+                        Current Discount:
+                        <strong>10% off</strong><br>
+                        Discounted Price:
+                        <strong>P 900</strong>
+                      </td>
+                      <td width="15%">
+                        <input class="form-ui" placeholder="ex. 10%" type="text" value=""/>
+                      </td>
+                      <td width="15%">
+                        <input class="form-ui" placeholder="ex. 1000" type="text" value=""/>
+                      </td>
+                      <td width="10%">
+                        <input class="form-ui" type="text" value=""/>
+                      </td>
+                      <td width="10%">
+                        <select class="form-ui ui search single selection dropdown" id="" name="">
+                          <option value="0">1</option>
+                          <option value="1">2</option>
+                          <option value="2">3</option>
+                        </select>
+                      </td>
+                      <td width="5%">
+                        <a href="#">x</a>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="actions">
+    <div class="row">
+      <div class="col-md-12 align-right">
+        <a class="button ui submit blue">Save</a>
+        <a class="button cancel">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="title-bar">
+    <div class="component-content">
+        <div class="row">
+            <div class="col-xs-8"><span class="uppercase">Sales Report</span></div>
+            <div class="col-xs-4">
+                <div class="filter-day-range">
+                    <a href="{{ path('dashboard_reports')}}" class="view-detail">View Detail</a>
+                    <a data-value="weekly" class="filter-graph active">Weekly</a>
+                    <a data-value="monthly" class="filter-graph">Monthly</a>
+                </div>
+                <input type="hidden" id="dateFrom" value="">
+                <input type="hidden" id="dateTo" value="">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,138 @@
+<div class="tab-item-container" id="guest-checkout">
+    {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+        <div class="message-box red" {{ form_errors(form.confirmationCode) ? '': 'style="display:none"' }}>
+            {{ form_errors(form.confirmationCode) }}
+        </div>
+        {{ form_widget(form.confirmationCode) }}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form">
+                    {{ form_label(form.contactNumber) }}
+                    {{ form_widget(form.contactNumber, {attr: {class: 'form-ui', 'placeholder': 'Enter your contact here'}}) }}
+                    <div class="form-error-prompt" {{ form_errors(form.contactNumber) ? '': 'style="display:none"' }}>
+                        {% if form_errors(form.contactNumber) %}
+                            {{ form_errors(form.contactNumber) }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {#
+            <div class="col-xs-6">
+                <div class="form">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email, {attr: {class: 'form-ui', 'placeholder': 'Enter your email here'}}) }}
+                    <div class="form-error-prompt" {{ form_errors(form.email) ? '': 'style="display:none"' }}>
+                        {% if form_errors(form.email) %}
+                            {{ form_errors(form.email) }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            #}
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form">
+                    {{ form_label(form.firstName) }}
+                    {{ form_widget(form.firstName, {attr: {class: 'form-ui', 'placeholder': 'Enter your first name here'}}) }}
+                    <div class="form-error-prompt" {{ form_errors(form.firstName) ? '': 'style="display:none"' }}>
+                        {% if form_errors(form.firstName) %}
+                            {{ form_errors(form.firstName) }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form">
+                    {{ form_label(form.lastName) }}
+                    {{ form_widget(form.lastName, {attr: {class: 'form-ui', 'placeholder': 'Enter your last name here'}}) }}
+                    <div class="form-error-prompt" {{ form_errors(form.lastName) ? '': 'style="display:none"' }}>
+                        {% if form_errors(form.lastName) %}
+                            {{ form_errors(form.lastName) }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form mg-top-10">
+            <div class="row">
+                <div class="col-md-4">
+                    <button id="checkout-initiate-otp" 
+                            data-send-otp="{{ constant('Yilinker\\Bundle\\CoreBundle\\Services\\SMS\\OneTimePasswordService::OTP_TYPE_GUEST_CHECKOUT') }}" 
+                            data-contact-number="#user_guest_contactNumber"
+                            data-loader="[data-checkout-container]"
+                            data-checkout-verify-number
+                            class="button purple block"
+                    >
+                        {% trans %}
+                            Proceed
+                        {% endtrans %}
+                    </button>
+                </div>
+                <div class="col-md-8">
+                    <span class="guest-sign-up-text block pd-left-10">
+                        {% trans %}
+                            Guest Checkout allows you to purchase from our website even if you aren't registered. After your purchase has been completed you'll still have the option to register for an account.
+                        {% endtrans %}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form mg-top-10">
+            <div class="row">
+              <div class="col-xs-12">
+                    <div class="guest-checkout-form-error message-box red with-close-message" style="display:none;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Start of modal verify number-->
+            <div data-guest-checkout-verify-number class="ui modal small coupled-edit-number-modal verify-guest-contact-number-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="header">
+                    <h4 class="no-margin">{% trans %}Verify Number{% endtrans %}</h4>
+                </div>
+                    <div class="content">
+                        <div style="display:none" class="contact-verify-prompt">
+                            <div class="row">
+                                <div class="message-box green with-close-message">
+                                    {% trans %}Verification code has been successfully resent{% endtrans %}
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display:none;" class="contact-error-prompt">
+                            <div class="row">
+                                <div class="message-box red with-close-message">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="light mrg-bt-20 light-color">
+                            {% trans %}You are about to change your contact number, please ensure that your mobile phone is within reach before you proceed with this step.{% endtrans %}
+                        </p>
+                        <p class="light mrg-bt-20">
+                            {% trans %}Please enter the 6 digit code that was sent to your mobile phone{% endtrans %}
+                        </p>
+                        <h4 class="light mrg-bt-20">{% trans %}Time Left:{% endtrans %} <span class="bold time-limit" id="otp-time-limit">00:00</span></h4>
+                        <div class="form">
+                            <label for="" class="required">{% trans %}Enter Code{% endtrans %}</label>
+                            <input type="text" data-verification-code name="code" class="form-ui verification-code-input" placeholder="{% trans %}Enter your verification code{% endtrans %}"/>
+                        </div>
+                        
+                    </div>
+                    <div class="actions">
+                        <span class="button cancel uppercase">{% trans %}Cancel{% endtrans %}</span>
+                        <button type="submit" class="button blue uppercase"
+                                data-send-otp="{{ constant('Yilinker\\Bundle\\CoreBundle\\Services\\SMS\\OneTimePasswordService::OTP_TYPE_GUEST_CHECKOUT') }}" 
+                                data-contact-number="#user_guest_contactNumber"
+                                data-loader="[data-guest-checkout-verify-number]"
+                                data-guest-checkout-resend-otp
+                        >
+                            {% trans %}Resend Code{% endtrans %}
+                        </button>
+                        <button class="button purple uppercase" data-verify-continue>{% trans %}Verify and Continue{% endtrans %}</button>
+                    </div>
+            </div>
+    {{ form_end(form) }}
+</div>

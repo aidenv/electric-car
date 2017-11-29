@@ -1,0 +1,85 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+     SDS Bionic Screen Protector
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    <div class="landing wrapper static-wrapper sds">
+        <div class="block align-center header">
+            <img src="{{ asset('images/promo/sds/sds-banner.jpg') }}" alt="" class="img-full-width main-banner big-banner">
+        </div>
+        <div class="container pad-top-5em">
+            <div class="align-center pad-bt-1em intro">
+                    <p><i> Say goodbye to phone scratches with the advanced technology for screen protection of SDS Bionic Nanoprotect Gadget Coat</i></p>
+                    <span><i>  Exclusive on YiLinker! Get one today! </i></span>
+                </div>
+            <div class="row static-product-items">
+                <div class="col-md-5 align-center">
+                    <a href="https://www.yilinker.com/item/sds-bionic-nanoprotect-gadget-coat">
+                        <img src="{{ asset('images/promo/sds/product-1.jpg') }}" alt="Fashion Women Shoes" class="max-width-1">
+                    </a>
+                </div>
+                <div class="col-md-7 static-product-content">
+                    <h2 class="mrg-bt-5">
+                        <a href="https://www.yilinker.com/item/sds-bionic-nanoprotect-gadget-coat">
+                           SDS Bionic Nanoprotect <br>Gadget Coat
+                        </a>
+                    </h2>
+                    <br>
+                    <p class="mrg-bt-20 light-color ft-size-1">
+                       <i>
+                           SDS Bionic Shield Liquid Screen Protector - Stop worrying about SCRATCHES on your SmartPhones! Make it SDS Nanoprotected‬!
+                        </i>
+                    </p>
+                    <div class="mrg-bt-20">
+                        <div class="static-price-discount mrg-bt-20">
+                            <span class="static-price2 ft-size-3">PhP 999.00</span>
+                        </div>
+                        <br>
+                        <a href="https://www.yilinker.com/item/sds-bionic-nanoprotect-gadget-coat" class="static-button2">
+                            BUY NOW
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mechanics">
+            <div class="container">
+                <div class="row">
+                    <div class="col-ms-1 col-md-1"></div>
+                    <div class="col-xs-12 col-ms-8 col-md-8 mechanics">
+                                <div class="content">
+                                    <p><strong> Promo Mechanics: </strong></p>
+                                    <ol>
+                                        <li>Like YiLinker Philippines <a href="https://www.facebook.com/YilinkerPH/"><strong><em>Facebook page</em></strong></a></li>
+                                        <li>Avail our Y! Exclusive: <a href="https://www.yilinker.com/sds-bionic-screen-protector">SDS Bionic Nanoprotect Gadget Coat Promo</a>
+                                         and get a FREE Yibo plush toy in return.</li>
+                                        <li>Share this post and tag your friends with the hashtag #YLSDSBionic for a chance to get a FREE Yibo plush toy when they buy any item.</li>
+                                    </ol>
+                                    <br>
+                                    <p><strong> Terms &amp; Conditions: </strong></p>
+                                    <ol>
+                                        <li>Deal is available until supplies last. First come, first serve basis only</li>
+                                        <li>Free delivery for orders under Metro Manila</li>
+                                        <li>Discount and gift vouchers are not allowed to be used on Y! Exclusives transactions</li>
+                                    </ol>
+                                </div>
+                            </div>
+                    <div class="col-ms-1 col-md-1"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/bower/slick.min.js') }}"></script>
+    <script src="{{ asset('js/src/static.js') }}"></script>
+{% endblock %}

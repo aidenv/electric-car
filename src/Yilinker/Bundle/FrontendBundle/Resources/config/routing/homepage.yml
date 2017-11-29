@@ -1,0 +1,203 @@
+
+home_page:
+    path: /
+    defaults: { _controller: YilinkerFrontendBundle:Home:renderHomepage }
+
+coming_soon:
+    path: /coming-soon
+    defaults: { _controller: YilinkerFrontendBundle:Home:comingSoon }
+
+default:
+    path: /
+
+about_make_a_wish:
+    path: /make-a-wish
+    defaults: { _controller: YilinkerFrontendBundle:Home:aboutMakeAWish }
+
+how_to_join_make_a_wish:
+    path: /make-a-wish/how-to-join
+    defaults: { _controller: YilinkerFrontendBundle:Home:howToJoinMakeAWish }
+
+how_to_register_make_a_wish:
+    path: /make-a-wish/how-to-register
+    defaults: { _controller: YilinkerFrontendBundle:Home:howToRegisterMakeAWish }
+
+how_to_create_an_entry_make_a_wish:
+    path: /make-a-wish/how-to-create-an-entry
+    defaults: { _controller: YilinkerFrontendBundle:Home:howToCreateAnEntryMakeAWish }
+
+criteria_for_claiming_the_prize_make_a_wish:
+    path: /make-a-wish/criteria-for-claiming-the-prize
+    defaults: { _controller: YilinkerFrontendBundle:Home:criteriaForClaimingThePrizeMakeAWish }
+
+flash_sale_webview:
+    path: /flash-sale
+    defaults: { _controller: YilinkerFrontendBundle:Home:flashSale }
+
+flash_sale_register_webview:
+    path: /daily-login/register
+    defaults: { _controller: YilinkerFrontendBundle:Home:registerToDailyLogin }
+
+daily_login_webview:
+    path: /daily-login
+    defaults: { _controller: YilinkerFrontendBundle:Home:renderDailyLoginMarkup }
+
+category_webview:
+    path: /mobile-category
+    defaults: { _controller: YilinkerFrontendBundle:Home:renderCategoryWebView }
+
+store_webview:
+    path: /store-view
+    defaults: { _controller: YilinkerFrontendBundle:Home:StoreView }
+
+home_sub_categories:
+    path: /get-sub-categories/{id}
+    defaults: { _controller: YilinkerFrontendBundle:Home:getSubCategories }
+
+# canonical redirects to homepage
+
+home_redirect1:
+    path: /index.html
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: home_page
+        permanent: true
+
+home_redirect2:
+    path: /index
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: home_page
+        permanent: true
+
+home_redirect3:
+    path: /index.php
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: home_page
+        permanent: true
+
+privacy_policy:
+    path: /privacy-policy
+    defaults: { _controller: YilinkerFrontendBundle:Home:privacyPolicy }
+
+gift_voucher:
+    path: /first-purchase-voucher
+    defaults: { _controller: YilinkerFrontendBundle:Home:giftVoucher }
+
+view_more:
+    path: /view-more-template
+    defaults: { _controller: YilinkerFrontendBundle:Home:viewMore }
+
+shop_wise:
+    path: /shop-wise
+    defaults: { _controller: YilinkerFrontendBundle:Home:shopWise }
+
+instant_free_load:
+    path: /instant-free-load
+    defaults: { _controller: YilinkerFrontendBundle:Home:instantFreeLoad }
+
+summer_kick_off:
+    path: /summer-kick-off
+    defaults: { _controller: YilinkerFrontendBundle:Home:summerKickOff }
+
+chat_box:
+    path: /chat_box
+    defaults: { _controller: YilinkerFrontendBundle:Home:chatBox }
+
+chat_compressed:
+    path: /chat_compressed
+    defaults: { _controller: YilinkerFrontendBundle:Home:chatCompressed }
+
+flash_sale:
+    path: /sale/flash-sale
+    defaults: { _controller: YilinkerFrontendBundle:Home:webFlashSale }
+
+midnight_sales:
+    path: /midnight-sales
+    defaults: { _controller: YilinkerFrontendBundle:Home:midnightSales }
+
+labor_day_essentials:
+    path: /labor-day-essentials
+    defaults: { _controller: YilinkerFrontendBundle:Home:laborDayEssentials }
+
+mom_and_me:
+    path: /mom-and-me
+    defaults: { _controller: YilinkerFrontendBundle:Home:momAndMe }
+
+extended_summer:
+    path: /extended-summer
+    defaults: { _controller: YilinkerFrontendBundle:Home:extendedSummer }
+
+extended_summer_offer:
+    path: /extended-summer-offer
+    defaults: { _controller: YilinkerFrontendBundle:Home:extendedSummerOffer }
+
+#remove if needed
+back_to_school_packages:
+    path: /back-to-school-packages
+    defaults: { _controller: YilinkerFrontendBundle:Home:backtoSchoolPackages }
+
+y_exclusives_caite_couple_watch:
+    path: /y-exclusives-caite-couple-watch
+    defaults: { _controller: YilinkerFrontendBundle:Home:yExclusivesCaiteCoupleWatch }
+
+y_exclusives_waterproof_edition:
+    path: /y-exclusives-waterproof-edition
+    defaults: { _controller: YilinkerFrontendBundle:Home:yExclusivesWaterproofEdition }
+
+young_forever:
+    path: /young-forever
+    defaults: { _controller: YilinkerFrontendBundle:Home:youngForever }
+
+desk_companion:
+    path: /desk-companion
+    defaults: { _controller: YilinkerFrontendBundle:Home:deskCompanion }
+
+shop_and_win_gym_membership_promo:
+    path: /shop-and-win-gym-membership
+    defaults: { _controller: YilinkerFrontendBundle:Home:shopAndWinGymMembershipPromo }
+
+team_superhero:
+    path: /team-superhero
+    defaults: { _controller: YilinkerFrontendBundle:Home:teamSuperhero }
+
+freego_freestyle:
+    path: /freego-freestyle
+    defaults: { _controller: YilinkerFrontendBundle:Home:freegoFreestyle }
+
+heddi_kate_fashion_collection:
+    path: /heddi-kate-fashion-collection
+    defaults: { _controller: YilinkerFrontendBundle:Home:heddiKateFashionCollection }
+
+mbc-music-show:
+    path: /mbc-music-show-champion-in-manila
+    defaults: { _controller: YilinkerFrontendBundle:Home:mbcMusicShow }
+
+enjoy_the_sip:
+    path: /enjoy-the-sip
+    defaults: { _controller: YilinkerFrontendBundle:Home:enjoyTheSip }
+
+pokemon_collectibles:
+    path: /pokemon-collectibles
+    defaults: { _controller: YilinkerFrontendBundle:Home:pokemonCollectibles }
+
+buy_2_pairs_get_refund:
+    path: /buy-2-pairs-get-refund
+    defaults: { _controller: YilinkerFrontendBundle:Home:buy2pairsGetRefund }
+
+early_christmas_sale:
+    path: /early-christmas-sale
+    defaults: { _controller: YilinkerFrontendBundle:Home:earlyChristmasSale }
+
+sds_bionic_screen_protector:
+    path: /sds-bionic-screen-protector
+    defaults: { _controller: YilinkerFrontendBundle:Home:sdsBionicScreenProtector }
+
+payday_sale:
+    path: /payday-sale
+    defaults: { _controller: YilinkerFrontendBundle:Home:payDaySale }
+
+yibo_family_bundle:
+    path: /yibo-family-bundle
+    defaults: { _controller: YilinkerFrontendBundle:Home:yiboFamilyBundle }

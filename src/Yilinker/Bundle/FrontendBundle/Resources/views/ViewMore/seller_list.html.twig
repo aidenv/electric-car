@@ -1,0 +1,49 @@
+<div class="horizontal-divider mrg-top-20 mrg-bt-20">
+     <span class="uppercase bold">Top Sellers</span>
+</div>
+<div class="advertisement-wrapper mrg-bt-20">
+    <a href="#">
+        <img src="http://placehold.it/1680x265/34495e/fff" alt="">
+    </a>
+</div>
+<div class="row">
+    <div class="seller-group">
+        <div class="row row-for-seller-group">
+    {% for i in 1..25 %}
+
+        <div class="col-xs-5ths col-for-seller-group">
+                <div class="seller-wrapper">
+                    <table class="table-seller-name">
+                        <thead>
+                            <tr>
+                                <td class="td-seller-img">
+                                    <div class="img-seller-container">
+                                        <a href="#"><img src="{{ asset('images/seller-img-1.jpg') }}" alt="Seller Name" title="Seller Name" /></a>
+                                    </div>
+                                </td>
+                                <td class="td-seller-name">
+                                    <span class="name">
+                                        <a href="#">
+                                            Asus Computer Shop
+                                        </a>
+                                    </span>
+                                    <span class="specialty">{% trans %} Specialty: {% endtrans %} Computers</span>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="seller-product-group">
+                        {% for i in 1 .. 6 %}
+                        <div class="product-square">
+                            <a href="#">
+                                <img src="http://placehold.it/200x200/75348a/ffffff" alt="Product Name" title="Product Name" class="img-responsive" />
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+    {% endfor %}
+    </div>
+            </div>
+</div>

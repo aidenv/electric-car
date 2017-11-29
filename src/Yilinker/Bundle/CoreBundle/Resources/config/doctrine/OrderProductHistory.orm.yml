@@ -1,0 +1,40 @@
+Yilinker\Bundle\CoreBundle\Entity\OrderProductHistory:
+    type: entity
+    table: OrderProductHistory
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\OrderProductHistoryRepository
+    indexes:
+        order_product_history_order_product_status_order_status_id_idx:
+            columns:
+                - order_product_status_id
+        order_product_history_order_product_orde_product_id_idx:
+            columns:
+                - order_product_id
+    id:
+        orderProductHistoryId:
+            type: bigint
+            nullable: false
+            unsigned: true
+            id: true
+            column: order_product_history_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateAdded:
+            type: datetime
+            nullable: false
+            column: date_added
+    manyToOne:
+        orderProductStatus:
+            targetEntity: OrderProductStatus
+            joinColumn:
+                name: order_product_status_id
+                referencedColumnName: order_product_status_id
+            orphanRemoval: false
+        orderProduct:
+            targetEntity: OrderProduct
+            inversedBy: orderProductHistories
+            joinColumn:
+                name: order_product_id
+                referencedColumnName: order_product_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

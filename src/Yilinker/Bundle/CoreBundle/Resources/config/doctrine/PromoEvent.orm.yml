@@ -1,0 +1,38 @@
+Yilinker\Bundle\CoreBundle\Entity\PromoEvent:
+    type: entity
+    table: PromoEvent
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\PromoEventRepository
+    id:
+        promoEventId:
+            type: integer
+            id: true
+            column: promo_event_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            column: name
+            length: 255
+        dateCreated:
+            type: datetime
+            column: date_created
+        dateStart:
+            type: datetime
+            column: date_start
+        dateEnd:
+            type: datetime
+            column: date_end
+        isActive:
+            type: boolean
+            column: is_active
+            options:
+                default: false
+    oneToMany:
+        promoEventUsers:
+            targetEntity: PromoEventUser
+            fetch: EXTRA_LAZY
+            mappedBy: promoEvent
+    lifecycleCallbacks: {  }

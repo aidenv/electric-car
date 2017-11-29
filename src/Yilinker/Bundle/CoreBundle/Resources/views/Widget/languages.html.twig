@@ -1,0 +1,8 @@
+<select name="language" data-autocomplete="{{ path('autocomplete_languages') }}?useCode=0" class="form-ui ui">
+    <option value="">Select language here</option>
+    {% for language in languages %}
+        <option {{ language is same as(selectedLanguage) ? 'selected="selected"': '' }} value="{{ language.languageId }}">
+            {{ language }}
+        </option>
+    {% endfor %}
+</select>

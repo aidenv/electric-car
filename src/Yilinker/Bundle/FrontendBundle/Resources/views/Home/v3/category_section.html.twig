@@ -1,0 +1,97 @@
+<div class="feat-category">
+    {% if category is defined and category is not empty %}
+        <div class="title-bar mrg-top-40">
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="title-name">{{ image.title }}</span>
+                </div>
+            </div>
+        </div>
+    {% elseif image is defined %}
+        <div class="title-bar mrg-top-40">
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="title-name">{{ image.title }}</span>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="tab-border category-container">
+        <div class="row no-gutter">
+            {% if image is defined and image.image is defined %}
+                <div class="col-md-3">
+                    <a href="{{ image.target }}" title="{{ image.title }}" class="flr">
+                        <img
+                            data-original="{{ image.image }}"
+                            alt="{{ image.alt }}"
+                            title="{{ image.title }}"
+                            class="lazy img-full-width"
+                        />
+                        <noscript>
+                            <img
+                                src="{{ image.image }}"
+                                alt="{{ image.alt }}"
+                                title="{{ image.title }}"
+                                class="img-full-width"
+                            />
+                        </noscript>
+                    </a>
+                </div>
+            {% endif %}
+            <div class="col-md-8 item-list">
+                    {% if products is defined and products is iterable %}
+                        {% for productRow in products %}
+                            <div class="row">
+                                {% for product in productRow %}
+                                    {% if product.productId is defined %}
+                                        {% if product.productId is defined %}
+                                            {% if app.environment == 'prod' %}
+                                                {{ render_esi(controller('YilinkerFrontendBundle:Product:renderFeaturedProduct', {
+                                                    productId: product.productId,
+                                                    discountedPrice: product.discountedPrice,
+                                                    quantity: product.quantity
+                                                })) }}
+                                            {% else %}
+                                                {{ include('YilinkerFrontendBundle:Product:v2/category_product_details.html.twig', {
+                                                    product: product
+                                                }) }}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+            </div>
+            <div class="col-md-1 feat-link">
+                    <div class="row">
+                        <div class="unit-wrapper">
+                            {#<a href="{{ path('get_category_by_id', {"id" : category|split(',')|first }) }}" class="tp col-md-12 col-xs-6">#}
+                                {#<span>New <br/> Arrival</span>#}
+                                {#<img src="{{ asset('images/featured-products/feat-sd-1.png') }}" class="img-responsive" />#}
+                            {#</a>#}
+                            {#<a href="{{ path('get_category_by_id', {"id" : category|split(',')|first }) }}?priceFrom=1&priceTo=299" class="col-md-12 col-xs-6">#}
+                                {#<span>Under <br/> P 299</span>#}
+                                {#<img src="{{ asset('images/featured-products/feat-sd-2.png') }}" class="img-responsive" />#}
+                            {#</a>#}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="unit-wrapper">
+                            {#<a href="{{ path('get_category_by_id', {"id" : category|split(',')|first }) }}?priceFrom=1&priceTo=199" class="col-md-12 col-xs-6">#}
+                                {#<span>Under <br/> P 199</span>#}
+                                {#<img src="{{ asset('images/featured-products/feat-sd-2.png') }}" class="img-responsive" />#}
+                            {#</a>#}
+                            {#{% if category is defined and category is not empty %}#}
+                                {#<a href="{{ targetUrl }}" class="see col-md-12 col-xs-6">See More</a>#}
+                            {#{% elseif image is defined %}#}
+                                {#<a href="#" class="see col-md-12 col-xs-6">See More</a>#}
+                            {#{% endif %}#}
+                            {#</a>#}
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <a class="floor">1F</a>
+</div>

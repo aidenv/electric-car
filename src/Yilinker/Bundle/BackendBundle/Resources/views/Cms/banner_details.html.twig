@@ -1,0 +1,237 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+    <section class="box-section">
+        <div class="container">
+            <div class="row">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="{{ path('admin_home_page') }}">Banner CMS</a>
+                    </li>
+                    <li>
+                        <span>Banner Details</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                    <div class="message-box red hidden" id="server-error-container">
+                                        <p class="server-error-message">Error Here</p>
+                                    </div>
+                                    <h4>Slider Section</h4>
+
+                                    <p class="sub-header">
+                                        The targeted part of homepage
+                                    </p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form type-3">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <img align="left" border="0"
+                                                     src="{{ asset('images/cms/cms-slider-prev-1.gif') }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="banner-row-container">
+                                {% for banner in banners %}
+                                    <div class="row gutters group-segment banner-row">
+                                        <div class="col-md-6">
+                                            <div class="form">
+                                                <table class="table basic table-vertical-align-top center">
+                                                    <tr>
+                                                        <td><img align="left" class="image-preview" border="0" width="100%" src="{{ banner.image }}"></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label class="mrg-top-20">Upload Banner</label>
+                                                        <input class="form-ui banner-file" type="file" data-file-name="{{ banner.imageName }}" data-is-new="false">
+                                                        <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label>Link</label>
+                                                        <input type="text" class="form-ui banner-link" placeholder="Enter Banner Link"
+                                                               value="{{ banner.target }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label>Order</label>
+                                                        <input type="text" class="form-ui banner-order" value="{{ banner.order }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button class="mrg-top-20 button tiny gray remove-banner">Remove
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="row gutters group-segment">
+                                <div class="col-md-6">
+                                    <div class="message-box red hidden" id="insert-error-container">
+                                        <p class="error-message">Error Here</p>
+                                    </div>
+                                    <div class="form">
+                                        <h4>Add Slider</h4>
+
+                                        <p class="sub-header">
+                                            You can add some slider here.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Upload Banner</label>
+                                                <input class="form-ui new-file" type="file">
+                                                <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Link</label>
+                                                <input type="text" class="form-ui new-link" placeholder="Enter Banner Link" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button class="button blue" id="add-row">Add</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                            </div>
+
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                    <div class="ui checkbox mrg-top-10 pull-right">
+                                        <input name="apply-immediate" id="apply-immediate" type="checkbox"/>
+                                        <label class="light">
+                                            <strong>By Checking this box</strong>, you will
+                                            <strong>
+                                                <u>Start the Process IMMEDIATELY</u>
+                                            </strong>.</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <button class="button blue" id="save-banners">Save</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="display: none;" id="clone-row">
+        <div class="row gutters group-segment banner-row">
+            <div class="col-md-6">
+                <div class="form">
+                    <table class="table basic table-vertical-align-top center">
+                        <tr>
+                            <td><img align="left" class="image-preview" border="0" width="100%"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="mrg-top-20">Upload Banner</label>
+                            <div class="banner-file-cont">
+                            </div>
+                            <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Link</label>
+                            <input type="text" class="form-ui banner-link" placeholder="Enter Banner Link">
+                        </div>
+                    </div>
+                </div>
+                <div class="form">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Order</label>
+                            <input type="text" class="form-ui banner-order" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="mrg-top-20 button tiny gray remove-banner">Remove
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# START MODAL MESSAGE #}
+    <div class="ui modal small" id="modal-message">
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header sub-header-content"></div>
+                </div>
+            </h4>
+        </div>
+        <div class="actions">
+            <button class="button blue approve uppercase">Okay</button>
+        </div>
+    </div>
+    {# END MODAL MESSAGE #}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/backend/cms-main-banner.js') }}"></script>
+{% endblock %}

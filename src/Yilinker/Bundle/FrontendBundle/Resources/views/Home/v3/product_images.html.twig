@@ -1,0 +1,46 @@
+{% if title is defined and landing is defined and products is defined %}
+<div class="title-bar mrg-top-40">
+    <div class="row">
+        <div class="col-md-12">
+            <span class="title-name">{{ title }}</span>
+        </div>
+    </div>
+</div>
+<div class="border">
+    <div class="row feat-prod-container no-gutter">
+        <div class="item">
+            <div class="col-ms-4 col-md-4 starter">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        {% if landing.target is defined %}
+                            <a href ="{{ landing.target }}">
+                                <img data-original="{{ landing.image }}" alt="{{ landing.alt }}" title="{{ landing.title }}" class="lazy">
+                                <noscript>
+                                    <img src="{{ landing.image }}" alt="{{ landing.alt }}" title="{{ landing.title }}">
+                                </noscript>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-ms-8 col-md-8 bench">
+                 {% for section in products %}
+                    <div class="row">
+                        {% for product in section %}
+                            <div class="col-xs-4 col-md-4">
+                                <a href="{{ product.target }}">
+                                    <img data-original="{{ product.image }}" alt="{{ product.alt }}" title="{{ product.title }}" class="lazy">
+                                    <noscript>
+                                        <img src="{{ product.image }}" alt="{{ product.alt }}" title="{{ product.title }}">
+                                    </noscript>
+                                </a>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+   </div>
+</div>
+{% endif %}

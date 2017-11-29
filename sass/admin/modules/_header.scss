@@ -1,0 +1,175 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-family: $headings-font-family;
+  line-height: $headings-line-height;
+  color: $headings-color;
+
+  small{
+    font-weight: normal;
+    line-height: 1;
+    color: lighten($brand-gray, 10%);
+  }
+}
+
+h1,
+h2,
+h3{
+  //margin-top: $line-height-default-computed;
+ // margin-bottom: ($line-height-default-computed / 2);
+  margin: 0 0 10px 0;
+  font-weight: $headings-font-weight;
+
+small,
+.small {
+  font-size: 65%;
+  margin-left: 0.5em;
+}
+}
+
+h4,
+h5,
+h6{
+   margin: 0 0 10px 0;
+ // margin-top: ($line-height-default-computed / 2);
+ // margin-bottom: ($line-height-default-computed / 2);
+  font-weight: $headings-font-weight;
+
+small,
+.small {
+  font-size: 75%;
+  margin-left: 0.5em;
+}
+}
+
+h1{
+  font-size: $font-size-h1;
+}
+
+h2{
+  font-size: $font-size-h2;
+}
+
+h3{
+  font-size: $font-size-h3;
+}
+
+h4{
+  font-size: $font-size-h4;
+}
+
+h5{
+  font-size: $font-size-h5;
+}
+
+h6{
+  font-size: $font-size-h6;
+}
+
+.title-bar {
+  border-bottom: solid #c6c6c6 1px;
+  text-transform: uppercase;
+
+  span {
+    display: inline-block;
+    border-bottom: solid #75338a 2px;
+    font-size: 1.5em;
+    padding: 6px 0px;
+    font-weight: bold;
+  }
+}
+
+// top to be reviewed
+.account {
+  height: 40px;
+
+  p {
+    float: left;
+    font-size: 14px;
+    line-height: 40px;
+    padding: 0 20px;
+    color: $brand-gray;
+
+    strong {
+      color: #75338a;
+    }
+  }
+
+  a {
+    display: block;
+    float: left;
+    font-size: 13px;
+    line-height: 40px;
+    padding: 0 20px;
+    border-left: 1px solid lighten($brand-gray-light, 2);
+  }
+}
+
+.navbar {
+  .brand {
+    width: auto;
+    padding: 0;
+
+    a {
+      display: inline-block;
+      float: left;
+      position: relative;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo {
+      width: 142px;
+      left: 10px;
+    }
+
+    .min {
+      width: 58px;
+      font-size: 8px;
+      line-height: 40px;
+      color: #ff7f01;
+
+      .icon-angle-left {
+        font-size: 12px;
+      }
+
+      .icon-angle-right {
+        display: none;
+      }
+    }
+  }
+
+  .toggled {
+    cursor: pointer;
+
+    .min {
+      .icon-angle-left {
+        display: none;
+        font-size: 12px;
+      }
+
+      .icon-angle-right {
+        display: block;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.country-language {
+  .user-image-container {
+    top: 3px;
+  }
+  .selected-country-code {
+    top: 9px;
+  }
+
+  .country-list {
+    .country-list-img {
+      top: 7px;
+    }
+  }
+}

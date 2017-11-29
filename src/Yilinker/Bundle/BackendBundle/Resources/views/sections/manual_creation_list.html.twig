@@ -1,0 +1,154 @@
+<section class="box-section">
+  <div class="title-bar">
+    <div class="container">
+      <span>Manually Created Accounts</span>
+    </div>
+  </div>
+  <div class="container">
+<!-- Tools -->
+    <div class="row">
+      <div class="box-upper">
+        <div class="col-md-12">
+          <div class="tools top form">
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>Number of Manual Accounts: 227</h4>
+                <p class="sub-header">
+                  Nam egestas est quis sapien commodo mattis. Morbi tortor libero, fermentum vitae euismod fermentum.
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="form vers-one">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <label>Search</label>
+                      <input class="form-ui" id="searchKeyword" placeholder="Search By Name / ID No. / Business Name" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row gutters group-segment light-segment">
+              <div class="col-md-4"></div>
+
+              <div class="col-md-8">
+                <div class="form">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Accreditation Status:</label>
+                      <select class="form-ui ui search single selection dropdown" id="" name="">
+                        <option value="0">Unaccredited</option>
+                        <option value="1">Accredited</option>
+                        <option value="2">All</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Created By:</label>
+                      <select class="form-ui ui search single selection dropdown" id="" name="">
+                        <option value="0">--</option>
+                        <option value="1">George Paulino</option>
+                        <option value="2">Ryan gVay</option>
+                        <option value="3">KarlDub</option>
+                        <option value="4">Kevin the Nightstalker</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label>Account Status:</label>
+                      <select class="form-ui ui search single selection dropdown" id="" name="">
+                        <option value="0">Activated</option>
+                        <option value="1">Locked</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <button class="button gray mrg-top-10" id="searchTransaction" type="submit">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+<!-- Tables -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-div">
+              <div class="row sub-tools">
+                <div class="col-md-12">
+                  <button class="button gray small"><i class="icon icon-user"></i> Create Account</button>
+                </div>
+              </div>
+              <div class="row gutters">
+                <div class="col-md-12">
+                  <table class="table basic">
+                    <tr>
+                      <th>Customer ID</th>
+                      <th>Owner Name</th>
+                      <th>Business Name</th>
+                      <th>Status</th>
+                      <th>Seller Type</th>
+                      <th>Activated</th>
+                    </tr>
+                    {% for i in 1..3 %}
+                    <tr>
+                      <td >192</td>
+                      <td>Chris Bosh George</td>
+                      <td>Burger Machine</td>
+                      <td>Unaccredited</td>
+                      <td>Seller</td>
+                      <td>Activated</td>
+                    </tr>
+                    {% endfor %}
+                    {% for i in 1..3 %}
+                    <tr>
+                      <td >192</td>
+                      <td>Ronald McDonald Duck</td>
+                      <td>McDonalds Fastfood</td>
+                      <td>Unaccredited</td>
+                      <td>Mechant</td>
+                      <td>Locked</td>
+                    </tr>
+                    {% endfor %}
+                    {% for i in 1..3 %}
+                    <tr>
+                      <td >192</td>
+                      <td>Casper Daprenlygosh</td>
+                      <td>Haus of Honor</td>
+                      <td>Unaccredited</td>
+                      <td>Hybrid</td>
+                      <td>Locked</td>
+                    </tr>
+                    {% endfor %}
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- Bottom Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-blank">
+              <div class="row">
+                <div class="col-md-12">
+                  {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {lastPage: 30}) }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>

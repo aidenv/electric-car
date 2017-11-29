@@ -1,0 +1,38 @@
+Yilinker\Bundle\CoreBundle\Entity\UserReferral:
+    type: entity
+    table: UserReferral
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserReferralRepository
+    indexes:
+        fk_userreferral_referralid_user_userid_idx:
+            columns:
+                - user_id
+        fk_userreferral_referrerid_user_userid_idx:
+            columns:
+                - referrer_id
+    id:
+        userReferralId:
+            type: bigint
+            id: true
+            column: user_referral_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateCreated:
+            type: datetime
+            column: date_created
+    manyToOne:
+        referrer:
+            targetEntity: User
+            joinColumn:
+                name: referrer_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    oneToOne:
+        user:
+            targetEntity: User
+            inversedBy: userReferral
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

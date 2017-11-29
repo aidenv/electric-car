@@ -1,0 +1,366 @@
+
+services:
+
+    yilinker_core.form.type.yilinker_base_form_type:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\YilinkerBaseFormType
+        arguments:
+            default_options:
+                intention: '%csrf_default_intention%'
+
+    yilinker_core.form.type.voucher:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\VoucherFormType
+        tags:
+            - { name: form.type, alias: voucher }
+        calls:
+            - [init, ['@service_container']]
+
+    yilinker_core.form.type.order_product_cancellation:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\OrderProductCancellationFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: order_product_cancellation }
+
+    yilinker_core.form.type.user_address:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\UserAddressFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: user_address }
+
+    yilinker_core.form.type.user_address_edit:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\UserAddressEditFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: user_address_edit }
+
+    yilinker_core.form.type.create_new_case:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\CreateNewCaseFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: create_new_case }
+
+    yilinker_front_end.form.type.user_forgot_password_code:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\UserForgotPasswordCodeFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        calls:
+            - [setKernel, ['@kernel']]
+        tags:
+            - { name: form.type, alias: user_forgot_password_code }
+
+    yilinker_core.form.type.manufacturer_product:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Product\ManufacturerProductFormType
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: form.type, alias: inhouse_product }
+
+    yilinker_core.form.type.manufacturer_product_unit:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Product\ManufacturerProductUnitFormType
+        tags:
+            - { name: form.type, alias: manufacturer_product_unit }
+
+    yilinker_core.form.type.manufacturer_product_attribute_value:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Product\ManufacturerProductAttributeValueFormType
+        tags:
+            - { name: form.type, alias: manufacturer_product_attribute_value }
+
+    yilinker_core.form.type.product_country:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Product\ProductCountryFormType
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: form.type, alias: product_country }
+
+    yilinker_core.form.type.product_unit:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Product\ProductUnitFormType
+        tags:
+            - { name: form.type, alias: product_unit }
+
+    yilinker_core.form.type.product_warehouse:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Product\ProductWarehouseFormType
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: form.type, alias: product_warehouse }
+
+    yilinker_core.form.type.user_forgot_password:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\UserForgotPasswordFormType
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: form.type, alias: user_forgot_password }
+
+    yilinker_core_end.form.type.reset_password:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\UserResetPasswordFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        calls:
+            - [setKernel, ['@kernel']]
+        tags:
+            - { name: form.type, alias: core_reset_password }
+
+    yilinker_core_end.form.type.core_file_image_pdf:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\FileImagePdfFormType
+        tags:
+            - { name: form.type, alias: core_file_image_pdf }
+
+    #API Form Types
+
+    yilinker_core.form.type.api.core_user_address:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Api\UserAddressFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: core_user_address }
+
+    yilinker_core.form.type.seller_feedback:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Feedback\SellerFeedbackFormType
+        arguments: ['@service_container']
+        tags:
+            - { name: form.type, alias: seller_feedback }
+
+    yilinker_core.form.type.api.core_change_password:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Api\ChangePasswordFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: core_change_password }
+
+    yilinker_core.form.type.api.core_change_contact_number:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Api\ChangeContactNumberFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: core_change_contact_number }
+
+    yilinker_core_end.form.type.user_add:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\UserRegisterFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        calls:
+            - [setKernel, ['@kernel']]
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: form.type, alias: core_user_add }
+
+    yilinker_core.form.type.message_send:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Api\MessageSendFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: message_send }
+
+    yilinker_core.form.type.message_image:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Api\MessageImageFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: message_image }
+
+    yilinker_core.form.type.user_image:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Api\UserImageFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: user_image }
+
+    yilinker_core.form.type.core_product_pickup:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\ProductPickupFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: core_product_pickup }
+
+    yilinker_core.form.type.api_order_product_cancellation:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Api\OrderProductCancellationFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: api_order_product_cancellation }
+
+    yilinker_core.form.type.api_create_new_case:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Api\CreateNewCaseFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: api_create_new_case }
+
+    yilinker_core.form.type.package_update:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\PackageStatusFormType
+        arguments:
+           - @doctrine.orm.entity_manager
+        tags:
+            - { name: form.type, alias: package_status_update }
+
+    yilinker_core.form.type.user_document:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\UserIdentificationCardFormType
+        tags:
+            - { name: form.type, alias: core_user_document }
+
+    yilinker_core.form.type.bank_account:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\BankAccountFormType
+        tags:
+            - { name: form.type, alias: core_bank_account }
+
+    yilinker_core.form.type.api_core_update_basic_info:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Api\UpdateBasicInfoFormType
+        tags:
+            - { name: form.type, alias: api_core_update_basic_info }
+
+    yilinker_core.form.type.user_warehouse:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Warehouse\UserWarehouseFormType
+        tags:
+            - { name: form.type, alias: user_warehouse }
+
+    yilinker_core.form.type.cms.product_detail:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\CMS\ProductDetailFormType
+        tags:
+            - { name: form.type, alias: core_cms_product_detail }
+
+    yilinker_core.form.type.api_mobilefeedback:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Api\MobileFeedBackFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: api_mobilefeedback }        
+
+    yilinker_core.form.type.cms.product_detail:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\CMS\ProductDetailFormType
+        tags:
+            - { name: form.type, alias: core_cms_product_detail }
+    
+    yilinker_core.form.type.api_core_add_device_token_v2:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Api\v2\AddDeviceTokenFormType
+        tags:
+            - { name: form.type, alias: api_core_add_device_token_v2 }
+
+#contraints
+
+    yilinker_core.form.validator.constraint.existing_user_image:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\ExistingUserImageValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.user_image'
+        tags:
+            - { name: validator.constraint_validator, alias: existing_user_image }
+    
+    yilinker_core.form.validator.constraint.valid_referral_code:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\ValidReferralCodeValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.user'
+        tags:
+            - { name: validator.constraint_validator, alias: valid_referral_code }
+
+    yilinker_core.form.validator.constraint.legal_doc_in_tmp:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\LegalDocInTmpValidator
+        tags:
+            - { name: validator.constraint_validator, alias: legal_doc_in_tmp }
+
+    yilinker_core.form.validator.constraint.unique_contact_number:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\UniqueContactNumberValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.user'
+            - '@yilinker_core_bundle.repository.country'
+        tags:
+            - { name: validator.constraint_validator, alias: unique_contact_number }
+
+    yilinker_core.form.validator.constraint.valid_contact_number:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\ValidContactNumberValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.country'
+        tags:
+            - { name: validator.constraint_validator, alias: valid_contact_number }
+
+    yilinker_core.form.validator.constraint.valid_verification_code:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\ValidVerificationCodeValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.one_time_password'
+            - '@yilinker_core_bundle.repository.user'
+            - '@yilinker_core_bundle.repository.country'
+        tags:
+            - { name: validator.constraint_validator, alias: valid_verification_code }
+
+    yilinker_core.form.validator.constraint.valid_slug:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\ValidSlugValidator
+        tags:
+            - { name: validator.constraint_validator, alias: valid_slug }
+
+    yilinker_core.form.validator.constraint.unique_buyer_slug:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\UniqueBuyerSlugValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.user'
+        tags:
+            - { name: validator.constraint_validator, alias: unique_buyer_slug }
+
+    yilinker_core.form.validator.constraint.alphanum_underscore:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\AlphaNumUnderscoreValidator
+        tags:
+            - { name: validator.constraint_validator, alias: alphanum_underscore }
+
+    yilinker_core.form.validator.constraint.unique_email:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\UniqueEmailValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.user'
+        tags:
+            - { name: validator.constraint_validator, alias: unique_email }
+
+    yilinker_core.form.validator.constraint.unique_newsletter_email:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\UniqueNewsletterEmailValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.email_newsletter_subscription'
+        tags:
+            - { name: validator.constraint_validator, alias: unique_newsletter_email }
+
+    yilinker_core.form.validator.constraint.password:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\YilinkerPasswordValidator
+        tags:
+            - { name: validator.constraint_validator, alias: yilinker_password }
+
+    yilinker_core.form.validator.constraint.alphaspace:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\AlphaSpaceValidator
+        tags:
+            - { name: validator.constraint_validator, alias: alphaspace }
+
+    yilinker_core.form.validator.constraint.name:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\NameValidator
+        tags:
+            - { name: validator.constraint_validator, alias: name }
+
+    yilinker_core.form.validator.constraint.valid_area_code:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\ValidAreaCodeValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.country'
+        tags:
+            - { name: validator.constraint_validator, alias: valid_area_code }
+
+    yilinker_core.form.validator.constraint.otp:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\OTPValidator
+        arguments:
+            - '@yilinker_core.service.sms.one_time_password'
+            - '@security.token_storage'
+        tags:
+            - { name: validator.constraint_validator, alias: otp }
+
+    yilinker_core.form.validator.constraint.express_logistics:
+        class: Yilinker\Bundle\CoreBundle\Form\Validator\Constraints\ExpressLogisticsValidator
+        arguments:
+          - '@service_container'
+        tags:
+            - { name: validator.constraint_validator, alias: express_logistics }
+
+#custom field types
+
+    yilinker_core.form.field.type.location:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Field\LocationType
+        arguments:
+            - @yilinker_core_bundle.twig.custom_extension
+            - @event_dispatcher
+            - @doctrine.orm.entity_manager
+            - @yilinker_core.service.location.location
+        tags:
+            - { name: form.type, alias: location }
+
+    yilinker_core.form.field.type.location_selector:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\Field\LocationSelectorType
+        calls:
+            - [setEM, ['@doctrine.orm.entity_manager']]
+            - [setAssetHelper, ['@yilinker_core_bundle.twig.custom_extension']]
+            - [setDispatcher, ['@event_dispatcher']]
+        tags:
+            - { name: form.type, alias: location_selector }
+
+#v1 support
+
+    yilinker_core_end.form.type.v1_user_add:
+        class: Yilinker\Bundle\CoreBundle\Form\Type\v1\UserRegisterFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        calls:
+            - [setKernel, ['@kernel']]
+        tags:
+            - { name: form.type, alias: core_v1_user_add }

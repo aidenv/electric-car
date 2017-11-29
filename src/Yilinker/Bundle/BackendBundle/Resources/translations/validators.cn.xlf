@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="cn" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>First name is required</source>
+                <target>__First name is required</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>Last name is required</source>
+                <target>__Last name is required</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>No Role is selected</source>
+                <target>__No Role is selected</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Last Name is required</source>
+                <target>__Last Name is required</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Password field is required</source>
+                <target>__Password field is required</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Username field is required</source>
+                <target>__Username field is required</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Passwords do not match</source>
+                <target>__Passwords do not match</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>Order Products are required</source>
+                <target>__Order Products are required</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Invalid Order Product</source>
+                <target>__Invalid Order Product</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>Please upload a valid image</source>
+                <target>__Please upload a valid image</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>Promo name is required</source>
+                <target>__Promo name is required</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>Promo Type is required</source>
+                <target>__Promo Type is required</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>Discount is required</source>
+                <target>__Discount is required</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>Password must be at least {{ limit }} characters</source>
+                <target>__Password must be at least {{ limit }} characters</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>Password can only be up to {{ limit }} characters</source>
+                <target>__Password can only be up to {{ limit }} characters</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>Password must be at least {{ limit }} characters</source>
+                <target>__Password must be at least {{ limit }} characters</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>Username "%string%" already exists.</source>
+                <target>__Username "%string%" already exists.</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>Password must contain at least one number and minimum of 8 alphabetic characters</source>
+                <target>__Password must contain at least one number and minimum of 8 alphabetic characters</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

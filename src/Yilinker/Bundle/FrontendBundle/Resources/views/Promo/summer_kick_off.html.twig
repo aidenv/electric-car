@@ -1,0 +1,68 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    Summer Kick Off: Vouchers Keepers
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper static">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="content-container">
+                    <div class="content-segment">
+                        <div class="content-description row">
+                            <div class="col-xs-6">
+                                <img src="{{ asset('images/promo/summer-kick-off/summer-kick-off-2.jpg') }}" alt="Summer Kick Off: Vouchers Keepers" class="img-full-width mrg-bt-20">
+                            </div>
+
+                            <div class="col-xs-6">
+                                <div class="pd-left-20">
+                                    <h3 class="mrg-bt-30">
+                                        Summer Kick Off: Vouchers Keepers 
+                                    </h3>
+                                    <h4 class="mrg-bt-30"> YiLinker's Summer Treats are not over yet! </h4>
+                                    <p  class="mrg-bt-15" style="font-size: 20px;">
+                                        Find the hidden VOUCHER CODES to get bigger DISCOUNTS when you shop with us! SIGN UP, SEARCH and SHOP now! 
+                                    </p>
+                                    <p class="mrg-bt-20">
+                                        <strong>Promo Period:</strong>March 28 to 31, 2016
+                                    </p>
+                                    <p class="mrg-bt-15">
+                                        <strong>Terms and Conditions:</strong>
+                                    </p>
+                                    <ul class="pd-left-20 mrg-bt-30">
+                                        <li>
+                                            Stay alert and hunt for the hidden voucher codes on our Facebook page.
+                                        </li>
+                                        <li>
+                                            Each voucher has different minimum purchase required in order to be used.
+                                        </li>
+                                        <li>
+                                            Keep and use the voucher code upon checkout while shopping at YiLinker.
+                                        </li>
+                                        <li>
+                                            Voucher can only be used on the day of posting.
+                                        </li>
+                                        <li>
+                                             Don't forget to like YiLinker's Facebook page and use hashtag #YLVoucherKeepers.
+                                        </li>
+                                    </ul>
+                                     <a class="button blue mrg-bt-30" href="https://www.facebook.com/YilinkerPH/">HUNT NOW</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}

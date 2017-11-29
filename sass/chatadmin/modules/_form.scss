@@ -1,0 +1,16 @@
+.field {
+    margin-bottom: 20px;
+
+    label {
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    [class*='col-'] {
+        margin-right: 10px;
+
+        input {
+            margin: 0;
+        }
+    }
+}

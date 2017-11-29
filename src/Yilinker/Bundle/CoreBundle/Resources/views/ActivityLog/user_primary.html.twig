@@ -1,0 +1,21 @@
+<tr>
+    <td width="90">{{ activity.dateAdded('g:i A') }}</td>
+    <td>
+        <p>
+            <em>
+                Changed Profile Photo
+            </em>
+        </p>
+    </td>
+    {% if activity.activityData.__changes is defined %}
+        <td>
+            {% set primaryImageChanges = activity.activityData.__changes.primaryImage %}
+            {% set beforePrimaryImage = primaryImageChanges|first %}
+            {% set afterPrimaryImage = primaryImageChanges|last %}
+            <span>From</span>
+            <img height="30px" src="{{ beforePrimaryImage? asset("#{activity.activityData.userId}/thumbnail/#{beforePrimaryImage.imageLocation}", 'user') : asset('images/default-buyer.png') }}" alt="">
+            <span>To</span>
+            <img height="30px" src="{{ afterPrimaryImage? asset("#{activity.activityData.userId}/thumbnail/#{afterPrimaryImage.imageLocation}", 'user') : asset('images/default-buyer.png') }}" alt="">
+        </td>
+    {% endif %}
+</tr>

@@ -1,0 +1,262 @@
+{% extends 'YilinkerMerchantBundle:Base:accreditation_base.html.twig' %}
+
+{% block title %}
+    Accreditation Legal Information
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+    {% set fileDtiType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_DTI_SEC_PERMIT') %}
+    {% set fileMayorsType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_MAYORS_PERMIT') %}
+    {% set fileBirType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_BIR_PERMIT') %}
+    {% set fileFormType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_FORM') %}
+    {% set merchantType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\AccreditationApplication::SELLER_TYPE_MERCHANT') %}
+    {% set affiliateType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\AccreditationApplication::SELLER_TYPE_RESELLER') %}
+
+    <div class="accreditation">
+
+        <!-- Breadcrumb -->
+        <div class="row gutters">
+            <ul class="breadcrumb">
+                <li><a href="{{ path('merchant_accreditation')}}">Summary</a></li>
+                <li>Legal Information</li>
+            </ul>
+        </div>
+
+        <div class="row gutters">
+
+            {# MAIN CONTAINER #}
+            <div class="col span-9">
+                <div class="box wht">
+                    <div class="documents">
+                        <div class="row">
+                            <div class="col span-12">
+                                <div class="title-bar">
+                                    <div class="component-content">
+                                        <span class="uppercase">Legal Requirements</span>
+                                    </div>
+                                </div>
+
+                                {# START OF PERMITS #}
+                                <div class="col-md-12" id="input-container">
+                                {% if legalDocuments %}
+                                    {% for legalDocument in legalDocuments %}
+                                        {% if legalDocument.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_DTI_SEC_PERMIT') %}
+                                        <div class="form">
+                                            <div class="row">
+                                                <label class="required">DTI/SEC Permit</label>
+                                                <label for="" class="semi-bold alerts"><span class="icon-alert-exclamation icon-lg"></span> You have already uploaded a file. If you wish to upload a new one, your previous file will be replaced.</label>
+                                                <input type="file" class="form-ui" {{ editableFiles[fileDtiType] is defined ? '' : 'disabled' }} name="file-dti-sec-permit">
+                                                <label class="light download-copy">
+                                                    <a href="{{ path('merchant_accreditation_download_legal_document', {'legalDocumentId': legalDocument.legalDocumentsId })}}" target="_blank" class="button gray tiny">
+                                                        <span class="icon-angle-down"></span>
+                                                        <em>Download DTI/SEC Permit</em>
+                                                    </a> You can upload it once you added your signature on it
+                                                </label>
+                                                <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                            </div>
+                                        </div>
+                                        {% elseif legalDocument.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_MAYORS_PERMIT') %}
+                                        <div class="form">
+                                            <div class="row">
+                                                <label>Mayor's Permit</label>
+                                                <label for="" class="semi-bold alerts"><span class="icon-alert-exclamation icon-lg"></span> You have already uploaded a file. If you wish to upload a new one, your previous file will be replaced.</label>
+                                                <input type="file" class="form-ui" name="file-mayors-permit">
+                                                <label class="light download-copy">
+                                                    <a href="{{ path('merchant_accreditation_download_legal_document', {'legalDocumentId': legalDocument.legalDocumentsId })}}" target="_blank" class="button gray tiny">
+                                                        <span class="icon-angle-down"></span>
+                                                        <em>Download Mayor's Permit</em>
+                                                    </a> You can upload it once you added your signature on it
+                                                </label>
+                                                <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                            </div>
+                                        </div>
+                                        {% elseif legalDocument.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_BIR_PERMIT') %}
+                                        <div class="form">
+                                            <div class="row">
+                                                <label class="required">BIR Permit</label>
+                                                <label for="" class="semi-bold alerts"><span class="icon-alert-exclamation icon-lg"></span> You have already uploaded a file. If you wish to upload a new one, your previous file will be replaced.</label>
+                                                <input type="file" class="form-ui" {{ editableFiles[fileBirType] is defined ? '' : 'disabled' }} name="file-bir-permit">
+                                                <label class="light download-copy">
+                                                    <a href="{{ path('merchant_accreditation_download_legal_document', {'legalDocumentId': legalDocument.legalDocumentsId })}}" target="_blank" class="button gray tiny">
+                                                        <span class="icon-angle-down"></span>
+                                                        <em>Download BIR Permit</em>
+                                                    </a> You can upload it once you added your signature on it
+                                                </label>
+                                                <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="form">
+                                        <div class="row">
+                                            <label class="required">DTI/SEC Permit</label>
+                                            <label for="" class="light">Select your DTI/SEC Permit file from your computer</label>
+                                            <input type="file" class="form-ui" name="file-dti-sec-permit">
+                                            <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <label>Mayor's Permit</label>
+                                            <label for="" class="light">Select your Mayor's Permit file from your computer</label>
+                                            <input type="file" class="form-ui" name="file-mayors-permit">
+                                            <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <label class="required">BIR Permit</label>
+                                            <label for="" class="light">Select your BIR Permit file from your computer</label>
+                                            <input type="file" class="form-ui" name="file-bir-permit">
+                                            <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                </div>
+                                {# END OF PERMITS #}
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form col span-12">
+                                <div class="title-bar">
+                                    <div class="component-content">
+                                        <span class="uppercase">Other Documents</span>
+                                    </div>
+                                </div>
+
+                                {% if legalDocuments %}
+                                    {% set ctr = 1 %}
+                                    {% for legalDocument in legalDocuments %}
+                                        {% if legalDocument.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_OTHERS') %}
+                                            <div>
+                                                <label for="" class="semi-bold alerts"><span class="icon-alert-exclamation icon-lg"></span> You Have Already Downloaded a file, view / delete.</label>
+                                                <label class="light download-copy">
+                                                    <a href="{{ path('merchant_accreditation_download_legal_document', {'legalDocumentId': legalDocument.legalDocumentsId })}}" target="_blank" class="button gray tiny">
+                                                        <span class="icon-angle-down"></span>
+                                                        <em>Download Other File {{ ctr }}</em>
+                                                    </a> You can upload it once you added your signature on it
+                                                    <button class="button gray uppercase trigger-delete-existing-file existing-file" data-id="{{ legalDocument.legalDocumentsId }}"><i class="icon-trash"></i></button>
+                                                </label>
+                                            </div>
+                                            {% set ctr = ctr + 1 %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+
+                                <label for="" class="light">Select a document file from your computer</label>
+                                <div class="form other-documents" id="other-file-container">
+                                    <div class="input-inner-button">
+                                        <input type="file" class="form-ui file-other" name="file-other[]">
+                                        <button class="button gray uppercase trigger-delete-other-file"><i class="icon-trash"></i></button>
+                                    </div>
+                                </div>
+                                <span class="form form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col span-12">
+                            <div class="form">
+                                <button class="button gray small uppercase" id="btn-add-more">
+                                    <i class="icon icon-plus icon-lg"></i> Add Documents
+                                </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="col span-12 mrg-top-20">
+                                <div class="form mrg-bt-30">
+                                    <div class="title-bar">
+                                        <div class="component-content">
+                                        </div>
+                                    </div>
+                                    <div class="ui checkbox">
+                                        <input type="checkbox" name="check-box-terms-and-condition" />
+                                        <label for="check-box-terms-and-condition" class="light"><strong>By Checking this box</strong>, I acknowledge that i have read, understand and agree to the &nbsp;<a class="purple-color terms-modal-trigger">YiLinker's terms and conditions</a>.</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button class="button basic-default button-rounded-side" id="btn-go-back"><i class="icon icon-arrow-short-left icon-lg "></i>Go Back</button>
+                            </div>
+                            <div class="col-md-6 align-right">
+                                <button class="button blue button-rounded-side uppercase" id="btn-submit-legal-documents">
+                                    <span class="text">Save</span>
+                                    <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# LEFT CONTAINER #}
+            <aside class="col span-3">
+                {{ include('YilinkerMerchantBundle:Accreditation:acc_sub_legal_side.html.twig') }}
+            </aside>
+
+        </div>
+    </div>
+    <div class="footer-wrapper align-center">
+        Copyright 2015 YiLinker. All Rights Reserved
+    </div>
+
+    {{ include('YilinkerMerchantBundle:Accreditation:acc_terms_modal.html.twig') }}
+
+    {# START MODAL MESSAGE #}
+    <div class="ui modal small" id="modal-message">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header sub-header-content"></div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close uppercase">Okay</button>
+        </div>
+    </div>
+    {# END MODAL MESSAGE #}
+
+    {# START MODAL CONFIRM BACK #}
+    <div class="ui modal small" id="modal-confirm-back">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <div class="content">
+                    Continue?
+                    <div class="sub-header">All changes will be discarded.</div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button cancel uppercase">Cancel</button>
+            <button class="button red submit-to-success positive uppercase">
+                <span class="text">Ok</span>
+                <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+            </button>
+        </div>
+    </div>
+    {# END MODAL CONFIRM BACK #}
+
+    <input type="hidden" id="is-update" value="{{ legalDocuments is not empty ? 1 : 0 }}" />
+    <input type="hidden" id="is-merchant" value="{{ accreditationApplicationEntity.sellerType }}" />
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/universal.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/accreditation/legal-document.js') }}"></script>
+{% endblock %}

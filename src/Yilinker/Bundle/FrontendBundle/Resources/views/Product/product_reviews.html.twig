@@ -1,0 +1,71 @@
+{% set productReviews = product.visibleReviews %}
+
+<div class="product-rating-review-container">
+    {# <div class="title-bar">
+        <div class="container">
+          <span>{% trans %} Product Rating &amp; Review {% endtrans %}</span>
+        </div>
+    </div> #}
+    <div class="rating-review-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="total-rating-container">
+                    {% if productReviews is not empty %}
+                    <table width="100%">
+                        <tr>
+                            <td width="120" class="review-fraction-td">
+                                <div class="total-rating-fraction-container">
+                                    <span>{{ product.reviewRating }}</span>/5
+                                </div>
+                            </td>
+                            <td class="td-rating-review">
+                                <div class="rating-container">
+                                    <span class="rating-icons">
+                                        {% for i in 1..5 %}
+                                            <i class="icon icon-star-o {{ product.reviewRating >= i ? 'active' : '' }}"></i>
+                                        {% endfor %}
+                                    </span>
+                                </div>
+                                <span class="total-review">
+                                    <b>{{ productReviews|length }}</b> {{ productReviews|length == 1 ? 'person' : 'people'}} rated this product
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    {% endif %}
+                    
+                    {% if productReviews is not empty %}
+                        <div class="review-items-container">
+                            {% for productReview in productReviews %}
+                                {{ include('YilinkerFrontendBundle:Product:product_review.html.twig') }}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="box-container no-rating-container">
+                            {% trans %}
+                                No rating or review for this product yet
+                            {% endtrans %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Review",
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "{{ product.reviewRating }}"
+  },
+  "aggregateRating":{
+    "@type": "AggregateRating",
+    "ratingValue": "{{ product.reviewRating }}",
+    "ratingCount": "{{ productReviews|length }}"
+  }
+
+}
+</script>

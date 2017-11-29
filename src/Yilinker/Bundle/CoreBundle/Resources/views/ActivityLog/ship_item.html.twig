@@ -1,0 +1,25 @@
+<tr>
+    <td width="90">{{ activity.dateAdded('g:i A') }}</td>
+    <td colspan="2">
+        <p>
+            <em>
+                Shipped Items #{{ activity.activityData.waybillNumber }}
+            </em>
+        </p>
+        <ul>
+            {% if activity.activityData.packageDetails is defined and activity.activityData.packageDetails %}
+                {% for packageDetail in activity.activityData.packageDetails %}
+                    <li>x{{ packageDetail.orderProduct.quantity }} {{ packageDetail.orderProduct.productName }}
+                        {% set attributes = packageDetail.orderProduct.attributes|json_decode(true) %}
+                        {% if attributes %}
+                            -
+                            {% for attrName, attrValue in attributes %}
+                                {{ attrName }}: {{ attrValue }}
+                            {% endfor %}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </td>
+</tr>

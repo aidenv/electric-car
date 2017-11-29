@@ -1,0 +1,12 @@
+services:
+    yilinker_core.doctrine.subscriber.user:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Subscriber\UserSubscriber
+        arguments: ["@security.password_encoder"]
+        tags:
+            - { name: doctrine.event_subscriber }
+
+    yilinker_core.doctrine.subscriber.admin_user:
+        class: Yilinker\Bundle\CoreBundle\Doctrine\Subscriber\AdminUserSubscriber
+        arguments: ["@security.password_encoder"]
+        tags:
+            - { name: doctrine.event_subscriber }

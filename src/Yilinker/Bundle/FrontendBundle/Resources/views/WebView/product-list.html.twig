@@ -1,0 +1,73 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+        <title>Yilinker - Product list</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Maven+Pro">
+        <link rel="stylesheet" href="{{ asset('css/webview.css') }}" media="screen,print">
+    </head>
+    <body>
+        <div class="body-mobile">
+            <section class="row store-view-container">
+                {% if products is empty == false %}
+                    {% if products.mainBanner != '' %}
+                        <img src="{{ products.mainBanner }}" class="col-xs-12 mrg-bt-20 mrg-top-10">
+                    {% endif %}
+                <div id="store-container" class="scrollable">
+                    {% if products.products.data is defined and products.products.data|length > 0 %}
+                        {% for productDetail in products.products.data %}
+                            <div class="store-box">
+                                <div class="store-container">
+                                    <div class="row store-product">
+                                        <a data-mobile-href="{{ path('api_v3_product_detail', {'country_code' : v3path.country_code, 'language_code': v3path.language_code,'productId': productDetail.product.id}) }}" href="{{ path('api_v3_product_detail', {'country_code' : v3path.country_code, 'language_code': v3path.language_code,'productId': productDetail.product.id}) }}" class="col-xs-12 product-link">
+                                            <img class="product-image" src="{{ productDetail.firstUnit is not null ? asset(productDetail.firstUnit.primaryThumbnailImage, 'product') : '' }}">
+                                        </a>
+                                    </div>
+                                    <div class="store-header">
+                                        <div>
+                                            <a data-mobile-href="{{ path('api_product_detail', {'productId' : productDetail.product.id}) }}" href="{{ path('api_product_detail', {'productId' : productDetail.product.id}) }}" class="product-name">{{ productDetail.product.title }}</a>
+
+                                            <span class="price">PHP {{ productDetail.firstUnit is not null ? productDetail.firstUnit.price|number_format(2, '.', ',') : '0.00' }}</span>
+                                            <span class="discounted-price">PHP {{ productDetail.firstUnit is not null ? productDetail.firstUnit.discountedPrice|number_format(2, '.', ',') : '0.00' }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="loading-container hidden">
+                    <img src="{{ asset('images/spinner.gif') }}" alt="loading">
+                    <p>loading more items</p>
+                </div>
+                {% endif %}
+            </section>
+        </div>
+
+        <div class="hidden clone-store-div">
+            <div class="store-box">
+                <div class="store-container">
+                    <div class="row store-product">
+                        <a href="" class="col-xs-12 product-link">
+                            <img class="product-image" src="">
+                        </a>
+                    </div>
+                    <div class="store-header">
+                        <div>
+                            <a href="" class="product-name"></a>
+                            <span class="price"></span>
+                            <span class="discounted-price"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" id="node" value="{{ node }}">
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        <script src="{{ asset('js/bower/jquery.min.js') }}"></script>
+        <script src="{{ asset("js/src/universal.js") }}"></script>
+        <script src="{{ asset('js/src/frontend/mobile-product-list.js') }}"></script>
+    </body>
+</html>

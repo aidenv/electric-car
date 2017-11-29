@@ -1,0 +1,294 @@
+<style>
+    .navbar-default .navbar-item.toggle-side-menu{
+        display: table-cell !important;
+    }
+</style>
+<div class="dashboard-side-menu-container mobile-hide">
+    <div class="profile-image-container">
+        <div class="image-holder user-image-profile crop-photo-modal-trigger">
+            <img src="{{ user.getPrimaryImage is not same as(null)? asset( user.getPrimaryImage.getImageLocationBySize('medium') , 'user') : asset('images/default-buyer.png') }}" alt="" class="img-auto-place">
+            <span class="edit image-overlay">
+                <span class="edit-image-label">
+                    <i class="icon icon-camera"></i>
+                    <h5 class="light uppercase photo-placeholder">{{ user.getPrimaryImage is not same as(null)? "Edit" : "Add" }} Photo</h5>
+                </span>
+            </span>
+        </div>
+    </div>
+    <input type="file" name="profile-photo" class="profile-file-input"/>
+
+    {% if currentRoute is not defined %}
+        {% set currentRoute = ''  %}
+    {% endif %}
+
+    <ul class="list-unstyled list-side-menu">
+        <li>
+            {% set profileActive = "" %}
+            
+            {% 
+                if (currentRoute is same as("profile_information")) 
+                or (currentRoute is same as("profile_following")) 
+                or (currentRoute is same as("profile_activity_log")) 
+            %}
+                {% set profileActive = "active" %}
+            {% endif %}
+            <a href="{{ path('profile_information') }}" class="{{ profileActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-user"></i>
+                </div>
+                <span class="menu-name">My Profile</span>
+            </a>
+            <div class="side-menu-child-container">
+                <ul class="list-unstyled">
+                    <li>
+                        {% set profileChildOverviewActive = "" %}
+                        {%
+                            if (currentRoute is same as("profile_information"))
+                        %}
+                            {% set profileChildOverviewActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('profile_information') }}" class="{{ profileChildOverviewActive }}">
+                            Information
+                        </a>
+                    </li>
+                    <li>
+                        {% set profileChildFollowedActive = "" %}
+                        {%
+                            if (currentRoute is same as("profile_following"))
+                        %}
+                            {% set profileChildFollowedActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('profile_following') }}" class="{{ profileChildFollowedActive }}">
+                            {% trans %}Followed Seller{% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        {% set profileChildActivityLogActive = "" %}
+                        {%
+                            if (currentRoute is same as("profile_activity_log"))
+                        %}
+                            {% set profileChildActivityLogActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('profile_activity_log') }}" class="{{ profileChildActivityLogActive }}">
+                            {% trans %}Activity Log{% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        {% set profileChildUploadDocumentActive = "" %}
+                        {%
+                            if (currentRoute is same as("profile_upload_document"))
+                        %}
+                            {% set profileChildUploadDocumentActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('profile_upload_document') }}" class="{{ profileChildUploadDocumentActive }}">
+                           {% trans %}Upload Document{% endtrans %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            {% set transactionActive = "" %}
+            {% set tab = app.request.get('tab') %}
+            {% 
+                if (currentRoute is same as("profile_transaction")) 
+                or (currentRoute is same as("profile_transaction_view"))
+            %}
+                {% set transactionActive = "active" %}
+            {% endif %}
+            <a href="{{ path('profile_transaction') }}" class="{{ transactionActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-transaction"></i>
+                </div>
+                <span class="menu-name">{% trans %}Transaction{% endtrans %}</span>
+            </a>
+            <div class="side-menu-child-container">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="{{ path('profile_transaction') }}" class="{% if tab is null and transactionActive == 'active' %} active {% endif %}">
+                            {% trans %}All Transactions{% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('profile_transaction', {'tab':'on-delivery'} ) }}" class="{% if tab == 'on-delivery' %} active {% endif %}">
+                            {% trans %}On-Delivery{% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('profile_transaction',  {'tab':'for-feedback'} ) }}" class="{% if tab == 'for-feedback' %} active {% endif %}">
+                            {% trans %}For Feedback{% endtrans %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            {% set messagesActive = "" %}
+            
+            {% if (currentRoute is same as("profile_messages")) %}
+                {% set messagesActive = "active" %}
+            {% endif %}
+            <a href="{{ path('profile_messages') }}" class="{{ messagesActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-envelope"></i>	
+                </div>
+                <span class="menu-name">{% trans %}Messages{% endtrans %}</span>
+            </a>
+        </li>
+        
+        <li>
+            {% set pointsActive = "" %}
+            
+            {% if (currentRoute is same as("profile_my_points")) %}
+                {% set pointsActive = "active" %}
+            {% endif %}
+            <a href="{{ path('yilinker_frontend_points_index') }}" class="{{ pointsActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-points"></i>
+                </div>
+                <span class="menu-name">My Points</span>
+            </a>
+        </li>
+        
+        <li>
+            {% set settingsActive = "" %}
+            
+            {% if (currentRoute is same as("profile_settings")) %}
+                {% set settingsActive = "active" %}
+            {% endif %}
+            <a href="{{ path('profile_settings') }}" class="{{ settingsActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-settings"></i>	
+                </div>
+                <span class="menu-name">Settings</span>
+            </a>
+        </li>
+        <li>
+            {% set resolutionActive = "" %}
+            
+            {% if (currentRoute is same as("profile_resolution_center")) %}
+                {% set resolutionActive = "active" %}
+            {% endif %}
+            <a href="{{ path('profile_resolution_center') }}" class="{{ resolutionActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-contact"></i> 
+                </div>
+                <span class="menu-name">Resolution Center</span>
+            </a>
+        </li>
+        <li>
+            {% set helpActive = "" %}
+            
+            {% if (currentRoute is same as("profile_help")) %}
+                {% set helpActive = "active" %}
+            {% endif %}
+            <a href="{{ path('profile_help') }}" class="{{ helpActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-circle-question-mark"></i>	
+                </div>
+                <span class="menu-name">Help</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!--Start of crop photo modal-->
+<div class="ui modal small crop crop-circle crop-photo-modal" id="profile-photo-modal">
+    <a class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">Crop Photo</h4>
+        <div class="hidden message-box red with-close-message change-profile-photo-errors"></div>
+    </div>
+    <div class="content">
+        <div class="cropper-profile-photo">
+            <img src="" alt="Picture">
+        </div>
+    </div>
+    <div class="actions">
+        <button class="button cancel uppercase">Cancel</button>
+        <button class="button blue uppercase submit-to-success" id="crop-profile-image-btn">
+            Crop
+        </button>
+    </div>
+</div>
+<!--End of crop photo modal-->
+
+<!--Start of select product modal-->
+<div class="ui modal large modal select-product-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">Select Products</h4>
+    </div>
+    <div class="content">
+        <div class="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="">Category</label>
+                    <select class="form-ui ui single selection dropdown">
+                        <option value="1">Electronics &amp; Gadgets</option>
+                        <option value="2">Accessories</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="">Sub-Category</label>
+                    <select class="form-ui ui single selection dropdown">
+                        <option value="1">Electronics &amp; Gadgets</option>
+                        <option value="2">Accessories</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="customization-container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Product to Sell</h5>
+                    <div class="bordered-segment inverted">
+                        <div class="form">
+                            <div class="input-icon left small">
+                                <i class="icon icon-search"></i>
+                                <input type="text" class="form-ui small" placeholder="Search item here"/>
+                            </div>
+                        </div>
+                        <div class="draggable-content">
+                            <ul id="customProducts" class="connected-droppable list-unstyled list-category-products list-custom-category">
+                            
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5>All Products</h5>
+                    <div class="bordered-segment inverted">
+                        <div class="form">
+                            <div class="input-icon left small">
+                                <i class="icon icon-search"></i>
+                                <input type="text" class="form-ui small" placeholder="Search item here"/>
+                            </div>
+                        </div>
+                        <div class="draggable-content">
+                            <ul id="allProducts" class="connected-droppable list-unstyled list-category-products list-custom-category">
+                                {% for i in 1..10 %}
+                                <li>
+                                    <div class="options">
+                                        <i class="icon icon-plus pull-left bold add-to-custom"></i>
+                                    </div>
+                                    <div class="image-holder image-product">
+                                        <img src="{{ asset('images/1.png') }}" alt="" class="img-auto-place">
+                                    </div>
+                                    <p class="ellipsis-overflow">Sample er wer wer wer we rwe r</p>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="actions">
+        <button class="button cancel uppercase">Cancel</button>
+        <button class="button blue uppercase submit-to-success">Submit</button>
+    </div>
+</div>
+<!--End of select product modal-->

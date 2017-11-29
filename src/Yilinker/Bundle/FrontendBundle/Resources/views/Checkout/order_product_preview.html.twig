@@ -1,0 +1,35 @@
+<tr>
+    <td class="td-border-bottom-1" width="9em">
+        <div class="item-image-container">
+            <img src="{{ asset(orderProduct.image ? orderProduct.image.imageLocation : '', 'product') }}" alt="{{ orderProduct.productName }}">
+        </div>
+    </td>
+    <td class="td-border-bottom-1" style="max-width:100px;">
+        <a href="{{ path('product_details', {slug: orderProduct.product.slug}) }}" class="item-name breakword">{{ orderProduct.productName }}</a>
+        <div class="item-attributes">
+
+        </div>
+    </td>
+    <td class="td-border-bottom-1 td-number-of-order">
+        <span class="number-of-items">
+            <i class="icon icon-times"></i> {{ orderProduct.quantity }}
+        </span>
+    </td>
+    <td class="td-border-bottom-1 align-right">
+        <span class="item-price">
+            P {{ orderProduct.unitPrice|number_format(2) }}
+            {% if orderProduct.unitPrice != orderProduct.totalPrice %}
+                <p>
+                    <strong>P {{ orderProduct.totalPrice|number_format(2) }}</strong>
+                </p>
+            {% endif %}
+        </span>
+        {% if orderProduct.shippingFee > 0 %}
+            <span class="light-color small-font">
+                <p>
+                    SC: P {{ orderProduct.shippingFee|number_format(2) }}
+                </p>
+            </span>
+        {% endif %}
+    </td>
+</tr>

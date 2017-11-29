@@ -1,0 +1,40 @@
+Yilinker\Bundle\CoreBundle\Entity\OrderHistory:
+    type: entity
+    table: OrderHistory
+    indexes:
+        order_history_order_status_id_idx:
+            columns:
+                - order_status_id
+        order_history_order_id_idx:
+            columns:
+                - order_id
+    id:
+        orderHistoryId:
+            type: bigint
+            nullable: false
+            unsigned: true
+            id: true
+            column: order_history_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateAdded:
+            type: datetime
+            nullable: false
+            column: date_added
+    manyToOne:
+        orderStatus:
+            targetEntity: OrderStatus
+            inversedBy: orderHistories
+            joinColumn:
+                name: order_status_id
+                referencedColumnName: order_status_id
+            orphanRemoval: false
+        order:
+            targetEntity: UserOrder
+            inversedBy: orderHistory
+            joinColumn:
+                name: order_id
+                referencedColumnName: order_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

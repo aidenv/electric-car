@@ -1,0 +1,14 @@
+Yilinker\Bundle\CoreBundle\Entity\UserSocialMediaAccountType:
+    type: entity
+    table: UserSocialMediaAccountType
+    id:
+        userSocialMediaAccountTypeId:
+            type: bigint
+            id: true
+            column: user_social_media_account_type_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            length: 255
+    lifecycleCallbacks: {  }

@@ -1,0 +1,26 @@
+Yilinker\Bundle\CoreBundle\Entity\AdminRole:
+    type: entity
+    table: AdminRole
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\AdminRoleRepository
+    id:
+        adminRoleId:
+            type: integer
+            id: true
+            column: admin_role_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: '255'
+            nullable: true
+            options:
+                default: false
+        role:
+            type: string
+            length: '255'
+            nullable: false
+            options:
+                default: 'ROLE_USER'
+
+    lifecycleCallbacks: {  }

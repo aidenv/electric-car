@@ -1,0 +1,76 @@
+Yilinker\Bundle\CoreBundle\Entity\UserWarehouse:
+    type: entity
+    table: UserWarehouse
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserWarehouseRepository
+    indexes:
+        idx_location_id:
+            columns:
+                - location_id
+        idx_user_id:
+            columns:
+                - user_id
+    id:
+        userWarehouseId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: user_warehouse_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+        address:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        zipCode:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+            column: zip_code
+        dateAdded:
+            type: datetime
+            column: date_added
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+        isDelete:
+            type: boolean
+            column: is_delete
+            options:
+                default: 0
+    oneToMany:
+        productUnitWarehouses:
+            targetEntity: ProductUnitWarehouse
+            mappedBy: userWarehouse
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: warehouses
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+                nullable: false
+            orphanRemoval: false
+        location:
+            targetEntity: Location
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                location_id:
+                    referencedColumnName: location_id
+                    nullable: false
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

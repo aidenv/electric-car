@@ -1,0 +1,30 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Access Denied
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+    <div class="dashboard-body-container white">
+        <section class="accessdenied">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="content">
+                        <span class="icon icon-alert-exclamation"></span>
+                        <p class="title semi-bold">Oooops...</p>
+                        {% if app.request.get('_route') == 'dashboard_balance_withdrawal' %}
+                            <p class="desc" style="font-size: 20px;">You still have an incomplete bank account information. <br/>Please complete first your bank account information to be approve by our accrediation officer before accessing this page.</p>
+                            <p class="link"><a href="{{ path('merchant_bank_account_information') }}"><u>click here</u></a> to return to Bank Account Information.</p>
+                        {% else %}
+                            <p class="desc" style="font-size: 20px;">You still have an incomplete store information. <br/>Please complete first your store information to be approve by our accrediation officer before accessing this page.</p>
+                            <p class="link"><a href="{{ path('user_store_information') }}"><u>click here</u></a> to return to Store Information.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

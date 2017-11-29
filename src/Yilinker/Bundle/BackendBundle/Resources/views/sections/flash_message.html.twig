@@ -1,0 +1,15 @@
+{% if app.session.flashbag.has('error') %}
+    <div class="message-box red">
+        <p class="title">Error: </h5>
+        {% for flashError in app.session.flashbag.get('error') %}
+            <p>{{ flashError }}</p>
+        {% endfor %}
+    </div>
+{% elseif app.session.flashbag.has('success') %}
+    <div class="message-box green">
+        <p class="title">Success: </h5>
+        {% for flashSuccess in app.session.flashbag.get('success') %}
+            <p>{{ flashSuccess }}</p>
+        {% endfor %}
+    </div>
+{% endif %}

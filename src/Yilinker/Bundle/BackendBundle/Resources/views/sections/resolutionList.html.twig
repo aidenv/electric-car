@@ -1,0 +1,144 @@
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Resolution Center</span>
+        </div>
+    </div>
+    <div class="container">
+      <!-- Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="tools top form">
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="search options">
+                    <input type="text" class="form-ui" placeholder="Search">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="options">
+                    <select name="" id="" class="form-ui ui search single selection dropdown">
+                      <option value="0">Reason</option>
+                      <option value="1">I changed my mind. I'm no longer interested in the product.</option>
+                      <option value="2">I ordered the wrong product.</option>
+                      <option value="3">Seller's listing has an error in its description.</option>
+                      <option value="4">Seller is no longer registered on the website.</option>
+                      <option value="5">I did not order this product. Sender must have shipped to a wrong address.</option>
+                      <option value="6">Buyer doesn't reply to emails, text or calls.</option>
+                      <option value="7">I submitted a bogus order.</option>
+                      <option value="8">I found a better product/price somewhere else.</option>
+                      <option value="9">Product has missing parts or accessories.</option>
+                      <option value="10">I don't have enough funds to pay Cash-on-Delivery.</option>
+                      <option value="11">Mutual agreement between Buyer &amp; Seller to cancel the order.</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <select name="" id="" class="form-ui ui search single selection dropdown">
+                      <option value="0">Status</option>
+                      <option value="1">Open</option>
+                      <option value="2">On-Going</option>
+                      <option value="3">Rejected</option>
+                      <option value="4">Closed</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <div class=" datepicker">
+                    <input type="text" class="form-ui datetimepicker" placeholder="11/12/14">
+                  </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <input type="text" class="form-ui datetimepicker" placeholder="02/29/16">
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <button class="options button block cancel">
+                    <span class="item-icon icon-search"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tables -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+              <div class="box-div">
+
+                <div class="row gutters">
+                  <div class="col-md-12">
+                    <table class="table basic">
+                      <tr>
+                        <th>Case ID</th>
+                        <th width="30%">Reason</th>
+                        <th>Status</th>
+                        <th>Complainant Full Name</th>
+                        <th>Defendant Full Name</th>
+                        <th>Date Filed</th>
+                      </tr>
+                      {% for i in 1..3 %}
+                        <tr class="update">
+                          <td align="center">192</td>
+                          <td>I changed my mind. I'm no longer interested in the product.</td>
+                          <td><i>Open</i></td>
+                          <td>Boy Tigol</td>
+                          <td>George Georgina</td>
+                          <td>09/11/15</td>
+                        </tr>
+                      {% endfor %}
+                      {% for i in 1..2 %}
+                        <tr class="booked">
+                          <td align="center">192</td>
+                          <td>I ordered the wrong product.</td>
+                          <td><i>On-Going</i></td>
+                          <td>Boy Tigol</td>
+                          <td>George Georgina</td>
+                          <td>09/11/15</td>
+                        </tr>
+                      {% endfor %}
+                      {% for i in 1..3 %}
+                        <tr>
+                          <td align="center">192</td>
+                          <td>I did not order this product. Sender must have shipped to a wrong address.</td>
+                          <td>Closed</td>
+                          <td>Boy Tigol</td>
+                          <td>George Georgina</td>
+                          <td>09/11/15</td>
+                        </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-blank">
+                <div class="row">
+                  <div class="col-md-12">
+                    {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {lastPage: 30}) }}
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</section>

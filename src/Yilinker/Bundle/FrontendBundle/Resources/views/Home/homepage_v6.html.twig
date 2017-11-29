@@ -1,0 +1,54 @@
+{% for data in homeData %}
+    {% if data.layoutId is defined and
+       data.layoutId is same as(constant("Yilinker\\Bundle\\CoreBundle\\Services\\Cms\\PagesService::HOMEPAGE_WEB_V6_CONTENT_BANNERS"))
+    %}
+
+        <div class="row">
+            <div class="sub-ads">
+                <div class="col-md-4"><a href="javascript:void(0)" class="flr"><img src="{{ asset('images/featured-products/sub-ad-1.jpg') }}"></a></div>
+                <div class="col-md-4"><a href="javascript:void(0)" class="flr"><img src="{{ asset('images/featured-products/sub-ad-2.jpg') }}"></a></div>
+                <div class="col-md-4"><a href="javascript:void(0)" class="flr"><img src="{{ asset('images/featured-products/sub-ad-3.jpg') }}"></a></div>
+            </div>
+        </div>
+        <div class="row">
+            {% elseif data.layoutId is defined and
+               data.layoutId is same as(constant("Yilinker\\Bundle\\CoreBundle\\Services\\Cms\\PagesService::HOMEPAGE_WEB_V6_CONTENT_FLASH_SALE")) and
+               data.content.flashSaleContent.currentPromoProducts is not same as(null)
+            %}
+                {{ include('YilinkerFrontendBundle:Home:v3/flash_sale.html.twig', {
+                    banner: data.content.image,
+                    flashSaleContent: data.content.flashSaleContent
+                }) }}
+            {% elseif data.layoutId is defined and
+               data.layoutId is same as(constant("Yilinker\\Bundle\\CoreBundle\\Services\\Cms\\PagesService::HOMEPAGE_WEB_V6_CONTENT_CATEGORIES_SECTION"))
+            %}
+                {{ include('YilinkerFrontendBundle:Home:v3/categories_section.html.twig', {
+                    title: data.content.title,
+                    categories: data.content.categories
+                }) }}
+            {#% elseif data.layoutId is defined and
+               data.layoutId is same as(constant("Yilinker\\Bundle\\CoreBundle\\Services\\Cms\\PagesService::HOMEPAGE_WEB_V6_CONTENT_CUSTOM"))
+            %}
+                {{ include('YilinkerFrontendBundle:Home:v3/custom_section.html.twig', {
+                    image: data.content.image,
+                    products: data.content.products
+                }) }#}
+            {% elseif data.layoutId is defined and
+               data.layoutId is same as(constant("Yilinker\\Bundle\\CoreBundle\\Services\\Cms\\PagesService::HOMEPAGE_WEB_V6_CONTENT_CATEGORY_SECTION"))
+            %}
+                {{ include('YilinkerFrontendBundle:Home:v3/category_section.html.twig', {
+                    category: data.content.category,
+                    image: data.content.image,
+                    targetUrl: data.content.targetUrl,
+                    products: data.content.products
+                }) }}
+            {#% elseif data.layoutId is defined and
+               data.layoutId is same as(constant("Yilinker\\Bundle\\CoreBundle\\Services\\Cms\\PagesService::HOMEPAGE_WEB_V6_CONTENT_PRODUCT_IMAGES"))
+            %#}
+                {# {{ include('YilinkerFrontendBundle:Home:v3/product_images.html.twig', {
+                    title: data.content.title,
+                    landing: data.content.landing,
+                    products: data.content.products
+                }) }} #}
+            {% endif %}
+{% endfor %}

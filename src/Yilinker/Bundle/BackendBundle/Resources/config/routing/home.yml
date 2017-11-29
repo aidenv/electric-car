@@ -1,0 +1,39 @@
+admin_home_page:
+    path: /
+    defaults: { _controller: YilinkerBackendBundle:Home:renderHomepage }
+
+admin_markups:
+    path: /markups
+    defaults: { _controller: YilinkerBackendBundle:Home:renderMarkups }
+
+admin_accessdenied:
+    path: /accessdenied
+    defaults: { _controller: YilinkerBackendBundle:Home:renderAccessDenied }
+
+admin_cmsproduct:
+    path: /cmsproduct
+    defaults: { _controller: YilinkerBackendBundle:Home:renderCmsProduct }
+
+admin_cmsproductdetails:
+    path: /cmsproductdetails
+    defaults: { _controller: YilinkerBackendBundle:Home:renderCmsProductDetails }
+
+admin_cmsbrand:
+    path: /cmsbrand
+    defaults: { _controller: YilinkerBackendBundle:Home:renderCmsBrand }
+
+admin_cmsbranddetails:
+    path: /cmsbranddetails
+    defaults: { _controller: YilinkerBackendBundle:Home:renderCmsBrandDetails }
+
+admin_cmsseller:
+    path: /cmsseller
+    defaults: { _controller: YilinkerBackendBundle:Home:renderCmsSeller }
+
+admin_cmssellerdetails:
+    path: /cmssellerdetails
+    defaults: { _controller: YilinkerBackendBundle:Home:renderCmsSellerDetails }
+
+admin_cmsbannerdetails:
+    path: /cmsbannerdetails
+    defaults: { _controller: YilinkerBackendBundle:Home:renderCmsBannerDetails }

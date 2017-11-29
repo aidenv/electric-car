@@ -1,0 +1,39 @@
+api_trading_product_list:
+    path: /api/v1/trading/get-products
+    defaults: { _controller: YilinkerBackendBundle:Api/TradingApi:getProducts }
+    methods: [GET]
+
+api_trading_order_list:
+    path: /api/v1/trading/get-orders
+    defaults: { _controller: YilinkerBackendBundle:Api/TradingApi:getOrders }
+    methods: [GET]
+
+api_trading_order_product_list:
+    path: /api/v1/trading/get-order-products
+    defaults: { _controller: YilinkerBackendBundle:Api/TradingApi:getOrderProducts }
+    methods: [GET]
+
+api_trading_get_product_unit_quantity:
+    path: /api/v1/trading/product/get-product-unit
+    defaults: { _controller: YilinkerBackendBundle:Api/TradingApi:getProductUnit }
+    methods: [GET]
+
+api_trading_get_supplier_balance:
+    path: /api/v1/trading/supplier/balance
+    defaults: { _controller: YilinkerBackendBundle:Api/TradingApi:getSupplierBalance }
+    methods: [GET]
+
+api_trading_transfer_balance:
+    path: /api/v1/trading/supplier/transfer-balance
+    defaults: { _controller: YilinkerBackendBundle:Api/TradingApi:requestSupplierBalanceTransfer }
+    methods: [POST]
+
+api_trading_supplier_collection:
+    path: /api/v1/trading/supplier/collection
+    defaults: { _controller: YilinkerBackendBundle:Api/TradingApi:getSupplierCollection }
+    methods: [GET]
+
+api_trading_categories:
+    path: /api/v1/trading/categories
+    defaults: { _controller: YilinkerBackendBundle:Api/TradingApi:getCategories }
+    methods: [GET]

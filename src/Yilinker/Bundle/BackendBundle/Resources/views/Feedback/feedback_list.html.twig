@@ -1,0 +1,71 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block body %}
+
+    <section class="payout box-section">
+
+        <div class="title-bar">
+            <div class="container">
+                <span>Feedback List</span>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+                            <div class="row gutters">
+                                <div class="col-md-12">
+                                    <table class="table basic feedback-list">
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>Phone Model</th>
+                                            <th>OS Version</th>
+                                            <th>OS Type</th>
+                                            <th>User Type</th>
+                                            <th>Date Added</th>
+                                        </tr>
+
+                                        {% for mobileFeeback in list.result %}
+                                            <tr class="{% if mobileFeeback.getIsSeen(app.user) %}read{% endif %}" data-id="{{ mobileFeeback.mobileFeedbackId }}">
+                                                <td> {{ mobileFeeback.mobileFeedbackId }} </td>
+                                                <td> {{ mobileFeeback.title }} </td>
+                                                <td>
+                                                    <div class="feedback-short-desc">
+                                                        {{ mobileFeeback.description }}
+                                                    </div>
+                                                </td>
+                                                <td> {{ mobileFeeback.phoneModel }} </td>
+                                                <td> {{ mobileFeeback.osVersion }} </td>
+                                                <td> {{ mobileFeeback.osName }} </td>
+                                                <td> {{ mobileFeeback.getUserType(true) }} </td>
+                                                <td> {{ mobileFeeback.dateAdded | date('M d Y') }} </td>
+                                            </tr>
+
+                                        {% endfor %}
+
+                                    </table>
+
+                                    {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: list.count, perPage: list.maxresult }) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/backend/feedback-list.js') }}"></script>
+{% endblock %}

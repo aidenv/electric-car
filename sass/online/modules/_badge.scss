@@ -1,0 +1,38 @@
+.badge{
+    padding: $padding-small-vertical $padding-small-horizontal;
+    background: $brand-gray-light;
+    border: solid $brand-gray-light 1px;
+    font-size: 0.9em;
+    border-radius: $border-radius-default;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    display: inline-block;
+
+    &.transparent{
+    	background: transparent;
+    }
+
+    &.red{
+        background: $brand-red;
+        border-color: $brand-red;
+        color: #fff;
+    }
+
+    &.blue{
+        background: $brand-blue;
+        border-color: $brand-blue;
+        color: #fff;
+    }
+
+    &.gray{
+        background: $brand-gray-dark;
+        border-color: $brand-gray-dark;
+        color: #fff;
+    }
+
+    &.yellow{
+        background: $brand-yellow;
+        border-color: $brand-yellow;
+        color: #fff;
+    }
+}

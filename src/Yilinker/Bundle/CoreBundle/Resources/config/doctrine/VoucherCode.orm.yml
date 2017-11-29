@@ -1,0 +1,32 @@
+Yilinker\Bundle\CoreBundle\Entity\VoucherCode:
+    type: entity
+    table: VoucherCode
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\VoucherCodeRepository
+    id:
+        voucherCodeId:
+            type: bigint
+            id: true
+            column: voucher_code_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            length: 255
+            column: code
+    manyToOne:
+        voucher:
+            targetEntity: Voucher
+            inversedBy: voucherCodes
+            joinColumn:
+                name: voucher_id
+                referencedColumnName: voucher_id
+            orphanRemoval: false
+    oneToMany:
+        orderVouchers:
+            targetEntity: OrderVoucher
+            mappedBy: voucherCode
+        disputeDetailVouchers:
+            targetEntity: DisputeDetailVoucher
+            mappedBy: voucherCode
+    lifecycleCallbacks: { }

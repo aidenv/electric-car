@@ -1,0 +1,19 @@
+api_merchant_balance_record_details:
+    path: /auth/bank/balanceRecordDetails
+    defaults: { _controller: YilinkerMerchantBundle:Api/PayoutApi:balanceRecordDetails }
+
+api_merchant_earning_list:
+    path: /auth/earning-list
+    defaults: { _controller: YilinkerMerchantBundle:Api/PayoutApi:earningList }
+
+api_merchant_withdrawal_request:
+    path: /auth/withdrawal-request
+    defaults: { _controller: YilinkerMerchantBundle:Api/PayoutApi:withdrawRequest }
+
+api_merchant_withdraw_list:
+    path: /auth/withdraw-list
+    defaults: { _controller: YilinkerMerchantBundle:Api/PayoutApi:withdrawalList }
+
+api_merchant_earning_groups:
+    path: /auth/earning-groups
+    defaults: { _controller: YilinkerMerchantBundle:Api/PayoutApi:earningGroups }

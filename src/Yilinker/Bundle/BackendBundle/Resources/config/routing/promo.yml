@@ -1,0 +1,28 @@
+yilinker_backend_promo_list:
+    path: /promo-management
+    defaults: { _controller: YilinkerBackendBundle:PromoManagement:renderPromoInstanceList }
+
+yilinker_backend_change_promo_status:
+    path: /changePromoStatus
+    defaults: { _controller: YilinkerBackendBundle:PromoManagement:changePromoStatus }
+    methods: [POST]
+
+yilinker_backend_delete_promo:
+    path: /deletePromo
+    defaults: { _controller: YilinkerBackendBundle:PromoManagement:deletePromo }
+    methods: [POST]
+
+yilinker_backend_check_promo_products:
+    path: /checkPromoProducts
+    defaults: { _controller: YilinkerBackendBundle:PromoManagement:checkPromoProducts }
+    methods: [POST]
+
+yilinker_backend_create_promo:
+    path: /createPromoInstance
+    defaults: { _controller: YilinkerBackendBundle:PromoManagement:createPromo }
+    methods: [POST]
+
+yilinker_backend_update_promo:
+    path: /updatePromoInstance
+    defaults: { _controller: YilinkerBackendBundle:PromoManagement:updatePromo }
+    methods: [POST]

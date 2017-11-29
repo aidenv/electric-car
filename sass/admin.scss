@@ -1,0 +1,36 @@
+
+//Admin
+@import "admin/base/variables";
+@import "admin/base/reset";
+@import "admin/base/base";
+
+@import "mixins/admin";
+@import "mixins/buttons";
+
+@import "admin/modules/navbar";
+@import "admin/modules/sidebar";
+
+@import "admin/modules/slick";
+@import "admin/modules/grid";
+@import "admin/modules/typography";
+@import "admin/modules/header";
+@import "admin/modules/icons";
+@import "admin/modules/buttons";
+@import "admin/modules/form";
+@import "admin/modules/table";
+@import "admin/modules/badge";
+@import "admin/modules/modal";
+@import "admin/modules/body";
+@import "admin/modules/box";
+@import "admin/modules/ui";
+@import "admin/modules/badge";
+
+@import "admin/pages/login";
+@import "admin/pages/dashboard";
+@import "admin/pages/accessdenied";
+@import "admin/pages/payout";
+@import "admin/pages/feedback";
+@import "admin/pages/productlisting";
+@import "admin/pages/accreditation";
+@import "admin/pages/cms";
+@import "admin/pages/promo";

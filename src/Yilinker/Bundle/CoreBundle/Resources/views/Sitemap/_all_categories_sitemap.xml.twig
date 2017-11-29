@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for categorie in categories %}
+    <url>
+        <loc>{{ path('get_category', { 'slug': categorie.slug }) }}</loc>
+        <priority>0.5</priority>
+    </url>
+{% endfor %}
+</urlset>

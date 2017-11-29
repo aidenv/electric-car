@@ -1,0 +1,41 @@
+{% set orderProduct = notification.data.orderProduct is defined ?
+                      notification.data.orderProduct: null
+%}
+
+{% set transactionURL = '#' %}
+{% if orderProduct %}
+    {% set invoiceNumber = orderProduct.order is defined ? orderProduct.order.invoiceNumber: null %}
+{% else %}
+    {% set invoiceNumber = null %}
+{% endif %}
+{% if invoiceNumber %}
+    {% set transactionURL = safe_route('dashboard_transaction_view', {invoice: invoiceNumber}) %}
+    {% if not transactionURL %}
+        {% set transactionURL = safe_route('profile_transaction_view', {invoice: invoiceNumber}) %}
+    {% endif %}
+{% endif %}
+
+<a href="{{ transactionURL }}">
+    <div class="notification-icon-container">
+        <span class="icon-circle-container">
+            <i class="icon icon-check"></i>
+        </span>
+    </div>
+    <div class="notification-details">
+        <span class="notification-description semi-bold">
+            Cancel Request for
+            x{{ orderProduct.quantity }} {{ orderProduct.productName }}
+            was
+            {% if notification.data.status == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\OrderProductCancellationDetail::DETAIL_STATUS_OPEN') %}
+                Reopened
+            {% elseif notification.data.status == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\OrderProductCancellationDetail::DETAIL_STATUS_APPROVED') %}
+                Approved
+            {% elseif notification.data.status == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\OrderProductCancellationDetail::DETAIL_STATUS_DENIED') %}
+                Denied
+            {% endif %}
+        </span>
+        <span class="notification-time light-color">
+            {{ notification.dateAdded.format('M d, Y g:i:sa')|time_elapsed }}
+        </span>
+    </div>
+</a>

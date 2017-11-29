@@ -1,0 +1,468 @@
+<!--[if IE]>
+  <div class="best-viewed">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="msg-1">This website uses features that are unavailable in your browser.
+        <span>Your current browser was developed over a decade ago,<span class="sub">its like watching TV in black and white in 2015!</span></span></p>
+      </div>
+      <div class="col-md-6">
+        <div class="suggested-browsers">
+          <p class="msg-2">Please view the website in one of these modern browsers</p>
+          <a href="https://www.google.com/chrome/browser/desktop">
+            <img src="{{ asset('images/chrome-icon.png') }}" width="32">
+            <span>download <br>google chrome</span>
+          </a>
+          <a href="https://www.mozilla.org/en-US/firefox/desktop">
+            <img src="{{ asset('images/firefox-icon.png') }}" width="32">
+            <span>download <br>mozilla firefox</span>
+          </a>
+          <a href="https://support.apple.com/downloads/safari">
+            <img src="{{ asset('images/safari-icon.png') }}" width="32">
+            <span>download <br>apple safari</span>
+          </a>
+        </div>
+      </div>
+      <a href="#" class="close"><span class="icon-times"></span></a>
+    </div>
+  </div>
+  <![endif]-->
+
+
+{# Responsive sidebar #}
+
+{% if currentRoute is same as("home_page") %}
+    {{ include('YilinkerFrontendBundle:Base:v2/header.html.twig') }}
+{% else %}
+    {% set wishlistCount = wishlist|length %}
+    {% set totalSidebarNotification = wishlistCount + messages %}
+    <div class="left-wing-mobile">
+        <div class="country-flag-mobile mrg-top-10">
+          {% for language in languages %}
+               <div class="image-holder active">
+                   <a href="/?_locale={{ language.code }}">
+                       <img src="{{ asset('images/country-flag/'~language.code|lower~'.png') }}" alt="{{ language.name }}" class="img-auto-place">
+                   </a>
+               </div>
+           {% endfor %}
+        </div>
+
+        <ul class="list-unstyled list-menu">
+            {% if app.user %}
+               {% if wishlist is not null %}
+                    <li>
+                        <a
+                            data-cart="{{ wishlist|json_encode }}"
+                            class="wishlist-header link-button wishlist-icon-link tooltip-cart"
+                            data-locale="{{ app.request.locale }}"
+                            data-title="{% trans %}You have{% endtrans %} <b>{items}</b> {% trans %}on your wishlist{% endtrans %}"
+                            title="You have <b>0 items</b> on your wishlist"
+                        >
+                            <i class="icon icon-heart"></i>
+                            {% trans %}Wishlist {% endtrans %}
+                            <span data-text="{n}" class="badge red pull-right item-counter" {% if wishlistCount <= 0 %} style="display:none;" {% endif %}>{{ wishlistCount }}</span>
+                        </a>
+                    </li>
+                {% endif %}
+            <li>
+                <a href="{{ path('profile_information') }}"><i class="icon icon-user icon-lg"></i>
+                    {% trans %}My Profile{% endtrans %}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('profile_transaction') }}"><i class="icon icon-transaction icon-lg"></i>
+                    {% trans %}Transaction{% endtrans %}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('profile_messages') }}"><i class="icon icon-envelope icon-lg"></i>
+                    {% trans %}Messages{% endtrans %}
+                    <span class="badge red pull-right unread-messages-badge" {% if messages <= 0 %} style="display:none;" {% endif %}>{{ messages }}</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('yilinker_frontend_points_index') }}"><i class="icon icon-points icon-lg"></i>
+                    {% trans %}My Points{% endtrans %}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('profile_settings') }}"><i class="icon icon-contact icon-lg"></i>
+                    {% trans %}Settings{% endtrans %}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('profile_resolution_center') }}"><i class="icon icon-settings icon-lg"></i>
+                    {% trans %}Resolution Center{% endtrans %}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('profile_help') }}"><i class="icon icon-circle-question-mark icon-lg"></i>
+                    {% trans %}Help{% endtrans %}
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+        <div class="menu-title">
+             {% trans %}Main Categories{% endtrans %}
+        </div>
+        <ul class="list-unstyled list-menu">
+          {% if categories != null %}
+          {% for categoryDetails in categories %}
+          <li>
+            <a href="{{ path('get_category', {slug: categoryDetails.category.slug}) }}">
+              <i class="icon icon-category-{{ categoryDetails.category.slug|default('') }}"></i>
+              <span class="name">{{ categoryDetails.category.name }}</span>
+            </a>
+          </li>
+          {% endfor %}
+          {% endif %}
+        </ul>
+    </div>
+
+    <div class="navbar navbar-default" data-base-uri="{{ baseUri }}" data-node-port="{{ nodePort }}">
+        <div class="navbar-group">
+                {% if store is defined and store %}
+                    {{ include('YilinkerFrontendBundle:Store:header.html.twig') }}
+                {% else %}
+                <div class="navbar-item brand">
+                    <a href="{{ path('home_page') }}">
+                        <img src="{{ asset('images/logo.png') }}" alt="YiLinker" class="img-responsive"/>
+                    </a>
+                </div>
+                <div class="navbar-item link-icons view-menu toggle-side-menu">
+                    <a class="link-button">
+                        <i class="icon icon-list-view"></i>
+                    </a>
+                </div>
+                <div class="navbar-item shop-by-category">
+                    <div class="category-nav-trigger">
+                        Shop by<br/>
+                        <b>Categories</b>
+                        <i class="icon icon-caret-down"></i>
+                        <div class="all-categories-bubble">
+                            <div class="all-category-navbar">
+                                <ul class="list-unstyled list-all-categories">
+                                    {% if categories != null %}
+                                        {% for categoryDetails in categories %}
+                                            <li data-ajaxed-content="[data-header-category='{{ categoryDetails.category.id }}']" data-url="{{ path('home_sub_categories', {id: categoryDetails.category.id }) }}">
+                                                <a href="javascript:void(0);" data-href="#main-{{ categoryDetails.category.id }}">
+                                                    <i class="icon icon-category-{{ categoryDetails.category.slug|default('') }}"></i>
+                                                    <span class="name">{{ categoryDetails.category.name }}</span>
+                                                    <span class="arrow-go">&rarr;</span>
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            {% if categories != null %}
+                                {% for categoryDetails in categories %}
+                                    <div class="category-board" id="main-{{ categoryDetails.category.id }}">
+                                        <div class="board-content">
+                                            <div class="sub-category-container">
+                                                <div data-header-category="{{ categoryDetails.category.id }}" class="row">
+
+                                                </div>
+                                            </div>
+                                            <div class="category-ads-container">
+                                                {% if categoryDetails.adBig != null %}
+                                                    <a href="{{ categoryDetails.adBig.target }}">
+                                                        <img src="{{ categoryDetails.adBig.image }}" alt="{{ categoryDetails.adBig.alt }}" title="{{ categoryDetails.adBig.title }}" class="img-full-width big-ad" />
+                                                    </a>
+                                                {% endif %}
+                                                {% if categoryDetails.adSmall != null %}
+                                                    <a href="{{ categoryDetails.adSmall.target }}">
+                                                        <img src="{{ categoryDetails.adSmall.image }}" alt="{{ categoryDetails.adSmall.alt }}" title="{{ categoryDetails.adSmall.title }}" class="img-full-width" />
+                                                    </a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-item search">
+                    <div class="input input-with-icon">
+                        <form action="{{ currentRoute is same as('search_seller')
+                                         ? path('search_seller')
+                                         : currentRoute is same as('yilinker_frontend_international_product_list')
+                                           ? path('yilinker_frontend_international_product_list')
+                                           : path('search_product') }}">
+                            <input type="text" name="query" placeholder="Search products, seller, categories, etc." class="navbar-search-field" autocomplete="off"/>
+                            <button class="blue">
+                                <i class="icon-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="suggested-search-container">
+                        <h6 class="bold uppercase mrg-bt-10">{% trans %} Suggested Search {% endtrans %}</h6>
+                        <ul class="list-unstyled list-suggested-search">
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="navbar-item text-search">
+                    <div class="overseas-modal-trigger pointer">
+                        <div class="overseas-icon">
+                            <img src="{{ asset('images/globalization/international-icon.png') }}" class="img-auto-place">
+                        </div>
+                        <div class="text">{% trans %} Items Overseas {% endtrans %}</div>
+                    </div>
+                </div>
+
+                {% endif %}
+                <div href="javascript:void(0);" class="navbar-item user-link country-language">
+                    <div class="navbar-dropdown">
+                        {% set currentLocale = app.getRequest().getLocale() %}
+                            <div class="user-image-container">
+                                <img src="{{ asset('images/country-flag/' ~ currentLocale ~ '.png') }}" alt="{{ currentLocale|upper }}" />
+                            </div>
+                            <span class="selected-country-code">{{ currentLocale|upper }}</span>
+                            <i class="icon icon-caret-down"></i>
+                        </div>
+                        <div class="navbar-dropdown-container hidden">
+                            <ul class="list-unstyled country-list">
+                                {% set availableLanguages = [{code: 'en', name: 'Philippines'}, {code: 'cn', name: 'China'}] %}
+                                 {% for language in availableLanguages %}
+                                 <li>
+                                     <a href="?_locale={{ language.code }}">
+                                         <span class="country-name">{{ language.name }}</span>
+                                         <div class="user-image-container country-list-img">
+                                             <img src="{{ asset('images/country-flag/'~language.code~'.png') }}" alt="{{ language.name|upper }}" />
+                                         </div>
+                                     </a>
+                                 </li>
+                                 {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="navbar-item link-icons country-overseas hover">
+                        <div class="link-button-group">
+                            <a class="link-button" href="{{globalDomainUrl}}">
+                                <img src="{{ asset('images/world-icon.png') }}" alt="YiLinker International" width="30" height="30" class="mrg-top-5">
+                            </a>
+                        </div>
+                        <div class="navbar-dropdown-container hidden">
+                            <ul class="list-unstyled country-list">
+
+                                {% for country in countries|slice(0, 5) %}
+                                    <li>
+                                        <a href="http://{{country.domain}}">
+                                            <div class="table-display country-flag-cell">
+                                                <div class="table-cell">
+                                                    <i class="flag-icon flag-icon-{{country.code|lower}} icon-2x"></i>
+                                                </div>
+                                                <div class="table-cell country-name-cell">
+                                                    <span class="country-name"> {{country.name}} </span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                                <li>
+                                    <a href="{{globalDomainUrl}}">
+                                        <div class="align-right">
+                                            more countries &rarr;
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="navbar-item link-icons mobile-app-qr hover">
+                        <div class="link-button-group">
+                            <a class="link-button">
+                                <i class="icon icon-mobile-phone"></i>
+                            </a>
+                        </div>
+                        <div class="navbar-dropdown-container hidden">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <a href="{{ path('download_app_webview') }}">
+                                        <img src="{{ asset('images/mobile-app/qr-app-prod.jpg') }}" alt="Android app" class="img-full-width">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar-item link-icons">
+                        <div class="link-button-group">
+                               {% if wishlist is not null %}
+                                <a data-cart="{{ wishlist|json_encode }}"
+                                   class="wishlist-header link-button wishlist-icon-link tooltip-cart"
+                                   data-locale="{{ app.request.locale }}"
+                                   data-title="{% trans %}You have{% endtrans %} <b>{items}</b> {% trans %}on your wishlist{% endtrans %}"
+                                   title="You have <b>0 items</b> on your wishlist">
+                                    <i class="icon icon-heart"></i>
+                                    <span data-text="{n}" class="item-counter" style="display: none"></span>
+                                </a>
+                                {% endif %}
+
+                                <a data-disable-payment="{{ disable_payment }}"
+                                   data-cart="{{ cart|json_encode }}"
+                                   class="cart-header link-button cart-icon-link tooltip-cart"
+                                   data-locale="{{ app.request.locale }}"
+                                   data-title="{% trans %}You have{% endtrans %} <b>{items}</b> {% trans %}on your cart{% endtrans %}"
+                                   title="You have <b>0 items</b> on your cart">
+                                   <i class="icon icon-shopping-cart"></i>
+                                   <span data-text="{n}" class="item-counter" style="display: none;">0</span>
+                                </a>
+                    </div>
+                </div>
+                {% if app.user %}
+
+                    <div href="#" class="navbar-item user-link">
+                        <span class="item-counter unread-messages-badge" {% if messages == 0 %} style="display:none;" {% endif %}>
+                            {{ messages  }}
+                        </span>
+                        <div class="navbar-dropdown">
+                            <div class="user-image-container" id="user-avatar">
+                                {% if userAvatar != null %}
+                                    <img data-token="{{ jwt }}" src="{{ asset(userAvatar.getImageLocationBySize("thumbnail"), 'user') }}" alt="{{ app.user.email }}">
+                                    {% else %}
+                                    <img data-token="{{ jwt }}" src="{{ asset('images/default-buyer.png') }}" alt="{{ app.user.email }}">
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="navbar-dropdown-container hidden">
+                            <ul class="list-unstyled">
+                                <li><a href="{{ path('profile_information') }}">{% trans %} Account Management {% endtrans %}</a></li>
+                                <li><a href="{{ path('profile_settings') }}">{% trans %} Settings {% endtrans %}</a></li>
+                                <li>
+                                    <a href="{{ path('profile_messages') }}">{% trans %} Messages {% endtrans %}
+                                        <span class="badge pull-right unread-messages-text" {% if messages == 0 %} style="display:none;" {% endif %}>
+                                            {{ messages }}
+                                        </span>
+                                    </a>
+                                </li>
+                                <li><a href="{{ path('profile_help') }}">{% trans %} Help {% endtrans %}</a></li>
+                                <li><a href="{{ path('user_logout') }}">{% trans %} Logout {% endtrans %}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="navbar-item sign-in-link">
+                        <a class="button default" href="{{ path('user_buyer_register') }}">{% trans %} Sign-Up {% endtrans %}</a>
+                        <a class="button default" href="{{ path('user_buyer_login') }}">{% trans %} Log-In {% endtrans %}</a>
+                    </div>
+                {% endif %}
+        </div>
+        <div class="navbar-group-mobile">
+            <div class="navbar-menu">
+                {% if not app.user %}
+                <div class="links">
+                    <a href="{{ merchant_hostname }}"><span>{% trans %} Be a Seller {% endtrans %}</span></a>
+                    <a href="{{ affiliate_hostname }}"><span>{% trans %} Be an Affiliate {% endtrans %}</span></a>
+                </div>
+                {% endif %}
+                <div class="account">
+                    {% if app.user %}
+                        <p>
+                            <strong>Hi {{ app.user.fullName == "" ?  app.user.contactNumber : app.user.fullName }}, </strong>
+                            <a href="{{ path('user_logout') }}">{% trans %} Logout {% endtrans %}</a>
+                        </p>
+
+                    {% else %}
+                        <a href="{{ path('user_buyer_register') }}" class="button blue"><span>{% trans %} Sign-Up {% endtrans %}</span></a>
+                        <a href="{{ path('user_buyer_login') }}" class="button blue"><span>{% trans %} Log-In {% endtrans %}</span></a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="navbar-top">
+                <div class="search-mobile-field-container">
+                  <i class="icon icon-arrow-short-left back"></i>
+                    {% set route = null %}
+                    {% if currentRoute is same as('search_seller') %}
+                        {% set route = path('search_seller') %}
+                    {% elseif
+                        store is defined and
+                        store is not same as(null) and
+                        currentRoute is same as(path('store_page_products', {"slug":store.storeSlug}))
+                     %}
+                        {% set route = null %}
+                    {% else %}
+                        {% set route = path('search_product') %}
+                    {% endif %}
+                    <form action="{{ route }}" name="mobile-keyword-search" data-path="{{ route }}">
+                        <input
+                            type="text"
+                            name="{{ route is same as(null)? 'q' : 'query' }}"
+                            class="search-mobile-field navbar-search-field"
+                            placeholder="{{ route is same as(null)? 'Search product here' : 'Search product or seller here' }}"/>
+                    </form>
+                    <div class="suggested-search-container">
+                        <h6 class="bold uppercase mrg-bt-10">{% trans %} Suggested Search {% endtrans %}</h6>
+                        <ul class="list-unstyled list-suggested-search"></ul>
+                    </div>
+                </div>
+                <div class="default">
+                    <div class="open-category-mobile">
+                        <span class="icon-burger"></span>
+                        <span class="counter notifications-badge" {% if totalSidebarNotification <= 0 %} style="display:none;" {% endif %}>
+                            {{ totalSidebarNotification }}
+                        </span>
+                    </div>
+                    <div class="open-search-trigger">
+                        <i class="icon icon-search"></i>
+                    </div>
+                    <div class="brand-mobile">
+                        <a href="{{ path('home_page') }}">
+                            <img src="{{ asset('images/logo-main-inverted.svg') }}" alt="YiLinker" class="logo-mobile">
+                        </a>
+                    </div>
+                    <div class="cart-mobile">
+                        <a
+                            data-disable-payment="{{ disable_payment }}"
+                            data-cart="{{ cart|json_encode }}"
+                            class="link-button cart-icon-link tooltip-cart cart-header"
+                            data-locale="{{ app.request.locale }}"
+                            data-title="{% trans %}You have{% endtrans %} <b>{items}</b> {% trans %}on your cart{% endtrans %}"
+                            title="You have <b>0 items</b> on your cart"
+                        >
+                            <i class="icon icon-shopping-cart"></i>
+                            <span data-text="{n}" class="counter item-counter" {% if cart|length <= 0 %} style="display:none;" {% endif %}>
+                                {{ cart|length }}
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Cart and wishlist modal-->
+        {{ include('YilinkerFrontendBundle:Base:cart.html.twig') }}
+        {{ include('YilinkerFrontendBundle:Base:wishlist.html.twig') }}
+        {{ include('YilinkerFrontendBundle:Base:overseas_modal.html.twig') }}
+    </div>
+{% endif %}
+
+<script type="application/ld+json">
+{
+    "@context":"http://schema.org",
+    "@type":"Organization",
+    "name":"YiLinker",
+    "url":"{{ frontend_hostname ~ path('home_page') }}",
+    "logo":"{{ asset('images/logo-main.png') }}",
+    "contactPoint":[
+        {
+            "@type":"ContactPoint",
+            "telephone":"{{ support_mobile }}",
+            "contactType":"customer service"
+        }
+    ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "{{ frontend_hostname }}",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ frontend_hostname }}{{ currentRoute is same as('search_seller')? path('search_seller') : path('search_product') }}?&q={query}",
+      "query-input": "required name=query"
+    }
+}
+</script>

@@ -1,0 +1,57 @@
+<div class="top_right_container">
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="slider-wrapper">
+                <div class="home-slider-dummy">
+                    {% if homeData.main.mainBanner|length > 0 %}
+                        {% for mainBanner in homeData.main.mainBanner %}
+                            <div class="slide item">
+                                <a href="{{ mainBanner.target }}" >
+                                    <img src="{{ mainBanner.image }}" title="{{ mainBanner.title }}" alt="{{ mainBanner.alt }}" />
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="home-slider-top">
+                    {% if homeData.main.mainBanner|length > 0 %}
+                        {% for mainBanner in homeData.main.mainBanner %}
+                            <div class="slide item">
+                                <a href="{{ mainBanner.target }}" >
+                                    <img src="{{ mainBanner.image }}" title="{{ mainBanner.title }}" alt="{{ mainBanner.alt }}" />
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 mobile-hide">
+            <div class="extra-info-container">
+                {% if homeData.main.topRight|length > 0 %}
+                    {% for topRight in homeData.main.topRight %}
+                        <div class="image-container">
+                            <a href="{{ topRight.target }}">
+                                <img src="{{ topRight.image }}" title="{{ topRight.title }}" alt="{{ topRight.alt }}" class="img-full-width"/>
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="top-right-ads">
+        <div class="row no-gutter-mobile">
+            {% if homeData.main.bottomBanner|length > 0 %}
+                {% for bottomBanner in homeData.main.bottomBanner %}
+                    <div class="col-xs-6">
+                        <a href="{{ bottomBanner.target }}">
+                            <img src="{{ bottomBanner.image }}" title="{{ bottomBanner.title }}" alt="{{ bottomBanner.alt }}" class="img-full-width"/>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>

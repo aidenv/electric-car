@@ -1,0 +1,56 @@
+Yilinker\Bundle\CoreBundle\Entity\DisputeDetail:
+    type: entity
+    table: DisputeDetail
+    indexes:
+        dispute_disputee_id_user_user_id_idx:
+            columns:
+                - disputee_id
+        dispute_order_product_id_order_product_order_product_id_idx:
+            columns:
+                - order_product_id
+        dispute_dispute_id_dispute_dispute_id_idx:
+            columns:
+                - dispute_id
+    id:
+        disputeDetailId:
+            type: bigint
+            id: true
+            column: dispute_detail_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        status:
+            type: smallint
+            options:
+                default: 1
+    manyToOne:
+        orderProductStatus:
+            targetEntity: OrderProductStatus
+            joinColumn:
+                name: order_product_status_id
+                referencedColumnName: order_product_status_id
+            orphanRemoval: false
+        orderProduct:
+            targetEntity: OrderProduct
+            joinColumn:
+                name: order_product_id
+                referencedColumnName: order_product_id
+            orphanRemoval: false
+        disputee:
+            targetEntity: User
+            joinColumn:
+                name: disputee_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        dispute:
+            targetEntity: Dispute
+            inversedBy: disputeDetails
+            joinColumn:
+                name: dispute_id
+                referencedColumnName: dispute_id
+            orphanRemoval: false
+    oneToOne:
+        disputeDetailVoucher:
+            targetEntity: DisputeDetailVoucher
+            mappedBy: disputeDetail
+    lifecycleCallbacks: {  }

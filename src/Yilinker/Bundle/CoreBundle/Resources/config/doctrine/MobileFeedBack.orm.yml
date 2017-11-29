@@ -1,0 +1,73 @@
+Yilinker\Bundle\CoreBundle\Entity\MobileFeedBack:
+    type: entity
+    table: MobileFeedBack
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\MobileFeedBackRepository
+    id:
+        mobileFeedbackId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: mobile_feedback_id
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+        description:
+            type: string
+            nullable: false
+            length: 1000
+            fixed: false
+            comment: ''
+        phoneModel:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            column: phone_model
+        osVersion:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            column: os_version
+        osName:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            column: os_name
+        userType:
+            type: smallint
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            column: user_type
+        dateAdded:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: CURRENT_TIMESTAMP
+            column: date_added
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    oneToMany:
+        mobileFeedbackAdmins:
+            targetEntity: MobileFeedBackAdmin
+            mappedBy: mobileFeedback
+    lifecycleCallbacks: {  }

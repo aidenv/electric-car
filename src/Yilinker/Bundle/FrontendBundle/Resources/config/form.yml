@@ -1,0 +1,82 @@
+services:
+
+#Form types
+
+    yilinker_front_end.form.type.yilinker_base_form_type:
+        class: Yilinker\Bundle\FrontendBundle\Form\Type\YilinkerBaseFormType
+        arguments:
+            default_options:
+                intention: '%csrf_default_intention%'
+
+    yilinker_front_end.form.type.user_login:
+        class: Yilinker\Bundle\FrontendBundle\Form\Type\UserLoginFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: user_login }
+
+    yilinker_front_end.form.type.user_details_update:
+        class: Yilinker\Bundle\FrontendBundle\Form\Type\UserDetailsUpdateFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: user_details_update }
+
+    yilinker_front_end.form.type.user_reset_password:
+        class: Yilinker\Bundle\FrontendBundle\Form\Type\UserResetPasswordFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: user_reset_password }
+
+    yilinker_front_end.form.type.user_guest:
+        class: Yilinker\Bundle\FrontendBundle\Form\Type\UserGuestFormType
+        arguments:
+            - '@yilinker_core.service.account_manager'
+            - '@yilinker_front_end.service.user.account_manager'
+            - '@yilinker_core.security.authentication'
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: form.type, alias: user_guest }
+
+    yilinker_front_end.form.type.old.user_guest:
+        class: Yilinker\Bundle\FrontendBundle\Form\Type\OldUserGuestFormType
+        arguments:
+            - '@yilinker_core.service.account_manager'
+            - '@yilinker_front_end.service.user.account_manager'
+            - '@yilinker_core.security.authentication'
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: form.type, alias: old_user_guest }
+
+    yilinker_front_end.form.type.email_newsletter:
+        class: Yilinker\Bundle\FrontendBundle\Form\Type\EmailNewsletterFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: email_newsletter }
+
+    yilinker_front_end.form.type.buyer_profile:
+        class: Yilinker\Bundle\FrontendBundle\Form\Type\BuyerProfileFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: buyer_profile }
+
+# API Form types
+
+    yilinker_front_end.form.type.api.user_register:
+        class: Yilinker\Bundle\FrontendBundle\Form\Type\Api\UserRegisterFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: api_user_register }
+
+    yilinker_front_end.form.type.api.update_buyer_info:
+        class: Yilinker\Bundle\FrontendBundle\Form\Type\Api\UpdateUserInfoFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: update_buyer_info }
+
+# Constraints
+
+    yilinker_front_end.form.validator.constraint.unique_username:
+        class: Yilinker\Bundle\FrontendBundle\Form\Validator\Constraints\UniqueUsernameValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.user'
+        tags:
+            - { name: validator.constraint_validator, alias: unique_username }

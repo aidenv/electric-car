@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if verificationErrors is not defined %}
+        Page not found | YiLinker Online.com
+    {% else %}
+        Request is expired | YiLinker Online.com
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="static">
+        <div class="parallax-container">
+            <ul id="scene-image" data-friction-x="0.1" data-calibrate-x="true" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="15">
+                <li class="layer" data-depth="0.40"><img src="{{ asset('images/new-404/building-back.png') }}" alt=""></li>
+                <li class="layer" data-depth="0.20"><img src="{{ asset('images/new-404/clouds-back.png') }}" alt=""></li>
+                <li class="layer" data-depth="0.30"><img src="{{ asset('images/new-404/building-front.png') }}" alt=""></li>
+                <li class="layer" data-depth="0.10"><img src="{{ asset('images/new-404/clouds-front.png') }}" alt=""></li>
+                <li class="layer" data-depth="0.20"><img src="{{ asset('images/new-404/monster.png') }}" alt="monster" class="monster"></li>
+                <li class="layer wave light" data-depth="0.30"><img src="{{ asset('images/new-404/wave-light.png') }}" alt="wave"></li>
+                <li class="layer wave light extend-left" data-depth="0.30"><img src="{{ asset('images/new-404/wave-light.png') }}" alt="wave"></li>
+                <li class="layer wave light extend-right" data-depth="0.30"><img src="{{ asset('images/new-404/wave-light.png') }}" alt="wave"></li>
+                <li class="layer wave dark" data-depth="0.10"><img src="{{ asset('images/new-404/wave-dark.png') }}" alt="wave"></li>
+                <li class="layer wave dark extend-left" data-depth="0.10"><img src="{{ asset('images/new-404/wave-dark.png') }}" alt="wave"></li>
+                <li class="layer wave dark extend-right" data-depth="0.10"><img src="{{ asset('images/new-404/wave-dark.png') }}" alt="wave"></li>
+                <li class="layer wave bottom" data-depth="0.10"><img src="{{ asset('images/new-404/wave-bottom.png') }}" alt="wave"></li>
+                <li class="layer wave bottom extend-left" data-depth="0.10"><img src="{{ asset('images/new-404/wave-bottom.png') }}" alt="wave"></li>
+                <li class="layer wave bottom extend-right" data-depth="0.10"><img src="{{ asset('images/new-404/wave-bottom.png') }}" alt="wave"></li>
+                
+               
+            </ul>
+
+            <ul id="scene-message" data-friction-x="0.1" data-calibrate-x="true" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="15">
+                <li class="layer description" data-depth="0.20" >
+                    <h4 class="description-404">
+                        Hmmm, are you sure you are supposed to be here?
+                    </h4>
+                </li>
+                <li class="layer align-center title-head" data-depth="0.10" >
+                    <div class="title-404 purple-color">
+                        <h4 class="uppercase bold">Error</h4>
+                        <h1 class="uppercase bold">404</h1>
+                    </div>
+                    {% if verificationErrors is not defined %}
+                    <div class="align-center mrg-top-20">
+                        <a href="{{ redirectUrl|default('/') }}" class="button large basic-gray button-rounded-side bold">
+                            Continue Shopping <b class="fa fa-3x">&#8594;</b></a>
+                        </a>
+                    </div>
+                    {% else %}
+                        <h4 class="light">{{ verificationErrors.message }}</h4>
+                        <div class="align-center mrg-top-20">
+                            <a href="{{ redirectUrl|default('/') }}" class="button large basic-gray button-rounded-side bold">
+                             {{ verificationErrors.buttonMessage }} <b class="fa fa-3x">&#8594;</b></a>
+                             </a>
+                        </div>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bower/jquery.parallax.min.js') }}"></script>
+    <script src="{{ asset('js/src/error-404.js') }}"></script>
+{% endblock %}

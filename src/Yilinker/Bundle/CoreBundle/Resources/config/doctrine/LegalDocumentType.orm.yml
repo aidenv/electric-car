@@ -1,0 +1,14 @@
+Yilinker\Bundle\CoreBundle\Entity\LegalDocumentType:
+    type: entity
+    table: LegalDocumentType
+    id:
+        legalDocumentTypeId:
+            type: bigint
+            column: legal_document_type_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            length: 255
+    lifecycleCallbacks: {  }

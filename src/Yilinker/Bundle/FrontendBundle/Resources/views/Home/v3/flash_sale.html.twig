@@ -1,0 +1,50 @@
+{% if flashSaleContent is defined and flashSaleContent.isCurrent is defined %}
+    <div class="border mrg-top-40" data-flash-sale-content="{{ flashSaleContent|json_encode }}">
+        <div class="row no-gutter">
+            <div class="col-md-4">
+                <div class="flash-sale">
+                    <div class="flash-banner">
+                        {% if banner.image is defined %}
+                            <a href="{{ banner.target }}">
+                                <img data-original="{{ banner.image }}" alt="{{ banner.alt }}" title="{{ banner.title }}" class="lazy img-full-width">
+                                <noscript>
+                                    <img src="{{ banner.image }}" alt="{{ banner.alt }}" title="{{ banner.title }}" class="img-full-width">
+                                </noscript>
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="flash-timer-wrapper">
+                        {% if flashSaleContent.isCurrent is same as(true) %}
+                            <div class="align-center">
+                                <img src="{{ asset('images/new-home-page-products/flash-sale-banner-title.jpg')}}" alt="Hurry before its over"/>
+                                <b class="flash-timer">
+                                    <span class="timer hours-enabled" data-expiration="{{ flashSaleContent.dateEnd|date('U') }}">{{ remaining_time(flashSaleContent.dateEnd, constant('Yilinker\\Bundle\\CoreBundle\\Twig\\CustomExtension::REMAINING_TIME_TYPE_WHOLE')) }}
+                                    </span>
+                                    hrs
+                                </b>
+                                <b class="">remaining</b>
+                            </div>
+                        {% elseif flashSaleContent.isUpcoming is same as(true) %}
+                            <div class="light-color align-center uppercase mrg-top-10 upcoming-label">
+                                <b>UPCOMING<br /> {{ flashSaleContent.dateStart|date("g:i A") }}</b>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% if
+                flashSaleContent.currentPromoProducts is defined and
+                flashSaleContent.currentPromoProducts is not empty and
+                is_current_or_upcoming(flashSaleContent.isUpcoming, flashSaleContent.isCurrent) is same as(true)
+            %}
+                {% for product in flashSaleContent.currentPromoProducts %}
+                    {% if product.productId is defined %}
+                        {{ include('YilinkerFrontendBundle:Product:v2/product_details.html.twig', {
+                        product: product
+                        }) }}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

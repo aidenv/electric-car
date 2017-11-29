@@ -1,0 +1,17 @@
+Yilinker\Bundle\CoreBundle\Entity\SearchKeyword:
+    type: entity
+    table: SearchKeyword
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\SearchKeywordRepository
+    id:
+        searchKeywordId:
+            type: integer
+            id: true
+            column: search_keyword_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        keyword:
+            length: 255
+            options:
+                default: ''
+    lifecycleCallbacks: {  }

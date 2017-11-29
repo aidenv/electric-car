@@ -1,0 +1,84 @@
+Yilinker\Bundle\CoreBundle\Entity\OrderConsigneeAddress:
+    type: entity
+    id:
+        orderConsigneeAddressId:
+            type: integer
+            id: true
+            column: order_consignee_address_id
+            unsigned: false
+            generator:
+                strategy: IDENTITY
+    indexes:
+        fk_userorderaddress_locationid_location_locationid_idx:
+            columns:
+                - location_id
+    fields:
+        dateAdded:
+            type: datetime
+            column: date_added
+        streetAddress:
+            length: 1024
+            column: street_address
+            nullable: true
+            options:
+                default: ''
+        longitude:
+            precision: 10
+            scale: 6
+            nullable: true
+            options:
+                default: ''
+        latitude:
+            precision: 10
+            scale: 6
+            nullable: true
+            options:
+                default: ''
+        landline:
+            type: string
+            length: 45
+            nullable: true
+            options:
+                default: ''
+        unitNumber:
+            type: string
+            length: 45
+            column: unit_number
+            nullable: true
+        buildingName:
+            type: string
+            column: building_name
+            length: 255
+            nullable: true
+        streetNumber:
+            type: ~
+            length: 25
+            column: street_number
+            nullable: true
+        streetName:
+            type: string
+            column: street_name
+            length: 255
+            nullable: true
+        subdivision:
+            type: string
+            length: 255
+            nullable: true
+        zipCode:
+            type: string
+            column: zip_code
+            length: 45
+            nullable: true
+        title:
+            type: ~
+            length: 255
+            options:
+                default: ''
+    manyToOne:
+        location:
+            targetEntity: Location
+            joinColumn:
+                name: location_id
+                referencedColumnName: location_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

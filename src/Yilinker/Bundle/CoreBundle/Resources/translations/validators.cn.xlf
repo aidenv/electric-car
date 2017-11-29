@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="cn" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="e1d71afa5924225a0613d2ef7a29cba6" resname="Voucher code 
+name is required">
+        <source>Voucher code name is required</source>
+        <target>填写优惠券编码名</target>
+      </trans-unit>
+      <trans-unit id="f2a7f16fba0d6dc75a5785faf2cfe033" resname="Quantity is required">
+        <source>Quantity is required</source>
+        <target>填写数量</target>
+      </trans-unit>
+      <trans-unit id="020c78de64592aa8eff1aeceda2ccc07" resname="Voucher's value is required">
+        <source>Voucher's value is required</source>
+        <target>优惠券价值需要填写</target>
+      </trans-unit>
+      <trans-unit id="60aa427e5b12ecfd331f3cba7e8f0856" resname="End Date must be greater than or equal today">
+        <source>End Date must be greater than or equal today</source>
+        <target>结束日期大于或等于今日</target>
+      </trans-unit>
+      <trans-unit id="23c1d3f190b0958d943e11ac317b5ed9" resname="Cancellation reason is required">
+        <source>Cancellation reason is required</source>
+        <target>需要填写取消原因</target>
+      </trans-unit>
+      <trans-unit id="ecdc4cced0009c9cd1a516306d6f3da5" resname="No Order Product is selected">
+        <source>No Order Product is selected</source>
+        <target>订单产品未选</target>
+      </trans-unit>
+      <trans-unit id="9b045b4bb086a7b35b90647bca855b1b" resname="Remark is required">
+        <source>Remark is required</source>
+        <target>需填写备注</target>
+      </trans-unit>
+      <trans-unit id="ceda37176ac45f1239ad292900988f45" resname="Address title can only be up to %limit% characters">
+        <source>Address title can only be up to %limit% characters</source>
+        <target>地址名限于 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="5d69121989e6cf4fa607e0f71e158da6" resname="This value is too short. It should have %limit% character or more.|This value is too short. It should have %limit% characters or more.">
+        <source>This value is too short. It should have %limit% character or more.|This value is too short. It should have %limit% characters or more.</source>
+        <target>值过小,至少有%limit% 字符或更多. |值过小,至少有%limit% 字符或更多.</target>
+      </trans-unit>
+      <trans-unit id="85b12d8e5990956bff2859e56497f8c9" resname="This value should have exactly %limit% character.|This value should have exactly %limit% characters.">
+        <source>This value should have exactly %limit% character.|This value should have exactly %limit% characters.</source>
+        <target>应有%limit% 字符.|应有%limit% 字符.</target>
+      </trans-unit>
+      <trans-unit id="0e269fac2b15b7fd12566625556561e7" resname="This value does not match the expected %charset% charset.">
+        <source>This value does not match the expected %charset% charset.</source>
+        <target>值与%charset%字符集不符.</target>
+      </trans-unit>
+      <trans-unit id="98aacaed1fba37cfc5bec85e40c1b595" resname="Unit number can only be up to %limit% characters">
+        <source>Unit number can only be up to %limit% characters</source>
+        <target>单位不能超过%limit%字符</target>
+      </trans-unit>
+      <trans-unit id="1cf42cf91aae19a43959e5e1606c0f1c" resname="Building name can only be up to %limit% characters">
+        <source>Building name can only be up to %limit% characters</source>
+        <target>建立名称限于 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="f76980a52fe42759ed742143c6bb1719" resname="Street number can only be up to %limit% characters">
+        <source>Street number can only be up to %limit% characters</source>
+        <target>街道输入限于 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="c8cf176c9c758ea6c30103c09237cc16" resname="Street name cannot be empty">
+        <source>Street name cannot be empty</source>
+        <target>街道名称不能空白</target>
+      </trans-unit>
+      <trans-unit id="b230acaf93e73b41a21929348c48583d" resname="Street name is required">
+        <source>Street name is required</source>
+        <target>需要填写街道名</target>
+      </trans-unit>
+      <trans-unit id="e5263accaa97be3b951ded360f52b1ae" resname="Street name can only be up to %limit% characters">
+        <source>Street name can only be up to %limit% characters</source>
+        <target>街道名限于 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="d896a4b18e701708c97131703b869656" resname="Subdivision can only be up to %limit% characters">
+        <source>Subdivision can only be up to %limit% characters</source>
+        <target>细分不能超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="2ba07818dfe2242c53f14169d5def692" resname="Zip code can only be up to %limit% characters">
+        <source>Zip code can only be up to %limit% characters</source>
+        <target>邮编限于 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="359ab544faf5452066b1eb6765798687" resname="Description is required">
+        <source>Description is required</source>
+        <target>需要描述</target>
+      </trans-unit>
+      <trans-unit id="caf57bac80302530124a084701e9c019" resname="Message is required">
+        <source>Message is required</source>
+        <target>需要信息</target>
+      </trans-unit>
+      <trans-unit id="cf9b8eeb4bb9a142f909b3ea91c8b92f" resname="No Order Product Status is selected">
+        <source>No Order Product Status is selected</source>
+        <target>产品订单状态未选择</target>
+      </trans-unit>
+      <trans-unit id="8346592c1ca9306c23b83822c09ffb01" resname="No Reason is selected">
+        <source>No Reason is selected</source>
+        <target>原因未选择</target>
+      </trans-unit>
+      <trans-unit id="39992a3b71b682b0d52c4c1d9f39a661" resname="Field is required.">
+        <source>Field is required.</source>
+        <target>字段需要.</target>
+      </trans-unit>
+      <trans-unit id="7f093873375d4313403f4f04628671d5" resname="Verification code is either invalid or expired.">
+        <source>Verification code is either invalid or expired.</source>
+        <target>验证码过期或者无效.</target>
+      </trans-unit>
+      <trans-unit id="8e300143f44e320b75961b878e5aa5c5" resname="Name should not be blank">
+        <source>Name should not be blank</source>
+        <target>名字必须填写</target>
+      </trans-unit>
+      <trans-unit id="f9514af8b99096408b3cbd697f700458" resname="value is required">
+        <source>value is required</source>
+        <target>需要填写值</target>
+      </trans-unit>
+      <trans-unit id="f67cc01f37ee0e09de75f94dc2aeec8c" resname="This value should be %limit% or less.">
+        <source>This value should be %limit% or less.</source>
+        <target>值应 %limit% 或少于.</target>
+      </trans-unit>
+      <trans-unit id="50ce8a8caecb15b638fa1728f5c81b8a" resname="value must be equal or greater than 0">
+        <source>value must be equal or greater than 0</source>
+        <target>值要等于或大于 0</target>
+      </trans-unit>
+      <trans-unit id="b64523324ec5a2bf17b5574068edd7a4" resname="This value should be a valid number.">
+        <source>This value should be a valid number.</source>
+        <target>值应是有效数字.</target>
+      </trans-unit>
+      <trans-unit id="2fd8b837f0692614540e421504556427" resname="Captcha is required.">
+        <source>Captcha is required.</source>
+        <target>需要验证码.</target>
+      </trans-unit>
+      <trans-unit id="46b8bc278834ffcd40779b64825e77d0" resname="Password field is required">
+        <source>Password field is required</source>
+        <target>需要密码</target>
+      </trans-unit>
+      <trans-unit id="f3411184e3120c4ed1e8099c662d3d3b" resname="Password can only be up to %limit% characters">
+        <source>Password can only be up to %limit% characters</source>
+        <target>密码限于 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="3ff7f5e2593b14e7ecf08d7170f95cf7" resname="Password must be atleast %limit% characters">
+        <source>Password must be atleast %limit% characters</source>
+        <target>密码不少于 %limit%字符</target>
+      </trans-unit>
+      <trans-unit id="d96dd1aac8b6c52f4c0cc4ccb29adbad" resname="Password must contain at least one number and minimum of 8 alphabetic characters">
+        <source>Password must contain at least one number and minimum of 8 alphabetic characters</source>
+        <target>密码应包含至少8个字母</target>
+      </trans-unit>
+      <trans-unit id="49e0db4418b51d195876011368c70fe6" resname="Mobile verification is required">
+        <source>Mobile verification is required</source>
+        <target>需要手机验证</target>
+      </trans-unit>
+      <trans-unit id="7564a737c7f15057831cb02f13fed91f" resname="Mobile verification is required can only be up to %limit% characters">
+        <source>Mobile verification is required can only be up to %limit% characters</source>
+        <target>手机验证需要不少于 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="6dff4e6a9b9284e6920be42f76ae60f8" resname="Please upload a valid jpeg/png/pdf file">
+        <source>Please upload a valid jpeg/png/pdf file</source>
+        <target>请上传有效 jpeg/png/pdf 文件</target>
+      </trans-unit>
+      <trans-unit id="e3fec7c28c52e6676069411a5ab21c53" resname="The size of the image could not be detected.">
+        <source>The size of the image could not be detected.</source>
+        <target>图片大小无法检测.</target>
+      </trans-unit>
+      <trans-unit id="d34a3e8c6d3a52cbead84e56da285d4b" resname="The image width is too small (%width%px). Minimum width expected is %min_width%px.">
+        <source>The image width is too small (%width%px). Minimum width expected is %min_width%px.</source>
+        <target>图片宽度不够 (%width%px). 最小宽度%min_width%px.</target>
+      </trans-unit>
+      <trans-unit id="5a97575873324eda599c54428e9e03ee" resname="The image height is too small (%height%px). Minimum height expected is %min_height%px.">
+        <source>The image height is too small (%height%px). Minimum height expected is %min_height%px.</source>
+        <target>图片高度不够 (%height%px).最小高度%min_height%px.</target>
+      </trans-unit>
+      <trans-unit id="ca07033b68a7ca38b5b73440746a052b" resname="The image height is too big (%height%px). Allowed maximum height is %max_height%px.">
+        <source>The image height is too big (%height%px). Allowed maximum height is %max_height%px.</source>
+        <target>图片高度过大 (%height%px). 高度上限 %max_height%px.</target>
+      </trans-unit>
+      <trans-unit id="d4a13fe83d5768ca8a94dcd014aac3ea" resname="The image ratio is too small (%ratio%). Minimum ratio expected is %min_ratio%.">
+        <source>The image ratio is too small (%ratio%). Minimum ratio expected is %min_ratio%.</source>
+        <target>图片比例过小 (%ratio%). 最小比例 %min_ratio%.</target>
+      </trans-unit>
+      <trans-unit id="6a9c7d038ed21c0aa5f2e29a7e761f08" resname="The image ratio is too big (%ratio%). Allowed maximum ratio is %max_ratio%.">
+        <source>The image ratio is too big (%ratio%). Allowed maximum ratio is %max_ratio%.</source>
+        <target>图片比例过大 (%ratio%). 比例上限 %max_ratio%.</target>
+      </trans-unit>
+      <trans-unit id="0698c5afbe76e0bd8dffb9ebf36ceea7" resname="The image is square (%width%x%height%px). Square images are not allowed.">
+        <source>The image is square (%width%x%height%px). Square images are not allowed.</source>
+        <target>图片是正方形 (%width%x%height%px). 不接受正方形.</target>
+      </trans-unit>
+      <trans-unit id="4c2e0ef3efe543cd1ff7d85a13bd6f14" resname="The image is landscape oriented (%width%x%height%px). Landscape oriented images are not allowed.">
+        <source>The image is landscape oriented (%width%x%height%px). Landscape oriented images are not allowed.</source>
+        <target>图片为风景画(%width%x%height%px). 不接受风景画.</target>
+      </trans-unit>
+      <trans-unit id="2d5416ba51225345b6b29fd32bf1e471" resname="The image is portrait oriented (%width%x%height%px). Portrait oriented images are not allowed.">
+        <source>The image is portrait oriented (%width%x%height%px). Portrait oriented images are not allowed.</source>
+        <target>图片是画像 (%width%x%height%px). 不接受画像.</target>
+      </trans-unit>
+      <trans-unit id="19e0f27cb89e7dce1c19c10c38a8ec4a" resname="The file could not be found.">
+        <source>The file could not be found.</source>
+        <target>无法找到文件.</target>
+      </trans-unit>
+      <trans-unit id="844367449082fa76dfffc4f1ae31c69a" resname="The file is not readable.">
+        <source>The file is not readable.</source>
+        <target>文件不可读.</target>
+      </trans-unit>
+      <trans-unit id="b1b0c35f8f00e2b4485c159b8d6fcd0c" resname="The file is too large (%size% %suffix%). Allowed maximum size is %limit% %suffix%.">
+        <source>The file is too large (%size% %suffix%). Allowed maximum size is %limit% %suffix%.</source>
+        <target>文件过大 (%size% %suffix%). 最大上限 %limit% %suffix%.</target>
+      </trans-unit>
+      <trans-unit id="5b67b5c852b5415cd1852d8979908dc9" resname="An empty file is not allowed.">
+        <source>An empty file is not allowed.</source>
+        <target>不接受空白文件.</target>
+      </trans-unit>
+        <trans-unit id="f7f6b17d56bb74713c2e11b0e37823e9" resname="The file is too large. Allowed maximum size is %limit% %suffix%.">
+        <source>The file is too large. Allowed maximum size is %limit% %suffix%.</source>
+        <target>文件过大. 最大上限 %limit% %suffix%.</target>
+      </trans-unit>
+        <trans-unit id="40f9f62de5a8ccf912bc1cd19d515dd2" resname="The file is too large.">
+        <source>The file is too large.</source>
+        <target>文件过大.</target>
+      </trans-unit>
+        <trans-unit id="3357baa9b7aecc3a02e243fe11fbe5bf" resname="The file was only partially uploaded.">
+        <source>The file was only partially uploaded.</source>
+        <target>文件只上传了部分不完整.</target>
+      </trans-unit>
+        <trans-unit id="8c9067e52e4440d8a20e74fdc745b0c6" resname="No file was uploaded.">
+        <source>No file was uploaded.</source>
+        <target>文件未上传.</target>
+      </trans-unit>
+        <trans-unit id="57506b8ac3df8983084cc5577245f77f" resname="No temporary folder was configured in php.ini.">
+        <source>No temporary folder was configured in php.ini.</source>
+        <target>临时文件无法配置选项.</target>
+      </trans-unit>
+        <trans-unit id="eedc8167ca2a6a6e3e364cebed9191d0" resname="Cannot write temporary file to disk.">
+        <source>Cannot write temporary file to disk.</source>
+        <target>临时文件无法写入磁盘.</target>
+      </trans-unit>
+        <trans-unit id="f0cd0d805a3ff26a09e392e71443900a" resname="A PHP extension caused the upload to fail.">
+        <source>A PHP extension caused the upload to fail.</source>
+        <target>扩展导致无法上传.</target>
+      </trans-unit>
+        <trans-unit id="994d3e6aeb13ac3d7d0180ff59763e8e" resname="The file could not be uploaded.">
+        <source>The file could not be uploaded.</source>
+        <target>文件无法上传.</target>
+      </trans-unit>
+        <trans-unit id="ce512c670d53603bdacac14083841c8c" resname="Address title cannot be empty">
+        <source>Address title cannot be empty</source>
+        <target>地址名不能空白</target>
+      </trans-unit>
+        <trans-unit id="0ec125dc0256179795ccfb8669a312df" resname="Address title is required">
+        <source>Address title is required</source>
+        <target>需要填写地址</target>
+      </trans-unit>
+        <trans-unit id="a42a78f70b06ac960ae1f5e1c6591cc6" resname="Street Address can only be up to %limit% characters">
+        <source>Street Address can only be up to %limit% characters</source>
+        <target>街道名限定 %limit% 字符</target>
+      </trans-unit>
+        <trans-unit id="d52001e842054d4ab61953c6fd81034a" resname="Invalid longitude">
+        <source>Invalid longitude</source>
+        <target>无效经度</target>
+      </trans-unit>
+      <trans-unit id="c38335ea901a85bf6131be8b5b22fdfa" resname="Invalid latitude">
+        <source>Invalid latitude</source>
+        <target>无效纬度</target>
+      </trans-unit>
+      <trans-unit id="c7e5bd3de97cffb8a2eb8af11ff8ba6e" resname="Invalid landline">
+        <source>Invalid landline</source>
+        <target>无效固定座机</target>
+      </trans-unit>
+      <trans-unit id="f15c986e9a126694b9ae3346b86463c9" resname="Review title can only be up to %limit% characters">
+        <source>Review title can only be up to %limit% characters</source>
+        <target>评论名限于 %limit% 字符 </target>
+      </trans-unit>
+      <trans-unit id="44f316ba8b3e68c14c92dc493b23599f" resname="Feedback content can only be up to %limit% characters">
+        <source>Feedback content can only be up to %limit% characters</source>
+        <target>反馈内容限于 %limit%字符</target>
+      </trans-unit>
+      <trans-unit id="68c74d19301cb481cc6bae5da1db5b08" resname="The old password must be provided.">
+        <source>The old password must be provided.</source>
+        <target>需要提供旧密码</target>
+      </trans-unit>
+        <trans-unit id="2b7b41554f0fa52e09a44fd5161937fb" resname="Contact No field is required">
+        <source>Contact No field is required</source>
+        <target>联系人不能空白</target>
+      </trans-unit>
+      <trans-unit id="0213801567db0b80dbc7041d58690b08" resname="Contact No is required">
+        <source>Contact No is required</source>
+        <target>联系人电话必填</target>
+      </trans-unit>
+      <trans-unit id="29b1f3974e964c8d1a731dad447ec2bc" resname="Contact number can only be up to %limit% characters">
+        <source>Contact number can only be up to %limit% characters</source>
+        <target>联系电话不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="d190add932ffbd34ad10682aeba29b60" resname="Contact number must be atleast %limit% characters">
+        <source>Contact number must be atleast %limit% characters</source>
+        <target>联系电话不少于 %limit% 字符</target>
+      </trans-unit>
+        <trans-unit id="f698d9d6775aa04142e92ccd11d0ec67" resname="Contact number %string% already exists.">
+        <source>Contact number %string% already exists.</source>
+        <target>联系电话已 %string% 存在.</target>
+      </trans-unit>
+      <trans-unit id="656cbb51ba967f0309c097ab572a95bc" resname="Invalid contact number.">
+        <source>Invalid contact number.</source>
+        <target>无效电话号码.</target>
+      </trans-unit>
+      <trans-unit id="d60cc72d37c52460c40a5b7b93441f2f" resname="Contact No can only be up to %limit% characters">
+        <source>Contact No can only be up to %limit% characters</source>
+        <target>联系电话不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="ec97b96eaf76c15322b78b8bd29bbb05" resname="Contact No must be atleast %limit% characters">
+        <source>Contact No must be atleast %limit% characters</source>
+        <target>联系电话至少%limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="a96f4682743969608b6b8fe105433599" resname="SMS support is not available in your country.">
+        <source>SMS support is not available in your country.</source>
+        <target>您所在国家不提供SMS短信支持.</target>
+      </trans-unit>
+      <trans-unit id="c1e33e9938bf7f1eab126a75af7aec1f" resname="Area code can only be up to %limit% characters">
+        <source>Area code can only be up to %limit% characters</source>
+        <target>地区代码 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="7b91137333df674cc7f58367ce1bcfcb" resname="Message field is required">
+        <source>Message field is required</source>
+        <target>信息区必填</target>
+      </trans-unit>
+      <trans-unit id="75b7f03cd3aa36f53ff74f3983db955a" resname="Recipient id is required">
+        <source>Recipient id is required</source>
+        <target>收件人ID必填</target>
+      </trans-unit>
+      <trans-unit id="50a808b56d7dc70d6512ddfc3a63480d" resname="Please upload a valid jpg, jpeg or png image">
+        <source>Please upload a valid jpg, jpeg or png image</source>
+        <target>请上传有效jpg, jpeg or png 图片</target>
+      </trans-unit>
+      <trans-unit id="8a5dac59615509956efbf0ee6a92d26e" resname="No image file found.">
+        <source>No image file found.</source>
+        <target>图片未找到.</target>
+      </trans-unit>
+      <trans-unit id="067b837997123d9d6cdcb5f42cb6a278" resname="Pickup schedule must be set">
+        <source>Pickup schedule must be set</source>
+        <target>收货时间必填</target>
+      </trans-unit>
+      <trans-unit id="0550b5ea828dee797aabafaf7913f288" resname="This value should be greater than or equal to %compared_value%.">
+        <source>This value should be greater than or equal to %compared_value%.</source>
+        <target>价值应大于或等于0 %compared_value%.</target>
+      </trans-unit>
+      <trans-unit id="932090e9198e964774c2f93bf8cb92ed" resname="Pickup remark can only be up to %limit% characters">
+        <source>Pickup remark can only be up to %limit% characters</source>
+        <target>取货评论不多于 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="6f31caf037893df2eb6eb2162ec3c035" resname="At least one order product is required">
+        <source>At least one order product is required</source>
+        <target>需要至少一个订单</target>
+      </trans-unit>
+      <trans-unit id="bb29df4df9acfc6b29da41bba13fde34" resname="Cancellation reason must be set">
+        <source>Cancellation reason must be set</source>
+        <target>取消原因必填</target>
+      </trans-unit>
+      <trans-unit id="725ab118528165fdc1ff0ebdb986a59b" resname="Cancellation remark can only be up to %limit% characters">
+        <source>Cancellation remark can only be up to %limit% characters</source>
+        <target>取消评论不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="5983edc001b924291d27bbe082ec9c08" resname="Invoice number is required">
+        <source>Invoice number is required</source>
+        <target>发票号码必填</target>
+      </trans-unit>
+      <trans-unit id="14509bc025d7f814b6246527e9297d21" resname="Package date update must be set">
+        <source>Package date update must be set</source>
+        <target>包裹日期设定</target>
+      </trans-unit>
+      <trans-unit id="b24a0b06269d40da80c3f304960383d0" resname="Person fullname can only be up to %limit% characters">
+        <source>Person fullname can only be up to %limit% characters</source>
+        <target>人名全名不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="eec027213af28cda9c50e0df70fdc599" resname="Package status is required">
+        <source>Package status is required</source>
+        <target>包裹状态需要填写</target>
+      </trans-unit>
+      <trans-unit id="646b764c61ec264bd9b7c4bea2414f2e" resname="Invalid waybill number">
+        <source>Invalid waybill number</source>
+        <target>无效运单号码</target>
+      </trans-unit>
+      <trans-unit id="32bbcc7c9ec7dd12e8e9a4109a082733" resname="Address can only be up to %limit% characters">
+        <source>Address can only be up to %limit% characters</source>
+        <target>地址不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="c540a983d9788d605ef883a114708656" resname="The file is too large (%size% %suffix%). Allowed maximum size is %limit% %suffix%">
+        <source>The file is too large (%size% %suffix%). Allowed maximum size is %limit% %suffix%</source>
+        <target>文件过大(%size% %suffix%). 最大上限 %limit% %suffix%</target>
+      </trans-unit>
+      <trans-unit id="016449403757a19df3b0c31733522b2b" resname="Please upload a valid Image">
+        <source>Please upload a valid Image</source>
+        <target>请上传有效图片</target>
+      </trans-unit>
+      <trans-unit id="345a37b0d801e4c21f112ce65a65f06c" resname="Account title can only be up to %limit% characters">
+        <source>Account title can only be up to %limit% characters</source>
+        <target>账户名称不超过 %limit% 字符</target>
+      </trans-unit>
+        <trans-unit id="540f1c511b12e5438d4a20131cbde31e" resname="Account title field is required">
+        <source>Account title field is required</source>
+        <target>账户名称需填写</target>
+      </trans-unit>
+        <trans-unit id="24914f18ceaab10fc192b7650b0fee09" resname="Account name can only be up to %limit% characters">
+        <source>Account name can only be up to %limit% characters</source>
+        <target>账户名称不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="3684aed56ee0d924acfdc34848c10265" resname="Account name field is required">
+
+        <source>Account name field is required</source>
+
+        <target>需填写账户名称</target>
+      </trans-unit>
+        <trans-unit id="08ea4beed605310c865548cf51dd33c6" resname="Account Number can only be up to %limit% characters">
+        <source>Account Number can only be up to %limit% characters</source>
+        <target>账户名不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="748d4f2c07edbdfc6dbfcba81a10e771" resname="Account number field is required">
+        <source>Account number field is required</source>
+        <target>账户名需填写</target>
+      </trans-unit>
+      <trans-unit id="d0fd6b304a4ef8e068c8e866142edf35" resname="First Name is required">
+        <source>First Name is required</source>
+        <target>名字需填写</target>
+      </trans-unit>
+      <trans-unit id="02595dde6ec4a8de9aeaf825b07b9cde" resname="First name contains invalid characters">
+        <source>First name contains invalid characters</source>
+        <target>名字中包含无效字符</target>
+      </trans-unit>
+      <trans-unit id="3805c8e3f60fe189957d0f137aea5710" resname="Last Name is required">
+        <source>Last Name is required</source>
+        <target>姓氏需填写</target>
+      </trans-unit>
+      <trans-unit id="2a83ede52adbd5239d7e28227f0f43ca" resname="Last name contains invalid characters">
+        <source>Last name contains invalid characters</source>
+        <target>姓氏中含无效字符</target>
+      </trans-unit>
+      <trans-unit id="396ad7e7a2e2f55efa8d2c48502f3258" resname="Confirmation Code is required">
+        <source>Confirmation Code is required</source>
+        <target>需确认码</target>
+      </trans-unit>
+        <trans-unit id="d026cd48517b2316d1457b00f6123dba" resname="Email Address field is required">
+        <source>Email Address field is required</source>
+        <target>邮箱需填写</target>
+      </trans-unit>
+        <trans-unit id="ce9453343d649960846e682d1e3c436a" resname="Email Address is not valid">
+        <source>Email Address is not valid</source>
+        <target>无效邮箱地址</target>
+      </trans-unit>
+      <trans-unit id="be8886087d6b7212546974b63be07b01" resname="Email %string% is already taken.">
+        <source>Email %string% is already taken.</source>
+        <target>邮箱已 %string% 被使用.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

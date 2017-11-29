@@ -1,0 +1,23 @@
+Yilinker\Bundle\CoreBundle\Entity\UserDailyLogin:
+    type: entity
+    table: UserDailyLogin
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\DailyLoginRepository
+    id:
+        userDailyLoginId:
+            type: integer
+            id: true
+            column: user_daily_login_id
+            generator:
+                strategy: AUTO
+    fields:
+        dateCreated:
+            type: datetime
+            column: date_created
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

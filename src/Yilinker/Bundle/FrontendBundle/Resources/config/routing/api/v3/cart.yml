@@ -1,0 +1,25 @@
+api_v3_cart_update_item:
+    path: /auth/cart/updateCartItem
+    defaults: { _controller: YilinkerFrontendBundle:Api/v3/CartApi:updateCart }
+    methods: [POST]
+
+api_v3_cart_get:
+    path: /auth/cart/getCart
+    defaults: { _controller: YilinkerFrontendBundle:Api/v3/CartApi:getCart }
+    methods: [GET]
+
+api_v3_cart_wishlist_to_cart:
+    path: /auth/wishlistToCart
+    defaults: { _controller: YilinkerFrontendBundle:Api/v3/CartApi:transferWishlistToCart }
+    methods: [POST]
+
+# cart guest
+api_v3_guest_cart_update_item:
+    path: /cart/updateCartItem
+    defaults: { _controller: YilinkerFrontendBundle:Api/v3/CartApi:updateCart }
+    methods: [POST]
+
+api_v3_guest_cart_get:
+    path: /cart/getCart
+    defaults: { _controller: YilinkerFrontendBundle:Api/v3/CartApi:getCart }
+    methods: [GET]

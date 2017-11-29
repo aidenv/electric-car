@@ -1,0 +1,196 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    Back to School Packages
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    <div class="back2school wrapper static-wrapper">
+        <div class="block header align-center">
+            <img src="{{ asset('images/promo/landing-pages/landingpage-background.jpg') }}" class="img-full-width main-banner" alt=" ">
+        </div>
+        <div class="container content pad-top-5em">
+            <div class="row">
+                <div class="col-xs-12 align-center">
+                    <h3 class="title">
+                        <img src="{{ asset('images/promo/landing-pages/items/landingpage-title-1.png') }}" alt="Writing Collection"><br>
+                        <span>Complete your Writing Collection by choosing <br>your preferred set at <strong>P352 only!</strong> </span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="container align-center width-70em pad-bt-3em">
+            <div class="row">
+                <div class="col-ms-4 col-md-4">
+                    <div class="product-image">
+                        <img src="{{ asset('images/promo/landing-pages/items/landingpage-package1-a.png') }}" class="img-full-width" alt=" ">
+                    </div>
+                    <div class="product-name">
+                        <strong>Sossy Bundle</strong>
+                    </div>
+                    <span>
+                        Journal (rose pink),<br>
+                        classic sign pen (white),<br>
+                        tumbler (pink)
+                    </span>
+                </div>
+                <div class="col-ms-4 col-md-4 sml">
+                    <div class="product-image">
+                        <img src="{{ asset('images/promo/landing-pages/items/landingpage-package1-b.png') }}" class="img-full-width" alt=" ">
+                    </div>
+                    <div class="product-name">
+                        <strong>Modish Bundle</strong>
+                    </div>
+                    <span>
+                        Journal (black),<br>
+                        classic sign pen (black),<br>
+                        tumbler (green)
+                    </span>
+                </div>
+                <div class="col-ms-4 col-md-4 sml">
+                    <div class="product-image">
+                        <img src="{{ asset('images/promo/landing-pages/items/landingpage-package1-c.png') }}" class="img-full-width" alt=" ">
+                    </div>
+                    <div class="product-name">
+                        <strong>Vintage Bundle</strong>
+                    </div>
+                    <span>
+                        Journal (khaki),<br>
+                        classic sign pen (red),<br>
+                        tumbler (beige)
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-ms-12 col-md-12">
+                    {% if ismobile %}
+                        <a href="{{ path('api_v3_product_detail', {country_code: 'ph', language_code: 'en'}) ~ '?productId=' ~ backToSchoolPromoPackage.package1.id }}" class="mrg-top-25 static-button2 lg-btn">Buy Now</a>
+                    {% else %}
+                        <a href="{{ path('product_details', {slug: backToSchoolPromoPackage.package1.slug }) }}" class="mrg-top-25 static-button2 lg-btn">Buy Now</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="divider">
+            <div class="container content pad-top-5em">
+                <div class="row">
+                    <div class="col-xs-12 align-center">
+                        <h3 class="title">
+                            <img src="{{ asset('images/promo/landing-pages/items/landingpage-title-2.png') }}" alt="Writing Collection"><br>
+                            <span>Begin your story with these writing basics for only <strong>P288 per set!</strong></span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="container align-center width-70em pad-bt-3em">
+                <div class="row">
+                    <div class="col-ms-12 col-md-12">
+                        <div class="product-image">
+                            <img src="{{ asset('images/promo/landing-pages/items/landingpage-package2-a.png') }}" alt=" ">
+                        </div>
+                        <div class="product-name">
+                            <strong>Starter Pack</strong>
+                        </div>
+                        <span>
+                            Spiral Notebook (1 Set),<br>
+                            Panda Gel Pen (1 Box),<br>
+                            Highlighter (1 Box)
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-ms-12 col-md-12">
+                        {% if ismobile %}
+                            <a href="{{ path('api_v3_product_detail', {country_code: 'ph', language_code: 'en'}) ~ '?productId=' ~ backToSchoolPromoPackage.package2.id }}" class="mrg-top-25 static-button2 lg-btn">Buy Now</a>
+                        {% else %}
+                            <a href="{{ path('product_details', {slug: backToSchoolPromoPackage.package2.slug }) }}" class="mrg-top-25 static-button2 lg-btn">Buy Now</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container content pad-top-5em">
+            <div class="row">
+                <div class="col-xs-12 align-center">
+                    <h3 class="title">
+                        <img src="{{ asset('images/promo/landing-pages/items/landingpage-title-3.png') }}" alt="Writing Collection"><br>
+                        <span>Pick your Art Stuff from these choices for <strong>only P199</strong></span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="container align-center width-70em pad-bt-3em">
+            <div class="row">
+                <div class="col-ms-12 col-md-12">
+                    <div class="row">
+                        <div class="col-ms-6 col-md-6 sml">
+                            <div class="product-image">
+                                <img src="{{ asset('images/promo/landing-pages/items/landingpage-package3-a.png') }}" alt=" ">
+                            </div>
+                            <div class="product-name">
+                                <strong>Art Kit</strong>
+                            </div>
+                            <span>
+                                1 set of Cute Kitty Notebook<br />
+                                3 pcs Korean 2 Colored Highlighter (pink, yellow, green)
+                            </span>
+                        </div>
+                        <div class="col-ms-6 col-md-6 sml">
+                            <div class="product-image">
+                                <img src="{{ asset('images/promo/landing-pages/items/landingpage-package3-b.png') }}" alt=" ">
+                            </div>
+                            <div class="product-name">
+                                <strong>Art Kit 2</strong>
+                            </div>
+                            <span>
+                                1 set of Cute Kitty Notebook<br />
+                                3 pcs Deli highlighter (green, orange, yellow)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-ms-12 col-md-12">
+                    {% if ismobile %}
+                        <a href="{{ path('api_v3_product_detail', {country_code: 'ph', language_code: 'en'}) ~ '?productId=' ~ backToSchoolPromoPackage.package3.id }}" class="mrg-top-25 static-button2 lg-btn">Buy Now</a>
+                    {% else %}
+                        <a href="{{ path('product_details', {slug: backToSchoolPromoPackage.package3.slug }) }}" class="mrg-top-25 static-button2 lg-btn">Buy Now</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-base mrg-top-10em hidden">
+            <div class="container pad-top-3em">
+                <h4>Promo Mechanics:</h4>
+                <ul>
+                    <li>Like YiLinker Facebook Page and create an account on <a href="http://www.yilinker.com">www.yilinker.com</a></li>
+                    <li>From May 9 - May 22, YiLinker will feature 2 summer sets per week on the Facebook page. (each set will have a maximum of 3 products only).</li>
+                    <li>Fans must purchase any of the featured items to join the promo at a special rate. </li>
+                    <li>After their purchase, fans must comment their transaction code on the comments section of the post.</li>
+                    <li>Each transaction code earns the fan a valid entry to the promo.</li>
+                    <li>A total of 2 winners will win the whole summer set which will be chosen at random.</li>
+                    <li>Consolation prizes : A total of 4 winners will receive P100 off vouchers for their next purchase.</li>
+                    <li>purchase any item at YiLinker and comment your transaction number to this post.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="black background hidden">
+            <div class="container pad-top-3em ">
+                <h4 class="mrg-top-25">Terms and Conditions:</h4>
+                <ul>
+                    <li>The featured items are only available within the given period and until supplies last.</li>
+                    <li>This promo is valid for existing and newly registered users</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}
+{% block javascripts %}{% endblock %}

@@ -1,0 +1,270 @@
+tables:
+    brand:
+        route_name: get_brands
+        api_type: 'Yilinker\Bundle\CoreBundle\Entity\ApiAccessLog::API_TYPE_TRADING_BRAND'
+        key:
+            tableKey: referenceNumber
+            apiKey: brandId
+        fields:
+            name:
+                apiField: brandName
+            description:
+                apiField: description
+                default: ''
+            isDeleted:
+                apiField: isDelete
+                default: false
+        dateField:
+            create: dateAdded
+            update: dateLastModified
+    productCategory:
+        route_name: get_categories
+        api_type: 'Yilinker\Bundle\CoreBundle\Entity\ApiAccessLog::API_TYPE_TRADING_CATEGORY' 
+        key:
+            tableKey: referenceNumber
+            apiKey: categoryId
+        fields:
+            description:
+                apiField: description
+                default: ''
+            isDelete:
+                apiField: isDelete
+                default: false
+            name:
+                apiField: categoryName
+            parent:
+                apiField: parentId
+                relation:
+                    entity: productCategory
+                    field: referenceNumber
+        dateField:
+            create: dateAdded
+            update: dateLastModified
+        flushOnCreate: true
+    country:
+        route_name: get_countries
+        api_type: 'Yilinker\Bundle\CoreBundle\Entity\ApiAccessLog::API_TYPE_TRADING_COUNTRY'
+        parameters:
+            countryName:
+                value: ""
+        key:
+            tableKey: referenceNumber
+            apiKey: countryId
+        fields:
+            name:
+                apiField: countryName
+                default: ''
+            code:
+                apiField: countryShortName
+                default: ''
+        dateField:
+            create: dateAdded
+            update: dateLastModified        
+    manufacturer:
+        route_name: get_suppliers
+        api_type: 'Yilinker\Bundle\CoreBundle\Entity\ApiAccessLog::API_TYPE_TRADING_SUPPLIER'
+        detail_api:
+            route_name: get_supplier_detail
+            parameterKey: supplierId
+        key:
+            tableKey: referenceId
+            apiKey: supplierId
+        fields:
+            name:
+                apiField: name
+                default: ''
+            description:
+                apiField: description
+                default: ''
+            isDelete:
+                apiField: isDelete
+                default: false
+            country:
+                apiField: countryId
+                relation:
+                    entity: country
+                    field: referenceNumber
+        dateField:
+            create: dateAdded
+            update: dateLastModified    
+    manufacturerProduct:
+        route_name: get_products
+        api_type: 'Yilinker\Bundle\CoreBundle\Entity\ApiAccessLog::API_TYPE_TRADING_PRODUCT'
+        searchField: productName
+        flushOnCreate: true
+        detail_api:
+            route_name: get_product_detail
+            parameterKey: productId
+        key:
+            tableKey: referenceNumber
+            apiKey: productId
+        fields:
+            name:
+                apiField: name
+                default: ''
+            isCod:
+                apiField: is_cod
+                default: true
+            keywords:
+                apiField: keywords
+                default: ''
+            description:
+                apiField: description
+                default: ''
+                type: html
+                options:
+                    imageUrl: appurl
+            shortDescription:
+                apiField: shortDescription
+                default: ''
+            brand:
+                apiField: supplierBrand
+                default: 'custom'
+                relation:
+                    entity: brand
+                    field: referenceNumber
+            manufacturer:
+                apiField: supplierId
+                default: 'default'
+                relation:
+                    entity: Manufacturer
+                    field: referenceId
+            productCategory:    
+                apiField: categoryId
+                default: 'parent'
+                relation:
+                    entity: productCategory
+                    field: referenceNumber
+            condition:
+                apiField: conditionId
+                default: 1
+                relation:
+                    entity: ProductCondition
+                    field: productConditionId
+        subTables:
+            manufacturerProductCountry:
+                joinOn: manufacturerProduct
+                isUpdateable: false
+                key:                     
+                    useParent: true
+                fields:
+                    referenceId:
+                        apiField: productId
+                    country:
+                        apiField: countryId
+                        default: "PH"
+                        relation:
+                            entity: Country
+                            field: code
+            manufacturerProductAttributeName:
+                joinOn: manufacturerProduct
+                key:    
+                    apiField: id
+                    tableKey: referenceId
+                isArray:
+                    value: true
+                    apiField: attributes
+                fields:
+                    referenceId:
+                        apiField: id
+                    name:
+                        apiField: name
+                        default: 'Specification'
+                subTables:
+                    manufacturerProductAttributeValue:
+                        joinOn: manufacturerProductAttributeName
+                        isUpdateable: false
+                        key:
+                            apiField: id
+                            tableKey: referenceId
+                        isArray:
+                            value: true
+                            apiField: values
+                        fields:
+                            referenceId:
+                                apiField: id
+                            value:
+                                apiField: value
+                                default: ''
+                        flushOnCreate: true
+            manufacturerProductUnit:
+                joinOn: manufacturerProduct
+                isUpdateable: true
+                key: 
+                    apiField: id
+                    tableKey: referenceId
+                isArray:
+                    value: true
+                    apiField: productAttributeInfo                    
+                fields:
+                    referenceId:
+                        apiField: id
+                    moq:
+                        apifield: moq
+                        default: 1
+                    width:
+                        apifield: width
+                        default: 1
+                    height:
+                        apifield: height
+                        default: 1
+                    length:
+                        apifield: length
+                        default: 1
+                    weight:
+                        apifield: weight
+                        default: 1
+                    sku: 
+                        apiField: sku
+                        default: ''
+                    status:
+                        apiField: status
+                        default: 0
+                    price:
+                        apiField: originalPrice
+                        default: '0.00'
+                    discountedPrice:
+                        apiField: finalPrice
+                    unitPrice:
+                        apiField: finalPrice                        
+                subTables:
+                    manufacturerProductAttributeValue:                        
+                        joinOn: manufacturerProductUnit
+                        skipNull: true  
+                        isArray:
+                            value: true
+                            apiField: attributeValueIds
+                        key:
+                            apiField: none
+                            tableKey: referenceId
+                        isArray:
+                            value: true
+                            apiField: attributeValueIds
+            manufacturerProductImage:
+                joinOn: manufacturerProduct
+                inversedBy: image
+                isArray:
+                    value: true
+                    apiField: images
+                key: 
+                    apiField: imageId
+                    tableKey: referenceNumber
+                fields:
+                    imageLocation:
+                        apiField: location
+                        type: image
+                        options: 
+                            webpath: web/assets/images/uploads/manufacturer_products
+                            filename_segment_number: 2
+                            resize: true
+                    isDelete:
+                        apiField: isDelete
+                        default: '0'
+                    referenceNumber:
+                        apiField: imageId
+        filter:
+            isDelete: 0
+            product_status_id: 2          
+        dateField:
+            create: dateAdded
+            update: dateLastModified

@@ -1,0 +1,169 @@
+{{ form_start(form, {attr: {novalidate: 'novalidate', class: 'ui'}}) }}
+    {{ form_errors(form) }}
+    <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form field">
+                        {{ form_label(form.title) }}
+                        {{ form_widget(form.title, {'attr': {'class': 'form-ui', 'placeholder': 'e.g. Home, Work, Office'}}) }}
+                        {% if form_errors(form.title) %}
+                            <div class="form-error-prompt">
+                                {{ form_errors(form.title) }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form field">
+                        {{ form_label(form.unitNumber) }}
+                        {{ form_widget(form.unitNumber, {'attr': {'class': 'form-ui', 'placeholder': 'Enter your address unit number here'}}) }}
+                        {% if form_errors(form.unitNumber) %}
+                            <div class="form-error-prompt">
+                                {{ form_errors(form.unitNumber) }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form field">
+                        {{ form_label(form.buildingName) }}
+                        {{ form_widget(form.buildingName, {'attr': {'class': 'form-ui', 'placeholder': 'Enter your address building name here'}}) }}
+                        {% if form_errors(form.buildingName) %}
+                            <div class="form-error-prompt">
+                                {{ form_errors(form.buildingName) }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form field">
+                        {{ form_label(form.streetNumber) }}
+                        {{ form_widget(form.streetNumber, {'attr': {'class': 'form-ui', 'placeholder': 'Enter your address street number here'}}) }}
+                        {% if form_errors(form.streetNumber) %}
+                            <div class="form-error-prompt">
+                                {{ form_errors(form.streetNumber) }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form field">
+                        {{ form_label(form.streetName) }}
+                        {{ form_widget(form.streetName, {'attr': {'class': 'form-ui', 'placeholder': 'Enter your address street name here'}}) }}
+                        {% if form_errors(form.streetName) %}
+                            <div class="form-error-prompt">
+                                {{ form_errors(form.streetName) }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form field">
+                        {{ form_label(form.subdivision) }}
+                        {{ form_widget(form.subdivision, {'attr': {'class': 'form-ui', 'placeholder': 'Enter your address subdivision here'}}) }}
+                        {% if form_errors(form.subdivision) %}
+                            <div class="form-error-prompt">
+                                {{ form_errors(form.subdivision) }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form field">
+                        {{ form_label(form.location.province) }}
+                        {{ form_widget(form.location.province, {
+                                attr: {
+                                    'data-placeholder': form.location.province.vars.placeholder,
+                                    'data-location': {
+                                        locationTypeId: [
+                                            constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LocationType::LOCATION_TYPE_CITY'), 
+                                            constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LocationType::LOCATION_TYPE_MUNICIPALITY')
+                                        ],
+                                        target: '#'~form.location.cityOrMunicipality.vars.id
+                                    }|json_encode, 
+                                    class: 'form-ui ui single search selection dropdown'
+                                }
+                            }) 
+                        }}
+                        {% if form_errors(form.location.province) %}
+                            <div class="form-error-prompt">
+                                {{ form_errors(form.location.province) }}
+                            </div>
+                        {% endif %}
+                        <img src="{{ asset('images/loader.gif')}}" alt="Loading" class="loading-img">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form field">
+                        {{ form_label(form.location.cityOrMunicipality) }}
+                        {{ form_widget(form.location.cityOrMunicipality, {
+                                attr: {
+                                    'data-placeholder': form.location.cityOrMunicipality.vars.placeholder,
+                                    'data-location': {
+                                        locationTypeId: constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LocationType::LOCATION_TYPE_BARANGAY'),
+                                        target: '#'~form.location.barangay.vars.id
+                                    }|json_encode,
+                                    class: 'form-ui ui single search selection dropdown'
+                                }
+                            })
+                        }}
+                        {% if form_errors(form.location.cityOrMunicipality) %}
+                            <div class="form-error-prompt">
+                                {{ form_errors(form.location.cityOrMunicipality) }}
+                            </div>
+                        {% endif %}
+                        <img src="{{ asset('images/loader.gif')}}" alt="Loading" class="loading-img">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form field">
+                        {{ form_label(form.location.barangay) }}
+                        {{ form_widget(form.location.barangay, {
+                                attr: {
+                                    'data-placeholder': form.location.barangay.vars.placeholder,
+                                    'data-location': '',
+                                    class: 'form-ui ui single search selection dropdown'
+                                }
+                            }) 
+                        }}
+                        {% if form_errors(form.location.barangay) %}
+                            <div class="form-error-prompt">
+                                {{ form_errors(form.location.barangay) }}
+                            </div>
+                        {% endif %}
+                        <img src="{{ asset('images/loader.gif')}}" alt="Loading" class="loading-img">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form field">
+                        {{ form_label(form.zipCode) }}
+                        {{ form_widget(form.zipCode, {'attr': {'class': 'form-ui', 'placeholder': 'Enter your address zip code here'}}) }}
+                        {% if form_errors(form.zipCode) %}
+                            <div class="form-error-prompt">
+                                {{ form_errors(form.zipCode) }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="ui checkbox">
+                        {{ form_widget(form.isDefault, {'attr': {'class': 'form-ui'}}) }} <label for=""><span class="light">Set this shipping address to default</span></label> 
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="actions">
+        <span class="button cancel prevent-default">Cancel</span>
+        <button type="submit" class="button confirm">Submit</button>
+    </div>
+{{ form_end(form) }}

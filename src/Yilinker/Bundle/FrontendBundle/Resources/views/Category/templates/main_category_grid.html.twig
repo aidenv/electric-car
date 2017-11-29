@@ -1,0 +1,44 @@
+<!--Advertisement grid-->
+<div class="category-body-wrapper">
+  <div class="advertisement">
+	<div class="row">
+
+      {% if cmsContent.header.banner[0] is defined %}
+	  <div class="col-md-6">
+	    <a href="{{ cmsContent.header.banner[0].target }}">
+	      <img src="{{ asset(cmsContent.header.banner[0].image, 'cms') }}" alt="" class="img-responsive">
+	    </a>
+	  </div>
+      {% endif %}
+
+
+	  <div class="col-md-6">
+        {% if cmsContent.header.banner[1] is defined %}
+	    <a href="{{ cmsContent.header.banner[1].target }}">
+            <img src="{{ asset(cmsContent.header.banner[1].image, 'cms') }}" alt="" class="img-responsive">
+        </a>
+        {% endif %}
+
+        {% if cmsContent.header.banner[2] is defined %}
+	    <a href="{{ cmsContent.header.banner[2].target }}">
+            <img src="{{ asset(cmsContent.header.banner[2].image, 'cms') }}" alt="" class="img-responsive">
+        </a>
+        {% endif %}
+	  </div>
+
+	</div>
+  </div>
+</div>
+
+<!--Advertisement full width-->
+<div class="category-body-wrapper">
+  <div class="advertisement">
+	<div class="row">
+	  <div class="col-md-12">
+        {% if cmsContent.header.banner[3] is defined %}
+            <img src="{{ asset(cmsContent.header.banner[3].image, 'cms') }}" alt="" class="img-responsive">
+        {% endif %}
+	  </div>
+	</div>
+  </div>
+</div>

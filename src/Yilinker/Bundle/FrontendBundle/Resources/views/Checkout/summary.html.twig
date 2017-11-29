@@ -1,0 +1,476 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %}
+        Summary
+    {% endtrans %}
+{% endblock %}
+{% block facebook_analytics %}
+    {% embed 'analytics/facebook-pixel.html.twig' %}
+        {% block fbPixel %}
+
+        {% if app.request.isMethod('POST') and form.vars.valid %}
+            fbq('track', 'AddPaymentInfo', {
+                content_ids: [{% for product in cart %}'{{product.id}}'{% if loop.index != cart|length %},{% endif %}{% endfor %}],
+                content_category: 'add_payment_info'
+            });
+        {% endif %}
+
+        fbq('track', 'InitiateCheckout', { 
+            content_type: 'product_group',
+            content_ids: [{% for product in cart %}'{{product.id}}'{% if loop.index != cart|length %},{% endif %}{% endfor %}],
+            num_items: {{ cart|length }},
+            content_name: 'Initiate Checkout',
+            content_category: 'Checkout' 
+        });
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="checkout">
+        {{ include('YilinkerFrontendBundle:Checkout:header.html.twig', {active: 'summary', messages: messages, token: token, baseUri: baseUri, nodePort: nodePort}) }}
+        <div class="checkout-wrapper" data-checkout-container>
+            <form action="{{ path('checkout_payment') }}" method="POST" name="summary">
+                <div class="checkout-container">
+                    {% set hasError =  app.session.flashbag.has('error') ? true : false %}
+                    {% for flashMessage in app.session.flashbag.get('error') %}
+                        <div class="container">
+                            <div class="message-box red">{{ flashMessage }}</div>
+                        </div>
+                    {% endfor %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                {#
+                                <div data-mobile-verification class="checkout-segment {{ user.isMobileVerified ? '': 'error' }}">
+                                    <div class="title">
+                                        {% trans %}
+                                            Your Contact Number
+                                        {% endtrans %}
+                                    </div>
+                                    <p class="mrg-bt-20">
+                                        {% trans %}
+                                            Your number shall be used for delivery confirmation.
+                                        {% endtrans %}
+                                    </p>
+                                    <!--Registered but did not verify contact number-->
+                                    <div class="form">
+                                        <div class="input-inner-button">
+                                            <input type="text" class="form-ui profile-input-contactnumber" placeholder="Enter your mobile number here" readonly value="{{ user.contactNumber }}">
+                                            <button class="button gray uppercase edit-mobile-phone-number-trigger">{% trans %} Change {% endtrans %}</button>
+                                        </div>
+                                    </div>
+                                    <div {{ user.isMobileVerified ? 'style="display:none"': '' }} data-resend-verification>
+                                        <div class="horizontal-divider bold light-color">
+                                            {% trans %} OR {% endtrans %}
+                                        </div>
+                                        <button class="button blue block uppercase verify-contact-number-trigger">
+                                            {% trans %} Verify {% endtrans %}
+                                        </button>
+                                    </div>
+
+                                    <!--No contact number/ Logged in with Social Media-->
+                                    <!--
+                                        <div class="form">
+                                            <input type="text" class="form-ui" placeholder="Enter your mobile number here">
+                                        </div>
+                                        <button class="button blue uppercase verify-contact-number-trigger">Verify</button>
+                                    -->
+                                </div>
+                                #}
+                                {% if not app.user or app.user.contactNumber %}
+                                    <div class="checkout-segment form ui">
+                                        <div class="title">
+                                            {% trans %}
+                                                Consignee
+                                            {% endtrans %}
+                                        </div>
+                                        <p class="mrg-bt-20">
+                                            {% trans %}
+                                                 Ship this transaction with the consignee details below.
+                                            {% endtrans %}
+                                        </p>
+                                        {% set consigneeName = app.session.get('checkout/consigneeName') %}
+                                        <div class="form {{ consigneeName ? '': 'field error' }}">
+                                            <label for="" class="required">{% trans %}Name{% endtrans %}</label>
+                                            <input type="text" name="consigneeName" value="{{ consigneeName }}" class="form-ui" placeholder="Enter consignee name here">
+                                        </div>
+                                        {% set consigneeNumber = app.session.get('checkout/consigneeContactNumber') %}
+                                        <div class="form {{ consigneeNumber ? '': 'field error' }}">
+                                            <label for="" class="required">{% trans %}Contact Number{% endtrans%}</label>
+                                            <input type="text" name="consigneeContactNumber" value="{{ consigneeNumber }}" class="form-ui" placeholder="Enter consignee contact number here">
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                {{ render(controller('YilinkerFrontendBundle:Checkout:orderSummary')) }}
+                                <!--    
+                                {#
+                                <br/>
+                                <div class="use-points-segment hidden">
+                                    <div class="title">Use your Points</div>
+                                    <div class="description light-color>You can use your points to purchase items from us.</div>
+                                    <div class="form">
+                                        <label for="">
+                                            Your Current Points
+                                        </label>
+                                        <input type="text" class="form-ui" value="250.00" readonly/>
+                                    </div>
+                                    <div class="form">
+                                        <label for="">
+                                            Number of points you want to use
+                                        </label>
+                                        <input type="text" class="form-ui" placeholder="Enter the number of points you want to use"/>
+                                    </div>
+                                </div>
+                                <button class="button basic-purple button-rounded-side button-uppercase use-points-trigger">
+                                    Use points
+                                </button>
+                                #}
+                                -->
+                            </div>
+                            {% if not app.user or app.user.contactNumber %}
+                                <div class="col-md-4">
+                                    {{ include('YilinkerFrontendBundle:Checkout:addresses.html.twig') }}
+                                </div>
+                            {% endif %}
+                            {% if not app.user or app.user.contactNumber %}
+                                <div class="col-md-4">
+                                    <div class="checkout-segment inverted yilinker-express-segment">
+                                        <div class="row">
+                                            <div class="col-xs-4 col-md-6">
+                                                <div class="image-container">
+                                                     <img src="{{ asset('images/yilinker-express.png') }}" class="img-responsive" />
+                                                 </div>
+                                            </div>
+                                            <div class="col-xs-8 col-md-6">
+                                                <ul class="list-bulleted list-product-page-bulleted">
+                                                    <li>
+                                                        {% trans %}
+                                                            YiLinker Express is capable of shipping anywhere in the Philippines at affordable rates
+                                                        {% endtrans %}
+                                                    </li>
+                                                    <li>
+                                                        {% trans %}
+                                                            YiLinker Express offers FREE shipping on Metro Manila orders only
+                                                        {% endtrans %}
+                                                    </li>
+                                                    <li>
+                                                        {% trans %}
+                                                            You'll receive the tracking details for your parcel soon after the dispatch of your order.
+                                                        {% endtrans %}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% if selectedAddress.location.leadTime.leadTime is defined or selectedAddress.location is defined %}
+                                        <div data-feed="[data-checkout-address]" class="checkout-segment inverted large align-center">
+                                            <div class="shipping-feature-large">
+                                                <div class="icon-container">
+                                                    <i class="icon icon-truck"></i>
+                                                </div>
+                                                {% trans %} Ships in {% endtrans %}
+                                                <span data-fed="data.leadTime">
+                                                    {% if selectedAddress.location.leadTime.leadTime is defined %}
+                                                        {{ selectedAddress.location.leadTime.leadTime }}
+                                                    {% elseif selectedAddress.location is defined and selectedAddress.location %}
+                                                        {{ selectedAddress.location.leadTime }}
+                                                    {% endif %}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    <div class="checkout-segment inverted large align-center"><div class="shipping-feature-large"><div class="icon-container"><i class="icon icon-bills-coins"></i></div>{% trans %} No hidden fees {% endtrans %}</div></div>
+                                    <div class="checkout-segment inverted large align-center"><div class="shipping-feature-large"><div class="icon-container"><i class="icon icon-return"></i></div>{% trans %} 7 days return policy {% endtrans %}</div></div>
+                                </div>
+                            {% endif %}
+                            {% if app.user and not app.user.contactNumber %}
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-push-3">
+                                            <div class="align-center">
+                                                <h4 class="ui header">
+                                                    <i class="icon icon-alert-exclamation"></i>
+                                                    <div class="content">
+                                                        {% trans %}
+                                                            Mobile number is required
+                                                        {% endtrans %}
+                                                        <div class="sub-header mrg-top-10">
+                                                            We need your mobile number to verify your account. Kindly provide your mobile number below.
+                                                        </div>
+                                                    </div>
+                                                </h4>
+                                                <br/>
+                                                <div class="form mrg-top-20" style="max-width: 350px; margin: auto;">
+                                                    <div class="input-inner-button">
+                                                        <input id="checkout_verify_contact_number" type="text" class="form-ui" placeholder="Enter your mobile number here"/>
+                                                        <button 
+                                                            class="button gray"
+                                                            data-send-otp="{{ constant('Yilinker\\Bundle\\CoreBundle\\Services\\SMS\\OneTimePasswordService::OTP_TYPE_VERIFY_CONTACT_NUMBER') }}" 
+                                                            data-contact-number="#checkout_verify_contact_number"
+                                                            data-loader="[data-checkout-container]"
+                                                            data-checkout-verify-number
+                                                        >
+                                                            Verify
+                                                        </button>
+                                                    </div>
+                                                    <div class="row">
+                                                      <div class="col-xs-12">
+                                                        <div class="guest-checkout-form-error message-box red with-close-message" style="display:none;">
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-guest-checkout-verify-number class="ui modal small coupled-edit-number-modal verify-guest-contact-number-modal">
+                                    <a class="close"><i class="icon-times"></i></a>
+                                    <div class="header">
+                                        <h4 class="no-margin">Verify Number</h4>
+                                    </div>
+                                        <div class="content">
+                                            <div style="display:none" class="contact-verify-prompt">
+                                                <div class="row">
+                                                    <div class="message-box green with-close-message">
+                                                         Verification code has been successfully resent
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="display:none;" class="contact-error-prompt">
+                                                <div class="row">
+                                                    <div class="message-box red with-close-message">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <p class="light mrg-bt-20 light-color">
+                                                You are about to change your contact number, please ensure that your mobile phone is within reach before you proceed with this step.
+                                            </p>
+                                            <p class="light mrg-bt-20">
+                                                Please enter the 6 digit code that was sent to your mobile phone
+                                            </p>
+                                            <h4 class="light mrg-bt-20">Time Left: <span class="bold time-limit" id="otp-time-limit">00:00</span></h4>
+                                            <div class="form">
+                                                <label for="" class="required">Enter Code</label>
+                                                <input type="text" data-verification-code name="code" class="form-ui verification-code-input" placeholder="Enter your verification code"/>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="actions">
+                                            <span class="button cancel uppercase">Cancel</span>
+                                            <button type="submit" class="button blue uppercase"
+                                                    data-send-otp="{{ constant('Yilinker\\Bundle\\CoreBundle\\Services\\SMS\\OneTimePasswordService::OTP_TYPE_VERIFY_CONTACT_NUMBER') }}" 
+                                                    data-contact-number="#checkout_verify_contact_number"
+                                                    data-loader="[data-guest-checkout-verify-number]"
+                                                    data-guest-checkout-resend-otp
+                                            >
+                                                Resend Code
+                                            </button>
+                                            <button class="button purple uppercase" data-verify-continue>Verify and Continue</button>
+                                        </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="checkout-footer">
+                                    <div class="checkout-footer-item align-left">
+                                        {% if not app.user %}
+                                            <a href="{{ path('checkout_type') }}">
+                                                <div class="icon-container"><i class="icon icon-arrow-left"></i></div>{% trans %} Go back {% endtrans %}
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                    <div class="checkout-footer-item align-right">
+                                        <!--Remove disabled class there is selected shipping location-->
+                                        {% if not hasError %}
+                                            <button type="submit" class="button purple">{% trans %} Continue {% endtrans %}</button>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="checkout-footer">
+        {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+    </div>
+    <!--Start of modal success message-->
+    <div data-yi-loader class="ui modal small modal new-address-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">{% trans %} New Shipping Address {% endtrans %}</h4>
+        </div>
+        {{ include('YilinkerCoreBundle:Form:user_address.html.twig') }}
+    </div>
+    <!--End of modal success message-->
+    <!--Start of modal delete address-->
+    <div class="ui modal tiny modal delete-address-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-trash"></i>
+                    <div class="content">
+                        {% trans %} Delete Address? {% endtrans %}
+                    <div class="sub-header">{% trans %} Are you sure you want to delete this address {% endtrans %}</div>
+                </div>
+            </h4>
+        </div>
+        <div class="actions">
+            <button class="button cancel">{% trans %} Cancel {% endtrans %}</button>
+            <button id="delete-address-confirmation" class="button red">{% trans %} Delete {% endtrans %}</button>
+        </div>
+    </div>
+    <!--End of modal delete address-->
+
+    <!--Start of edit address modal-->
+    <div data-yi-loader data-feed="[data-edit-address]" class="ui modal small coupled-new-address edit-address-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">{% trans %} Update Shipping Address {% endtrans %}</h4>
+        </div>
+        <div data-ajax-partial="data.edit_address_url"></div>
+    </div>
+    <!--End of edit address modal-->
+    
+
+     <!--Start of modal success edit address-->
+    <div class="ui modal tiny coupled-edit-address edit-success-address-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                    <div class="content">
+                        {% trans %} Shipping address has been successfully updated {% endtrans %}
+                </div>
+            </h4>
+        </div>
+        <div class="actions">
+            <button class="button blue close">{% trans %} Okay {% endtrans %}</button>
+        </div>
+    </div>
+    <!--End of modal success edit address-->
+
+     <!--Start of modal edit mobile number-->
+    <div class="ui modal small coupled-edit-number-modal edit-mobile-phone-number-modal submit-to-verify">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">{% trans %} Change Mobile Number {% endtrans %}</h4>
+        </div>
+        <form name="change-contact-number" class="form ui change-contactnumber-form">
+            <div class="content">
+                <div class="contact-number-prompt error" style="display: none;">
+                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="message-box red with-close-message">{% trans %} Invalid contact number {% endtrans %}</div>
+                        </div>
+                     </div>
+                </div>
+                <div class="field">
+                    <div class="row">
+                        <div class="col-md-12 form ui">
+                            <label for="new-contact-number" class="required">{% trans %} Enter New Number {% endtrans %}</label>
+                            <input name="new-contact-number" type="text" class="form-ui" placeholder="Enter your new number here"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <a class="button cancel uppercase">{% trans %} Cancel {% endtrans %}</a>
+                <button type="submit" class="button blue uppercase submit-to-verify">{% trans %} Submit {% endtrans %}</button>
+            </div>
+        </form>
+    </div>
+    <!--End of modal edit mobile number-->
+
+     <!--Start of modal verify number-->
+    <div class="ui modal small coupled-edit-number-modal verify-contact-number-modal">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">{% trans %} Verify Number {% endtrans %}</h4>
+        </div>
+        <form name="verify-contact-number" class="form ui verify-contact-number-form">
+            <div class="content">
+                <div class="hidden message-box red with-close-message verify-contact-number-errors"></div>
+                <p class="light mrg-bt-20 light-color">
+                    You are about to change your contact number, please ensure that your mobile phone is within reach before you proceed with this step.
+                </p>
+                <p class="light mrg-bt-20">
+                    {% trans %}
+                        Please enter the 6 digit code that was sent to your mobile phone
+                    {% endtrans %}
+                </p>
+                <h4 class="light mrg-bt-20">{% trans %} Time Left: {% endtrans %} <span class="bold time-limit"></span></h4>
+                <div class="form">
+                    <label for="" class="required">{% trans %} Enter Code {% endtrans %}</label>
+                    <input type="text" name="code" class="form-ui verification-code-input" placeholder="Enter your verification code"/>
+                </div>
+                <div class="contact-verify-prompt error" style="display:none;">
+                    <div class="row">
+                        <div class="message-box red with-close-message">
+                             {% trans %} The code is either invalid or is already expired. {% endtrans %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel uppercase">{% trans %} Cancel {% endtrans %}</button>
+                <button type="submit" class="button blue submit-to-success uppercase approve">{% trans %} Verify {% endtrans %}</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="ui modal tiny success-change-contact-number-modal">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    {% trans %} Contact number has been successfully verified. {% endtrans %}
+                </div>
+            </h4>
+        </div>
+        <div class="actions">
+            <button class="button blue close uppercase">{% trans %} Okay {% endtrans %}</button>
+        </div>
+    </div>
+    <!--End of modal verify number-->
+{% endblock %}
+
+{% block yeahmobi_google_remarketing %}
+    {% include 'analytics/yeahmobi/google-remarketing.html.twig' %}
+{% endblock %}
+
+{% block yeahmobi_adwords_conversion_tracking %}
+    {% include 'analytics/yeahmobi/google-conversion-tracking.html.twig' %}
+{% endblock %}
+
+{% block yeahmobi_google_conversion_tracking_cart %}
+    {% include 'analytics/yeahmobi/google-conversion-tracking-cart.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {% if app.user %}
+        <script src="{{ asset('socket.io/socket.io.js') }}"></script>
+        <script src="{{ asset('js/src/socket-connection.js') }}"></script>
+    {% endif %}
+    <script src="{{ asset('js/src/utility/loader.js') }}"></script>
+    <script src="{{ asset('js/src/utility/send-otp.js') }}"></script>
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/bower/jquery-countdown.js') }}"></script>
+    <script src="{{ asset('js/src/frontend/mobile-verification.js') }}"></script>
+    <script src="{{ asset('js/src/checkout.js') }}"></script>
+    <script src="{{ asset('js/src/utility/data-feeder.js') }}"></script>
+    <script src="{{ asset('js/src/utility/ajax-partial.js') }}"></script>
+{% endblock %}

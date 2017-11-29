@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="cn" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="philippines-country-name">
+        <source>Philippines</source>
+        <target>菲律宾</target>
+      </trans-unit>
+      <trans-unit id="china-country-name">
+        <source>China</source>
+        <target>中国</target>
+      </trans-unit>
+      <trans-unit id="5da618e8e4b89c66fe86e32cdafde142" resname="From">
+        <source>From</source>
+        <target>从</target>
+      </trans-unit>
+      <trans-unit id="e12167aa0a7698e6ebc92b4ce3909b53" resname="To">
+        <source>To</source>
+        <target>到</target>
+      </trans-unit>
+      <trans-unit id="de6d65bf4975be62850a3e9c9c08d602" resname="&amp;larr; previous">
+        <source>&amp;larr; previous</source>
+        <target><![CDATA[__&larr; 上一页]]></target>
+      </trans-unit>
+      <trans-unit id="c38a035819591b1f47c509bb0393e91c" resname="next &amp;rarr;">
+        <source>next &amp;rarr;</source>
+        <target><![CDATA[__下一页 &rarr;]]></target>
+      </trans-unit>
+      <trans-unit id="ead71cf940dfab200f219bce3d905e00" resname="Account Deactivation">
+        <source>Account Deactivation</source>
+        <target>注销账户</target>
+      </trans-unit>
+      <trans-unit id="cc7819055cde3194bb3b136bad5cf58d" resname="&amp;nbsp;">
+        <source>&amp;nbsp;</source>
+        <target><![CDATA[__&nbsp;]]></target>
+      </trans-unit>
+      <trans-unit id="ba9600b60915be3164cc84a37b6d6d9e" resname="Password Reset">
+        <source>Password Reset</source>
+        <target>重置密码</target>
+      </trans-unit>
+      <trans-unit id="af6d60fdd038750e9ff358d0fcb33627" resname="YiLinker Online">
+        <source>YiLinker Online</source>
+        <target>壹零客</target>
+      </trans-unit>
+      <trans-unit id="a63da4815135305791b8008e714d6cb9" resname="Verify your email">
+        <source>Verify your email</source>
+        <target>邮件地址验证 </target>
+      </trans-unit>
+      <trans-unit id="bb372ddf88ad8fcc480f7a8599a92abc" resname="Hi,">
+        <source>Hi,</source>
+        <target>您好,</target>
+      </trans-unit>
+      <trans-unit id="f714d2bf534b4ce883bba11f43622fd8" resname="Scan this code">
+        <source>Scan this code</source>
+        <target>扫描此码</target>
+      </trans-unit>
+      <trans-unit id="1d00e7dce692e8dc3f6877f035e3a616" resname="OR">
+        <source>OR</source>
+        <target>或者</target>
+      </trans-unit>
+      <trans-unit id="2a304a1348456ccd2234cd71a81bd338" resname="link">
+        <source>link</source>
+        <target>链接</target>
+      </trans-unit>
+      <trans-unit id="a26f2c59988cbc56a0a25f0c1f18d2b8" resname="Congratulations on verifying your account with">
+        <source>Congratulations on verifying your account with</source>
+        <target>恭喜您</target>
+      </trans-unit>
+      <trans-unit id="9033e0e305f247c0c3c80d0c7848c8b3" resname="!">
+        <source>!</source>
+        <target>__!</target>
+      </trans-unit>
+      <trans-unit id="4c804230ba35d8d73bdd287ec8bf590b" resname="Whoops!">
+        <source>Whoops!</source>
+        <target>Whoops！</target>
+      </trans-unit>
+      <trans-unit id="854976d69dc2217416f7d9d6f41eac35" resname="Set this shipping address to default">
+        <source>Set this shipping address to default</source>
+        <target>将此地址设置为默认收件地址</target>
+      </trans-unit>
+      <trans-unit id="ea4788705e6873b424c65e91c2846b19" resname="Cancel">
+        <source>Cancel</source>
+        <target>取消</target>
+      </trans-unit>
+      <trans-unit id="a4d3b161ce1309df1c4e25df28694b7b" resname="Submit">
+        <source>Submit</source>
+        <target>提交</target>
+      </trans-unit>
+      <trans-unit id="3046d31152757bdb56ddad7be0efb6f0" resname="Are you sure you want to delete this conversation?">
+        <source>Are you sure you want to delete this conversation?</source>
+        <target>__Are you sure you want to delete this conversation?</target>
+      </trans-unit>
+      <trans-unit id="f2a6c498fb90ee345d997f888fce3b18" resname="Delete">
+        <source>Delete</source>
+        <target>删除</target>
+      </trans-unit>
+      <trans-unit id="26b63f278101527e06a5547719568bb5" resname="Okay">
+        <source>Okay</source>
+        <target>确认</target>
+      </trans-unit>
+      <trans-unit id="e53c8fe9667425512c4f6e11acab5789" resname="Search the name of contact here">
+        <source>Search the name of contact here</source>
+        <target>搜索联系人</target>
+      </trans-unit>
+      <trans-unit id="2ec4c95ad5de8b5870768a3a1236d706" resname="Delete Thread">
+        <source>Delete Thread</source>
+        <target>__Delete Thread</target>
+      </trans-unit>
+      <trans-unit id="57e505418fb025d791fd83341ed2c7ed" resname="Attach Image">
+        <source>Attach Image</source>
+        <target>__Attach Image</target>
+      </trans-unit>
+      <trans-unit id="599e807052b1f7bfd324980de2104de0" resname="Type your message">
+        <source>Type your message</source>
+        <target>__Type your message</target>
+      </trans-unit>
+      <trans-unit id="94966d90747b97d1f0f206c98a8b1ac3" resname="Send">
+        <source>Send</source>
+        <target>__Send</target>
+      </trans-unit>
+      <trans-unit id="e4b0c2b6d59cb4cf3e169a9886008087" resname="Sending">
+        <source>Sending</source>
+        <target>发送</target>
+      </trans-unit>
+      <trans-unit id="1432f32780bbd9cde496343b060fd75d" resname="Send Message">
+        <source>Send Message</source>
+        <target>发送信息</target>
+      </trans-unit>
+      <trans-unit id="2595b9c83ec46aa0a62aaf543d304f6e" resname="Enter your message here">
+        <source>Enter your message here</source>
+        <target>请在此处填写信息</target>
+      </trans-unit>
+      <trans-unit id="15e92f664ee667e8e4269dd1dcbaafa2" resname="Recent Messages">
+        <source>Recent Messages</source>
+        <target>__Recent Messages</target>
+      </trans-unit>
+      <trans-unit id="8385f7b282abec863e64b9db46333e7c" resname="Delivery Log">
+        <source>Delivery Log</source>
+        <target>派送日志</target>
+      </trans-unit>
+      <trans-unit id="1a73a5a8c184ead1521292eb0e3decee" resname="Package :">
+        <source>Package :</source>
+        <target>包装号 :</target>
+      </trans-unit>
+      <trans-unit id="8f35e4f7d99f43a2e1a80d49a382b684" resname="Items :">
+        <source>Items :</source>
+        <target>派送物品 :</target>
+      </trans-unit>
+      <trans-unit id="3132b03748e7581c0e684dbb48360cff" resname="Marc 2000 Tower, San Andres St, Malate, Manila, Metro Manila">
+        <source>Marc 2000 Tower, San Andres St, Malate, Manila, Metro Manila</source>
+        <target>__Marc 2000 Tower, San Andres St, Malate, Manila, Metro Manila</target>
+      </trans-unit>
+      <trans-unit id="f7bc508c88b7a3fb5137ec57c2fe7fb0" resname="Cancel Order">
+        <source>Cancel Order</source>
+        <target>取消订单</target>
+      </trans-unit>
+      <trans-unit id="cc7caab6010065779e931806d1b9c633" resname="Select item to cancel:">
+        <source>Select item to cancel:</source>
+        <target>选择要退款的订单:</target>
+      </trans-unit>
+      <trans-unit id="0557fa923dcee4d0f86b1409f5c2167f" resname="Back">
+        <source>Back</source>
+        <target>返回</target>
+      </trans-unit>
+      <trans-unit id="bafd7322c6e97d25b6299b5d6fe8920b" resname="No">
+        <source>No</source>
+        <target>否</target>
+      </trans-unit>
+      <trans-unit id="93cba07454f06a4a960172bbd6e2a435" resname="Yes">
+        <source>Yes</source>
+        <target>是</target>
+      </trans-unit>
+      <trans-unit id="7d991d89fe948ae4f8cc110e872f5c60" resname="First name*">
+        <source>First name*</source>
+        <target>名*</target>
+      </trans-unit>
+      <trans-unit id="d2cd101c847a69ea2dc502d153a51857" resname="Last name*">
+        <source>Last name*</source>
+        <target>姓*</target>
+      </trans-unit>
+      <trans-unit id="2f541f6d25d1cca94a0882d5797538b6" resname="Email Address*">
+        <source>Email Address*</source>
+        <target>邮件地址*</target>
+      </trans-unit>
+      <trans-unit id="fa53f4b90510d00e35568ac5d36fdd0e" resname="Password*">
+        <source>Password*</source>
+        <target>密码*</target>
+      </trans-unit>
+      <trans-unit id="7eb593a5a91d35d0aad3d709930e7293" resname="Confirm your password*">
+        <source>Confirm your password*</source>
+        <target>确认密码*</target>
+      </trans-unit>
+      <trans-unit id="966716233008192a4bcbdbf25692d270" resname="Contact Number*">
+        <source>Contact Number*</source>
+        <target>联系电话*</target>
+      </trans-unit>
+      <trans-unit id="23edfefc70c449a022ed6b0b76f13c98" resname="Referral Code">
+        <source>Referral Code</source>
+        <target>推荐码</target>
+      </trans-unit>
+      <trans-unit id="c00fde11f32c833a28ae11fc2946effe" resname="Register now">
+        <source>Register now</source>
+        <target>现在注册</target>
+      </trans-unit>
+      <trans-unit id="c360639f51cb2625a9439974e865a683" resname="Please wait">
+        <source>Please wait</source>
+        <target>请稍等</target>
+      </trans-unit>
+      <trans-unit id="3120001274fa32a921770c1b41e6dc0a" resname="DETAILS">
+        <source>DETAILS</source>
+        <target>详细信息</target>
+      </trans-unit>
+      <trans-unit id="9a932d55199939bfa5c0df5a8830fc1d" resname="ITEMS">
+        <source>ITEMS</source>
+        <target>派送物品</target>
+      </trans-unit>
+      <trans-unit id="a58a568f3b91a93deb71f27d2ce3ceb6" resname="Yilinker">
+        <source>Yilinker</source>
+        <target>YiLinker</target>
+      </trans-unit>
+      <trans-unit id="97abaa921b2270031573362f57aad4a4" resname="Terms and Conditions">
+        <source>Terms and Conditions</source>
+        <target>__Terms and Conditions</target>
+      </trans-unit>
+      <trans-unit id="00d0e97aa9b8c26ded62c8a83d23837d" resname="Have read the">
+        <source>Have read the</source>
+        <target>__Have read the</target>
+      </trans-unit>
+      <trans-unit id="fa2ead697d9998cbc65c81384e6533d5" resname="Privacy Policy">
+        <source>Privacy Policy</source>
+        <target>__Privacy Policy</target>
+      </trans-unit>
+      <trans-unit id="b15835f133ff2e27c7cb28117bfae8f4" resname="&quot;">
+        <source>"</source>
+        <target>__"</target>
+      </trans-unit>
+      <trans-unit id="0ba7583639a274c434bbe6ef797115a4" resname="Register">
+        <source>Register</source>
+        <target>__Register</target>
+      </trans-unit>
+      <trans-unit id="6c92285fa6d3e827b198d120ea3ac674" resname="here">
+        <source>here</source>
+        <target>__here</target>
+      </trans-unit>
+      <trans-unit id="77a8d71de212e28d076adab8263413af" resname="terms and conditions">
+        <source>terms and conditions</source>
+        <target>__terms and conditions</target>
+      </trans-unit>
+      <trans-unit id="c2e2fce3a995f59900d7afbbe58683f5" resname="this link">
+        <source>this link</source>
+        <target>__this link</target>
+      </trans-unit>
+      <trans-unit id="9ec54ec336b65da6179cf750de33ecd7" resname="Forgot Password">
+        <source>Forgot Password</source>
+        <target>__Forgot Password</target>
+      </trans-unit>
+      <trans-unit id="9cfc9b74983d504ec71db33967591249" resname="Contact Us">
+        <source>Contact Us</source>
+        <target>__Contact Us</target>
+      </trans-unit>
+      <trans-unit id="d7a196c09abceef11ff33b523d641428" resname="Cash on Delivery (COD) – pay for your product/s once it is delivered at your doorstep">
+        <source>Cash on Delivery (COD) – pay for your product/s once it is delivered at your doorstep</source>
+        <target>__Cash on Delivery (COD) – pay for your product/s once it is delivered at your doorstep</target>
+      </trans-unit>
+      <trans-unit id="2e7c3856fc9ee291c5f637c6f404fe16" resname="Credit Card or Debit Card – pay for your product/s online">
+        <source>Credit Card or Debit Card – pay for your product/s online</source>
+        <target>__Credit Card or Debit Card – pay for your product/s online</target>
+      </trans-unit>
+      <trans-unit id="6aabb85af28101972bf2c7d83e2286d9" resname="Thank you and Welcome">
+        <source>Thank you and Welcome</source>
+        <target>__Thank you and Welcome</target>
+      </trans-unit>
+      <trans-unit id="3d6029bab6030e2839478a1a2530ba76" resname="On-Hold Accreditation">
+        <source>On-Hold Accreditation</source>
+        <target>__On-Hold Accreditation</target>
+      </trans-unit>
+      <trans-unit id="a2539d7df13d3a39dd93b8f21fe14b94" resname="Click here to edit">
+        <source>Click here to edit</source>
+        <target>__Click here to edit</target>
+      </trans-unit>
+      <trans-unit id="e1b48703a9bd574a99c196a36d94ca96" resname="Verified Accreditation">
+        <source>Verified Accreditation</source>
+        <target>__Verified Accreditation</target>
+      </trans-unit>
+      <trans-unit id="936ccdb97115e9f35a11d35e3d5b5cad" resname="Click here">
+        <source>Click here</source>
+        <target>__Click here</target>
+      </trans-unit>
+      <trans-unit id="902b0d55fddef6f8d651fe1035b7d4bd" resname="Error">
+        <source>Error</source>
+        <target>__Error</target>
+      </trans-unit>
+      <trans-unit id="4f4adcbf8c6f66dcfc8a3282ac2bf10a" resname="404">
+        <source>404</source>
+        <target>__404</target>
+      </trans-unit>
+      <trans-unit id="a0fedf1e4b1ef4217034dd008da8044e" resname="&amp;#8594;">
+        <source>&amp;#8594;</source>
+        <target><![CDATA[__&#8594;]]></target>
+      </trans-unit>
+      <trans-unit id="386901e59792f2356e4bb8ced500d99c" resname="One Time Password">
+        <source>One Time Password</source>
+        <target>__One Time Password</target>
+      </trans-unit>
+      <trans-unit id="04d8e54e27755f41f799737627f69f39" resname="Contact #">
+        <source>Contact #</source>
+        <target>__Contact #</target>
+      </trans-unit>
+      <trans-unit id="a1fa27779242b4902f7ae3bdd5c6d508" resname="Type">
+        <source>Type</source>
+        <target>__Type</target>
+      </trans-unit>
+      <trans-unit id="44749712dbec183e983dcd78a7736c41" resname="Date">
+        <source>Date</source>
+        <target>__Date</target>
+      </trans-unit>
+      <trans-unit id="ca0dbad92a874b2f69b549293387925e" resname="Code">
+        <source>Code</source>
+        <target>__Code</target>
+      </trans-unit>
+      <trans-unit id="38c8c1f4156fa91158ebbcee727da0b0" resname="Forgot Password?">
+        <source>Forgot Password?</source>
+        <target>__Forgot Password?</target>
+      </trans-unit>
+      <trans-unit id="0ba35a0b6beed21196c783b7fc6c30c3" resname="Enter your email/contact number here">
+        <source>Enter your email/contact number here</source>
+        <target>__Enter your email/contact number here</target>
+      </trans-unit>
+      <trans-unit id="cd6df40321dbbec530bfdcfbcfc84a7b" resname="You will receive a confirmation email or SMS message where you can reset your password">
+        <source>You will receive a confirmation email or SMS message where you can reset your password</source>
+        <target>__You will receive a confirmation email or SMS message where you can reset your password</target>
+      </trans-unit>
+      <trans-unit id="bf0212b763b71031952a48f6be9c47e4" resname="Back to sign in">
+        <source>Back to sign in</source>
+        <target>__Back to sign in</target>
+      </trans-unit>
+      <trans-unit id="5a750f86ef41f22f852c43351e3ff383" resname="Verify">
+        <source>Verify</source>
+        <target>__Verify</target>
+      </trans-unit>
+      <trans-unit id="7bf7e846e399820beb49f1d4ad9861c3" resname="00:00">
+        <source>00:00</source>
+        <target>__00:00</target>
+      </trans-unit>
+      <trans-unit id="525f88e425e05155f89a831119278bbf" resname="Confirmation Code*">
+        <source>Confirmation Code*</source>
+        <target>__Confirmation Code*</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

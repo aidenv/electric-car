@@ -1,0 +1,56 @@
+{% set receivable = store.service.tentativeReceivable %}
+{% set availableBalance = store.service.availableBalance %}
+{% set netReceivable = receivable + availableBalance %}
+{% set withdrawn = store.service.totalWithdrawn %}
+<div class="dashboard-component">
+    <div class="title-bar">
+        <div class="component-content">
+            <div class="row">
+                <div class="col-xs-8">
+                    <span class="uppercase">Earnings Report</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="component-content">
+        <div class="sales-chart-container mrg-bt-20">
+            <canvas id="balance-record" class="sales-chart"></canvas>
+        </div>
+    </div>
+    <div class="component-content">
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="align-center">
+                    <h3 class="purple-color">
+                        P {{ netReceivable|number_format(2) }}
+                    </h3>
+                    <h5 class="uppercase">Total Earning</h5>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="align-center">
+                    <h3 class="purple-color">
+                        P {{ availableBalance|number_format(2) }}
+                    </h3>
+                    <h5 class="uppercase">Active Earning</h5>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="align-center">
+                    <h3 class="purple-color">
+                        P {{ receivable|number_format(2) }}
+                    </h3>
+                    <h5 class="uppercase">Tentative Earning</h5>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="align-center">
+                    <h3 class="purple-color">
+                        P {{ withdrawn|number_format(2) }}
+                    </h3>
+                    <h5 class="uppercase">Total Withdrew</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

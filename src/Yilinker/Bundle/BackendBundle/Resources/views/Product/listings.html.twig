@@ -1,0 +1,119 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block body %}
+    <section class="box-section">
+        <div class="title-bar">
+            <div class="container">
+                <span>Product Listings</span>
+            </div>
+        </div>
+        <div class="container">
+            {{ include('YilinkerBackendBundle:Product:filter.html.twig') }}
+            <!-- Tables -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+                            <div class="row gutters">
+                                <div class="col-md-12">
+                                    <table class="table basic table-vertical-align-top">
+                                        <tr>
+                                            <th>ProductId</th>
+                                            <th>Date Created</th>
+                                            <th>Item</th>
+                                            <th>Store Name</th>
+                                            <th>Category</th>
+                                            <th>Brand</th>
+                                            <th>SKU</th>
+                                            <th>Brief</th>
+                                            <th>Condition</th>
+                                            <th>URL</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        {% for product in productSearch.products %}
+                                            {% set userImage = false %}
+                                            {% if product.user.primaryImage %}
+                                               {% set userImage = product.user.primaryImage.imageLocation %}
+                                            {% endif %}
+                                            <tr 
+                                                data-productid="{{ product.productId }}"
+                                                class="modal-product-listing-trigger tr-{{ product.productId }}"
+                                                data-youtube-url="{{ product.youtubeVideoUrl }}"
+                                                data-countrycode="{{ app.request.query.get('countryCode') }}"
+                                            >
+
+                                                <td>{{ product.productId }}</td>
+                                                <td style="display:none" data-product-full-description>{{ product.description|raw }}</td>
+                                                <td>{{ product.dateCreated|date('m/d/Y') }}</td>
+                                                <td>{{ product.name }}</td>
+                                                <td>{{ product.user ? product.user.store ? product.user.store.storeName : '' : '' }}</td>
+                                                <td>{{ product.productCategory ? product.productCategory.name: '' }}</td>
+                                                <td>{{ product.brandName }}</td>
+                                                <td>{{ product.skus|join(', ') }}</td>
+                                                <td>{{ product.shortDescription }}</td>
+                                                <td>{{ product.condition ? product.condition.name: '' }}</td>
+                                                <td></td>
+                                                <td>{{ product.getProductCountryStatusName(country) }} </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-blank">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: productSearch.totalResultCount, perPage: 10}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{ include('YilinkerBackendBundle:Product:listings_modal.html.twig') }}   
+
+    <div class="ui modal small success-product-update-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+        <h3 class="ui header">
+            <i class="icon icon-circle-check"></i>
+            <div class="content">
+                The product status has been successfully updated.
+            </div>
+        </h3>
+        </div>
+        <div class="actions">
+        <button class="button confirm close">Okay</button>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/jquery.magnific-popup.min.js') }}"></script>
+    {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/admin-listing.js"
+        "js/bower/twig.min.js"
+        "js/bower/typeahead.bundle.min.js"
+        "js/bower/jquery.magnific-popup.min.js"
+        "js/src/utility/url-utility.js"
+        "js/src/backend/product-management.js"
+    %}
+
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    
+    <script src="{{ asset('js/src/utility/data-feeder.js') }}"></script>
+{% endblock %}

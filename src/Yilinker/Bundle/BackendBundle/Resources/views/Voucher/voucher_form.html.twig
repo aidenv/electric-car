@@ -1,0 +1,190 @@
+{% set editMode = editMode is defined and editMode %}
+<div class="ui tab active" data-tab="moda-tab-name">
+    {{ form_start(form, {attr: {id: 'voucher-form', class: 'ui form segment'}}) }}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="form col-md-6">
+                    <label class="required">Voucher Code Name</label>
+                    {{ form_widget(form.name) }}
+                    <span class="form-ui-note error">
+                        {{ form_errors(form.name) }}
+                    </span>
+                </div>
+                <div class="form col-md-6">
+                    <label class="required">Usage Limit</label>
+                    {{ form_widget(form.usageType) }}
+                    <span class="form-ui-note error">
+                        {{ form_errors(form.usageType) }}
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="required">Amount</label>
+                            {{ form_widget(form.value) }}
+                            <span class="form-ui-note error">
+                                {{ form_errors(form.value) }}
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="required">Discount Type</label>
+                            {{ form_widget(form.discountType) }}
+                            <span class="form-ui-note error">
+                                {{ form_errors(form.discountType) }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="required">Start</label>
+                            {{ form_widget(form.startDate, {attr: {'data-value': form.vars.value ? form.vars.value.startDate|date('m/d/Y h:i:s A'): ''}}) }}
+                            <span class="form-ui-note error">
+                                {{ form_errors(form.startDate) }}
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="required">End</label>
+                            {{ form_widget(form.endDate, {attr: {'data-value': form.vars.value ? form.vars.value.endDate|date('m/d/Y h:i:s A'): ''}}) }}
+                            <span class="form-ui-note error">
+                                {{ form_errors(form.endDate) }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="required">Quantity</label>
+                            {{ form_widget(form.quantity) }}
+                            <span class="form-ui-note error">
+                                {{ form_errors(form.quantity) }}
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Minimum Purchase</label>
+                            {{ form_widget(form.minimumPurchase) }}
+                            <span class="form-ui-note error">
+                                {{ form_errors(form.minimumPurchase) }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display:none">
+                {{ form_row(form.isActive) }}
+            </div>
+            {% if editMode is same as(true) %}
+                {% set attr = { 'class' : 'form-ui', 'disabled' : 'disabled' } %}
+            {% else %}
+                {% set attr = { 'class' : 'form-ui' } %}
+            {% endif %}
+            <div class="row">
+                <div class="form col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="countdown-timer">
+                                <h4>Voucher by SKU</h4>
+                                <p class="mrg-bt-10">Please enter the product links below, separated by linebreak</p>
+                                <div class="form">
+                                    {{ form_widget(form.productVouchers, { 'attr' : attr }) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="countdown-timer">
+                                <h4>Voucher by Product Category</h4>
+                                {% if editMode is same as(true) %}
+                                    {% set dropdownAttr = { 'class' : 'form-ui ui fluid multiple search tag selection dropdown category disabled', 'disabled' : 'disabled' } %}
+                                {% else %}
+                                    {% set dropdownAttr = { 'class' : 'form-ui ui fluid multiple search tag selection dropdown category' } %}
+                                {% endif %}
+                                {{ form_widget(form.productCategories, { 'attr' : dropdownAttr }) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="countdown-timer">
+                                <h4>Voucher by Seller</h4>
+                                <p class="mrg-bt-10">Please enter the store links below, separated by linebreak</p>
+                                <div class="form">
+                                    {{ form_widget(form.stores, { 'attr' : attr }) }}
+                                    <div class="mrg-top-10">
+                                        {{ form_row(form.includeAffiliates) }} Apply voucher to <b>Affiliates</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" {{ editMode ? 'style="display:none"': '' }}>
+                <div class="form col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="countdown-timer">
+                                <h4>Voucher Code</h4>
+                                {% if editMode %}
+                                        {{ form.vars.value ? form.vars.value.voucherCodeTexts|join(', '): '' }}
+                                {% endif %}
+                                <div>
+                                    {{ form_widget(form.code) }}
+                                    <span class="form-ui-note error">
+                                        {{ form_errors(form.code) }}
+                                    </span>
+                                    <a class="button blue small" data-generate-voucher-code href="#">Generate Voucher Code</a>
+                                </div>
+                                <p class="mrg-top-10">
+                                    {{ form_widget(form.batchUpload) }}
+                                    <strong>By Batch</strong>, generate multiple voucher codes based on quantity.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="countdown-timer">
+                                <div class="{{ form.vars.value and form.vars.value.isActive ? 'hidden': '' }}" data-voucher-status>
+                                    <h4>Voucher is currently Inactive</h4>
+                                    <p class="mrg-bt-10">Do you want to enable this voucher? Please be advise that any
+                                        <br>alteration will affect any transactions under this voucher.</p>
+                                    <a class="button purple small">Yes, Activate this Voucher</a>
+                                </div>
+                                <div class="{{ form.vars.value and form.vars.value.isActive ? '': 'hidden' }}" data-voucher-status>
+                                    <h4 class="blue-color">Voucher is Now Active</h4>
+                                    <p class="mrg-bt-10">Do you want to enable this voucher? Please be advise that any
+                                        <br>alteration will affect any transactions under this voucher.</p>
+                                    <a class="button light-gray small mrg-tp-30">Disable Countdown Timer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>

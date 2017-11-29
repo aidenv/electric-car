@@ -1,0 +1,103 @@
+        <!--Start of cancel item selection modal-->
+        <div class="ui modal small coupled-cancel-order cancel-order-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="header">
+                <h4 class="no-margin">Cancel Order</h4>
+            </div>
+            <div class="content">
+                
+
+                <div class="order-cancellation-prompt error" style="display:none">
+                    <div class="row">
+                        <div class="message-box red with-close-message">
+                            Something went wront. Please try again later
+                        </div>
+                    </div>
+                </div>
+                <p class="light mrg-bt-20 light-color">
+                     Kindly specify the reason for your cancellation. Order cancellations are subject to approval by our customer support department. 
+                </p>
+                <div>
+
+                     <div class="form mrg-top-20">
+                        {{ form_label(cancellationForm.reason) }}
+                        {{ 
+                            form_widget(cancellationForm.reason, {'attr': {
+                               'class': 'form-ui ui single selection dropdown cancellation-reason'
+                            }}) 
+                         }} 
+                    </div>
+
+                    <div class="form mrg-top-20">
+                        <label for=""><h5>Select item to cancel: </h5></label>
+                        <div class="row">
+                            <div class="item-picker-container cancellation-orderproducts">
+                                {% for orderProduct in cancellationForm.orderProducts %}
+                                <div class="col-md-12 order-product-item-container">
+                                    <div class="item mrg-bt-10">
+                                        <div class="ui checkbox">                                          
+                                            {{ form_widget(orderProduct) }}
+                                            {{ form_label(orderProduct) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form mrg-top-20">
+                        {{ form_label(cancellationForm.remark) }}
+                        {{ 
+                            form_widget(cancellationForm.remark, {'attr': {
+                               'placeholder':'Leave a reason',
+                               'class': 'form-ui cancellation-remark'
+                            }}) 
+                         }} 
+                    </div>
+                    {{ form_widget(cancellationForm._token) }}
+
+                </div>
+            </div>
+            
+            <div class="actions">
+                <button class="button cancel uppercase">Back</button>
+                <button class="button blue uppercase submit-to-verify approve">Cancel Order</button>
+            </div>
+        </div>
+        <!--End of cancel item selection modal-->
+
+        <!--Start of verify cancel modal-->
+        <div class="ui modal tiny coupled-cancel-order verify-cancel-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-question-mark"></i>
+                        <div class="content">
+                            Are you sure you want to cancel the selected item orders
+                        <div class="sub-header">Cancelled transactions will be refunded if approved.</div>
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button cancel close deny uppercase">No</button>
+                <button class="button blue submit-to-cancel-success approve uppercase">Yes</button>
+            </div>
+        </div>
+        <!--End of verify cancel modal-->
+
+        <div class="ui modal tiny coupled-cancel-order success-cancel-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                        <div class="content">
+                            Your cancellation request has been submitted
+                        <div class="sub-header">Please check back for updates regarding your cancellation.</div>
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button blue close uppercase">Okay</button>
+            </div>
+        </div>

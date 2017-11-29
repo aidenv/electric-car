@@ -1,0 +1,84 @@
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Search Keyword</span>
+        </div>
+    </div>
+    <div class="container">
+      <!-- Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="tools top form">
+              <div class="row">
+                <div class="col-md-9">
+                </div>
+                <div class="col-md-3">
+                  <div class="options">
+                    <div class="labeled-input right">
+                      <input type="text" class="form-ui" placeholder="Search">
+                      <div class="label black"><i class="item-icon icon-search"></i></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tables -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+              <div class="box-div">
+                <div class="row gutters">
+                  <div class="col-md-12">
+                    <table class="table basic table-vertical-align-top">
+                      <tr>
+                        <th>Query String</th>
+                        <th>Number of Hits</th>
+                      </tr>
+                      {% for i in 1..10 %}
+                        <tr>
+                          <td>apple UNION ALL SELECT NULL--</td>
+                          <td>2</td>
+                        </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-blank">
+                <div class="row">
+                  <div class="col-md-6">
+                  </div>
+                  <div class="col-md-6">
+                    <div class="pagination pull-right">
+                      <a class="item ">1</a>
+                      <div class="disabled item">...</div>
+                      <a class="item">10</a>
+                      <a class="item">11</a>
+                      <a class="item">12</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+</section>

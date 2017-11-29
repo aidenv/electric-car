@@ -1,0 +1,14 @@
+Yilinker\Bundle\CoreBundle\Entity\DisputeStatusType:
+    type: entity
+    table: DisputeStatusType
+    id:
+        disputeStatusTypeId:
+            type: bigint
+            id: true
+            column: dispute_status_type_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            length: 255
+    lifecycleCallbacks: {  }

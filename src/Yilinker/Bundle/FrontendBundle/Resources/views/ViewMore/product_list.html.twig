@@ -1,0 +1,76 @@
+<div class="horizontal-divider mrg-top-20 mrg-bt-20">
+     <span class="uppercase bold">Featured Products</span>
+</div>
+<div class="advertisement-wrapper mrg-bt-20">
+    <a href="#">
+        <img src="http://placehold.it/1680x265/e74c3c/fff" alt="">
+    </a>
+</div>
+<div class="row">
+    {% for i in 1..24 %}
+        <div class="col-xs-2 col-for-product-group">
+            <div class="product-item-wrapper">
+                <a href="#">
+                    <div class="image-wrapper image-display">
+                        <span class="discount pin">12% off</span>
+                        <img src="{{ asset('images/featured-prod-1.jpg') }}" alt="Product Name" title="Product Name" class="img-auto-place">
+                    </div>
+                </a>
+                <div class="meta-wrapper">
+                    <div class="basic-name">
+                        <div class="row group">
+                            <div class="col-xs-12">
+                                <h4 class="name">
+                                    <a href="#">
+                                        Product Name is the sample name
+                                    </a>
+                                    <span class="wishlist tooltip pull-right" title="Add to wislist">
+                                        <i class="icon-heart-o"></i>
+                                    </span>
+                                </h4>
+                                <h5 class="category no-margin">
+                                    <a href="#">
+                                        Electronics &amp; Gadgets
+                                    </a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="basic-amount">
+                        <div class="row group">
+                            <div class="col-md-7 col-xs-12 col-price-button-container align-center">
+                                <span class="old-price">
+                                    P 1,280.00
+                                </span>
+                                <div class="product-cart-button-flip">
+                                    <div class="button purple block cart front">
+                                        <span class="current-price">
+                                            P 1000.00
+                                        </span>
+                                        <span class="cart text">{% trans %} Add to cart {% endtrans %}</span>
+                                    </div>
+                                    <div class="button gray block cart disabled back">
+                                        <span>
+                                            <i class="icon icon-check"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-star-rating-container">
+                                <div class="rating-container">
+                                <span class="rating-icons">
+                                    <i class="icon icon-star-o active"></i>
+                                    <i class="icon icon-star-o active"></i>
+                                    <i class="icon icon-star-o active"></i>
+                                    <i class="icon icon-star-o active"></i>
+                                    <i class="icon icon-star-o"></i>
+                                </span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

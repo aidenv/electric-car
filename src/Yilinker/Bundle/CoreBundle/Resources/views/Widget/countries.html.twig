@@ -1,0 +1,8 @@
+<select name="country" data-autocomplete="{{ path('autocomplete_countries') }}?useCode=0" class="form-ui ui">
+    <option value="">Select country here</option>
+    {% for country in countries %}
+        <option {{ country is same as(selectedCountry) ? 'selected="selected"': '' }} value="{{ country.countryId }}">
+            {{ country }}
+        </option>
+    {% endfor %}
+</select>

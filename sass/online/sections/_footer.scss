@@ -1,0 +1,316 @@
+.footer-wrapper{
+    width: 100%;
+    min-width: 1200px;
+    clear: both;
+    &.mobile-app-link-active{
+        margin-bottom: 65px;
+    }
+
+    .footer-top {
+        background-color: #faad68;
+        background-image: url('../images/aeneasusa/footer/footer-bg.png');
+        background-repeat: no-repeat;
+        background-position: center top;
+        color: #fff;
+        padding: 1em 0 3em;
+
+        .header {
+            opacity: 0.8;
+        }
+
+        p, a {
+            opacity: 0.6;
+        }
+    }
+
+    .footer-copyright {
+        padding: 1em 0 2em;
+
+        .header {
+            opacity: 0.8;
+        }
+
+        .copyright-social-container {
+            border-top: 1px solid #ddd;
+        }
+
+        ul {
+            margin:0 0 20px -7px;
+            display: inline-block;
+            overflow: hidden;
+
+            li {
+                float: left;
+                margin: 0 0 1px -1px;
+
+                a {
+                    color: #a7a7a7;
+                    border-left: 1px solid rgba(0,0,0,0.1);
+                    padding: 0 7px;
+                }
+            }
+        }
+    }
+}
+
+.logo-motto-container{
+    display: table;
+    width: 100%;
+    border-bottom: solid $brand-gray-light 1px;
+    padding-bottom: 2em;
+
+    &>div{
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .logo-container{
+        width: 9%;
+
+        .logo{
+            width: 100%;
+        }
+    }
+
+    .motto-container{
+        width: 15%;
+        font-size: 1.2em;
+        padding: 0 1.3em;
+        color: darken($brand-gray-light, 10%);
+    }
+
+    .stat-container{
+        width: 70%;
+        text-align: right;
+        font-size: 1.2em;
+
+        .stat-info{
+            display: inline-block;
+            margin-left: 1em;
+            color: darken($brand-gray-light, 10%);
+        }
+
+        b{
+            color: $text-color;
+        }
+    }
+
+    .footer-logo-store{
+        margin: auto;
+
+        img{
+            height: 3.25em;
+            margin-left: 1em;
+        }
+    }
+}
+
+.sitemap-container{
+    padding-top: 2em;
+    
+    .col-sm-3:nth-child(4n+1) {
+        clear: both;
+    }
+
+    &>.row{
+        margin: 0 -0.58em;
+        [class^="col-"], [class*=" col-"]{
+            padding: 0 0.58em;
+        }
+    }
+
+    .header{
+        font-size: 1em;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 0.83em;
+    }
+
+    .list-sitemap-links{
+        li,[class^="col-"], [class*=" col-"]{
+            margin-bottom: 5px;
+            font-size: 0.92em;
+        }
+
+        a {
+            color: #fff;
+            &:hover {
+                color: #000;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.email-newsletter-form-container{
+    margin-top: 0.83em;
+
+    form[name='email_newsletter'] .form[class*="col-"] {
+        margin-bottom: 0.5em;
+        padding: 0 5px 0 0;
+    }
+
+    .form-ui{
+        background: $input-border-color;
+        border-radius: 0;
+        box-shadow: none;
+        border: 0;
+        color: #666;
+
+        &:focus{
+            background: #fff;
+            outline: auto;
+            outline-color: #f7865e;
+            outline-offset: -3px;
+        }
+    }
+
+    .message-box {
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+        float: left;
+    }
+
+    .button{
+        background-color: #f7865e;
+        border-color: #f7865e;
+        color: #fff;
+        text-transform: uppercase;
+        border-radius: 0;
+    }
+}
+
+.download-app {
+    background-color: #ff8502;
+    padding: 10px;
+    border-radius: 7px;
+
+    .header {
+        width: 90px;
+        font-size: 14px;
+        line-height: 1.2;
+        margin: 3px 0 0;
+    }
+}
+
+.row.row-mobile-app{
+    margin: 0 -0.42em;
+
+    [class^="col-"], [class*=" col-"]{
+        padding: 0 0.42em;
+    }
+
+    img{
+        margin-bottom: 0.42em;
+    }
+}
+
+.copyright-social-container{
+    display: table;
+    width: 100%;
+    padding-top: 1.08em;
+    &>div{
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .copyright-social-container{
+        width: 60%;
+    }
+
+    .social-container{
+        width: 40%;
+        text-align: right;
+        a{
+            display: inline-block;
+            margin: 0 0.25em;
+        }
+    }
+
+    .social-icon{
+        color: #fff;
+        width: 2em;
+        height: 2em;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 1.5em;
+        border-radius: 50%;
+        transition: $transition-default;
+
+        &.facebook{
+            background: $brand-facebook;
+            &:hover{
+                background: darken($brand-facebook, 10%);
+            }
+        }
+
+        &.twitter{
+            background: $brand-twitter;
+            &:hover{
+                background: darken($brand-twitter, 10%);
+            }
+        }
+
+        &.google-plus{
+            background: $brand-google-plus;
+            &:hover{
+                background: darken($brand-google-plus, 10%);
+            }
+        }
+    }
+}
+
+.ui.modal{
+    .flag-container{
+        margin-top: -12px;
+        .flag-icon{
+            margin: 10px 6px;
+            opacity: 0.5;
+            transition: $transition-default;
+            border: solid #dedede 1px;
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.sitemap-mobile{
+    display: none;
+    text-align: center;
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+/*底部改版样式*/
+.sitemap-section{
+	&.brief-introduct{
+		p{
+			margin-bottom:5px;
+			span{
+				font:{
+					weight:700;
+					size:13px;
+				}
+			}
+		}
+	}
+}
+
+.sitemap-section-label{
+	overflow: hidden;
+	text-align: center;
+	label{
+		float: left;margin: 10px 10px;
+		img{
+			width: 107px; height: 107px;
+		}
+	}
+}

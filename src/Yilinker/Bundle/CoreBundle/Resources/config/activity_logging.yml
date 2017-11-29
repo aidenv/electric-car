@@ -1,0 +1,123 @@
+tables:
+    Package:
+        __delete:
+            loggable: false
+        __update:
+            loggable: false
+        template: 'YilinkerCoreBundle:ActivityLog:ship_item.html.twig'
+        associations:
+            packageDetails:
+                orderProduct:
+    OrderProductCancellationDetail:
+        __delete:
+            loggable: false
+        __update:
+            loggable: false
+        template: 'YilinkerCoreBundle:ActivityLog:order_product_cancellation.html.twig'
+        associations:
+            orderProduct:
+                order:
+    DisputeDetail:
+        __delete:
+            loggable: false
+        __update:
+            loggable: false
+        template: 'YilinkerCoreBundle:ActivityLog:dispute.html.twig'
+        associations:
+            dispute:
+                disputeStatusType:
+                orderProductStatus:
+            orderProduct:
+                order:
+                orderProductStatus:
+    User:
+        __noun: 'Personal Information'
+        fields:
+            password:
+                loggable: false
+            loginCount:
+                loggable: false
+            isEmailVerified:
+                loggable: false
+            verificationToken:
+                loggable: false
+            verificationTokenExpiration:
+                loggable: false
+            verificationCode:
+                loggable: false
+            verificationCodeExpiration:
+                loggable: false
+            dateLastModified:
+                loggable: false
+            isMobileVerified:
+                loggable: false
+            isEmailVerified:
+                loggable: false
+            lastLogoutDate:
+                template: 'YilinkerCoreBundle:ActivityLog:logout.html.twig'
+            lastLoginDate:
+                template: 'YilinkerCoreBundle:ActivityLog:login.html.twig'
+            primaryImage:
+                template: 'YilinkerCoreBundle:ActivityLog:user_primary.html.twig'
+        associations:
+            primaryImage:
+    Store:
+        __insert:
+            loggable: false
+        __delete:
+            loggable: false
+        __update:
+            loggable: 'isStoreLoggable'    
+        fields:
+            storeSlug:
+                loggable: false
+            slugChanged:
+                loggable: false
+            hasCustomCategory:
+                loggable: false
+    UserOrder:
+        __insert:
+            loggable: false
+        __update:
+            loggable: 'activityLoggable'
+        __delete:
+            loggable: false
+        away_user:
+            buyer:
+        fields:
+            lastDateModified:
+                loggable: false
+        template:
+                'YilinkerCoreBundle:ActivityLog:checkout.html.twig'
+        associations:
+            paymentMethod:
+            orderProducts:
+                seller:
+                    store:
+    UserFollowHistory:
+        __insert:
+            template:
+                'YilinkerCoreBundle:ActivityLog:follow.html.twig'
+        __update:
+            loggable: false
+        __delete:
+            loggable: false
+        associations:
+            followee:
+                store:
+                primaryImage:
+    Product:
+        template: 'YilinkerCoreBundle:ActivityLog:product.html.twig'
+        fields:
+            dateLastModified:
+                loggable: false
+        include:
+            primaryImageLocation:
+            defaultPrice:
+    BankAccount:
+        template: 'YilinkerCoreBundle:ActivityLog:bank_account.html.twig'
+    UserAddress:
+        template: 'YilinkerCoreBundle:ActivityLog:user_address.html.twig'
+        include:
+            addressString:
+template: 'YilinkerCoreBundle:ActivityLog:default.html.twig'

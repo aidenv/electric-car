@@ -1,0 +1,22 @@
+services:
+
+    yilinker_oauth_server.form.type.authorize:
+        class: Yilinker\Bundle\OAuthServerBundle\Form\Type\AuthorizeFormType
+        tags:
+            - { name: form.type, alias: oauth_server_oauthorize_type }
+    
+    yilinker_oauth_server.form.factory.authorize:
+        factory_method: createNamed
+        factory_service: form.factory
+        class: Symfony\Component\Form\Form
+        arguments:
+            - oauth_authorize_factory
+            - oauth_server_oauthorize_type
+
+    yilinker_oauth_server.form.handler.authorize:
+        class: Yilinker\Bundle\OAuthServerBundle\Form\Handler\AuthorizeFormHandler
+        arguments:
+            - @yilinker_oauth_server.form.factory.authorize
+            - @security.context
+            - @fos_oauth_server.server
+            - @doctrine.orm.entity_manager

@@ -1,0 +1,66 @@
+<div class="overlay-category"></div>
+<div class="all-category-container mobile-hide">
+    <h1 class="uppercase purple-color">
+        {% trans %} All Categories {% endtrans %}
+    </h1>
+    <ul class="list-unstyled list-all-categories">
+        {% if homeData.categorySideBar != null %}
+            {% for categoryDetails in homeData.categorySideBar %}
+                <li data-ajaxed-content="[data-all-category='{{ categoryDetails.category.id }}']" data-url="{{ path('home_sub_categories', {id: categoryDetails.category.id }) }}">
+                    <a href="#" data-href="#main-{{ categoryDetails.category.id }}">
+                        <i class="icon icon-category-{{ categoryDetails.category.slug|default('') }}"></i>
+                        <span class="name">{{ categoryDetails.category.name }}</span>
+                        <span class="arrow-go">&rarr;</span>
+                    </a>
+                </li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+
+    {% if homeData.categorySideBar != null %}
+        {% for categoryDetails in homeData.categorySideBar %}
+            <div class="category-board" id="main-{{ categoryDetails.category.id }}">
+                <div class="board-content">
+                    <div class="sub-category-container">
+                        <div data-all-category="{{ categoryDetails.category.id }}" class="row" style="position: relative; margin: auto;">
+                            
+                        </div>
+                    </div>
+                    <div class="category-ads-container">
+                        {% if categoryDetails.adBig != null %}
+                            <a href="{{ categoryDetails.adBig.target }}">
+                                <img src="{{ categoryDetails.adBig.image }}" alt="{{ categoryDetails.adBig.alt }}" title="{{ categoryDetails.adBig.title }}" class="img-full-width big-ad" />
+                            </a>
+                        {% endif %}
+                        {% if categoryDetails.adSmall != null %}
+                            <a href="{{ categoryDetails.adSmall.target }}">
+                                <img src="{{ categoryDetails.adSmall.image }}" alt="{{ categoryDetails.adSmall.alt }}" title="{{ categoryDetails.adSmall.title }}" class="img-full-width" />
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+</div>
+
+<script type="application/ld+json">
+{% if homeData.categorySideBar != null %}
+
+{
+  "@context": "http://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {% for categoryDetails in homeData.categorySideBar %}
+    "{{ categoryDetails.category.name }}",
+    {% endfor %}    
+  ],
+
+  "itemListOrder": "http://schema.org/ItemListOrderDescending",
+  "name": "All Categories"
+}
+
+{% endif %}
+
+</script>

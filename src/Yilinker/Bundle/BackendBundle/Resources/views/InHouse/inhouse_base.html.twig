@@ -1,0 +1,18 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+	{{ include('YilinkerBackendBundle:InHouse:inhouse_listings.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+	{% javascripts filter="?jsqueeze" output="assets/compiled/inhouse-products.js"
+		"js/src/backend/inhouse-products.js"
+		"js/bower/dropzone.min.js"
+	  %}
+		<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+	<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+{% endblock %}

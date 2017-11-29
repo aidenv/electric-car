@@ -1,0 +1,79 @@
+<!-- used in checkout overview -->
+{% set shippingFee = 0 %}
+<div class="checkout-segment">
+    <div class="title">
+        {% trans %}
+            Order Summary
+        {% endtrans %}
+    </div>
+    <table class="checkout-breakdown-table">
+        <tbody>
+            {% for orderProduct in userOrder.orderProducts %}
+                {% set shippingFee = shippingFee + orderProduct.shippingFee %}
+                {{ include('YilinkerFrontendBundle:Checkout:order_product_preview.html.twig') }}
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            {#
+            <tr><!--Points deduction hidden by default-->
+                <td colspan="2" class="td-border-bottom-1 td-item-summary-total">Points Deduction</td>
+                <td colspan="2" class="td-border-bottom-1 td-item-summary-total align-right">- P 600.00</td>
+            </tr>
+            #}
+            {% set orderVoucher = userOrder.orderVouchers.first %}
+            {% if orderVoucher or shippingFee %}
+                {% set voucherValue = orderVoucher ? orderVoucher.value: 0 %}
+                <tr>
+                    <td colspan="2" class=" td-item-summary-total">
+                        <b>
+                            Subtotal
+                        </b>
+                    </td>
+                    <td colspan="2" class=" td-item-summary-total align-right">
+                        <b> P 
+                            <span data-voucher-discount>
+                                {{ (voucherValue + userOrder.totalPrice)|number_format(2) }}
+                            </span>
+                        </b>
+                    </td>
+                </tr>
+            {% endif %}
+            {% if orderVoucher %}
+                <tr>
+                    <td colspan="2" class=" td-item-summary-total">
+                        <b>
+                            Voucher Deduction
+                        </b>
+                    </td>
+                    <td colspan="2" class=" td-item-summary-total align-right">
+                        <b>- P 
+                            <span data-voucher-discount>
+                                {{ orderVoucher.value|number_format(2) }}
+                            </span>
+                        </b>
+                    </td>    
+                </tr>
+            {% endif %}
+            {% if shippingFee > 0 %}
+                <tr>
+                    <td colspan="2" class=" td-item-summary-total">
+                        <b>
+                            Shipping Cost
+                        </b>
+                    </td>
+                    <td colspan="2" class=" td-item-summary-total align-right">
+                        <b>+ P 
+                            <span>
+                                {{ shippingFee|number_format(2) }}
+                            </span>
+                        </b>
+                    </td>    
+                </tr>
+            {% endif %}
+            <tr>
+                <td colspan="2" class=" td-item-summary-total"><b>{% trans %} Total {% endtrans %}</b></td>
+                <td colspan="2" class=" td-item-summary-total align-right"><b>P {{ (userOrder.totalPrice + shippingFee)|number_format(2) }}</b></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

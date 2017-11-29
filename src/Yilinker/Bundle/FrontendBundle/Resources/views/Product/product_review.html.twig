@@ -1,0 +1,87 @@
+
+<div class="review-wrapper">
+    <div class="review-buyer-info">
+        <table class="table-buyer-name table-reviewer-name" width="100%">
+            <thead>
+                <tr>
+                    <td class="td-buyer-img align-center">
+                        <div class="img-buyer-container">
+                            <img src="{{ 
+                                productReview.reviewer.primaryImage?
+                                asset(productReview.reviewer.primaryImage.getImageLocationBySize('thumbnail'), 'user') :
+                                asset('images/default-buyer.png')
+                            }}" class="img-buyer img-round" />
+                        </div>
+                    </td>
+                </tr>
+                <tr class="mobile-hide">
+                    <td class="td-buyer-name align-center">
+                        <span class="name ellipsis-overflow" width="70%">
+                            <a href="javascript:void(0);" class="user-profile-trigger" data-feeder="{{ productReview.reviewer.userCard|json_encode }}">
+                                {{ productReview.reviewer.getFullName }}
+                            </a>
+                        </span>
+                        {% if productReview.dateAdded %}
+                            <span class="sub-info light-color">{{ productReview.dateAdded.format('M d, Y g:i:sa') | time_elapsed }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="review-item-cell">
+        <div class="review-item">
+            <div class="review-item-head">
+                <div class="row">
+                    <table width="100%">
+                        <tr>
+                            <td width="50%">
+                               <table class="table-buyer-name">
+                                    <thead>
+                                        <tr>
+                                            <td class="td-buyer-name review-title-td">
+                                                <span class="name ellipsis-overflow desktop-hide" width="70%">
+                                                    <a href="javascript:void(0);" class="user-profile-trigger" data-feeder="{{ productReview.reviewer.userCard|json_encode }}">
+                                                        {{ productReview.reviewer.getFullName }}
+                                                    </a>
+                                                </span>
+                                                <span class="name mobile-hide">
+                                                    {{ productReview.title }}
+                                                </span>
+                                                <div class="rating-container">
+                                                    <span class="rating-icons">
+                                                        {% for i in 1..5 %}
+                                                            <i class="icon icon-star-o {{ productReview.rating >= i ? 'active' : '' }}"></i>
+                                                        {% endfor %}
+                                                    </span>
+                                                </div>
+                                                <span class="name desktop-hide mrg-bt-10">
+                                                    {{ productReview.title }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="review-item-body breakword">{{ productReview.review }}</div>
+        </div>
+    </div>
+    
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Review",
+  "author": {
+    "@type": "Person",
+    "name": "{{ productReview.reviewer.getFullName }}"
+  },
+  "datePublished": "{{ productReview.dateAdded ? productReview.dateAdded.format('M d, Y g:i:sa') | time_elapsed : '' }}",
+  "reviewBody": "{{ productReview.review }}"
+}
+</script>

@@ -1,0 +1,86 @@
+
+{{ form_start(form, {attr: {novalidate: 'novalidate', class: 'form ui'}}) }}
+    <div class="content">
+        <div class="row">
+            <div class="col-md-4">
+                <strong>Warehouse address</strong>
+                <p>Set your warehouse address.</p>
+            </div>
+            <div class="col-md-8">
+                <div class="col-md-6 field form">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name, {'attr': {'class': 'title-input ui input'}}) }}
+                </div>
+                <div class="col-md-12 field form">
+                    {{ form_label(form.address) }}
+                    {{ form_widget(form.address, {'attr': {'class': 'title-input ui input'}}) }}
+                </div>
+                <div class="col-md-6 field form">
+                    {{ form_label(form.location.country) }}
+                    {{ form_widget(form.location.country, {
+                            attr: {
+                                'data-placeholder': form.location.country.vars.placeholder,
+                                'data-location': {
+                                    locationTypeId: constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LocationType::LOCATION_TYPE_PROVINCE'),
+                                    target: '#'~form.location.province.vars.id
+                                }|json_encode, 
+                                class: 'form-ui ui single selection dropdown'
+                            }
+                        }) 
+                    }}
+                </div>
+                <div class="col-md-6 field form">
+                    {{ form_label(form.location.province) }}
+                    {{ form_widget(form.location.province, {
+                            attr: {
+                                'data-placeholder': form.location.province.vars.placeholder,
+                                'data-location': {
+                                    locationTypeId: [
+                                        constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LocationType::LOCATION_TYPE_CITY'), 
+                                        constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LocationType::LOCATION_TYPE_MUNICIPALITY')
+                                    ],
+                                    target: '#'~form.location.cityOrMunicipality.vars.id
+                                }|json_encode, 
+                                class: 'form-ui ui single selection dropdown'
+                            }
+                        }) 
+                    }}
+                </div>
+                <div class="col-md-6 field form">
+                    {{ form_label(form.location.cityOrMunicipality) }}
+                    {{ form_widget(form.location.cityOrMunicipality, {
+                            attr: {
+                                'data-placeholder': form.location.cityOrMunicipality.vars.placeholder,
+                                'data-location': {
+                                    locationTypeId: constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LocationType::LOCATION_TYPE_BARANGAY'),
+                                    target: '#'~form.location.barangay.vars.id
+                                }|json_encode,
+                                class: 'form-ui ui single selection dropdown'
+                            }
+                        })
+                    }}
+                </div>
+                <div class="col-md-6 field form">
+                    {{ form_label(form.location.barangay) }}
+                    {{ form_widget(form.location.barangay, {
+                            attr: {
+                                'data-placeholder': form.location.barangay.vars.placeholder,
+                                'data-location': '',
+                                class: 'form-ui ui single selection dropdown'
+                            }
+                        }) 
+                    }}
+                </div>
+                <div class="col-md-6 field form">
+                    {{ form_label(form.zipCode) }}
+                    {{ form_widget(form.zipCode, {'attr': {'class': 'title-input ui input'}}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <span class="button cancel"> Cancel </span>
+
+        {{ form_widget(form.submit, {'attr': {'class': 'button confirm'}}) }}
+    </div>
+{{ form_end(form) }}

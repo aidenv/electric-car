@@ -1,0 +1,26 @@
+.box-wrapper{
+    .tools{
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        background-clip: padding-box;
+        background-color: #dedede;
+        padding: 10px;
+        margin: 10px 0;
+        -webkit-box-shadow: 0px 0px 195px -103px #bababa;
+        -moz-box-shadow: 0px 0px 195px -103px #bababa;
+        box-shadow: 0px 0px 195px -103px #bababa;
+        min-height: 61px;
+        .row{
+            margin: 0px -7px; 
+            [class^="col-"], [class*=" col-"]{
+                padding: 0px 7px;
+            }
+        }
+
+        .options{
+            position: relative;
+            margin-bottom: -11px;
+        }
+    }
+}

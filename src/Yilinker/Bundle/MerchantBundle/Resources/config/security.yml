@@ -1,0 +1,13 @@
+services:
+
+    yilinker_merchant.affiliate.provider:
+        class: Yilinker\Bundle\MerchantBundle\Provider\MerchantProvider
+        arguments: ['@yilinker_core.user.repository', '%yilinker_core.usertype.merchant%', '%yilinker_core.storetype.affiliate%', '@service_container']
+        calls:
+            - [setRequest, [@request_stack]]
+
+    yilinker_merchant.merchant.provider:
+        class: Yilinker\Bundle\MerchantBundle\Provider\MerchantProvider
+        arguments: ['@yilinker_core.user.repository', '%yilinker_core.usertype.merchant%', '%yilinker_core.storetype.merchant%', '@service_container']
+        calls:
+            - [setRequest, [@request_stack]]

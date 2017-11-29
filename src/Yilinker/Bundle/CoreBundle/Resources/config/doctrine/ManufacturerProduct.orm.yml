@@ -1,0 +1,124 @@
+Yilinker\Bundle\CoreBundle\Entity\ManufacturerProduct:
+    type: entity
+    table: ManufacturerProduct
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ManufacturerProductRepository
+    id:
+        manufacturerProductId:
+            type: integer
+            id: true
+            column:
+                manufacturer_product_id
+            options:
+                unsigned: false
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            fixed: false
+        dateAdded:
+            type: datetime
+            column: date_added
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+        dateLastEmptied:
+            type: datetime
+            column: date_last_emptied
+        description:
+            type: text
+            nullable: true
+        shortDescription:
+            type: string
+            length: 512
+            fixed: false
+            column: short_description
+            options:
+                default: ''
+        status:
+            type: smallint
+            options:
+                default: '0'
+            column: status
+        isCod:
+            type: boolean
+            options:
+                default: '0'
+            column: is_cod
+        keywords:
+            type: string
+            length: 1024
+            options:
+                default: ''
+        referenceNumber:
+            type: string
+            length: 255
+            column: reference_number
+            options:
+                default: ''        
+    manyToOne:
+        manufacturer:
+            targetEntity: Manufacturer
+            joinColumns:
+                manufacturer_id:
+                    referencedColumnName: manufacturer_id
+        condition:
+            targetEntity: ProductCondition
+            joinColumns:
+                condition_id:
+                    referencedColumnName: product_condition_id
+        brand:
+            targetEntity: Brand
+            joinColumns:
+                brand_id:
+                    referencedColumnName: brand_id
+        productCategory:
+            targetEntity: ProductCategory 
+            joinColumns:
+                product_category_id:
+                    referencedColumnName: product_category_id
+        primaryImage:
+            targetEntity: ManufacturerProductImage
+            joinColumns:
+                primary_image_id:
+                    referencedColumnName: manufacturer_product_image_id
+    oneToMany:
+        units:
+            targetEntity: ManufacturerProductUnit
+            fetch: EXTRA_LAZY
+            mappedBy: manufacturerProduct
+        images:
+            targetEntity: ManufacturerProductImage
+            fetch: EXTRA_LAZY
+            mappedBy: manufacturerProduct
+        manufacturerProductAttributeNames:
+            targetEntity: ManufacturerProductAttributeName
+            mappedBy: manufacturerProduct
+        manufacturerProductMaps:
+            targetEntity: ManufacturerProductMap
+            mappedBy: manufacturerProduct
+        manufacturerProductCountries:
+            targetEntity: ManufacturerProductCountry
+            mappedBy: manufacturerProduct
+    oneToOne:
+        product:
+            targetEntity: InhouseProduct
+            mappedBy: manufacturerProduct
+    indexes:
+        fk_manufacturerproduct_manufacturerid_manufacturer_manufacturerid_idx:
+            columns:
+                - manufacturer_id
+        fk_manufacturerproduct_conditionid_productcondition_productconditionid_idx:
+            columns:
+                - condition_id
+        fk_manufacturerproduct_brandid_brand_brandid_idx:
+            columns:
+                - brand_id
+        fk_manufacturerproduct_productcategoryid_productcategory_productcategoryid_idx:
+            columns:
+                - product_category_id
+        fulltext_manufacturerproduct_name:
+            columns: [ name ]
+            flags: [ fulltext ]
+    lifecycleCallbacks: {  }

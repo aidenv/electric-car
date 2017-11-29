@@ -1,0 +1,28 @@
+Yilinker\Bundle\CoreBundle\Entity\Bank:
+    type: entity
+    table: Bank
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\BankRepository
+    id:
+        bankId:
+            type: integer
+            id: true
+            column: bank_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        bankName:
+            type: string
+            column: bank_name
+            length: '255'
+        isEnabled:
+            type: boolean
+            column: is_enabled
+            options:
+                default: true
+    oneToMany:
+        bankAccounts:
+            targetEntity: BankAccount
+            mappedBy: bank
+    lifecycleCallbacks: {  }

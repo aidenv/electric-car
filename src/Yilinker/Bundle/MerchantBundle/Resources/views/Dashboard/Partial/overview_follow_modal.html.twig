@@ -1,0 +1,41 @@
+
+<div class="ui modal small total-followers-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">How to Earn More</h4>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="inverted">
+                            <th width="33%" align="center">Followers</th>
+                            <th width="33%" align="center">Earn Per Follower</th>
+                            <th width="34%" align="center">Bonus Earning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for followRow in followTable %}
+                        <tr>
+                            <td align="center">{{ followRow.from ~ ' - ' ~ followRow.to }}</td>
+                            <td align="center">P {{ followRow.earning|number_format(2) }}</td>
+                            <td align="center"> {{ followRow.bonus != null ? 'P ' ~ followRow.bonus|number_format(2) : '-' }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <div class="mrg-bt-20 align-right">
+                    <h4>Total Followers</h4>
+                    <h2 class="purple-color">{{app.user.followees|length|default(0)}}</h2>
+                </div>
+                <div class="mrg-bt-20 align-right">
+                    <h4>Earning on Followers</h4>
+                    <h2 class="purple-color">P {{ totalEarningOnFollow|number_format(2) }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

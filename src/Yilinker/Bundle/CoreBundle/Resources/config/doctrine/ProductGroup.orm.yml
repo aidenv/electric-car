@@ -1,0 +1,40 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductGroup:
+    type: entity
+    table: ProductGroup
+    indexes:
+        idx_product_product_group:
+            columns:
+                - product_id
+        idx_user_product_group:
+            columns:
+                - user_product_group_id
+    id:
+        productGroupId:
+            type: bigint
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: product_group_id
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        product:
+            targetEntity: Product
+            cascade: ['persist']
+            mappedBy: null
+            inversedBy: productGroups
+            joinColumns:
+                product_id:
+                    referencedColumnName: product_id
+            orphanRemoval: false
+        userProductGroup:
+            targetEntity: UserProductGroup
+            cascade: ['persist']
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_product_group_id:
+                    referencedColumnName: user_product_group_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

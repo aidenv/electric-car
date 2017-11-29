@@ -1,0 +1,9 @@
+<div class="form field">
+    <label for="" class="required">{{ label }}</label>
+    <select data-location-selector-part class="form-ui ui single search selection dropdown">
+        <option value="">Select {{ label }}</option>
+        {% for locationId, location in locations %}
+            <option value="{{ locationId }}">{{ location }}</option>
+        {% endfor %}
+    </select>
+</div>

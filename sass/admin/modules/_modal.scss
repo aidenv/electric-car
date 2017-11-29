@@ -1,0 +1,339 @@
+.ui.modal{
+
+    border-radius: $border-radius-default !important;
+
+    &>.header{
+        font-family: $font-family-default !important;
+        color: $text-color !important;
+        border-radius: $border-radius-default $border-radius-default 0 0;
+        padding: 1.17em 1.8em !important;
+    }
+
+    &>.content,
+    &>form > .content
+    {
+        font-size: 1.2em !important;
+        padding: 3rem !important;
+        border-radius: $border-radius-default !important;
+        line-height: $line-height-default !important;
+
+        .row{
+            margin: 0px -7px;
+            [class^="col-"], [class*=" col-"]{
+                padding: 0 7px;
+            }
+        }
+    }
+
+    .content-inside{
+      padding: 0 !important;
+      font-size: 16px !important;
+      margin-top: 10px;
+    }
+
+    .actions,
+    &> form .actions{
+        padding: 1em 3em !important;
+        border-bottom-left-radius: $border-radius-default !important;
+        border-bottom-right-radius: $border-radius-default !important;
+        font-size: 1.2em !important;
+        background: #f9fafb;
+        padding: 1rem;
+        border-top: 1px solid rgba(34,36,38,.15);
+        text-align: right;
+
+        .action-link{
+            padding: 1.25em 0em;
+            font-size: 1em;
+            color: $brand-sky-blue;
+        }
+
+        .button{
+            margin-top: 3px;
+        }
+    }
+
+    .header .content{
+        .icon{
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+
+        .sub-header{
+            margin-top: 10px;
+        }
+    }
+}
+
+.actions.align-center{
+    text-align: center !important;
+}
+
+@media (min-width: 1200px){
+    .ui.tiny.modal{
+        width: 330px;
+        margin: 0px 0 0 -175px;
+    }
+
+    .ui.crop.modal{
+        width: 441px;
+        margin: 0px 0 0 -216px;
+    }
+}
+
+.ui.dimmer {
+   position: fixed !important;
+}
+
+.modal {
+  .content {
+    background-color: $brand-gray-lighter;
+    position: relative;
+  }
+
+  &.large {
+    .tabular {
+      margin-bottom: -18px;
+    }
+  }
+
+  .tabular {
+    background-color: $brand-gray-lighter;
+    margin-bottom: -15px;
+    padding: 5px 0 0;
+
+    &.menu {
+      .item {
+        @include border-radius(4px 4px 0 0);
+        background-color: transparent;
+        border: 1px solid $brand-gray-lighter;
+        font-size: 11px;
+        font-weight: 500;
+        margin-bottom: 0;
+        padding: 10px 12px 7px;
+
+        &.active {
+          border: 1px solid $brand-gray-light !important;
+          margin-bottom: -5px;
+        }
+      }
+    }
+  }
+
+  .group {
+    display: table;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  .tools.totalPrice {
+    @include border-radius;
+    padding: 10px 15px 5px;
+    margin: 0 0 10px;
+  }
+
+  .md-box {
+    > div {
+      display: inline-block;
+      width: 100%;
+      padding: 8px 10px;
+    }
+
+    &.zeb {
+      > div {
+        &:nth-child(2n+2) {
+          background-color: lighten($brand-gray-light, 10);
+        }
+
+        &.header {
+          background-color: transparent !important;
+          border-bottom: 1px solid $brand-gray-light;
+          color: $brand-gray;
+          font-size: 15px;
+          font-weight: 500;
+          margin-bottom: -7px;
+        }
+      }
+
+
+    }
+  }
+
+  .divide {
+    .md-box.zeb>div:nth-child(2n+2) {
+      background-color: lighten($brand-gray-light, 8);
+    }
+  }
+
+  .total {
+    border-top: 1px solid $brand-gray-light;
+    font-size: 14px;
+  }
+
+  .voucher-details {
+      margin: 20px 0 5px;
+      border: 1px solid $brand-gray-light;
+
+      .total-amount {
+          border-top: 1px solid $brand-gray-light;
+          display: inline-block;
+          margin-top: 10px;
+          padding: 10px 0 0;
+          width: 100%;
+      }
+
+      .voucher-used {
+          border-top: 1px solid $brand-gray-light;
+          display: inline-block;
+          padding: 15px 0 0;
+          width: 100%;
+      }
+  }
+
+  .net {
+    border: 1px solid $brand-gray-light;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 0 0;
+    width: 100%;
+  }
+  
+  .countdown-timer {
+    @include border-radius;
+    border: 1px solid $brand-gray-light;
+    margin: 10px 0;
+    padding: 20px;
+
+    .timer {
+      display: inline-block;
+      width: 100%;
+    }
+
+    span {
+      float: left;
+      font-size: 24px;
+      margin-right: 10px;
+      text-align: center;
+
+      sub {
+        display: block;
+        font-size: 10px;
+      }
+    }
+  }
+
+  .enable-promo {
+    margin-top: 30px;
+
+    .ui.checkbox {
+      input[checked="checked"] {
+        &+label {
+          color: $brand-blue;
+          &:before {
+            border-color: $brand-blue;
+          }
+
+          &:after {
+            color: $brand-blue;
+          }
+        }
+      }
+
+      label {
+        font-size: 14px;
+      }
+    }
+
+    p {
+      margin-left: 35px;
+    }
+  }
+
+  .actions {
+    .checkbox {
+      margin-top: 15px;
+    }
+
+    >.button {
+      margin-right: 0;
+      margin-left: 3px !important;
+    }
+  }
+
+  &.show-on {
+    .title-bar {
+      margin: 0 -3rem 2rem;
+      padding: 0 3rem;
+
+      span {
+        font-size: 1em;
+      }
+    }
+
+    .content {
+      // overflow: hidden;
+      clear: both;
+      padding: 2rem 3rem !important;
+
+    }
+
+    .title {
+      padding-bottom: 1rem !important;
+    }
+  }
+
+  .combo {
+    @include border-radius;
+    border: 1px solid $brand-gray-light;
+    margin-bottom: 15px;
+    padding: 10px;
+
+    .title {
+      border-bottom: 1px solid $brand-gray-light;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      padding-bottom: 7px;
+    }
+  }
+
+  .attribute-list {
+    list-style: none;
+
+    li {
+      display: block;
+      line-height: 1.3em;
+      margin: 0 0 7px 0;
+      max-width: 100px;
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+  }
+
+  .slip {
+    list-style:none;
+    margin:0;
+    padding:0;
+
+    li {
+      @include border-radius;
+      float: left;
+      height: 258px;
+      margin: 10px 0;
+      overflow: hidden;
+      padding: 0;
+      text-align: center;
+      width: 33.33333333%;
+
+      img {
+        @include vertical-align;
+        margin: 0 3%;
+        width: 96%;
+      }
+
+    }
+  }
+}

@@ -1,0 +1,16 @@
+ <!--Start of modal verify number-->
+<div class="ui modal small overseas-modal">
+    <a class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">{% trans %} Select Country {% endtrans %}</h4>
+    </div>
+    <div class="content">
+        <div class="flag-container">
+            {% for country in countries %}
+                <a href="{{path('yilinker_frontend_international_product_list', {country: country.code|lower})}}" class="popup-hover" data-content="{{country.name}}" data-variation="inverted">
+                    <i class="flag-icon flag-icon-{{country.code|lower}} icon-4x"></i>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>

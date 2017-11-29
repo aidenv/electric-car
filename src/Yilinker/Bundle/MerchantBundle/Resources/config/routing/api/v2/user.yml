@@ -1,0 +1,10 @@
+api_merchant_update_user:
+    path: /auth/affiliate/update-user-info
+    defaults: { _controller: YilinkerMerchantBundle:Api/v2/UserApi:updateUser }
+    methods: [POST]
+
+
+api_merchant_send_verification:
+    path: /auth/affiliate/verify-email
+    defaults: { _controller: YilinkerMerchantBundle:Api/v2/UserApi:verfiyEmail }
+    methods: [POST]

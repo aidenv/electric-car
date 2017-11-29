@@ -1,0 +1,43 @@
+<div data-image-slider class="product-top-left-layer">
+    <div class="row">
+        <div class="col-sm-2 col-thumbnail">
+            <div class="thumbnail-nav-container">
+                <div class="thumbnail-nav">
+                    {% for image in product.images %}
+                        <div data-product-image="{{ image.productImageId }}" class="item"><img src="{{ asset(image.getImageLocationBySize('thumbnail'), 'product') }}" alt="{{ product.name }}" itemprop="image"></div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% set unitDetails = product.getDefaultUnit.toArray %}
+        <div class="col-sm-10 col-image-slider align-center">
+            <div class="product-image-slider">
+                {% for image in product.images %}
+                    <div data-product-image="{{ image.productImageId }}" class="item-slide"><img src="{{ asset(image.getImageLocationBySize('large'), 'product') }}" alt="{{ product.name }}" itemprop="image"></div>
+                {% endfor %}
+            </div>
+            <span class='control-vertical bottom' id="scroll-to-description-trigger">{% trans %} scroll down {% endtrans %} <br/>{% trans %} for more info {% endtrans %}</span>
+            {% if unitDetails.promoTypeId is not same as(null) %}
+                <div class="on-sale-badge">
+                    <div class="image-badge-holder">
+                        <img src="{{ asset('images/promo/flash-sale/sale-badge.png')}}" alt="Sale" class="img-auto-place" itemprop="image">
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    {% if elasticProduct is defined and elasticProduct and elasticProduct.elastica.internationalWarehouses %}
+        <div class="popup-country-trigger">
+            <img src="{{ asset('images/seller-badges/international-shipping-badge.png') }}" alt="International Shipping">
+        </div>
+        <div class="ui popup popup-country bottom right transition hidden" data-position="bottom right">
+            <p class='bold large-font default-color mrg-top-5'>Available Countries</p>
+            <div class='mrg-top-10'>
+                {% for countryCode in elasticProduct.elastica.internationalWarehouses %}
+                    <i class='flag-icon flag-icon-{{ countryCode }} icon-2-5x'></i>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</div>

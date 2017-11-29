@@ -1,0 +1,23 @@
+{% extends 'YilinkerMerchantBundle:Base:base.html.twig' %}
+
+{% block stylesheets %}
+    {% block dashboard_stylesheet %}{% endblock %}
+{% endblock %}
+
+{% block body %}
+    <div class="dashboard">
+        {{ include('YilinkerMerchantBundle:Dashboard:dashboard_left_wing_menu.html.twig') }}
+        <div class="dashboard-wrapper">
+           {% block dashboard_body %} {% endblock %}
+        </div>
+        {{ include('YilinkerMerchantBundle:Dashboard:dashboard_right_wing_notifications.html.twig') }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/hinclude.js') }}"></script>
+    <script src="{{ asset('js/bower/popup.min.js') }}"></script>
+    <script src="{{ asset('js/src/utility/loader.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/dashboard.js') }}"></script>
+    {% block dashboard_javascripts %}{% endblock %}
+{% endblock %}

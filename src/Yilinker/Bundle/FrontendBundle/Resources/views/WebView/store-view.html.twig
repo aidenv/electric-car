@@ -1,0 +1,88 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+        <title>Yilinker - Store</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Maven+Pro">
+        <link rel="stylesheet" href="{{ asset('css/webview.css') }}" media="screen,print">
+    </head>
+     <body>
+        <div class="body-mobile">
+            <section class="row store-view-container">
+                {% if mainBanner != '' and mainBanner is defined %}
+                <img src="{{ asset(mainBanner) }}" class="col-xs-12 mrg-bt-20 mrg-top-10">
+                {% endif %}
+                <div id="store-container" class="scrollable">
+                    {% if stores is defined and stores|length > 0 %}
+                        {% for store in stores.data %}
+                            <div class="store-box">
+                                <div class="store-container">
+                                    <div class="store-header">
+                                        <div>
+                                            <span class="seller-image">
+                                                <img src="{{ store.logo }}" alt="seller">
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <a data-sellerid={{ store.userId }} data-mobile-href="{{ path('api_store_get_info', {userId: store.userId}) }}" href="{{ path('api_store_get_info', {userId: store.userId}) }}" class="seller-name">{{ store.storeName }}</a>
+                                            <span class="store-specialty">Specialty: {{ store.specialty }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row store-product">
+                                        {% if store.images|length > 0 %}
+                                            {% for image in store.images %}
+                                                {% set className = loop.index == 1 ? 'col-xs-12' : 'store-product-box' %}
+                                                <a data-mobile-href="{{ image.url }}" href="{{ image.url }}" class="{{ className }}">
+                                                    <img src="{{ asset(image.dir) }}">
+                                                </a>
+                                            {% endfor %}
+                                        {% else %}
+                                            {% for image in store.productDetails %}
+                                                {% set className = loop.index == 1 ? 'col-xs-12' : 'store-product-box' %}
+                                                <a data-mobile-href="{{ path('api_product_detail', {'productId': image.productId}) }}" href="{{ path('api_product_detail', {'productId': image.productId}) }}" class="{{ className }}">
+                                                    <img src="{{ asset(image.dir) }}">
+                                                </a>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="loading-container hidden">
+                    <img src="{{ asset('images/spinner.gif') }}" alt="loading">
+                    <p>loading more items</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="hidden clone-store-div">
+            <div class="store-box">
+                <div class="store-container">
+                    <div class="store-header">
+                        <div>
+                            <span class="seller-image">
+                                <img class="seller-logo" src="" alt="seller">
+                            </span>
+                        </div>
+                        <div>
+                            <a data-mobile-href="" href="" class="seller-name"></a>
+                            <span class="store-specialty"></span>
+                        </div>
+                    </div>
+                    <div class="row store-product">
+                        <a data-mobile-href="" href="" class="col-xs-12">
+                            <img src="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        <script src="{{ asset('js/bower/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/src/frontend/mobile-store-view.js') }}"></script>
+    </body>
+</html>

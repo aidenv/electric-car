@@ -1,0 +1,97 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Banners CMS</span>
+        </div>
+    </div>
+    <div class="container">
+
+        <!-- Tables -->
+        <div class="row">
+            <div class="box-upper">
+                <div class="col-md-12">
+                    <div class="box-div">
+                        <div class="row gutters">
+                            <div class="col-md-12">
+                                <table class="table basic table-vertical-align-top">
+                                    <tr>
+                                        <th>Last Update</th>
+                                        <th>Modified by</th>
+                                        <th>Section</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td>12/31/16, 3:00pm</td>
+                                        <td>George Paul</td>
+                                        <td><img align="left" border="0" src="{{ asset('images/cms/cms-slider-prev-1.gif') }}"></td>
+                                        <td>Queued @ 12:00am</td>
+                                        <td><button class="button purple small" onclick="location.href='/cmsbannerdetails';">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>12/31/16, 3:00pm</td>
+                                        <td>George Paul</td>
+                                        <td><img align="left" border="0" src="{{ asset('images/cms/cms-slider-prev-2.gif') }}"></td>
+                                        <td>Queued @ 12:00am</td>
+                                        <td><button class="button purple small" onclick="location.href='/cmsbannerdetails';">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>12/31/16, 3:00pm</td>
+                                        <td>George Paul</td>
+                                        <td><img align="left" border="0" src="{{ asset('images/cms/cms-slider-prev-3.gif') }}"></td>
+                                        <td>Queued @ 12:00am</td>
+                                        <td><button class="button purple small" onclick="location.href='/cmsbannerdetails';">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>12/31/16, 3:00pm</td>
+                                        <td>George Paul</td>
+                                        <td><img align="left" border="0" src="{{ asset('images/cms/cms-slider-prev-4.gif') }}"></td>
+                                        <td>Queued @ 12:00am</td>
+                                        <td><button class="button purple small" onclick="location.href='/cmsbannerdetails';">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>12/31/16, 3:00pm</td>
+                                        <td>George Paul</td>
+                                        <td><img align="left" border="0" src="{{ asset('images/cms/cms-slider-prev-5.gif') }}"></td>
+                                        <td>Queued @ 12:00am</td>
+                                        <td><button class="button purple small" onclick="location.href='/cmsbannerdetails';">View</button></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Tools -->
+        <div class="row">
+            <div class="box-upper">
+                <div class="col-md-12">
+                    <div class="box-blank">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {lastPage: 30}) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('js/src/backend/daily-login.js') }}"></script>
+{% endblock %}

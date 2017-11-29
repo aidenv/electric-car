@@ -1,0 +1,24 @@
+{% set originalRequest = app.request.attributes.get('request') is not null ? app.request.attributes.get('request') : app.request %}
+{% set q = originalRequest.request.get('q', '') %}
+{% set q = q ? q: originalRequest.query.get('q', '') %}
+<div data-scroll-pagination-content class="row">
+    {% for product in productSearch.products %}
+        {% if app.environment == 'prod' %}
+            {{ render_esi(controller('YilinkerFrontendBundle:Product:renderProductCard', {'productId':product.productId,'discountedPrice':product.defaultUnit.appliedDiscountPrice,'quantity':product.defaultUnit.quantity, 'storeSlug': originalRequest.attributes.get('slug')})) }}
+        {% else %}
+            {{ include('YilinkerFrontendBundle:Product:product_card.html.twig', {'storeSlug': originalRequest.attributes.get('slug')}) }}
+        {% endif %}
+    {% else %}
+        <div class="search-category-name-header">
+            <h2 class="no-margin uppercase bold">
+                {% if q %}
+                    No search result found for "{{ q }}"
+                {% else %}
+                    Store has no products
+                {% endif %}
+            </h2>
+        </div>
+    {% endfor %}
+
+    {{ include('YilinkerFrontendBundle:Base:product_list_schema.script.twig', {'products':productSearch.products}) }}
+</div>

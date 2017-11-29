@@ -1,0 +1,9 @@
+cart_add_item:
+    path: /add-item
+    defaults: { _controller: YilinkerFrontendBundle:Cart:addItemToCart }
+    methods: [POST]
+
+wishlist_to_cart:
+    path: /wishlist-to-cart
+    defaults: { _controller: YilinkerFrontendBundle:Cart:transferWishlistToCart }
+    methods: [POST]

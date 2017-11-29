@@ -1,0 +1,266 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Customized Category
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/header.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bower/jstree.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bower/checkbox.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block dashboard_body %}
+        <div class="dashboard-body-container gray">
+            <div class="dashboard-component top">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Categories</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p width="95%" class="breakword">Arranged the order of the categories in your store page based on your preference.  The first category will always appear first when someone views your store. You may also edit the products that appear with your categories.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bordered-segment jstree-segment">
+                                <h5 class="uppercase">Current Order: </h5>
+                                <div class="category-tree-container">
+                                    <div class="category-tree" id="category-list-container" data-has-custom-category="{{ hasCustomCategory? 1:0 }}">
+                                        <ul class="list-unstyled list-customized-category">
+                                            {% for category in customizedCategories %}
+                                                {% if category is isInstanceOfProductCategory(category) %}
+                                                    {% set categoryName = category.getName %}
+                                                    <li class="category-item" data-parent="#" data-text="{{ categoryName }}" data-id="{{ category.getProductCategoryId }}">{{ categoryName }}</li>
+                                                {% else %}
+                                                    {% set categoryName = category.getName %}
+                                                    <li class="category-item" data-parent="#" data-text="{{ categoryName }}" data-id="{{ category.getCustomizedCategoryId }}">
+                                                        {{ categoryName }}
+                                                        {% if not category.getChildrenBySortOrder.isEmpty %}
+                                                            {% set subcategories = category.getChildrenBySortOrder %}
+                                                            <ul class="list-unstyled">
+                                                                {% for subcategory in subcategories %}
+                                                                    {% set subcategoryName = subcategory.getName %}
+                                                                    <li class="subcategory-item" data-text="{{ subcategoryName }}" data-parent="{{ category.getCustomizedCategoryId }}" data-id="{{ subcategory.getCustomizedCategoryId }}">{{ subcategoryName }}</li>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        {% endif %}
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <button class="button blue uppercase edit-category-trigger">
+                                        {% trans %} Reorder/edit categories {% endtrans %}
+                                    </button>
+                                </div>
+                                <div class="edit-category-tree-container hidden">
+                                    <div class="edit-category-tree" id="edit-category-list-container"></div>
+                                    <button class="button blue uppercase save-edit-trigger">
+                                        {% trans %} Save Order {% endtrans %} 
+                                    </button>
+                                     <button class="button cancel uppercase cancel-edit-trigger">
+                                        {% trans %} Cancel {% endtrans %}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-component top">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">New Category</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p width="95%" class="breakword">Add a new category to your list of store categories and then add the appropriate products into your new category. You can have an unlimited number of categories and unlimited number of products in each category. <br/><br/>We suggest that you be creative when making your customized categories, e.g. Monthly Promo, RUSH SALE, etc.</p>
+                        </div>
+                        <div class="col-md-5">
+                            <button class="button blue fat block uppercase customized-modal-trigger add-new-category">Add new category</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-component top">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Delete Categories</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p width="95%" class="breakword">Delete any of your categories by selecting them from the list above.  Clean up your store page by removing duplicate categories.<br /><br />You can delete your categories by selecting it from the list below. Take note that a category can only be deleted when its inner categories have been deleted and the products that were previously inside will be moved to an "Uncategorized" category.</p>
+                        </div>
+                        <div class="col-md-6">
+                          
+                            <div class="bordered-segment jstree-segment">
+                                <h5 class="uppercase">Current Order: </h5>
+                                <div class="delete-category-tree-container">
+                                    <div class="delete-category-tree" id="delete-category-list-container"></div>
+                                    <button disabled class="button red uppercase delete-category-modal-trigger">
+                                        {% trans %} Delete {% endtrans %}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Start of modal customized category-->
+        <div class="ui modal large modal customized-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="header">
+                <h4 class="no-margin">Customize Category</h4>
+            </div>
+            <form name="customized-category-form" class="form ui">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="hidden message-box red with-close-message custom-category-errors"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="">Category Name</label>
+                            <input type="text" required name="name" class="form-ui"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Parent Category</label>
+                            <select name="parent-categories" class="form-ui ui single selection dropdown parent-chooser">
+                                <option value="0">Select a parent category</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="customization-container" id="custom-category-products-container" data-user-products="{{ products|json_encode() }}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Custom Category Products</h5>
+                                <div class="bordered-segment inverted">
+                                    <div class="form">
+                                        <div class="input-icon left small">
+                                            <i class="icon icon-search"></i>
+                                            <input type="text" name="customCategoryProducts" class="form-ui small" placeholder="Search item here"/>
+                                        </div>
+                                    </div>
+                                    <div class="draggable-content">
+                                        <ul id="custom-category-products" class="connected-droppable list-unstyled list-category-products list-custom-category">
+                                           
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>All Products</h5>
+                                <div class="bordered-segment inverted">
+                                    <div class="form">
+                                        <div class="input-icon left small">
+                                            <i class="icon icon-search"></i>
+                                            <input type="text" name="userProducts" class="form-ui small" placeholder="Search item here"/>
+                                        </div>
+                                    </div>
+                                    <div class="draggable-content">
+                                        <ul id="user-products" class="connected-droppable list-unstyled list-category-products list-custom-category">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <span class="button cancel uppercase">Cancel</span>
+                    <button type="submit" class="button blue uppercase submit-to-success submit-button" id="save-category-products">
+                        <span class="text">Submit</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!--End of modal customized category-->
+         <!--Start of modal success new address-->
+        <div class="ui modal tiny coupled success-delete-category-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                        <div class="content">
+                            Categories has been successfully deleted
+                        <div class="sub-header">If some products were still inside in this category when it was deleted, it  will be moved to an "All" category.</div>
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button confirm close">Okay</button>
+            </div>
+        </div>
+        <!--End of modal delete address-->
+
+        <div class="ui modal tiny coupled-new-customized-category success-new-customized-category-message">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                    <div class="content">
+                        Category has been successfully added
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button confirm close">Okay</button>
+            </div>
+        </div>
+
+        <div class="ui modal tiny coupled-new-customized-category success-customized-category-updated-message">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                    <div class="content">
+                        Category has been successfully updated
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button confirm close">Okay</button>
+            </div>
+        </div>
+       
+       <!--Start of modal delete address-->
+        <div class="ui modal tiny coupled delete-category-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-trash"></i>
+                    <div class="content">
+                        Are you sure you want to delete the selected categories?
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Cancel</button>
+                <button class="button red submit-to-success positive delete-custom-category-button">
+                    <span class="text">{% trans %} Delete {% endtrans %}</span>
+                </button>
+            </div>
+        </div>
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/src/utility/button-loader.js') }}"></script>
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/bower/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('js/bower/jstree.min.js') }}"></script>
+    <script src="{{ asset('js/bower/checkbox.min.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/customized-category.js') }}"></script>
+{% endblock %}

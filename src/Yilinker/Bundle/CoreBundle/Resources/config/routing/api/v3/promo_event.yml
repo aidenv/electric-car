@@ -1,0 +1,4 @@
+api_v3_promo_event_subscribe:
+    path: /auth/promoEvent/subscribePromoEvent
+    defaults: { _controller: YilinkerCoreBundle:Api/PromoEventApi:subscribePromoEvent }
+    methods: [POST]

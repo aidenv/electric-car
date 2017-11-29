@@ -1,0 +1,149 @@
+Yilinker\Bundle\CoreBundle\Entity\systemcategory:
+    type: entity
+    table: systemcategory
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\systemcategoryRepository
+    id:
+        id:
+            type: integer
+            column: id
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        systemCategoryId:
+            column: system_category_id
+            type: bigint
+            options:
+                default: 0
+        systemCategoryParentId:
+            column: system_category_parent_id
+            type: bigint
+            options:
+                default: 0
+        systemCategoryNameCN:
+            column: system_category_name_CN
+            type: string
+            length: 255
+        systemCategoryDescriptionCN:
+            column: system_category_description_CN
+            type: string
+            length: 1024
+            nullable: false
+            options:
+                default: ''
+        updateTime:
+            column: update_time
+            type: datetime
+        systemCategoryDescriptionUS:
+            column: system_category_description_US
+            type: string
+            length: 1024
+            options:
+                default: ''
+        systemCategoryNameUS:
+            column: system_category_name_US
+            type: string
+            length: 255
+            options:
+                default: ''
+        nestedSetLeft:
+            column: nested_set_left
+            type: integer
+            options:
+                default: 0
+        nestedSetRight:
+             column: nested_set_right
+             type: integer
+             options:
+                 default: 0
+        systemCategoryNameTH:
+             column: system_category_name_TH
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNameMS:
+             column: system_category_name_MS
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNameVI:
+             column: system_category_name_VI
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNameIDN:
+             column: system_category_name_IDN
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNameCHT:
+             column: system_category_name_CHT
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNameDE:
+             column: system_category_name_DE
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNameFR:
+             column: system_category_name_FR
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNameIT:
+             column: system_category_name_IT
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNameMY:
+             column: system_category_name_MY
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNameES:
+             column: system_category_name_ES
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNamePT:
+             column: system_category_name_PT
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNameRU:
+             column: system_category_name_RU
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNameJA:
+             column: system_category_name_JA
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNameKO:
+             column: system_category_name_KO
+             type: string
+             length: 255
+             options:
+                 default: ''
+        systemCategoryNameAR:
+             column: system_category_name_AR
+             type: string
+             length: 255
+             options:
+                 default: ''
+    lifecycleCallbacks: {  }

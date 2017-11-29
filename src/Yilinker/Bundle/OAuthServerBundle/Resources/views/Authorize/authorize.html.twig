@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('css/oauth.css') }}">
+        <title>{% block title %}{{ client.clientName }} Authorization | Yilinker  {% endblock %}</title>
+    </head>
+    <body>
+        <div class="segment">
+            <div class="form-errors">
+                {{ form_errors(form, {"attr" : {"class" : "message-box red"}}) }}
+            </div>
+            <div class="text">
+                <strong>{{ client.clientName|default('A third party client') }}</strong>  {% trans %} would like to access your account information {% endtrans %}
+            </div>
+            {{ form_start(form) }}
+            <div class="form mrg-top-20" align="right">
+                {{ form_widget(form.allowAccess, {"attr": {"class" : "button submit"}}) }}
+                <a href="{{ failureEndpoint }}" class="button">Cancel</a>
+            </div>
+            {{ form_end(form) }}
+            <div class="header">
+                <img src="{{ asset('images/logo-icon.png') }}" alt="YiLinker.com" class="logo">
+                <p class="intro">Welcome to</p>
+                <p class="name">YiLinker</p>
+            </div>
+        </div>
+    </body>
+</html>

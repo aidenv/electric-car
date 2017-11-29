@@ -1,0 +1,43 @@
+{% set currentRoute = app.request.get('_route') %}
+<div class="breadcrumb-header-wrapper">
+    <div class="breadcrumb-header-top-layer">
+        <div class="breadcrumb-header-label">
+            <ul class="list-unstyled list-breadcrumb-item">
+                <li>
+                    <a href="{{ path('home_page') }}">
+                        Home
+                    </a>
+                </li>
+                <li class="icon-holder">
+                    <span class="icon icon-angle-right">
+                    </span>
+                </li>
+                <li>
+                    <a href="{{ path('about_make_a_wish') }}">
+                        Make A Wish
+                    </a>
+                </li>
+                <li class="icon-holder">
+                    <span class="icon icon-angle-right">
+                    </span>
+                </li>
+                <li>
+                    {% if currentRoute is same as("about_make_a_wish") %}
+                        About the Promo
+                    {% elseif currentRoute is same as("how_to_join_make_a_wish") %}
+                        How to Join
+                    {% elseif currentRoute is same as("how_to_register_make_a_wish") %}
+                        How to Register
+                    {% elseif currentRoute is same as("how_to_create_an_entry_make_a_wish") %}
+                        How to Create an Entry
+                    {% elseif currentRoute is same as("criteria_for_claiming_the_prize_make_a_wish") %}
+                        Criteria for Claiming the Prize
+                    {% endif %}
+                </li>
+                <li class="icon-holder">
+                    <span class="icon icon-angle-right"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

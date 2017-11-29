@@ -1,0 +1,12 @@
+merchant_product_management:
+    path: /dashboard/product-management/{status}/{page}
+    defaults: { _controller: YilinkerMerchantBundle:Product:renderProductManagement, status: all, page: 1 }
+
+merchant_update_product_status:
+    path: /product/updateProductStatus
+    defaults: { _controller: YilinkerMerchantBundle:Api/ProductApi:updateProductStatus }
+    methods: [POST]
+
+merchant_update_product_detail:
+    path: /product-detail/{slug}
+    defaults: { _controller: YilinkerMerchantBundle:Product:renderProductDetail }

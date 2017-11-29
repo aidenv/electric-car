@@ -1,0 +1,3 @@
+yilinker_core_seller_store_search:
+    path: /store/search
+    defaults: { _controller: YilinkerCoreBundle:Seller:searchStore }

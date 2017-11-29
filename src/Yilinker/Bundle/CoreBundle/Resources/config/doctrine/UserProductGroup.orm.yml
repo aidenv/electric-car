@@ -1,0 +1,40 @@
+Yilinker\Bundle\CoreBundle\Entity\UserProductGroup:
+    type: entity
+    table: UserProductGroup
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserProductGroupRepository
+    gedmo:
+        translation:
+            locale: locale
+    indexes:
+        idx_user_user_group:
+            columns:
+                - user_id
+    id:
+        userProductGroupId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: user_product_group_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            comment: ''
+            default: ''
+    manyToOne:
+        user:
+            targetEntity: User
+            cascade: {  }
+            mappedBy: null
+            inversedBy: productGroups
+            joinColumns:
+                user_id:
+                    referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

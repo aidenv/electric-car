@@ -1,0 +1,321 @@
+<section class="box-section">
+    <div class="container">
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-div">
+              <div class="row">
+                <div class="customer-details">
+                  <div class="title-bar">
+                      <div class="container">
+                          <span>Dispute Details</span>
+                      </div>
+                  </div>
+                  <div class="row gutters">
+                      <div class="col-md-6 md-box">
+                        <div>
+                          <div class="col-md-5"><strong>Case ID</strong></div>
+                          <div class="col-md-7">KD3-38U123PI</div>
+                        </div>
+                        <div>
+                          <div class="col-md-5"><strong>Transaction ID</strong></div>
+                          <div class="col-md-7">12371237837</div>
+                        </div>
+                        <div>
+                          <div class="col-md-5"><strong>Complainant Full Name</strong></div>
+                          <div class="col-md-7">George Chris Paul</div>
+                        </div>
+                        <div>
+                          <div class="col-md-5"><strong>Complainant Contact No.</strong></div>
+                          <div class="col-md-7">322-3245-59898</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 md-box">
+                        <div>
+                          <div class="col-md-4"><strong>Defendant Full Name</strong></div>
+                          <div class="col-md-8">Janvan Ding</div>
+                        </div>
+                        <div>
+                          <div class="col-md-4"><strong>Defendant Contact No.</strong></div>
+                          <div class="col-md-8">12371237837</div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="title-bar">
+                    <div class="container">
+                      <span>Transaction Details</span>
+                    </div>
+                  </div>
+                  <div class="row gutters transaction-details">
+                      <div class="col-md-6 md-box">
+                        <div>
+                          <div class="col-md-5"><strong>Invoice No.</strong></div>
+                          <div class="col-md-7">4916699163849</div>
+                        </div>
+                        <div>
+                          <div class="col-md-5"><strong>Buyer</strong></div>
+                          <div class="col-md-7">Armando Upton</div>
+                        </div>
+                        <div>
+                          <div class="col-md-5"><strong>Status</strong></div>
+                          <div class="col-md-7">Waiting for Payment</div>
+                        </div>
+                        <div>
+                          <div class="col-md-5"><strong>Date of transaction</strong></div>
+                          <div class="col-md-7">2015-09-02 13:12:59</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 md-box">
+                        <div>
+                          <div class="col-md-4">Total Amount</div>
+                          <div class="col-md-8">PHP 24,561.00</div>
+                        </div>
+                        <div>
+                          <div class="col-md-4">YiLinker Charge</div>
+                          <div class="col-md-8">PHP 0.00</div>
+                        </div>
+                        <div>
+                          <div class="col-md-4">Payment Method Charge</div>
+                          <div class="col-md-8">PHP 0.00</div>
+                        </div>
+                        <div>
+                          <div class="col-md-4"><strong>Net</strong></div>
+                          <div class="col-md-8"><strong>PHP 24,561.00</strong></div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="row gutters transaction-product">
+                    <div class="col-md-12">
+                      <table class="table basic table-vertical-align-top">
+                        <tr>
+                          <th align="center"><input type="checkbox" class="cancelOrderProduct"></th>
+                          <th>Order Product ID</th>
+                          <th>Name</th>
+                          <th>Seller</th>
+                          <th>Order Quantity</th>
+                          <th>Unit Price</th>
+                          <th>Shipping fee</th>
+                          <th>Total Amount</th>
+                          <th>Status</th>
+                          <th></th>
+                        </tr>
+                        {% for i in 1..2 %}
+                          <tr class="update">
+                            <td align="center"><input type="checkbox"></td>
+                            <td>209</td>
+                            <td>apple</td>
+                            <td>man of effin steel</td>
+                            <td>1</td>
+                            <td>PHP 2,121.00</td>
+                            <td>PHP 0.00</td>
+                            <td>PHP 2,121.00</td>
+                            <td><i>Replacement...</i>&#8230;</td>
+                            <td>
+                              <button class="button tiny default-light modal-order-two-trigger">
+                                view
+                              </button>
+                            </td>
+                          </tr>
+                        {% endfor %}
+                        {% for i in 1..2 %}
+                          <tr>
+                            <td align="center"></td>
+                            <td>209</td>
+                            <td>apple</td>
+                            <td>man of effin steel</td>
+                            <td>1</td>
+                            <td>PHP 2,121.00</td>
+                            <td>PHP 0.00</td>
+                            <td>PHP 2,121.00</td>
+                            <td>On-going</td>
+                            <td>
+                              <button class="button tiny default-light modal-order-two-trigger">
+                                view
+                              </button>
+                            </td>
+                          </tr>
+                        {% endfor %}
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="title-bar">
+                  <div class="container">
+                    <span>Remarks</span>
+                  </div>
+                </div>
+                <div class="row gutters">
+                  <div class="col-md-12">
+                    <div class="form remarks resolved">
+                        <div class="customer">
+                          <p class="tag-resolved">resolved</p>
+                          <p class="person">
+                            <img src="{{ asset('images/buyer-img-1.jpg') }}" border="0">
+                            <span class="user">
+                              <strong>George Chris Paul</strong>
+                              Complainant
+                            </span>
+                          </p>
+                          <p class="words">
+                            <strong>I changed my mind. I'm no longer interested in the product.</strong>
+                            hmm... how can i say this, im want a refund because i will use the money for my school tuition fee,
+                            pls my mother is going to kill me... omg, my mom is here, he got me, its over, im doom...
+                            pls send the money back while im holding my mom's wrath for a few minutes, i cant keep this up forever...
+                          </p>
+                          <div class="attachment">
+                            <span>requested items for cancellations</span>
+                            <span class="items">Order ID 209: Shoulder Bag</span>
+                          </div>
+                          <div class="attachment">
+                            <span>see attachments</span>
+                            <ul>
+                              <li><a href="#" class="pdf"><img src="{{ asset('images/a.png') }}" border="0"/></a></li>
+                              <li><a href="#" class="pdf"><img src="{{ asset('images/a.png') }}" border="0"/></a></li>
+                              <li><a href="#" class="pdf"><img src="{{ asset('images/a.png') }}" border="0"/></a></li>
+                            </ul>
+                          </div>
+                          <p class="time-stamp">Posted on 12:30 pm, July 21, 2014</p>
+                        </div>
+                        <div class="csr">
+                          <p class="person">
+                            <img src="{{ asset('images/logo-icon.png') }}" border="0">
+                            <span class="user">
+                              <strong>Koya Carl</strong>
+                              customer support representative
+                            </span>
+                          </p>
+                          <p class="words">
+                            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi posuere
+                            blandit libero ut dictum. Nam id elementum augue. Donec iaculis facilisis magna, non rhoncus neque tincidunt sed.
+                            Vestibulum malesuada, turpis malesuada feugiat dapibus, nisl ex fringilla arcu, non blandit ligula ligula ac orci.
+                          </p>
+                          <p class="time-stamp">Posted on 12:30 pm, July 21, 2014</p>
+                        </div>
+                        <div class="csr">
+                          <p class="person">
+                            <img src="{{ asset('images/logo-icon.png') }}" border="0">
+                            <span class="user">
+                              <strong>Koya Carl</strong>
+                              customer support representative
+                            </span>
+                          </p>
+                          <p class="words">
+                            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi posuere
+                            blandit libero ut dictum. Nam id elementum augue. Donec iaculis facilisis magna, non rhoncus neque tincidunt sed.
+                            Vestibulum malesuada, turpis malesuada feugiat dapibus, nisl ex fringilla arcu, non blandit ligula ligula ac orci.
+                          </p>
+                          <p class="time-stamp">Posted on 12:30 pm, July 21, 2014</p>
+                        </div>
+                    </div>
+                    <div class="form remarks">
+                      <div class="customer">
+                        <p class="person">
+                          <img src="{{ asset('images/buyer-img-1.jpg') }}" border="0">
+                          <span class="user">
+                            <strong>George Chris Paul</strong>
+                            Complainant
+                          </span>
+                        </p>
+                        <p class="words">
+                          <strong>I changed my mind. I'm no longer interested in the product.</strong>
+                          hmm... how can i say this, im want a refund because i will use the money for my school tuition fee,
+                          pls my mother is going to kill me... omg, my mom is here, he got me, its over, im doom...
+                          pls send the money back while im holding my mom's wrath for a few minutes, i cant keep this up forever...
+                        </p>
+                        <div class="attachment">
+                          <span>requested items for cancellations</span>
+                          <span class="items">Order ID 209: Shoulder Bag</span>
+                          <span class="items">Order ID 209: Shoulder Bag</span>
+                        </div>
+                        <div class="attachment">
+                          <span>attachments</span>
+                          <ul>
+                            <li><a href="#" class="pdf"><img src="{{ asset('images/a.png') }}" border="0"/></a></li>
+                            <li><a href="#" class="pdf"><img src="{{ asset('images/a.png') }}" border="0"/></a></li>
+                            <li><a href="#" class="pdf"><img src="{{ asset('images/a.png') }}" border="0"/></a></li>
+                          </ul>
+                        </div>
+                        <p class="time-stamp">Posted on 12:30 pm, July 21, 2014</p>
+                      </div>
+                      <div class="csr">
+                        <p class="person">
+                          <img src="{{ asset('images/logo-icon.png') }}" border="0">
+                          <span class="user">
+                            <strong>Koya Carl</strong>
+                            customer support representative
+                          </span>
+                        </p>
+                        <p class="words">
+                          Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi posuere
+                          blandit libero ut dictum. Nam id elementum augue. Donec iaculis facilisis magna, non rhoncus neque tincidunt sed.
+                          Vestibulum malesuada, turpis malesuada feugiat dapibus, nisl ex fringilla arcu, non blandit ligula ligula ac orci.
+                        </p>
+                        <p class="time-stamp">Posted on 12:30 pm, July 21, 2014</p>
+                      </div>
+                      <div class="csr">
+                        <p class="person">
+                          <img src="{{ asset('images/logo-icon.png') }}" border="0">
+                          <span class="user">
+                            <strong>Koya Carl</strong>
+                            customer support representative
+                          </span>
+                        </p>
+                        <p class="words">
+                          Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi posuere
+                          blandit libero ut dictum. Nam id elementum augue. Donec iaculis facilisis magna, non rhoncus neque tincidunt sed.
+                          Vestibulum malesuada, turpis malesuada feugiat dapibus, nisl ex fringilla arcu, non blandit ligula ligula ac orci.
+                        </p>
+                        <div class="attachment">
+                          <span>attachments</span>
+                          <ul>
+                            <li><a href="#" class="pdf"><img src="{{ asset('images/a.png') }}" border="0"/></a></li>
+                            <li><a href="#" class="pdf"><img src="{{ asset('images/a.png') }}" border="0"/></a></li>
+                            <li><a href="#" class="pdf"><img src="{{ asset('images/a.png') }}" border="0"/></a></li>
+                          </ul>
+                        </div>
+                        <p class="time-stamp">Posted on 12:30 pm, July 21, 2014</p>
+                      </div>
+                      <div class="csr">
+                        <p class="person">
+                          <img src="{{ asset('images/logo-icon.png') }}" border="0">
+                          <span class="user">
+                            <strong>Koya Carl</strong>
+                            customer support representative
+                          </span>
+                        </p>
+                        <p class="words">
+                          <textarea class="form-ui"></textarea>
+                          <button class="button small gray">Submit</button>
+                        </p>
+                        <div class="attachment">
+                          <span>attachments</span>
+                          <ul>
+                            <li><a href="#" class="delete">x</a><a href="#" class="pdf"><img src="{{ asset('images/a.png') }}" border="0"/></a></li>
+                          </ul>
+                          <input type="file" class="form-ui uploadfile">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row gutters">
+                <div class="actions align-center">
+                    <div class="button blue modal-resolution-approve-trigger">Approve</div>
+                    <div class="button cancel modal-resolution-reject-trigger">Reject</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

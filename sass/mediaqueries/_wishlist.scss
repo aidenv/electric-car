@@ -1,0 +1,65 @@
+@media screen and (min-width: 640px) {
+    .wishlist-product-details,
+        .wishlist-price {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    .wishlist-product-details {
+        width: 58.5%;
+    }
+    .wishlist-price {
+        width: 40%;
+    }
+    .wishlist-mobile {
+        .number-of-wished-items {
+            float: left;
+        }
+        .item-price {
+            float: left;
+            text-align: right;
+            width: 85%;
+        }
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .item-breakdown-table {
+        .wishlist-mobile {
+            .number-of-wished-items {
+                display: block;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .item-breakdown-table {
+        .wishlist-mobile {
+            .item-image-container {
+                width: 5em;
+                height: 5em;
+            }
+            .item-name {
+                font-size: 1.1em;
+            }
+            .item-price {
+                font-size: 1.1em;
+            }
+            .wishlist-price {
+                margin-top: 15px;
+            }
+            .number-of-wished-items {
+                margin-right: 15px;
+            }
+        }
+    }
+    .wishlist-modal {
+        .action-link {
+            width: 10em;
+        }
+    }
+    .tipso_bubble {
+        display: none !important;
+    }
+}

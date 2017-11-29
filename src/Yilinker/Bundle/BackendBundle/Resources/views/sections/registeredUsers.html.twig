@@ -1,0 +1,144 @@
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Registered Users</span>
+        </div>
+    </div>
+    <div class="container">
+      <!-- Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-div tabular-inside">
+              <div class="row gutters group-segment">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h4 class="mrg-top-10"><i class="icon-user"></i> Number of Registered Sellers: <strong>141</strong></h4>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="text" id="searchKeyword" class="form-ui pull-left" placeholder="Search">
+                    </div>
+                    <div class="col-md-1">
+                      <div class="button block gray pull-left" id="searchBtn"><i class="item-icon icon-search"></i></div>
+                    </div>
+                  </div>
+                  <div class="ui tabular menu">
+                    <div class="item active" data-tab="tab-name">Sellers</div>
+                    <div class="item" data-tab="tab-name1">Affiliates</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tables -->
+      <div class="ui tab row active" data-tab="tab-name">
+        <div class="box-upper">
+          <div class="col-md-12">
+              <div class="box-div">
+                <div class="row gutters">
+                  <div class="col-md-12">
+                    <table class="table basic table-vertical-align-top">
+                      <tr>
+                        <th></th>
+                        <th>Date Created</th>
+                        <th>Fullname</th>
+                        <th>Store Name</th>
+                        <th>Email</th>
+                        <th>No. uploaded Products</th>
+                        <th>Contact Number</th>
+                      </tr>
+                      {% for i in 1..5 %}
+                        <tr>
+                          <td>
+                            <button class="options button cancel small modal-register-user-one-trigger">
+                              <i class="item-icon icon-categories"></i>
+                            </button>
+                          </td>
+                          <td>2014-07-02 14:34:28</td>
+                          <td>sam gavinio</td>
+                          <td>Banana Republic</td>
+                          <td>samgavinio+tsss@easyshop.ph</td>
+                          <td>38</td>
+                          <td>9876545345</td>
+                        </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+        </div>
+      </div>
+      <div class="ui tab row" data-tab="tab-name1">
+        <div class="box-upper">
+          <div class="col-md-12">
+              <div class="box-div">
+                <div class="row gutters">
+                  <div class="col-md-12">
+                    <table class="table basic table-vertical-align-top">
+                      <tr>
+                        <th></th>
+                        <th>Date Created</th>
+                        <th>Fullname</th>
+                        <th>Store Name</th>
+                        <th>Email</th>
+                        <th>No. uploaded Products</th>
+                        <th>Contact Number</th>
+                      </tr>
+                      {% for i in 1..2 %}
+                        <tr>
+                          <td>
+                            <button class="options button cancel small modal-register-user-one-trigger">
+                              <i class="item-icon icon-categories"></i>
+                            </button>
+                          </td>
+                          <td>2014-07-02 14:34:28</td>
+                          <td>sam gavinio</td>
+                          <td>Banana Republic</td>
+                          <td>samgavinio+tsss@easyshop.ph</td>
+                          <td>38</td>
+                          <td>9876545345</td>
+                        </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-blank">
+                <div class="row">
+                  <div class="col-md-6">
+                  </div>
+                  <div class="col-md-6">
+                    <div class="pagination pull-right">
+                      <a class="item ">1</a>
+                      <div class="disabled item">...</div>
+                      <a class="item">10</a>
+                      <a class="item">11</a>
+                      <a class="item">12</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+</section>

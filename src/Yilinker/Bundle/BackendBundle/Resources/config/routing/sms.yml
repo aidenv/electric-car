@@ -1,0 +1,5 @@
+admin_sms_list:
+    path: /
+    defaults: { _controller: YilinkerBackendBundle:Sms:index }
+    methods: [GET]
+

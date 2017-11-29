@@ -1,0 +1,349 @@
+    {% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    {{ product.name }} | Product View
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+
+        {% set isReseller = class(product) == 'ManufacturerProduct'  %}
+        <div class="dashboard-body-container white">
+            <div class="dashboard-submenu-wrapper">
+                <div class="dashboard-submenu-container">
+                    <a href="{{ url('merchant_product_management') }}" class="button basic-default button-rounded-side no-margin"> <b>&larr;</b> Go Back</a>
+                </div>
+            </div>
+            <div class="dashboard-component top">
+                <div class="component-content">
+                    <h5 class="light-color light">Product Name</h5>
+                    <h3 class="semi-bold no-margin breakword-white-space">{{ product.name }}</h3>
+                </div>
+            </div>
+
+            <!--Comment -->
+            {% set latestRemark = product.getLatestRemark %}
+            {% if not isReseller and latestRemark != null and product.status == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::REJECT') %}
+            <div class="dashboard-component admin-notif">
+                <div class="component-content">
+                    <div class="panel">
+                        <div class="panel-body">
+                            {% set productRemarks = product.getProductRemarks(true) %}
+                            {% if productRemarks %}
+                                <div class="panel-item row">
+                                    <span class="col-md-1">
+                                        <span class="admin-notif-image">
+                                            <img src="{{ asset('images/logo-icon.png') }}" alt="Yilinker">
+                                        </span>
+                                    </span>
+                                    <span class="col-md-11">
+                                        <p>{{ latestRemark.remarks }}</p>
+                                        <span class="admin-notif-txt">
+                                            Posted By:
+                                            <strong>Administrator</strong>
+                                            <span>{{ latestRemark.dateAdded|date('m/d/Y h:i') }}</span>
+                                        </span>
+                                    </span>
+                                </div>
+                                {% if productRemarks|length -1 != 0 %}
+                                    <div class="panel-item row align-center">
+                                        <span class="show-prev-remarks">
+                                            <span class="remarks-txt-view">View</span>
+                                            <span class="remarks-txt-hide">Hide</span>
+                                            previous remarks <strong>({{ productRemarks|length -1 }})</strong>
+                                        </span>
+                                    </div>
+                                {% endif %}
+                                {% for productRemark in productRemarks %}
+                                    {% if latestRemark.productRemarksId != productRemark.productRemarksId %}
+                                        <div class="panel-item row prev-remarks">
+                                            <span class="col-md-1">
+                                                <span class="admin-notif-image">
+                                                    <img src="{{ asset('images/logo-icon.png') }}" alt="Yilinker">
+                                                </span>
+                                            </span>
+                                            <span class="col-md-11">
+                                                <p>{{ productRemark.remarks }}</p>
+                                                <span class="admin-notif-txt">
+                                                    Posted By:
+                                                    <strong>Administrator</strong>
+                                                    <span>{{ productRemark.dateAdded|date('m/d/Y h:i') }}</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!--Short Description-->
+            <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Short Description</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <p class="breakword">{{ product.shortDescription|default('') }}</p>
+                </div>
+            </div>
+
+            <!--Photo Slider-->
+            <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Photos</span>
+                    </div>
+                </div>
+                {% if product.images|length > 0 %}
+                <div class="slider-wrapper">
+                    <div class="product-photo-slider">
+                        {% for productImage in product.images %}
+                        <div class="item-photo">
+                            <div class="image-holder image-product-photo-holder">
+                                {% if isReseller %}
+                                   <img src="{{ asset(productImage.imageLocation, 'manufacturer_product') }}" alt="" class="img-auto-place">
+                                {% else %}
+                                    <img src="{{ asset(productImage.imageLocation, 'product') }}" alt="" class="img-auto-place">
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!--Full Description-->
+            <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Full Description</span>
+                    </div>
+                </div>
+                <div class="full-description-container">
+                    <div class="component-content">
+                        <div class="full-description breakword-white-space">
+                            <span class="content">{{ product.description|default('')|purify }}</span>
+                        </div>
+                        <div class="long-text-mask align-center">
+                            <div class="fade-top"></div>
+                            <button class="button basic-default button-rounded-side uppercase see-more">See More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Short Description-->
+            <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Video</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="video-holder">
+                        {% if product is classof('Yilinker\\Bundle\\CoreBundle\\Entity\\Product') and product.getYoutubeVideoUrl != '' %}
+                        <div class="video-me" style="width: 100%; position: relative;">
+                            <div class="video-wrapper">
+                                <input type="hidden" id="youtube-url" value="{{ product.getYoutubeVideoUrl }}">
+                                <iframe class="video" id="youtube-frame" src="" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        {% else %}
+                            <p>No video available. Try to upload your product video by clicking the button below.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            {% set productunits = product.units %}
+            {% if units is defined and units is not null %}
+                {% set productunits = units %}
+            {% endif %}
+
+            <!--Details-->
+            <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Details</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <span>Category: </span>
+                            <b class="category-name pd-left-10">{{ product.productCategory.name|default('None') }}</b>
+                        </div>
+                        <div class="col-md-6">
+                            <span>Brand: </span>
+                            <b class="pd-left-10 breakword-white-space">
+                                {% if product.brand.brandId is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Brand::CUSTOM_BRAND_ID')) %}
+                                    {{ product.getCustomBrandString|default('None') }}
+                                {% else %}
+                                    {{ product.brand is not same as(null)? product.brand.name:'None' }}
+                                {% endif %}
+                            </b>
+                        </div>
+                        <div class="col-md-6">
+                            <span>Condition: </span>
+                            <b class="condition pd-left-10">{{ product.getCondition.name|default('None') }}</b>
+                        </div>
+                        {% if productunits|length == 1 %}
+                            <div class="col-md-6">
+                                <span>Regular Price: </span>
+                                <b class="pd-left-10">P {{ productunits[0].price|number_format(2, '.', ',') }}</b>
+                            </div>
+                            <div class="col-md-6">
+                                <span>Discounted Price: </span>
+                                <b class="pd-left-10 h4">P {{ productunits[0].price == productunits[0].discountedPrice ? '0.00' : productunits[0].discountedPrice|number_format(2, '.', ',') }}</b>
+                            </div>
+                            {% if store is defined and store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') %}
+                                <div class="col-md-6">
+                                    <span>Commission: </span>
+                                    <b class="pd-left-10 h4">P {{ productunits[0].commission|default('0.00') }}</b>
+                                </div>
+                            {% endif %}
+                            <div class="col-md-6">
+                                <span>SKU: </span>
+                                <b class="pd-left-10 breakword-white-space"> {{ productunits[0].sku|default('None') }}</b>
+                            </div>
+                            <div class="col-md-6">
+                                <span>Quantity: </span>
+                                <b class="pd-left-10"> {{ productunits[0].quantity }}</b>
+                            </div>
+                            <div class="col-md-6">
+                                <span>Length (CM): </span>
+                                <b class="pd-left-10"> {{ productunits[0].length|number_format(2, '.', ',') }}</b>
+                            </div>
+                            <div class="col-md-6">
+                                <span>Width (CM): </span>
+                                <b class="pd-left-10"> {{ productunits[0].width|number_format(2, '.', ',') }}</b>
+                            </div>
+                            <div class="col-md-6">
+                                <span>Height (CM): </span>
+                                <b class="pd-left-10"> {{ productunits[0].height|number_format(2, '.', ',') }}</b>
+                            </div>
+                            <div class="col-md-6">
+                                <span>Weight (KG): </span>
+                                <b class="pd-left-10"> {{ productunits[0].weight|number_format(2, '.', ',') }}</b>
+                            </div>
+                        {% endif %}
+                        <div class="col-md-6">
+                            <span>Shipping Category: </span>
+                            <b class="pd-left-10"> {{ product.shippingCategory|default('None') }}</b>
+                        </div>
+                        {% if product is classof('Yilinker\\Bundle\\CoreBundle\\Entity\\Product') %}
+                            <div class="col-md-6">
+                                <span>
+                                    Product Group/s:
+                                </span>
+                                {% for group in product.productGroups %}
+                                    <b class="pd-left-10">{{group}}</b> <br />
+                                {% else %}
+                                    <b class="pd-left-10">None</b>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            {% if productunits|length > 0 %}
+             <!--Details-->
+            <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Additional Details</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    {% for unit in productunits %}
+                    <div class="panel">
+
+                        <div class="panel-head">
+                            <h4 class="no-margin">Combination {{ loop.index }}</h4>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="panel-item">
+                                <div class="combination-detail-container">
+                                    {% for attribute in unit.combination %}
+                                    <span class="detail-item">
+                                        <span class="detail-name">{{ attribute.name }}: </span>
+                                        <span class="detail-value bold">{{ attribute.value }}</span>
+                                    </span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="panel-item">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        SKU: <span class="bold breakword-white-space">{{ unit.sku|default('') }}</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        Quantity: <span class="bold">{{ unit.quantity|default('0') }}</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        Regular Price: <span class="bold">P {{ unit.price|number_format(2 , '.', ',') }}</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        Discounted Price: <span class="bold">P {{ unit.discountedPrice|number_format(2 , '.', ',') }}</span>
+                                    </div>
+                                    {% if store is defined and store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') %}
+                                        <div class="col-md-4">
+                                            Commission: <span class="bold">P {{ unit.commission|number_format(2 , '.', ',') }}</span>
+                                        </div>
+                                    {% endif %}
+                                    <div class="col-md-4">
+                                        Ongoing Promo Price:
+                                        <span class="bold">
+                                            {% if unit.getAppliedDiscountPrice is not defined or unit.getAppliedDiscountPrice is null %}
+                                                {% set price = unit.discountedPrice %}
+                                            {% else %}
+                                                {% set price = unit.appliedDiscountPrice %}
+                                            {% endif %}
+                                            P {{ price|number_format(2 , '.', ',') }}
+                                        </span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        Weight: <span class="bold">{{ unit.weight|number_format(2 , '.', ',') }} KG </span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        Height: <span class="bold">{{ unit.height|number_format(2 , '.', ',') }} CM </span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        Width: <span class="bold">{{ unit.width|number_format(2 , '.', ',') }} CM </span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        Length: <span class="bold">{{ unit.length|number_format(2 , '.', ',') }} CM </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="dashboard-component dashboard-component-footer gray align-center">
+                {% if product.isEditable %}
+                <div class="component-content">
+                     <a href="{{ url('product_upload_edit', { 'slug' : product.slug })  }}" class="button blue button-rounded-side uppercase">Edit Product</a>
+                </div>
+                {% endif %}
+             </div>
+        </div>
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/bower/slick.min.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/dashboard-product-view.js') }}"></script>
+{% endblock %}

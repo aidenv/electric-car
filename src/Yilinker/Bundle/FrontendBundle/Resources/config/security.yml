@@ -1,0 +1,9 @@
+parameters:
+    yilinker_front_end.user.provider.class: Yilinker\Bundle\CoreBundle\Provider\UserProvider
+
+services:
+
+    yilinker_front_end.buyer.provider:
+        class: %yilinker_front_end.user.provider.class%
+        arguments: ['@yilinker_core.user.repository', '%yilinker_core.usertype.buyer%']
+

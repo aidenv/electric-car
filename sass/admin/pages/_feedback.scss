@@ -1,0 +1,35 @@
+.feedback-list {
+    tr {
+      &:not(:first-child) {
+        cursor: pointer;
+        color: $brand-gray-darker;
+
+        td {
+          font-weight: bold;
+        }
+      }
+      &.read {
+        color: $brand-gray;
+        td {
+          font-weight: normal;
+        }
+      }
+    }
+}
+.feedback-short-desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 400px;
+}
+
+#feedback-details {
+    .content {
+      .row {
+        padding: 10px;
+      }
+      .row:nth-child(even) {
+        background-color: lighten($brand-gray-light, 10);
+      }
+    }
+}

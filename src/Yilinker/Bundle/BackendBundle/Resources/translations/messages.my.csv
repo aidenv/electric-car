@@ -1,0 +1,902 @@
+"Access Denied";"ဝင္ခြင့္ပိတ္ထားပါသည္"
+"click here";"ဤေနရာကို ႏွိပ္ပါ"
+Accreditation;တရားဝင္ အသိအမွတ္ျပဳမႈ
+"Business Information";"လုပ္ငန္း အခ်က္အလက္"
+"Seller Type";"ေရာင္းခ်သူ အမ်ဳိးအစား "
+"Owner Name";"ပိုင္ရွင္ အမည္ "
+"Store Name";"စတိုးအမည္"
+"Primary Address";"ပင္မ လိပ္စာ "
+"Other Address";"အျခား လိပ္စာ"
+"Contact Number";"ဆက္သြယ္ရန္ နံပါတ္"
+"Application Status";"ေလွ်ာက္လႊာ အေျခအေန"
+You;သင္
+Submit;ထည့္သြင္းပါ
+"Mark as Complete";"ျပီးဆုံးေၾကာင္း မွတ္သားပါ"
+"Mark as Incomplete";"မျပီးဆုံးေၾကာင္း မွတ္သားပါ"
+"Bank Information";"ဘဏ္အခ်က္အလက္"
+"Bank Name";"ဘဏ္အမည္ "
+"Account Title";"အေကာင့္အမ်ဳိးအစား "
+"Account Name";"အေကာင့္အမည္"
+"Account Number";"အေကာင့္နံပါတ္"
+"Legal Files";"တရားဥပေဒဆိုင္ရာ ဖိုင္မ်ား"
+File;ဖိုင္
+"Date Uploaded";"အပ္ေလာဒ့္လုပ္ခဲ့ေသာ ေန႔ရက္"
+Remarks;မွတ္ခ်က္မ်ား
+"DTI/SEC Permit";"DTI/SEC ပါမစ္"
+"Mayor's Permit";"ျမိဳ႕ေတာ္ဝန္ ပါမစ္"
+"BIR Permit";"BIR ပါမစ္"
+"FORM MA11501 Permit";"MA11501 ပါမစ္ ေလွ်ာက္လႊာ"
+Others;အျခား
+SSS;SSS
+"PAG IBIG";"PAG IBIG"
+Postal;စာပို႕အမွတ္
+Passport;ပတ္စ္ပို႕တ္
+"Driver's License";"ယာဥ္ေမာင္း လိုင္စင္"
+PRC;PRC
+"Voter's ID";"မဲေပးသူ အိုင္ဒီ"
+"School ID";"ေက်ာင္း အိုင္ဒီ"
+TIN;TIN
+"Valid ID";"ခိုင္မာေသာ ID"
+"Download this file";"ဤဖိုင္ကို ေဒါင္းေလာဒ့္ဆြဲပါ"
+"Update Accreditation Type";"တရားဝင္အသိအမွတ္ျပဳမႈ အမ်ဳိးအစားကို အပ္ဒိတ္လုပ္ပါ"
+Okay;အိုေက
+Accreditations;တရားဝင္ အသိအမွတ္ျပဳမႈမ်ား
+"Select Status";"အေျခအေနကို ေရြးခ်ယ္ပါ"
+Search;ရွာေဖြပါ
+Status;အေျခအေန
+"Quick Info";"အျမန္ အခ်က္အလက္"
+Name:;အမည္ :
+Phone:;ဖုန္း :
+Email:;အီးေမးလ္ :
+"Affiliate Accreditation";"တြဲဖက္ တရားဝင္ အသိအမွတ္ျပဳမႈ"
+"Personal Information";"တစ္ကိုယ္ရည္ အခ်က္အလက္"
+"Identification Document";"အသိအမွတ္ျပဳ စာရြက္စာတမ္း"
+Username;အသုံးျပဳသူအမည္
+Password;စကားဝွက္
+"Sign In";"ဝင္ပါ"
+"Manage Administrator";"စီမံခန္႕ခြဲသူကို စီမံပါ"
+"Register Administrator";"စီမံခန္႕ခြဲသူကို မွတ္ပုံတင္ပါ"
+"Enter Username here";"အသုံးျပဳသူအမည္ကို ဤေနရာတြင္ ျဖည့္ပါ"
+"Enter Password here";"စကားဝွက္ကို ဤေနရာတြင္ ျဖည့္ပါ"
+"Change Password";"စကားဝွက္ ေျပာင္းပါ"
+"Confirm Password";"စကားဝွက္ကို အတည္ျပဳပါ"
+"Enter Confirm Password here";"အတည္ျပဳ စကားဝွက္ကို ဤေနရာတြင္ ရိုက္ထည့္ပါ"
+"First Name";"နာမည္ ပထမစာလုံး"
+"Enter First name here";"နာမည္ ပထမစာလုံးကို ဤေနရာတြင္ ထည့္ပါ"
+"Last Name";"နာမည္ ေနာက္ဆုံးစာလုံး"
+"Enter Last name here";"နာမည္ ေနာက္ဆုံးစာလုံးကို ဤေနရာတြင္ ထည့္ပါ"
+"User Role";"အသုံးျပဳသူအဆင့္"
+"Select Role";"အဆင့္ ေရြးခ်ယ္ပါ"
+Register;မွတ္ပုံတင္ပါ
+"Manage Roles";"အဆင့္မ်ားကို စီမံပါ"
+ID;အိုင္ဒီ
+Fullname;နာမည္အျပည့္အစုံ
+Role;အဆင့္
+Activation;သက္ဝင္လုပ္ေဆာင္မႈ
+"Enter your new password here";"သင့္စကားဝွက္အသစ္ကို ဤေနရာတြင္ ျဖည့္ပါ"
+"Confirm your new password here";"သင့္စကားဝွက္အသစ္ကို ဤေနရာတြင္ အတည္ျပဳပါ"
+Cancel;ပယ္ဖ်က္ပါ
+"Manually Created Accounts";"အေကာင့္ကို တစ္ဆင့္ခ်င္း ဖန္တီးျပီးပါျပီ"
+"Number of Manual Accounts: 227";"အေကာင့္ အေရအတြက္ : 227"
+"Search By Name / ID No. / Business Name";"နာမည္/ အိုင္ဒီနံပါတ္/ လုပ္ငန္းအမည္ျဖင့္ ရွာပါ"
+"Accreditation Status:";"တရားဝင္ အသိအမွတ္ျပဳမႈ အေျခအေန :"
+Unaccredited;တရားဝင္ အသိအမွတ္မျပဳထားေသာ
+Accredited;တရားဝင္ အသိအမွတ္ျပဳထားေသာ
+All;အားလုံး
+"Created By:";"ဖန္တီးခဲ့သည္ :"
+--;--
+"George Paulino";"George Paulino"
+"Ryan gVay";"Ryan gVay"
+KarlDub;KarlDub
+"Kevin the Nightstalker";"Kevin the Nightstalker"
+"Account Status:";"အေကာင့္ အေျခအေန :"
+Activated;သက္ဝင္လုပ္ေဆာင္မႈရွိေသာ
+Locked;ေလာ့ခ္ခ်ထားေသာ
+"Create Account";"အေကာင့္ ဖန္တီးပါ"
+"Customer ID";"ဝယ္ယူသုံးစြဲသူ အိုင္ဒီ"
+"Business Name";"လုပ္ငန္း အမည္"
+192;192
+"Chris Bosh George";"Chris Bosh George"
+"Burger Machine";"ဘာဂါစက်"
+Seller;ေရာင္းခ်သူ
+"Ronald McDonald Duck";"Ronald McDonald Duck"
+"McDonalds Fastfood";"McDonalds Fastfood"
+Mechant;Mechant
+"Casper Daprenlygosh";"Casper Daprenlygosh"
+"Haus of Honor";"Haus of Honor"
+Hybrid;Hybrid
+"Manual Creation List";"လမ္းညႊန္ ဖန္တီးမႈ စာရင္း"
+"Manual Creation Details";"လမ္းညႊန္ ဖန္တီးမႈ အေသးစိတ္"
+"Account Details";"အေကာင့္ အေသးစိတ္"
+"Account Notes";"အေကာင့္ မွတ္ခ်က္မ်ား"
+"Basic Information";"အေျခခံ အခ်က္အလက္"
+Affiliate;တြဲဖက္
+"Email Address";"အီးေမးလ္လိပ္စာ"
+"Mobile Number";"မိုဘိုင္း နံပါတ္"
+"Address Information";"လိပ္စာ အခ်က္အလက္"
+Addresses;လိပ္စာမ်ား
+"&nbsp;";"&nbsp;"
+Home;ပင္မ
+"1234 Building Street 2 Street Subdivision Metro Manila Manila Barangay 2 ,566056";"1234 Building Street 2 Street Subdivision Metro Manila Manila Barangay 2 ,566056"
+"Bank Accounts";"ဘဏ္အေကာင့္မ်ား"
+2130909455677;2130909455677
+"George Georgia";"George Georgia"
+"Metrobank of the Borneo";"Metrobank of the Borneo"
+"Accreditation Option";"တရားဝင္ အသိအမွတ္ျပဳမႈ ေရြးခ်ယ္ခ်က္"
+"Accreditation Level";"တရားဝင္ အသိအမွတ္ျပဳမႈ အဆင့္"
+"Level 1";"အဆင့္ ၁"
+"Level 2";"အဆင့္ ၂"
+"Level 3";"အဆင့္ ၃"
+"Level 4";"အဆင့္ ၄"
+"Activate this Account?";"ဤအေကာင့္ကို သက္ဝင္လုပ္ေဆာင္မႈ လုပ္မလား။"
+Activate;သက္ဝင္လုပ္ေဆာင္မႈလုပ္သည္
+"This Account is Active";"ဤအေကာင့္ကို သက္ဝင္လုပ္ေဆာင္မႈ လုပ္သည္"
+"If you wish to deactivate this account, click";"ဤအေကာင့္ကို သက္ဝင္လုပ္ေဆာင္မႈမွ ရပ္တန္႕လိုပါက ႏွိပ္ပါ"
+"Deactivate Now";"ယခုပင္ သက္ဝင္လုပ္ေဆာင္မႈမွွ ရပ္တန္႕လိုက္ပါ"
+"Temporary Password";"ယာယီ စကားဝွက္"
+"System Information";"စနစ္ အခ်က္အလက္"
+"Created By";"ဖန္တီးသူ"
+"Karl Cases";"Karl Cases"
+", 10/22/16 4:43 am";", 10/22/16 4:43 am"
+"Last Modified By";"ေနာက္ဆုံး ျပဳျပင္မြမ္းမံခဲ့သည္"
+"Save Changes";"ေျပာင္းလဲမႈမ်ားကို သိမ္းပါ"
+Notes;မွတ္ခ်က္မ်ား
+Title;ေခါင္းစဥ္
+Message;မက္ေဆ့ဂ်္
+Actions;လုပ္ေဆာင္မႈ
+"About Paul Edward Borja and the Spaghetti";"Paul Edward Borja ႏွင့္ စပါဂတီ အေၾကာင္း"
+"Last Modified: 10/22/16 4:51 am";"ေနာက္ဆုံး ျပဳျပင္မြမ္းမံခဲ့သည္ : 10/22/16 4:51 am"
+View;ၾကည့္ရႈပါ
+"New Notes";"မွတ္ခ်က္ အသစ္"
+Placeholder;Placeholder
+"Enter product description here";"ကုန္ပစၥည္း အေၾကာင္းအရာကို ဤေနရာတြင္ ထည့္ပါ"
+Save;သိမ္းဆည္းပါ
+"Bank Account";"ဘဏ္အေကာင့္"
+"Enter your bank account title here";"သင့္ဘဏ္အေကာင့္ အမ်ဳိးအစားကို ဤေနရာတြင္ ျဖည့္ပါ"
+"Enter your bank account number here";"သင့္ဘဏ္အေကာင့္ နံပါတ္ကို ဤေနရာတြင္ ျဖည့္ပါ"
+"Enter your bank account name here";"သင့္ဘဏ္အေကာင့္ အမည္ကို ဤေနရာတြင္ ျဖည့္ပါ"
+"Are you sure you want to delete this bank account";"ဤဘဏ္အေကာင့္အား ဖ်က္ပစ္လိုသည္မွာ ေသခ်ာပါသလား။"
+Delete;ဖ်က္ပါ
+Log-out;ထြက္ပါ
+English;အဂၤလိပ္
+Chinese;တရုတ္
+Canada;ကေနဒါ
+"Transactions List";"အေရာင္းအဝယ္ စာရင္း"
+"Seller Pay-out";"ေရာင္းခ်သူ အခေၾကးေငြ"
+"Buyer Refund";"ဝယ္သူ ျပန္အမ္းေငြ"
+"Buyer Refund History";"ဝယ္သူ ျပန္အမ္းေငြ မွတ္တမ္း"
+"Promo List";"ပရိုမို စာရင္း"
+"Seller Accreditation";"ေရာင္းခ်သူ တရားဝင္ အသိအမွတ္ျပဳမႈ"
+"Inhouse Products";"သိုေလွာင္ ကုန္မ်ား"
+"Buyer List";"ဝယ္သူ စာရင္း"
+"Seller/Affiliate List";"ေရာင္းခ်သူ/ တြဲဖက္ စာရင္း"
+"Product Listings";"ကုန္ပစၥည္း စာရင္း"
+Vouchers;ေဘာက္ခ်ာ
+"Request Pay-Outs List";"အခေၾကးေငြ စာရင္းကို ေတာင္းဆိုပါ"
+"Batch Pay-Out List";"အပတ္စဥ္ အခေၾကးေငြ စာရင္း"
+Product;ကုန္ပစၥည္း
+Notification;အသိေပးခ်က္
+"Mobile Web view (CMS)";"မိုဘိုင္း ဝက္ဘ္ ၾကည့္ရႈမႈ (CMS)"
+"Daily Present";"ေန႔စဥ္ လက္ေဆာင္"
+"Custom Messages";"စိတ္ၾကိဳက္ မက္ေဆ့ဂ်္မ်ား"
+"Message here";"ဤေနရာတြင္ မက္ေဆ့ဂ်္ေရးပါ"
+"Inner Banners";"အတြင္း ဘန္နာမ်ား"
+"Upload Banner";"ဘန္နာကို အပ္ေလာဒ့္လုပ္ပါ"
+"Select your Banner Permit file from your computer";"သင့္ကြန္ပ်ဴတာမွ ဘန္နာ ပါမစ္ဖိုင္ကို ေရြးခ်ယ္ပါ"
+"Compatible files: JPEG and PNG";"အသုံးျပဳႏိုင္ေသာ ဖိုင္မ်ား : JPEG ႏွင့္ PNG"
+"Banner URL";"ဘန္နာ URL"
+"Product CMS";"ကုန္ပစၥည္း CMS"
+"Created Date/Time";"ဖန္တီးခဲ့ေသာ ေန႕ရက္/ အခ်ိန္"
+Creator;ဖန္တီးသူ
+Type;အမ်ဳိးအစား
+"12/31/16, 3:00pm";"12/31/16, 3:00pm"
+"George Paul";"George Paul"
+"Homepage Row";"ပင္မစာမ်က္ႏွာ အတန္း"
+"Hot Items";"ေရပန္းစားေနေသာ ကုန္ပစၥည္းမ်ား"
+150;150
+"Queued @ 12:00am";"စီတန္းထားေသာ @ 12:00am"
+"Custom Page";"စိတ္ၾကိဳက္ စာမ်က္ႏွာ"
+"Shop Wise";"Shop Wise"
+Create;ဖန်တီး
+"Create Product CMS";"ကုန္ပစၥည္း CMSကို ဖန္တီးပါ"
+"Product Title";"ကုန္ပစၥည္း ေခါင္းစဥ္"
+"Enter Your Product Title";"သင့္ကုန္ပစၥည္း ေခါင္းစဥ္ကို ျဖည့္ပါ"
+"Upload Featured Banner (Homepage)";"အထူး ဘန္နာကို အပ္ေလာဒ့္လုပ္ပါ (ပင္မစာမ်က္ႏွာ)"
+"Upload Featured Banners (Homepage) here";"အထူး ဘန္နာကို ဤေနရာတြင္ အပ္ေလာဒ့္လုပ္ပါ (ပင္မစာမ်က္ႏွာ)"
+"Compatible files: JPEG, PNG and PDF";"အသုံးျပဳႏိုင္ေသာ ဖိုင္မ်ား : JPEG, PNG ႏွင့္ PDF"
+"Paste Featured Product (Homepage) Link here";"အထူး ကုန္ပစၥည္း (ပင္မစာမ်က္ႏွာ) လင့္ခ္ကို ဤေနရာတြင္ ကူးထည့္ပါ"
+Image;ရုပ္ပုံ
+"Upload Featured Banner (Inner-Page)";"အထူး ဘန္နာကို အပ္ေလာဒ့္လုပ္ပါ (အတြင္းစာမ်က္ႏွာ)"
+"Upload Featured Banners (Inner-Page) here";"အထူး ဘန္နာကို ဤေနရာတြင္ အပ္ေလာဒ့္လုပ္ပါ (အတြင္းစာမ်က္ႏွာ)"
+"Paste Product Link (Inner-Page) here";"ကုန္ပစၥည္း (အတြင္းစာမ်က္ႏွာ)ကို ဤေနရာတြင္ ကူးထည့္ပါ"
+"Product List";"ကုန္ပစၥည္း စာရင္း"
+Clear;ရွင္းလင္းပါ
+"Add Products";"ကုန္ပစၥည္းမ်ားကို ေပါင္းထည့္ပါ"
+"Date Created";"ဖန္တီးခဲ့ေသာ ေန႔ရက္"
+"Product Name";"ကုန္ပစၥည္းအမည္"
+"Active Promo";"သက္ဝင္လုပ္ေဆာင္ေနေသာ ပရိုမို"
+"Original Price";"မူရင္း ေစ်းႏႈန္း"
+"Discounted Price";"ေစ်းခ်ထားေသာ ေစ်းႏႈန္း "
+"Available Stock";"ရရွိႏိုင္ေသာ ကုန္ပစၥည္း"
+"Product Sold";"ေရာင္းခ်လိုက္ေသာ ကုန္ပစၥည္း"
+12/16/16;12/16/16
+20%;20%
+"PhP 21230";"PhP 21230"
+"PhP 18930";"PhP 18930"
+2003;2003
+122;122
+"By Checking this box";"ဤေသတၱာအား စစ္ေဆးျခင္းျဖင့္"
+"Start the Process IMMEDIATELY";"ယခုပင္ လုပ္ငန္းကို စတင္လိုက္ပါ"
+"Enter product list here";"ကုန္ပစၥည္း စာရင္းကို ဤေနရာတြင္ ထည့္ပါ"
+"Price Range:";"ေစ်းႏႈန္း အကန္႔အသတ္ :"
+Brands:;ကုန္အမွတ္တံဆိပ္ :
+"Sort By:";"စီပါ :"
+Alphabetical;အကၡရာစဥ္
+"New to Old";"အသစ္ မွ အေဟာင္း"
+"Old to New";"အေဟာင္း မွ အသစ္"
+Relevance;ပတ္သက္ဆက္ႏြယ္မႈ
+Categories:;အမ်ဳိးအစားမ်ား :
+Status:;အေျခအေန :
+Active;လုပ္ေဆာင္ေနသည္
+Inactive;မလုပ္ေဆာင္ပါ
+Manufacturer:;ထုတ္လုပ္သူ :
+"Please click on the image you want to set as primary";"ပင္မအျဖစ္ ထားရွိလိုေသာ ရုပ္ပုံကို ေက်းဇူးျပဳ၍ ႏွိပ္ပါ"
+Primary;ပင္မ
+Check;စစ္ေဆးပါ
+Error;ခ်ဳိ႔ယြင္းခ်က္
+"Remove file";"ဖိုင္ကို ဖယ္ရွားပါ"
+SKU;SKU
+Width;အက်ယ္
+Height;အျမင့္
+Length;အလ်ား
+Weight;အေလးခ်ိန္
+Quantity;အေရအတြက္
+"Regular Price";"ပုံမွန္ ေစ်းႏႈန္း"
+"Shipping fee";"ပို႕ေဆာင္ခ"
+"Retail Price";"လက္လီေစ်းႏႈန္း"
+Commission;ေကာ္မစ္ရွင္ 
+Date;ေန႔ရက္
+"Promo Name";"ပရိုမို အမည္"
+"Promo Discount";"ပရိုမို ေလွ်ာ့ေစ်း"
+12/12/16;2012/12/16
+"Perfect Purple Pair";"ျပီးျပည့္စုံေသာ ခရမ္းေရာင္ တြဲဖက္မႈ"
+"Last Edit By";"ေနာက္ဆုံး တည္းျဖတ္ခဲ့သည္"
+"Time Stamp";"အခ်ိန္ တံဆိပ္တုံး"
+"Chris Paul George";"Chris Bosh George"
+"Upload 5 Photos";"ဓာတ္ပုံ ၅ပုံကို အပ္ေလာဒ့္လုပ္ပါ"
+"2:00 am";"2:00 am"
+"Date Range:";"ရက္ အကန္႔အသတ္ :"
+"Start Date";"စတင္သည့္ရက္"
+"End Date";"ျပီးဆုံးသည့္ရက္"
+"Quantity Sold";"ေရာင္းခ်ခဲ့ေသာ အေရအတြက္"
+50;50
+"Export to Excel";"Excel အျဖစ္ ထုတ္ပါ"
+"In-House Listings";"သိုေလွာင္ စာရင္းမ်ား"
+Item;ကုန္ပစၥည္း
+Category;အမ်ဳိးအစား
+Brand;ကုန္အမွတ္တံဆိပ္
+Brief;အက်ဥ္းခ်ဳပ္
+Details;အေသးစိတ္
+Photos;ဓာတ္ပုံမ်ား
+Combinations;ေပါင္းစပ္မႈမ်ား
+"Reason of Approval";"လက္ခံရသည့္ အေၾကာင္းျပခ်က္"
+Back;ေနာက္
+"Reason of Rejection";"ျငင္းပယ္ရသည့္ အေၾကာင္းျပခ်က္"
+[[Username]];[[အသုံးျပဳသူအမည္]]
+Refund;ျပန္အမ္းေငြ
+"Order ID";"ေအာ္ဒါ အိုင္ဒီ"
+"Invoice No";"ေျပစာ နံပါတ္"
+"Seller ID";"ေရာင္းခ်သူ အိုင္ဒီ"
+User;အသုံးျပဳသူ
+"Product ID";"ကုန္ပစၥည္း အိုင္ဒီ"
+"Order Quantity";"ေအာ္ဒါ အေရအတြက္"
+"Unit Price";"တစ္ခုခ်င္း ေစ်းႏႈန္း"
+"Total Amount";"စုစုေပါင္း ပမာဏ "
+EasyPoint;EasyPoint
+NET;အသားတင္
+144;144
+144-2-1503240909;144-2-1503240909
+2;2
+"man of effin steel";"man of effin steel"
+333;333
+"sammmy sam";"sammmy sam"
+1;1
+On-going;ဆက္လက္လုပ္ေဆာင္ေနေသာ
+182;182
+182-12003-1504280105;182-12003-1504280105
+79;79
+warcraft;warcraft
+14;14
+"Paid - Returned";"ေပးျပီး - ျပန္ေပးျပီး"
+"Proceed To Refund";"ျပန္ေပးရန္ လုပ္ေဆာင္ပါ"
+"History Information";"မွတ္တမ္း အခ်က္အလက္"
+"Shipping Price";"ပို႕ေဆာင္ ေစ်းႏႈန္း"
+"Easyshop Charge";"Easyshop ကုန္က်စရိတ္"
+"Payment Method Charge";"ေငြေပးေခ်မႈ နည္းလမ္း ကုန္က်စရိတ္"
+Easypoints;Easypoints
+Net;အသားတင္
+201-1-1506040106;201-1-1506040106
+sammyboi22_22;sammyboi22_22
+apple;apple
+"History ID";"မွတ္တမ္း အိုင္ဒီ"
+State;ျပည္နယ္
+404;404
+"2015-06-02 17:57:14";"2558-06-02 17:57:14"
+"Item has not been shipped";"ကုန္ပစၥည္း မေပးပို႕ရေသးပါ"
+"Reason of Cancellation";"ပယ္ဖ်က္ရသည့္ အေၾကာင္းျပခ်က္"
+Requestor;ေတာင္းဆိုသူ
+"--Select Requestor--";"--ေတာင္းဆိုသူကို ေရြးခ်ယ္ပါ--"
+Buyer;ဝယ်ခြမ်းသူ
+"Type of Reason";"အေၾကာင္းျပခ်က္ အမ်ဳိးအစား"
+"--Select Reason--";"--အေၾကာင္းျပခ်က္ကို ေရြးခ်ယ္ပါ--"
+"Edit/Add Category";"အမ်ဳိးအစားကို တည္းျဖတ္ပါ/ ေပါင္းထည့္ပါ"
+Name;အမည္
+Description;အေၾကာင္းအရာ
+Keyword;အေရးပါေသာ စကားလုံး 
+"Sort Order";"ေအာ္ဒါ စီပါ"
+"Order Product Id";"ေအာ္ဒါ ကုန္ပစၥည္း အိုင္ဒီ"
+"Shipping Fee";"ပို႕ေဆာင္ခ"
+"Total Price";"စုစုေပါင္း ေစ်းႏႈန္း "
+"Net Price";"အသားတင္ ေစ်းႏႈန္း"
+"Current Tag";"လက္ရွိ တက္ဂ္"
+209;209
+"Order Details";"ေအာ္ဒါ အေသးစိတ္"
+Sample;နမူနာ
+KD3-38u123pi;KD3-38u123pi
+"YiLinker Charge";"YiLinker ကုန္က်စရိတ္"
+"Order Product ID";"ေအာ္ဒါ ကုန္ပစၥည္း အိုင္ဒီ"
+"Unflag Transaction";"အမွတ္အသား မလုပ္ထားေသာ အေရာင္းအဝယ္"
+"Void Transaction";"အေရာင္းအဝယ္ကို ဖယ္ပါ"
+"Apple Watch";"Apple လက္ပတ္နာရီ"
+"Short Description";"အေၾကာင္းအရာ အတို"
+"Full Description";"အေၾကာင္းအရာ အျပည့္အစုံ"
+"Jewellery &amp; Watches";"ေက်ာက္မ်က္ရတနာမ်ား &amp; လက္ပတ္နာရီမ်ား"
+Custom;စိတ္ၾကိဳက္
+"Dimensions &amp; Weight";"အတိုင္းအတာ &amp; အေလးခ်ိန္"
+"Length (CM)";"အလ်ား (CM)"
+"Width (CM)";"အက်ယ္ (CM)"
+"Weight (KG)";"အေလးခ်ိန္ (KG)"
+"Height (CM)";"အျမင့္ (CM)"
+"Combination Name";"ေပါင္းစပ္မႈ အမည္"
+10001;10001
+10;10
+Color;အေရာင္
+Blue;အျပာ
+Size;ဆိုဒ္
+Large;အၾကီး
+Address;လိပ္စာ
+"asdsadsad, 123 jkhjk, asdsadsad, BF International Village, Las Pinas, Metro Manila, 1213";"asdsadsad, 123 jkhjk, asdsadsad, BF International Village, Las Pinas, Metro Manila, 1213"
+"Generate Code";"ကုဒ္ ထုတ္ပါ"
+477-344-1;477-344-1
+"This account doesnt have any bank information";"ဤအေကာင့္တြင္ မည္သည့္ဘဏ္အခ်က္အလက္မွ မရွိပါ"
+Add;ေပါင္းထည့္ပါ
+"My BPI Bank Account";"ကၽြန္ုပ္၏ BPI ဘဏ္အေကာင့္"
+283713968540781;283713968540781
+"George Macalulo Winston Lee";"George Macalulo Winston Lee"
+BPI;BPI
+Edit;တည္းျဖတ္ပါ
+"Bank Account Title";"ဘဏ္အေကာင့္ အမ်ဳိးအစား"
+UCPB;UCPB
+"Allied Bank";"မဟာမိတ်ဘဏ်၏"
+"Returned Item Pickup";"ျပန္ေပးေသာ ကုန္ပစၥည္း ေရြးခ်ယ္မႈ"
+Schedule;အခ်ိန္ဇယား
+02/29/16;02/29/16
+"Day Hour";"ေန႕ နာရီ"
+"eq. 1 Am";"eq. 1 Am"
+Why?;အဘယ္ေၾကာင့္နည္း။
+"Bank Name:";"ဘဏ္အမည္ :"
+Payout;အခေၾကးေငြ
+"Buyer ID";"ဝယ္သူ အိုင္ဒီ"
+"Proceed To Payment";"ေပးေခ်ရန္ လုပ္ေဆာင္ပါ"
+"Paid - Forwarded";"ေပးျပီး - ဆက္လုပ္ျပီး"
+"Shipment Information";"ေပးပို႕မႈ အခ်က္အလက္"
+Courier;လမ္းညႊန္
+"Boy George Delivery";"Boy George ေပးပို႕ေရး"
+"Date of Shipment";"ေပးပို႕မႈ ေန႕ရက္"
+"2015-04-01 00:00:00";"2015-04-01 00:00:00"
+"Expected Date of Arrival";"ေမွ်ာ္မွန္းထားေသာ ေရာက္ရွိရက္"
+"2015-04-04 00:00:00";"2015-04-04 00:00:00"
+"Tracking Number";"လမ္းေၾကာင္း နံပါတ္"
+PK-235-137-556;PK-235-137-556
+"Missing Courier";"လြဲေနေသာ လမ္းညႊန္"
+"Last updated on 2015-04-06 17:37:55";"2015-04-06 17:37:55 တြင္ ေနာက္ဆုံး အပ္ဒိတ္လုပ္ထားသည္"
+Cancelled;ပယ္ဖ်က္ျပီး
+"&#8230;";"&#8230;"
+Color:;အေရာင္ :
+Red;အနီ
+Size:;ဆိုဒ္ :
+Samplenation:;နမူနာ :
+"Super Duper Ninja Warrior";"Super Duper Ninja Warrior"
+resolved;ေျဖရွင္းျပီး
+"George Chris Paul";"George Chris Paul"
+"requested items for cancellations";"ပယ္ဖ်က္မႈအတြက္ ေတာင္းဆိုထားေသာ ကုန္ပစၥည္းမ်ား"
+"Order ID 209: Shoulder Bag";"ေအာ္ဒါ အိုင္ဒီ 209 : လြယ္အိတ္"
+"Posted on 12:30 pm, July 21, 2014";"12:30 pm, July 21, 2014 တြင္ ပိုစ့္တင္ခဲ့သည္"
+"Koya Carl";"Koya Carl"
+"Approve Cancellation";"ပယ္ဖ်က္မႈကို လက္ခံပါ"
+Reject;ပယ္ပါ
+"Select Reason";"အေၾကာင္းျပခ်က္ ေရြးခ်ယ္ပါ"
+"Resolution Center";"ေျဖရွင္းေရး စင္တာ"
+"Disputed Tag Detected!";"အျငင္းပြားထားေသာ တက္ဂ္ ေတြ႕ရွိခဲ့ပါသည္။"
+attachments;တြဲခ်ိတ္မႈမ်ား
+"Proceed to Resolution Center";"ေျဖရွင္းေရး စင္တာသို႕ ေပးပို႕ လုပ္ေဆာင္ပါ"
+"Flagged Tag Detected!";"အမွတ္အသားလုပ္ထားေသာ တက္ဂ္ ေတြ႕ရွိခဲ့ပါသည္။"
+Approve;လက္ခံပါ
+"Search By Batch ID/Process By";"အပတ္စဥ္ အိုင္ဒီ/ လုပ္ေဆာင္သူျဖင့္ ရွာေဖြပါ"
+"Grand Batch Amount";"အပတ္စဥ္ ပမာဏ"
+"Batch ID";"အပတ္စဥ္ အိုင္ဒီ"
+Count;ေရတြက္ပါ
+"Process By";"လုပ္ေဆာင္ပါ"
+Amount;ပမာဏ
+Memo;မီမို
+Action;လုပ္ေဆာင္မႈ
+"Are you sure you want to remove payout?";"အခေၾကးေငြကို ဖယ္ရွားလိုသည္မွာ ေသခ်ာပါသလား။"
+Remove;ဖယ္ရွားပါ
+"Batch Payout";"အပတ္စဥ္ အခေၾကးေငြ"
+"Batch Number";"အပတ္စဥ္ နံပါတ္"
+"Batch Date";"အပတ္စဥ္ ေန႕ရက္"
+"Write your Remarks";"သင့္မွတ္ခ်က္မ်ားကို ေရးပါ"
+"Attach Files";"ဖိုင္မ်ားကို တြဲခ်ိတ္ပါ"
+"Upload Receipt";"ေျပစာကို အပ္ေလာဒ့္လုပ္ပါ"
+"Transaction Update List";"အေရာင္းအဝယ္ အပ္ဒိတ္ စာရင္း"
+"Search by reference number";"ရည္ညႊန္းနံပါတ္ျဖင့္ ရွာပါ"
+"Request By";"ေတာင္းဆိုပါ"
+Method;နည္းလမ္း
+Bank;ဘဏ္
+"Bank Info / Pay To";"ဘဏ္ အခ်က္အလက္/ ေပးရန္"
+Charge;ကုန္က်စရိတ္
+"Net Amount";"အသားတင္ ပမာဏ"
+"Total Batch Amount";"စုစုေပါင္း အပတ္စဥ္ ပမာဏ"
+"Are you sure you want to remove file?";"ဖိုင္ကို ဖယ္ရွားလိုသည္မွာ ေသခ်ာပါသလား။"
+"Are you sure you want to remove payout request?";"အခေၾကးေငြ ေတာင္းဆိုမႈကို ဖယ္ရွားလိုသည္မွာ ေသခ်ာပါသလား။"
+"Search (requester fullname, requester email, bank name, bank account number, bank account name, reference no.)";"ရွာပါ (ေတာင္းဆိုသူ အမည္အျပည့္အစုံ၊ ေတာင္းဆိုသူ အီးေမးလ္၊ ဘဏ္အမည္၊ ဘဏ္အေကာင့္ နံပါတ္၊ ရည္ညႊန္း နံပါတ္)"
+"Order by Date";"ေန႔ရက္ျဖင့္ စီပါ"
+Ascending;တိုးသြားသည္
+Descending;ေလွ်ာ့သြားသည္
+"Payment Status:";"ေငြေပးေခ်မႈ အေျခအေန :"
+"Payment Method";"ေငြေပးေခ်မႈ နည္းလမ္း"
+"Reference Id";"ရည္ညႊန္း အိုင္ဒီ"
+"Proceed Batch Pay-Out";"အပတ္စဥ္ ေငြေပးေခ်မႈကို လုပ္ေဆာင္ပါ"
+"For Review";"သုံးသပ္ခ်က္ အတြက္"
+InActive;မလုပ္ေဆာင္ပါ
+Store:;စတိုး :
+Condition;အေျခအေန
+URL;URL
+Videos;ဗီဒီယိုမ်ား
+"Reject Remarks";"မွတ္ခ်က္မ်ားကို ဖယ္ပါ"
+"Item Details";"ကုန္ပစၥည္း အေသးစိတ္"
+"Shipping Category";"ေပးပို႕မႈ အမ်ဳိးအစား"
+"Store Details";"စတိုး အေသးစိတ္"
+"Seller Name";"ေရာင္းခ်သူ အမည္"
+"No youtube video";"Youtube ဗီဒီယိုမရွိပါ"
+"Posted on";"ပို႕စ္တင္ခဲ့သည္"
+"Send Reject Remark";"ပယ္ထားေသာ မွတ္ခ်က္ကို ေပးပို႕ပါ"
+"Promo Management";"ပရိုမို စီမံခန္႕ခြဲမႈ"
+"Promo Type";"ပရိုမို အမ်ဳိးအစား"
+"Promo Details";"ပရိုမို အေသးစိတ္"
+"Promo is currently Active";"ပရိုမိုသည္ လက္ရွိတြင္ လုပ္ေဆာင္ေနပါသည္"
+Advertisement;ေၾကာ္ျငာ
+"Discount %";"ေလွ်ာ့ေစ်း %"
+Discount;ေလွ်ာ့ေစ်း 
+Start;စတင္ပါ
+End;ျပီးဆုံးပါ
+"% per hour";"တစ္နာရီလွ်င္ %"
+"Percent per hour";"တစ္နာရီလွ်င္ ရာခိုင္ႏႈန္း"
+"Minimum %";"အနည္းဆုံး %"
+"Quantity Required";"လိုအပ္ေသာ အေရအတြက္"
+"Max Quantity";"အမ်ားဆုံး အေရအတြက္"
+"Countdown Timer is currently Disabled";"ေနာက္ျပန္ေရတြက္မႈကို လက္ရွိကာလတြင္ ပိတ္ထားသည္"
+"Yes, Enable the Countdown timer";"ဟုတ္ကဲ့၊ ေနာက္ျပန္ေရတြက္မႈကို ဖြင့္ပါ"
+"Countdown Timer is Active";"ေနာက္ျပန္ေရတြက္မႈသည္ အလုပ္လုပ္ေနပါသည္"
+"5 :";"5 :"
+days;ရက္
+hrs;နာရီ
+min;မိနစ္
+sec;စကၠန္႕
+"left until the promo ends";"ပရိုမို ျပီးဆုံးသည္ထိ က်န္ရွိေနသည္"
+"Disabled Countdown Timer";"ေနာက္ျပန္ေရတြက္မႈကို ပိတ္ပါ"
+"Product list";"ကုန္ပစၥည္း စာရင္း"
+"Item Name";"ကုန္ပစၥည္း အမည္"
+Price;ေစ်းႏႈန္း
+"Activate this Promo";"ဤပရိုမိုကို သက္ဝင္လုပ္ေဆာင္မႈ လုပ္ပါ"
+"Add Item (separated by line break)";"ကုန္ပစၥည္းကို ေပါင္းထည့္ပါ (လိုင္းျခားပါ)"
+"Congratulations! This promo has been successfully enabled";"ဂုဏ္ယူပါတယ္ ဤပရိုမိုကို ေအာင္ျမင္စြာ ဖြင့္ျပီး"
+Deactivate;သက္ဝင္လုပ္ေဆာင္မႈကို ရပ္တန္႕ပါ
+Notifications;အသိေပးခ်က္မ်ား
+"Search By Title / Message Content";"ေခါင္းစီး/ မက္ေဆ့ဂ်္ အေၾကာင္းအရာျဖင့္ ရွာပါ"
+"IOS (Mobile)";"IOS (မိုဘိုင္း)"
+"Andriod (Mobile)";"Andriod (မိုဘိုင္း)"
+---;---
+"Custom Pages";"စိတ္ၾကိဳက္ စာမ်က္ႏွာမ်ား"
+"Product Search";"ကုန္ပစၥည္း ရွာေဖြမႈ"
+Store;စတိုး 
+"Store Search";"စတိုး ရွာေဖြမႈ"
+"Send Notification";"အသိေပးခ်က္ ေပးပို႕ပါ"
+Devices;စက္ကိရိယာမ်ား
+Target;ရည္မွန္းခ်က္
+Sender;ေပးပို႕သူ
+"Is Active";"လုပ္ေဆာင္ေနပါသည္"
+"Recipient Device";"လက္ခံသူ၏ စက္ကိရိယာ"
+"Message (Max : 100)";"မက္ေဆ့ဂ်္ (အမ်ားဆုံး : 100"
+Schedule:;အခ်ိန္ဇယား :
+"Set Schedule";"အခ်ိန္ဇယား သတ္မွတ္ပါ"
+"Is Active?";"လုပ္ေဆာင္ေနပါသလား။"
+"Boy George Dako Wewe";"Boy George Dako Wewe"
+"George Haircut Station";"George Haircut Station"
+"479 9th Street West, Menomonee Falls, WI 53051";"479 9th Street West, Menomonee Falls, WI 53051"
+Position;ရာထူး
+"Manager / Yaya";"မန္ေနဂ်ာ/ Yaya"
+"Telephone Number";"တယ္လီဖုန္း နံပါတ္"
+532-2393;532-2393
+"(63) 937-234-1286";"(63) 937-234-1286"
+"International Bank of the World ever!";"တစ္ကမာၻလုံးအတြက္ အျမဲတမ္း ႏိုင္ငံတကာ ဘဏ္။"
+1872-2783-5869;1872-2783-5869
+"File Name";"အမည္ အျပည့္အစုံ"
+9/12/3035;9/12/3035
+"Accreditation Level 0";"တရားဝင္ အသိအမွတ္ျပဳမႈ အဆင့္ ၀"
+"Accreditation Level 1";"တရားဝင္ အသိအမွတ္ျပဳမႈ အဆင့္ ၁"
+"Accreditation Level 2";"တရားဝင္ အသိအမွတ္ျပဳမႈ အဆင့္ ၂"
+"Accreditation Level 3";"တရားဝင္ အသိအမွတ္ျပဳမႈ အဆင့္ ၃"
+"Accreditation Level 4";"တရားဝင္ အသိအမွတ္ျပဳမႈ အဆင့္ ၄"
+"Accreditation Level 5";"တရားဝင္ အသိအမွတ္ျပဳမႈ အဆင့္ ၅"
+"Columns Container";"ေကာ္လံ ကြန္တိန္နာ"
+"Order Status";"ေအာ္ဒါ အေျခအေန"
+11/12/14;2011/12/14
+"Transaction ID";"အေရာင္းအဝယ္ အိုင္ဒီ"
+"Date of Transaction";"အေရာင္းအဝယ္ ေန႕ရက္"
+"Type of Payment Method";"ေငြေပးေခ်မႈ နည္းလမ္း အမ်ဳိးအစား"
+201;201
+PPY-1506040106-1;PPY-1506040106-1
+PAID;ေပးျပီး
+"2015-06-04 13:05:51";"2015-06-04 13:05:51"
+PESOPAY;PESOPAY
+11;11
+12;12
+"Storename / Username";"စတိုးအမည္/ အသုံးျပဳသူအမည္"
+From;မွ
+To;သို႔
+Storename;စတိုးအမည္
+Email;အီးေမးလ္
+"Asia United Bank";"Asia United Bank"
+aaaaa;aaaaa
+bbbbb;bbbbb
+9876545345;9876545345
+9878263787;9878263787
+"Category Listings";"အမ်ဳိးအစား စာရင္း"
+"Main Category";"အဓိက အမ်ဳိးအစား"
+"Sub Category";"အမ်ဳိးအစားခြဲ "
+Filters;စစ္ထုတ္မႈမ်ား
+Slug;စလက္ဂ္
+"10-24-1991 06:30:05";"10-24-1991 06:30:05"
+0;0
+PROMOTIONAL_ITEMS;ေစ်းေလွ်ာ့ေရာင္းသည့္_ကုန္ပစၥည္းမ်ား
+"Special Promotional Items";"အထူး ေစ်းေလွ်ာ့ေရာင္းသည့္ ကုန္ပစၥည္းမ်ား"
+"Special Promotional222";"အထူး ေစ်းေလွ်ာ့ေရာင္းမႈ 222"
+promo-special;ပရိုမို - စပါယ္ရွယ္
+"Contact Buyer";"ဝယ္သူကို ဆက္သြယ္ပါ"
+"Invoice Number";"ေျပစာ နံပါတ္"
+"Buyer Fullname";"ဝယ္သူ နာမည္ အျပည့္အစုံ"
+"Buyer Store Name";"ဝယ္သူ စတိုးအမည္"
+"Buyer Email";"ဝယ္သူ အီးေမးလ္ "
+"Transaction Date";"အေရာင္းအဝယ္ ေန႕ရက္ "
+198;198
+PPY-1506020514-1;PPY-1506020514-1
+198-1-1506020514;198-1-1506020514
+"Omaha maria23";"Omaha maria23"
+"2015-06-02 18:02:17";"2015-06-02 18:02:17"
+"Contact Seller";"ေရာင္းခ်သူကို ဆက္သြယ္ပါ"
+"Seller Fullname";"ေရာင္းခ်သူ အမည္ အျပည့္အစုံ"
+"Seller Store Name";"ေရာင္းခ်သူ စတိုး အမည္"
+"Number of Products";"ကုန္ပစၥည္း အေရအတြက္"
+"Seller Email";"ေရာင္းခ်သူ အီးေမးလ္"
+Dashboard;ဒတ္ခ်္ဘုတ္
+Products;ကုန္ပစၥည္း
+Buyers;ဝယ္သူမ်ား
+Sellers;ေရာင္းခ်သူမ်ား
+Transactions;အေရာင္းအဝယ္မ်ား
+"Sorry, Your database is currently empty";"ဝမ္းနည္းပါတယ္၊ သင့္အခ်က္အလက္သိုေလွာင္မႈသည္ လက္ရွိတြင္ ဘာမွ မရွိပါ။"
+"Case ID";"အေၾကာင္းအရာ အိုင္ဒီ"
+"Dispute Type";"အျငင္းပြားမႈ အမ်ဳိးအစား"
+Complainant;တိုင္ၾကားသူ
+"Date Filed";"ေပးပို႕ခဲ့ေသာ ေန႕ရက္"
+email;အီးေမးလ္
+"Seller Payout";"ေရာင္းခ်သူ အခေၾကးေငြ"
+"Legal Documents";"တရားဥပေဒဆိုင္ရာ စာရြက္စာတမ္းမ်ား"
+"This Account currently Locked";"ဤအေကာင့္သည္ လက္ရွိတြင္ ေလာခ့္က်ေနပါသည္"
+"Do you want to Activate it now?";"ယခုပင္ သင္ဖြင့္လိုပါသလား။"
+"Yes, Activate this Account";"ဟုတ္ကဲ့၊ ဤအေကာင့္ကို သက္ဝင္လုပ္ေဆာင္မႈ ျပဳလုပ္ပါ"
+"Select your DTI/SEC Permit file from your computer";"သင့္ကြန္ပ်ဴတာမွ DTI/SEC ပါမစ္ကို ေရြးခ်ယ္ပါ"
+"Select your Mayor's Permit file from your computer";"သင့္ကြန္ပ်ဴတာမွ ျမိဳ႕ေတာ္ဝန္ ပါမစ္ကို ေရြးခ်ယ္ပါ"
+"Select your BIR Permit file from your computer";"သင့္ကြန္ပ်ဴတာမွ BIR ပါမစ္ကို ေရြးခ်ယ္ပါ"
+"Form MA1501 Permit";"MA11501 ပါမစ္ ေလွ်ာက္လႊာ"
+"Select your Form MA1501 file from your computer";"သင့္ကြန္ပ်ဴတာမွ MA11501 ေလွ်ာက္လႊာဖိုင္ကို ေရြးခ်ယ္ပါ"
+"Where to get a copy of Form MA1501?";"MA11501 ေလွ်ာက္လႊာမိတၱဴကို ဘယ္ေနရာတြင္ ရႏိုင္သလဲ။"
+"Download Form MA1501";"MA11501 ေလွ်ာက္လႊာကို ေဒါင္းေလာဒ့္ဆြဲပါ"
+"Other Documents";"အျခား စာရြက္စာတမ္းမ်ား"
+"Select a document file from your computer";"သင့္ကြန္ပ်ဴတာမွ စာရြက္စာတမ္းဖိုင္ကို ေရြးခ်ယ္ပါ"
+"Mobile Management";"မိုဘိုင္း စီမံခန္႕ခြဲမႈ"
+"Push Notification";"အသိေပးခ်က္ ပို႕ပါ"
+"Notification Message";"အသိေပးခ်က္ မက္ေဆ့ဂ်္"
+;
+"Number of Product Listings:";"ကုန္ပစၥည္း စာရင္း အေရအတြက္ :"
+10145;10145
+"2014-08-15 12:23:16";"2014-08-15 12:23:16"
+sfasfas;sfasfas
+"Building Toys";"ေဆာက္လုပ္ေရး ကစားစရာမ်ား"
+122121;122121
+212;212
+"New other (see details)";"အျခားေသာ အသစ္(အေသးစိတ္ ၾကည့္ပါ)"
+"Promo Banners";"ပရိုမို ဘန္နာမ်ား"
+"Create Promo Banner";"ပရိုမို ဘန္နာ ဖန္တီးပါ"
+"Select Product";"ကုန္ပစၥည္းအား ေရြးခ်ယ္ပါ"
+"Enter Product Slug";"ကုန္ပစၥည္း စလက္ဂ္ကို ထည့္ပါ"
+"Add Product";"ကုန္ပစၥည္း ေပါင္းထည့္ပါ"
+"Change Product";"ကုန္ပစၥည္း ေျပာင္းပါ"
+"This Promo Banner currently Disabled";"ဤပရိုမို ဘန္နာကို လက္ရွိကာလတြင္ ပိတ္ထားပါသည္"
+"Do you want to enable it now?";"ယခုပင္ သင္ဖြင့္လိုပါသလား။"
+"Yes, Enable this Promo Banner";"ဟုတ္ကဲ့၊ ဤပရိုမုိဘန္နာကို ဖြင့္လိုပါသည္"
+"This Promo Banner is Enabled";"ဤပရိုမို ဘန္နာကို ဖြင့္ထားပါသည္"
+"Disable Now";"ယခုပင္ ပိတ္ပါ"
+"Upload Banners";"ဘန္နာကို အပ္ေလာဒ့္လုပ္ပါ"
+"Upload Banners here";"ဤေနရာတြင္ ဘန္နာမ်ားကို အပ္ေလာဒ့္လုပ္ပါ"
+"Search By Product Name";"ကုန္ပစၥည္းအမည္ျဖင့္ ရွာေဖြပါ"
+Category:;အမ်ဳိးအစား :
+Electronics;လွ်ပ္စစ္ပစၥည္းမ်ား
+Gadget;စက္ကိရိယာ အေသးစား
+Clothes;အဝတ္အထည္
+Enable;ဖြင့္ပါ
+Disable;ပိတ္ပါ
+"Banner Count";"ဘန္နာ အေရအတြက္"
+"Date Added";"ေပါင္းထည့္ထားေသာ ေန႕ရက္"
+10/20/15;10/20/15
+Enabled;ဖြင့္ထားသည္
+"Samsung Galaxy j1";"Samsung Galaxy j1"
+5;5
+Disabled;ပိတ္ထားသည္
+"Raffle Manager";"ကံစမ္းမဲ မန္ေနဂ်ာ"
+"Register Raffle";"ကံစမ္းမဲ မွတ္ပုံတင္ပါ"
+"Raffle Name";"ကံစမ္းမဲ အမည္"
+"Pool of Possible Winners";"ျဖစ္ႏိုင္ေခ်ရွိေသာ ကံစမ္းသူမ်ား"
+"Number of Winners to Generate";"ထုတ္ရမည့္ ကံစမ္းသူ အေရအတြက္"
+"List of Prices";"ေစ်းႏႈန္း စာရင္း"
+"Raffle Lists";"ကံစမ္းမဲ စာရင္း"
+Raffle_Name;ကံစမ္းမဲ_အမည္
+Winners;ကံစမ္းသူ
+"Time Created";"ဖန္တီးခဲ့ေသာ အခ်ိန္"
+Prices;ေစ်းႏႈန္း
+2121sadasd;2121sadasd
+test22;test22
+"2014-09-16 11:19:32";"2557-09-16 11:19:32"
+"Full Name";"နာမည္ အျပည့္အစုံ"
+inonbaguio;inonbaguio
+"Inon Baguio";"Inon Baguio"
+Content;အေၾကာင္းအရာ
+CSR;CSR
+Marketing;မားကတ္တင္း
+Super-User;အထူး-အသုံးျပဳသူ
+Guest;ဧည့္သည္
+"Registered Users";"မွတ္ပုံတင္ထားေသာ အသုံးျပဳသူမ်ား"
+"Number of Registered Sellers:";"မွတ္ပုံတင္ထားေသာ ေရာင္းခ်သူ အေရအတြက္ :"
+141;141
+Affiliates;တြဲဖက္မ်ား
+"2014-07-02 14:34:28";"2557-07-02 14:34:28"
+"sam gavinio";"sam gavinio"
+"Banana Republic";"Banana Republic"
+38;38
+"Report Manager";"အစီရင္ခံ မန္ေနဂ်ာ"
+"Number of uploaded products per account";"အေကာင့္တစ္ခုလွ်င္ အပ္ေလာဒ့္လုပ္ထားေသာ ကုန္ပစၥည္း အေရအတြက္"
+"Monthly Sign Up Statistics";"လစဥ္ စာရင္းသြင္းသည့္ စာရင္းဇယား"
+"Users w/ &amp; w/out Products";"အသုံးျပဳသူမ်ား w/ &amp; w/out ကုန္ပစၥည္းမ်ား"
+"Number of uploaded items per month";"တစ္လလွ်င္ အပ္ေလာဒ့္လုပ္ထားေသာ ကုန္ပစၥည္း အေရအတြက္"
+"Number of items per parent category";"ပင္မ အမ်ဳိးအစားတစ္ခုလွ်င္ ကုန္ပစၥည္း အေရအတြက္"
+"Show Entries";"ထည့္သြင္းထားသည္မ်ားကို ျပသပါ"
+20;20
+40;40
+80;80
+160;160
+Monthsss;လ
+"Sign-up Count";"စာရင္းသြင္း အေရအတြက္"
+2015;2558
+January;ဇန္နဝါရီလ
+29;29
+February;ေဖေဖာ္ဝါရီလ
+March;မတ္လ
+April;ဧပြီလ
+May;ေမလ
+2016;2559
+Month;လ
+"Showing 1 out 39 Entries";"ထည့္သြင္းမႈ ၃၉ခုတြင္ ၁ခုကို ျပသျခင္း"
+"Dispute Details";"အျငင္းပြားမႈ အေသးစိတ္"
+KD3-38U123PI;KD3-38U123PI
+12371237837;12371237837
+"Complainant Full Name";"တိုင္ၾကားသူ၏ နာမည္ အျပည့္အစုံ"
+322-3245-59898;322-3245-59898
+"Defendant Full Name";"တိုင္ၾကားခံရသူ၏ နာမည္ အျပည့္အစုံ"
+"Janvan Ding";"Janvan Ding"
+"Transaction Details";"အေရာင္းအဝယ္ အေသးစိတ္"
+4916699163849;4916699163849
+"Armando Upton";"Armando Upton"
+"Waiting for Payment";"ေငြေပးေခ်မႈအတြက္ ေစာင့္ဆိုင္းေနပါသည္"
+"Date of transaction";"အေရာင္းအဝယ္ ေန႕ရက္"
+"2015-09-02 13:12:59";"2015-09-02 13:12:59"
+"see attachments";"တြဲခ်ိတ္မႈကို ၾကည့္ပါ"
+x;x
+Reason;အေၾကာင္းျပခ်က္
+Open;ဖြင့္ပါ
+On-Going;ဆက္လက္လုပ္ေဆာင္ေနေသာ
+Rejected;ပယ္ဖ်က္ျပီး
+Closed;ပိတ္ထားပါသည္
+"Boy Tigol";"Boy Tigol"
+"George Georgina";"George Georgia"
+09/11/15;2009/11/15
+"Search Keyword";"အသုံးဝင္ေသာ စကားလုံးကို ရွာေဖြပါ"
+"Query String";"အေမး စာေၾကာင္း"
+"Number of Hits";"လူၾကိဳက္မ်ားမႈ အေရအတြက္"
+"apple UNION ALL SELECT NULL--";"apple UNION ALL SELECT NULL--"
+"Transaction List";"အေရာင္းအဝယ္ စာရင္း"
+!;!
+Cancellation;ပယ္ဖ်က္မႈ
+"Dispute Something";"တစ္စုံတစ္ခုကို ျငင္းခုန္ပါ"
+Flag;အမွတ္အသား
+DENIED;ျငင္းပယ္ထားသည္
+"Create Vourcher";"ေဘာက္ခ်ာ ဖန္တီးပါ"
+"Code Name";"ကုဒ္ အမည္"
+"Voucher Type";"ေဘာက္ခ်ာ အမ်ဳိးအစား"
+Duration;ၾကာခ်ိန္
+"Usage Limit";"အသုံးျပဳမႈ အကန္႕အသတ္"
+"Discount Type";"ေလွ်ာ့ေစ်း အမ်ဳိးအစား"
+Ramboo;Ramboo
+"Something for Nothing";"ဘာအတြက္မွမဟုတ္သည့္ တစ္စုံတစ္ခု"
+"10 Days";"၁၀ ရက္"
+"1 per Account";"အေကာင့္တစ္ခုလွ်င္ ၁"
+Utang;Utang
+1000;1000
+"Voucher Code Name";"ေဘာက္ခ်ာကုဒ္ အမည္"
+"Voucher Code";"ေဘာက္ခ်ာကုဒ္"
+"Generate Voucher Code";"ေဘာက္ခ်ာကုဒ္ကို ထုတ္ပါ"
+One-Time;တစ္ၾကိမ္
+Multi-Use;ဘက္စုံသုံး
+100;100
+"Fixed Amount";"သတ္မွတ္ထားေသာ ပမာဏ"
+Percentage;ရာခိုင္ႏႈန္း
+100%;100%
+"Voucher is currently Inactive";"ေဘာက္ခ်ာသည္ လက္ရွိတြင္ အသုံးျပဳ၍ မရေတာ့ပါ"
+"Yes, Activate this Voucher";"ဟုတ္ကဲ့၊ ဤေဘာက္ခ်ာကို သက္ဝင္လုပ္ေဆာင္မႈ ျပဳလုပ္ပါ"
+"Voucher is Now Active";"ေဘာက္ခ်ာကို ယခု အသုံးျပဳႏိုင္ပါျပီ"
+872378912897;872378912897
+Unknown;အမည္မသိ
+10/10/15;2010/10/15
+"FullName / Email";"အမည္အျပည့္အစုံ/ အီးေမးလ္"
+"Remarks from Dispute";"အျငင္းပြားမႈမွ မွတ္ခ်က္မ်ား"
+"Deposit Slip";"စရန္ ေျပစာ"
+Remarks:;မွတ္ခ်က္မ်ား :
+"Enter your remarks";"သင့္မွတ္ခ်က္မ်ားကို ေရးပါ"
+"Deposit Slip:";"စရန္ ေျပစာ :"
+"Compatible files: JPG, JPEG, and PNG";"အသုံးျပဳႏိုင္ေသာ ဖိုင္မ်ား : JPG, JPEG ႏွင့္ PNG"
+"Are you sure you want to refund this transaction?";"ဤအေရာင္းအဝယ္အား ျပန္အမ္းလိုသည္မွာ ေသခ်ာပါသလား။"
+No;ေသခ်ာပါသည္
+Yes;ဟုတ်ကဲ့
+"Refund History Information";"ျပန္အမ္းေငြ မွတ္တမ္း အခ်က္အလက္"
+Print;ပရင့္ထုတ္ပါ
+"Dispute ID:";"အျငင္းပြားမႈ အိုင္ဒီ :"
+"Buyer Name:";"ဝယ္သူ အမည္ :"
+"Buyer Email:";"ဝယ္သူ အီးေမးလ္ :"
+"Buyer Contact Number:";"ဝယ္သူ၏ ဆက္သြယ္ရန္ နံပါတ္ :"
+"Date Request:";"ေတာင္းဆို ရက္ :"
+"Date Processed:";"လုပ္ေဆာင္ခဲ့ေသာ ရက္ :"
+"Processed By:";"လုပ္ေဆာင္သူ :"
+"Click here";"ဤေနရာကို ႏွိပ္ပါ"
+"Supplier Payout";"ေရာင္းခ်သူ အခေၾကးေငြ "
+"Date From";"စရက္"
+"Date To";"ျပီးရက္"
+"Search for keyword: Manufacturer/Contact number";"အေရးပါေသာ စကားလုံးကို ရွာေဖြပါ : ထုတ္လုပ္သူ/ ဆက္သြယ္ရန္ နံပါတ္"
+"Payout List";"အခေၾကးေငြ စာရင္း"
+"Payout History";"အခေၾကးေငြ မွတ္တမ္း"
+Manufacturer;ထုတ္လုပ္သူ 
+"Reference Number";"ရည္ညႊန္းနံပါတ္"
+"Support CSR";"CSR ကို ပံ့ပိုးပါ"
+"Payout Details";"အခေၾကးေငြ အေသးစိတ္"
+"WayBill Number";"WayBill နံပါတ္"
+Warehouse;သိုေလွာင္ရုံ
+"Payout Order Products";"အခေၾကးေငြ ေအာ္ဒါ ကုန္ပစၥည္း"
+"Deposit Slips";"စရန္ ေျပစာ"
+"Date Modified";"ျပဳျပင္မြမ္းမံထားေသာ ေန႕ရက္"
+Close;ပိတ္ပါ
+"Case ID:";"အေၾကာင္းအရာ အိုင္ဒီ :"
+"Date Request";"ေတာင္းဆို ရက္"
+"Date Processed";"လုပ္ေဆာင္ခဲ့ေသာ ရက္"
+"Processed By";"လုပ္ေဆာင္ပါ"
+"Select type of dispute";"အျငင္းပြားမႈ အမ်ဳိးအစားကို ေရြးခ်ယ္ပါ"
+"Select status";"အေျခအေနကို ေရြးခ်ယ္ပါ"
+"No case found";"မည္သည့္ အေၾကာင္းအရာမွ ရွာမေတြ႕ပါ"
+"Dispute Resolution";"အျငင္းပြားမႈ ေျဖရွင္းခ်က္"
+"Voucher Name";"ေဘာက္ခ်ာ အမည္"
+"Voucher Value";"ေဘာက္ခ်ာ တန္ဖိုး"
+"Enter Dispute message here..";"အျငင္းပြားမႈ မက္ေဆ့ဂ်္ကို ဤေနရာတြင္ ရိုက္ထည့္ပါ..."
+"Replace Different Item";"မတူညီေသာ ကုန္ပစၥည္းကို အစားထိုးပါ"
+Done;ျပဳလုပ္ျပီး
+"Search for keyword: Store Name";"အေရးပါေသာ စကားလုံးကို ရွာေဖြပါ : စတိုးအမည္"
+"Supplier Name";"ေရာင္းခ်သူ အမည္"
+"Commission Amount";"ေကာ္မစ္ရွင္ ပမာဏ"
+PHP;PHP
+"Supplier Payout Amount";"ေရာင္းခ်သူ အခေၾကးေငြ ပမာဏ"
+"Search By Invoice No. / Buyer";"ေျပစာ နံပါတ္/ ဝယ္သူျဖင့္ ရွာေဖြပါ"
+"Order Status:";"ေအာ္ဒါ အေျခအေန :"
+"Payment Type:";"ေငြေပးေခ်မႈ အမ်ဳိးအစား :"
+Actions:;လုပ္ေဆာင္မႈ :
+"Cancel Request By Buyer";"ဝယ္သူမွ ေတာင္းဆိုခ်က္ကို ပယ္ဖ်က္ပါ"
+"Cancel Product";"ကုန္ပစၥည္းကို ပယ္ဖ်က္ပါ"
+None;ဘာမွမရွိ
+"Collected Amount";"စုေဆာင္းထားေသာ ပမာဏ"
+"Transaction Price";"အေရာင္းအဝယ္ ေစ်းႏႈန္း"
+"Consignee Name";"လက္ခံသူ အမည္"
+"Consignee Contact Number";"လက္ခံသူ၏ ဆက္သြယ္ရန္ နံပါတ္"
+"Buyer Details";"ဝယ္သူ အေသးစိတ္"
+"Shipping Address";"ပို႔ေဆာင္ရန္ လိပ္စာ"
+"Freight Charge";"တန္ဆာခ"
+"Additional Charge";"ေနာက္ဆက္တြဲ ကုန္က်စရိတ္"
+"Seller Net";"ေရာင္းခ်သူ အသားတင္"
+"Voucher Details";"ေဘာက္ခ်ာ အေသးစိတ္"
+Attributes;အရည္အေသြး
+"Cancel Transaction";"အေရာင္းအဝယ္ကို ပယ္ဖ်က္ပါ"
+Deny;ျငင္းပယ္ပါ
+"Seller Details";"ေရာင္းခ်သူ အေသးစိတ္"
+"Store Address";"စတိုးလိပ္စာ"
+"Remarks for Approval";"လက္ခံရန္အတြက္ မွတ္ခ်က္မ်ား"
+"Remarks for Deny";"ျငင္းပယ္ရန္အတြက္ မွတ္ခ်က္မ်ား"
+"Registered Buyer";"မွတ္ပုံတင္ထားေသာ ဝယ္သူ"
+"Search Buyer here";"ဤေနရာတြင္ ဝယ္သူကို ရွာပါ"
+"User Information";"အသုံးျပဳသူ အခ်က္အလက္"
+UPDATE;အပ္ဒိတ္လုပ္ပါ
+"Address Title";"လိပ္စာ အမ်ဳိးအစား"
+"Home Address";"အိမ္လိပ္စာ"
+"Unit Number";"အခန္းနံပါတ္"
+"Building Name";"အေဆာင္နံပါတ္"
+"Street Number";"လမ္းနံပါတ္"
+"Street Name";"လမ္းအမည္"
+Subdivision;ျပည္နယ္ခြဲ
+Province;ခရိုင္
+"Select your province";"သင့္ခရိုင္ကို ေရြးခ်ယ္ပါ"
+City/Municipal;ျမဳိ႕ေတာ္/ကိုယ္ပိုင္အုပ္ခ်ဳပ္ေဒသ
+Barangay;Barangay
+"Zip Code";"စာပို႕ကုဒ္"
+"Registered Seller/Affiliates";"မွတ္ပုံတင္ထားေသာ ေရာင္းခ်သူ/ တြဲဖက္မ်ား"
+"Create Voucher";"ေဘာက္ခ်ာ ဖန္တီးပါ"
+Code;ကုဒ္
+Used;အသုံးျပဳထားသည္
+"Voucher Codes";"ေဘာက္ခ်ာကုဒ္"
+"Minimum Purchase";"အနည္းဆုံး ဝယ္ယူမႈ"
+"By Batch";"အပတ္စဥ္ျဖင့္"
+"Disable Countdown Timer";"ေနာက္ျပန္ေရတြက္မႈကို ပိတ္ပါ"
+Orientation;သေဘာထား
+Order;ေအာ္ဒါ
+3;3
+"ex. Title";"ex. ေခါင္းစဥ္"
+"Left to Right";"ဘယ္ မွ ညာ"
+"Right to Left";"ညာ မွ ဘယ္"
+"Products Slug (separated by line break)";"ကုန္ပစၥည္း စလက္ဂ္(လိုင္းျခားပါ)"
+"Products List";"ကုန္ပစၥည္း စာရင္း"
+"Product One";"ကုန္ပစၥည္း တစ္"
+"Banner Link";"ဘန္နာ လင့္ခ္"
+"Paste your Banner Links here";"ဘန္နာ လင့္ခ္မ်ားကို ဤေနရာတြင္ ကူးထည့္ပါ"
+"Category Name";"အမ်ဳိးအစား အမည္"
+Show;ျပသပါ
+"Category Header Link";"အမ်ဳိးအစား ေခါင္းစီး လင္ခ့္"
+11/03/2015;11/03/2558
+Time;အခ်ိန္
+"Pick a Date";"ေန႔ရက္ကို ေရြးခ်ယ္ပါ"
+"Start Time";"စတင္ခ်ိန္"
+"End Time";"ျပီးဆုံးခ်ိန္"
+"Flash Sales Discount";"ေစ်းေရာင္းပြဲ ေလွ်ာ့ေစ်း"
+"Flash Discounted Price";"ေစ်းခ်ထားေသာ ေစ်းႏႈန္း"
+"Sales Stock";"အေရာင္း ကုန္အေရအတြက္"
+"P 1,000";"P 1,000 "
+"10% off";"10% ေလွ်ာ့ေစ်း"
+"P 900";"P 900"
+"ex. 10%";"ex. 10%"
+"ex. 1000";"ex. 1000"
+"Mobile Webview (CMS)";"မိုဘိုင္း ဝက္ဘ္ ၾကည့္ရႈမႈ (CMS)"
+"Cover Photo Link";"ကာဗာ ဓာတ္ပုံ လင့္ခ္"
+"Paste Link";"လင့္ခ္ကို ကူးထည့္ပါ"
+
+

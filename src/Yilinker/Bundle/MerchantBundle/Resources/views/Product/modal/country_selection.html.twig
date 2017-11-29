@@ -1,0 +1,51 @@
+<!--Start of modal add country-->
+<div class="ui modal coupled-remove small add-country-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">Add Country</h4>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="image-holder image-square">
+                        <img src="http://placehold.it/500x500/d35400/ffffff" alt="Product Image" class="img-auto-place">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h3 class="mrg-top-10" data-title></h3>
+                    <p class="light-color" data-description></p>
+                    <div class="mrg-top-10">
+                        <b>Available Country : </b>
+                        <div data-countries class="mrg-top-10">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 align-right">
+                    <p class="bold mrg-top-10">Add Country: </p>
+                </div>
+                <div class="col-md-8">
+                    <select data-country-selection data-autocomplete="{{ path('autocomplete_countries') }}" class="form-ui ui inverted search">
+                        <option value="">Select country here</option>
+                        {% for country in countries %}
+                            <option value="{{ country.code|lower }}">
+                                {{ country.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="button gray close">
+            Back
+        </button>
+        <button data-add-country class="button blue">
+            Add
+        </button>
+    </div>
+</div>
+<!--End of modal add language-->

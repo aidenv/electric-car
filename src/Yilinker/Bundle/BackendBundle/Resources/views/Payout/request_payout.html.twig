@@ -1,0 +1,414 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+    {% set merchant = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+    {% set affiliate = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') %}
+    {% set payoutMethodBank = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PayoutRequest::PAYOUT_METHOD_BANK') %}
+    {% set payoutMethodCheque = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PayoutRequest::PAYOUT_METHOD_CHEQUE') %}
+    {% set payoutStatusPending = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PayoutRequest::PAYOUT_STATUS_PENDING') %}
+    {% set payoutStatusPaid = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PayoutRequest::PAYOUT_STATUS_PAID') %}
+    {% set payoutBatchHeadDeposited = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PayoutBatchHead::PAYOUT_BATCH_STATUS_DEPOSITED') %}
+
+    <section class="payout box-section">
+
+        <div class="title-bar">
+            <div class="container">
+                <span>Request Pay-Outs List</span>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="tools top form">
+                            <div class="row gutters group-segment">
+                                <div class="col-md-12">
+                                    <div class="form vers-one">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <label>Search</label>
+                                                <input type="text" id="searchKeyword" class="form-ui" placeholder="Search (requester fullname, requester email, bank name, bank account number, bank account name, reference no.) ">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gutters group-segment light-segment">
+                                <div class="col-md-8">
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="" class="col-md-12">Date Range: </label>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-ui dateTime" id="dateFrom" placeholder="Start Date"/>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-ui dateTime" id="dateTo" placeholder="End Date"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label for="">Order by Date</label>
+                                                            <select id="orderBy" class="form-ui ui search single selection dropdown">
+                                                                <option value="asc" selected>Ascending</option>
+                                                                <option value="desc">Descending</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form mrg-top-20">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    {% if payoutStatuses is not null or payoutStatus|length > 0 %}
+                                                        <label for="paymentStatus">Payment Status: </label>
+                                                        {% for payoutStatus in payoutStatuses %}
+                                                            <div class="ui checkbox col-md-3">
+                                                                <input type="checkbox" class="payoutRequestStatus" id="status-id-{{ payoutStatus.id }}" value="{{ payoutStatus.id }}">
+                                                                <label for="">{{ payoutStatus.name }}</label>
+                                                            </div>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form mrg-top-20">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    {% if payoutMethods is not null or payoutMethods|length > 0 %}
+                                                        <label for="paymentMethod">Payment Method</label>
+                                                        {% for payoutMethod in payoutMethods %}
+                                                            <div class="ui checkbox col-md-3">
+                                                                <input type="checkbox" class="payoutRequestMethod" id="method-id-{{ payoutMethod.id }}" value="{{ payoutMethod.id }}">
+                                                                <label for="">{{ payoutMethod.name }}</label>
+                                                            </div>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form mrg-top-20">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button class="button gray mrg-top-10" type="submit" id="searchPayoutRequest">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="box-upper">
+                        <div class="col-md-12">
+                            <div class="box-div">
+
+                                <div class="row gutters">
+                                    <div class="col-md-12">
+                                        <table class="table basic request-payout-tbl">
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>Date</th>
+                                                <th>Reference Id</th>
+                                                <th>Request By</th>
+                                                <th>Method</th>
+                                                <th>Bank</th>
+                                                <th>Bank Info / Pay To</th>
+                                                <th>Amount</th>
+                                                <th>Charge</th>
+                                                <th>Status</th>
+                                                <th>
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" id="checkbox-all-payout-request">
+                                                        <label></label>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                            {% if payoutRequestData.payoutRequestList|length > 0 %}
+                                                {% for payoutRequest in payoutRequestData.payoutRequestList %}
+                                                    <tr data-seller="{{ payoutRequest.requestBy.userId }}">
+                                                        <td>{{ payoutRequest.rowCount }}</td>
+                                                        <td>{{ payoutRequest.dateAdded|date('m/d/Y') }}</td>
+                                                        <td>{{ payoutRequest.referenceNumber }}</td>
+                                                        <td>
+                                                            <big>{{ payoutRequest.requestBy.fullName }}</big><br>
+                                                            <i>
+                                                                {% if payoutRequest.requestBy.store.storeType == affiliate %}
+                                                                    Affiliate
+                                                                {% elseif payoutRequest.requestBy.store.storeType == merchant %}
+                                                                    Seller
+                                                                {% endif %}
+                                                            </i>
+                                                        </td>
+                                                        <td>{{ payoutRequest.payoutRequestMethodName }}</td>
+                                                        <td>{{ payoutRequest.bank != null ? payoutRequest.bank.bankName : '' }}</td>
+                                                        <td>
+                                                            {{ payoutRequest.bankAccountName|default('') }}<br>
+                                                            {{ payoutRequest.bankAccountNumber }}</td>
+                                                        <td>
+                                                            <small>P {{ payoutRequest.requestedAmount|number_format(2) }}</small><br>
+                                                            <big>P {{ payoutRequest.netAmount|number_format(2) }}</big>
+                                                        </td>
+                                                        <td><span class="red-color">{{ payoutRequest.charge|number_format(2) }}</span></td>
+                                                        <td><span class="blue-color">{{ payoutRequest.payoutRequestStatusName|default('0') }}</span></td>
+                                                        {%  if payoutRequest.payoutRequestStatusName == 'Pending' %}
+                                                            <td>
+                                                                <div class="ui checkbox">
+                                                                    <input type="checkbox" value="{{ payoutRequest.payoutRequestId }}" name="checkbox-request-payout" class="checkbox-request-payout" />
+                                                                    <label></label>
+                                                                </div>
+                                                            </td>
+                                                        {% endif %}
+                                                    </tr>
+                                                {% endfor %}
+                                            {% else %}
+                                                <tr>
+                                                    <td colspan="11" style="text-align: center"> No data available.</td>
+                                                </tr>
+                                            {% endif %}
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {% if payoutRequestData.payoutRequestList|length > 0 %}
+                        <div class="box-upper">
+                            <div class="col-md-12">
+                                <div class="tools btm">
+                                    <button class="button blue pull-right" id="modal-batch-payout-trigger" type="submit">Proceed Batch Pay-Out</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                </div>
+
+                <!-- Bottom Tools -->
+                <div class="row">
+                    <div class="box-upper">
+                        <div class="col-md-12">
+                            <div class="box-blank">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: payoutRequestData.payoutRequestCount, perPage: limit}) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    {# START OF CONFIRM DELETE MODAL #}
+    <div class="ui modal small coupled-first" id="modal-remove-payout-batch-detail">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-trash"></i>
+                <div class="content">
+                    Remove Payout Request?
+                    <div class="sub-header">Are you sure you want to remove payout request?</div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button cancel">Cancel</button>
+            <button class="button red submit-to-success positive" id="remove-payout-detail">Remove</button>
+        </div>
+    </div>
+    {# END OF CONFIRM DELETE MODAL #}
+
+    {# START OF MODAL BATCH PAYOUT #}
+    <div class="ui modal large modal-box payout coupled-first coupled-second" id="modal-batch-payout">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="header">Batch Payout</div>
+
+        <div class="content">
+            <div class="row">
+                <div class="form">
+                    <div class="row">
+                        <div class="col-md-6 md-box zeb">
+                            <div>
+                                <div class="col-md-6"><strong>Batch Number</strong></div>
+                                <div class="col-md-6" id="modal-batch-number"></div>
+                            </div>
+                            <div>
+                                <div class="col-md-6"><strong>Process By</strong></div>
+                                <div class="col-md-6" id="modal-process-by"></div>
+                            </div>
+                            <div>
+                                <div class="col-md-6"><strong>Batch Date</strong></div>
+                                <div class="col-md-6" id="modal-date-added"></div>
+                            </div>
+                            <div>
+                                <div class="col-md-6 mrg-top-10"><strong>Status</strong></div>
+                                <div class="col-md-6">
+                                    <select name="" id="modal-select-payout-batch-status" class="form-ui ui search single selection dropdown">
+                                        {% if payoutBatchStatuses|length > 0 %}
+                                            {% for payoutBatchStatus in payoutBatchStatuses %}
+                                                <option value="{{ payoutBatchStatus.id }}">{{ payoutBatchStatus.name }}</option>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 md-box zeb">
+                            <div>
+                                <strong>Remarks</strong>
+                                <textarea type="text" class="form-ui" placeholder="Write your Remarks" id="modal-remarks"></textarea>
+                                <button class="button blue no-margin pull-right" id="modal-batch-head-save">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content divide">
+            <div class="row">
+                <div class="form">
+                    <div class="row">
+                        <div id="receipt-div" style="display: none">
+                            <div class="col-md-12 md-box">
+                                <h5>Attach Files</h5>
+                            </div>
+                            <div class="col-md-12">
+                                <ul class="receipt-list" id="receipt-container">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="receipt-upload col-md-12">
+                            <label for="" class="semi-bold alerts">Upload Receipt</label>
+                            <input type="file" class="form-ui" id="file-receipt">
+                            <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12 md-box">
+                    <h5>Transaction Update List</h5>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div id="the-basics">
+                                <input class="typeahead form-ui" type="text" placeholder="Search by reference number">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="button blue" id="add-payout-request">Add</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 mrg-top-10">
+                    <table class="table basic">
+                        <tr >
+                            <th>No.</th>
+                            <th>Date</th>
+                            <th>Request By</th>
+                            <th>Method</th>
+                            <th>Bank</th>
+                            <th>Bank Info / Pay To</th>
+                            <th>Amount</th>
+                            <th>Charge</th>
+                            <th>Net Amount</th>
+                            <th>Action</th>
+                        </tr>
+                        <tbody id="modal-payout-batch-detail-list">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="content divide">
+            <div class="row">
+                <div class="total-amount col-md-12">
+                    <h4>Total Batch Amount</h4>
+                    <p id="modal-total-batch-amount">P 0.00</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="button cancel modal-payout-trigger pull-left close-modal">Back</button>
+            {#<button class="button">Export Excel</button>#}
+        </div>
+    </div>
+    {# END OF MODAL BATCH PAYOUT #}
+
+    {# START MODAL = MESSAGE CONTAINER #}
+    <div class="ui modal small coupled-first" id="modal-message-container">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header detail-content"></div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">Okay</button>
+        </div>
+    </div>
+    {# END MODAL = MESSAGE CONTAINER #}
+
+    {# START OF CONFIRM DELETE MODAL PAYOUT BATCH FILE #}
+    <div class="ui modal small coupled-second" id="modal-remove-payout-batch-file">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-trash"></i>
+                <div class="content">
+                    Remove file?
+                    <div class="sub-header">Are you sure you want to remove file?</div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button cancel">Cancel</button>
+            <button class="button red submit-to-success positive" id="remove-payout-batch-detail">Remove</button>
+        </div>
+    </div>
+    {# END OF CONFIRM DELETE MODAL PAYOUT BATCH FILE #}
+
+    <input type="hidden" id="payout-batch-head-id" value="0">
+    <input type="hidden" id="payout-batch-head-deposited" value="{{ payoutBatchHeadDeposited }}" />
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/backend/request-payout-list.js') }}"></script>
+    <script src="{{ asset('js/src/backend/request-payout-transaction.js') }}"></script>
+{% endblock %}

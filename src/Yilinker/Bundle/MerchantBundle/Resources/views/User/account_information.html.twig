@@ -1,0 +1,195 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Account Information
+{% endblock %}
+
+{% block dashboard_stylesheets %}
+{% endblock %}
+
+{% block dashboard_body %}
+        <div class="dashboard-body-container white">
+            <div class="dashboard-submenu-wrapper">
+                 <div class="dashboard-submenu-container">
+                    <ul class="list-unstyle list-submenu">
+                        <li>
+                            <a href="{{ path('user_store_information') }}">
+                                {% trans %} General Information {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_store_address') }}">
+                                {% trans %} Store Address {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_bank_account_information') }}">
+                                {% trans %} Bank Account Information {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dashboard_legal_information') }}">
+                                {% trans %} Legal Information {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="active">
+                                {% trans %} Account Information {% endtrans %}
+                            </a>
+                        </li>
+                    </ul>
+                 </div>
+             </div>
+             <!--Store Address options-->
+            <div class="dashboard-component top">
+                <div class="component-content">
+                    {% if app.session.flashbag.has('verificationEmailSent') %}
+                        {% if app.session.flashbag.get('verificationEmailSent') %}
+                            <div class="message-box green with-close-message">
+                                Email verification sent.
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                                <div class="input-inner-button">
+                                    <input type="text" name="currentEmail" class="form-ui" placeholder="Enter your email here" readonly value="{{authenticatedUser.getEmail}}">
+                                    <button class="button gray uppercase edit-email-trigger">Change</button>
+                                </div>
+                                <span class="green-color unverified-email {{ authenticatedUser.getIsEmailVerified is same as(true)? '':'hidden' }}">
+                                    <i class="icon icon-lg icon-circle-check"></i> Verified email
+                                </span>
+                                <span class="red-color verified-email {{ authenticatedUser.getIsEmailVerified is same as(false) and authenticatedUser.email is not empty ? '':'hidden' }}">
+                                    <i class="icon icon-lg icon-alert-exclamation"></i> Email is not yet verified. <span class="bold underline pointer request-verify-email">Click here to verify</span>
+                                </span>
+                                <i class="form-ui-note">
+                                    Needs to be valid to be able to use YiLinker
+                                </i>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Password</label>
+                                <div class="input-inner-button">
+                                    <input type="password" class="form-ui" placeholder="Enter your password here" readonly value="sample123">
+                                    <button class="button gray uppercase edit-password-trigger">Change</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Start of edit password-->
+        <div class="ui modal small modal coupled edit-email-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="header">
+                <h4 class="no-margin">Change Email Address</h4>
+            </div>
+            <form name="change-email" class="form ui">
+                <div class="content">
+                    <div class="hidden ui error message message-box red with-close-message"></div>
+                    <div class="hidden message-box red with-close-message change-email-errors"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form field">
+                                <label for="" class="required">
+                                    New Email
+                                </label>
+                                <input type="email" name="newEmail" maxlength="60" class="form-ui ui input" placeholder="Enter your new email address here">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form field">
+                                <label for="" class="required">
+                                    Confirm New Email
+                                </label>
+                                <input type="email" name="newEmailConfirm" maxlength="60" class="form-ui ui input" placeholder="Confirm your new email address here">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <span class="button cancel">Cancel</span>
+                    <button type="submit" class="button confirm submit-to-success submit-button">
+                        <span class="text">Submit</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!--End of edit password-->
+
+        <!--Start of edit password-->
+        <div class="ui modal small modal coupled edit-password-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="header">
+                <h4 class="no-margin">Change Password</h4>
+            </div>
+            <form name="change-password" class="form ui">
+                <div class="content">
+                    <div class="hidden ui error message message-box red with-close-message"></div>
+                    <div class="hidden message-box red with-close-message change-password-errors"></div>
+                    <div class="form field">
+                        <label for="" class="required">Current Password</label>
+                        <input type="password" minlength="8" maxlength="25" name="oldPassword" class="form-ui ui input" placeholder="Enter your current password here">
+                    </div>
+                    <div class="form field">
+                        <label for="" class="required">New Password</label>
+                        <input type="password" minlength="8" maxlength="25" name="newPassword" class="form-ui ui input" placeholder="Enter your current password here">
+                    </div>
+                    <div class="form field">
+                        <label for="" class="required">Confirm New Password</label>
+                        <input type="password" minlength="8" maxlength="25" name="newPasswordConfirm" class="form-ui ui input" placeholder="Confirm your new password here">
+                    </div>
+                </div>
+                <div class="actions">
+                    <span class="button cancel">Cancel</span>
+                    <button type="submit" class="button confirm submit-to-success submit-button">
+                        <span class="text">Submit</span>
+                    </button>
+                </div>
+            </form>
+            
+        </div>
+        <!--End of edit password-->
+
+        <!--Start of modal success resend email-->
+        <div class="ui modal tiny coupled-new-address success-resend-email-verification">
+            <a class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                        <div class="content">
+                            Email verification has been sent
+                        <div class="sub-header">A verification request has been sent to your email, please check your SPAM folder if you don't see it in your inbox.</div>
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button blue close uppercase">Okay</button>
+            </div>
+        </div>
+        <!--End of modal success resend email-->
+
+        <!--Start of modal success change-->
+        <div class="ui modal tiny success-update-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                    <div class="content update-message">
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button confirm uppercase">Okay</button>
+            </div>
+        </div>
+        <!--End of modal success address-->
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/src/utility/button-loader.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/account-information.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,28 @@
+Yilinker\Bundle\CoreBundle\Entity\OauthUserGrant:
+    type: entity
+    table: OauthUserGrant
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        dateAdded:
+            type: datetime
+            column: date_added
+            nullable: true
+    manyToOne:
+        client:
+            targetEntity: OauthClient
+            joinColumn: 
+                name: client_id
+                referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,112 @@
+
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+
+{% block title %}
+    {% trans %}Followed Sellers{% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="profile following">
+        <div class="dashboard-wrapper">
+            {{ render(controller('YilinkerFrontendBundle:Dashboard:renderLeftWingMenu', {'currentRoute': app.request.attributes.get('_route') } )) }}
+            <div class="dashboard-body-container gray">
+                <div class="dashboard-submenu-wrapper">
+                    <div class="dashboard-submenu-container" style="min-width: 572px;">
+                        <ul class="list-unstyle list-submenu">
+                            <li>
+                                <a href="{{ path('profile_information') }}">
+                                    {% trans %}Information{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                                <a class="active">
+                                    {% trans %}Followed Seller{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('profile_activity_log') }}">
+                                    {% trans %}Activity Log{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('profile_upload_document') }}">
+                                    {% trans %}Upload Document{% endtrans %}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dashboard-component top">
+                    <div class="component-content component-no-padding">
+                        {% for seller in listOfFollowedSeller %}
+                        <div class="bordered-segment mrg-bt-10">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                     <table class="table-seller-name">
+                                        <thead>
+                                            <tr>
+                                                <td class="td-seller-img align-center">
+                                                    <div class="img-seller-container">
+                                                        <img src="{{ asset(seller.thumbnailImageUrl|default('images/seller-img-1.jpg')) }}" class="img-seller img-round" />
+                                                    </div>
+                                                </td>
+                                                <td class="td-seller-name">
+                                                    <span class="name">
+                                                        <a href="{{ path('store_page_products', {'slug':seller.slug}) }}">
+                                                            {{ seller.storeName }}
+                                                        </a>
+                                                    </span>
+                                                    <span class="specialty">Specialty: {{ seller.specialty|default('None') }}</span>
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="rating-container">
+                                        <span class="rating-icons">
+                                            {% set rating = seller.rating|number_format %}
+
+                                            {% if rating > 0 %}
+                                            {% for i in 1..rating  %}
+                                            <i class="icon icon-star-o icon-2x active"></i>
+                                            {% endfor %}
+                                            {% endif %}
+                                            
+                                            {% if rating < 5 %}
+                                            {% for i in 1..(5-rating) %}
+                                            <i class="icon icon-star-o icon-2x"></i>
+                                            {% endfor %}
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="align-center">
+                            <h3 class="ui header">
+                                <i class="icon icon-home"></i>
+                                <div class="content">
+                                    {% trans %}OOOooops!!!{% endtrans %}
+                                    <div class="sub-header mrg-top-10">{% trans %}It looks like you haven't followed any Sellers yet. Checkout our homepage and follow some of the best Sellers that we have on YiLinker.{% endtrans %}</div>
+                                </div>
+                            </h3>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {{ include('YilinkerFrontendBundle:Profile:profile_right_wing_notifications.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ include('YilinkerFrontendBundle:Profile:profile_base_js.html.twig') }}
+{% endblock %}

@@ -1,0 +1,42 @@
+<!--Modal Cancel Transaction - Buyer-->
+<div class="ui modal small modal-cancel-buyer-transaction">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">Reason of Cancellation</div>
+    <div class="content">
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="form">
+              <label>Requestor</label>
+              <select name="" id="" class="requestor form-ui ui search single selection dropdown">
+                <option value="0"> --Select Requestor-- </option>
+                <option value="1">Buyer</option>
+                <option value="2">Seller</option>
+              </select>
+            </div>
+            <div class="form">
+              <label>Type of Reason</label>
+              <select name="" id="" class="cancellation-reason form-ui ui search single selection dropdown disabled">
+                <option value="0"> --Select Reason-- </option>
+                <option value="1">I changed my mind. I'm no longer interested in the product.</option>
+                <option value="2">I ordered the wrong product.</option>
+                <option value="3">Seller's listing has an error in its description.</option>
+                <option value="4">Seller is no longer registered on the website.</option>
+                <option value="5">I did not order this product. Sender must have shipped to a wrong address.</option>
+                <option value="6">Buyer doesn't reply to emails, text or calls.</option>
+                <option value="7">I submitted a bogus order.</option>
+                <option value="8">I found a better product/price somewhere else.</option>
+                <option value="9">Product has missing parts or accessories.</option>
+                <option value="10">I don't have enough funds to pay Cash-on-Delivery.</option>
+                <option value="11">Mutual agreement between Buyer &amp; Seller to cancel the order.</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions align-right">
+      <div class="button blue modal-alert-success-trigger">Submit</div>
+      <div class="button cancel modal-order-one-trigger">Back</div>
+    </div>
+</div>

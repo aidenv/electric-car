@@ -1,0 +1,65 @@
+Yilinker\Bundle\CoreBundle\Entity\ShippingCategoryCountry:
+    type: entity
+    table: ShippingCategoryCountry
+    indexes:
+        fk_shipping_category:
+            columns:
+                - shipping_category_id
+        fk_country_id:
+            columns:
+                - country_id
+    id:
+        shippingCategoryCountryId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: shipping_category_country_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        yilinkerCharge:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            options:
+                default: '0'
+            column: yilinker_charge
+        additionalCost:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            options:
+                default: '0'
+            column: additional_cost
+        handlingFee:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            options:
+                default: '0'
+            column: handling_fee
+    manyToOne:
+        country:
+            targetEntity: Country
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                country_id:
+                    referencedColumnName: country_id
+            orphanRemoval: false
+        shippingCategory:
+            targetEntity: ShippingCategory
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                shipping_category_id:
+                    referencedColumnName: shipping_category_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

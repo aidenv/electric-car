@@ -1,0 +1,109 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    Extended Summer Offer
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    <div class="summer wrapper static-wrapper">
+        <div class="block align-center">
+            <img src="{{ asset('images/promo/extended-summer/extended-summer-header.jpg') }}" alt="Mom and Me" class="img-full-width main-banner">
+        </div>
+        <div class="container content pad-top-3em">
+            <div class="row">
+                <div class="col-xs-12 align-center">
+                    <h3 class="summer-title">
+                        If you’re attending a fancy summer party, we’ve got endless style options for you! Purchase any of these items and win this second  
+                        <span>#YLExtendedSummer</span> set.
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="container align-center width-70em pad-top-3em pad-bt-3em">
+            <div class="row">
+                <div class="col-ms-4 col-md-4">
+                    <div class="product-image">
+                        <a href="https://www.yilinker.com/item/the-2016-summer-party-new-dress-dress-hollow">
+                            <img src="{{ asset('images/promo/extended-summer-offer/image-1.jpg') }}" class="img-full-width" alt="The 2016 summer party new dress dress hollow">
+                        </a>
+                    </div>
+                    <div class="product-name">
+                        <a href="https://www.yilinker.com/item/the-2016-summer-party-new-dress-dress-hollow">
+                           Party Dress
+                        </a>
+                    </div>
+                    <b class="color-1 ft-size-1 block pad-top-1em">PhP 649.00</b>
+                    <span class="discount-wrapper">
+                        <span>PhP 2,550.00</span>
+                        <span><b>74.55% OFF</b></span>
+                    </span><br>
+                    <a href="https://www.yilinker.com/item/the-2016-summer-party-new-dress-dress-hollow" class="static-button2 mrg-top-10">Buy Now</a>
+                </div>
+                <div class="col-ms-4 col-md-4">
+                    <div class="product-image">
+                        <a href="https://www.yilinker.com/item/female-vintage-retro-silver-big-crystals-chunky-necklace">
+                            <img src="{{ asset('images/promo/extended-summer-offer/image-2.jpg') }}" class="img-full-width" alt="Female Vintage Retro Silver Big Crystals Chunky Necklace">
+                        </a>
+                    </div>
+                    <div class="product-name">
+                        <a href="https://www.yilinker.com/item/female-vintage-retro-silver-big-crystals-chunky-necklace">
+                            Feather Tassle Necklace
+                        </a>
+                    </div>
+                    <b class="color-1 ft-size-1 block pad-top-1em">PhP 503.00</b>
+                    <span class="discount-wrapper">
+                        <span>PhP 1,099.00</span>
+                        <span><b>54.23% OFF</b></span>
+                    </span><br>
+                    <a href="https://www.yilinker.com/item/female-vintage-retro-silver-big-crystals-chunky-necklace" class="static-button2 mrg-top-10">Buy Now</a>
+                </div>
+                <div class="col-ms-4 col-md-4">
+                    <div class="product-image">
+                        <a href="https://www.yilinker.com/item/uu-family-women-snake-clutch-blue">
+                            <img src="{{ asset('images/promo/extended-summer-offer/image-3.jpg') }}" class="img-full-width" alt="orange floral bikini swimsuit">
+                        </a>
+                    </div>
+                    <div class="product-name">
+                        <a href="https://www.yilinker.com/item/uu-family-women-snake-clutch-blue">
+                            Snake Clutch
+                        </a>
+                    </div>
+                    <b class="color-1 ft-size-1 block pad-top-1em">PhP 475.00</b>
+                    <br />&nbsp;<br />
+                    <a href="https://www.yilinker.com/item/uu-family-women-snake-clutch-blue" class="static-button2 mrg-top-10">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="bg-base mrg-top-10em">
+            <div class="container pad-top-3em">
+                <h4>Promo Mechanics:</h4>
+                <ul>
+                    <li>Like YiLinker Facebook Page and create an account on <a href="http://www.yilinker.com">www.yilinker.com</a></li>
+                    <li>From May 9 - May 22, YiLinker will feature 2 summer sets per week on the Facebook page. (each set will have a maximum of 3 products only).</li>
+                    <li>Fans must purchase any of the featured items to join the promo at a special rate. </li>
+                    <li>After their purchase, fans must comment their transaction code on the comments section of the post.</li>
+                    <li>Each transaction code earns the fan a valid entry to the promo.</li>
+                    <li>A total of 2 winners will win the whole summer set which will be chosen at random.</li>
+                    <li>Consolation prizes : A total of 4 winners will receive P100 off vouchers for their next purchase.</li>
+                    <li>purchase any item at YiLinker and comment your transaction number to this post.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="black background hidden">
+            <div class="container pad-top-3em ">
+                <h4 class="mrg-top-25">Terms and Conditions:</h4>
+                <ul>
+                    <li>The featured items are only available within the given period and until supplies last.</li>
+                    <li>This promo is valid for existing and newly registered users</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}
+{% block javascripts %}{% endblock %}

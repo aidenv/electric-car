@@ -1,0 +1,118 @@
+
+.sidebar-wrapper{
+    top: 0;
+}
+
+.profile{
+    .profile-image-container{
+        margin-top: 2em;
+        transition: $transition-default;
+    }
+
+    .user-image-profile{
+        cursor: pointer;
+        margin: auto;
+        transition: $transition-default;
+
+        .image-overlay{
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            transition: $transition-default;
+            border-radius: 50%;
+
+            .edit-image-label{
+                color: #fff;
+                .icon{
+                    font-size: 8em;
+                    display: block;
+                }
+
+                h5{
+                    margin-top: -3em;
+                }
+            }
+
+            &.edit{
+                background: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+            }
+
+            &.add{
+                background: #666;
+                opacity: 1;
+            }
+        }
+
+        &:hover{
+            .image-overlay{
+                opacity: 1;
+            }
+        }
+    }
+
+    .dashboard-side-menu-container{
+        .list-side-menu{
+            padding-top: 1em;
+        }
+    }
+
+    .profile-file-input{
+        display: none;
+    }
+
+    .uploaded-document-gallery{
+        margin: -0.5em;
+        .image-holder{
+            height: 10em;
+            width: 10em;
+            margin: 0.5em;
+        }
+    }
+
+    .form.error{
+        .form-ui{
+            background: #fff6f6;
+            border-color: #e0b4b4;
+            color: #9f3a38;
+
+             &:focus{
+                -webkit-box-shadow: inset 1px 0px 0px 0px rgba(241,162,167, 1);
+                -moz-box-shadow:    inset 1px 0px 0px 0px rgba(241,162,167, 1);
+                box-shadow:         inset 1px 0px 0px 0px rgba(241,162,167, 1);
+                border-color:       rgba(241,162,167, 1);
+            }
+        }
+
+        ::-webkit-input-placeholder{
+            color: #e7bdbc;
+        }
+
+        ::-moz-input-placeholder{
+            color: #e7bdbc;
+        }
+
+        ::-ms-input-placeholder{
+            color: #e7bdbc;
+        }
+    }
+
+    .address-modal-container{
+        a.close{
+            display:none;
+        }
+    }
+
+    .table-dashboard-header-stat {
+        td {
+            font-size: 2.6em;
+            font-weight: 500;
+            line-height: 1;
+            padding: 0;
+        }
+    }
+}

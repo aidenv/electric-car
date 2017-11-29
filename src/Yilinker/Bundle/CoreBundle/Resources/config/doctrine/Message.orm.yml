@@ -1,0 +1,76 @@
+Yilinker\Bundle\CoreBundle\Entity\Message:
+    type: entity
+    table: Message
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\MessageRepository
+    id:
+        messageId:
+            type: integer
+            id: true
+            column: message_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        message:
+            type: string
+            column: message
+            length: '1024'
+            nullable: true
+        isImage:
+            type: boolean
+            column: is_image
+            nullable: true
+            options:
+                default: false
+        timeSent:
+            type: datetime
+            column: time_sent
+            nullable: true
+        isDeleteSender:
+            type: boolean
+            column: is_delete_sender
+            nullable: true
+            options:
+                default: false
+        isDeleteRecipient:
+            type: boolean
+            column: is_delete_recipient
+            nullable: true
+            options:
+                default: false
+        isSeen:
+            type: boolean
+            column: is_seen
+            nullable: true
+            options:
+                default: false
+        timeSeen:
+            type: datetime
+            column: time_seen
+            nullable: true
+    manyToOne:
+        sender:
+            targetEntity: User
+            joinColumn:
+                name: sender_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        recipient:
+            targetEntity: User
+            joinColumn:
+                name: recipient_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    oneToMany:
+        images:
+            targetEntity: Message
+            mappedBy: message
+    indexes:
+        fk_user_userid_message_senderid_idx:
+            columns:
+                - sender_id
+        fk_user_userid_message_recipientid_idx:
+            columns:
+                - recipient_id
+    lifecycleCallbacks: {  }

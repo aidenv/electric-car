@@ -1,0 +1,9 @@
+<div class="dashboard-side-notifications-container mobile-hide">
+    {{ render(controller('YilinkerCoreBundle:Widget:notifications')) }}
+    <div class="right-side-title-bar">
+        <span class="title-name">
+            {% trans %}Contacts{% endtrans %}
+        </span>
+    </div>
+    {{ render(controller('YilinkerCoreBundle:Message:renderContacts')) }}
+</div>

@@ -1,0 +1,29 @@
+<div class="checkout-segment shipping-address-segment">
+    <div class="title">
+        {% trans %}
+            Ship To
+        {% endtrans %}
+    </div>
+    {{ include('YilinkerFrontendBundle:Checkout:address_list.html.twig') }}
+    {% if 
+        user.userType is not same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\User::USER_TYPE_GUEST')) 
+        %}
+        <button class="button dark-gray small add-address-button">
+            <div class="icon-container"><i class="icon icon-plus"></i></div>
+             {% trans %}
+                 New Address
+             {% endtrans %}
+        </button>
+    {% 
+        elseif user.userType is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\User::USER_TYPE_GUEST')) 
+        and user.getAddresses.count < 1
+    %}
+        <button class="button dark-gray small add-address-button">
+            <div class="icon-container"><i class="icon icon-plus"></i></div>
+             {% trans %}
+                 New Address
+             {% endtrans %}
+        </button>
+    {% endif %}
+</div>
+

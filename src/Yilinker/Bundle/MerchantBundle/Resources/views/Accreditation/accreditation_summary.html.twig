@@ -1,0 +1,1282 @@
+{% extends 'YilinkerMerchantBundle:Base:accreditation_base.html.twig' %}
+
+{% block title %}
+    Accreditation
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+    {% set businessType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_BUSINESS_INFORMATION') %}
+    {% set bankType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_BANK_INFORMATION') %}
+    {% set fileDtiType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_DTI_SEC_PERMIT') %}
+    {% set fileMayorsType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_MAYORS_PERMIT') %}
+    {% set fileBirType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_BIR_PERMIT') %}
+    {% set fileFormType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_FORM') %}
+    {% set fileOtherType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_OTHER') %}
+    {% set sssType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_SSS') %}
+    {% set pagibigType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_PAG_IBIG') %}
+    {% set postalType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_POSTAL') %}
+    {% set passportType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_PASSPORT') %}
+    {% set driversLicenseType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_DRIVERS_LICENSE') %}
+    {% set prcType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_PRC') %}
+    {% set votersIdType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_VOTERS_ID') %}
+    {% set schoolIdType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_SCHOOL_ID') %}
+    {% set tinType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\ApplicationRemarkType::TYPE_FILE_TIN') %}
+
+    <div class="accreditation">
+
+        <div class="row gutters">
+
+            <div class="col span-9">
+                <div class="box wht">
+                    <div class="steps">
+
+                        {% if applicationDetails.accreditationApplication %}
+                            {% if applicationDetails.progress != 100 %}
+                                <div class="row">
+                                    <div class="col span-12 align-center">
+                                        <span class="icon-circle-search icon-4x"></span>
+                                        <h3>You Application is being reviewed at the moment...</h3>
+                                        <p class="sub-header">Please give our representatives a little time to complete the verification process, it usually takes about 3 days,<br>we'll be back to you after that, so until then have a nice day.</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% set slug = baseUri~path('user_frontend_store', {'slug': applicationDetails.storeEntity.storeSlug|default(0) }) %}
+                            <div class="row">
+                                <div class="col span-7">
+                                    <h4>Business Information</h4>
+                                    <p>Providing us with accurate information about your business helps lessen the time our Accreditation Team has to spend on reviewing your application.</p>
+                                    <div class="list-content">
+                                        <div class="row">
+                                            <div class="col span-3">
+                                                <p>Seller Type:</p>
+                                            </div>
+                                            <div class="col span-9">
+                                                {% if applicationDetails.accreditationApplication.sellerType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\AccreditationApplication::SELLER_TYPE_MERCHANT') %}
+                                                    <p>Seller</p>
+                                                {% elseif applicationDetails.accreditationApplication.sellerType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\AccreditationApplication::SELLER_TYPE_RESELLER') %}
+                                                    <p>Affiliate</p>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col span-3">
+                                                <p>Owner Name:</p>
+                                            </div>
+                                            <div class="col span-9">
+                                                <p>{{ applicationDetails.userEntity.fullName }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col span-3">
+                                                <p>Store Name:</p>
+                                            </div>
+                                            <div class="col span-9">
+                                                <p>{{ applicationDetails.storeEntity.storeName|default("") }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col span-3">
+                                                <p>Primary Address:</p>
+                                            </div>
+                                            {% for userAddress in applicationDetails.userAddresses %}
+                                                {% if userAddress.isDefault == true %}
+                                                    <div class="col span-9">
+                                                        <p>{{ userAddress.fullLocation }}</p>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        <div class="row">
+                                            <div class="col span-3">
+                                                <p>Contact Number:</p>
+                                            </div>
+                                            <div class="col span-9">
+                                                <p>{{ applicationDetails.userEntity.contactNumber|default("") }}</p>
+                                            </div>
+                                        </div>
+                                        {% if applicationDetails.storeEntity and applicationDetails.storeEntity.storeSlug is not empty %}
+                                        <div class="row">
+                                            <div class="col span-3">
+                                                <p>Store Url:
+                                                </p>
+                                            </div>
+                                            <div class="col span-9">
+                                                 {{ slug }}
+                                            </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {# Categories Here - remove comment if done #}
+                                        {% if applicationDetails.storeEntity.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') and applicationDetails.storeCategory.hasSelected %}
+                                            <div class="row">
+                                                <div class="col span-3">
+                                                    <p>Categories:
+                                                    </p>
+                                                </div>
+                                                <div class="col span-9">
+                                                    <p class="category-list">
+                                                        {% for category in applicationDetails.storeCategory.data %}
+                                                            {% if category.isSelected %}
+                                                                <span>{{ category.productCategory.name }}</span>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+
+                                        <div class="row">
+                                            <div class="col span-3">
+                                                <p>Status:
+                                                </p>
+                                            </div>
+                                            <div class="col span-9">
+                                                <p>{{ applicationDetails.accreditationApplicationStatus }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col span-3">
+                                                <p>Company / School:
+                                                </p>
+                                            </div>
+                                            <div class="col span-9">
+                                                <p>{{ applicationDetails.userOccupation.name|default('') }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col span-3">
+                                                <p>Job / Course & Year Level:
+                                                </p>
+                                            </div>
+                                            <div class="col span-9">
+                                                <p>{{ applicationDetails.userOccupation.job|default('') }}</p>
+                                            </div>
+                                        </div>
+                                        {% if applicationDetails.userEntity.tin != 0 %}
+                                        <div class="row">
+                                            <div class="col span-3">
+                                                <p>TIN:
+                                                </p>
+                                            </div>
+                                            <div class="col span-9">
+                                                <p>{{ applicationDetails.userEntity.tin }}</p>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        <div class="row actions">
+                                            <div class="col span-3">
+                                                <p>Change Content</p>
+                                            </div>
+                                            <div class="col span-9">
+                                                <button class="button small button-rounded-side {{ applicationDetails.accreditationApplication.isBusinessEditable == 0 ? 'disabled' : '' }}" onclick="document.location='{{ path('merchant_accreditation_business_information')}}'">Edit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col span-5">
+
+                                    {# START OF BUSINESS INFO MESSAGE #}
+                                    {% if applicationDetails.remarkArray and applicationDetails.remarkArray[businessType] is defined and applicationDetails.remarkArray[businessType] is not empty %}
+                                        <div class="form remarks">
+                                            {% set businessRemarkLength = applicationDetails.remarkArray[businessType]|length %}
+                                            {% set lastBusinessRemarkKey = businessRemarkLength - 1 %}
+                                            {% if applicationDetails.remarkArray[businessType]|length > 1 %}
+                                                <div class="show-all align-right">
+                                                    <a class="button light-gray small" id="show-all-business-info-trigger" href="#">
+                                                        <span class="icon-messages icon-lg"></span>
+                                                        Show {{ applicationDetails.remarkArray[businessType]|length }} Comments
+                                                    </a>
+                                                </div>
+                                            {% endif %}
+                                            <div class="csr">
+                                                <p class="person">
+                                                    <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                    <span class="user">
+                                                      <strong>{{ applicationDetails.remarkArray[businessType][lastBusinessRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[businessType][lastBusinessRemarkKey].adminUser.lastName }}</strong>
+                                                      customer support representative
+                                                    </span>
+                                                </p>
+                                                <p class="words">
+                                                    {{ applicationDetails.remarkArray[businessType][lastBusinessRemarkKey].message }}
+                                                </p>
+                                                <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[businessType][lastBusinessRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {# END OF BUSINESS INFO MESSAGE #}
+
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="row">
+                              <div class="col span-12 blank-space align-center">
+                                <h4>Business Information</h4>
+                                <p>Providing us with accurate information about your business helps lessen the time our Accreditation Team has to spend on reviewing your application.</p>
+                                <button class="button small green button-rounded-side" onclick="document.location='{{ path('merchant_accreditation_business_information')}}'">Start</button>
+                              </div>
+                            </div>
+                        {% endif %}
+
+                        {% if applicationDetails.accreditationApplication and applicationDetails.bankData %}
+                            <div class="row">
+                                <div class="col span-7">
+                                    <h4>Bank Information</h4>
+                                    <p>Providing your bank info let us know where we'll deposit your payout after a Buyer has completed their transaction.</p>
+                                    {% for bank in applicationDetails.bankData %}
+                                        {% if bank.isDefault == true %}
+                                            <div class="list-content">
+                                                <div class="row">
+                                                    <div class="col span-3">
+                                                        <p>Bank Name:</p>
+                                                    </div>
+                                                    <div class="col span-9">
+                                                        <p>{{ bank.bankName }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col span-3">
+                                                        <p>Account Title:</p>
+                                                    </div>
+                                                    <div class="col span-9">
+                                                        <p>{{ bank.accountTitle }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col span-3">
+                                                        <p>Account Name:</p>
+                                                    </div>
+                                                    <div class="col span-9">
+                                                        <p>{{ bank.accountName }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col span-3">
+                                                        <p>Account Number:</p>
+                                                    </div>
+                                                    <div class="col span-9">
+                                                        <p>{{ bank.accountNumber }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row actions">
+                                                    <div class="col span-3">
+                                                        <p>Change Content</p>
+                                                    </div>
+                                                    <div class="col span-9">
+                                                        <button class="button small button-rounded-side {{ applicationDetails.accreditationApplication.isBankEditable == 0? 'disabled' : '' }}" onclick="document.location='{{ path('merchant_accreditation_bank_information')}}'">Edit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <div class="col span-5">
+
+                                    {# START OF BANK INFO MESSAGE #}
+                                    {% if applicationDetails.remarkArray and applicationDetails.remarkArray[bankType] is defined and applicationDetails.remarkArray[bankType] is not empty %}
+                                        <div class="form remarks">
+                                            {% set bankRemarkLength = applicationDetails.remarkArray[bankType]|length %}
+                                            {% set lastBankRemarkKey = bankRemarkLength - 1 %}
+                                            {% if bankRemarkLength > 1 %}
+                                                <div class="show-all align-right">
+                                                    <a class="button light-gray small" id="show-all-bank-info-trigger" href="#">
+                                                        <span class="icon-messages icon-lg"></span>
+                                                        Show {{ applicationDetails.remarkArray[bankType]|length }} Comments
+                                                    </a>
+                                                </div>
+                                            {% endif %}
+                                            <div class="csr">
+                                                <p class="person">
+                                                    <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                    <span class="user">
+                                                      <strong>{{ applicationDetails.remarkArray[bankType][lastBankRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[bankType][lastBankRemarkKey].adminUser.lastName }}</strong>
+                                                      customer support representative
+                                                    </span>
+                                                </p>
+                                                <p class="words">
+                                                    {{ applicationDetails.remarkArray[bankType][lastBankRemarkKey].message }}
+                                                </p>
+                                                <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[bankType][lastBankRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    {# END OF BANK INFO MESSAGE #}
+
+                                </div>
+                            </div>
+                        {% else %}
+                            {% if applicationDetails.accreditationApplication %}
+                                <div class="row">
+                                  <div class="col span-12 blank-space align-center">
+                                    <h4>Bank Information</h4>
+                                    <p>Providing your bank info let us know where we'll deposit your payout after a Buyer has completed their transaction.</p>
+                                    <button class="button small green button-rounded-side" onclick="document.location='{{ path('merchant_accreditation_bank_information')}}'">Start</button>
+                                  </div>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if applicationDetails.accreditationApplication and applicationDetails.legalDocuments %}
+                            <div class="row">
+                                <div class="col span-12">
+                                    <h4>Legal Documents
+                                    </h4>
+                                    <p>Please provide us a clear scanned copy of your legal documents, e.g. SEC Registration, Business Permits, etc. to ensure faster processing time.</p>
+                                    <div class="list-content">
+                                        <table class="table basic table-vertical-align-center">
+                                            <thead>
+                                            <tr>
+                                                <th width="25%">Document Name</th>
+                                                <th width="15%">Date Uploaded</th>
+                                                <th width="25%">Status</th>
+                                                <th width="35%">Message</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for legalDocument in applicationDetails.legalDocuments %}
+                                                <tr>
+                                                    <td>
+                                                        {% if legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_DTI_SEC_PERMIT') %}
+                                                            <strong>DTI/SEC Permit</strong>
+                                                        {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_MAYORS_PERMIT') %}
+                                                            <strong>Mayor's Permit</strong>
+                                                        {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_BIR_PERMIT') %}
+                                                            <strong>BIR Permit</strong>
+                                                        {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_FORM_M11501') %}
+                                                            <strong>FORM MA11501 Permit</strong>
+                                                        {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_OTHERS') %}
+                                                            <strong>Others</strong>
+                                                        {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_SSS') %}
+                                                            <strong>SSS</strong>
+                                                        {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PAG_IBIG') %}
+                                                            <strong>PAG IBIG</strong>
+                                                        {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_POSTAL') %}
+                                                            <strong>Postal</strong>
+                                                        {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PASSPORT') %}
+                                                            <strong>Passport</strong>
+                                                        {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_DRIVERS_LICENSE') %}
+                                                            <strong>Driver's License</strong>
+                                                        {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_PRC') %}
+                                                            <strong>PRC</strong>
+                                                        {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_VOTERS_ID') %}
+                                                            <strong>Voter's ID</strong>
+                                                        {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_SCHOOL_ID') %}
+                                                            <strong>School ID</strong>
+                                                        {% elseif legalDocument.entity.legalDocumentType.legalDocumentTypeId == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LegalDocumentType::TYPE_TIN') %}
+                                                            <strong>TIN</strong>
+                                                        {% endif %}
+                                                    </td>
+                                                    <td>{{ legalDocument.entity.dateAdded|date('Y/m/d') }}</td>
+                                                    <td>
+                                                        <div class="semi-bold green-color">
+                                                            <span class="icon-check"></span>
+                                                            Submitted
+                                                        </div>
+                                                    </td>
+                                                    <td>
+
+                                                        {% if applicationDetails.remarkArray[fileDtiType] is defined and legalDocument.remarkTypeId == fileDtiType %}
+                                                            <div class="form remarks">
+                                                                {% set fileDtiLength = applicationDetails.remarkArray[fileDtiType]|length %}
+                                                                {% set lastFileDtiKey = fileDtiLength - 1 %}
+                                                                {% if fileDtiLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-dti-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ fileDtiLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[fileDtiType][lastFileDtiKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[fileDtiType][lastFileDtiKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[fileDtiType][lastFileDtiKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[fileDtiType][lastFileDtiKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% elseif applicationDetails.remarkArray[fileMayorsType] is defined and legalDocument.remarkTypeId == fileMayorsType %}
+                                                            <div class="form remarks">
+                                                                {% set fileMayorsRemarkLength = applicationDetails.remarkArray[fileMayorsType]|length %}
+                                                                {% set fileMayorsRemarkKey = fileMayorsRemarkLength - 1 %}
+                                                                {% if fileMayorsRemarkLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-mayors-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ fileMayorsRemarkLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[fileMayorsType][fileMayorsRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[fileMayorsType][fileMayorsRemarkKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[fileMayorsType][fileMayorsRemarkKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[fileMayorsType][fileMayorsRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% elseif applicationDetails.remarkArray[fileBirType] is defined and legalDocument.remarkTypeId == fileBirType %}
+                                                            <div class="form remarks">
+                                                                {% set fileBirRemarkLength = applicationDetails.remarkArray[fileBirType]|length %}
+                                                                {% set fileBirRemarkKey = fileBirRemarkLength - 1 %}
+                                                                {% if fileBirRemarkLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-bir-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ fileBirRemarkLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[fileBirType][fileBirRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[fileBirType][fileBirRemarkKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[fileBirType][fileBirRemarkKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[fileBirType][fileBirRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% elseif applicationDetails.remarkArray[fileFormType] is defined and legalDocument.remarkTypeId == fileFormType %}
+                                                            <div class="form remarks">
+                                                                {% set fileFormRemarkLength = applicationDetails.remarkArray[fileFormType]|length %}
+                                                                {% set fileFormRemarkKey = fileFormRemarkLength - 1 %}
+                                                                {% if fileFormRemarkLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-form-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ fileFormRemarkLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[fileFormType][fileFormRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[fileFormType][fileFormRemarkKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[fileFormType][fileFormRemarkKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[fileFormType][fileFormRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% elseif applicationDetails.remarkArray[fileOtherType] is defined and legalDocument.remarkTypeId == fileOtherType %}
+                                                            <div class="form remarks">
+                                                                {% set fileOtherRemarkLength = applicationDetails.remarkArray[fileOtherType]|length %}
+                                                                {% set fileOtherRemarkKey = fileOtherRemarkLength - 1 %}
+                                                                {% if fileOtherRemarkLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-others-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ fileOtherRemarkLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[fileOtherType][fileOtherRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[fileOtherType][fileOtherRemarkKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[fileOtherType][fileOtherRemarkKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[fileOtherType][fileOtherRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% elseif applicationDetails.remarkArray[tinType] is defined and legalDocument.remarkTypeId == tinType %}
+                                                            <div class="form remarks">
+                                                                {% set fileTinRemarkLength = applicationDetails.remarkArray[tinType]|length %}
+                                                                {% set fileTinRemarkKey = fileTinRemarkLength - 1 %}
+                                                                {% if fileTinRemarkLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-tin-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ fileTinRemarkLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[tinType][fileTinRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[tinType][fileTinRemarkKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[tinType][fileTinRemarkKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[tinType][fileTinRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% elseif applicationDetails.remarkArray[sssType] is defined and legalDocument.remarkTypeId == sssType %}
+                                                            <div class="form remarks">
+                                                                {% set fileSssRemarkLength = applicationDetails.remarkArray[sssType]|length %}
+                                                                {% set fileSssRemarkKey = fileSssRemarkLength - 1 %}
+                                                                {% if fileSssRemarkLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-sss-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ fileSssRemarkLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[sssType][fileSssRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[sssType][fileSssRemarkKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[sssType][fileSssRemarkKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[sssType][fileSssRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% elseif applicationDetails.remarkArray[pagibigType] is defined and legalDocument.remarkTypeId == pagibigType %}
+                                                            <div class="form remarks">
+                                                                {% set filePagibigRemarkLength = applicationDetails.remarkArray[pagibigType]|length %}
+                                                                {% set filePagibigRemarkKey = filePagibigRemarkLength - 1 %}
+                                                                {% if filePagibigRemarkLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-pagibig-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ filePagibigRemarkLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[pagibigType][filePagibigRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[pagibigType][filePagibigRemarkKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[pagibigType][filePagibigRemarkKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[pagibigType][filePagibigRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% elseif applicationDetails.remarkArray[postalType] is defined and legalDocument.remarkTypeId == postalType %}
+                                                            <div class="form remarks">
+                                                                {% set filePostalRemarkLength = applicationDetails.remarkArray[postalType]|length %}
+                                                                {% set filePostalRemarkKey = filePostalRemarkLength - 1 %}
+                                                                {% if filePostalRemarkLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-postal-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ filePostalRemarkLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[postalType][filePostalRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[postalType][filePostalRemarkKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[postalType][filePostalRemarkKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[postalType][filePostalRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% elseif applicationDetails.remarkArray[passportType] is defined and legalDocument.remarkTypeId == passportType %}
+                                                            <div class="form remarks">
+                                                                {% set filePassportRemarkLength = applicationDetails.remarkArray[passportType]|length %}
+                                                                {% set filePassportRemarkKey = filePassportRemarkLength - 1 %}
+                                                                {% if filePassportRemarkLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-passport-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ filePassportRemarkLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[passportType][filePassportRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[passportType][filePassportRemarkKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[passportType][filePassportRemarkKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[passportType][filePassportRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% elseif applicationDetails.remarkArray[driversLicenseType] is defined and legalDocument.remarkTypeId == driversLicenseType %}
+                                                            <div class="form remarks">
+                                                                {% set fileDriversLicenseRemarkLength = applicationDetails.remarkArray[driversLicenseType]|length %}
+                                                                {% set fileDriversLicenseRemarkKey = fileDriversLicenseRemarkLength - 1 %}
+                                                                {% if fileDriversLicenseRemarkLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-drivers-license-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ fileDriversLicenseRemarkLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[driversLicenseType][fileDriversLicenseRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[driversLicenseType][fileDriversLicenseRemarkKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[driversLicenseType][fileDriversLicenseRemarkKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[driversLicenseType][fileDriversLicenseRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% elseif applicationDetails.remarkArray[prcType] is defined and legalDocument.remarkTypeId == prcType %}
+                                                            <div class="form remarks">
+                                                                {% set filePrcRemarkLength = applicationDetails.remarkArray[prcType]|length %}
+                                                                {% set filePrcRemarkKey = filePrcRemarkLength - 1 %}
+                                                                {% if filePrcRemarkLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-prc-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ filePrcRemarkLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[prcType][filePrcRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[prcType][filePrcRemarkKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[prcType][filePrcRemarkKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[prcType][filePrcRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% elseif applicationDetails.remarkArray[votersIdType] is defined and legalDocument.remarkTypeId == votersIdType %}
+                                                            <div class="form remarks">
+                                                                {% set filePrcRemarkLength = applicationDetails.remarkArray[votersIdType]|length %}
+                                                                {% set filePrcRemarkKey = filePrcRemarkLength - 1 %}
+                                                                {% if filePrcRemarkLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-voters-id-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ filePrcRemarkLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[votersIdType][filePrcRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[votersIdType][filePrcRemarkKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[votersIdType][filePrcRemarkKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[votersIdType][filePrcRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% elseif applicationDetails.remarkArray[schoolIdType] is defined and legalDocument.remarkTypeId == schoolIdType %}
+                                                            <div class="form remarks">
+                                                                {% set fileSchoolIdRemarkLength = applicationDetails.remarkArray[schoolIdType]|length %}
+                                                                {% set fileSchoolIdRemarkKey = fileSchoolIdRemarkLength - 1 %}
+                                                                {% if fileSchoolIdRemarkLength > 1 %}
+                                                                    <div class="show-all align-right">
+                                                                        <a class="button light-gray small" id="show-all-file-school-id-trigger" href="#">
+                                                                            <span class="icon-messages icon-lg"></span>
+                                                                            Show {{ fileSchoolIdRemarkLength }} Comments
+                                                                        </a>
+                                                                    </div>
+                                                                {% endif %}
+                                                                <div class="csr">
+                                                                    <p class="person">
+                                                                        <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                                                        <span class="user">
+                                                                          <strong>{{ applicationDetails.remarkArray[schoolIdType][fileSchoolIdRemarkKey].adminUser.firstName ~ ' ' ~ applicationDetails.remarkArray[schoolIdType][fileSchoolIdRemarkKey].adminUser.lastName }}</strong>
+                                                                          customer support representative
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="words">
+                                                                        {{ applicationDetails.remarkArray[schoolIdType][fileSchoolIdRemarkKey].message|default("") }}
+                                                                    </p>
+                                                                    <p class="time-stamp">Posted on {{ applicationDetails.remarkArray[schoolIdType][fileSchoolIdRemarkKey].dateAdded|date('h:i:s, Y/m/d') }}</p>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <button class="button small button-rounded-side {{ applicationDetails.isLegalDocsEditable == true ? '' : 'disabled' }}" onclick="document.location='{{ path('merchant_accreditation_legal_documents')}}'">Edit</button>
+                                </div>
+                            </div>
+                        {% else %}
+                            {% if applicationDetails.accreditationApplication %}
+                              <div class="row">
+                                <div class="col span-12 blank-space align-center">
+                                  <h4>Legal Documents</h4>
+                                  <p>Please provide us a clear scanned copy of your legal documents, e.g. SEC Registration, Business Permits, etc. to ensure faster processing time.</p>
+                                  <button class="button small green button-rounded-side" onclick="document.location='{{ path('merchant_accreditation_legal_documents')}}'">Start</button>
+                                </div>
+                              </div>
+                            {% endif %}
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+            <aside class="col span-3">
+                {{ include('YilinkerMerchantBundle:Accreditation:acc_main_side.html.twig', {'progress':applicationDetails.progress}) }}
+            </aside>
+
+        </div>
+    </div>
+
+    <div class="footer-wrapper align-center">
+        Copyright 2015 YiLinker. All Rights Reserved
+    </div>
+
+    {# START MODAL BUSINESS INFO #}
+    {% if applicationDetails.remarkArray[businessType] is defined and applicationDetails.remarkArray[businessType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-business-info">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[businessType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL BUSINESS INFO #}
+
+    {# START MODAL BANK INFO #}
+    {% if applicationDetails.remarkArray[bankType] is defined and applicationDetails.remarkArray[bankType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-bank-info">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[bankType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:m, m d, Y') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL BANK INFO #}
+
+    {# START MODAL DTI FILE #}
+    {% if applicationDetails.remarkArray[fileDtiType] is defined and applicationDetails.remarkArray[fileDtiType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-dti">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[fileDtiType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL DTI FILE #}
+
+    {# START MODAL MAYORS FILE #}
+    {% if applicationDetails.remarkArray[fileMayorsType] is defined and applicationDetails.remarkArray[fileMayorsType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-mayors">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[fileMayorsType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL DTI FILE #}
+
+    {# START MODAL BIR FILE #}
+    {% if applicationDetails.remarkArray[fileBirType] is defined and applicationDetails.remarkArray[fileBirType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-bir">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[fileBirType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL DTI FILE #}
+
+    {# START MODAL Form FILE #}
+    {% if applicationDetails.remarkArray[fileFormType] is defined and applicationDetails.remarkArray[fileFormType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-form">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[fileFormType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL DTI FILE #}
+
+    {# START MODAL Form FILE #}
+    {% if applicationDetails.remarkArray[fileOtherType] is defined and applicationDetails.remarkArray[fileOtherType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-others">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[fileOtherType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL DTI FILE #}
+
+    {# START MODAL TIN FILE #}
+    {% if applicationDetails.remarkArray[tinType] is defined and applicationDetails.remarkArray[tinType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-tin">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[tinType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL TIN FILE #}
+
+    {# START MODAL SSS FILE #}
+    {% if applicationDetails.remarkArray[sssType] is defined and applicationDetails.remarkArray[sssType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-sss">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[sssType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL SSS FILE #}
+
+    {# START MODAL PAGIBIG FILE #}
+    {% if applicationDetails.remarkArray[pagibigType] is defined and applicationDetails.remarkArray[pagibigType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-pagibig">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[pagibigType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL PAGIBIG FILE #}
+
+    {# START MODAL POSTAL FILE #}
+    {% if applicationDetails.remarkArray[postalType] is defined and applicationDetails.remarkArray[postalType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-postal">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[postalType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL POSTAL FILE #}
+
+    {# START MODAL PASSPORT FILE #}
+    {% if applicationDetails.remarkArray[passportType] is defined and applicationDetails.remarkArray[passportType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-passport">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[passportType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL PASSPORT FILE #}
+
+    {# START MODAL DRIVERS LICENSE FILE #}
+    {% if applicationDetails.remarkArray[driversLicenseType] is defined and applicationDetails.remarkArray[driversLicenseType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-drivers-license">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[driversLicenseType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL DRIVERS LICENSE FILE #}
+
+    {# START MODAL PRC FILE #}
+    {% if applicationDetails.remarkArray[prcType] is defined and applicationDetails.remarkArray[prcType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-prc">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[prcType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL PRC FILE #}
+
+    {# START MODAL VOTERS ID FILE #}
+    {% if applicationDetails.remarkArray[votersIdType] is defined and applicationDetails.remarkArray[votersIdType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-voters-id">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[votersIdType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL VOTERS ID FILE #}
+
+    {# START MODAL SCHOOL ID FILE #}
+    {% if applicationDetails.remarkArray[schoolIdType] is defined and applicationDetails.remarkArray[schoolIdType] is not empty %}
+        <div class="ui modal small" id="modal-show-all-file-school-id">
+            <a class="close" data-remodal-action="close">
+                <i class="icon-times"></i>
+            </a>
+            <div class="header">Comments</div>
+            <div class="content steps">
+                <div class="form remarks">
+                    {% for remark in applicationDetails.remarkArray[schoolIdType] %}
+                        <div class="csr">
+                            <p class="person">
+                                <img border="0" src="{{ asset('images/logo-icon.png') }}">
+                                <span class="user">
+                                    <strong>{{ remark.adminUser.firstName ~ ' ' ~ remark.adminUser.lastName }}</strong>
+                                    customer support representative
+                                </span>
+                            </p>
+                            <p class="words">{{ remark.message }}</p>
+                            <p class="time-stamp">Posted on {{ remark.dateAdded|date('h:i:s, Y/m/d') }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel">Close</button>
+            </div>
+        </div>
+    {% endif %}
+    {# END MODAL SCHOOL ID FILE #}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/merchant/accreditation/summary.js') }}"></script>
+{% endblock %}

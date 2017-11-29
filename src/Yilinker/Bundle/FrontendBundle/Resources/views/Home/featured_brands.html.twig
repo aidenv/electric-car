@@ -1,0 +1,130 @@
+
+{% set brands = homeData.topBrands %}
+
+<div class="title-bar featured-brand">
+    <span class="title-name">{% trans %} Top Brands {% endtrans %}</span>
+</div>
+<div class="featured-brand-container">
+    <div class="brand-name-slider">
+        {% for brand in brands %}
+            <div class="item">
+                {{brand.brandEntity.name}}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="featured-brand-item-container">
+        <div class="brand-item-slider">
+            {% for brand in brands %}
+                {% set brandEntity = brand.brandEntity %}
+                <div class="item">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="brand-info-container">
+                                <a href="{{ path('search_product', {query : brandEntity.name} )}}">
+                                    <img src="{{ asset(brandEntity.image, 'brand') }}" alt="{{ brandEntity.name }}" class="brand-logo">
+                                </a>
+                                <p class="brand-description">
+                                    {{brandEntity.description}}
+                                </p>
+                                <a href="{{ path('search_product', {query : brandEntity.name} )}}" class="button basic-default uppercase">
+                                    {% trans %} Shop This Brand {% endtrans %} &rarr;
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="brand-item-list-wrapper">
+                                <div class="row">
+                                    {% for product in brand.products %}
+                                        {% set discount = product.defaultUnit ? product.defaultUnit.discount: '' %}
+                                        {% set price = product.defaultUnit ? product.defaultUnit.price: '' %}
+                                        {% set discountedPrice = product.defaultUnit ? product.defaultUnit.discountedPrice: '' %}
+                                        {%
+                                            set addtocart = {
+                                                'productId': product.productId,
+                                                'unitId':    product.defaultUnit ? product.defaultUnit.productUnitId: 0
+                                            }
+                                        %}
+                                        <div class="col-sm-4">
+                                            <div class="product-mini-list-wrapper">
+                                                <div class="product-mini-list-image">
+                                                    <a href="{{ path('product_details', {slug: product.slug}) }}">
+                                                        <div class="image-wrapper">
+                                                            {% if discount > 0 %}
+                                                            <span class="discount pin">{{ product.defaultUnit.promoTypeId is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PromoType::BULK'))? 'UP TO' : '' }} {{ discount }}% {% trans %} off {% endtrans %}</span>
+                                                            {% endif %}
+                                                            <img src="{{ asset(product.primaryImage.thumbnail, 'product') }}" alt="{{product.name}}" title="{{product.name}}" class="img-auto-place">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="product-mini-list-meta">
+                                                    <a href="{{ path('product_details', {slug: product.slug}) }}" class="name">
+                                                        {{product.name}}
+                                                    </a>
+                                                    {% if product.defaultUnit and app.user %}
+                                                        <span title="Add to wislist" class="wishlist tooltip pull-right {{ product.defaultUnit.inWishlist ? 'active': '' }}" data-href="{{ path('cart_add_item') }}?mode=wishlist" data-addtocart="{{ addtocart|json_encode }}">
+                                                            <i class="icon-heart-o"></i>
+                                                        </span>
+                                                    {% endif %}
+                                                    <div class="rating-container">
+                                                        {{ include('YilinkerCoreBundle:Default:star_rating.html.twig', {rating: product.reviewRating}) }}
+                                                    </div>
+                                                    <div class="amount">
+                                                         <span class="old-price">
+                                                            {% if discount > 0 %}
+                                                            P {{price|number_format(2)}}
+                                                            {% endif %}
+                                                        </span>
+                                                        {% if product.defaultUnit and product.defaultUnit.quantity > 0 %}
+                                                            <div class="product-cart-button-flip">
+                                                                <div data-href="{{ path('cart_add_item') }}" data-addtocart="{{ addtocart|json_encode }}"  class="button purple block cart front">
+                                                                    <span class="current-price">
+                                                                        P {{discountedPrice|number_format(2)}}
+                                                                    </span>
+                                                                    <span class="cart text">{% trans %} Add to cart {% endtrans %}</span>
+                                                                </div>
+                                                                <div class="button gray block cart disabled back">
+                                                                    <span>
+                                                                        <i class="icon icon-check"></i>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            {% else %}
+                                                            <div class="button purple block cart disabled">
+                                                                P {{ discountedPrice|number_format(2) }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<script type="application/ld+json">
+{% if brands|length > 0 %}
+{
+  "@context": "http://schema.org",
+  "@type": "WebPage",
+  "mainEntity":{
+          "@type": "ItemList",
+          "itemListElement": [
+            {% for brand in brands %}
+            "{{brand.brandEntity.name}}",
+            {% endfor %}    
+          ],
+          "itemListOrder": "http://schema.org/ItemListOrderDescending",
+          "name": "Featured Brands"
+        }
+}
+{% endif %}
+</script>

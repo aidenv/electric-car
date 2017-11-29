@@ -1,0 +1,35 @@
+Yilinker\Bundle\CoreBundle\Entity\SmsNewsletterSubscription:
+    type: entity
+    table: SmsNewsletterSubscription
+    id:
+      smsNewsletterSubscriptionId:
+            type: integer
+            id: true
+            column: sms_newsletter_subscription_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        contactNumber:
+            type: string
+            column: contact_number
+            length: '255'
+            nullable: false
+        userId:
+            type: integer
+            column: user_id
+            nullable: true
+        dateCreated:
+            type: datetime
+            column: date_created
+            nullable: false
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+            nullable: false
+        isActive:
+            type: boolean
+            column: is_active
+            options:
+                default: true

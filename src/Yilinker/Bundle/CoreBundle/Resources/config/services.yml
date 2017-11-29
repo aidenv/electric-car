@@ -1,0 +1,468 @@
+services:
+
+    yilinker_core.aws.s3:
+        class: Aws\S3\S3Client
+        factory_class: Aws\S3\S3Client
+        factory_method: 'factory'
+        arguments:
+            -
+                region:   '%amazon_s3_region%'
+                version:  '2006-03-01'
+                key:      '%amazon_s3_key%'
+                secret:   '%amazon_s3_secret%'
+
+    yilinker_core.service.image_manipulation:
+        class: Yilinker\Bundle\CoreBundle\Services\Image\ImageManipulation
+        arguments:
+            - @liip_imagine.data.manager
+            - @liip_imagine.filter.manager
+            - %kernel.root_dir%
+
+    yilinker.twig.controller.exception:
+        class: Yilinker\Bundle\CoreBundle\Controller\ExceptionController
+        arguments: [@twig, %kernel.debug%]
+
+    yilinker_core.service.entity:
+        class: Yilinker\Bundle\CoreBundle\Services\Entity\EntityService
+        arguments: ['@doctrine.orm.entity_manager']
+
+    yilinker_core.service.log.user.activity:
+        class: Yilinker\Bundle\CoreBundle\Services\User\ActivityLogService
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']
+
+    yilinker_core.service.log.user.notification:
+        class: Yilinker\Bundle\CoreBundle\Services\User\NotificationService
+        arguments: ['@service_container']
+
+    yilinker_core.service.log.user.send_notification:
+        class: Yilinker\Bundle\CoreBundle\Services\User\NotificationService
+        arguments: ['@service_container']
+        calls:
+            - [setConfig, ['%kernel.root_dir%/../../src/Yilinker/Bundle/CoreBundle/Resources/config/send_notifications.yml']]
+
+    yilinker_core.service.log.user.sms_notification:
+        class: Yilinker\Bundle\CoreBundle\Services\User\SMSNotificationService
+        arguments: ['@yilinker_core.service.sms.semaphore_sms']
+
+    yilinker_core.service.entity.store:
+        class: Yilinker\Bundle\CoreBundle\Services\Store\StoreService
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @yilinker_core.service.search.product
+            - @yilinker_core.service.account_manager
+            - @yilinker_core.service.qr_code.generator
+        calls:
+            - [setContainer, ['@service_container']]
+
+    yilinker_core.service.qr_code.generator:
+        class: Yilinker\Bundle\CoreBundle\Services\QrCode\Generator
+        arguments:
+            - @service_container
+            - @photo_storage_filesystem
+
+    yilinker_core.service.form.form_error:
+        class: Yilinker\Bundle\CoreBundle\Services\Form\FormErrorService
+        arguments:
+            - @translator
+
+    yilinker_core.service.upload.upload:
+        class: Yilinker\Bundle\CoreBundle\Services\Upload\UploadService
+        arguments:
+            - @photo_storage_filesystem
+
+    yilinker_core.service.upload.document_uploader:
+        class: Yilinker\Bundle\CoreBundle\Services\Upload\DocumentUploader
+
+    yilinker_core.service.user_address.user_address:
+        class: Yilinker\Bundle\CoreBundle\Services\UserAddress\UserAddressService
+        arguments: ['@doctrine.orm.entity_manager']
+
+    yilinker_core.service.user_feedback.user_feedback:
+        class: Yilinker\Bundle\CoreBundle\Services\UserFeedback\UserFeedbackService
+        arguments: ['@doctrine.orm.entity_manager', '@templating.helper.assets']
+
+    yilinker_core.service.location.location:
+        class: Yilinker\Bundle\CoreBundle\Services\Location\LocationService
+        calls:
+            - [setContainer, ['@service_container']]
+
+    yilinker_core.service.user.verification:
+        class: Yilinker\Bundle\CoreBundle\Services\User\Verification
+        arguments: ['@doctrine.orm.entity_manager']
+
+    yilinker_core.service.product.product:
+        class: Yilinker\Bundle\CoreBundle\Services\Product\ProductService
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @templating.helper.assets
+        calls:
+            - [setContainer, ['@service_container']]
+
+    yilinker_core.service.product.product_visit:
+        class: Yilinker\Bundle\CoreBundle\Services\Product\ProductVisitService
+        arguments: ['@doctrine.orm.entity_manager']
+
+    yilinker_core.service.sms.semaphore_sms:
+        class: Yilinker\Bundle\CoreBundle\Services\SMS\Senders\SemaphoreSms
+
+    yilinker_core.service.sms.mobiweb_sms:
+        class: Yilinker\Bundle\CoreBundle\Services\SMS\Senders\MobiwebSms
+
+    yilinker_core.service.sms.ucpass_sms:
+        class: Yilinker\Bundle\CoreBundle\Services\SMS\Senders\UcpassSms
+
+    yilinker_core.service.gcm.broadcaster:
+        class: Yilinker\Bundle\CoreBundle\Services\Device\Broadcaster
+        calls:
+            - [setContainer, ['@service_container']]
+
+    yilinker_core.service.message.chat:
+        class: Yilinker\Bundle\CoreBundle\Services\Message\MessageService
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @templating.helper.assets
+            - @yilinker_core.service.contact.contact_service
+            - @yilinker_core.service.predis.predis_service
+            - @yilinker_core.service.upload.upload
+            - @yilinker_core.service.gcm.broadcaster
+
+    yilinker_core.service.predis.predis_service:
+        class: Yilinker\Bundle\CoreBundle\Services\Predis\PredisService
+        arguments: ['@doctrine.orm.entity_manager', '@templating.helper.assets', '@yilinker_core.service.jwt_manager', '%redis_host%', '%redis_port%', '%redis_password%']
+
+    yilinker_core.service.device.gcm:
+        class: Yilinker\Bundle\CoreBundle\Services\Device\GcmService
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @yilinker_core.service.contact.contact_service
+            - @yilinker_core.service.predis.predis_service
+            - @yilinker_core.service.gcm.broadcaster
+
+    yilinker_core.service.contact.contact_service:
+        class: Yilinker\Bundle\CoreBundle\Services\Contact\ContactService
+        arguments: ['@doctrine.orm.entity_manager', '@yilinker_core.service.predis.predis_service']
+
+    yilinker_core.service.manufacturer_product.manufacturer_product_service:
+        class: Yilinker\Bundle\CoreBundle\Services\ManufacturerProduct\ManufacturerProductService
+        calls:
+            - [setContainer, ['@service_container']]
+        arguments: ['@templating.helper.assets']
+
+    yilinker_core.service.customized_category.customized_category:
+        class: Yilinker\Bundle\CoreBundle\Services\CustomizedCategory\CustomizedCategoryService
+        arguments: ['@doctrine.orm.entity_manager', '@templating.helper.assets']
+
+    yilinker_core.service.sms.sms_service:
+        class: Yilinker\Bundle\CoreBundle\Services\SMS\SmsService
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @yilinker_core.service.sms.semaphore_sms
+            - @yilinker_core.service.user.verification
+            - @templating
+
+    yilinker_core.service.transaction:
+        class: Yilinker\Bundle\CoreBundle\Services\Transaction\TransactionService
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @yilinker_core.logistics.yilinker.express
+            - @templating.helper.assets
+    
+    yilinker_core.service.transaction.export:
+        class: Yilinker\Bundle\CoreBundle\Exporter\TransactionExport
+        arguments:
+            - @service_container
+            
+    yilinker_core.service.search.translatable:
+        class: Yilinker\Bundle\CoreBundle\Services\Search\TranslatableElasticSearch
+        arguments:
+            - @doctrine.orm.entity_manager
+
+    yilinker_core.service.search.product:
+        class: Yilinker\Bundle\CoreBundle\Services\Search\ProductSearchService
+        arguments: ['@doctrine', '@fos_elastica.manager', '@yilinker_core.service.entity', '@yilinker_core.service.search.translatable', '@yilinker_core.translatable.listener' ]
+
+    yilinker_core.service.search.store:
+        class: Yilinker\Bundle\CoreBundle\Services\Search\StoreSearchService
+        arguments: ['@fos_elastica.manager']
+
+    yilinker_core.service.search.manufacturer_product_unit:
+        class: Yilinker\Bundle\CoreBundle\Services\Search\ManufacturerProductUnitSearchService
+        arguments: ['@fos_elastica.manager']
+
+    yilinker_core.service.search.manufacturer_product:
+        class: Yilinker\Bundle\CoreBundle\Services\Search\ManufacturerProductSearchService
+        arguments: ['@fos_elastica.manager']
+
+    yilinker_core.service.elastica.transformer.elastica_to_product:
+        class: Yilinker\Bundle\CoreBundle\Services\Search\Transformers\ElasticaToProductTransformer
+        arguments: ['@doctrine', '', {identifier:productId}]
+        calls:
+            - [setPropertyAccessor, ['@fos_elastica.property_accessor']]
+        tags:
+            - { name: fos_elastica.elastica_to_model_transformer, type: product, index: yilinker_online }
+
+    yilinker_core.service.elastica.transformer.elastica_to_manufacturerproductunit:
+        class: Yilinker\Bundle\CoreBundle\Services\Search\Transformers\ElasticaToManufacturerProductUnitTransformer
+        arguments: ['@doctrine', '', {identifier:manufacturerProductUnitId}]
+        calls:
+            - [setPropertyAccessor, ['@fos_elastica.property_accessor']]
+        tags:
+            - { name: fos_elastica.elastica_to_model_transformer, type: product, index: yilinker_online }
+
+    yilinker_core.service.elastica.transformer.elastica_to_manufacturer_product:
+        class: Yilinker\Bundle\CoreBundle\Services\Search\Transformers\ElasticaToManufacturerProductTransformer
+        arguments: ['@doctrine', '', {identifier:manufacturerProductId}]
+        calls:
+            - [setPropertyAccessor, ['@fos_elastica.property_accessor']]
+        tags:
+            - { name: fos_elastica.elastica_to_model_transformer, type: product, index: yilinker_online }
+
+
+    yilinker_core.service.elastica.transformer.store_to_elastica:
+        class: Yilinker\Bundle\CoreBundle\Services\Search\Transformers\StoreToElasticaTransformer
+        calls:
+            - [setServiceContainer, ['@service_container']]
+
+    yilinker_core.service.elastica.transformer.manufacturer_product_to_elastica:
+        class: Yilinker\Bundle\CoreBundle\Services\Search\Transformers\ManufacturerProductToElasticaTransformer
+        calls:
+            - [setServiceContainer, ['@service_container']]
+
+    yilinker_core.service.elastica.transformer.product_to_elastica:
+        class: Yilinker\Bundle\CoreBundle\Services\Search\Transformers\ProductToElasticaTransformer
+        calls:
+            - [setServiceContainer, ['@service_container']]
+
+    yilinker_core.service.elastica.transformer.inhouse_product_user_to_elastica:
+        class: Yilinker\Bundle\CoreBundle\Services\Search\Transformers\InhouseProductUserToElasticaTransformer
+        calls:
+            - [setContainer, ['@service_container']]
+
+    yilinker_core.service.elastica.transformer.manufacturerproductunit_to_elastica:
+        class: Yilinker\Bundle\CoreBundle\Services\Search\Transformers\ManufacturerProductUnitToElasticaTransformer
+        calls:
+            - [setServiceContainer, ['@service_container']]
+
+    yilinker_core.service.account_manager:
+        class: Yilinker\Bundle\CoreBundle\Services\User\AccountManager
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @yilinker_core.service.upload.upload
+            - @yilinker_core.service.user.verification
+            - @yilinker_core.service.user.mailer
+            - @photo_storage_filesystem
+            - @yilinker_core.service.sms.one_time_password
+            - @yilinker_core.service.jwt_manager
+            - @yilinker_core.service.yla_service
+            - @yilinker_core.security.authentication
+            - @kernel
+            - @yilinker_core.service.earner
+            - @yilinker_core.service.user_point_referral_manager
+            - @yilinker_core.service.accreditation_application_manager
+
+    yilinker_core.service.user_point_referral_manager:
+        class: Yilinker\Bundle\CoreBundle\Services\User\UserPointReferralManager
+        arguments:
+            - @doctrine.orm.entity_manager
+
+    yilinker_core.service.user.mailer:
+        class: Yilinker\Bundle\CoreBundle\Services\Mailer\Mailer
+        arguments:
+            - @service_container
+            - @templating
+            - @templating.helper.assets
+            - %mailer_user%
+
+    yilinker_core.service.dispute_manager:
+        class: Yilinker\Bundle\CoreBundle\Services\Dispute\DisputeManager
+        arguments: ['@doctrine.orm.entity_manager']
+
+    yilinker_core.service.dispute:
+        class: Yilinker\Bundle\CoreBundle\Services\Dispute\DisputeService
+        calls:
+            - [setContainer, ['@service_container']]
+
+    yilinker_core.service.promo_event:
+        class: Yilinker\Bundle\CoreBundle\Services\PromoEvent\PromoEventService
+        arguments: ['@doctrine.orm.entity_manager']
+
+    yilinker_core.service.node.socket:
+        class: Yilinker\Bundle\CoreBundle\Services\Node\SocketIOService
+
+    yilinker_core.logistics.yilinker.express:
+        class: Yilinker\Bundle\CoreBundle\Services\Logistics\Yilinker\Express
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @templating.helper.assets
+            - @service_container
+
+    yilinker_core.service.accreditation_application_manager:
+        class: Yilinker\Bundle\CoreBundle\Services\AccreditationApplication\AccreditationApplicationManager
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @yilinker_core.service.user_address.user_address
+            - @yilinker_core.service.store_category_service
+            - @yilinker_core.service.qr_code.generator
+            - @fos_elastica.object_persister.yilinker_online.store
+            - @yilinker_core.service.sms.sms_service
+
+    yilinker_core.service.jwt_manager:
+        class: Yilinker\Bundle\CoreBundle\Services\Jwt\JwtManager
+        calls:
+            - [setContainer, ['@service_container']]
+
+    yilinker_core.service.yla_service:
+        class: Yilinker\Bundle\CoreBundle\Services\Yilinker\Account
+        calls:
+            - [setContainer, ['@service_container']]
+
+    yilinker_core.service.bank.bank:
+        class: Yilinker\Bundle\CoreBundle\Services\Bank\BankService
+        arguments:
+            - @doctrine.orm.entity_manager
+
+    yilinker_core.service.bank_account.bank_account:
+        class: Yilinker\Bundle\CoreBundle\Services\Bank\BankAccountService
+        arguments: ['@doctrine.orm.entity_manager']
+
+    yilinker_core.import_export.yilinker.trading:
+      class: Yilinker\Bundle\CoreBundle\Services\ImportExport\Yilinker\Trading
+      arguments:
+          - @doctrine.orm.entity_manager
+          - @yilinker_core.service.transaction
+          - @yilinker_core.service.location.location
+          - @yilinker_core.service.search.manufacturer_product_unit
+          - %default_currency_code%
+          - null
+          - @yilinker_core.service.image_manipulation
+          - @photo_storage_filesystem
+          - @yilinker_core.service.predis.predis_service
+          - %kernel.root_dir%
+
+    yilinker_core.service.store_category_service:
+        class: Yilinker\Bundle\CoreBundle\Services\StoreCategory\StoreCategoryService
+        arguments:
+            - @doctrine.orm.entity_manager
+
+    yilinker_core.service.product_category:
+        class: Yilinker\Bundle\CoreBundle\Services\Product\ProductCategoryService
+        arguments: ['@doctrine.orm.entity_manager']
+
+    yilinker_core.service.promo_manager:
+        class: Yilinker\Bundle\CoreBundle\Services\Promo\PromoManager
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @router
+            - @templating.helper.assets
+            - @yilinker_core.translatable.listener
+
+    yilinker_core.service.xml_resource_service:
+        class: Yilinker\Bundle\CoreBundle\Services\Cms\ResourceService
+        arguments:
+            - @kernel
+            - @service_container
+
+    yilinker_core.service.pages.xml_parser:
+        class: Yilinker\Bundle\CoreBundle\Services\Cms\XMLParserService
+
+    yilinker_core.service.pages.pages:
+        class: Yilinker\Bundle\CoreBundle\Services\Cms\PagesService
+        arguments:
+            - @router
+            - @templating.helper.assets
+            - @yilinker_core.service.pages.xml_parser
+            - @yilinker_core.service.xml_resource_service
+            - @doctrine.orm.entity_manager
+            - @yilinker_core.service.promo_manager
+            - @yilinker_core.service.product.product
+            - @yilinker_core.translatable.listener
+        calls:
+            - [setContainer, ['@service_container']]
+
+    yilinker_core.service.cms.product_lists:
+        class: Yilinker\Bundle\CoreBundle\Services\Cms\ProductListsService
+        calls:
+            - [setContainer, ['@service_container']]
+
+    yilinker_core.service.cms.brand_lists:
+        class: Yilinker\Bundle\CoreBundle\Services\Cms\BrandListsService
+        calls:
+            - [setContainer, ['@service_container']]
+
+    yilinker_core.service.cms.store_lists:
+        class: Yilinker\Bundle\CoreBundle\Services\Cms\StoreListsService
+        calls:
+            - [setContainer, ['@service_container']]
+
+    yilinker_core.service.sms.one_time_password:
+        class: Yilinker\Bundle\CoreBundle\Services\SMS\OneTimePasswordService
+        calls:
+            - [setContainer, ['@service_container']]
+
+    yilinker_core.service.earner:
+        class: Yilinker\Bundle\CoreBundle\Services\Earner\EarnerFactory
+        calls:
+            - [setEntityManager, ['@doctrine.orm.entity_manager']]
+
+    yilinker_core.service.sms.sender:
+        class: Yilinker\Bundle\CoreBundle\Services\SMS\SmsSender
+        calls:
+            - [setContainer, ['@service_container']]
+            - [setSession, ['@session']]
+
+    yilinker_core.service.earning.group:
+        class: Yilinker\Bundle\CoreBundle\Services\EarningGroup\EarningGroupService
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @templating.helper.assets
+
+    yilinker_core.service.product_remarks:
+        class: Yilinker\Bundle\CoreBundle\Services\Product\ProductRemarksService
+        arguments:
+            - @doctrine.orm.entity_manager
+
+    yilinker_core.service.image_uploader:
+        class: Yilinker\Bundle\CoreBundle\Services\Upload\ImageUploader
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @photo_storage_filesystem
+            - @yilinker_core.service.image_manipulation
+            - @templating.helper.assets
+
+    yilinker_core.service.pushnotification.manager:
+        class: Yilinker\Bundle\CoreBundle\Services\Device\PushNotificationManager
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @router
+            - @security.token_storage
+            - '%frontend_hostname%'
+
+    yilinker_core.service.pushnotification.apple:
+        class: Yilinker\Bundle\CoreBundle\Services\Device\ApplePushNotification
+        arguments:
+            - '%apple_gateway_url%'
+            - '%buyer_app_apple_pem_location%'
+            - '%buyer_app_apple_pem_passphrase%'
+            - '%kernel.root_dir%'
+            - @yilinker_core.service.pushnotification.manager
+
+    yilinker_core.service.pushnotification.google:
+        class: Yilinker\Bundle\CoreBundle\Services\Device\GooglePushNotification
+        arguments:
+            - '%google_gateway_url%'
+            - '%gcm_buyer_android_appid%'
+            - '%gcm_seller_android_appid%'
+            - '%kernel.root_dir%'
+            - @yilinker_core.service.pushnotification.manager
+
+    yilinker_core.logger:
+        class: Yilinker\Bundle\CoreBundle\Services\Yilinker\Logger
+        arguments: ['@logger']
+        tags:
+            - {name: monolog.logger, channel: yilinker_logger}
+
+    yilinker_core.express_api_logger:
+        class: Yilinker\Bundle\CoreBundle\Services\Yilinker\Logger
+        arguments: ['@logger']
+        tags:
+            - {name: monolog.logger, channel: express_api_logger}

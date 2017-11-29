@@ -1,0 +1,30 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductCategoryTranslation:
+    type: entity
+    table: null
+    id:
+        productCategoryTranslationId:
+            type: integer
+            id: true
+            column: product_category_translation_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            length: 100
+        description:
+            length: 2048
+    manyToOne:
+        productCategory:
+            targetEntity: ProductCategory
+            joinColumn:
+                name: product_category_id
+                referencedColumnName: product_category_id
+            orphanRemoval: false
+            inversedBy: productCategoryTranslations
+        language:
+            targetEntity: Language
+            joinColumn:
+                name: language_id
+                referencedColumnName: language_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,418 @@
+
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+
+{% block title %}
+    {% trans %}Resolution Center{% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="profile">
+        <div class="dashboard-wrapper">
+            
+            {{ render(controller('YilinkerFrontendBundle:Dashboard:renderLeftWingMenu', {'currentRoute': app.request.attributes.get('_route') } )) }}
+
+
+            <div class="dashboard-body-container white">
+                <div class="dashboard-component top">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">Resolution Center</span>
+                        </div>
+                    </div>
+                    <div class="component-content">
+                        <p class="about-my-points light">
+                            {% trans %}We understand how frustrating it can be when there's a problem with one of your transactions. One of the benefits of using Aeneasusa is that you can take advantage of our Resolution Center to help you track, manage and resolve it as quickly as possible with absolute transparency.{% endtrans %}<br/><br/>
+                            {% trans %}Before filing for a dispute, please make sure that you've exhausted all efforts in reaching an agreement with the the other party. Decisions made by our specialists will be deemed final and will only be reopened when new evidence has been presented by one of the parties. We try to resolve cases as quickly as possible, but some may take longer depending on its circumstances.{% endtrans %}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="dashboard-component">
+                    <div class="component-content align-center">
+                        <button class="button blue large uppercase new-case-modal-trigger">
+                            {% trans %}File a dispute{% endtrans %}
+                        </button>
+                    </div>
+                </div>
+                <div class="dashboard-component bottom">
+                     <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">{% trans %}Cases{% endtrans %}</span>
+                        </div>
+                    </div>
+                    <div class="component-content component-control-container">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="input-icon left input-inner-button search-file-case">
+                                    <i class="icon icon-search"></i>
+                                    <input id="txt-search-keyword" class="form-ui" placeholder="Search By Case Id" type="text">
+                                    <button class="button gray uppercase" id="btn-search-keyword">Search</button>
+                                </div>
+                            </div>
+                            <div class="col-md-5"></div>
+                            <div class="col-md-2">
+                                <div class="form">
+                                    <select class="form-ui ui single searchable selection dropdown inverted no-margin" id="filter-by-status-type">
+                                        <option value="">Filter</option>
+                                        {% for disputeType in disputeTypeStatuses %}
+                                        <option value="{{ disputeType.disputeStatusTypeId }}">{{ disputeType.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-case-table">
+                        <table class="table table-striped table-recent-order">
+                            <thead>
+                            <tr>
+                                <th width="15%">Case ID</th>
+                                <th width="40%">Dispute Title</th>
+                                <th width="15%" class="align-center">Status</th>
+                                <th width="15%">Other Party</th>
+                                <th  width="15%">Date Opened</th>
+                            </tr>
+                            </thead>
+                            {% if disputeContainer|length > 0 %}
+                            <tbody>
+                            {% for dispute in disputeContainer %}
+                                <tr data-dispute-id="{{ dispute.disputeId }}">
+                                    <td>
+                                        <a class="breakword bold case-modal-trigger">{{ dispute.ticket }}</a>
+                                    </td>
+                                    <td>
+                                        <a class="breakword case-modal-trigger">{{ dispute.description|default('None') }}</a>
+                                    </td>
+                                    <td class="align-center">
+                                        {% if dispute.disputeStatusTypeId == 1 %}
+                                            <span class="badge blue">{% trans %}Open{% endtrans %}</span>
+                                        {% else %}
+                                            <span class="badge red">{% trans %}Closed{% endtrans %}</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ dispute.disputeeFullName|default('None') }}</td>
+                                    <td align="right">
+                                        {{ dispute.lastModifiedDate|date('M d, Y') }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            {% else %}
+                            <tfoot>
+                                <tr>
+                                    <td class="align-center" colspan="5">No case found</td>
+                                </tr>
+                            </tfoot>
+                            {% endif %}
+                        </table>
+                    </div>
+                    <!-- Bottom Tools -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box-upper">
+                                <div class="box-blank align-center">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: disputeCount, perPage: pageLimit}) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Start of new case modal-->
+            <div class="ui modal small modal coupled new-case-modal">
+                <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+                <div class="content">
+                    <div class="form">
+                        <label for="" class="required">Dispute Title</label>
+                        <input type="text" class="form-ui" placeholder="Enter title here" id="disputeTitle" />
+                    </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="" class="required">
+                                    {% trans %}Dispute Type{% endtrans %}
+                                </label>
+                                <select class="form-ui ui single selection dropdown" id="disputeOrderProductStatus">
+                                    <option value="">{% trans %}Select dispute type here{% endtrans %}</option>
+                                    {% for disputeStatus in disputeStatuses %}
+                                        <option value="{{ disputeStatus.orderProductStatusId }}">{{ disputeStatus.status }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="" class="required">
+                                    {% trans %}Transaction No.{% endtrans %}
+                                </label>
+                                <select class="form-ui ui search single selection dropdown" id="disputeUserOrderId">
+                                    <option value="">{% trans %}Select transaction here{% endtrans %}</option>
+                                    {% for userOrder in userOrderEntity %}
+                                        <option value="{{ userOrder.order_id }}">{{ userOrder.invoice_number }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-12 hidden" id="reason-container">
+                                <label class="required">
+                                    Reason
+                                </label>
+                                <div id="div-reason-for-refund" class="drop-down-reason">
+                                    <select class="form-ui ui single selection dropdown" id="drop-down-reason-for-refund">
+                                        <option value="">{% trans %}Select reason here{% endtrans %}</option>
+                                        {% if reasonsForRefund|length > 0 %}
+                                        {% for reason in reasonsForRefund.buyer %}
+                                            <option value="{{ reason.id }}">{{ reason.reason}}</option>
+                                        {% endfor %}
+                                        {% endif %}
+                                    </select>
+                                </div>
+                                <div id="div-reason-for-replacement" class="drop-down-reason">
+                                    <select class="form-ui ui single selection dropdown" id="drop-down-reason-for-replacement">
+                                        <option value="">{% trans %}Select reason here{% endtrans %}</option>
+                                        {% if reasonsForReplacement|length > 0 %}
+                                        {% for reason in reasonsForReplacement.buyer %}
+                                            <option value="{{ reason.id }}">{{ reason.reason}}</option>
+                                        {% endfor %}
+                                        {% endif %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form" id="orderProductDiv">
+                        <label for="" class="required">{% trans %}Select item to dispute:{% endtrans %} </label>
+                        <div class="row" id="orderProductContainer">
+                        </div>
+                    </div>
+                    <div class="form">
+                        <label for="" class="required">
+                            {% trans %}Remarks{% endtrans %}
+                        </label>
+                        <textarea class="form-ui" placeholder="Leave your remarks here" id="disputeRemarks"></textarea>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="button cancel uppercase">{% trans %}Cancel{% endtrans %}</button>
+                    <button class="button blue submit-to-success uppercase" id="fileDisputeBtn">
+                        <span class="text">{% trans %}Submit{% endtrans %}</span>
+                        <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="" />
+                    </button>
+                </div>
+            </div>
+            <!--End of new case modal-->
+
+            <!--Start of modal success new case-->
+            <div class="ui modal small coupled success-new-case-modal">
+                <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h3 class="ui header">
+                        <i class="icon icon-circle-check"></i>
+                            <div class="content">
+                                {% trans %}Your case has been successfully submitted{% endtrans %}
+                            <div class="sub-header">
+                                {% trans %}To be approved by Admin.{% endtrans %}
+                            </div>
+                        </div>
+                    </h3>
+                </div>
+                <div class="actions">
+                    <button class="button confirm close">{% trans %}Okay{% endtrans %}</button>
+                </div>
+            </div>
+            <!--End of modal success new case-->
+
+            <!--Start of closed case modal-->
+            {% for dispute in disputeContainer %}
+            <div class="ui modal small modal mobile-case-modal case-modal-{{ dispute.disputeId }}">
+                <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+                <div class="header">
+                    <div class="header">
+                        <h4 class="no-margin">
+                            Your Case ID: {{ dispute.ticket }}
+                            <small class="light pull-right default-color mrg-top-5">{% trans %}Status:{% endtrans %}
+                                {% if dispute.disputeStatusTypeId == 1 %}
+                                <span class="blue-color bold">{% trans %}OPEN{% endtrans %}</span>
+                                {% else %}
+                                    <span class="red-color bold">{% trans %}CLOSED{% endtrans %}</span>
+                                {% endif %}
+                            </small>
+                        </h4>
+                        <div class="ui tabular menu">
+                            <div class="item active" data-tab="dispute-details-tab">Dispute Details</div>
+                            <div class="item" data-tab="response-tab">Remarks</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content">
+                    <div class="ui tab active" data-tab="dispute-details-tab">
+                        <div class="form">
+                            <label for="" class="required">{% trans %}Dispute Title{% endtrans %}</label>
+                            <input type="text" class="form-ui" placeholder="Enter title here" value="{{ dispute.description }}" readonly>
+                        </div>
+                        <div class="form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="">
+                                        Dispute Type
+                                    </label>
+                                    <input type="text" class="form-ui" placeholder="Enter title here" value="{{ dispute.orderProductStatus }}" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="">
+                                        Transaction No.
+                                    </label>
+                                    <input type="text" class="form-ui" placeholder="Enter title here" value="{{ dispute.transaction is defined ? dispute.transaction.invoiceNumber: '' }}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form">
+                            <label for="">Reason: </label>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-ui">{{ dispute.reason }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {% if dispute.disputeStatusTypeId == 2 %}
+                            <p class="bold mrg-bt-10">Items: </p>
+                            <div class="ui styled fluid accordion">
+                                {% for status, voucherGrouped in dispute.object.groupedDisputeDetails %}
+                                    <div class="title">
+                                        <i class="dropdown icon"></i>
+                                        {{ status }}
+                                    </div>
+                                    <div class="content">
+                                        <div class="transition visible" style="display: block !important;">
+                                            {% for voucherCode, disputeDetails in voucherGrouped %}
+                                                {% if voucherCode %}
+                                                    <div class="voucher-group">
+                                                        <p class="bold mrg-bt-10">
+                                                            {% set voucher = dispute.object.voucherCodes[voucherCode].voucher %}
+                                                            Replaced by Voucher Code: {{ voucherCode }} worth {{ voucher.value(true) }} valid until {{ voucher.endDate|date('m/d/Y') }}
+                                                        </p>
+                                                        {% for disputeDetail in disputeDetails %}
+                                                            <div class="item-picker-container pd-left-20">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="item">
+                                                                            <label for="">{{ disputeDetail.orderProduct.productName }}</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                {% else %}
+                                                    {% for disputeDetail in disputeDetails %}
+                                                        <div class="item-picker-container">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="item">
+                                                                        <label for="">{{ disputeDetail.orderProduct.productName }}</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="ui tab" data-tab="response-tab">
+                        <p class="bold mrg-bt-5">
+                            Your Remarks:
+                        </p>
+                        <div class="form-ui">
+                            {% if dispute.message is defined %}
+                                {{dispute.message[0].message}}
+                            {% else %}
+                                <i>No remarks</i>
+                            {% endif %}
+                        </div>
+                        <p class="bold mrg-top-20 mrg-bt-5">
+                            Response from Administrator:
+                        </p>
+                            {% if dispute.message is defined and dispute.message|length - 1 > 0 %}
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        {% for disputeMessage in dispute.message %}
+                                            {% if disputeMessage.isAdmin %}
+                                                <div class="panel-item row">
+                                                    <span class="col-md-1 align-right">
+                                                        <span class="admin-notif-image">
+                                                            <img src="{{ asset('images/logo-icon.png') }}" alt="Yilinker">
+                                                        </span>
+                                                    </span>
+                                                    <span class="col-md-11">
+                                                        <p>{{disputeMessage.message}}</p>
+                                                        <span class="admin-notif-txt">
+                                                            Posted By:
+                                                            <strong>{{disputeMessage.authorEntity.fullName}}</strong>
+                                                            <span>{{disputeMessage.dateAdded|date('Y/m/d h:i A')}}</span>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <i>No response from admin yet.</i>
+                            {% endif %}
+                    </div>
+                    
+                </div>
+                <div class="actions">
+                    <span class="button cancel uppercase">Back</span>
+                </div>
+            </div>
+            {% endfor %}
+            <!--End of closed case modal-->
+
+            {{ include('YilinkerFrontendBundle:Profile:profile_right_wing_notifications.html.twig') }}
+        </div>
+
+        {# START MODAL = MESSAGE CONTAINER #}
+        <div class="ui modal small coupled" id="modal-message-container">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h3 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                    <div class="content">
+                        <div class="header-content"></div>
+                        <div class="sub-header detail-content"></div>
+                    </div>
+                </h3>
+            </div>
+            <div class="actions">
+                <button class="button confirm close">{% trans %}Okay{% endtrans %}</button>
+            </div>
+        </div>
+        {# END MODAL = MESSAGE CONTAINER #}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ include('YilinkerFrontendBundle:Profile:profile_base_js.html.twig') }}
+    <script src="{{ asset('js/bower/tab.min.js') }}"></script>
+    <script src="{{ asset('js/src/universal.js') }}"></script>
+    <script src="{{ asset('js/bower/accordion.min.js') }}"></script>
+    <script src="{{ asset('js/src/frontend/profile-resolution-center.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,9 @@
+Yilinker\Bundle\CoreBundle\Entity\UserPointRegistration:
+    type: entity
+    manyToOne:
+        source:
+            targetEntity: User
+            joinColumn:
+                name: table_id
+                referencedColumnName: user_id
+            orphanRemoval: false

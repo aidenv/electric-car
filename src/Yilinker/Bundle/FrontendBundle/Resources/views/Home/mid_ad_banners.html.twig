@@ -1,0 +1,13 @@
+<div class="home-section">
+    <div class="no-gutter-section">
+        <div class="row no-gutter-mobile">
+            {% for banner in section.banners %}
+                <div class="col-xs-6">
+                    <a href="{{banner.target}}">
+                        <img src="{{ banner.image }}" title="{{banner.title}}" alt="{{banner.alt}}" class="img-full-width"/>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

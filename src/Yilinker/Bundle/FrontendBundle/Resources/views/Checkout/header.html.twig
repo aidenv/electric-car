@@ -1,0 +1,237 @@
+<div class="navbar navbar-simple-default" data-base-uri="{{ baseUri is defined ? baseUri: '' }}" data-node-port="{{ nodePort is defined ? nodePort: '' }}">
+    <div class="container">
+
+        <div class="navbar-group">
+            <div class="navbar-item brand">
+                <a href="{{ path('home_page') }}">
+                    <img src="{{ asset('images/logo.png') }}" alt="YiLinker" class="img-responsive"/>
+                </a>
+            </div>
+                <div class="navbar-item checkout-menu">
+                    <ul class="list-unstyled list-checkout-menu">
+                        {% if active != 'overview' %}
+                            {% set hasUser = (app.user or app.session.get('checkout/userId')) %}
+                            {% set hasActive = false %}
+                            {% if active == 'type' %}
+                                {% set activeTxt = 'active' %}
+                                {% set hasActive = true %}
+                            {% else %}
+                                {% set activeTxt = '' %}
+                            {% endif %}
+                            <li class="{{ activeTxt }} {{ hasUser ? 'done': '' }}">
+                                <a href="{{ path('checkout_type') }}">
+                                    1. {% trans %} Checkout Type {% endtrans %}
+                                </a>
+                            </li>
+                            {% set addressSelected = (app.session.get('checkout/userAddressId') is not null and app.session.get('checkout/userAddressId')) %}
+                            {% if active == 'summary' %}
+                                {% set activeTxt = 'active' %}
+                                {% set hasActive = true %}
+                            {% else %}
+                                {% set activeTxt = '' %}
+                            {% endif %}
+                            <li class="{{ activeTxt }} {{ addressSelected ? 'done': '' }}">
+                                {% if hasActive and activeTxt != 'active' %}
+                                    <span>
+                                        2. {% trans %} Summary {% endtrans %}
+                                    </span>
+                                {% else %}
+                                    <a href="{{ path('checkout_summary') }}">
+                                        2. {% trans %} Summary {% endtrans %}
+                                    </a>
+                                {% endif %}
+                            </li>
+                            {% if active == 'payment' %}
+                                {% set activeTxt = 'active' %}
+                                {% set hasActive = true %}
+                            {% else %}
+                                {% set activeTxt = '' %}
+                            {% endif %}
+                            <li class="{{ activeTxt }}">
+                                {% if hasActive and activeTxt != 'active' %}
+                                    <span>
+                                        3. {% trans %} Payment {% endtrans %}
+                                    </span>
+                                {% else %}
+                                    <a href="{{ path('checkout_payment') }}">
+                                        3. {% trans %} Payment {% endtrans %}
+                                    </a>
+                                {% endif %}
+                            </li>
+                            {% if active == 'overview' %}
+                                {% set activeTxt = 'active' %}
+                            {% else %}
+                                {% set activeTxt = '' %}
+                            {% endif %}
+                            <li class="{{ activeTxt }}">
+                                {% if hasActive and activeTxt != 'active' %}
+                                    <span>
+                                        4. {% trans %} Overview {% endtrans %}
+                                    </span>
+                                {% else %}
+                                    <a href="{{ path('checkout_overview') }}">
+                                        4. {% trans %} Overview {% endtrans %}
+                                    </a>
+                                {% endif %}
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            {% if app.user %}
+                <div class="navbar-item user-link">
+                    <span class="item-counter unread-messages-badge"  {% if messages == 0 %} style="display:none;" {% endif %}>
+                        {{ messages }}
+                    </span>
+                    <div class="navbar-dropdown">
+                        <div class="user-image-container">
+                            {% if app.user.primaryImage %}
+                                <img data-token="{{ token }}" src="{{ asset(app.user.primaryImage.getImageLocationBySize("thumbnail"), 'user') }}" alt="{{ app.user.email }}">
+                            {% else %}
+                                <img data-token="{{ token }}" src="{{ asset('images/default-buyer.png') }}" alt="{{ app.user.email }}">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="navbar-dropdown-container hidden">
+                        <ul class="list-unstyled">
+                            <li><a href="{{ path('profile_information') }}">{% trans %} Account Management {% endtrans %}</a></li>
+                            <li><a href="{{ path('profile_settings') }}">{% trans %} Settings {% endtrans %}</a></li>
+                            <li>
+                                <a href="{{ path('profile_messages') }}">{% trans %} Messages {% endtrans %}
+                                    <span class="badge pull-right unread-messages-text" {% if messages == 0 %} style="display:none;" {% endif %}>
+                                        {{ messages }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li><a href="{{ path('profile_help') }}">{% trans %} Help {% endtrans %}</a></li>
+                            <li><a href="{{ path('user_logout') }}">{% trans %} Logout {% endtrans %}</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            {% else %}
+                <div class="navbar-item sign-in-link">
+                     <a class="button default" href="{{ path('user_buyer_register') }}">{% trans %} Sign-Up {% endtrans %}</a>
+                <a class="button default" href="{{ path('user_buyer_login') }}">{% trans %} Log-In {% endtrans %}</a>
+                </div>
+            {% endif %}
+        </div>
+        <div class="checkout-mobile-navbar-group">
+            <div class="checkout-mobile-nav">
+                <span class="icon-burger"></span>
+            </div>
+            <div href="" class="mobile-logo-wrapper">
+                <a href="{{ path('home_page') }}">
+                    <img src="{{ asset('images/logo-main-inverted.png') }}" alt="YiLinker">
+                </a>
+            </div>
+            <div class="user-mobile">
+                {% if app.user %}
+                <a>
+                    {% if app.user.primaryImage %}
+                        <img src="{{ asset(app.user.primaryImage.getImageLocationBySize("thumbnail"), 'user') }}" alt="{{ app.user.email }}">
+                    {% else %}
+                        <img src="{{ asset('images/icon-user2.png') }}" alt="{{ app.user.email }}">
+                    {% endif %}
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="checkout-mobile-side-nav">
+    {% if app.user %}
+        <ul class="list-unstyled">
+            <li><a href="{{ path('profile_information') }}">{% trans %} Account Management {% endtrans %}</a></li>
+            <li><a href="{{ path('profile_settings') }}">{% trans %} Settings {% endtrans %}</a></li>
+            <li>
+                <a href="{{ path('profile_messages') }}">{% trans %} Messages {% endtrans %}
+                    <span class="badge pull-right unread-messages-text" {% if messages == 0 %} style="display:none;" {% endif %}>
+                        {{ messages }}
+                    </span>
+                </a>
+            </li>
+            <li><a href="{{ path('profile_help') }}">{% trans %} Help {% endtrans %}</a></li>
+            <li><a href="{{ path('user_logout') }}">{% trans %} Logout {% endtrans %}</a></li>
+        </ul>
+    {% else %}
+        <ul class="list-unstyled">
+            <li>
+                <a href="{{ path('user_buyer_register') }}">{% trans %} Sign-Up {% endtrans %}</a>
+            </li>
+            <li>
+                <a href="{{ path('user_buyer_login') }}">{% trans %} Log-In {% endtrans %}</a>
+            </li>
+        </ul>
+    {% endif %}
+</div>
+<div class="checkout-mobile-menu">
+    <ul class="list-unstyled list-checkout-menu">
+        {% if active != 'overview' %}
+            {% set hasUser = (app.user or app.session.get('checkout/userId')) %}
+            {% set hasActive = false %}
+            {% if active == 'type' %}
+                {% set activeTxt = 'active' %}
+                {% set hasActive = true %}
+            {% else %}
+                {% set activeTxt = '' %}
+            {% endif %}
+            <li class="{{ activeTxt }} {{ hasUser ? 'done': '' }} col-xs-3">
+                <a href="{{ path('checkout_type') }}">
+                    {% trans %} Checkout Type {% endtrans %}<em></em><i></i><b></b>
+                </a>
+            </li>
+            {% set addressSelected = (app.session.get('checkout/userAddressId') is not null and app.session.get('checkout/userAddressId')) %}
+            {% if active == 'summary' %}
+                {% set activeTxt = 'active' %}
+                {% set hasActive = true %}
+            {% else %}
+                {% set activeTxt = '' %}
+            {% endif %}
+            <li class="{{ activeTxt }} {{ addressSelected ? 'done': '' }} col-xs-3">
+                {% if hasActive and activeTxt != 'active' %}
+                    <span>
+                        {% trans %} Summary {% endtrans %}<em></em><i></i><b></b>
+                    </span>
+                {% else %}
+                    <a href="{{ path('checkout_summary') }}">
+                        {% trans %} Summary {% endtrans %}<em></em><i></i><b></b>
+                    </a>
+                {% endif %}
+            </li>
+            {% if active == 'payment' %}
+                {% set activeTxt = 'active' %}
+                {% set hasActive = true %}
+            {% else %}
+                {% set activeTxt = '' %}
+            {% endif %}
+            <li class="{{ activeTxt }} col-xs-3">
+                {% if hasActive and activeTxt != 'active' %}
+                    <span>
+                        {% trans %} Payment {% endtrans %}<em></em><i></i><b></b>
+                    </span>
+                {% else %}
+                    <a href="{{ path('checkout_payment') }}">
+                        {% trans %} Payment {% endtrans %}<em></em><i></i><b></b>
+                    </a>
+                {% endif %}
+            </li>
+            {% if active == 'overview' %}
+                {% set activeTxt = 'active' %}
+            {% else %}
+                {% set activeTxt = '' %}
+            {% endif %}
+            <li class="{{ activeTxt }} col-xs-3">
+                {% if hasActive and activeTxt != 'active' %}
+                    <span>
+                        {% trans %} Overview {% endtrans %}<em></em><i></i><b></b>
+                    </span>
+                {% else %}
+                    <a href="{{ path('checkout_overview') }}">
+                        {% trans %} Overview {% endtrans %}<em></em><i></i><b></b>
+                    </a>
+                {% endif %}
+            </li>
+        {% endif %}
+    </ul>
+</div>

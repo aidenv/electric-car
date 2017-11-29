@@ -1,0 +1,43 @@
+Yilinker\Bundle\CoreBundle\Entity\UserNotification:
+    type: entity
+    table: UserNotification
+    indexes:
+        fk_user_notification_user_id:
+            columns:
+                - user_id
+    id:
+        userNotificationId:
+            type: integer
+            id: true
+            column: user_notification_id
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: notifications
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    fields:
+        affectedTable:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            column: affected_table
+        mysqlAction:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            column: mysql_action
+        data:
+            type: text
+            nullable: false
+            column: activity_data
+        dateAdded:
+            type: datetime
+            nullable: false
+            column: date_added

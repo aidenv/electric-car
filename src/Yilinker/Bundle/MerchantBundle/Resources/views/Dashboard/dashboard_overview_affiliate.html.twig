@@ -1,0 +1,316 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Dashboard Overview
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+    {% set qrCodeLocation = asset(app.user.store.qrCodeLocation, 'qr_code') %}
+    {% set referralUrl = baseUri~path('user_frontend_store', {'slug':app.user.store.storeSlug, 'referralCode':app.user.referralCode}) %}
+
+    <div class="dashboard-body-container white">
+        {% include 'YilinkerMerchantBundle:Dashboard/overview:overview_tabs.html.twig' with {'referralUrl' : referralUrl} %}
+
+        <div class="dashboard-component top">
+            <div class="component-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="semi-bold">Welcome, {{ seller.storename }} <i class="icon icon-check-circle {{ seller.store.accreditationLevel is not empty ? 'sky-blue-color' : 'light-color' }} icon-lg"></i></h3>
+                        <h5>
+                            <label><b>Status: </b></label>{{ seller.store.accreditationLevel is not empty ? 'Verified' : 'Waiting for accreditation' }} |
+                            <label><b>Seller ID: </b> </label>{{ seller.userId }}
+                        </h5>
+                    </div>
+                    <div class="col-md-6">
+                        <!--Stats Table-->
+                        <table class="table-dashboard-header-stat pull-right" width="100%">
+                            <thead>
+                                <tr>
+                                    <!--For Seller Type Total Product, Transactions, Gross Sales-->
+                                    <th width="34%">Affiliate Level <a class="icon icon-info-circle purple-color icon-lg affiliate-level-modal-trigger"></a></th>
+                                    <th width="33%">Available Balance</th>
+                                    <th width="33%">Total Earnings</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width="34%">{{ seller.store.storeLevel.name|default('') }}</td>
+                                    <td width="33%" class="green-color">P {{ availableBalance|number_format(2) }}</td>
+                                    <td width="33%">P {{ totalEarning|number_format(2) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-component">
+            {{ include('YilinkerMerchantBundle:Dashboard:overview/overview_earning_graph.html.twig') }}
+            <div class="component-content">
+                <div class="sales-chart-container mrg-bt-20">
+                    <canvas id="sales" class="sales-chart"></canvas>
+                </div>
+            </div>
+            <div class="component-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="align-center">
+                            <h5 class="uppercase">
+                                Store Space
+                            </h5>
+                            <h3 class="purple-color">
+                                {{ productCount }}/{{ seller.store.storeLevel.storeSpace }}
+                            </h3>
+                            <div class="sales-chart-container mrg-top-20">
+                                <canvas id="pie-store-space" class="sales-chart" data-product-count="{{ productCount }}" data-store-space="{{ seller.store.storeLevel.storeSpace }}"></canvas>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-stats align-center total-sales">
+                                    <a href="javascript:void(0)" class="total-buyer-network-modal-trigger">
+                                        <span class="title align-center">Buyer Networks: <b>{{totalBuyerReferred|default(0)|shorten_number}}</b></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-stats align-center total-affiliate">
+                                    <a href="javascript:void(0)" class="total-affiliate-network-modal-trigger">
+                                        <span class="title align-center">Affiliate Network: <b>{{totalAffiliateReferred|default(0)|shorten_number}}</b></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="box-stats buyer-networks">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="{{ path('dashboard_reports') }}" >
+                                                <span class="icon-reports icon-3x icon-bg"></span>
+                                                <span class="title"> Total Sales </span>
+                                                <!--Implement K for more -->
+                                                <span class="numbers">P {{totalSales|default(0)|shorten_number}}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="{{ path('dashboard_reports') }}" >
+                                                <span class="icon-angle-right icon-3x"></span>
+                                                view
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="box-stats success-transaction">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="{{ path('dashboard_transaction') }}">
+                                                <span class="icon-transaction icon-3x icon-bg"></span> 
+                                                <span class="title"> Success Transaction </span>
+                                                <span class="numbers">{{successfulTransaction|default(0)|shorten_number}}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="{{ path('dashboard_transaction') }}">
+                                                <span class="icon-angle-right icon-3x"></span>
+                                                view
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="box-stats comments">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a class="total-comment-modal-trigger">
+                                                <span class="icon-messages icon-3x icon-bg"></span>
+                                                <span class="title"> Comments </span>
+                                                <span class="numbers">{{commentReceived|default(0)|shorten_number}}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a  class="total-comment-modal-trigger">
+                                                <span class="icon-angle-right icon-3x"></span>
+                                                view
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="box-stats followers">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a class="total-followers-modal-trigger">
+                                                <span class="icon-user icon-3x icon-bg"></span>
+                                                <span class="title"> Followers </span>
+                                                <span class="numbers">{{app.user.followees|length|default(0)|shorten_number}}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a class="total-followers-modal-trigger">
+                                                <span class="icon-angle-right icon-3x"></span>
+                                                view
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-stats align-center total-view">
+                                    <a href="javascript:void(0);">
+                                        <span class="title align-center">Total Site View: <b>{{app.user.store.storeViews|default(0)|shorten_number}}</b></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ include('YilinkerMerchantBundle:Dashboard/overview:overview_earning_list.html.twig') }}
+    </div>
+    <!--Start of modal qr code-->
+    <div class="ui modal small qr-code-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">Your QR Code</h4>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1">
+                    <div class="img-holder img-qr-code-holder">
+                        <img alt="Your QR Code" class="img-auto-place">
+                    </div>
+                </div>
+                <div class="col-md-5 col-md-offset-1">
+                    <div class="mrg-top-20">
+                        <h4 class="mrg-bt-20">Download your QR Code</h4>
+                    </div>
+                    <ul class="list-unstyled list-qr-format">
+                        <li class="download-qr thumb">
+                            <a data-download="{{ app.user.store.storeName }} (240x240)" class="default-color"><i class="icon icon-download icon-lg sky-blue-color"></i> 240 x 240</a>
+                        </li>
+                        <li class="download-qr small">
+                            <a data-download="{{ app.user.store.storeName }} (480x480)" class="default-color"><i class="icon icon-download icon-lg sky-blue-color"></i> 480 x 480</a>
+                        </li>
+                        <li class="download-qr medium">
+                            <a data-download="{{ app.user.store.storeName }} (960x960)" class="default-color"><i class="icon icon-download icon-lg sky-blue-color"></i> 960 x 960</a>
+                        </li>
+                        <li class="download-qr large">
+                            <a data-download="{{ app.user.store.storeName }} (1920x1920)" class="default-color"><i class="icon icon-download icon-lg sky-blue-color"></i> 1920 x 1920</a>
+                        </li>
+                        <li class="download-qr svg">
+                            <a data-download="{{ app.user.store.storeName }} (SVG)" class="default-color"><i class="icon icon-download icon-lg sky-blue-color"></i> SVG Format</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of modal qr code-->
+
+    <!--Start of modal total comments-->
+    {% include 'YilinkerMerchantBundle:Dashboard/Partial:overview_comment_modal.html.twig' %}
+    <!--End of modal total comments-->
+
+    <!--Start of modal total followers-->
+    {% include 'YilinkerMerchantBundle:Dashboard/Partial:overview_follow_modal.html.twig' %}
+    <!--End of modal total followers-->
+
+    <!--Start of modal total affiliate network-->
+        {% set referralUrl = url('user_affiliate_register', {'referralCode':app.user.referralCode}) %}
+        {% include 'YilinkerMerchantBundle:Dashboard/Partial:partial.how_to_earn_modal.html.twig' with {'forAffiliate' : true, 'referralUrl' : referralUrl} %}
+    <!--End of modal total affiliate network-->
+
+    <!--Start of modal total buyer network-->
+        {% set referralUrl = baseUri~path('user_frontend_register', {'referralCode':app.user.referralCode}) %}
+        {% include 'YilinkerMerchantBundle:Dashboard/Partial:partial.how_to_earn_modal.html.twig' with {'forAffiliate' : false, 'referralUrl' : referralUrl} %}
+    <!--End of modal total buyer network-->
+
+    <!--Start of modal affiliate level-->
+    <div class="ui modal small affiliate-level-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">Affiliate Level</h4>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table basic table-affiliate-level-modal">
+                        <thead>
+                            <tr class="inverted">
+                                <th width="30%">Affiliate Level</th>
+                                <th width="30%">Total Earning</th>
+                                <th width="30%">Store Space</th>
+                                <th width="10%">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% if storeLevels != null and storeLevels|length > 0 %}
+                            {% for storeLevel in storeLevels %}
+                                <tr class="inverted">
+                                    <td>{{ storeLevel.name }}</td>
+                                    <td>
+                                        {% if loop.index == 1 %}
+                                            Below P {{ storeLevel.storeEarning.max|number_format(2) }}
+                                        {% else %}
+                                            P {{ storeLevel.storeEarning.min|number_format(2) }} {{ loop.index == storeLevels|length ? 'Above' : 'to P ' ~ storeLevel.storeEarning.max|number_format(2) }}
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ storeLevel.storeSpace }} Products</td>
+                                    <td>
+                                        {% if storeLevel.isCurrent %}
+                                            <p class="purple-color">Current Level</p>
+                                        {% else %}
+                                            &nbsp;
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of modal affiliate level-->
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/bower/filesaver.min.js') }}"></script>
+    <script src="{{ asset('js/bower/fabric.min.js') }}"></script>
+    <script src="{{ asset('js/bower/chart.min.js') }}"></script>
+    <script src="{{ asset('js/bower/moment.min.js') }}"></script>
+    <script src="{{ asset('js/bower/daterangepicker.js') }}"></script>
+    <script src="{{ asset('js/bower/zeroclipboard.min.js') }}"></script>
+    <script src="{{ asset('js/src/utility/social/facebook.js') }}"></script>
+    <script src="{{ asset('js/src/utility/social/twitter.js') }}"></script>
+    <script src="{{ asset('js/src/utility/social/google.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/dashboard-overview.js') }}"></script>
+{% endblock %}

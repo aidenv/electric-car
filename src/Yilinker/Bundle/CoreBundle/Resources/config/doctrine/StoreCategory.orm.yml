@@ -1,0 +1,42 @@
+Yilinker\Bundle\CoreBundle\Entity\StoreCategory:
+    type: entity
+    table: StoreCategory
+    indexes:
+        fk_store_category_user_id_user_userid_idx:
+            columns:
+                - store_id
+        fk_store_category_product_category_id_product_category_product_category_id_idx:
+            columns:
+                - product_category_id
+    id:
+        storeCategoryId:
+            type: integer
+            column: store_category_id
+            id: bigint
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateAdded:
+            type: datetime
+            column: date_added
+            nullable: true
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+            nullable: true
+    manyToOne:
+        store:
+            targetEntity: Store
+            joinColumn:
+                name: store_id
+                referencedColumnName: store_id
+            orphanRemoval: false
+            inversedBy: storeCategories
+        productCategory:
+            targetEntity: ProductCategory
+            joinColumn:
+                name: product_category_id
+                referencedColumnName: product_category_id
+            orphanRemoval: false
+
+    lifecycleCallbacks: {  }

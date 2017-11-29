@@ -1,0 +1,10 @@
+Yilinker\Bundle\CoreBundle\Entity\RefundNote:
+    type: entity
+    manyToOne:
+        source:
+            targetEntity: Payout
+            inversedBy: notes
+            joinColumn:
+                name: table_id
+                referencedColumnName: payout_id
+            orphanRemoval: false

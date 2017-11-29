@@ -1,0 +1,435 @@
+<div class="dashboard-side-menu-container">
+    {% set currentRoute = app.request.get('_route') %}
+    <ul class="list-unstyled list-side-menu">
+        <li>
+            {% set dashboardActive = "" %}
+            {% 
+                if (currentRoute is same as("home_page")) 
+                or (currentRoute is same as("dashboard_followers")) 
+                or (currentRoute is same as("dashboard_activity_log")) 
+            %}
+                {% set dashboardActive = "active" %}
+            {% endif %}
+            <a href="{{ path('home_page') }}" class="{{ dashboardActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-home"></i>
+                </div>
+                <span class="menu-name">Dashboard</span>
+            </a>
+            <div class="side-menu-child-container">
+                <ul class="list-unstyled">
+                    <li>
+                        {% set dashboardChildOverviewActive = "" %}
+                        {%
+                            if (currentRoute is same as("home_page"))
+                        %}
+                            {% set dashboardChildOverviewActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('home_page') }}" class="{{ dashboardChildOverviewActive }}">
+                            {% trans %} Overview {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        {% set dashboardChildFollowersActive = "" %}
+                        {%
+                            if (currentRoute is same as("dashboard_followers"))
+                        %}
+                            {% set dashboardChildFollowersActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('dashboard_followers') }}" class="{{ dashboardChildFollowersActive }}">
+                            {% trans %} Followers {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        {% set dashboardChildActivityLogActive = "" %}
+                        {%
+                            if (currentRoute is same as("dashboard_activity_log"))
+                        %}
+                            {% set dashboardChildActivityLogActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('dashboard_followers') }}" class="{{ dashboardChildActivityLogActive }}">
+                            {% trans %} Activity Log {% endtrans %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            {% set storeInformationActive = "" %}
+            {% 
+                if (currentRoute is same as("user_store_information")) 
+                or (currentRoute is same as("merchant_store_address")) 
+                or (currentRoute is same as("merchant_bank_account_information")) 
+                or (currentRoute is same as("merchant_account_information")) 
+                or (currentRoute is same as("dashboard_legal_information")) 
+            %}
+                {% set storeInformationActive = "active" %}
+            {% endif %}
+            <a href="{{ path('user_store_information') }}" class="{{ storeInformationActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-store"></i>
+                </div>
+                <span class="menu-name">Store Information</span>
+            </a>
+            <div class="side-menu-child-container">
+                <ul class="list-unstyled">
+                    <li>
+                        {% set storeChildGeneralInfoActive = "" %}
+                        {%
+                            if (currentRoute is same as("user_store_information"))
+                        %}
+                            {% set storeChildGeneralInfoActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('user_store_information') }}" class="{{ storeChildGeneralInfoActive }}">
+                            {% trans %} General Information {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        {% set storeAddressActive = "" %}
+                        {%
+                            if (currentRoute is same as("merchant_store_address"))
+                        %}
+                            {% set storeAddressActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('merchant_store_address') }}" class="{{ storeAddressActive }}">
+                            {% trans %} Store Address {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        {% set storeBankInfoActive = "" %}
+                        {%
+                            if (currentRoute is same as("merchant_bank_account_information"))
+                        %}
+                            {% set storeBankInfoActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('merchant_bank_account_information') }}" class="{{ storeBankInfoActive }}">
+                            {% trans %} Bank Account Information {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        {% set storeLegalInfoActive = "" %}
+                        {%
+                            if (currentRoute is same as("dashboard_legal_information"))
+                        %}
+                            {% set storeLegalInfoActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('dashboard_legal_information') }}" class="{{ storeLegalInfoActive }}">
+                            {% trans %} Legal Information {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        {% set storeAccountInfoActive = "" %}
+                        {%
+                            if (currentRoute is same as("merchant_account_information"))
+                        %}
+                            {% set storeAccountInfoActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('merchant_account_information') }}" class="{{ storeAccountInfoActive }}">
+                            {% trans %} Account Information {% endtrans %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            {% set transactionActive = "" %}
+            {% set tab = app.request.get('tab') %}
+            {% if (currentRoute is same as("dashboard_transaction")) %}
+                {% set transactionActive = "active" %}
+            {% endif %}
+            <a href="{{ path('dashboard_transaction') }}" class="{{ transactionActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-transaction"></i>
+                </div>
+                <span class="menu-name">Transaction</span>
+            </a>
+            <div class="side-menu-child-container">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="{{ path('dashboard_transaction') }}" class="{% if tab is null and transactionActive == 'active' %} active {% endif %}">
+                            {% trans %} All Transactions {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('dashboard_transaction', {'tab':'ongoing'} ) }}" class="{% if tab == 'ongoing' %} active {% endif %}">
+                            {% trans %} On-Going Transactions {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('dashboard_transaction',  {'tab':'completed'} ) }}" class="{% if tab == 'completed' %} active {% endif %}">
+                            {% trans %} Completed Transactions {% endtrans %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            {% set affiliateType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') %}
+            {% set productManagementActive = "" %}
+            {% set status = app.request.get('status') %}
+            {% if (currentRoute is same as("merchant_product_management")) or currentRoute is same as('reseller_product_select') %}
+                {% set productManagementActive = "active" %}
+            {% endif %}
+            <a href="{{ path('merchant_product_management') }}" class="{{ productManagementActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-product"></i>
+                </div>
+                <span class="menu-name">{% trans %} Product Management {% endtrans %}</span>
+            </a>
+            <div class="side-menu-child-container">
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="{{ path('merchant_product_management') }}" class="{% if productManagementActive == 'active' and status is null %} active {% endif %}">
+                            {% trans %} All Products {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('merchant_product_management', {'status' : 'active'}) }}" class="{% if productManagementActive == 'active' and status == "active" %} active {% endif %}">
+                            {% trans %} Active Products {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('merchant_product_management', {'status' : 'inactive'}) }}" class="{% if productManagementActive == 'active' and status == "inactive" %} active {% endif %}">
+                            {% trans %} Inactive Products {% endtrans %}
+                        </a>
+                    </li>
+                    {% if app.user.isAffiliate(false) %}
+                        <li>
+                            <a href="{{ path('reseller_product_select') }}">
+                                Products to Sell
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if app.user.store.storeType != affiliateType %}
+                        <li>
+                            <a href="{{ path('merchant_product_management', {'status' : 'draft'}) }}" class="{% if productManagementActive == 'active' and status == "draft" %} active {% endif %}">
+                                {% trans %} Draft Products {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_product_management', {'status' : 'delete'}) }}" class="{% if productManagementActive == 'active' and status == "delete" %} active {% endif %}">
+                                {% trans %} Deleted Products {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_product_management', {'status' : 'review'}) }}" class="{% if productManagementActive == 'active' and status == "review" %} active {% endif %}">
+                                {% trans %} Under Review Products {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_product_management', {'status' : 'rejected'}) }}" class="{% if productManagementActive == 'active' and status == "rejected" %} active {% endif %}">
+                                {% trans %} Rejected Products {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_product_management', {'status' : 'for-completion'}) }}" class="{% if productManagementActive == 'active' and status == "for-completion" %} active {% endif %}">
+                                {% trans %} For Completion Products {% endtrans %}
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </li>
+        {% if app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+            <li>
+                {% set warehouseActive = "" %}
+                {% if (currentRoute is same as("merchant_user_warehouse")) 
+                    or (currentRoute is same as("dashboard_product_inventory_list")) %}
+                    {% set warehouseActive = "active" %}
+                {% endif %}
+                <a href="{{ path('merchant_user_warehouse') }}" class="{{ warehouseActive }}">
+                    <div class="icon-container">
+                        <i class="icon icon-warehouse"></i>
+                    </div>
+                    <span class="menu-name">Warehouse List</span>
+                </a>
+            </li>
+        {% endif %}
+        <li>
+            {% set customCategoryActive = "" %}
+            {% if (currentRoute is same as("dashboard_customized_category")) %}
+                {% set customCategoryActive = "active" %}
+            {% endif %}
+            <a href="{{ path('dashboard_customized_category') }}" class="{{ customCategoryActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-customized"></i>
+                </div>
+                <span class="menu-name">Customized Category</span>
+            </a>
+        </li>
+        {% if app.user is defined %}
+            {% if app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+                <li>
+                  <a href="{{ path('product_upload') }}">
+                    <div class="icon-container">
+                      <i class="icon icon-upload"></i>
+                    </div>
+                    <span class="menu-name">Upload Product</span>
+                  </a>
+                </li>
+            {% elseif app.user.isAffiliateVerified and app.user.isAffiliate(false) %}
+                <li>
+                  <a href="{{ path('reseller_product_select') }}">
+                    <div class="icon-container">
+                      <i class="icon icon-upload"></i>
+                    </div>
+                    <span class="menu-name">Select Product</span>
+                  </a>
+                </li>
+            {% endif %}
+        {% endif %}
+        <li>
+            {% set dashboardBalanceActive = "" %}
+            {% 
+                if (currentRoute is same as("dashboard_balance_withdrawal")) 
+                or (currentRoute is same as("dashboard_balance_record")) 
+            %}
+                {% set dashboardBalanceActive = "active" %}
+            {% endif %}
+            <a href="{{ path("dashboard_balance_record") }}" class="{{ dashboardBalanceActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-withdrawal"></i>
+                </div>
+                <span class="menu-name">
+                    {% trans %} Balance record {% endtrans %}
+                </span>
+            </a>
+            <div class="side-menu-child-container">
+                    <ul class="list-unstyled">
+                            <li>
+                                {% set balanceChildWithdrawalActive = "" %}
+                                {%
+                                    if (currentRoute is same as("dashboard_balance_withdrawal"))
+                                %}
+                                    {% set balanceChildWithdrawalActive = "active" %}
+                                {% endif %}
+                                <a href="{{ path('dashboard_balance_withdrawal') }}" class="{{ balanceChildWithdrawalActive }}">
+                                    {% trans %} Withdrawal {% endtrans %}
+                                </a>
+                            </li>
+                        <li>
+                             {% set balanceChildRecordActive = "" %}
+                            {%
+                                if (currentRoute is same as("dashboard_balance_record"))
+                            %}
+                                {% set balanceChildRecordActive = "active" %}
+                            {% endif %}
+                            <a href="{{ path('dashboard_balance_record') }}" class="{{ balanceChildRecordActive }}">
+                                {% trans %} Balance record {% endtrans %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </li>
+        <li>
+            {% set reportsActive = "" %}
+            {% 
+                if (currentRoute is same as("dashboard_reports")) 
+                or (currentRoute is same as("dashboard_earnings")) 
+            %}
+                {% set reportsActive = "active" %}
+            {% endif %}
+            <a href="{{ path('dashboard_reports') }}" class="{{ reportsActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-reports"></i>
+                </div>
+                <span class="menu-name">{% trans %} Report {% endtrans %}</span>
+            </a>
+            <div class="side-menu-child-container">
+                <ul class="list-unstyled">
+                    <li>
+                        {% set reportsChildReportsActive = "" %}
+                        {% 
+                            if (currentRoute is same as("dashboard_reports")) 
+                        %}
+                            {% set reportsChildReportsActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('dashboard_reports') }}" class="{{ reportsChildReportsActive }}">
+                            {% trans %} Sales Report {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        {% set reportsChildEarningsActive = "" %}
+                        {% 
+                            if (currentRoute is same as("dashboard_earnings")) 
+                        %}
+                            {% set reportsChildEarningsActive = "active" %}
+                        {% endif %}
+                        <a href="{{ path('dashboard_earnings') }}" class="{{ reportsChildEarningsActive }}">
+                            {% trans %} Earning {% endtrans %}
+                        </a>
+                    </li>
+                    {#
+                    <li>
+                        <a href="#" class="">
+                            Top Product
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                            Top Buyer
+                        </a>
+                    </li>
+                    #}
+                </ul>
+            </div>
+        </li>
+        {% if app.user is defined %}
+            {% if app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+                <li>
+                    {% set messagesActive = "" %}
+                    {% if (currentRoute is same as("dashboard_messages")) %}
+                        {% set messagesActive = "active" %}
+                    {% endif %}
+                    <a href="{{ path('dashboard_messages') }}" class="{{ messagesActive }}">
+                        <div class="icon-container">
+                            <i class="icon icon-envelope"></i>
+                        </div>
+                        <span class="menu-name">Messages</span>
+                    </a>
+                </li>
+            {% endif %}
+        {% endif %}
+        <li>
+            {% set settingsActive = "" %}
+            {% if (currentRoute is same as("dashboard_settings")) %}
+                {% set settingsActive = "active" %}
+            {% endif %}
+            <a href="{{ path('dashboard_settings') }}" class="{{ settingsActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-settings"></i>  
+                </div>
+                <span class="menu-name">Settings</span>
+            </a>
+        </li>
+        {% if app.user is defined %}
+            {% if app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+                <li>
+                    {% set resolutionActive = "" %}
+                    {% if (currentRoute is same as("dashboard_resolution_center")) %}
+                        {% set resolutionActive = "active" %}
+                    {% endif %}
+                    <a href="{{ path('dashboard_resolution_center') }}" class="{{ resolutionActive }}">
+                        <div class="icon-container">
+                            <i class="icon icon-contact"></i>
+                        </div>
+                        <span class="menu-name">Resolution Center</span>
+                    </a>
+                </li>
+            {% endif %}
+        {% endif %}
+        <li>
+            {% set helpActive = "" %}
+            {% if (currentRoute is same as("dashboard_help")) %}
+                {% set helpActive = "active" %}
+            {% endif %}
+            <a href="{{ path('dashboard_help') }}" class="{{ helpActive }}">
+                <div class="icon-container">
+                    <i class="icon icon-circle-question-mark"></i>
+                </div>
+                <span class="menu-name">Help</span>
+            </a>
+        </li>
+    </ul>
+</div>
+

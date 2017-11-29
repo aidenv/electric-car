@@ -1,0 +1,40 @@
+<!--Start of send message-->
+<div class="ui modal small modal coupled send-message-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">Send Message</h4>
+    </div>
+    <form name="send-message" class="form ui">
+        <div class="content">
+            <div class="form">
+                <label for="" class="required">
+                    Message
+                </label>
+                <textarea class="form-ui" name="message" required maxlength="1024" placeholder="Enter your message here"></textarea>
+                {# <input type="hidden" name="_token" value="{{ csrf_token("send_message") }}" /> #}
+            </div>
+        </div>
+        <div class="actions">
+            <a class="button cancel">Cancel</a>
+            <button class="button confirm submit-to-success submit-button">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
+<!--End of send message-->
+
+<div class="ui modal tiny coupled-edit-bank-account success-send-message">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <h4 class="ui header">
+            <i class="icon icon-circle-check"></i>
+            <div class="content">
+                    Message sent
+            </div>
+        </h4>
+    </div>
+    <div class="actions">
+        <button class="button blue uppercase close">Okay</button>
+    </div>
+</div>

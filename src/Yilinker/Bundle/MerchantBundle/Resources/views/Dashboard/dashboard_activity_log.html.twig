@@ -1,0 +1,40 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Activity Log
+{% endblock %}
+
+{% block dashboard_stylesheets %}
+
+{% endblock %}
+
+{% block dashboard_body %}
+        <div class="dashboard-body-container gray">
+            <div class="dashboard-submenu-wrapper">
+                <div class="dashboard-submenu-container">
+                    <ul class="list-unstyle list-submenu">
+                        <li>
+                            <a href="{{ path('home_page') }}">
+                                Overview
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dashboard_followers') }}">
+                                Followers
+                            </a>
+                        </li>
+                        <li>
+                            <a class="active">
+                                Activity Log
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--Activity log list-->
+            {{ include('YilinkerMerchantBundle:Dashboard:activity_timeline.html.twig') }}
+        </div>
+{% endblock %}
+
+{% block dashboard_javascripts %}
+{% endblock %}

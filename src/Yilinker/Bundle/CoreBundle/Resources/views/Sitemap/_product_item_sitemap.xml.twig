@@ -1,0 +1,9 @@
+{% for product in products %}
+    <url>
+        <loc>{{ path('product_details', { 'slug': product.slug }) }}</loc>
+{% if product.dateLastModified is defined %}
+        <lastmod>{{ product.dateLastModified | date('Y-m-d') }}</lastmod>
+{% endif %}
+        <priority>0.5</priority>
+    </url>
+{% endfor %}

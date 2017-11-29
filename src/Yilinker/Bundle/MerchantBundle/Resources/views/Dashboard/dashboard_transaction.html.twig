@@ -1,0 +1,140 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+    <div class="dashboard-wrapper">
+        <div class="dashboard-body-container white">
+            <div class="dashboard-submenu-wrapper">
+                 <div class="dashboard-submenu-container">
+                    <ul class="list-unstyle list-submenu transaction-tabs">
+                        {% set tab = app.request.get('tab') %}
+                        <li>
+                            <a href="{{ path('dashboard_transaction') }}" class="all-transactions {% if tab is null %} active {% endif %}">
+                                All
+                            </a>
+                        </li>
+                        <li>
+                        </li>
+                        <li>
+                            <a href="{{ path('dashboard_transaction', {'tab':'ongoing'} ) }}" class="ongoing-transactions {% if tab == 'ongoing' %} active {% endif %}">
+                                On-Going
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('dashboard_transaction',  {'tab':'completed'} ) }}" class="completed-transactions  {% if tab == 'completed' %} active {% endif %}">
+                                Completed
+
+                            </a>
+                        </li>
+                    </ul>
+                 </div>
+            </div>
+            <div class="dashboard-component top">
+                <div class="component-content component-control-container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-4 col-xl-3">
+                                    <select class="form-ui ui single selection dropdown inverted no-margin date-filter">
+                                        <option value="0" data-from="{{ dateFilters['dateFrom'].year }}" 
+                                                data-to="{{ dateFilters['dateTo'] }}">This Year</option>
+                                        <option value="1" data-from="{{ dateFilters['dateFrom'].week }}" 
+                                                data-to="{{ dateFilters['dateTo'] }}">This Week</option>
+                                        <option value="2" data-from="{{ dateFilters['dateFrom'].month }}" 
+                                                data-to="{{ dateFilters['dateTo'] }}">This Month</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 col-xl-3">
+                                    <select class="form-ui ui single searchable selection dropdown inverted no-margin payment-filter">
+                                        <option value="0">Payment Method</option>
+                                        {% for paymentMethod in paymentMethods %}
+                                            <option value="{{ paymentMethod.paymentMethodId }}">{{ paymentMethod.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            {% if seller is defined %}
+                                {% if seller.store.storeType != constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+                                    <h4 class="light-color mrg-top-20 light">
+                                        Total Transaction: <span class="green-color">{{ totalTransactionCount }}</span>
+                                    </h4>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="col-md-3 col-xl-3">
+                           <div class="form">
+                                <input type="text" class="form-ui form-daterange transaction-daterange inverted rounded align-center pull-right" value="{{ currentDateFrom }} - {{ currentDateTo }}" data-from="{{ currentDateFrom }}" date-to="{{ currentDateTo }}" readonly/>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-component bottom">
+            <!--Product Management table-->
+                <table class="table table-striped table-recent-order">
+                    <thead>
+                        <tr>
+                            <th width="15%">Date</th>
+                            <th width="20%">Transaction No.</th>
+                            <th width="15%">Payment Type</th>
+                            <th width="40%" align="center">Order Status</th>
+                            <th width="10%" align="right">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>{{ order.dateAdded|date('F d, Y') }}</td>
+                            <td class="td-order-number">
+                                <a href="{{ path('dashboard_transaction_view', {invoice: order.invoiceNumber}) }}">{{ order.invoiceNumber }}</a>
+                            </td>
+                            <td>{{ order.paymentMethod.name }}</td>
+                            <td align="center">
+                                <div class="status-container">
+                                    {% for orderProduct in order.orderProducts(app.user) %}
+                                        x{{ orderProduct.quantity }}
+                                        <strong>
+                                            {{ orderProduct.productName }}
+                                        </strong>
+                                        <em>
+                                            {{ orderProduct.orderProductStatus.name }}
+                                        </em>
+                                    {% endfor %}
+                                </div>
+                            </td>
+                            <td align="right">P {{ order.totalPrice(app.user)|number_format(2, '.', ',') }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    {% if totalTransactionCount <= 0 %}
+                    <tfoot>
+                        <tr>
+                            <td colspan="6" class="align-center">
+                                No transaction data available
+                            </td>
+                        </tr>
+                    </tfoot>
+                    {% endif %}
+                </table>
+
+                <!--Pagination-->
+                <div class="transaction-pagination-container">
+                  {{ 
+                      include('YilinkerCoreBundle:Default:pagination.html.twig', {
+                          totalResults: totalTransactionCount, 
+                          perPage: perPage
+                      }) 
+                  }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/bower/moment.min.js') }}"></script>
+    <script src="{{ asset('js/bower/daterangepicker.js') }}"></script>
+    <script src="{{ asset('js/src/dashboard-transaction.js') }}"></script>
+{% endblock %}

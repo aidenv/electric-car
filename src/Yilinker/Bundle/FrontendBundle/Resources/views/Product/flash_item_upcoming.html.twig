@@ -1,0 +1,26 @@
+{% set left = product.maxQuantity - product.productsSold %}
+<div class="flash-item">
+    <div class="discount-pin">{{ product.discount|number_format(0, '', ',') }} %</div>
+    <div class="img-container">
+        <a href="{{ path('product_details', {'slug' : product.slug}) }}">
+            <img src="{{ product.medium }}" alt="{{ product.name }}" class="img-auto-place">
+        </a>
+    </div>
+    <div>
+        <h5 class="name">
+            <a href="{{ path('product_details', {'slug' : product.slug}) }}">
+                {{ product.name }}
+            </a>
+        </h5>
+        <div class="price">
+            <s class="light-color small-font">P {{ product.price }}</s> <b class="red-color large-font">P {{ product.discountedPrice }}</b>
+        </div>
+        <button class="button gray block uppercase disabled">
+            {% if hasEnded is same as(false) %}
+                Upcoming
+            {% else %}
+                Buy Now
+            {% endif %}
+        </button>
+    </div>
+</div>

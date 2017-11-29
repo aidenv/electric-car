@@ -1,0 +1,64 @@
+{% set locale = app.request.locale %}
+<div class="language-selector">
+    <div class="ui dropdown  language-dropdown">
+        <div class="text">
+            <div class="table-display country-code">
+                <div class="table-cell flag">
+                    <div class="image-holder">
+                        <img src="{{ asset('images/country-flag/'~locale~'.png') }}" alt="English" class="img-auto-place">
+                    </div>
+                </div>
+                <div class="table-cell code">
+                    {{ locale|upper }}
+                </div>
+            </div>
+        </div>
+        <i class="dropdown icon"></i>
+        <div class="menu left">
+            <div class="item">
+                <a href="?_locale=en">
+                    <div class="table-display country-code">
+                        <div class="table-cell flag">
+                            <div class="image-holder">
+                                <img src="{{ asset('images/country-flag/en.png') }}" alt="English" class="img-auto-place">
+                            </div>
+                        </div>
+                        <div class="table-cell code">
+                            EN
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {#
+            <div class="item">
+                <a href="?_locale=cn">
+                    <div class="table-display country-code">
+                        <div class="table-cell flag">
+                                <div class="image-holder">
+                                    <img src="{{ asset('images/country-flag/cn.png') }}" alt="Chinese" class="img-auto-place">
+                                </div>
+                        </div>
+                        <div class="table-cell code">
+                            CN
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="?_locale=ca">
+                    <div class="table-display country-code">
+                        <div class="table-cell flag">
+                                <div class="image-holder">
+                                    <img src="{{ asset('images/country-flag/ca.png') }}" alt="English" class="img-auto-place">
+                                </div>
+                        </div>
+                        <div class="table-cell code">
+                            CA
+                        </div>
+                    </div>
+                </a>
+            </div>
+            #}
+        </div>
+    </div>
+</div>

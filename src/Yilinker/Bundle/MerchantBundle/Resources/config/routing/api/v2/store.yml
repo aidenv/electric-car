@@ -1,0 +1,4 @@
+api_store_setup:
+    path: /auth/store/setup
+    defaults: { _controller: YilinkerMerchantBundle:Api/v2/StoreApi:setupStore }
+    methods: [POST]

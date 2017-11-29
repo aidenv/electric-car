@@ -1,0 +1,106 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    Y Exclusives Caite Couple Watch
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    <div class="summer wrapper static-wrapper">
+        <div class="block align-center caite-bg">
+            <img src="{{ asset('images/promo/y-exclusives-caite-couple-watch/background-header2.jpg') }}" alt="Y Exclusives Caite Couple Watch" class="img-full-width main-banner">
+        </div>
+        <div class="bg-purple" style="background-color:#59465c;">
+            <div class="container white-color align-center pad-top-3em pad-bt-3em clear width-70em">
+                <h3>Terms and Conditions:</h3>
+                <ul class="row">
+                    <li>
+                       Discount and gift vouchers are not allowed to be used on Y! Exclusives transaction.
+                    </li>
+                    <li>
+                        Product is available until supplies last. First come, first serve basis only.
+                    </li>
+                    <li>
+                        Free delivery for orders within NCR.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="background: url({{ asset('images/promo/y-exclusives-caite-couple-watch/inner-bg.jpg') }}) no-repeat top center;padding-top: 350px;">
+            <div class="container pad-top-3em pad-bt-3em align-left">
+                <div class="row">
+                    <div class="col-xs12 col-ms-6">
+                        <div class="row">
+                            <div class="col-xs-5 col-ms-4">
+                                <a href="https://www.yilinker.com/item/caite-stainless-analog-wrist-watch-1123gl-4">
+                                    <img src="{{ asset('images/promo/y-exclusives-caite-couple-watch/caite-couples-silver.png') }}" class="img-full-width" alt="Caite Stainless Analog Wristwatch(Women)">
+                                </a>
+                            </div>
+                            <div class="col-xs-7 col-ms-8 align-left promo-content">
+                                <a href="https://www.yilinker.com/item/caite-stainless-analog-wrist-watch-1123gl-4" class="ft-size-2 inline-block color-2">
+                                   Caite Stainless<br />Analog Wristwatch
+                                </a>
+                                <i class="block color-2">Stay Classy Anytime</i>
+                                <div class="row mrg-top-10">
+                                    <div class="col-ms-6">
+                                        <b class="ft-size-2 block">Men</b>
+                                        <b class="ft-size-3 block color-2">Php 269</b>
+                                    </div>
+                                    <div class="col-ms-6">
+                                        <b class="ft-size-2 block">Women</b>
+                                        <b class="ft-size-3 block color-2">Php 239</b>
+                                    </div>
+                                    <div class="col-xs-12 col-offset-ms-2 col-ms-10 align-center">
+                                        <b class="ft-size-2 block">Couple</b>
+                                         <i class="block color-2">Make Time for Each Other</i>
+                                        <b class="ft-size-3 block color-2">Php 469</b>
+                                         <a href="https://www.yilinker.com/item/caite-stainless-analog-wrist-watch-1123gl-4" class="mrg-top-25 static-button2 lg-btn">Buy Now</a>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs12 col-ms-6">
+                        <div class="row">
+                            <div class="col-xs-5 col-ms-4">
+                                <a href="https://www.yilinker.com/item/caite-waterproof-stainless-gold-watch-301">
+                                    <img src="{{ asset('images/promo/y-exclusives-caite-couple-watch/caite-couple-gold.png') }}" class="img-full-width" alt="Caite Gold Analog Wristwatch(Couple)">
+                                </a>
+                            </div>
+                            <div class="col-xs-7 col-ms-8 align-left promo-content">
+                                <a href="https://www.yilinker.com/item/caite-waterproof-stainless-gold-watch-301" class="ft-size-2 inline-block color-2">
+                                   Caite Waterproof<br />Stainless Gold Watch
+                                </a>
+                                <i class="block color-2">Elegance On Your Wrist</i>
+                                <div class="row mrg-top-10">
+                                    <div class="col-ms-6">
+                                        <b class="ft-size-2 block">Men</b>
+                                        <b class="ft-size-3 block color-2">Php 499</b>
+                                    </div>
+                                    <div class="col-ms-6">
+                                        <b class="ft-size-2 block">Women</b>
+                                        <b class="ft-size-3 block color-2">Php 469</b>
+                                    </div>
+                                    <div class="col-xs-12 col-offset-ms-2 col-ms-10 align-center">
+                                        <b class="ft-size-2 block">Couple</b>
+                                        <i class="block color-2">Match a Watch with your Partner</i>
+                                        <b class="ft-size-3 block color-2">Php 899</b>
+                                         <a href="https://www.yilinker.com/item/caite-waterproof-stainless-gold-watch-301" class="mrg-top-25 static-button2 lg-btn">Buy Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}
+{% block javascripts %}{% endblock %}

@@ -1,0 +1,109 @@
+Yilinker\Bundle\CoreBundle\Entity\UserAddress:
+    type: entity
+    table: UserAddress
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserAddressRepository
+    entityListeners:
+        Yilinker\Bundle\CoreBundle\Doctrine\Listener\UserAddressListener:
+    id:
+        userAddressId:
+            type: integer
+            id: true
+            column: user_address_id
+            unsigned: false
+            generator:
+                strategy: IDENTITY
+    indexes:
+        fk_useraddress_locationid_location_locationid_idx:
+            columns:
+                - location_id
+    fields:
+        dateAdded:
+            type: datetime
+            column: date_added
+        streetAddress:
+            length: 1024
+            column: street_address
+            nullable: true
+            options:
+                default: ''
+        longitude:
+            precision: 10
+            scale: 6
+            nullable: true
+            options:
+                default: ''
+        latitude:
+            precision: 10
+            scale: 6
+            nullable: true
+            options:
+                default: ''
+        landline:
+            type: string
+            length: 45
+            nullable: true
+            options:
+                default: ''
+        unitNumber:
+            type: string
+            length: 45
+            column: unit_number
+            nullable: true
+        buildingName:
+            type: string
+            column: building_name
+            length: 255
+            nullable: true
+        streetNumber:
+            type: ~
+            length: 25
+            column: street_number
+            nullable: true
+        streetName:
+            type: string
+            column: street_name
+            length: 255
+            nullable: true
+        subdivision:
+            type: string
+            length: 255
+            nullable: true
+        zipCode:
+            type: string
+            column: zip_code
+            length: 45
+            nullable: true
+        isDefault:
+            type: boolean
+            column: is_default
+            nullable: false
+            options:
+                default: 0
+        title:
+            type: string
+            length: 255
+            column: title
+            nullable: true
+            options:
+                default: ""
+        isDelete:
+            type: boolean
+            column: is_delete
+            options:
+                default: 0
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: addresses
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        location:
+            targetEntity: Location
+            joinColumn:
+                name: location_id
+                referencedColumnName: location_id
+                nullable: false
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

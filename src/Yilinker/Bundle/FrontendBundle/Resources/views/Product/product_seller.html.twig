@@ -1,0 +1,55 @@
+<table class="table-seller-name">
+    <thead>
+        <tr class="desktop-hide">
+            <td class="td-seller-img">
+                <div class="img-seller-container">
+                    <img src="{{ user.primaryImage ? asset(user.primaryImage.getImageLocationBySize('thumbnail'), 'user') : asset('images/default-merchant.png') }}" class="img-seller" />
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-seller-img align-center mobile-hide">
+                <div class="img-seller-container">
+                    <img src="{{ user.primaryImage ? asset(user.primaryImage.getImageLocationBySize('thumbnail'), 'user') : asset('images/default-merchant.png') }}" class="img-seller" />
+                </div>
+            </td>
+            <td class="td-seller-name">
+                <span class="name mrg-bt-10">
+                    {% if user.store and user.store.storeSlug %}
+                        <a href="{{ path('store_page_products', {'slug': user.store.storeSlug }) }}">
+                            {{ user.storename }}
+                        </a>
+                        {% else %}
+                        {{ user.storename }}
+                    {% endif %}
+                </span>
+                <span class="specialty">{% trans %} Specialty {% endtrans %}: {{ specialty ? specialty.getName : '' }}</span>
+            </td>                                        
+        </tr>
+    </thead>
+</table>
+<div id="domain-container" data-value="{{ merchantHostName }}">
+</div>
+
+{% if user.referralCode != '' %}
+    <input type="hidden" id="referral-code" value="{{ user.referralCode }}">
+{% endif %}
+
+
+<script type="application/ld+json">
+{% set fullname = "" %}
+{% if store.user is defined %} 
+    {% set fullname = store.user.getFullName() %}
+{% endif %}
+
+{
+  "@context": "http://schema.org",
+  "@type": "BuyAction",
+  "seller": {
+    "@type": "Person",
+    "name": "{{ fullname }}"
+  },
+  "name": "{{ user.storename }}",
+  "url": "{{ merchantHostName }}" 
+}
+</script>

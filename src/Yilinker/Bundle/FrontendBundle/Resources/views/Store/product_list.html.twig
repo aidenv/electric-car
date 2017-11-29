@@ -1,0 +1,13 @@
+{% if productSearch.totalResultCount is defined and productSearch.totalResultCount > 0 and perPage is defined and perPage > 0 %}
+    {% set a = productSearch.totalResultCount / perPage %}
+    {% set b = a|round(0, 'floor') %}
+    {% set lastPage = b + (a - b)|round(0, 'ceil') %}
+{% endif %}
+
+<div class="search-body-wrapper product-group-wrapper">
+    {{ include('YilinkerFrontendBundle:Store:product_list_row.html.twig') }}
+    <!--Pagination-->
+    <div data-scroll-pagination data-last-page="{{ lastPage }}" class="search-pagination-container">
+        {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {lastPage: lastPage}) }}
+    </div>
+</div>

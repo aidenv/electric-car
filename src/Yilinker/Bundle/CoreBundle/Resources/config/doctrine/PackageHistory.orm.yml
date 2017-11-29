@@ -1,0 +1,52 @@
+Yilinker\Bundle\CoreBundle\Entity\PackageHistory:
+    type: entity
+    table: PackageHistory
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\PackageHistoryRepository
+    indexes:
+        fk_packagehistory_packageid_package_packageid_idx:
+            columns:
+                - package_id
+        fk_packagehistory_packageid_package_packageid_idx:
+            columns:
+                - package_id
+    id:
+        packageHistoryId:
+            type: integer
+            id: true
+            column: package_history_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateAdded:
+            type: datetime
+            column: date_added
+        personInCharge:
+            type: string
+            column: person_in_charge
+            options:
+                default: ''
+        contactNumber:
+            type: string
+            column: contact_number
+            options:
+                default: ''
+        address:
+            type: string
+            column: address
+            options:
+                default: ''
+    manyToOne:
+        package:
+            targetEntity: Package
+            joinColumn:
+                name: package_id
+                referencedColumnName: package_id
+            orphanRemoval: false
+            inversedBy: packageHistory
+        packageStatus:
+            targetEntity: PackageStatus
+            joinColumn:
+                name: package_status_id
+                referencedColumnName: package_status_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,33 @@
+Yilinker\Bundle\CoreBundle\Entity\PromoEventUser:
+    type: entity
+    table: PromoEventUser
+    indexes:
+        fk_promoeventuser_userid_user_userid_idx:
+            columns:
+                - user_id
+        fk_promoeventuser_promoeventid_promoevent_promoeventid_idx:
+            columns:
+                - promo_event_id
+    id:
+        promoEventUserId:
+            type: integer
+            id: true
+            column: promo_event_user_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    manyToOne:
+        promoEvent:
+            targetEntity: PromoEvent
+            joinColumn:
+                name: promo_event_id
+                referencedColumnName: promo_event_id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

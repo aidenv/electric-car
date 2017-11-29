@@ -1,0 +1,271 @@
+<section class="home-section">
+    <div class="title-bar">
+        <div class="home-body-wrapper">
+            <span>{% trans %} Our Recommendation {% endtrans %}</span>
+        </div>
+    </div>
+    <div class="content recommendation-group">
+        <div class="home-body-wrapper">
+            <div class="row">
+                <div class="col-xs-3">
+                    <h5 class="section-text-title">
+                        {% trans %}
+                            Trending Categories
+                        {% endtrans %}
+                    </h5>
+                    <div class="row trending-categories">
+                        {% for category in homeXml.ourRecommendation.trendingCategories.categoryId %}
+                            {% set id = ''~category %}
+                            {% if productCategories[id] is defined %}
+                                <div class="col-md-6 list-category-item"><a href="{{ path('get_category', {slug:productCategories[id].getSlug}) }}" title="{{ productCategories[id].getName }}">{{ productCategories[id].getName }}</a></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <h5 class="section-text-title">
+                        {% trans %}
+                            Recommended Seller
+                        {% endtrans %}
+                    </h5>
+                    <div class="row recommended-seller">
+                        {% for user in homeXml.ourRecommendation.recommendedSellers.user %}
+                            {% set id = ''~user %}
+                            {% if users[id] is defined and users[id].getStore is not null %}
+                                <div class="col-md-12 list-seller">
+                                    <table class="table-seller-name">
+                                        <thead>
+                                            <tr>
+                                                <td class="td-seller-img">
+                                                    {% set userImage = users[id].getPrimaryImage %}
+                                                    {% if userImage != false %}
+                                                        {% set imageLocation = asset(userImage.getImageLocationBySize("thumbnail"), 'user') %}
+                                                    {% else %}
+                                                        {% set imageLocation = asset('images/default-merchant.png') %}
+                                                    {% endif %}
+                                                    <div class="img-seller-container">
+                                                        <a href="{{ path('store_page_products', {'slug': users[id].getStore.getStoreSlug }) }}">
+                                                            <img src="{{ imageLocation }}" alt="{{ users[id].getStore.getStoreName }}" title="{{ users[id].getStore.getStoreName }}" />
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td class="td-seller-name">
+                                                    <span class="name">
+                                                        <a href="{{ path('store_page_products', {'slug': users[id].getStore.getStoreSlug }) }}">
+                                                            {{ users[id].getStore.getStoreName }}
+                                                        </a>
+                                                    </span>
+                                                    {% if userSpecialties[id] is defined %}
+                                                        {% set specialty = userSpecialties[id].name %}
+                                                    {% else %}
+                                                        {%  set specialty = "" %}
+                                                    {% endif %}
+                                                    <span class="specialty">Specialty: {{ specialty }}</span>
+
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-xs-9">
+                    <div class="row row-grid-featured-items">
+                        <div class="col-xs-3">
+                            <a href="{{ homeXml.ourRecommendation.leftProductSection.target is defined? ''~homeXml.ourRecommendation.leftProductSection.target:'#' }}">
+                                <div class="image-feature-container">
+                                    <div class="image-full-view-wrapper">
+                                        <img src="{{ asset(homeXml.ourRecommendation.leftProductSection.image, 'cms') }}"/>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xs-3">
+                            {% set product = homeXml.ourRecommendation.leftProductSection.product %}
+                            {% if 
+                                product.attributes.unit is defined and 
+                                productUnitsData[''~product.attributes.unit] is defined 
+                            %}
+                                {% set productDetails = productUnitsData[''~product.attributes.unit] %}
+                            {% elseif productsData[''~product] is defined %}
+                                {% set productDetails = productsData[''~product] %}
+                            {% endif %}
+                            <div class="featured-card-container">
+                                <div class="featured-bubble-wrapper left align-center">
+                                    <span class="base">
+                                        <h4 class="title">{{ homeXml.ourRecommendation.leftProductSection.title }}</h4>
+                                        <a class="button default-light" {{ productDetails is defined? 
+                                            "href="~path('product_details', {'slug': productDetails.slug}) : "" }}>
+                                            {{ homeXml.ourRecommendation.leftProductSection.buttonText }}
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="product-recommendation-wrapper">
+                                    <a {{ productDetails is defined? "href="~path('product_details', {'slug': productDetails.slug}) : "" }}>
+                                        <div class="product-image-wrapper left">
+                                        {% 
+                                            if homeXml.ourRecommendation.leftProductSection.productImage is defined and
+                                            ''~homeXml.ourRecommendation.leftProductSection.productImage is not same as('') and
+                                            productDetails is defined
+                                        %}
+                                            <img src="{{ asset(homeXml.ourRecommendation.leftProductSection.productImage, 'cms') }}" class="img-responsive" alt="{{ productDetails.productName }}" title="{{ productDetails.productName }}" />
+                                        {% else %}
+                                            {% if productDetails is defined %}
+                                                <img src="{{ asset(productDetails.image, 'product') }}" class="img-responsive" alt="{{ productDetails.productName }}" title="{{ productDetails.productName }}" />
+                                            {% endif %}
+                                        {% endif %}
+                                        </div>
+                                    </a>
+                                    <div class="product-meta align-left">
+                                        {% if productDetails is defined %}
+                                            {%
+                                                set addtocart = {
+                                                    'productId': productDetails.productId,
+                                                    'unitId':    productDetails.productUnitId
+                                                }
+                                            %}
+
+                                            <div class="meta-wrapper">
+                                                <div class="basic-name">
+                                                    <div class="row group">
+                                                        <div class="col-xs-12">
+                                                            <h4 class="name">
+                                                                <a href="{{ path('product_details', {'slug': productDetails.slug}) }}">
+                                                                    {{ productDetails.productName }}
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="basic-amount">
+                                                    <div class="row group">
+                                                        <div class="col-xs-6 align-center">
+                                                            
+                                                            <span class="old-price">
+                                                                {% if productDetails.originalPrice != productDetails.discountedPrice %}
+                                                                    P {{ productDetails.originalPrice }}
+                                                                {% endif %}
+                                                            </span>
+                                                            <div class="product-cart-button-flip">
+                                                                <div data-href="{{ path('cart_add_item') }}" data-addtocart="{{ addtocart|json_encode }}" class="button purple block cart">
+                                                                    <span class="current-price">P {{ productDetails.discountedPrice }}</span>
+                                                                    <span class="cart text">{% trans %} Add to cart {% endtrans %}</span>
+                                                                </div>
+                                                                <div class="button gray block cart disabled back">
+                                                                    <span>
+                                                                        <i class="icon icon-check"></i>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6 align-right col-star-rating-container">
+                                                            {{ include('YilinkerCoreBundle:Default:star_rating.html.twig', {rating: productDetails.productReviewRating}) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <a href="{{ homeXml.ourRecommendation.rightProductSection.target is defined? ''~homeXml.ourRecommendation.rightProductSection.target:'#' }}">
+                                <div class="image-full-view-wrapper">
+                                    <img src="{{ asset(homeXml.ourRecommendation.rightProductSection.image, 'cms') }}" />
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xs-3">
+                            {% set product = homeXml.ourRecommendation.rightProductSection.product %}
+                            {% if 
+                                product.attributes.unit is defined and 
+                                productUnitsData[''~product.attributes.unit] is defined 
+                            %}
+                                {% set productDetails = productUnitsData[''~product.attributes.unit] %}
+                            {% elseif productsData[''~product] is defined %}
+                                {% set productDetails = productsData[''~product] %}
+                            {% endif %}
+                            <div class="featured-card-container">
+                                <div class="featured-bubble-wrapper left align-center">
+                                    <span class="base">
+                                        <h4 class="title">{{ homeXml.ourRecommendation.rightProductSection.title }}</h4>
+                                        <a class="button default-light"  {{ productDetails is defined? 
+                                        "href="~path('product_details', {'slug': productDetails.slug}) : "" }}>
+                                            {{ homeXml.ourRecommendation.rightProductSection.buttonText }}
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="product-recommendation-wrapper">
+                                    <a {{ productDetails is defined? "href="~path('product_details', {'slug': productDetails.slug}) : "" }}>
+                                        <div class="product-image-wrapper left">
+                                        {% 
+                                            if homeXml.ourRecommendation.rightProductSection.productImage is defined and
+                                            ''~homeXml.ourRecommendation.rightProductSection.productImage is not same as('') and
+                                            productDetails is defined
+                                        %}
+                                            <img src="{{ asset(homeXml.ourRecommendation.rightProductSection.productImage, 'cms') }}" class="img-responsive" alt="{{ productDetails.productName }}" title="{{ productDetails.productName }}" />
+                                        {% else %}
+                                            {% if productDetails is defined %}
+                                                <img src="{{ asset(productDetails.image, 'product') }}" class="img-responsive" alt="{{ productDetails.productName }}" title="{{ productDetails.productName }}" />
+                                            {% endif %}
+                                        {% endif %}
+                                        </div>
+                                    </a>
+                                    <div class="product-meta align-left">
+                                        {% if productDetails is defined %}
+                                            {%
+                                                set addtocart = {
+                                                    'productId': productDetails.productId,
+                                                    'unitId':    productDetails.productUnitId
+                                                }
+                                            %}
+                                            <div class="meta-wrapper">
+                                                <div class="basic-name">
+                                                    <div class="row group">
+                                                        <div class="col-md-12">
+                                                            <h4 class="name">
+                                                                <a href="{{ path('product_details', {'slug': productDetails.slug}) }}">
+                                                                    {{ productDetails.productName }}
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="basic-amount">
+                                                    <div class="row group">
+                                                        <div class="col-md-6 align-center">
+                                                            <span class="old-price">
+                                                                {% if productDetails.originalPrice != productDetails.discountedPrice %}
+                                                                    P {{ productDetails.originalPrice }}
+                                                                {% endif %}
+                                                            </span>
+                                                            <div class="product-cart-button-flip">
+                                                                <div data-href="{{ path('cart_add_item') }}" data-addtocart="{{ addtocart|json_encode }}" class="button purple block cart">
+                                                                    <span class="current-price">P {{ productDetails.discountedPrice }}</span>
+                                                                    <span class="cart text">{% trans %} Add to cart {% endtrans %}</span>
+                                                                </div>
+                                                                <div class="button gray block cart disabled back">
+                                                                    <span>
+                                                                        <i class="icon icon-check"></i>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 align-right col-star-rating-container">
+                                                            {{ include('YilinkerCoreBundle:Default:star_rating.html.twig', {rating: productDetails.productReviewRating}) }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

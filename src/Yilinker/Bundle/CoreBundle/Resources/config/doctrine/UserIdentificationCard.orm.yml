@@ -1,0 +1,29 @@
+Yilinker\Bundle\CoreBundle\Entity\UserIdentificationCard:
+    type: entity
+    table: UserIdentificationCard
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserIdentificationCardRepository
+    id:
+        userIdentificationCardId:
+            type: integer
+            id: true
+            column: user_identification_card_id
+            generator:            
+                strategy: AUTO
+    fields:
+        filename:
+            type: string
+            length: 255
+            column: filename
+            options:
+                default: ''
+        dateAdded:
+            type: datetime
+            column: date_added
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,29 @@
+reseller_product_select:
+    path: /reseller/product-select
+    defaults: { _controller: YilinkerMerchantBundle:Reseller:productSelect }
+
+reseller_upload_product_list:
+    path: /reseller/products
+    defaults: { _controller: YilinkerMerchantBundle:Reseller:resellerViewProducts }
+    requirements:
+        _locale: en
+
+reseller_upload_products:
+    path: /reseller/upload
+    defaults: { _controller: YilinkerMerchantBundle:Reseller:resellerUpload }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+reseller_product_selection:
+    path: /dashboard/reseller/selection
+    defaults: { _controller: YilinkerMerchantBundle:Reseller:renderResellerSelection }
+    requirements:
+        _locale: en
+
+reseller_view_product:
+    path: /reseller/product/{inhouseProductId}
+    defaults: { _controller: YilinkerMerchantBundle:Reseller:resellerProducDetail }
+    methods: [GET]
+    requirements:
+        _locale: en

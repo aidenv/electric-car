@@ -1,0 +1,21 @@
+Yilinker\Bundle\CoreBundle\Entity\UserActivityType:
+    type: entity
+    table: UserActivityType
+    id:
+        userActivityTypeId:
+            type: integer
+            id: true
+            column: user_activity_type_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            column: name
+    oneToMany:
+        userActivityHistories:
+            targetEntity: UserActivityHistory
+            mappedBy: userActivityType

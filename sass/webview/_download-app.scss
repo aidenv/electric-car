@@ -1,0 +1,134 @@
+.body-mobile {
+    &.download-app {
+        margin-top: 3em;
+        text-align: center;
+
+        img[alt~="Yilinker"] {
+            max-width: 130px;
+        }
+        h1 {
+            margin-top: 3em;
+        }
+        .download-app-btn {
+            max-width: 300px;
+            width: 100%;
+        }
+    }
+}
+
+@media (min-width: 375px) {
+    .body-mobile {
+        .store-container {
+            .store-product {
+                a:first-of-type {
+                    height: 160px;
+                }
+                .store-product-box {
+                    height: 80px;
+                }
+            }
+            .store-header {
+                .seller-name,
+                .store-specialty {
+                    max-width: 100px;
+                }
+                .product-name {
+                    max-width: 145px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 414px) {
+    .body-mobile {
+        .store-container {
+            .store-header {
+                .seller-name,
+                .store-specialty {
+                    max-width: 120px;
+                }
+                .product-name {
+                    max-width: 165px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 640px) {
+    .body-mobile {
+        .store-container {
+            .store-header {
+                .seller-name {
+                    font-size: 1.2em;
+                    max-width: 230px;
+                }
+                .store-specialty {
+                    font-size: 1em;
+                    max-width: 230px;
+                }
+                .product-name {
+                    font-size: 1.2em;
+                    max-width: 275px;
+                }
+                .discounted-price {
+                    display: inline-block;
+                    font-size: 1.1em;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .body-mobile {
+        .store-container {
+            .store-header {
+                .seller-name {
+                    font-size: 1.2em;
+                    max-width: 275px;
+                }
+                .seller-image {
+                    height: 60px;
+                    width: 60px;
+                }
+                .store-specialty {
+                    font-size: 1em;
+                    max-width: 275px;
+                }
+                .product-name {
+                    font-size: 1.2em;
+                    max-width: 340px;
+                }
+                .discounted-price {
+                    display: inline-block;
+                    font-size: 1.1em;
+                }
+            }
+            .store-product {
+                .store-product-box {
+                    height: 100px;
+                }
+                a:first-of-type {
+                    height: 200px;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 984px) {
+    .body-mobile {
+        .store-container {
+            .store-header {
+                .seller-name,
+                .store-specialty {
+                    max-width: 375px;
+                }
+                .product-name {
+                    max-width: 447px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,90 @@
+core_user_create:
+    path: /user/register
+    defaults: { _controller: YilinkerCoreBundle:User:register }
+    methods: [POST]
+
+core_change_password:
+    path: /user/changePassword
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:changePassword }
+    methods: [POST]
+
+core_change_email:
+    path: /user/changeEmail
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:changeEmail }
+    methods: [POST]
+
+core_change_contact_number:
+    path: /user/changeContactNumber
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:changeContactV1Number }
+
+core_change_contact_number_request:
+    path: /user/changeContactNumberRequest
+    defaults: { _controller: YilinkerCoreBundle:User:changeContactNumberRequest }
+
+core_verify_contact_number:
+    path: /user/verifyContactNumber
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:verifyCode }
+    methods: [POST]
+
+user_forgot_password_code:
+    path: /forgot-password-code-checker
+    defaults: { _controller: YilinkerCoreBundle:User:forgotPasswordCodeCheck }
+    methods: [POST]
+
+core_upload_user_photo:
+    path: /user/uploadPhoto
+    defaults: { _controller: YilinkerCoreBundle:User:uploadPhoto }
+    methods: [POST]
+
+core_email_confirmation:
+    path: /user/confirm-email
+    defaults: { _controller: YilinkerCoreBundle:User:confirmEmail }
+
+core_user_disable_account:
+    path: /user/disable
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:disableUser }
+    methods: [POST]
+
+core_user_enable_account:
+    path: /user/enable
+    defaults: { _controller: YilinkerCoreBundle:User:reactivateUser }
+
+core_resend_email_verification:
+    path: /resend-email
+    defaults: { _controller: YilinkerCoreBundle:User:resendEmailVerification }
+
+core_send_email_verification:
+    path: /request-email-verification
+    defaults: { _controller: YilinkerCoreBundle:User:sendEmailVerification }
+
+core_resend_sms_verification:
+    path: /resend-sms
+    defaults: { _controller: YilinkerCoreBundle:User:resendMobileVerification }
+
+core_sms_subscription:
+    path: /sms/subscription
+    defaults: { _controller: YilinkerCoreBundle:Api/UserApi:subscribeUserSms }
+    methods: [POST]
+
+core_daterange_earnings:
+    path: /user/daterange-earnings
+    defaults: { _controller: YilinkerCoreBundle:User:daterangeEarnings }
+
+core_send_otp:
+    path: /sms/otp-request
+    defaults: { _controller: YilinkerCoreBundle:User:sendOneTimePassword }
+
+core_send_token:
+    path: /sms/send
+    defaults: { _controller: YilinkerCoreBundle:Api/v2/UserApi:sendSms }
+    methods: [POST]
+
+core_validate_token:
+    path: /sms/validate
+    defaults: { _controller: YilinkerCoreBundle:Api/v2/UserApi:validateSms }
+    methods: [POST]
+
+core_forgot_password:
+    path: /forgot-password
+    defaults: { _controller: YilinkerCoreBundle:User:forgotPassword }
+    methods: [POST]

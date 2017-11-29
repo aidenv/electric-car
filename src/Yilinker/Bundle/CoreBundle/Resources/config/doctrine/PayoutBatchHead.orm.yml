@@ -1,0 +1,48 @@
+Yilinker\Bundle\CoreBundle\Entity\PayoutBatchHead:
+    type: entity
+    table: PayoutBatchHead
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\PayoutBatchHeadRepository
+    id:
+        payoutBatchHeadId:
+            column: payout_batch_head_id
+            type: integer
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        batchNumber:
+            column: batch_number
+            type: string
+            length: 255
+        payoutBatchStatus:
+            column: payout_batch_status_id
+            type: smallint
+            default:
+                options: 1
+        remarks:
+            type: string
+            length: 255
+            nullable: true
+        isDelete:
+            column: is_delete
+            type: smallint
+            default:
+                options: 0
+        dateAdded:
+            column: date_added
+            type: datetime
+        dateLastModified:
+            column: date_last_modified
+            type: datetime
+    indexes:
+        payout_batch_head_admin_user_id_admin_user_admin_user_id:
+            columns:
+                - admin_user_id
+    manyToOne:
+        adminUser:
+            targetEntity: AdminUser
+            joinColumn:
+                name: admin_user_id
+                referencedColumnName: admin_user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

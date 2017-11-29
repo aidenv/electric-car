@@ -1,0 +1,27 @@
+<div class="navbar navbar-default">
+    <div class="navbar-group">
+        <div class="navbar-item brand">
+            <a href="{{ path('home_page') }}">
+                <img src="{{ asset('images/logo-main.png') }}" alt="YiLinker" class="img-responsive"/>
+            </a>
+        </div>
+        <div class="navbar-item">&nbsp;</div>
+        <div class="navbar-item">&nbsp;</div>
+        <div href="#" class="navbar-item user-link">
+          <div class="navbar-dropdown">
+              <div class="user-image-container">
+                  <img src="{{ asset('images/logo-icon.png') }}" alt="#">
+              </div>
+          </div>
+          <div class="navbar-dropdown-container hidden">
+              <ul class="list-unstyled">
+                  {% if app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') %}
+                      <li><a href="{{ path('user_affiliate_logout') }}">Logout</a></li>
+                  {% else %}
+                      <li><a href="{{ path('user_merchant_logout') }}">Logout</a></li>
+                  {% endif %}
+              </ul>
+          </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+api_product_condition:
+    path: /product/getProductConditions
+    defaults: { _controller: YilinkerMerchantBundle:Api/ProductConditionApi:getProductCondition }
+    methods: [GET]

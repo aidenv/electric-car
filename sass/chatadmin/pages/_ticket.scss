@@ -1,0 +1,82 @@
+.ticket {
+    background-color: $puti;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .search-field {
+        padding: 20px;
+    }
+
+    .box-wrapper {
+        overflow: auto;
+
+
+        &::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+
+        }
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: lighten($default, 25%);
+            border: 3px solid $puti;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            border: 0;
+        }
+
+        .box {
+            background-color: $puti;
+        }
+
+        .prev {
+            height: 60px;
+            overflow: hidden;
+            transition: height .5s ease;
+
+            &.-off {
+                height: 60px;
+                position: relative;
+
+
+                &:before {
+                    content: '';
+                    height: 35px;
+                    width: 100%;
+                    bottom: 0;
+                    position: absolute;
+                    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,1+100 */
+                    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+                }
+            }
+            &.-on {
+                height: 160px;
+            }
+        }
+    }
+
+    .pagination {
+        background: $puti;
+        bottom: 0;
+        box-shadow: 0 0 20px rgba(0,0,0,.2);
+        min-height: 60px;
+        padding: 10px;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+
+        li {
+            border-radius: 0;
+        }
+
+        &+.box-wrapper {
+            margin-bottom: 62px;
+        }
+    }
+}

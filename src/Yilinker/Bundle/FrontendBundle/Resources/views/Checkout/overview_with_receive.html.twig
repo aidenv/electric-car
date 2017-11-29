@@ -1,0 +1,333 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %} Summary {% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/checkout.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block facebook_analytics %}
+            {% embed 'analytics/facebook-pixel.html.twig' %}
+            {% block fbPixel %}
+                {% if userOrder is not null %}
+                fbq('track', 'Purchase', { 
+                content_type: 'product_group',
+                content_ids: [{% for orderProduct in userOrder.orderProducts %}'{{orderProduct.product.productId}}'{% if loop.index != userOrder.orderProducts|length %},{% endif %}{% endfor %}],
+                num_items: {{ userOrder.orderProducts|length }},
+                content_name: 'Completed Purchase',
+                content_category: 'Checkout',
+                currency: 'PHP',
+                value: {{ userOrder.totalPrice }}
+                });
+                {% endif %}
+             {% endblock %}
+        {% endembed %}
+{% endblock %}
+
+{% block body %}
+    <div class="checkout">
+        {{ include('YilinkerFrontendBundle:Checkout:header.html.twig', {active: 'overview', messages: messages, token: token, baseUri: baseUri, nodePort: nodePort}) }}
+        <div class="checkout-wrapper">
+            <div class="checkout-container">
+                <div class="container">
+                    {% if error %}
+                        <h1></h1>
+                        <!--Display if there is no store address-->
+                        <div class="align-center">
+                            <h3 class="ui header">
+                                <i class="icon icon-alert-exclamation"></i>
+                                <div class="content">
+                                    {% trans %}
+                                        There are no items to checkout.
+                                    {% endtrans %}
+                                    <div class="sub-header mrg-top-10">{{ error }}</div>
+                                </div>
+                            </h3>
+                            <a href="{{ path('checkout_type') }}" class="button purple uppercase mrg-top-20">
+                                {% trans %}
+                                    Go back to checkout
+                                {% endtrans %}
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="checkout-segment inverted jumbotron">
+                                    <div class="header-title align-center">
+                                        <h1 class="ui header side-icon">
+                                            <i class="icon icon-check-circle"></i>
+                                            <div class="content">
+                                                {% trans %}
+                                                    Congratulations
+                                                {% endtrans %}
+                                                <div class="sub-header">{% trans %} Your purchase was a success {% endtrans %}</div>
+                                            </div>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                {% if app.user %}
+                                    <div class="success-payment-container">
+                                        <h4>
+                                            {% trans %}
+                                                Want to buy more items similar to this?
+                                            {% endtrans %}
+                                        </h4>
+                                        <h5>
+                                            {% trans %}
+                                                Congratulations on a successful purchase! While waiting for your product to arrive, we suggest checking out other related products that you just bought.
+                                            {% endtrans %}
+                                        </h5>
+                                        <br/>
+                                        <div class="form">
+                                            <a href="{{ path('profile_transaction_view', {invoice: userOrder.invoiceNumber}) }}" class="button purple">
+                                                {% trans %}
+                                                    View Transaction
+                                                {% endtrans %}
+                                            </a>
+                                            <span class="uppercase light-color bold separator-or">{% trans %} or {% endtrans %}</span>
+                                            <a href="{{ continueShoppingURL }}" class="button basic">
+                                                {% trans %}
+                                                    Continue Shopping
+                                                {% endtrans %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    {{ form_start(form) }}
+                                        <div class="success-payment-container">
+                                            <h4>
+                                                {% trans %}
+                                                    Would you like to register an account?
+                                                {% endtrans %}
+                                            </h4>
+                                            <h5>
+                                                {% trans %}
+                                                    Based on the information that you've provided in your order, YiLinker already has your basic information that's needed in creating an account. If you'd like to register on our website to receive more exciting news about our upcoming products & other promos, just enter your password and you're all set.
+                                                {% endtrans %}
+                                            </h5>
+                                            <br/>
+                                            <div class="form">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        {{ form_label(form.plainPassword.first) }}
+                                                        {{ form_widget(form.plainPassword.first, {attr: {class: 'form-ui'}}) }}
+                                                        {% if form_errors(form.plainPassword.first) %}
+                                                            <div class="form-error-prompt">
+                                                                {{ form_errors(form.plainPassword.first) }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="col-xs-12 mrg-top-20">
+                                                        {{ form_label(form.plainPassword.second) }}
+                                                        {{ form_widget(form.plainPassword.second, {attr: {class: 'form-ui'}}) }}
+                                                        {% if form_errors(form.plainPassword.second) %}
+                                                            <div class="form-error-prompt">
+                                                                {{ form_errors(form.plainPassword.second) }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        {{ form_label(form.referralCode) }}
+                                                        {{ form_widget(form.referralCode, {attr: {class: 'form-ui'}}) }}
+                                                        {% if form_errors(form.referralCode) %}
+                                                            <div class="form-error-prompt">
+                                                                {{ form_errors(form.referralCode) }}
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form">
+                                                <button type="submit" class="button purple">{% trans %} Sign Up Now {% endtrans %}</button>
+                                                <span class="uppercase light-color bold separator-or">{% trans %} or {% endtrans %}</span>
+                                                <a href="{{ continueShoppingURL }}" class="button basic">{% trans %} Continue Shopping {% endtrans %}</a>
+                                            </div>
+                                        </div>
+                                    {{ form_end(form) }}
+                                {% endif %}
+                            </div>
+                            <div class="col-xs-8">
+                                <section class="web-receipt checkout">
+                                    <div class="text-center">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <h3 class="align-center uppercase mrg-bt-10">
+                                                    Payment Receipt
+                                                </h3>
+                                                <p class="mrg-top-20">
+                                                    You have made a successful purchase on YiLinker. An e-mail has been sent to you and the people from whom you purchased regarding the status of your transaction.
+                                                </p>
+                                                <table width="100%" class="table mrg-top-20">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="50%" valign="top">
+                                                                <p class="bold">Consignee Name: </p>
+                                                                <p>Justine Carl Duazo</p>
+                                                            </td>
+                                                            <td width="50%" valign="top">
+                                                                <p class="bold">Full Address: </p>
+                                                                <p>6F Five E-com Tower, Pacific Drive, Mall of Asia Complex, Pasay City</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="50%" valign="top">
+                                                                <p class="bold">Mobile Number: </p>
+                                                                <p>09271234567</p>
+                                                            </td>
+                                                            <td width="50%" valign="top">
+                                                                <p class="bold">City/ Municipality: </p>
+                                                                <p>Manila</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <!--Start of shipping details-->
+                                            <div class="col-xs-5">
+                                                <h4 class="uppercase">Transaction Details</h4>
+                                                <table class="table" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <p class="bold">Transaction Number: </p>
+                                                                <p>123324234</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p class="bold">Invoice Number: </p>
+                                                                <p>2342q42342q34</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p class="bold">Payment Method: </p>
+                                                                <p>Cash on Delivery</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p class="bold">Total Amount: </p>
+                                                                <p>&#8369; 1200.00</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p class="bold">Transaction Date: </p>
+                                                                <p>01/21/2016</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--End of shipping details-->
+
+                                            <!--Start of order summary-->
+                                            <div class="col-xs-7">
+                                                <div class="checkout-segment">
+                                                    <p class="title">Your Order Details</p>
+                                                    <table class="table table-receipt-items" width="100%" style="font-size: 10px;">
+                                                        <thead>
+                                                            <tr>
+                                                                <th width="40%" valign="top">Product</th>
+                                                                <th width="20%" valign="top" align="center">Quantity</th>
+                                                                <th width="20%" valign="top" align="right">Shipping Fee</th>
+                                                                <th width="20%" valign="top" align="right">Price</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="checkout-item">
+                                                                <td valign="top">
+                                                                    Adidas Yeezy Boost Shoes
+                                                                    <div class="checkout-item-attribute-container">
+                                                                        <div class="checkout-item-attribute-container-body-receipt">
+                                                                            <div class="checkout-item-attribute-name">
+                                                                                <b>Size : </b> 32
+                                                                            </div>
+                                                                            <div class="checkout-item-attribute-name">
+                                                                                <b>Color : </b> Gray
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td valign="top" align="center">1</td>
+                                                                <td valign="top" align="right">P 100.00</td>
+                                                                <td valign="top" align="right">1250.00</td>
+                                                            </tr>
+                                                            <tr class="checkout-item">
+                                                                <td valign="top">
+                                                                    Roshe Run Red
+                                                                </td>
+                                                                <td valign="top" align="center">1</td>
+                                                                <td valign="top" align="right">P 100.00</td>
+                                                                <td valign="top" align="right">1250.00</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="bold">
+                                                                    Subtotal
+                                                                </td>
+                                                                <td colspan="3" align="right">&#8369; 1350.00</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="bold">
+                                                                    Total Shipping Fee
+                                                                </td>
+                                                                <td colspan="3" align="right">&#8369; 100.00</td>
+                                                            </tr>
+                                                            
+                                                            <tr class="td-border-bottom-1">
+                                                                <td class="bold">
+                                                                    Voucher Deduction
+                                                                </td>
+                                                                <td colspan="3" align="right">- &#8369; 50.00</td>
+                                                            </tr>
+                                                            
+                                                            <tr>
+                                                                <td class="bold">
+                                                                    <h4 class="bold">Order Total</h4>
+                                                                </td>
+                                                                <td  colspan="3" align="right"><h4 class="bold">&#8369; 100.00</h4></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!--End of order summary-->
+                                        </div>
+                                    </div>
+                                    <div class="align-right">
+                                        <a href="{{ path('checkout_receipt') }}" class="button gray">Print Receipt</a>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+    </div>
+        
+{% endblock %}
+
+{% block javascripts %}
+    {% if app.user %}
+        <script src="{{ asset('socket.io/socket.io.js') }}"></script>
+        <script src="{{ asset('js/src/socket-connection.js') }}"></script>
+    {% endif %}
+    <script src="{{ asset('js/src/checkout.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+{% block title %}
+    {% trans %}Messages{% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="profile messages">
+        <div class="loader-overlay hidden">
+            <img src="{{ asset('images/loader.gif') }}" class="img-auto-place" alt="Loading"/>
+        </div>
+        <div class="dashboard-wrapper">
+            {{ render(controller('YilinkerFrontendBundle:Dashboard:renderLeftWingMenu', {'currentRoute': app.request.attributes.get('_route') } )) }}
+
+            <div class="dashboard-body-container gray dashboard-message-container" data-user-id="{{ userId }}">
+                <div class="row row-body-message">
+
+                    <div class="col-sm-4 col-body-message recent-messages {{ messages is empty? 'hidden':'' }}">
+                        {{ render(controller('YilinkerCoreBundle:Message:renderRecentMessages', {'messages':messages})) }}
+                    </div>
+                    <div class="col-sm-8 col-body-message conversation">
+                        <div class="message-mobile">
+                            {{ render(controller('YilinkerCoreBundle:Message:renderConversation')) }}
+                        </div>
+                        <div class="contacts-mobile desktop-hide">
+                            {{ render(controller('YilinkerCoreBundle:Message:renderContacts')) }}
+                        </div>
+                    </div>
+                    {# <div class="col-sm-8 col-body-message  desktop-hide contacts">
+                        
+                    </div> #}
+                    <div class="dashboard-component top align-center empty-messages {{ messages is not empty? 'hidden':'' }}">
+                        <h3 class="ui header">
+                            <i class="icon icon-envelope"></i>
+                            <div class="content">
+                                {% trans %}Your inbox is currently empty.{% endtrans %}
+                                <div class="sub-header mrg-top-10">But it doesn't have to be this way. Check out our diverse list of sellers and start inquiring about the products that they have to offer.</div>
+                            </div>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+
+            {{ include('YilinkerFrontendBundle:Profile:profile_right_wing_notifications.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ include('YilinkerFrontendBundle:Profile:profile_base_js.html.twig') }}
+    <script src="{{ asset('js/bower/moment.min.js') }}"></script>
+    <script src="{{ asset('js/bower/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('js/src/dashboard-messages.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,19 @@
+Yilinker\Bundle\CoreBundle\Entity\UserBanType:
+    type: entity
+    table: null
+    id:
+        userBanTypeId:
+            type: integer
+            id: true
+            column: user_ban_type_id
+            unsigned: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            length: 45
+            column: name
+        description:
+            length: 255
+            column: description
+    lifecycleCallbacks: {  }

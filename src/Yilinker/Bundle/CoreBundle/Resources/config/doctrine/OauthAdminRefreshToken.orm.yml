@@ -1,0 +1,24 @@
+Yilinker\Bundle\CoreBundle\Entity\OauthAdminRefreshToken:
+    type: entity
+    table: OauthAdminRefreshToken
+    id:
+        id:
+            type: integer
+            id: true
+            unsigned: false
+            generator:
+                strategy: AUTO
+    manyToOne:
+        client:
+            targetEntity: OauthClient
+            joinColumn: 
+                name: client_id
+                referencedColumnName: id
+            orphanRemoval: false
+        user:
+            targetEntity: AdminUser
+            joinColumn:
+                name: user_id
+                referencedColumnName: admin_user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

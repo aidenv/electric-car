@@ -1,0 +1,57 @@
+yilinker_promo_event_api_route:
+    resource: "v1/promo_event.yml"
+    prefix: /
+
+yilinker_broadcast_api_route:
+    resource: "v1/broadcast.yml"
+    prefix: /
+
+yilinker_point_api_route:
+    resource: "v1/user_point.yml"
+    prefix: /
+
+yilinker_store_api_route:
+    resource: "v1/store.yml"
+    prefix: /
+
+yilinker_location_api_route:
+    resource: "v1/location.yml"
+    prefix: /
+
+yilinker_user_address_api_route:
+    resource: "v1/user_address.yml"
+    prefix: /
+
+yilinker_user_api_route:
+    resource: "v1/user.yml"
+    prefix: /
+
+yilinker_custom_category_api_route:
+    resource: "v1/customized_category.yml"
+    prefix: /
+
+yilinker_category_api_route:
+    resource: "v1/product_category.yml"
+    prefix: /
+
+yilinker_message_route:
+    resource: "v1/message.yml"
+    prefix: /
+
+yilinker_product_route:
+    resource: "v1/product.yml"
+    prefix: /
+
+yilinker_user_registration_route:
+    resource: "v1/device.yml"
+
+yilinker_user_feedback_route:
+    resource: "v1/user_feedback.yml"
+
+yilinker_transaction_api_route:
+    resource: "v1/transaction.yml"
+    prefix: /
+
+yilinker_dispute_api_route:
+    resource: "v1/dispute.yml"
+    prefix: /

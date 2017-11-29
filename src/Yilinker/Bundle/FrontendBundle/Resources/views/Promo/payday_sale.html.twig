@@ -1,0 +1,867 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+     Payday Sale
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    <div class="landing wrapper static-wrapper payday">
+        <div class="block align-center header">
+            <img src="{{ asset('images/promo/payday/payday-banner.jpg') }}" alt="" class="img-full-width main-banner big-banner">
+        </div>
+        <div class="container pad-top-5em pad-bt-5em">
+                <div class="align-center pad-bt-1em intro">
+                    <p><i>Reward and shop for yourself this payday!</i></p>
+                    <span><i>Say hooray cause you can save up to 80% off on selected items at <br>YiLinker as you end the month with your pay!</i></span>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/patricia-crystal-women-s-watch">
+                                    Patricia Crystal women's watch
+                                </a>
+                            </h4>
+                            <i>Watches</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/patricia-crystal-women-s-watch">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-1.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 409.00</span>
+                                <span class="discount">P 859.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/chloe-chrono-men-s-watch">
+                                    Chloe Chrono men's watch
+                                </a>
+                            </h4>
+                            <i>Watches</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/chloe-chrono-men-s-watch">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-2.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 439.00</span>
+                                <span class="discount">P 978.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/sandisk-16gb-dual-usb-3-0-otg-flash-drive-black-11">
+                                    Sandisk 16GB Dual USB 3.0 OTG Flash Drive Black
+                                </a>
+                            </h4>
+                            <i>Gadget</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/sandisk-16gb-dual-usb-3-0-otg-flash-drive-black-11">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-3.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 329.00</span>
+                                <span class="discount">P 589.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/transparent-shoe-box">
+                                    Transparent Shoe Box
+                                </a>
+                            </h4>
+                            <i>Box</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/transparent-shoe-box">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-4.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 159.00</span>
+                                <span class="discount">P 398.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/car-cctv-camera-road-recorder-with-ir-2">
+                                    Car CCTV Camera Road Recorder with IR
+                                </a>
+                            </h4>
+                            <i>Gadget</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/car-cctv-camera-road-recorder-with-ir-2">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-5.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 499.00</span>
+                                <span class="discount">P 1278.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear rm-clear"></div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/2-speed-portable-mini-usb-air-conditioner-tower-fan">
+                                    2-Speed Portable Mini USB Air Conditioner Tower Fan
+                                </a>
+                            </h4>
+                            <i>Gadget</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/2-speed-portable-mini-usb-air-conditioner-tower-fan">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-6.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 419.00</span>
+                                <span class="discount">P 1158.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/gemei-gm-8900-rechargeable-shaver">
+                                    Gemei GM 8900 Rechargeable Shaver
+                                </a>
+                            </h4>
+                            <i>Beauty</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/gemei-gm-8900-rechargeable-shaver">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-7.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 389.00</span>
+                                <span class="discount">P 999.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/timeless-manila-justine-plain-leather">
+                                    Timeless Manila Justine Plain Leather
+                                </a>
+                            </h4>
+                            <i>Watches</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/timeless-manila-justine-plain-leather">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-8.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 409.00</span>
+                                <span class="discount">P 1158.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/shake-n-take-3-double-bottle-blue">
+                                    Shake n Take 3 Double Bottle (Blue)
+                                </a>
+                            </h4>
+                            <i>Sports and Outdoor</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/shake-n-take-3-double-bottle-blue">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-9.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 479.00</span>
+                                <span class="discount">P 1452.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/milea-all-organic-lip-balm-selection-set-of-3-1">
+                                    Milea All Organic Lip Balm Selection - Set of 3
+                                </a>
+                            </h4>
+                            <i>Beauty</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/milea-all-organic-lip-balm-selection-set-of-3-1">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-10.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 319.00</span>
+                                <span class="discount">P 899.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear rm-clear"></div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/american-heritage-sandwich-maker-hesm-6051">
+                                    American Heritage - Sandwich Maker HESM-6051
+                                </a>
+                            </h4>
+                            <i>Kitchen</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/american-heritage-sandwich-maker-hesm-6051">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-11.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 599.00</span>
+                                <span class="discount">P 1598.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/3d-bl-9631-pro-shake-blender-black">
+                                    3D Bl-9631 Pro Shake Blender (Black)
+                                </a>
+                            </h4>
+                            <i>Kitchen</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/3d-bl-9631-pro-shake-blender-black">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-12.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 1239.00</span>
+                                <span class="discount">P 2899.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/talkative-designs-bear-hug-t-shirt">
+                                    Talkative Designs Bear Hug T Shirt
+                                </a>
+                            </h4>
+                            <i>Fashion</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/talkative-designs-bear-hug-t-shirt">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-13.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 599.00</span>
+                                <span class="discount">P 999.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/talkative-designs-pig-delicious-t-shirt-3">
+                                    Talkative Designs Pig Delicious T-Shirt
+                                </a>
+                            </h4>
+                            <i>Fashion</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/talkative-designs-pig-delicious-t-shirt-3">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-14.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 599.00</span>
+                                <span class="discount">P 999.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/talkative-designs-puzzle-love-t-shirt-3">
+                                    Talkative Designs Puzzle Love T Shirt
+                                </a>
+                            </h4>
+                            <i>Fashion</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/talkative-designs-puzzle-love-t-shirt-3">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-15.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 599.00</span>
+                                <span class="discount">P 999.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear rm-clear"></div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/153-fashion-clothes-wardrobe">
+                                    153 Fashion Clothes Wardrobe
+                                </a>
+                            </h4>
+                            <i>Fashion</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/153-fashion-clothes-wardrobe">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-16.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 949.00</span>
+                                <span class="discount">P 2358.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/1-5m-foldable-mosquito-net-with-frame-bed-mantle">
+                                    1.5m Foldable Mosquito Net with Frame / Bed Mantle
+                                </a>
+                            </h4>
+                            <i>Home</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/1-5m-foldable-mosquito-net-with-frame-bed-mantle">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-17.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 729.00</span>
+                                <span class="discount">P 1799.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/5-person-tent">
+                                    5 Person Tent
+                                </a>
+                            </h4>
+                            <i>Outdoor</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/5-person-tent">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-18.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 769.00</span>
+                                <span class="discount">P 2059.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/water-goblets-set-of-6-clear">
+                                    Water Goblets Set of 6 (Clear)
+                                </a>
+                            </h4>
+                            <i>Kitchen</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/water-goblets-set-of-6-clear">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-19.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 379.00</span>
+                                <span class="discount">P 969.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/pack-travel-sleep-kit-set-of-2">
+                                    Pack Travel Sleep Kit Set of 2
+                                </a>
+                            </h4>
+                            <i>Outdoor</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/pack-travel-sleep-kit-set-of-2">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-20.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 419.00</span>
+                                <span class="discount">P 879.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear rm-clear"></div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/electric-hot-pack-1">
+                                    Electric Hot Pack
+                                </a>
+                            </h4>
+                            <i>Outdoor</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/electric-hot-pack-1">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-21.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 229.00</span>
+                                <span class="discount">P 629.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/i-organize-luggage-cover-18-20-inches">
+                                    i.organize Luggage Cover 18 -20 Inches
+                                </a>
+                            </h4>
+                            <i>Travel</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/i-organize-luggage-cover-18-20-inches">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-22.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 609.00</span>
+                                <span class="discount">P 1879.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/multifunctional-electric-pan-blue-white">
+                                    Multifunctional Electric Pan (Blue/White)
+                                </a>
+                            </h4>
+                            <i>Kitchen</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/multifunctional-electric-pan-blue-white">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-23.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 499.00</span>
+                                <span class="discount">P 1379.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/wet-amp-dry-car-vacuum">
+                                    Wet and  Dry Car Vacuum
+                                </a>
+                            </h4>
+                            <i>Home</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/wet-amp-dry-car-vacuum">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-24.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 509.00</span>
+                                <span class="discount">P 1399.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/magic-sticky-spider-pad-anti-slip-mat">
+                                    Magic Sticky Spider Pad Anti-slip Mat
+                                </a>
+                            </h4>
+                            <i>Home</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/magic-sticky-spider-pad-anti-slip-mat">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-25.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 139.00</span>
+                                <span class="discount">P 299.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear rm-clear"></div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/leatherette-12-slot-card-holder">
+                                    Leatherette 12-Slot Card Holder
+                                </a>
+                            </h4>
+                            <i>Fashion</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/leatherette-12-slot-card-holder">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-26.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 119.00</span>
+                                <span class="discount">P 399.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/uu-family-top-handle-snake-bag-set-pink">
+                                    UU Family Top-Handle Snake Bag Set Pink
+                                </a>
+                            </h4>
+                            <i>Fashion</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/uu-family-top-handle-snake-bag-set-pink">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-27.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 469.00</span>
+                                <span class="discount">P 1278.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/uu-family-top-handle-snake-bag-set-blue">
+                                    UU Family Top-Handle Snake Bag Set Blue
+                                </a>
+                            </h4>
+                            <i>Fashion</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/uu-family-top-handle-snake-bag-set-blue">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-28.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 469.00</span>
+                                <span class="discount">P 1278.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/uu-family-top-handle-snake-bag">
+                                    UU Family Top-Handle Snake Bag Set Beige
+                                </a>
+                            </h4>
+                            <i>Fashion</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/uu-family-top-handle-snake-bag">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-29.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 469.00</span>
+                                <span class="discount">P 1278.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/adult-superhero-varsity-jacket">
+                                    Adult Superhero Varsity Jacket
+                                </a>
+                            </h4>
+                            <i>Jacket</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/adult-superhero-varsity-jacket">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-30.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 1589.00</span>
+                                <span class="discount">P 2499.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear rm-clear"></div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/juji-powerbank">
+                                    Juji Powerbank
+                                </a>
+                            </h4>
+                            <i>Gadget</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/juji-powerbank">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-31.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 359.00</span>
+                                <span class="discount">P 999.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/cartoon-mobile-powerbank">
+                                    Cartoon Mobile Powerbank
+                                </a>
+                            </h4>
+                            <i>Gadget</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/cartoon-mobile-powerbank">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-32.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 309.00</span>
+                                <span class="discount">P 779.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/quality-bi-2030-a-patented-multi-stand-for-ipad-iphone-e-reader">
+                                    Quality BI-2030 A Patented Multi-Stand for Ipad/Iphone/E-Reader
+                                </a>
+                            </h4>
+                            <i>Gadget</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/quality-bi-2030-a-patented-multi-stand-for-ipad-iphone-e-reader">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-33.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 119.00</span>
+                                <span class="discount">P 339.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/quality-portable-active-bluetooth-music-player">
+                                    Quality Portable Active Bluetooth Music Player
+                                </a>
+                            </h4>
+                            <i>Gadget</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/quality-portable-active-bluetooth-music-player">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-34.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 559.00</span>
+                                <span class="discount">P 1398.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/remote-controlled-bulb-socket">
+                                    Remote Controlled Bulb Socket
+                                </a>
+                            </h4>
+                            <i>Gadget</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/remote-controlled-bulb-socket">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-35.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 489.00</span>
+                                <span class="discount">P 1179.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear rm-clear"></div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/mini-dv-5mp-digital-camera-3">
+                                    Mini DV 5MP Digital Camera
+                                </a>
+                            </h4>
+                            <i>Gadget</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/mini-dv-5mp-digital-camera-3">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/payday/product-36.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 329.00</span>
+                                <span class="discount">P 859.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="mechanics">
+            <div class="container">
+            <div class="row">
+                <div class="col-ms-1 col-md-1"></div>
+                <div class="col-xs-12 col-ms-5 col-md-5">
+                    <div class="content">
+                        <p><strong>Promo Mechanics:</strong></p>
+                        <ol>
+                            <li>Like YiLinker Philippines <a href="https://www.facebook.com/YilinkerPH/"><strong>Facebook Page</strong></a></li>
+                            <li>Every featured product varies from different categories:</li>
+                                <ol type="a">
+                                    <li>Bags &amp; Accessories</li>
+                                    <li>Beauty &amp; Skincare</li>
+                                    <li>Electronics</li>
+                                    <li>Home Decoration &amp; Living</li>
+                                </ol>
+                            </li>
+                            <li>Avail our featured items at <a href="https://www.yilinker.com/payday-sale"><strong>Payday Sale</strong></a> and get a FREE Yibo plush toy for every successful transaction</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-ms-5 col-md-5">
+                    <div class="content">
+                        <p><strong>Terms &amp; Conditions:</strong></p>
+                        <ol>
+                            <li>The featured items are only available within the time given &amp; until supplies last</li>
+                            <li>This promo is valid for existing and newly registered users</li>
+                            <li>Vouchers are not applicable on this promo</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="col-ms-1 col-md-1"></div>
+            </div>
+            <br>
+
+        </div>
+        </div>
+    </div>
+
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/bower/slick.min.js') }}"></script>
+    <script src="{{ asset('js/src/static.js') }}"></script>
+{% endblock %}

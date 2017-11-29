@@ -1,0 +1,24 @@
+api_core_address_add:
+    path: /auth/address/addNewAddress
+    defaults: { _controller: YilinkerCoreBundle:Api/UserAddressApi:addNewAddress }
+    methods: [POST]
+
+api_core_address_edit:
+    path: /auth/address/editUserAddress
+    defaults: { _controller: YilinkerCoreBundle:Api/UserAddressApi:editUserAddress }
+    methods: [POST]
+
+api_core_address_delete:
+    path: /auth/address/deleteUserAddress
+    defaults: { _controller: YilinkerCoreBundle:Api/UserAddressApi:deleteUserAddress }
+    methods: [POST]
+
+api_core_address_default:
+    path: /auth/address/setDefaultAddress
+    defaults: { _controller: YilinkerCoreBundle:Api/UserAddressApi:setDefaultAddress }
+    methods: [POST]
+
+api_core_address_get:
+    path: /auth/address/getUserAddresses
+    defaults: { _controller: YilinkerCoreBundle:Api/UserAddressApi:getUserAddresses }
+    methods: [POST]

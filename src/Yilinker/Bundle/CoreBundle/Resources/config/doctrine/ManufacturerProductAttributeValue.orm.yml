@@ -1,0 +1,49 @@
+Yilinker\Bundle\CoreBundle\Entity\ManufacturerProductAttributeValue:
+    type: entity
+    table: ManufacturerProductAttributeValue
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ManufacturerProductAttributeValueRepository
+    indexes:
+        fk_manufacturerproductattributevalue_manufacturerproductattributenameid_manufacturerproductattributename_manufacturerproductattributenameid_idx:
+            columns:
+                - manufacturer_product_attribute_name_id
+        fk_manufacturerproductattributevalue_manufacturerproductunitid_manufacturerproductunit_manufacturerproductunitid_idx:
+            columns:
+                - manufacturer_product_unit_id
+    id:
+        manufacturerProductAttributeValueId:
+            type: integer
+            unsigned: false
+            id: true
+            column: manufacturer_product_attribute_value_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        value:
+            type: string
+            length: 255
+            column: value
+            options:
+                default: ''
+        referenceId:
+            type: string
+            length: 255
+            column: reference_id
+            options:
+                default: ''
+    manyToOne:
+        manufacturerProductAttributeName:
+            targetEntity: ManufacturerProductAttributeName
+            joinColumn:
+                name: manufacturer_product_attribute_name_id
+                referencedColumnName: manufacturer_product_attribute_name_id
+            orphanRemoval: false
+            inversedBy: manufacturerProductAttributeValues
+            cascade: ['persist']
+        manufacturerProductUnit:
+            targetEntity: ManufacturerProductUnit
+            inversedBy: manufacturerProductAttributeValues
+            joinColumn:
+                name: manufacturer_product_unit_id
+                referencedColumnName: manufacturer_product_unit_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

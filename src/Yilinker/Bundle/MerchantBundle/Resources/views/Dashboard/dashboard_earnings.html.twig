@@ -1,0 +1,316 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Earnings
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+    <div class="dashboard-body-container white">
+        {{ include('YilinkerMerchantBundle:Dashboard/Partial:reports_header.html.twig') }}
+        {{ include('YilinkerMerchantBundle:Dashboard:earning_report.html.twig') }}
+        {{ include('YilinkerMerchantBundle:Dashboard:earning_list.html.twig', {heading: 'List of Earnings'}) }}
+    </div>
+    <!--Start of modal qr code-->
+    <div class="ui modal small qr-code-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">Your QR Code</h4>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1">
+                    <div class="img-holder img-qr-code-holder">
+                        <img src="{{ asset('images/sample-qr-code.png') }}" alt="Your QR Code" class="img-auto-place">
+                    </div>
+                </div>
+                <div class="col-md-5 col-md-offset-1">
+                    <div class="mrg-top-20">
+                        <h4 class="mrg-bt-20">Download your QR Code</h4>
+                    </div>
+                    <ul class="list-unstyled list-qr-format">
+                        <li>
+                            <a href="#" class="default-color"><i class="icon icon-user icon-lg sky-blue-color"></i> 240 x 240</a>
+                        </li>
+                        <li>
+                            <a href="#" class="default-color"><i class="icon icon-user icon-lg sky-blue-color"></i> 480 x 480</a>
+                        </li>
+                        <li>
+                            <a href="#" class="default-color"><i class="icon icon-user icon-lg sky-blue-color"></i> 960 x 960</a>
+                        </li>
+                        <li>
+                            <a href="#" class="default-color"><i class="icon icon-user icon-lg sky-blue-color"></i> 1920 x 1920</a>
+                        </li>
+                        <li>
+                            <a href="#" class="default-color"><i class="icon icon-user icon-lg sky-blue-color"></i> SVG Format</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of modal qr code-->
+
+    <!--Start of modal total comments-->
+    <div class="ui modal small total-comment-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">How to Earn More</h4>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-8">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="inverted">
+                                <th width="33%" align="center">Comment</th>
+                                <th width="33%" align="center">Earn Per Comment</th>
+                                <th width="34%" align="center">Bonus Earning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td align="center">1 - 5</td>
+                                <td align="center">P 1.00</td>
+                                <td align="center">P 5.00</td>
+                            </tr>
+                            <tr>
+                                <td align="center">6 - 20</td>
+                                <td align="center">P 1.20</td>
+                                <td align="center">P 24.00</td>
+                            </tr>
+                            <tr>
+                                <td align="center">21 - 50</td>
+                                <td align="center">P 1.50</td>
+                                <td align="center">P 75.00</td>
+                            </tr>
+                            <tr>
+                                <td align="center">51 - 100</td>
+                                <td align="center">P 1.70</td>
+                                <td align="center">P 170.00</td>
+                            </tr>
+                            <tr>
+                                <td align="center">100 - 500</td>
+                                <td align="center">P 2.00</td>
+                                <td align="center">P 1,000.00</td>
+                            </tr>
+                            <tr>
+                                <td align="center">501 - above</td>
+                                <td align="center">P 2.00</td>
+                                <td align="center">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <div class="mrg-bt-20 align-right">
+                        <h4>Total Comments</h4>
+                        <h2 class="purple-color">32</h2>
+                    </div>
+                    <div class="mrg-bt-20 align-right">
+                        <h4>Earning on Comment</h4>
+                        <h2 class="purple-color">P 43.70</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of modal total comments-->
+
+    <!--Start of modal total followers-->
+    <div class="ui modal small total-followers-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">How to Earn More</h4>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-8">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="inverted">
+                                <th width="33%" align="center">Followers</th>
+                                <th width="33%" align="center">Earn Per Follower</th>
+                                <th width="34%" align="center">Bonus Earning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td align="center">1 - 20</td>
+                                <td align="center">P 1.00</td>
+                                <td align="center">P 20.00</td>
+                            </tr>
+                            <tr>
+                                <td align="center">21 - 50</td>
+                                <td align="center">P 1.00</td>
+                                <td align="center">P 24.00</td>
+                            </tr>
+                            <tr>
+                                <td align="center">51 - 100</td>
+                                <td align="center">P 1.00</td>
+                                <td align="center">P 100.00</td>
+                            </tr>
+                            <tr>
+                                <td align="center">101 - 500</td>
+                                <td align="center">P 1.30</td>
+                                <td align="center">P 650.00</td>
+                            </tr>
+                            <tr>
+                                <td align="center">501 - 2,000</td>
+                                <td align="center">P 1.50</td>
+                                <td align="center">P 3,000.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4">
+                    <div class="mrg-bt-20 align-right">
+                        <h4>Total Followers</h4>
+                        <h2 class="purple-color">106</h2>
+                    </div>
+                    <div class="mrg-bt-20 align-right">
+                        <h4>Earning on Followers</h4>
+                        <h2 class="purple-color">P 130.00</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of modal total followers-->
+
+    <!--Start of modal total buyer network-->
+    <div class="ui modal small total-buyer-network-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">How to Earn More</h4>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="mrg-bt-20">
+                        <h3 class="mrg-bt-0 purple-color">P 3.00</h3>
+                        <p>
+                            Earn P 3.00 for every you refer a refer a peron who register a YiLinker buyer account using your referral code.
+                        </p>
+                    </div>
+                    <div class="mrg-bt-20">
+                        <h3 class="mrg-bt-0 purple-color">P 5.00</h3>
+                        <p>
+                            Earn P 5.00 for every success transaction on your referral buyer made.
+                        </p>
+                    </div>
+                    <div class="mrg-bt-20">
+                        <h5 class="bold">Your Referral Code</h5>
+                        <h4 class="purple-color">100-043-210</h4>
+                    </div>
+                    <div class="mrg-bt-20">
+                        <h5 class="bold">Your Referral Link</h5>
+                        <p>
+                            <div class="message-box green mrg-bt-0">
+                                <i class="icon icon-check-circle icon-lg"></i> Copied to clipboard
+                            </div>
+                            <div class="form-ui"><a href="#">https://www.yilinker.com/register.php?refcode=100-043-210</a></div>
+                            <button class="button small blue uppercase">Copy Link</button>
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="bold">Share on Social Media</h5>
+                        <div class="social-media-set">
+                            <a href="#">
+                                <div class="social-media-icon facebook">
+                                    <i class="icon-facebook"></i>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="social-media-icon twitter">
+                                    <i class="icon-twitter"></i>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="social-media-icon google-plus">
+                                    <i class="icon-google-plus"></i>
+                                </div>
+                            </a>
+                            <a class="qr-code-modal-trigger">
+                                <div class="social-media-icon">
+                                    <img src="{{ asset('images/sample-qr-code.png') }}" alt="QR Code" class="img-auto-place">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mrg-bt-20 align-right">
+                        <h4>Total Buyer Network</h4>
+                        <h2 class="purple-color">106</h2>
+                    </div>
+                    <div class="align-right">
+                        <h4>Earning on Buyer Network</h4>
+                        <h2 class="purple-color">P 130.00</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of modal total buyer network-->
+
+    <!--Start of modal affiliate level-->
+    <div class="ui modal small affiliate-level-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">Affiliate Level</h4>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table basic table-affiliate-level-modal">
+                        <thead>
+                            <tr class="inverted">
+                                <th width="30%">Affiliate Level</th>
+                                <th width="30%">Total Earning</th>
+                                <th width="30%">Store Space</th>
+                                <th width="10%">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="inverted">
+                                <td>Silver</td>
+                                <td>Below P 5,000</td>
+                                <td>150 Products</td>
+                                <td><p class="purple-color">Current Level</p></td>
+                            </tr>
+                            <tr>
+                                <td>Gold</td>
+                                <td>P 5,001 to P 20,000</td>
+                                <td>200 Products</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Platinum</td>
+                                <td>P 20,001 to P 50,000</td>
+                                <td>300 Products</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Diamond</td>
+                                <td>Above P 50,000</td>
+                                <td>500 Products</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of modal affiliate level-->
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/bower/chart.min.js') }}"></script>
+    <script src="{{ asset('js/bower/moment.min.js') }}"></script>
+    <script src="{{ asset('js/bower/daterangepicker.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/dashboard-earnings.js') }}"></script>
+{% endblock %}

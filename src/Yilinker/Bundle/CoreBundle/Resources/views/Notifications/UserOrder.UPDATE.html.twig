@@ -1,0 +1,31 @@
+{% set transactionURL = '#' %}
+{% set invoiceNumber = notification.data.invoiceNumber %}
+{% if invoiceNumber %}
+    {% set transactionURL = safe_route('dashboard_transaction_view', {invoice: invoiceNumber}) %}
+    {% if not transactionURL %}
+        {% set transactionURL = safe_route('profile_transaction_view', {invoice: invoiceNumber}) %}
+    {% endif %}
+{% endif %}
+
+<a href="{{ transactionURL }}">
+    <div class="notification-icon-container">
+        <span class="icon-circle-container">
+            <i class="icon icon-check"></i>
+        </span>
+    </div>
+    <div class="notification-details">
+        <span class="notification-description semi-bold">
+            New Order {{ notification.data.invoiceNumber }}
+            <ul class="list-unstyled">
+                {% for orderProduct in notification.data.orderProducts %}
+                    {% if orderProduct.seller.userId == notification.user.userId %}
+                        <li>x{{ orderProduct.quantity }} {{ orderProduct.productName }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </span>
+        <span class="notification-time light-color">
+            {{ notification.dateAdded.format('M d, Y g:i:sa')|time_elapsed }}
+        </span>
+    </div>
+</a>

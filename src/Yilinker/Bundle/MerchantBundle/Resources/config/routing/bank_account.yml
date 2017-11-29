@@ -1,0 +1,36 @@
+merchant_bank_account_information:
+    path: /dashboard/bank-account-information
+    defaults: { _controller: YilinkerMerchantBundle:BankAccount:renderBankAccounts }
+    requirements:
+        _locale: en
+
+merchant_bank_account_add:
+    path: /bank/addBankAccount
+    defaults: { _controller: YilinkerMerchantBundle:Api/BankAccountApi:addBankAccount }
+    methods: [POST]
+
+merchant_bank_account_edit:
+    path: /account/editBankAccount
+    defaults: { _controller: YilinkerMerchantBundle:Api/BankAccountApi:editBankAccount }
+    methods: [POST]
+
+merchant_bank_account_delete:
+    path: /bank/deleteBankAccount
+    defaults: { _controller: YilinkerMerchantBundle:Api/BankAccountApi:deleteBankAccount }
+    methods: [POST]
+
+merchant_bank_account_set_default:
+    path: /bank/setDefaultBankAccount
+    defaults: { _controller: YilinkerMerchantBundle:Api/BankAccountApi:setDefaultBankAccount }
+    methods: [POST]
+
+merchant_bank_account_validate:
+    path: /accreditation/bank/validate
+    defaults: { _controller: YilinkerMerchantBundle:BankAccount:validateBankInformation }
+    methods: [POST]
+
+merchant_bank_account_submit:
+    path: /accreditation/bank/submit
+    defaults: { _controller: YilinkerMerchantBundle:BankAccount:submitBankInformation }
+    methods: [POST]
+

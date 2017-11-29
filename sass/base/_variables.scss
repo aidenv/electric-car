@@ -1,0 +1,232 @@
+//== Colors
+//
+//## Text colors
+$brand-gray-base:               #373737 !default;
+$brand-gray-darker:             lighten($brand-gray-base, 13.5%) !default;
+$brand-gray-dark:               lighten($brand-gray-base, 18.5%) !default; //#666
+$brand-gray:                    lighten($brand-gray-base, 33.5%) !default;
+$brand-gray-light:              lighten($brand-gray-base, 65.4%) !default;
+$brand-gray-lighter:            lighten($brand-gray-base, 93.5%) !default;
+//
+//## Brand colors
+$brand-purple:                  #75338a !default;
+$brand-orange:                  #ff893b !default;
+$brand-pink:                    #d52371 !default;
+$brand-red:                     #da202d !default;
+$brand-yellow:                  #ffc349 !default;
+$brand-brown:                   #a75c3f !default;
+$brand-green:                   #b3b233 !default;
+$brand-sky-blue:                #1786FF !default;
+$brand-blue:                    #54b6a7 !default;
+$brand-confirm:                 #5bbd72 !default;
+$brand-facebook:                #42609e !default;
+$brand-google-plus:             #de4a32 !default;
+$brand-twitter:             	#55acee !default;
+
+
+//== Scaffolding
+//
+//## Global style configuration
+//
+//** Global background for <body>
+$body-bg:                       #f2f2f2 !default;
+$body-min-width:                1120px !default;
+//
+//** Global text color for <body>
+$text-color:                    $brand-gray-dark !default;
+//
+//** Global transition
+$transition-default:            all 0.3s ease !default;
+
+//== Typography
+//
+//## Font family configuration
+$font-family-default:           "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+//** Font family for code preview
+$font-family-code:              "Courier New", modospace !default;
+//
+//## Font size configuration
+$font-size-base:                14px !default;
+$font-size-default:             12px !default;
+$font-size-large:               1.5em !default;
+$font-size-small:               ceil(($font-size-base * 0.75)) !default; // ~12px
+
+$font-size-h1:                  3em;
+$font-size-h2:                  2.5em;
+$font-size-h3:                 	2em;
+$font-size-h4:                  1.5em;
+$font-size-h5:                  1em;
+$font-size-h6:                  0.85em;
+//
+//## Letter spacing configuration
+$letter-spacing-default:        0.5px !default;
+//
+//## Line height configuration
+$line-height-default:           1.666666667 !default; // 20/14
+$line-height-large:             1.3333333 !default; // extra decimals for Win 8.1 Chrome
+$line-height-small:             1.4 !default;
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-default-computed:   floor(($font-size-base * $line-height-default)) !default; // ~20px
+//
+//** By default, this inherits from the `<body>`.
+$headings-font-family:          inherit !default;
+$headings-font-weight:          500 !default;
+$headings-line-height:          1.1 !default;
+$headings-color:                inherit !default;
+$headings-small-color:          $brand-gray-light !default;
+
+//== Margins and spacings
+//
+//## Padding configurations
+$padding-vertical-default:      6px !default;
+$padding-horizontal-default:    12px !default;
+
+$padding-large-vertical:        0.9em !default;
+$padding-large-horizontal:      1.3em !default;
+
+$padding-small-vertical:        4px !default;
+$padding-small-horizontal:      10px !default;
+
+$padding-xs-vertical:           1px !default;
+$padding-xs-horizontal:         5px !default;
+
+$grid-gutter-width:             30px !default;
+
+//## Border radius configurations
+$border-radius-default:         6px !default;
+$border-radius-100:             100px !default;
+$border-radius-50:              50% !default;
+$border-radius-large:           6px !default;
+$border-radius-small:           5px !default;
+//== Buttons
+//
+//## Button style configuration
+//
+$button-font-weight:            500 !default;
+//
+//** Button style for "default"
+$button-default-color:          $brand-gray-dark !default;
+$button-default-bg:             #fff !default;
+$button-default-border-color:   $brand-gray-dark !default;
+//
+//** Button style for "default-light"
+$button-default-light-color:    $brand-gray !default;
+$button-default-light-bg:       #fff !default;
+$button-default-light-border-color: $brand-gray !default;
+//
+//** Button style for "purple"
+$button-purple-color:           $brand-gray-lighter !default;
+$button-purple-bg:              $brand-purple !default;
+$button-purple-border-color:    $brand-purple !default;
+//
+//** Button style for "pink"
+$button-pink-color:             $brand-gray-lighter !default;
+$button-pink-bg:                $brand-pink !default;
+$button-pink-border-color:      $brand-pink !default;
+//
+//** Button style for "blue"
+$button-blue-color:             $brand-gray-lighter !default;
+$button-blue-bg:                $brand-blue !default;
+$button-blue-border-color:      $brand-blue !default;
+//
+//** Button style for "green"
+$button-green-color:            $brand-gray-lighter !default;
+$button-green-bg:               $brand-green !default;
+$button-green-border-color:     $brand-green !default;
+//
+//
+//** Button style for "green"
+$button-yellow-color:           $brand-gray-lighter !default;
+$button-yellow-bg:              $brand-yellow !default;
+$button-yellow-border-color:    $brand-yellow !default;
+//
+//** Button style for "red"
+$button-red-color:              $brand-gray-lighter !default;
+$button-red-bg:                 $brand-red !default;
+$button-red-border-color:       $brand-red !default;
+//
+//** Button style for "brown"
+$button-brown-color:            $brand-gray-lighter !default;
+$button-brown-bg:               $brand-brown !default;
+$button-brown-border-color:     $brand-brown !default;
+//
+//** Button style for "confirm"
+$button-confirm-color:          $brand-gray-lighter !default;
+$button-confirm-bg:             $brand-confirm !default;
+$button-confirm-border-color:   $brand-confirm !default;
+//
+//** Button style for "basic purple"
+$button-basic-purple-color:     $brand-purple !default;
+$button-basic-purple-bg:        transparent !default;
+$button-basic-purple-border-color:  $brand-purple !default;
+//** Button style for "basic blue"
+$button-basic-blue-color:     $brand-blue !default;
+$button-basic-blue-bg:        transparent !default;
+$button-basic-blue-border-color:  $brand-blue !default;
+//
+//** Button style for "basic purple"
+$button-basic-white-color:     #fff !default;
+$button-basic-white-bg:        transparent !default;
+$button-basic-white-border-color:  #fff !default;
+//
+//** Button style for "basic purple"
+$button-basic-default-color:     $brand-gray-dark !default;
+$button-basic-default-bg:        transparent !default;
+$button-basic-default-border-color:  $brand-gray-dark !default;
+//
+//** Button style for "facebook"
+$button-facebook-color:         $brand-gray-lighter !default;
+$button-facebook-bg:            $brand-facebook !default;
+$button-facebook-border-color:  $brand-facebook !default;
+//
+//** Button style for "google plus"
+$button-google-plus-color:      $brand-gray-lighter !default;
+$button-google-plus-bg:         $brand-google-plus !default;
+$button-google-plus-border-color:   $brand-google-plus !default;
+//
+//** Button style for "twitter"
+$button-twitter-color:      	$brand-gray-lighter !default;
+$button-twitter-bg:         	$brand-twitter !default;
+$button-twitter-border-color:   $brand-twitter !default;
+//
+//** Button radius
+$button-border-radius-default:  $border-radius-default !default;
+
+
+//== Navigation bar
+//
+//== Navbar size
+$navbar-default-height:         50px !default;
+$navbar-default-max-height:     340px !default;
+$navbar-padding-horizontal:     floor(($grid-gutter-width / 2)) !default;
+$navbar-padding-vertical:       (($navbar-default-height - $line-height-default-computed) / 2) !default;
+//
+//== Navbar default styles
+$navbar-default-bg:             #fff !default;
+$navbar-default-color:          #a3a3a3 !default;
+//
+//== Navbar default dropdown
+$navbar-default-dropdown-bg:    $brand-purple !default;
+$navbar-default-dropdown-color: $brand-gray-lighter !default;
+
+//== Forms
+$form-segment-border-radius:    5px !default;
+$input-border-radius:           6px !default;
+$input-bg:                      #fff !default;
+$input-border-color:            $brand-gray-light !default;
+$input-border-color-hover:      $brand-gray-darker !default;
+$input-border-bg-hover:         #fff !default;
+//## Input sizes
+//** Default `.form-control` height
+$input-height-base:              ($line-height-default-computed + ($padding-vertical-default * 2) + 2) !default;
+//
+//** Message style for red
+$message-box-red-color:         #CD7170;
+$message-box-red-bg:            #fff6f6 !default;
+$message-box-red-border-color:  #e0b4b4 !default;
+//
+//** Message style for green
+$message-box-green-color:         darken($brand-confirm, 5%) !default;
+$message-box-green-bg:            lighten($brand-confirm, 35%) !default;
+$message-box-green-border-color:  darken($brand-confirm, 5%) !default;
+//

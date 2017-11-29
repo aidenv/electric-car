@@ -1,0 +1,29 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductUnitImage:
+    type: entity
+    table: ProductUnitImage
+    indexes:
+        fk_productunitimage_productunitid_productunit_productunitid:
+            columns:
+                - product_unit_id
+    id:
+        id:
+            type: bigint
+            id: true
+            column: id
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        productUnit:
+            targetEntity: ProductUnit
+            inversedBy: productUnitImages
+            joinColumn:
+                name: product_unit_id
+                referencedColumnName: product_unit_id
+            orphanRemoval: false
+        productImage:
+            targetEntity: ProductImage
+            joinColumn:
+                name: product_image_id
+                referencedColumnName: product_image_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

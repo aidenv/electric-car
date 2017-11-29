@@ -1,0 +1,7 @@
+api_v3_get_countries:
+    path: /get-countries
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getCountryList }
+
+api_v3_get_languages:
+    path: /get-languages
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getLanguageList }

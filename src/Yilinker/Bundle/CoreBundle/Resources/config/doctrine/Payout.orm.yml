@@ -1,0 +1,79 @@
+Yilinker\Bundle\CoreBundle\Entity\Payout:
+    type: entity
+    table: Payout
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\PayoutRepository
+    id:
+        payoutId:
+            type: integer
+            id: true
+            column: payout_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        payoutType:
+            type: smallint
+            column: payout_type
+            options:
+                default: '0'
+        dateCreated:
+            type: datetime
+            nullable: false
+            column: date_created
+        dateModified:
+            type: datetime
+            nullable: false
+            column: date_modified
+        amount:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            column: amount
+        status:
+            type: smallint
+            column: status
+            options:
+                default: '0'
+        referenceNumber:
+            type: string
+            length: 255
+            column: reference_number
+            nullable: false
+    oneToMany:
+        payoutOrderProducts:
+            targetEntity: PayoutOrderProduct
+            mappedBy: payout
+        payoutDocuments:
+            targetEntity: PayoutDocument
+            mappedBy: payout
+        refundNotes:
+            targetEntity: RefundNote
+            mappedBy: source
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false           
+        adminUser:
+            targetEntity: AdminUser
+            joinColumn:
+                name: admin_user_id
+                referencedColumnName: admin_user_id
+            orphanRemoval: false
+        dispute:
+            targetEntity: Dispute
+            joinColumn:
+                name: dispute_id
+                referencedColumnName: dispute_id
+            orphanRemoval: false
+        currency:
+            targetEntity: Currency
+            joinColumn:
+                name: currency_id
+                referencedColumnName: currency_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

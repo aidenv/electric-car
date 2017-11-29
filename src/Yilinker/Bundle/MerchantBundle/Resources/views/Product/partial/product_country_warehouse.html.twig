@@ -1,0 +1,68 @@
+<div class="panel-body">
+    {{ form_label(warehouse.userWarehouse) }}
+    {% if warehouse.userWarehouse.vars.valid %}
+        {{ form_widget(warehouse.userWarehouse, {attr: {class: 'user-warehouse form-ui ui single selection dropdown inverted'~(warehouse.vars.disabled ? ' disabled': '')}}) }}
+    {% else %}
+        {{ form_widget(warehouse.userWarehouse, {attr: {class: 'user-warehouse form-ui ui single selection dropdown inverted error'~(warehouse.vars.disabled ? ' disabled': '')}}) }}
+        <span class="form-error-note">
+            {{warehouse.userWarehouse.vars.errors[0].message}}
+        </span>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_label(warehouse.logistics) }}
+
+            {% if warehouse.logistics.vars.valid %}
+                {{ form_widget(warehouse.logistics, {attr: {class: 'logistics form-ui ui single selection dropdown inverted'~(warehouse.vars.disabled ? ' disabled': '')}}) }}
+            {% else %}
+                {{ form_widget(warehouse.logistics, {attr: {class: 'logistics form-ui ui single selection dropdown inverted error'~(warehouse.vars.disabled ? ' disabled': '')}}) }}
+                <span class="form-error-note">
+                    {{warehouse.logistics.vars.errors[0].message}}
+                </span>
+            {% endif %}
+        </div>
+
+        <div class="col-md-6 cod-checkbox" {{warehouse.vars.value.userWarehouse and warehouse.vars.value.userWarehouse.getCountry().code|lower != countryCode|lower ? 'style="display:none"' : ''}}>
+            <label for="">&nbsp;</label>
+            <div class="ui checkbox mrg-top-10">
+                {{ form_widget(warehouse.isCod) }}
+                {{ form_label(warehouse.isCod) }}
+            </div>
+        </div>
+    </div>
+    {# Display if 3PL #}
+    {% set class = 'row handling-fee hidden'%}
+    {% if warehouse.logistics.vars.value != constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Logistics::YILINKER_EXPRESS') %}
+        {% set class = 'row handling-fee'%}
+    {% endif %}
+    <div class="{{class}}">
+        <div class="col-md-6">
+            {{ form_label(warehouse.handlingFee) }}
+
+            {% if warehouse.handlingFee.vars.valid %}
+                <div class="labeled-input left">
+                    <div class="label black">{{currencySymbol}}</div>
+                    {{ form_widget(warehouse.handlingFee, {attr: {class: 'form-ui'}}) }}
+                </div>
+            {% else %}
+                {{ form_widget(warehouse.handlingFee, {attr: {class: 'form-ui error'}}) }}
+                <span class="form-error-note">
+                    {{warehouse.handlingFee.vars.errors[0].message}}
+                </span>
+            {% endif %}
+        </div>
+    </div>
+    {# End of display if 3PL #}
+    <div class="row">
+        <div class="col-md-12 light-color">
+            <h5 class="bold mrg-top-10 uppercase">About Logistic Service</h5>
+            <p>
+                <b>Yilinker Express</b> - This is the in-house logistics arm of Yilinker where the entire fulfilment process, from product pickup to delivery, is handled by Yilinker.
+            </p>
+            <p class="mrg-top-10">
+                <b>3rd Party Logistics(3PL)</b> - This is a provider of outsourced logistics services that is preferred by the Seller. The shipment of the package is under the care of the Seller and that includes updating the Buyer of the status of their delivery.
+            </p>
+        </div>
+    </div>
+</div>

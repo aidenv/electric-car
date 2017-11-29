@@ -1,0 +1,23 @@
+services:
+    yilinker_core_bundle.twig.class_twig_extension:
+        class: Yilinker\Bundle\CoreBundle\Twig\ClassTwigExtension
+        tags:
+            - { name: twig.extension }    
+
+    yilinker_core_bundle.twig.csrf_twig_extension:
+        class: Yilinker\Bundle\CoreBundle\Twig\CsrfTwigExtension
+        arguments:
+            - '@form.csrf_provider'
+            - '%csrf_default_intention%'
+        tags:
+            - { name: twig.extension }
+
+    yilinker_core_bundle.twig.custom_extension:
+        class: Yilinker\Bundle\CoreBundle\Twig\CustomExtension
+        arguments:
+            - '@templating.helper.assets'
+            - '@yilinker_core.service.log.user.activity'
+            - '@yilinker_core.service.log.user.notification'
+            - '@service_container'
+        tags:
+            - { name: twig.extension }

@@ -1,0 +1,120 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Product CMS</span>
+        </div>
+    </div>
+    <div class="container">
+
+        <!-- Tables -->
+        <div class="row">
+            <div class="box-upper">
+                <div class="col-md-12">
+                    <div class="box-div">
+                        <div class="row sub-tools">
+                            <div class="col-md-12">
+                                <button class="button purple small add-promo-success-trigger" onclick="location.href='{{ path('cms_render_product_detail') }}';">
+                                    <i class="icon icon-plus"></i>
+                                    Create Product Promo List
+                                </button>
+                                <button class="button purple small add-promo-success-trigger remove-product">
+                                    Remove
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row gutters">
+                            <div class="col-md-12">
+                                <table class="table basic table-vertical-align-top">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Title</th>
+                                        <th>No. of Products</th>
+                                        <th>URL</th>
+                                        <th></th>
+                                    </tr>
+                                    {% for node in nodes %}
+                                    <tr>
+                                        <td onclick="location.href='{{ path('cms_render_product_detail', {id: node.productListId}) }}';">{{ node.type }}</td>
+                                        <td onclick="location.href='{{ path('cms_render_product_detail', {id: node.productListId}) }}';">{{ node.title }}</td>
+                                        <td onclick="location.href='{{ path('cms_render_product_detail', {id: node.productListId}) }}';">{{ node.productIds | length }}</td>
+                                        <td>
+                                            <a data-product-detail-link href="{{ frontend_hostname }}/product-list/{{ node.productListId }}">
+                                                {{ frontend_hostname }}/product-list/{{ node.productListId }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            {% if node.isCustomPage is defined %}
+                                                <input type="checkbox" class="product-id" value="{{ node.productListId }}">
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Tools -->
+        <div class="row">
+            <div class="box-upper">
+                <div class="col-md-12">
+                    <div class="box-blank">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {perPage: perPage, totalResults: totalNodes}) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+    {# START OF CONFIRM MODAL #}
+    <div class="ui modal small" id="confirm-modal">
+        <div class="header">
+            <h4 class="no-margin">Are you sure you want to remove?</h4>
+        </div>
+        <div class="actions">
+            <button class="button cancel close uppercase">Cancel</button>
+            <button class="button blue uppercase approve" id="remove-product">Yes</button>
+        </div>
+    </div>
+    {# END OF CONFIRM MODAL #}
+
+    {# START MODAL MESSAGE #}
+    <div class="ui modal small" id="modal-message">
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-circle-check"></i>
+
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header sub-header-content"></div>
+                </div>
+            </h4>
+        </div>
+        <div class="actions">
+            <button class="button blue approve uppercase">Okay</button>
+        </div>
+    </div>
+    {# END MODAL MESSAGE #}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/backend/cms-page.js') }}"></script>
+{% endblock %}

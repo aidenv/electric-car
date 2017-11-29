@@ -1,0 +1,30 @@
+<tr>
+    <td width="90">{{ activity.dateAdded('g:i A') }}</td>
+    <td colspan="2">
+        <p>
+            <em>
+                {{ activity.mysqlAction == 'UPDATE' ? 'Updated' : '' }}
+                {{ activity.mysqlAction == 'INSERT' ? 'Created' : '' }}
+                {{ activity.mysqlAction == 'DELETE' ? 'Deleted' : '' }}
+                {{ __noun is defined ? __noun: activity.affectedTable }}
+            </em>
+        </p>
+        {% if activity.mysqlAction == 'UPDATE' and activity.activityData.__changes is defined %}
+            <ol class="bulleted">
+                {% for column, change in activity.activityData.__changes %}
+                    {% set before = change|first %}
+                    {% set after = change|last %}
+                    {% if before != after %}
+                        <li>
+                            {{ column|phrasify }} changed
+
+                            {% if (before is not iterable and after and after is not iterable) %}
+                                from {{ before ? before: '``' }} to {{ after }}
+                            {% endif %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </td>
+</tr>

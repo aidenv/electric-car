@@ -1,0 +1,45 @@
+Yilinker\Bundle\CoreBundle\Entity\PayoutBatchDetail:
+    type: entity
+    table: PayoutBatchDetail
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\PayoutBatchDetailRepository
+    id:
+        payoutBatchDetailId:
+            column: payout_batch_detail_id
+            type: integer
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        isDelete:
+            column: is_delete
+            type: smallint
+            default:
+                options: 0
+        dateAdded:
+            column: date_added
+            type: datetime
+        dateLastModified:
+            column: date_last_modified
+            type: datetime
+    indexes:
+        payout_batch_detail_payout_batch_head_id_payout_batch_head_payout_batch_head_id_idx:
+            columns:
+                - payout_batch_head_id
+        payout_batch_detail_payout_request_id_payout_request_payout_request_id_idx:
+            columns:
+                - payout_request_id
+    manyToOne:
+        payoutBatchHead:
+            targetEntity: PayoutBatchHead
+            joinColumn:
+                name: payout_batch_head_id
+                referencedColumnName: payout_batch_head_id
+            orphanRemoval: false
+        payoutRequest:
+            targetEntity: PayoutRequest
+            joinColumn:
+                name: payout_request_id
+                referencedColumnName: payout_request_id
+            orphanRemoval: false
+
+    lifecycleCallbacks: {  }

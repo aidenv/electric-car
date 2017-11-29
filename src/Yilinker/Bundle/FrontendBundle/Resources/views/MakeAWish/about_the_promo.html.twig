@@ -1,0 +1,80 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    Make A Wish
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+            {{ include('YilinkerFrontendBundle:MakeAWish:breadcrumb.html.twig') }}
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-xs-3 col-xl-2">
+                        <h4 class="bold mrg-bt-20">Promo Mechanics:</h4>
+                        <ul class="list-unstyled list-sidemenu">
+                            <li>
+                                <a class="active">
+                                    About the Promo
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('how_to_join_make_a_wish') }}">
+                                    How to Join
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('how_to_register_make_a_wish') }}">
+                                    How to Register
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('how_to_create_an_entry_make_a_wish') }}">
+                                    How to Create an Entry
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('criteria_for_claiming_the_prize_make_a_wish') }}">
+                                    Criteria for Claiming the Prize
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-9 col-xl-10">
+                        <div class="content-container">
+                            <div class="content-segment">
+                                <div class="content-description">
+                                    <img src="{{ asset('images/promo/make-a-wish/banner.jpg') }}" alt="Make A Wish" class="img-full-width mrg-bt-20">
+                                    Highlighting the "one-stop shop" nature of new e-commerce site <b> YiLinker </b>, "Make a Wish" offers to literally make someone's wish come true, while also giving a hundred other fans a special prize to make their day!
+                                </div>
+                            </div>
+                            <div class="content-segment">
+                                <h4 class="bold mrg-bt-20">Campaign Period: November 16 to December 13, 2015</h4>
+                                <h4>Prizes</h4>
+                                <div class="content-description">
+                                    <ol>
+                                        <li>
+                                            <b>Main Prize: </b> The "Wish" of the fan
+                                        </li>
+                                        <li>
+                                            <b>Consolation Prize: </b> 100 winners of YiLinker mascot plushies
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="content-segment">
+                                <h4 class="bold mrg-bt-20 align-center">
+                                    <a href="{{ path('how_to_join_make_a_wish') }}" class="sky-blue-color">How to Join?</a>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}
+{% block javascripts %}
+    
+{% endblock %}

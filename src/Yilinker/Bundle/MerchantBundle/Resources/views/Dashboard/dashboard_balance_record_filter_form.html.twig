@@ -1,0 +1,94 @@
+{{ form_start(form) }}
+    <div class="component-content">
+        <div class="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-3 align-right">
+                            <label for="" class="bold mrg-top-10">Search : </label>
+                        </div>
+                        <div class="col-xs-9">
+                            {{ form_widget(form.qCriteria) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-3 align-right">
+                            <label for="" class="bold mrg-top-10">Keyword :</label>
+                        </div>
+                        <div class="col-xs-9">
+                            <div class="input-icon left">
+                                <i class="icon icon-search"></i>
+                                {{ form_widget(form.q) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-3 align-right">
+                            <label for="" class="bold">Type :</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="filter-checkbox-set">
+                                {% for type in form.type %}
+                                    <div class="ui checkbox">
+                                        {{ form_widget(type) }}
+                                        {{ form_label(type) }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-3 align-right">
+                            <label for="" class="bold">Status :</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="filter-checkbox-set">
+                                {% for status in form.status %}
+                                    <div class="ui checkbox">
+                                        {{ form_widget(status) }}
+                                        {{ form_label(status) }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-3 align-right">
+                            <label for="" class="bold mrg-top-10">Date :</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="form">
+                                {{ form_widget(form.daterange) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="form">
+            <div class="col-md-6 col-md-offset-6 align-right">
+                <button class="button blue uppercase">
+                    Search
+                </button>
+            </div>
+        </div>
+    </div>
+{{ form_end(form) }}

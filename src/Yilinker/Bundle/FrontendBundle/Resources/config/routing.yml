@@ -1,0 +1,95 @@
+
+yilinker_frontend_international_homepage:
+    resource: "routing/international/homepage.yml"
+    prefix: /
+
+yilinker_frontend_international:
+    resource: "routing/international.yml"
+    prefix: /international
+
+yilinker_frontend_cart:
+    resource: "routing/cart.yml"
+    prefix: /cart
+
+yilinker_frontend_product_main:
+    resource: "routing/product.yml"
+    prefix: /
+
+yilinker_frontend_user:
+    resource: "routing/user.yml"
+
+yilinker_frontend_newsletter:
+    resource: "routing/newsletter.yml"
+
+yilinker_frontend_dashboard:
+    resource: "routing/dashboard.yml"
+    prefix: /profile
+
+yilinker_frontend_feedback:
+    resource: "routing/feedback.yml"
+    prefix: /feedback
+
+yilinker_frontend_homepage:
+    resource: "routing/homepage.yml"
+
+yilinker_frontend_category:
+    resource: "routing/category.yml"
+
+yilinker_frontend_user_follow:
+    resource: "routing/user_follow.yml"
+    prefix: /
+
+yilinker_frontend_search:
+    resource: "routing/search.yml"
+
+yilinker_checkout_route:
+    resource: "routing/checkout.yml"
+    prefix: /checkout
+
+yilinker_payment_route:
+    resource: "routing/payment.yml"
+    prefix: /
+
+#API
+
+yilinker_pages_api_route:
+    resource: "routing/api/pages.yml"
+
+yilinker_web_view_api_route:
+    resource: "routing/api/web_view.yml"
+
+
+# Please add suffix "v2" to all routes in version 2 related api
+# to avoid name conflicts and overriding routes. Thanks!
+# Moving forward:
+# For Merchant bundle use: yilinker_merchant_[ROUTE NAME]_v2
+# For Core bundle use: yilinker_core_[ROUTE NAME]_v2
+# For Frontend bundle use: yilinker_frontend_[ROUTE NAME]_v2
+
+yilinker_api_route_v1:
+    resource: "routing/api/v1.yml"
+    prefix: /api/v1/
+
+yilinker_api_route_v2:
+    resource: "routing/api/v2.yml"
+    prefix: /api/v2/
+
+## api v4
+yilinker_api_global_route_v4:
+    resource: "routing/api/v4.yml"
+    prefix: /api/v4/{country_code}/{language_code}
+
+## api v3
+yilinker_api_global_route_v3:
+    resource: "routing/api/v3.yml"
+    prefix: /api/{version}/{country_code}/{language_code}
+    defaults: { version: 'v3' }
+    requirements:
+        version: 'v[34]'
+
+
+#NOTE : NEEDS TO BE THE LAST FOR user_frontend_store
+
+yilinker_frontend_store:
+    resource: "routing/store.yml"
+    prefix: /

@@ -1,0 +1,14 @@
+Yilinker\Bundle\CoreBundle\Entity\AccreditationLevel:
+    type: entity
+    table: AccreditationLevel
+    id:
+        accreditationLevelId:
+            type: bigint
+            column: accreditation_level_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            length: 255
+    lifecycleCallbacks: {  }

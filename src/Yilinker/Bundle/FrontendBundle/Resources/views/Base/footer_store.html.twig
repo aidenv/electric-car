@@ -1,0 +1,213 @@
+<div class="footer-wrapper">
+  <div class="footer-content-container">
+    <div class="top-content">
+      <div class="footer-body-wrapper">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="logo-motto-container">
+              <table class="footer-logo-store">
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="light-color">{% trans %}
+                        Powered by:
+                        {% endtrans %}</span>
+                    </td>
+                    <td>
+                      <a href="{{ path('home_page') }}">
+                        <img alt="YiLinker" class="logo" src="{{ asset('images/logo.jpg') }}"/>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="sitemap-container">
+              <div class="row">
+                <div class="col-sm-5 footer-bordered-mobile">
+                  <div class="row">
+                    <div class="col-xs-6 sitemap-section">
+                      <div class="header">{% trans %}
+                        To Do business
+                        {% endtrans %}</div>
+                      <ul class="list-unstyled list-sitemap-links">
+                        <li>
+                          <a href="{{ merchant_hostname }}/login">{% trans %}
+                            Login as seller
+                            {% endtrans %}</a>
+                        </li>
+                        <li>
+                          <a href="{{ merchant_hostname }}/affiliate-program/login">{% trans %}
+                            Login as affiliate
+                            {% endtrans %}</a>
+                        </li>
+                      </ul>
+                      <br/>
+                      <div class="header no-margin">{% trans %}
+                        Contact Us
+                        {% endtrans %}</div>
+                      <table class="mrg-bt-10">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <i class="icon icon-telephone icon-2x"></i>
+                            </td>
+                            <td>
+                              {{ supportMobile }}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      {#
+                                                  <div class="header">{% trans %} Our Company {% endtrans %}</div>
+                                                  <ul class="list-unstyled list-sitemap-links">
+                                                      <li><a href="#">{% trans %} About Aeneasusa {% endtrans %}</a></li>
+                                                      <li><a href="#">{% trans %} Our Guarantees {% endtrans %}</a></li>
+                                                      <li><a href="#">{% trans %} Advertise with us {% endtrans %}</a></li>
+                                                      <li><a href="#">{% trans %} Copyright {% endtrans %}</a></li>
+                                                  </ul>
+                          #}
+                    </div>
+                    <div class="col-xs-6 sitemap-section">
+                      <div class="header">{% trans %}
+                        Help &amp; Support
+                        {% endtrans %}</div>
+                      <ul class="list-unstyled list-sitemap-links">
+                        <li>
+                          <a href="{{ path('profile_information') }}">{% trans %}
+                            Your account
+                            {% endtrans %}</a>
+                        </li>
+                        <li>
+                          <a href="{{ path('profile_transaction') }}">{% trans %}
+                            Your order
+                            {% endtrans %}</a>
+                        </li>
+                        <li>
+                          <a href="{{ path('profile_resolution_center') }}">{% trans %}
+                            Resolution Center
+                            {% endtrans %}</a>
+                        </li>
+                        <li>
+                          <a href="mailto:#">{% trans %}
+                            Complaints
+                            {% endtrans %}</a>
+                        </li>
+                        <li>
+                          <a href="{{ path('privacy_policy') }}">{% trans %}
+                            Privacy Policy
+                            {% endtrans %}</a>
+                        </li>
+                        {#
+                                                  <li><a href="#">{% trans %} FAQ {% endtrans %}</a></li>
+                                                  <li><a href="#">{% trans %} Shipping &amp; delivery {% endtrans %}</a></li>
+                                                  <li><a href="#">{% trans %} Return Policy {% endtrans %}</a></li>
+                                                  <li><a href="#">{% trans %} Terms of use {% endtrans %}</a></li>
+                                                  <li><a href="#">{% trans %} Contact us {% endtrans %}</a></li>
+                                                  <li><a href="#">{% trans %} Payment {% endtrans %}</a></li>
+                                                  #}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="row">
+                    <div class="col-sm-12 col-xs-12 sitemap-section">
+                      <div class="row footer-bordered-mobile">
+                        <div class="col-md-12 col-xs-5">
+                          <div class="header">{% trans %}
+                            Download our app
+                            {% endtrans %}</div>
+                        </div>
+                        <div class="col-md-12 col-xs-7">
+                          <div class="row">
+                            <div class="col-xs-6">
+                              <a href="{{ ios_app_url }}">
+                                <img alt="Get in on Google Play" class="img-responsive" src="{{ asset('images/mobile-app/ios-app.png') }}">
+                              </a>
+                            </div>
+                            <div class="col-xs-6">
+                              <a href="{{ android_app_url }}">
+                                <img alt="Available on the App Store" class="img-responsive" src="{{ asset('images/mobile-app/android-app.png') }}">
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 sitemap-section">
+                  <div class="header mrg-top-20">{% trans %}
+                    Email Newsletter
+                    {% endtrans %}</div>
+                  <span>
+                    {% trans %}
+                    Get the word out. Make sure you don't miss out on interesting events, sale, and more by joining our newsletter program.
+                    {% endtrans %}
+                  </span>
+                  <div class="email-newsletter-form-container">
+                    {{ form_start(newsletterForm, {'action': path('subscribe_email'), 'attr':{'class':'subscribe-newsletter'}}) }}
+                    <div class="form">
+                      {{ form_widget(newsletterForm.email, {'attr': {
+                                   'class':'form-ui email',
+                                   'placeholder':'Enter your email address here'
+                                 }}) }}
+                    </div>
+                    <div class="form">
+                      <button class="button blue block">
+                        {% trans %}
+                        Subscribe
+                        {% endtrans %}
+                      </button>
+                    </div>
+                    <div class="subscribe-success-message message-box green with-close-message" style="display:none;">
+                      Email successfully subscribed
+                    </div>
+                    <div class="subscribe-fail-message message-box red with-close-message" style="display:none;">
+                      Something went wrong. Please try again later.
+                    </div>
+                    {{ form_end(newsletterForm) }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    <div class="footer-copyright-container">
+    <div class="footer-content-container">
+      <div class="footer-body-wrapper copyright-social-container">
+        <div class="copyright-text-container">
+          {% trans %}
+          &copy; 2015 Aeneas are the property of their respective owners.
+          {% endtrans %}
+        </div>
+        <div class="social-container">
+          <a href="{{ yilinkerFacebook }}">
+            <div class="social-icon facebook">
+              <i class="icon icon-facebook"></i>
+            </div>
+          </a>
+          <a href="{{ yilinkerTwitter }}">
+            <div class="social-icon twitter">
+              <i class="icon icon-twitter"></i>
+            </div>
+          </a>
+          <a href="{{ yilinkerGoogle }}">
+            <div class="social-icon google-plus">
+              <i class="icon icon-google-plus"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{ include('YilinkerFrontendBundle:Base:mobile_download_app.html.twig') }}

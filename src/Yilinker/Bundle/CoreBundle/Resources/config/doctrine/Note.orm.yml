@@ -1,0 +1,33 @@
+Yilinker\Bundle\CoreBundle\Entity\Note:
+    type: entity
+    table: Note
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn:
+        name: discriminator
+        type: string
+    discriminatorMap:
+        RefundNote: RefundNote
+    indexes:
+        fk_note_note_id_idx:
+            columns:
+                - note_id
+    id:
+        noteId:
+            type: integer
+            id: true
+            column: note_id
+            unsigned: true
+            generator:
+                strategy: AUTO
+    fields:
+        note:
+            type: text
+        dateAdded:
+            type: datetime
+            nullable: false
+            column: date_added
+        lastDateModified:
+            type: datetime
+            nullable: false
+            column: last_date_modified
+    

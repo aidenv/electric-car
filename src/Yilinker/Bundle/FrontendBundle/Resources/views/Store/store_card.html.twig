@@ -1,0 +1,34 @@
+
+
+<div class="col-sm-5ths col-xs-6 col-for-seller-group">
+    <div class="seller-wrapper">
+        <div class="seller-name">
+            <div class="seller-img">
+                <div class="img-seller-container">
+                    <img src="{{ store.user.primaryImage?
+                    asset(store.user.primaryImage.getImageLocationBySize('thumbnail'),'user') :
+                    asset('images/default-merchant.png')}}" class="img-buyer"/>
+                </div>
+            </div>
+            <div class="seller-details">
+                <span class="name">
+                    <a href="{{ path('store_page_products', { 'slug': store.storeSlug}) }}">
+                        {{ store.storeName }}
+                    </a>
+                </span>
+                <span class="specialty">Specialty: {{ store.specialtyCategory['name'] is defined? store.specialtyCategory['name']:'' }}</span>
+            </div>
+        </div>
+        <div class="seller-product-group">
+            {% for product in store.user.mostPopularUploads(6)  %}
+                <div class="product-square">
+                    <a href="{{ path('product_details', {'slug': product.slug}) }}" title="{{ product.name }}">
+                        {% if product.primaryImage %}
+                            <img src="{{ asset(product.primaryImage.getImageLocationBySize('thumbnail'), 'product') }}" class="img-responsive" alt="{{ product.name }}"/>
+                        {% endif %}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

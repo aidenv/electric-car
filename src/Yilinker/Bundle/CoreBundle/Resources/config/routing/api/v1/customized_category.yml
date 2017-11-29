@@ -1,0 +1,12 @@
+api_core_get_auth_custom_categories:
+    path: /auth/category/getCustomCategories
+    defaults: { _controller: YilinkerCoreBundle:Api/CustomizedCategoryApi:getCustomCategories }
+    methods: [POST]
+
+api_core_get_category_details:
+    path: /category/getCategoryDetails
+    defaults: { _controller: YilinkerCoreBundle:Api/CustomizedCategoryApi:getCategoryDetails }
+
+api_core_auth_get_category_details:
+    path: /auth/category/getCategoryDetails
+    defaults: { _controller: YilinkerCoreBundle:Api/CustomizedCategoryApi:getCategoryDetails }

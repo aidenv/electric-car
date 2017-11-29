@@ -1,0 +1,5 @@
+
+api_core_image_upload_v2:
+    path: /auth/image/upload
+    defaults: { _controller: YilinkerCoreBundle:Api/v2/ImageApi:upload }
+    methods: [POST]

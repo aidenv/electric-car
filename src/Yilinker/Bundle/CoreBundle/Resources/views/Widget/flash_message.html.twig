@@ -1,0 +1,14 @@
+{% if app.session.flashbag.has('error') %}
+    <div class="message-box red">
+        {% for flashError in app.session.flashbag.get('error') %}
+            <p>{{ flashError }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+{% if app.session.flashbag.has('success') %}
+    <div class="message-box green">
+        {% for flashError in app.session.flashbag.get('success') %}
+            <p>{{ flashError }}</p>
+        {% endfor %}
+    </div>
+{% endif %}

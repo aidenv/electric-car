@@ -1,0 +1,86 @@
+yilinker_location_route:
+    resource: "routing/location.yml"
+    prefix: /
+
+yilinker_user_address_route:
+    resource: "routing/user_address.yml"
+    prefix: /
+
+yilinker_user:
+    resource: "routing/user.yml"
+    prefix: /
+
+yilinker_message:
+    resource: "routing/message.yml"
+    prefix: /
+
+yilinker_device:
+    resource: "routing/device.yml"
+    prefix: /
+
+yilinker_widget:
+    resource: "routing/widget.yml"
+    prefix: /
+
+yilinker_transaction:
+    resource: "routing/transaction.yml"
+    prefix: /
+
+yilinker_onetime_password:
+    resource: "routing/onetimepassword.yml"
+    prefix: /
+    
+yilinker_core_exception:
+    resource: "routing/exception.yml"
+    prefix: /exception
+
+yilinker_bank:
+    resource: "routing/bank.yml"
+    prefix: /bank/
+
+yilinker_core_shipping_category_routes:
+    resource: "routing/shipping_category.yml"
+    prefix: /shipping-category/
+
+yilinker_core_seller_routes:
+    resource: "routing/seller.yml"
+    prefix: /seller/
+
+yilinker_core_autocomplete:
+    resource: "routing/autocomplete.yml"
+    prefix: /autocomplete/
+
+yilinker_robots_route:
+    resource: "routing/robots.yml"
+    prefix: /
+#API
+
+# Please add suffix "v2" to all routes in version 2 related api
+# to avoid name conflicts and overriding routes. Thanks!
+# Moving forward:
+# For Merchant bundle use: yilinker_merchant_[ROUTE NAME]_v2
+# For Core bundle use: yilinker_core_[ROUTE NAME]_v2
+# For Frontend bundle use: yilinker_frontend_[ROUTE NAME]_v2
+
+yilinker_core_api_route_v2:
+    resource: "routing/api/v2.yml"
+    prefix: /api/v2/
+
+yilinker_core_api_route_v1:
+    resource: "routing/api/v1.yml"
+    prefix: /api/v1/
+
+yilinker_api_route_v3:
+    resource: "routing/api/v3/list.yml"
+    prefix: /api/{version}
+    defaults: { version: 'v3' }
+    requirements:
+        version: 'v[34]'
+
+
+yilinker_core_api_route_v3:
+    resource: "routing/api/v3.yml"
+    prefix: /api/{version}/{country_code}/{language_code}
+    defaults: { version: 'v3' }
+    requirements:
+        version: 'v[34]'

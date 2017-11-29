@@ -1,0 +1,319 @@
+Yilinker\Bundle\CoreBundle\Entity\User:
+    type: entity
+    table: User
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserRepository
+    indexes:
+        fk_user_brandtypeid_userbantype_userbantypeid_idx:
+            columns:
+                - ban_type_id
+        fk_user_userid_userimage_userid_idx:
+            columns:
+                - user_id
+        fk_user_primaryimageid_userimage_userimageid_idx:
+            columns:
+                - primary_image_id
+        fk_user_primarycoverphotoid_userimage_userimageid_idx:
+            columns:
+                - primary_cover_photo_id
+        fk_user_countryid_country_countryid_idx:
+            columns:
+                - country_id
+        fk_user_userid_applicationaccreditation_userid_idx:
+            columns:
+                - country_id
+    id:
+      userId:
+            type: integer
+            id: true
+            column: user_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        accountId:
+            type: integer
+            column: account_id
+            unsigned: true
+            nullable: true
+        password:
+            type: string
+            column: password
+            length: '255'
+        firstName:
+            type: string
+            length: '512'
+            column: first_name
+            nullable: true
+        lastName:
+            type: string
+            length: '512'
+            column: last_name
+            nullable: true
+        email:
+            type: string
+            column: email
+            length: '60'
+            column: email
+            nullable: true
+        contactNumber:
+            type: string
+            length: '60'
+            column: contact_number
+            nullable: true
+            default:
+                options: ''
+        dateAdded:
+            type: datetime
+            column: date_added
+            nullable: true
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+            nullable: true
+        isActive:
+            type: boolean
+            column: is_active
+            nullable: true
+            options:
+                default: true
+        isMobileVerified:
+            type: boolean
+            column: is_mobile_verified
+            nullable: true
+            options:
+                default: false
+        isEmailVerified:
+            type: boolean
+            column: is_email_verified
+            nullable: true
+            options:
+                default: false
+        loginCount:
+            type: integer
+            column: login_count
+            unsigned: true
+            nullable: true
+            options:
+                default: 0
+        gender:
+            type: string
+            length: '1'
+            nullable: true
+            options:
+                default: 'M'
+        birthdate:
+            type: datetime
+            nullable: true
+        lastLoginDate:
+            type: datetime
+            column: last_login_date
+            nullable: true
+        lastLogoutDate:
+            type: datetime
+            column: last_logout_date
+            nullable: true
+        lastLoginIp:
+            type: string
+            length: '45'
+            column: last_login_ip
+            nullable: true
+        lastFailedLoginDate:
+            type: datetime
+            column: last_failed_login_date
+            nullable: true
+        failedLoginCount:
+            type: integer
+            column: failed_login_count
+            nullable: true
+            unsigned: true
+        nickname:
+            type: string
+            length: '45'
+            nullable: true
+        slug:
+            type: string
+            length: '45'
+            nullable: true
+        isBanned:
+            type: boolean
+            column: is_banned
+            nullable: true
+            options:
+                default: false
+        userType:
+            type: integer
+            column: user_type
+            options:
+                default: '0'
+        lockDuration:
+            type: datetime
+            column: lock_duration
+            nullable: true
+        reactivationCode:
+            type: string
+            columng: reactivation_code
+            nullable: true
+        forgotPasswordToken:
+            type: string
+            column: forgot_password_token
+            nullable: true
+        forgotPasswordTokenExpiration:
+            type: datetime
+            column: forgot_password_token_expiration
+            nullable: true
+        forgotPasswordCode:
+            type: string
+            column: forgot_password_code
+            nullable: true
+        forgotPasswordCodeExpiration:
+            type: datetime
+            column: forgot_password_code_expiration
+            nullable: true
+        referralCode:
+            type: string
+            length: '255'
+            column: referral_code
+            nullable: true
+        slugChanged:
+            type: boolean
+            column: slug_changed
+            nullable: true
+            options:
+                default: '0'
+        isSocialMedia:
+            type: boolean
+            column: is_social_media
+            nullable: true
+            options:
+                default: '0'
+        tin:
+            type: string
+            nullable: true
+            options:
+                default: ''
+        registrationType:
+            type: smallint
+            column: registration_type
+            options:
+                default: '0'
+        consecutiveLoginCount:
+            type: integer
+            column: consecutive_login_count
+            options:
+                default: '0'
+        resourceId:
+            type: integer
+            column: resource_id
+            options:
+                default: '0'
+    manyToOne:
+        banType:
+            targetEntity: UserBanType
+            joinColumn:
+                name: ban_type_id
+                referencedColumnName: user_ban_type_id
+            orphanRemoval: false
+        country:
+            targetEntity: Country
+            joinColumn:
+                name: country_id
+                referencedColumnName: country_id
+            orphanRemoval: false
+        language:
+            targetEntity: Language
+            joinColumn:
+                name: language_id
+                referencedColumnName: language_id
+            orphanRemoval: false
+    oneToMany:
+        products:
+            targetEntity: Product
+            mappedBy: user
+        userVerificationTokens:
+            targetEntity: UserVerificationToken
+            mappedBy: user
+        notifications:
+            targetEntity: UserNotification
+            fetch: EXTRA_LAZY
+            mappedBy: user
+        productUploads:
+            targetEntity: Product
+            mappedBy: user
+        images:
+            targetEntity: UserImage
+            mappedBy: user
+        addresses:
+            targetEntity: UserAddress
+            fetch: EXTRA_LAZY
+            mappedBy: user
+        followees:
+            targetEntity: UserFollow
+            mappedBy: followee
+        followers:
+            targetEntity: UserFollow
+            mappedBy: follower
+        orders:
+            targetEntity: UserOrder
+            mappedBy: buyer
+        userActivityHistories:
+            targetEntity: UserActivityHistory
+            mappedBy: user
+        devices:
+            targetEntity: Device
+            mappedBy: user
+        recievedMessages:
+            targetEntity: Message
+            mappedBy: recipient
+        sentMessages:
+            targetEntity: Message
+            mappedBy: sender
+        bankAccounts:
+            targetEntity: BankAccount
+            mappedBy: user
+        socialMediaAccounts:
+            targetEntity: UserMerge
+            mappedBy: user
+        earnings:
+            targetEntity: Earning
+            mappedBy: user
+        oneTimePasswords:
+            targetEntity: OneTimePassword
+            mappedBy: user
+        referrers:
+            targetEntity: UserReferral
+            mappedBy: referrer
+        warehouses:
+            targetEntity: UserWarehouse
+            mappedBy: user
+        productGroups:
+            targetEntity: UserProductGroup
+            mappedBy: user
+            cascade: ['persist']
+        inhouseProductUsers:
+            targetEntity: InhouseProductUser
+            mappedBy: user
+    oneToOne:
+        store:
+            targetEntity: Store
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            mappedBy: user
+        primaryImage:
+            targetEntity: UserImage
+            joinColumn:
+                name: primary_image_id
+                referencedColumnName: user_image_id
+        primaryCoverPhoto:
+            targetEntity: UserImage
+            joinColumn:
+                name: primary_cover_photo_id
+                referencedColumnName: user_image_id
+        userReferral:
+            targetEntity: UserReferral
+            mappedBy: user
+        accreditationApplication:
+            targetEntity: AccreditationApplication
+            mappedBy: user
+    lifecycleCallbacks: {  }

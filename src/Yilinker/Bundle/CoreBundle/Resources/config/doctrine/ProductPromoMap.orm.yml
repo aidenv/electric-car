@@ -1,0 +1,78 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductPromoMap:
+    type: entity
+    table: ProductPromoMap
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ProductPromoMapRepository
+    id:
+      productPromoMapId:
+            type: integer
+            id: true
+            column: product_promo_map_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        discountedPrice:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: discounted_price
+            options:
+                default: '0.00'
+        minimumPercentage:
+            type: decimal
+            column: minimum_percentage
+            nullable: true
+            precision: 12
+            scale: 2
+            options:
+                default: '0'
+        maximumPercentage:
+            type: decimal
+            column: maximum_percentage
+            nullable: true
+            precision: 12
+            scale: 2
+            options:
+                default: '0'
+        percentPerHour:
+            type: decimal
+            column: percent_per_hour
+            nullable: true
+            precision: 12
+            scale: 2
+            options:
+                default: '0'
+        quantityRequired:
+            type: integer
+            column: quantity_required
+            nullable: true
+            options:
+                default: '0'
+        maxQuantity:
+            type: integer
+            column: max_quantity
+            nullable: true
+            options:
+                default: '0'
+        sortOrder:
+            type: integer
+            column: sort_order
+            options:
+                default: '0'
+    manyToOne:
+        productUnit:
+            targetEntity: ProductUnit
+            joinColumn:
+                name: product_unit_id
+                referencedColumnName: product_unit_id
+            orphanRemoval: false
+            inversedBy: productPromoMaps
+        promoInstance:
+            targetEntity: PromoInstance
+            joinColumn:
+                name: promo_instance_id
+                referencedColumnName: promo_instance_id
+            orphanRemoval: false
+            inversedBy: productPromoMap
+    lifecycleCallbacks: {  }

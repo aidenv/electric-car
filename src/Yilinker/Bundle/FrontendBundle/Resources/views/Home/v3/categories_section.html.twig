@@ -1,0 +1,120 @@
+<div class="title-bar mrg-top-40">
+    <div class="home-section">
+        <div class="row">
+            <div class="col-md-4">
+                <span class="title-name">
+                    {% if title is defined %}
+                        {{ title }}
+                    {% endif %}
+                </span>
+            </div>
+            <div class="col-md-8">
+                <div class="main-select-tab">
+                    {% if categories is defined and categories is iterable %}
+                        {% for category in categories %}
+                            {% if category.category is defined and category.category.id is defined %}
+                                <div class="item">
+                                    <i class="icon icon-category-{{ category.category.slug }}"></i>
+                                    <span>{{ category.category.name }}</span>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="border tab-border">
+    <div class="row no-gutter main-tab-container">
+        {% if categories is defined and categories is iterable %}
+            {% for category in categories %}
+                <div class="item">
+                    {% if category.image is defined and category.image.image is defined %}
+                        <div class="col-md-4">
+                            <a href="{{ category.image.target }}" title="{{ category.image.title }}">
+                                <img data-original="{{ category.image.image }}" title="{{ category.image.title }}" alt="{{ category.image.alt }}" class="lazy img-full-width">
+                                <noscript>
+                                    <img src="{{ category.image.image }}" title="{{ category.image.title }}" alt="{{ category.image.alt }}" class="img-full-width">
+                                </noscript>
+                            </a>
+                        </div>
+                    {% endif %}
+                    <div class="col-md-8">
+                        <div class="row">
+                            {% if category.primaryBanners is defined and category.primaryBanners is iterable %}
+                                <div class="col-md-6">
+                                    <div class="tab-inner-slides">
+                                        {% for banner in category.primaryBanners %}
+                                            {% if banner.image is defined %}
+                                                <div class="item">
+                                                    <a href="{{ banner.target }}">
+                                                        <img data-original="{{ banner.image }}" alt="{{ banner.alt }}" title="{{ banner.title }}" class="lazy img-full-width">
+                                                        <noscript>
+                                                            <img src="{{ banner.image }}" alt="{{ banner.alt }}" title="{{ banner.title }}" class="img-full-width">
+                                                        </noscript>
+                                                    </a>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if category.productBanners is defined and category.productBanners is iterable %}
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        {% for banner in category.productBanners %}
+                                            {% if banner.image is defined %}
+                                                <div class="col-md-6">
+                                                    <a href="{{ banner.target }}">
+                                                        <img data-original="{{ banner.image }}" alt="{{ banner.alt }}" title="{{ banner.title }}" class="lazy img-full-width">
+                                                        <noscript>
+                                                            <img src="{{ banner.image }}" alt="{{ banner.alt }}" title="{{ banner.title }}" class="img-full-width">
+                                                        </noscript>
+                                                    </a>
+                                                </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if category.products is defined and category.products is iterable %}
+                                {% for product in category.products %}
+                                    {% if product.productId is defined %}
+                                        {% if app.environment == 'prod' %}
+                                            {{ render_esi(controller('YilinkerFrontendBundle:Product:renderFeaturedCategoryProduct', {
+                                                productId: product.productId,
+                                                discountedPrice: product.discountedPrice,
+                                                quantity: product.quantity
+                                            })) }}
+                                        {% else %}
+                                            {{ include('YilinkerFrontendBundle:Product:v2/category_product_details.html.twig', {
+                                                product: product
+                                            }) }}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        {% if category.secondaryBanners is defined and category.secondaryBanners is iterable %}
+                            <div class="row">
+                                {% for banner in category.secondaryBanners %}
+                                    {% if banner.image is defined %}
+                                        <div class="col-md-4">
+                                            <a href="{{ banner.target }}" title="{{ banner.title }}">
+                                                <img data-original="{{ banner.image }}" alt="{{ banner.alt }}" title="{{ banner.title }}" class="lazy img-full-width">
+                                                <noscript>
+                                                    <img src="{{ banner.image }}" alt="{{ banner.alt }}" title="{{ banner.title }}" class="img-full-width">
+                                                </noscript>
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

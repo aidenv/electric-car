@@ -1,0 +1,39 @@
+Yilinker\Bundle\CoreBundle\Entity\ManufacturerProductMap:
+    type: entity
+    table: ManufacturerProductMap
+    id:
+        manufacturerProductMapId:
+            type: integer
+            id: true
+            column:
+                manufacturer_product_map_id
+            options:
+                unsigned: false
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateAdded:
+            type: datetime
+            column: date_added
+    manyToOne:
+        manufacturerProduct:
+            targetEntity: ManufacturerProduct
+            joinColumns:
+                manufacturer_product_id:
+                    referencedColumnName: manufacturer_product_id
+            inversedBy: manufacturerProductMaps
+    oneToOne:
+        product:
+            targetEntity: Product
+            joinColumns:
+                product_id:
+                    referencedColumnName: product_id
+            inversedBy: manufacturerProductMap
+    indexes:
+        fk_manufacturerproductmap_manufacturerproductid_manufacturerproduct_manufacturerproductid_idx:
+            columns:
+                - manufacturer_product_id
+        fk_manufacturerproductmap_productid_product_productid_idx:
+            columns:
+                - product_id
+    lifecycleCallbacks: {  }

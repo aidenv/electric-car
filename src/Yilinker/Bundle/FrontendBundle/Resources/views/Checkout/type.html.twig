@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %}
+        Check As
+    {% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="checkout">
+        {{ include('YilinkerFrontendBundle:Checkout:header.html.twig', {active: 'type'}) }}
+        <div class="checkout-wrapper" data-checkout-container>
+            <div class="checkout-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            {{ render(controller('YilinkerFrontendBundle:Checkout:orderSummary')) }}
+                        </div>
+                        <div class="col-md-8">
+                            {% for flashMessage in app.session.flashbag.get('error') %}
+                                <div class="message-box red">{{ flashMessage }}</div>
+                            {% endfor %}
+                                <div class="user-type-checkout-tab list-unstyled">
+                                    <a data-href="sign-in-checkout">{% trans %} Sign In {% endtrans %}</a>
+                                    <a data-href="guest-checkout">{% trans %} Guest Checkout {% endtrans %}</a>
+                                </div>
+                                <div class="tab-content-wrapper">
+                                    {{ render(controller('YilinkerFrontendBundle:Checkout:login')) }}
+                                    {{ include('YilinkerFrontendBundle:Checkout:guest.html.twig') }}
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                {# <div class="row">
+                    <div class="col-md-12">
+                        <div class="checkout-footer">
+                            <div class="checkout-footer-item align-right">
+                                <!--Remove disabled class there is selected shipping location-->
+                                <a href="{{ path('checkout_summary') }}" type="submit" class="button purple">Continue</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> #}
+            </div>
+        </div>
+        <div class="checkout-footer">
+            {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block yeahmobi_google_remarketing %}
+    {% include 'analytics/yeahmobi/google-remarketing.html.twig' %}
+{% endblock %}
+
+{% block yeahmobi_adwords_conversion_tracking %}
+    {% include 'analytics/yeahmobi/google-conversion-tracking.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="{{ asset('js/src/utility/floating-error.js') }}"></script>
+    <script src="{{ asset('js/src/utility/loader.js') }}"></script>
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/bower/jquery-countdown.js') }}"></script>
+    <script src="{{ asset('js/src/checkout.js') }}"></script>
+    <script src="{{ asset('js/src/utility/send-otp.js') }}"></script>
+{% endblock %}

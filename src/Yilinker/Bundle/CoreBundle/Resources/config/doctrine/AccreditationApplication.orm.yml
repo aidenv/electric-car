@@ -1,0 +1,87 @@
+Yilinker\Bundle\CoreBundle\Entity\AccreditationApplication:
+    type: entity
+    table: AccreditationApplication
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\AccreditationApplicationRepository
+    id:
+        accreditationApplicationId:
+            type: bigint
+            column: accreditation_application_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    indexes:
+        fk_acc_application_user_id_user_user_id_idx:
+            columns:
+                - user_id
+        fk_acc_application_accreditation_application_status_id_accreditation_application_status_accreditation_application_status_id_idx:
+            columns:
+                - accreditation_application_status_id
+        fk_acc_application_accreditation_level_id_accreditation_level_accreditation_level_id_idx:
+            columns:
+                - accreditation_level_id
+    fields:
+        sellerType:
+            column: seller_type
+            type: smallint
+            options:
+                default: 0
+        dateAdded:
+            column: date_added
+            type: datetime
+        lastModifiedDate:
+            column: last_modified_date
+            type: datetime
+        businessWebsiteUrl:
+            column: business_website_url
+            length: 255
+            nullable: true
+        isBusinessApproved:
+            column: is_business_approved
+            type: smallint
+            options:
+                default: 0
+        isBankApproved:
+            column: is_bank_approved
+            type: smallint
+            options:
+                default: 0
+        isBusinessEditable:
+            column: is_business_editable
+            type: smallint
+            options:
+                default: 0
+        isBankEditable:
+            column: is_bank_editable
+            type: smallint
+            options:
+                default: 0
+        resourceId:
+             column: resource_id
+             type: integer
+             options:
+                 default: 0
+    manyToOne:
+        accreditationApplicationStatus:
+            targetEntity: AccreditationApplicationStatus
+            joinColumn:
+                name: accreditation_application_status_id
+                referencedColumnName: accreditation_application_status_id
+            orphanRemoval: false
+        accreditationLevel:
+            targetEntity: AccreditationLevel
+            joinColumn:
+                name: accreditation_level_id
+                referencedColumnName: accreditation_level_id
+            orphanRemoval: false
+    oneToMany:
+        legalDocuments:
+            targetEntity: LegalDocument
+            mappedBy: accreditationApplication
+    oneToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            inversedBy: accreditationApplication
+    lifecycleCallbacks: {  }

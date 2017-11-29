@@ -1,0 +1,41 @@
+Yilinker\Bundle\CoreBundle\Entity\UserFeedbackRating:
+    type: entity
+    table: UserFeedbackRating
+    id:
+        userFeedbackRatingId:
+            type: integer
+            id: true
+            column: user_feedback_rating_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        rating:
+            type: decimal
+            precision: 3
+            scale: 2
+            column: rating
+            options:
+                default: '0.00'
+    manyToOne:
+        feedbacks:
+            targetEntity: UserFeedback
+            joinColumn:
+                name: user_feedback_id
+                referencedColumnName: user_feedback_id
+            orphanRemoval: false
+        type:
+            targetEntity: FeedbackType
+            joinColumn:
+                name: feedback_type_id
+                referencedColumnName: feedback_type_id
+            orphanRemoval: false
+    indexes:
+        fk_userfeedback_userfeedbackid_userfeedbackrating_userfeedbackid_idx:
+            columns:
+                - user_feedback_id
+        fk_feedbacktype_feedbacktypeid_userfeedbackrating_feedbacktypeid_idx:
+            columns:
+                - feedback_type_id
+    lifecycleCallbacks: {  }

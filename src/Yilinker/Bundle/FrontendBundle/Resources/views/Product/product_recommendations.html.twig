@@ -1,0 +1,14 @@
+<div class="related-items-container">
+    <div class="title-bar">
+        <div class="gutter-container">
+            <span class="title-name">{{ title }}</span>
+        </div>
+    </div>
+    <div class="product-recommendation-container gutter-container">
+        <div class="row row-for-product-group">
+            {% for product in products %}
+                {{ include('YilinkerFrontendBundle:Product:product_preview1.html.twig') }}
+            {% endfor %}
+        </div>
+    </div>
+</div>

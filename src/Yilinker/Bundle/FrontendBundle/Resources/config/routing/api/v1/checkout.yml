@@ -1,0 +1,100 @@
+# guest checkout
+api_checkout_guest_user:
+    path: /guestUser
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:useGuestUser }
+    methods: [POST]
+
+api_checkout_register_guest_user:
+    path: /registerGuestUser
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:registerGuestUser }
+    methods: [POST]
+
+api_checkout_guest_set_address:
+    path: /user/setAddress
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:setAddress }
+    methods: [POST]
+
+api_checkout_guest_payment_cod:
+    path: /payment/doPaymentCod
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:paymentCod }
+    methods: [POST]
+
+api_checkout_guest_payment_dragonpay:
+    path: /payment/doDragonPay
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:paymentDragonpay }
+    methods: [POST]
+
+api_checkout_guest_payment_pesopay:
+    path: /payment/doPesoPay
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:paymentPesopay }
+    methods: [POST]
+
+api_checkout_guest_overview:
+    path: /payment/checkoutOverview
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:overview }
+
+api_checkout_update_contact_number:
+    path: /checkout/updateContactNumber
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:updateContactNumber }
+
+api_checkout_verify_mobile_code:
+    path: /checkout/verifyCode
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:verifyCode }
+
+api_checkout_resend_verification_code:
+    path: /checkout/resendVerificationCode
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:resendMobileVerification }
+
+api_cart_to_checkout_guest:
+    path: /cart/cartToCheckout
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:selectOnCart }
+
+api_cart_guest_apply_voucher:
+    path: /cart/applyVoucher
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:applyVoucherCode }
+
+# user checkout
+
+api_checkout_set_address:
+    path: /auth/user/setAddress
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:setAddress }
+    methods: [POST]
+
+api_checkout_payment_cod:
+    path: /auth/payment/doPaymentCod
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:paymentCod }
+    methods: [POST]
+
+api_checkout_payment_dragonpay:
+    path: /auth/payment/doDragonPay
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:paymentDragonpay }
+    methods: [POST]
+
+api_checkout_payment_pesopay:
+    path: /auth/payment/doPesoPay
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:paymentPesopay }
+    methods: [POST]
+
+api_checkout_overview:
+    path: /auth/payment/checkoutOverview
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:overview }
+
+api_auth_checkout_update_contact_number:
+    path: /auth/checkout/updateContactNumber
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:updateContactNumber }
+
+api_auth_checkout_verify_mobile_code:
+    path: /auth/checkout/verifyCode
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:verifyCode }
+
+api_auth_checkout_resend_verification_code:
+    path: /auth/checkout/resendVerificationCode
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:resendMobileVerification }
+
+api_cart_to_checkout:
+    path: /auth/cart/cartToCheckout
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:selectOnCart }
+
+api_cart_apply_voucher:
+    path: /auth/cart/applyVoucher
+    defaults: { _controller: YilinkerFrontendBundle:Api/CheckoutApi:applyVoucherCode }

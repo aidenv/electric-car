@@ -1,0 +1,4 @@
+api_merchant_get_banks:
+    path: /auth/bank/getEnabledBanks
+    defaults: { _controller: YilinkerMerchantBundle:Api/BankApi:getEnabledBanks }
+    methods: [POST]

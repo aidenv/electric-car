@@ -1,0 +1,52 @@
+
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    {% trans %}Activity Log{% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="profile activity-log">
+        <div class="dashboard-wrapper">
+            {{ render(controller('YilinkerFrontendBundle:Dashboard:renderLeftWingMenu', {'currentRoute': app.request.attributes.get('_route') } )) }}
+            <div class="dashboard-body-container gray">
+                <div class="dashboard-submenu-wrapper">
+                    <div class="dashboard-submenu-container" style="min-width: 572px;">
+                        <ul class="list-unstyle list-submenu">
+                            <li>
+                                <a href="{{ path('profile_information') }}">
+                                    {% trans %}Information{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('profile_following') }}">
+                                    {% trans %}Followed Seller{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                                <a class="active">
+                                    {% trans %}Activity Log{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                            <a href="{{ path('profile_upload_document') }}">
+                                {% trans %}Upload Document{% endtrans %}
+                            </a>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Activity log list-->
+                {{ include('YilinkerFrontendBundle:Profile:activity_timeline.html.twig') }}
+            </div>
+            {{ include('YilinkerFrontendBundle:Profile:profile_right_wing_notifications.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ include('YilinkerFrontendBundle:Profile:profile_base_js.html.twig') }}
+{% endblock %}

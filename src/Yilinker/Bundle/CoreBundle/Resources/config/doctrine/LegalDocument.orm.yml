@@ -1,0 +1,52 @@
+Yilinker\Bundle\CoreBundle\Entity\LegalDocument:
+    type: entity
+    table: LegalDocument
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\LegalDocumentRepository
+    indexes:
+        fk_legal_document_accreditation_application_id_accreditation_application_accreditation_application_id_fk:
+            columns:
+                - accreditation_application_id
+        fk_legal_document_legal_document_type_id_legal_document_type_legal_document_type_id_fk:
+            columns:
+                - legal_document_type_id
+    id:
+        legalDocumentsId:
+            type: bigint
+            column: legal_document_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            length: 255
+            nullable: true
+        dateAdded:
+            column: date_added
+            type: datetime
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+        isApproved:
+            column: is_approved
+            type: smallint
+            options:
+                default: 0
+        isEditable:
+            column: is_editable
+            type: smallint
+            options:
+                default: 0
+    manyToOne:
+        accreditationApplication:
+            targetEntity: AccreditationApplication
+            joinColumn:
+                name: accreditation_application_id
+                referencedColumnName: accreditation_application_id
+            orphanRemoval: false
+        legalDocumentType:
+            targetEntity: LegalDocumentType
+            joinColumn:
+                name: legal_document_type_id
+                referencedColumnName: legal_document_type_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

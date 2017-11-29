@@ -1,0 +1,484 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block body %}
+
+{% set currentRoute = app.request.get('_route') %}
+<section class="box-section">
+
+  <div class="title-bar">
+    <div class="container">
+      <span>Seller Payout</span>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Tools -->
+    <div class="row">
+      <div class="box-upper">
+        <div class="col-md-12">
+          <div class="box-div tabular-inside">
+            <div class="row gutters group-segment">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="labeled-input">
+                      <div class="label black">
+                        <i>From</i>
+                      </div>
+                      <input class="form-ui datePicker" id="dateFrom" placeholder="Date From" type="text">
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="labeled-input">
+                      <div class="label black">
+                        <i>To</i>
+                      </div>
+                      <input class="form-ui datePicker" id="dateTo" placeholder="Date To" type="text">
+                    </div>
+                  </div>
+                  <div class="con-md-1"></div>
+                  <div class="col-md-3">
+                    <div class="labeled-input">
+                      <div class="labeled-input">
+                        <select class="form-ui ui search single selection dropdown" id="drop-down-seller-type">
+                          <option selected value="">Seller Type</option>
+                          {% for sellerType in sellerTypes %}
+                          <option value="{{ sellerType.id }}">{{ sellerType.name }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <input class="form-ui pull-left" id="searchKeyword" placeholder="Search for keyword: Store Name" type="text">
+                  </div>
+                  <div class="col-md-1">
+                    <div class="button block gray pull-left" id="searchBtn">
+                      <i class="item-icon icon-search"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui tabular menu">
+                  <div class="item main-tab {{ currentRoute is same as('yilinker_backend_seller_payout_list')? 'active':'' }}" data-tab="tab-name0">
+                    <a href="{{ path('yilinker_backend_seller_payout_list') }}">Payout List</a>
+                  </div>
+                  <div class="item main-tab {{ currentRoute is same as('yilinker_backend_seller_payout_list_history')? 'active':'' }}" data-tab="tab-name1">
+                    <a href="{{ path('yilinker_backend_seller_payout_list_history') }}">Payout History</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tables -->
+    {% if currentRoute is same as('yilinker_backend_seller_payout_list') %}
+    <div class="ui tab row active" data-tab="tab-name0">
+      <div class="box-upper">
+        <div class="col-md-12">
+          <div class="box-div">
+            <div class="row gutters">
+              <div class="col-md-12">
+                <table class="table basic table-vertical-align-top">
+                  <thead>
+                    <tr>
+                      <th>Store Name</th>
+                      <th>Bank</th>
+                      <th>Account Name</th>
+                      <th>Account No.</th>
+                      <th>Email</th>
+                      <th>Contact No.</th>
+                      <th>Type</th>
+                    </tr>
+                  </thead>
+                  <tbody id="sellerContainer">
+                    {% for seller in sellerPayoutData.sellers %}
+                    <tr class="modal-seller-payout-one-trigger sellerPayoutRow" data-account-name="{{ seller.accountName }}" data-account-number="{{ seller.accountNumber }}" data-bank="{{ seller.bankName }}" data-id="{{ seller.userId }}" data-is-affiliate="{{ seller.isAffiliate? '1':'0' }}" data-order-product-ids="{{ seller.orderProducts }}">
+                      <td>{{ seller.storeName }}</td>
+                      <td>{{ seller.bankName }}</td>
+                      <td>{{ seller.accountName }}</td>
+                      <td>{{ seller.accountNumber }}</td>
+                      <td>{{ seller.email }}</td>
+                      <td>{{ seller.contactNumber }}</td>
+                      <td>{{ seller.isAffiliate ? 'Affiliate' : 'Seller' }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% elseif currentRoute is same as('yilinker_backend_seller_payout_list_history') %}
+    <div class="ui tab row active" data-tab="tab-name1">
+      <div class="box-upper">
+        <div class="col-md-12">
+          <div class="box-div">
+            <div class="row gutters">
+              <div class="col-md-12">
+                <table class="table basic table-vertical-align-top">
+                  <thead>
+                    <tr>
+                      <th>Reference Number</th>
+                      <th>Store Name</th>
+                      <th>Email</th>
+                      <th>Support CSR</th>
+                      <th>Date Created</th>
+                      <th>Amount</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for sellerPayout in sellerPayoutData.payouts %}
+                    <tr class="modal-seller-payout-three-trigger sellerPayoutRow" data-payout="{{ sellerPayout|json_encode }}">
+                      <td>{{ sellerPayout.referenceNumber }}</td>
+                      <td>{{ sellerPayout.storeName }}</td>
+                      <td>{{ sellerPayout.email }}</td>
+                      <td>{{ sellerPayout.supportCsr }}</td>
+                      <td>{{ sellerPayout.dateCreated }}</td>
+                      <td>{{ sellerPayout.amount }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Bottom Tools -->
+    <div class="row">
+      <div class="box-upper">
+        <div class="col-md-12">
+          <div class="box-blank">
+            <div class="row">
+              <div class="col-md-12">
+                {% if currentRoute is same as('yilinker_backend_seller_payout_list') %}
+                {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: sellerPayoutData.sellerCount, perPage: pageLimit}) }}
+                {% elseif currentRoute is same as('yilinker_backend_seller_payout_list_history') %}
+                {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: sellerPayoutData.payoutCount, perPage: pageLimit}) }}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Modal Seller Type One -->
+<div class="ui modal large modal-box modal-seller-payout-one">
+  <a class="close">
+    <i class="icon-times"></i>
+  </a>
+  <div class="header">
+    <h4>Payout Details</h4>
+  </div>
+  <div class="content tab divide">
+    <div class="form mrg-bt-30">
+      <div class="row">
+        <div class="col-md-6 md-box zeb">
+          <div>
+            <div class="col-md-6">
+              <strong>Account Name</strong>
+            </div>
+            <div class="col-md-6" id="modal-account-name"></div>
+          </div>
+          <div>
+            <div class="col-md-6">
+              <strong>
+                Account Number
+              </strong>
+            </div>
+            <div class="col-md-6" id="modal-account-number"></div>
+          </div>
+
+          <div>
+            <div class="col-md-6">
+              <strong>
+                Bank Name
+              </strong>
+            </div>
+            <div class="col-md-6" id="modal-bank"></div>
+          </div>
+
+        </div>
+
+        <div class="col-md-6 md-box zeb affiliate-content" style="display:none;">
+          <div class="modal-supplier-name-container">
+            <div class="col-md-6">
+              <strong class="supplier-name">Supplier Name</strong>
+            </div>
+            <div class="col-md-6" id="supplier-name"></div>
+          </div>
+          <div class="modal-commission-amount-container">
+            <div class="col-md-6">
+              <strong class="commission-amount">Commission Amount</strong>
+            </div>
+            <div class="col-md-6">PHP <span id="commission-amount"></span></div>
+          </div>
+          <div class="modal-supplier-payout-container">
+            <div class="col-md-6">
+              <strong class="supplier-payout">Supplier Payout Amount</strong>
+            </div>
+            <div class="col-md-6">PHP <span id="supplier-payout-amount"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Start Here -->
+    <div class="ui tabular menu">
+      <div class="item active" data-tab="payout-tab-details">Details</div>
+      <div class="item" data-tab="payout-tab-upload">Deposit Slip</div>
+    </div>
+    <!-- End -->
+
+  </div>
+  <div class="content">
+    <div class="ui tab active" data-tab="payout-tab-details">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table basic table-vertical-align-top">
+            <thead>
+              <tr>
+                <th class="align-center">Payout</th>
+                <th>Order ID</th>
+                <th>Invoice No</th>
+                <th>Buyer ID</th>
+                <th>User</th>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Order Quantity</th>
+                <th>Unit Price</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="userOrderModal-userOrderContainer"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row payout-error-container" style="display:none;">
+        <div class="message-box red with-close-message">
+          Something went wrong.
+        </div>
+      </div>
+    </div>
+    <div class="ui tab" data-tab="payout-tab-upload">
+      <div class="row">
+        <div class="col-md-6 mrg-bt-20">
+          <label>
+            <strong>Deposit Slip:</strong>
+          </label>
+          <input accept=".png,.jpg,.jpeg" class="deposit-slip form-ui" multiple name="deposit-slip" type="file"/>
+          <span class="form-ui-note">Compatible files: JPG, JPEG, and PNG</span>
+        </div>
+      </div>
+      <div class="row">
+        <ul class="deposit-slip-list slip col-md-12"></ul>
+      </div>
+      <div class="row payout-error-container" style="display:none;">
+        <div class="message-box red with-close-message">
+          Something went wrong.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions align-right">
+    <div class="button confirm" id="proceedPaymentBtn">Proceed To Payment</div>
+  </div>
+</div>
+
+<!-- Modal Seller Type Two -->
+<div class="ui modal large modal-box modal-seller-payout-two">
+  <a class="close">
+    <i class="icon-times"></i>
+  </a>
+  <div class="header">History Information</div>
+  <div class="content form">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table basic table-vertical-align-top mrg-bt-30">
+          <tr>
+            <th>Order Product Id</th>
+            <th>User</th>
+            <th>Product Name</th>
+            <th>Order Quantity</th>
+            <th>Unit Price</th>
+            <th>Shipping Price</th>
+            <th>Total Amount</th>
+            <th>Status</th>
+          </tr>
+          <tbody id="historyInformationModal-orderProductDetailsContainer"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table basic table-vertical-align-top mrg-bt-30">
+          <tr>
+            <th>History ID</th>
+            <th>State</th>
+            <th>Date</th>
+          </tr>
+          <tbody id="historyInformationModal-historyContainer"></tbody>
+        </table>
+      </div>
+      <div class="col-md-6" id="historyInformationModal-shipment-information-container">
+        <table class="table basic table-vertical-align-top">
+          <tr >
+            <th>WayBill Number</th>
+            <th>Warehouse</th>
+            <th>Quantity</th>
+            <th>Date</th>
+          </tr>
+          <tbody id="historyInformationModal-shipment-information"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="actions align-right">
+    <div class="button cancel modal-seller-payout-one-trigger">Back</div>
+  </div>
+</div>
+
+<!-- Modal Seller Type Three -->
+<div class="ui modal large modal-box modal-seller-payout-three">
+  <a class="close">
+    <i class="icon-times"></i>
+  </a>
+  <div class="header">
+    <h4>Payout History</h4>
+    <div class="ui tabular menu">
+      <div class="item active" data-tab="payout-tab0">Details</div>
+      <div class="item" data-tab="payout-tab1">Payout Order Products</div>
+      <div class="item" data-tab="payout-tab2">Deposit Slips</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class=" ui tab active" data-tab="payout-tab0">
+      <div class="row">
+        <div class="col-md-6 md-box zeb">
+          <div>
+            <div class="col-md-6">
+              <strong>Reference No.</strong>
+            </div>
+            <div class="col-md-6 reference-number-data"></div>
+          </div>
+          <div>
+            <div class="col-md-6">
+              <strong>Email</strong>
+            </div>
+            <div class="col-md-6 email-data"></div>
+          </div>
+          <div>
+            <div class="col-md-6">
+              <strong>Amount</strong>
+            </div>
+            <div class="col-md-6 amount-data"></div>
+          </div>
+          <div>
+            <div class="col-md-6">
+              <strong>Status</strong>
+            </div>
+            <div class="col-md-6 status-data"></div>
+          </div>
+        </div>
+
+        <div class="col-md-6 md-box zeb">
+          <div>
+            <div class="col-md-6">
+              <strong>Support CSR</strong>
+            </div>
+            <div class="col-md-6 support-csr-data"></div>
+          </div>
+          <div>
+            <div class="col-md-6">
+              <strong>Date Created</strong>
+            </div>
+            <div class="col-md-6 date-created-data"></div>
+          </div>
+          <div>
+            <div class="col-md-6">
+              <strong>Date Modified</strong>
+            </div>
+            <div class="col-md-6 date-modified-data"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="ui tab" data-tab="payout-tab1">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table basic table-vertical-align-top">
+            <thead>
+              <tr>
+                <th>Order Product Id</th>
+                <th>Product Name</th>
+                <th>Amount</th>
+                <th>Date Added</th>
+              </tr>
+            </thead>
+            <tbody class="order-products"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="ui tab" data-tab="payout-tab2">
+      <div class="row">
+        <ul class="slip col-md-12 payout-documents"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions align-right">
+    <div class="button cancel">Close</div>
+  </div>
+</div>
+
+{# START MODAL = MESSAGE CONTAINER #}
+<div class="ui modal small coupled-first" id="modal-message-container">
+  <a class="close" data-remodal-action="close">
+    <i class="icon-times"></i>
+  </a>
+  <div class="content align-center">
+    <h3 class="ui header">
+      <i class="icon icon-circle-check"></i>
+      <div class="content">
+        <div class="header-content"></div>
+        <div class="sub-header detail-content"></div>
+      </div>
+    </h3>
+  </div>
+  <div class="actions">
+    <button class="button confirm close">Okay</button>
+  </div>
+</div>
+{# END MODAL = MESSAGE CONTAINER #}
+
+<input id="status-item-received" type="hidden" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\OrderProductStatus::STATUS_ITEM_RECEIVED_BY_BUYER') }}">
+<input id="status-payout-unheld" type="hidden" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\OrderProductStatus::STATUS_SELLER_PAYOUT_UN_HELD') }}">
+{% endblock %}
+
+{% block javascripts %}
+  {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/seller-payout.js"
+    "js/src/backend/seller-payout.js"
+  %}
+  <script src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+{% endblock %}

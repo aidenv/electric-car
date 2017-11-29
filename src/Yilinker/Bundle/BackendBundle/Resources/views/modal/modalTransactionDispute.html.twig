@@ -1,0 +1,140 @@
+<!-- Modal Order Type One-->
+<div class="ui modal large modal-box modal-transaction-dispute">
+    <a class="close"><i class="icon-times"></i></a>
+    <div class="header">Order Details</div>
+    <div class="content divide">
+      <div class="row">
+        <div class="group form">
+          <div class="message-box blue">
+            <button class="button blue">Resolution Center</button>
+            <p class="title">Disputed Tag Detected!</p>
+            <p>Proceed to Resolution Center to resolve this issue.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form">
+            <div class="row">
+              <div class="col-md-6 md-box zeb">
+                {% for i in 1..5 %}
+                  <div>
+                    <div class="col-md-6"><strong>Sample</strong></div>
+                    <div class="col-md-6">KD3-38u123pi</div>
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="col-md-1"></div>
+              <div class="col-md-5 md-box">
+                <div>
+                  <div class="col-md-6">Total Amount</div>
+                  <div class="col-md-6 txtright">PHP 999.99</div>
+                </div>
+                <div>
+                  <div class="col-md-6">YiLinker Charge</div>
+                  <div class="col-md-6 txtright">PHP 999.99</div>
+                </div>
+                <div>
+                  <div class="col-md-6">Payment Method Charge</div>
+                  <div class="col-md-6 txtright">PHP 999.99</div>
+                </div>
+                <div class="net">
+                  <div class="col-md-6">Net</div>
+                  <div class="col-md-6 txtright">PHP 999.99</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table basic table-vertical-align-top">
+            <tr>
+              <th align="center"></th>
+              <th>Order Product ID</th>
+              <th>Name</th>
+              <th>Seller</th>
+              <th>Order Quantity</th>
+              <th>Unit Price</th>
+              <th>Shipping fee</th>
+              <th>Total Amount</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+            {% for i in 1..2 %}
+              <tr class="update">
+                <td align="center"></td>
+                <td>209</td>
+                <td>apple</td>
+                <td>man of effin steel</td>
+                <td>1</td>
+                <td>PHP 2,121.00</td>
+                <td>PHP 0.00</td>
+                <td>PHP 2,121.00</td>
+                <td><i>Replacement...</i>&#8230;</td>
+                <td>
+                  <button class="button tiny default-light modal-order-two-trigger">
+                    view
+                  </button>
+                </td>
+              </tr>
+            {% endfor %}
+            {% for i in 1..3 %}
+              <tr>
+                <td align="center"></td>
+                <td>209</td>
+                <td>apple</td>
+                <td>man of effin steel</td>
+                <td>1</td>
+                <td>PHP 2,121.00</td>
+                <td>PHP 0.00</td>
+                <td>PHP 2,121.00</td>
+                <td>On-going</td>
+                <td>
+                  <button class="button tiny default-light modal-order-two-trigger">
+                    view
+                  </button>
+                </td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form remarks">
+          <div class="customer">
+            <p class="person">
+              <img src="{{ asset('images/buyer-img-1.jpg') }}" border="0">
+              <span class="user">
+                <strong>George Chris Paul</strong>
+                Complainant
+              </span>
+            </p>
+            <p class="words">
+              <strong>I changed my mind. I'm no longer interested in the product.</strong>
+              hmm... how can i say this, im want a refund because i will use the money for my school tuition fee,
+              pls my mother is going to kill me... omg, my mom is here, he got me, its over, im doom...
+              pls send the money back while im holding my mom's wrath for a few minutes, i cant keep this up forever...
+            </p>
+            <p class="attachment">
+              <span>requested items for cancellations</span>
+              <span class="items">Order ID 209: Shoulder Bag</span>
+              <span class="items">Order ID 209: Shoulder Bag</span>
+            </p>
+            <p class="attachment">
+              <span>attachments</span>
+              <a href="#" class="pdf"><img src="{{ asset('images/a.png') }}" border="0"/></a>
+              <a href="#" class="pdf"><img src="{{ asset('images/a.png') }}" border="0"/></a>
+              <a href="#" class="pdf"><img src="{{ asset('images/a.png') }}" border="0"/></a>
+            </p>
+            <p class="time-stamp">Posted on 12:30 pm, July 21, 2014</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="button blue">Proceed to Resolution Center</button>
+      <button class="button default-light close">Back</button>
+    </div>
+</div>

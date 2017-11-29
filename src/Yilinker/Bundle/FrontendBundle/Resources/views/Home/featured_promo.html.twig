@@ -1,0 +1,42 @@
+{% if backtoSchoolPromo|length > 0 %}
+<div class="title-bar">
+    <div class="home-section">
+        <div class="row">
+            <div class="col-md-12">
+                <span class="title-name">Back to School</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="home-section">
+    <div class="row featured-products-con-slider">
+        <div class="item">
+            <div class="row">
+                <div class="col-ms-4 col-md-4 border-lt border-bt starter">
+                    <div class="row border-rt">
+                        <div class="col-xs-12 col-md-12">
+                            <a href ="{{ backtoSchoolPromo.landing.slug }}">                           
+                            <img src="{{ backtoSchoolPromo.landing.image }}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-ms-8 col-md-8 border-bt bench">
+                     {% for promo in backtoSchoolPromo.promos %}
+                        <div class="row border-bt">
+                            {% for data in promo %}
+                                <div class="col-xs-4 col-md-4 border-rt">
+                                    <a href="{{ data.slug }}">
+                                        <img src="{{ data.image }}" alt="">
+                                    </a>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+   </div>
+</div>
+{% endif %}

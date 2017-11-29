@@ -1,0 +1,46 @@
+<div class="border mrg-top-40">
+    <div class="row no-gutter">
+        {% if image is defined and image.image is defined %}
+            <div class="col-md-2 col-xs-6">
+                <a href="{{ image.target }}">
+                    <img
+                        data-original="{{ image.image }}"
+                        alt="{{ image.alt }}"
+                        title="{{ image.title }}"
+                        class="lazy pull-left"
+                        width="100%"
+                        height="230"
+                        />
+                    <noscript>
+                        <img
+                            src="{{ image.image }}"
+                            alt="{{ image.alt }}"
+                            title="{{ image.title }}"
+                            class="lazy pull-left"
+                            width="100%"
+                            height="230"
+                        />
+                    </noscript>
+                </a>
+            </div>
+        {% endif %}
+        {% if products is defined and products is iterable %}
+            {% for product in products %}
+                {% if product.productId is defined %}
+                    {% if app.environment == 'prod' %}
+                        {{ render_esi(
+                            controller('YilinkerFrontendBundle:Product:renderFeaturedProduct', {
+                            productId: product.productId,
+                            discountedPrice: product.discountedPrice,
+                            quantity: product.quantity
+                        })) }}
+                    {% else %}
+                        {{ include('YilinkerFrontendBundle:Product:v2/category_product_details.html.twig', {
+                            product: product
+                        }) }}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

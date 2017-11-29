@@ -1,0 +1,30 @@
+Yilinker\Bundle\CoreBundle\Entity\ContactNumber:
+    type: entity
+    table: ContactNumber
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ContactNumberRepository
+    id:
+        contactNumberId:
+            type: integer
+            id: true
+            column: contact_number_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        contactNumber:
+            type: string
+            column: contact_number
+            length: 60
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    indexes:
+        fk_user_userid_contactnumber_userid_idx:
+            columns:
+                - user_id
+    lifecycleCallbacks: {  }

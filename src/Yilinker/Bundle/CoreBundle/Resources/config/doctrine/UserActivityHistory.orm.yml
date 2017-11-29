@@ -1,0 +1,54 @@
+Yilinker\Bundle\CoreBundle\Entity\UserActivityHistory:
+    type: entity
+    table: UserActivityHistory
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserActivityHistoryRepository
+    indexes:
+        fk_user_activity_history_user_id:
+            columns:
+                - user_id
+        fk_user_activity_history_user_activity_type_id:
+            columns:
+                - user_activity_type_id
+    id:
+        userActivityHistoryId:
+            type: integer
+            id: true
+            column: user_activity_history_id
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: userActivityHistories
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        userActivityType:
+            targetEntity: UserActivityType
+            inversedBy: userActivityHistories
+            joinColumn:
+                name: user_activity_type_id
+                referencedColumnName: user_activity_type_id
+            orphanRemoval: false
+    fields:
+        affectedTable:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            column: affected_table
+        mysqlAction:
+            type: string
+            nullable: false
+            length: 50
+            fixed: false
+            column: mysql_action
+        activityData:
+            type: text
+            nullable: false
+            column: activity_data
+        dateAdded:
+            type: datetime
+            nullable: false
+            column: date_added

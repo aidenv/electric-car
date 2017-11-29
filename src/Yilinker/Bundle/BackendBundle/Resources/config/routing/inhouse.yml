@@ -1,0 +1,13 @@
+admin_inhouse_list:
+    path: /inhouse-products
+    defaults: { _controller: YilinkerBackendBundle:Inhouse:list }
+    methods: [GET]
+
+admin_update_manufacturer_unit_values:
+    path: /manufacturer-unit-values/update
+    defaults: { _controller: YilinkerBackendBundle:Inhouse:updateManufacturerUnits }
+    methods: [POST]
+
+admin_inhouse_form:
+    path: /inhouse-form
+    defaults: { _controller: YilinkerBackendBundle:Inhouse:form }

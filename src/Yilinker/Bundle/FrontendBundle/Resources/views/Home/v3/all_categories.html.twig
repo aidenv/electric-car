@@ -1,0 +1,48 @@
+{% if categorySideBar is defined %}
+
+    <div class="overlay-category"></div>
+    <div class="categories-container all-category-container mobile-hide">
+        <div class="home-section">
+            <ul class="list-unstyled list-all-categories">
+            {% if categorySideBar != null %}
+                {% for categoryDetails in categorySideBar %}
+                    {% if categoryDetails.category.id is defined %}
+                        <li data-ajaxed-content="[data-all-category='{{ categoryDetails.category.id }}']" data-url="{{ path('home_sub_categories', {id: categoryDetails.category.id }) }}">
+                            <a href="{{ path('get_category', {'slug' : categoryDetails.category.slug}) }}" data-href="#main-{{ categoryDetails.category.id }}">
+                                <span class="name">{{ categoryDetails.category.name }}</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </ul>
+        </div>
+        {% if categorySideBar != null %}
+            {% for categoryDetails in categorySideBar %}
+                {% if categoryDetails.category.id is defined %}
+                    <div class="category-board" id="main-{{ categoryDetails.category.id }}">
+                        <div class="home-section board-content">
+                            <div class="sub-category-container">
+                                <div data-all-category="{{ categoryDetails.category.id }}" class="row" style="position: relative; margin: auto;"></div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    <script type="application/ld+json">
+        {% if categorySideBar != null %}
+
+            { "@context": "http://schema.org", "@type": "ItemList", "itemListElement": [
+            {% for categoryDetails in categorySideBar %}
+                {% if categoryDetails.category.name is defined %}
+                    "{{ categoryDetails.category.name }}",
+                {% endif %}
+            {% endfor %}
+            ], "itemListOrder": "http://schema.org/ItemListOrderDescending", "name": "All Categories" }
+
+        {% endif %}
+    </script>
+{% endif %}

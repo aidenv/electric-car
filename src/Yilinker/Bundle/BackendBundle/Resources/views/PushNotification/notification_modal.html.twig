@@ -1,0 +1,96 @@
+<!-- Modal Notes -->
+<div class="ui modal small modal-box modal-send-notification">
+    <a class="close">
+        <i class="icon-times"></i>
+    </a>
+    <div class="header">Send Notification</div>
+        <form name="notification" class="ui form">
+            <div class="content">
+                <div class="hidden ui error message message-box red with-close-message"></div>
+                <div class="hidden message message-box red with-close-message notification-errors"></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form mrg-top-10">
+                            <div class="row">
+                                <div class="col-md-12 form">
+                                    <label for="" class="required">Title (Max : 50):
+                                    </label>
+                                    <input class="form-ui" placeholder="Title" maxlength="50" name="title" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form">
+                        <div class="form">
+                            <label class="required">Recipient Device</label>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <div class="ui checkbox" data-type="ios">
+                                        <input type="checkbox" data-validate="recipient" name="recipient[]" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::RECIPIENT_IOS') }}">
+                                        <label for="">IOS (Mobile)</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="ui checkbox" data-type="android">
+                                        <input type="checkbox" data-validate="recipient" name="recipient[]" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\DeviceNotification::RECIPIENT_ANDROID') }}">
+                                        <label for="">Andriod (Mobile)</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="form mrg-top-10">
+                            <div class="row">
+                                <div class="col-md-6 form">
+                                    <label class="required">Target</label>
+                                    <select name="targetType" class="form-ui ui search single selection dropdown">
+                                        {% for id,targetType in targetTypes %}
+                                            <option value="{{ id }}">{{ targetType }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form mrg-top-10 target-parameter">
+                            <div class="row">
+                                <div class="col-md-12 form">
+                                    <label for="" class="required">Target Parameter:
+                                    </label>
+                                    <div class="target-parameter-container">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form">
+                            <label class="required">Message (Max : 100)</label>
+                            <textarea class="form-ui" name="message" maxlength="100" placeholder="Enter product description here"></textarea>
+                        </div>
+
+                        <div class="form mrg-top-10">
+                            <div class="row">
+                                <div class="col-md-3 form">
+                                    <label class="col-md-12 required">Schedule: </label>
+                                    <input type="text" class="form-ui ui datetimepicker" name="dateScheduled" placeholder="Set Schedule"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form">
+                            <div class="ui checkbox" data-type="is-active">
+                                <input type="checkbox" name="isActive" value="1">
+                                <label for="">Is Active?</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions align-right">
+                <button class="button confirm" data-remodal-action="close">Save</button>
+                <span class="button cancel" data-remodal-action="close">Cancel</span>
+            </div>
+        </form>
+    </div>
+</div>

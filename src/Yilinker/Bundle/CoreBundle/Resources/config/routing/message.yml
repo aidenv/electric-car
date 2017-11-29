@@ -1,0 +1,35 @@
+core_get_active_conversation:
+    path: /message/getActiveConversation
+    defaults: { _controller: YilinkerCoreBundle:Message:getActiveConversation }
+
+core_get_conversation_messages:
+    path: /message/getConversationMessages
+    defaults: { _controller: YilinkerCoreBundle:Message:getConversationMessages }
+
+core_get_conversation_head:
+    path: /message/getConversationHead
+    defaults: { _controller: YilinkerCoreBundle:Message:getConversationHead }
+
+core_get_contacts:
+    path: /message/getContacts
+    defaults: { _controller: YilinkerCoreBundle:Message:getContacts }
+
+core_delete_conversation:
+    path: /message/deleteConversation
+    defaults: { _controller: YilinkerCoreBundle:Message:deleteConversation }
+    methods: [POST]
+
+core_send_message:
+    path: /message/sendMessage
+    defaults: { _controller: YilinkerCoreBundle:Message:sendMessage }
+    methods: [POST]
+
+core_upload_mutiple_message_image:
+    path: /message/uploadMessageImages
+    defaults: { _controller: YilinkerCoreBundle:Message:uploadMessageImages }
+    methods: [POST]
+
+core_set_conversation_as_read:
+    path: /message/setConversationAsRead
+    defaults: { _controller: YilinkerCoreBundle:Message:setConversationAsRead }
+    methods: [POST]

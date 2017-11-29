@@ -1,0 +1,13 @@
+
+yilinker_frontend_international_homepage_index:
+    path: /
+    defaults: { _controller: YilinkerFrontendBundle:International\Home:index }
+    host: %global_hostname%
+
+yilinker_frontend_international_site:
+    path: /{any}
+    defaults:
+        _controller: yilinker.twig.controller.exception:showNotFoundAction
+        any: ''
+    host: %global_hostname%
+

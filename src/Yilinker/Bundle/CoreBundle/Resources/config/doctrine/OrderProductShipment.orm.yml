@@ -1,0 +1,43 @@
+Yilinker\Bundle\CoreBundle\Entity\OrderProductShipment:
+    type: entity
+    table: OrderProductShipment
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\OrderProductShipmentRepository
+    indexes:
+        fk_orderproductshipment_orderproductid_orderproduct_orderproductid_idx:
+            columns:
+                - order_product_id
+        fk_orderproductshipment_orderproductshipmentid_orderproductshipmentstatus_orderproductshipmentid_idx:
+            columns:
+                - order_product_shipment_status_id
+    id:
+        orderProductShipmentId:
+            type: bigint
+            id: true
+            column: order_product_shipment_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        wayBillNumber:
+            type: bigint
+            column: waybill_number
+            nullable: true
+        trackingNumber:
+            length: 255
+            nullable: true
+            column: tracking_number
+        dateAdded:
+            type: datetime
+    manyToOne:
+        orderProduct:
+            targetEntity: OrderProduct
+            joinColumn:
+                name: order_product_id
+                referencedColumnName: order_product_id
+            orphanRemoval: false
+        orderProductShipmentStatus:
+            targetEntity: OrderProductShipmentStatus
+            joinColumn:
+                name: order_product_shipment_status_id
+                referencedColumnName: order_product_shipment_status_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

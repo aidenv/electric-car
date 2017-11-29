@@ -1,0 +1,28 @@
+<div class="ui small modal address-map-modal coupled-address" style="z-index:99999">
+
+    <a class="close"><i class="icon-times"></i></a>
+
+    <div class="header">
+      <h4 class="no-margin">{% trans %} Mark your Address {% endtrans %}</h4>
+    </div>
+    <div class="content">
+         <div class="google-map"></div>
+    </div>
+
+    <div class="actions">
+        <button class="button dark-gray uppercase close-map-dimmer negative">Back</button>
+        <button class="button confirm positive apply-map-changes uppercase">
+             <span class="text">{% trans %} Mark Location {% endtrans %}</span>
+        </button>
+    </div>
+
+    <input type="hidden" class="initial-latitude" value="{{ default_latitude }}"/>
+    <input type="hidden" class="initial-longitude" value="{{ default_longitude }}"/>
+
+</div>
+
+{# Make sure you add the following to your base twig file: 
+<script src="{{ asset('js/src/utility/google-map.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_browser_app_id }}"></script> 
+#}
+

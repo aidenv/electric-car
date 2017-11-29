@@ -1,0 +1,7 @@
+subscribe_email:
+    path: /subscribe/email
+    defaults: { _controller: YilinkerFrontendBundle:Newsletter:subscribeEmailNewsletter }
+
+subscribe_success:
+    path: /subscription/success
+    defaults: { _controller: YilinkerFrontendBundle:Newsletter:subscriptionSuccess }

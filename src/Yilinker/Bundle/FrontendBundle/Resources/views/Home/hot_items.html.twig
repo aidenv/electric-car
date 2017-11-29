@@ -1,0 +1,114 @@
+<div class="title-bar">
+    <div class="home-section">
+        <span class="title-name">{{section.name|trans}}</span>
+        {#<a href="{{section.seeMore}}" class="view-more">view more &rarr;</a>#}
+    </div>
+</div>
+<div class="home-section">
+    <div class="product-card-list-wrapper">
+        <div class="row">
+            {% set colClass = "col-xs-12" %}
+            {% set containerClass = "product-card-slider-full" %}
+            {% if section.featuredProduct is not null %}
+                {% set featuredProduct = section.featuredProduct %}
+                {% set colClass = "col-xs-9" %}
+                {% set containerClass = "product-card-slider" %}
+                <div class="col-xs-3">
+                    <div class="featured-item-ad-container">
+                        <div class="ribbon"><span>FEATURED</span></div>
+                        <a href="{{featuredProduct.target}}">
+                            <img src="{{ featuredProduct.image }}" title="{{featuredProduct.title}}" alt="{{featuredProduct.alt}}" class="img-full-width"/>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="{{colClass}}">
+                <div class="{{containerClass}}">
+                    {% for product in section.products %}
+                        {% set discount = product.defaultUnit ? product.defaultUnit.discount: '' %}
+                        {% set price = product.defaultUnit ? product.defaultUnit.price: '' %}
+                        {% set discountedPrice = product.defaultUnit ? product.defaultUnit.discountedPrice: '' %}
+                        {%
+                            set addtocart = {
+                                'productId': product.productId,
+                                'unitId':    product.defaultUnit ? product.defaultUnit.productUnitId: 0
+                            }
+                        %}
+                            <div class="item">
+                                <div class="product-item-wrapper ">
+                                    <a href="{{ path('product_details', {slug: product.slug}) }}">
+                                        <div class="image-wrapper image-display">
+                                            {% if discount != 0%}
+                                                <span class="discount pin">{{ discount }}% {% trans %} off {% endtrans %}</span>
+                                            {% endif %}
+                                            <img src="{{ asset(product.primaryImage.thumbnail, 'product') }}" alt="{{product.name}}" title="{{product.name}}" class="img-auto-place">
+                                        </div>
+                                    </a>
+                                    {% if product.elastica is defined and product.elastica and product.elastica.internationalWarehouses %}
+                                        <div class="international-shipping-pin">
+                                            <img src="{{ asset('images/globalization/international-icon.png') }}">
+                                        </div>
+                                    {% endif %}
+                                    <div class="meta-wrapper">
+                                        <div class="basic-name">
+                                            <div class="row group">
+                                                <div class="col-xs-12">
+                                                    <h4 class="name">
+                                                       <a href="{{ path('product_details', {slug: product.slug}) }}">
+                                                            {{product.name}}
+                                                        </a>
+                                                        {% if product.defaultUnit and app.user %}
+                                                            <span title="Add to wislist" class="wishlist tooltip pull-right {{ product.defaultUnit.inWishlist ? 'active': '' }}" data-href="{{ path('cart_add_item') }}?mode=wishlist" data-addtocart="{{ addtocart|json_encode }}">
+                                                                <i class="icon-heart-o"></i>
+                                                            </span>
+                                                        {% endif %}
+                                                    </h4>
+                                                    <h5 class="category no-margin">
+                                                        <a href="{{ path('get_category',{'slug': product.productCategory.slug}) }}">
+                                                            {{product.productCategory.name}}
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="basic-amount">
+                                            <div class="row group">
+                                                <div class="col-md-7 col-xs-12 col-price-button-container align-center">
+                                                    <span class="old-price">
+                                                        P {{price|number_format(2)}}
+                                                    </span>
+                                                    {% if product.defaultUnit.quantity is defined
+                                                        and product.defaultUnit.quantity > 0 %}
+                                                        <div class="product-cart-button-flip">
+                                                            <div data-href="{{ path('cart_add_item') }}" data-addtocart="{{ addtocart|json_encode }}"  class="button purple block cart front">
+                                                                <span class="current-price">
+                                                                    P {{discountedPrice|number_format(2)}}
+                                                                </span>
+                                                                <span class="cart text">{% trans %} Add to cart {% endtrans %}</span>
+                                                            </div>
+                                                            <div class="button gray block cart disabled back">
+                                                                <span>
+                                                                    <i class="icon icon-check"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    {% else %}
+                                                        <div class="button purple block cart disabled">
+                                                            P {{ discountedPrice|number_format(2) }}
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="col-md-5 col-star-rating-container">
+                                                    {{ include('YilinkerCoreBundle:Default:star_rating.html.twig', {rating: product.reviewRating}) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

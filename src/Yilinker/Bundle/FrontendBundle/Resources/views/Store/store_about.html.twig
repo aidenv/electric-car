@@ -1,0 +1,98 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    {{ store.storeName }}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block header  %}
+    {% render controller('YilinkerFrontendBundle:Home:renderHeader', { request: app.request, 'store': store }) %}
+{% endblock %}
+
+{% block sidebar %}{% endblock %}
+
+{% block body %}
+    <div class="store">
+        <div class="wrapper-outer">
+            <!--Store search form-->
+            {{ include('YilinkerFrontendBundle:Store:store_top_search.html.twig') }}
+
+            <!--Store top banner-->
+            {{ include('YilinkerFrontendBundle:Store:store_top_banner.html.twig') }}
+
+            <div class="search-body-wrapper store-body-wrapper">
+                {% set isAffiliate = store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') %}
+                <div class="row">
+                    <div class="{{ isAffiliate ? 'col-sm-12': 'col-sm-8' }} ">
+                        <p class="breakword store-description">{{ store.storeDescription }}</p>
+                        <div class="seller-badge-type">
+                            <div class="row">
+                                <div class="{{ isAffiliate ? 'col-sm-4': 'col-sm-6' }}">
+                                    <div class="box-container">
+                                        <div class="row">
+                                            <div class="{{ isAffiliate ? 'col-md-12': 'col-md-6' }}">
+                                                <div class="image-holder">
+                                                    <img src="{{ asset('images/seller-badges/100-percent-genuine.png') }}" class="img-auto-place" />
+                                                </div>
+                                            </div>
+                                            <div class="{{ isAffiliate ? 'col-md-12': 'col-md-6' }}">
+                                                <p class="breakword">Sellers with this badge passed the Product Accreditation process of YiLinker. This means that all products uploaded in this profile are of premium quality.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="{{ isAffiliate ? 'col-sm-4': 'col-sm-6' }}">
+                                    <div class="box-container">
+                                        <div class="row">
+                                            <div class="{{ isAffiliate ? 'col-md-12': 'col-md-6' }}">
+                                                <div class="image-holder">
+                                                    <img src="{{ asset('images/seller-badges/product-guarantee.png') }}" class="img-auto-place" />
+                                                </div>
+                                            </div>
+                                            <div class="{{ isAffiliate ? 'col-md-12': 'col-md-6' }}">
+                                                <p class="breakword">Sellers with this badge offer product warranty for most or all of their products. This means that whenever you receive a defective or damaged product, you can easily request for a replacement.<br/></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="{{ isAffiliate ? 'col-sm-4': 'col-sm-6' }}">
+                                    <div class="box-container">
+                                        <div class="row">
+                                            <div class="{{ isAffiliate ? 'col-md-12': 'col-md-6' }}">
+                                                <div class="image-holder">
+                                                    <img src="{{ asset('images/seller-badges/verified-seller.png') }}" class="img-auto-place" />
+                                                </div>
+                                            </div>
+                                            <div class="{{ isAffiliate ? 'col-md-12': 'col-md-6' }}">
+                                                <p class="breakword">Sellers with the Verified Seller badge passed the Seller Accreditation process of YiLinker. This means that all required documents to prove that the seller is qualified to sell in the Republic of the Philippines via our website. The Verified Seller badge is awarded to Sellers who have completed YiLinker’s Seller Training and have received their certificates.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if not isAffiliate %}
+                        <div class="col-sm-4">
+                            {{ include('YilinkerFrontendBundle:Store:store_about_right_wing.html.twig') }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            {{ render_esi(controller('YilinkerFrontendBundle:Home:renderStoreFooter')) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block yeahmobi_google_remarketing %}
+    {% include 'analytics/yeahmobi/google-remarketing.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/utility/button-loader.js') }}"></script>
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('js/src/frontend/store/store.js') }}"></script>
+{% endblock %}

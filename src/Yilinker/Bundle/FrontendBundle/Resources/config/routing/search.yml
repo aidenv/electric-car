@@ -1,0 +1,11 @@
+search_product:
+    path: /search/product
+    defaults: { _controller: YilinkerFrontendBundle:Product:productSearch }
+
+search_seller:
+    path: /search/seller
+    defaults: { _controller: YilinkerFrontendBundle:Store:searchBySeller }
+
+sub_category:
+    path: /categories/electronics-gadgets
+    defaults: { _controller: YilinkerFrontendBundle:Home:subCategory }

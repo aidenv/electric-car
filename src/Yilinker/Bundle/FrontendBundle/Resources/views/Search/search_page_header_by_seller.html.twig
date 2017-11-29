@@ -1,0 +1,110 @@
+<div class="search-header-wrapper">
+    <div class="search-header-top-layer">
+        <div class="gutter-container">
+            <div class="search-header-label search-results-total">
+                <span class="semi-bold">{{ totalStoreResultCount|default(0) }}</span> results for <span class="semi-bold">{{ query }}</span>
+            </div>
+            <div class="search-result-type">
+                <ul class="list-unstyled list-search-result-type">
+                <li>
+                    <a href="{{ path('search_product', {query : query} )}}" >
+                    Product <span class="counter normal">{{ totalProductResultCount|default(0) }}</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active">Seller <span class="counter normal">{{ totalStoreResultCount|default(0) }}</span></a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  
+    <div class="search-header-bottom-layer" id="subCategoryFilter">
+        <div class="gutter-container">
+            <div class="desktop-hide search-control-mobile seller">
+                <div class="control-item wide filter-modal-trigger">
+                    <i class="icon icon-category"></i> Filter
+                </div>
+                <div class="control-item wide sort-modal-trigger">
+                    <i class="icon icon-category "></i> Sort By
+                </div>
+            </div>
+            <div class="row mobile-hide">
+                <div class="col-md-6">
+                    <div class="filter-control-container">
+                        <div class="search-header-label filter-label search-control-label table-cell">
+                            <span class="semi-bold">Filter Area: </span>
+                        </div>
+                        <div class="search-control-area filter table-cell less">
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="filter-control-container pull-right">
+                        <div class="search-header-label search-control-label table-cell">
+                            <span class="semi-bold">Sort By: </span>
+                        </div>
+                        <div class="search-control-group">
+                            <div class="search-control-area table-cell">
+                                <div class="control-type-container">
+                                    <select class="form-ui ui single selection dropdown small category-filter sort-by-filter">
+                                        <option value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\StoreRepository::BYDATE') }}~{{  constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') }}" 
+                                         data-direction="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\StoreRepository::DIRECTION_DESC') }}">
+                                            New to Old
+                                        </option>
+                                        <option value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\StoreRepository::BYDATE') }}~{{  constant('Yilinker\\Bundle\\CoreBundle\\Repository\\StoreRepository::DIRECTION_ASC') }}"
+                                         data-direction="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\StoreRepository::DIRECTION_ASC') }}">
+                                            Old to New
+                                        </option>
+                                        <option value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\StoreRepository::ALPHABETICAL') }}~{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\StoreRepository::DIRECTION_ASC') }}" 
+                                         data-direction="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\StoreRepository::DIRECTION_ASC') }}">
+                                            Alphabetical
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="search-control-group">
+                            <div class="search-control-area list-pager table-cell">
+                                <div class="control-type-container view-control">
+                                    <div class="pagination-short">
+
+                                        <div class="pager prev">
+                                            {% if page > 1  %}
+                                            {% set updatedParameters = parameters|merge({'page': page - 1}) %}
+                                            <a href="{{ path('search_seller', updatedParameters ) }}"/>
+                                            <i class="icon icon-caret-left"></i>
+                                            </a>
+                                            {% else %}
+                                            <i class="icon icon-caret-left"></i>
+                                            {% endif %}
+                                        </div>
+
+                                        <span class="current-page">{{ page|default(1) }}</span>
+                                        <i class="of-divider">of</i>
+                                        <div class="total-page">{{ totalPages|default(1) }}</div>
+
+                                        <div class="pager next">
+                                            {% if page < totalPages  %}
+                                            {% set updatedParameters = parameters|merge({'page': page + 1}) %}
+                                            <a href="{{ path('search_seller', updatedParameters ) }}"/>
+                                            <i class="icon icon-caret-right"></i>
+                                            {% else %}
+                                            <i class="icon icon-caret-right"></i>
+                                            {% endif %}
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ include('YilinkerFrontendBundle:Product:filter_mobile_modal.html.twig', {"isStore":true}) }}

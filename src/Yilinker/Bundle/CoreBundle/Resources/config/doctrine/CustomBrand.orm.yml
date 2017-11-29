@@ -1,0 +1,30 @@
+Yilinker\Bundle\CoreBundle\Entity\CustomBrand:
+    type: entity
+    table: CustomBrand
+    indexes:
+        fk_product_productid_custombrand_productid_idx:
+            columns:
+                - product_id
+    id:
+        customBrandId:
+            type: bigint
+            id: true
+            column: custom_brand_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            length: 255
+            options:
+                default: ''
+    manyToOne:
+        product:
+            targetEntity: Product
+            inversedBy: CustomBrand
+            joinColumn:
+                name: product_id
+                referencedColumnName: product_id
+            orphanRemoval: false
+
+    lifecycleCallbacks: {  }

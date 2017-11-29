@@ -1,0 +1,40 @@
+user_affiliate_root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /landing-page
+        permanent: true
+
+user_affiliate_default:
+    path: /
+    defaults: { _controller: YilinkerMerchantBundle:User:affiliateLoginRender }
+    methods: [GET]
+
+user_affiliate_landing_page:
+    path: /landing-page
+    defaults: { _controller: YilinkerMerchantBundle:User:affiliateLandingPage }
+    requirements:
+        _locale: en
+
+user_affiliate_authenticate:
+    path: /authenticate
+
+user_affiliate_logout:
+    path: /logout
+
+user_affiliate_forgot_password_request:
+    path: /forgot-password-request
+    defaults: { _controller: YilinkerMerchantBundle:User:affiliateLoginRender }
+
+user_affiliate_login:
+    path: /login
+    defaults: { _controller: YilinkerMerchantBundle:User:affiliateLoginRender }
+
+user_affiliate_register:
+    path: /register
+    defaults: { _controller: YilinkerMerchantBundle:User:affiliateLoginRender, tab:register }
+
+user_affiliate_registration:
+    path: /register/add
+    defaults: { _controller: YilinkerMerchantBundle:User:registerAffiliate }
+    methods: [POST]

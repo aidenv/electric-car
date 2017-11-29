@@ -1,0 +1,13 @@
+
+yilinker_api_route_v2_oauth:
+    resource: "v2/oauth.yml"
+    defaults: { version: 2 }
+    prefix: /
+
+yilinker_api_route_v2_user:
+    resource: "v2/user.yml"
+    prefix: /
+
+yilinker_api_route_v2_store:
+    resource: "v2/store.yml"
+    prefix: /

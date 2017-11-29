@@ -1,0 +1,24 @@
+yilinker_backend_resolution_center:
+    path: /resolution-center
+    defaults: { _controller: YilinkerBackendBundle:ResolutionCenter:renderResolutionCenter }
+    methods : [GET]
+
+yilinker_backend_resolution_center_detail:
+    path: /resolution-center-detail
+    defaults: { _controller: YilinkerBackendBundle:ResolutionCenter:renderResolutionCenterDetail }
+    methods : [GET]
+
+yilinker_backend_resolution_center_add_message:
+    path: /add-dispute-message
+    defaults: { _controller: YilinkerBackendBundle:ResolutionCenter:addDisputeMessage }
+    methods : [POST]
+
+yilinker_backend_resolution_center_approve:
+    path: /approve-dispute
+    defaults: { _controller: YilinkerBackendBundle:ResolutionCenter:approveDispute }
+    methods : [POST]
+
+yilinker_backend_resolution_center_reject:
+    path: /reject-dispute
+    defaults: { _controller: YilinkerBackendBundle:ResolutionCenter:rejectDispute }
+    methods : [POST]

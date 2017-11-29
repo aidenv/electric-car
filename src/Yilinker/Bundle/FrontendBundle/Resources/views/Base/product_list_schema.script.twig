@@ -1,0 +1,41 @@
+{% if parameters is defined %}
+  {% set path = frontend_hostname ~ path(app.request.attributes.get('_route') , parameters) %}
+{% else %}
+  {% set originalRequest = app.request.attributes.get('request') is not null ? app.request.attributes.get('request') : app.request %}
+  {% set path = frontend_hostname ~ originalRequest.pathInfo %}
+{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "ItemList",
+  "url": "{{ path }}",
+  "numberOfItems": "{{ products|length }}",
+  "itemListElement": [
+{% for product in products %}
+{% set productUnit = product.defaultUnit.toArray %}
+
+{% set categoryname = "" %}
+{% if product.productCategory %}
+    {% set categoryname = product.productCategory.name %}
+{% endif %}
+        {
+            "@type": "Product",
+            "image": "{{ asset(product.getPrimaryImage.getImageLocationBySize('thumbnail'), 'product') }}",
+            "name": "{{ product.name }}",
+            "description": "{{ product.shortDescription }}",
+            "offers": {
+                "@type": "Offer",
+                "price": "{{ productUnit.discountedPrice|number_format(2) }}",
+                "category": "{{ categoryname }}"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "{{ product.getReviewRating }}"
+            }
+        },
+{% endfor %}
+{}
+  ]
+}
+</script>

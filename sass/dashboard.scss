@@ -1,0 +1,464 @@
+@media screen and (max-width: 768px){
+    .overflow-container{
+        overflow: auto;
+    }
+
+    .dashboard, .profile{
+        .title-bar, .profile .title-bar{
+            margin-bottom: 20px;
+        }
+
+        &.information{
+            padding-bottom: 69px;
+            .form{
+                margin-bottom: 0;
+            }
+
+            .form .row [class^="col-"]{
+                padding: 7px;
+            }
+
+            .change-photo-button{
+                font-size: 14px;
+                width: 27px;
+                height: 23px;
+                margin-left: 59%;
+                margin-top: -23px;
+                display: block;
+                cursor: pointer;
+            }
+        }
+
+        &.following{
+            .component-content{
+                margin-top: -35px;
+            }
+
+            .bordered-segment{
+                background: #fff;
+                border-radius: 0;
+                padding: 1em;
+                margin: 0;
+                border: 0;
+                border-bottom: solid #dedede 1px;
+            }
+
+            .rating-container{
+                display: block;
+                text-align: left;
+                font-size: 12px;
+                margin-left: 5em;
+                margin-top: -19px;
+
+                .icon{
+                    font-size: 14px;
+                }
+            }
+        }
+
+        &.activity-log{
+            .component-content{
+                margin-top: -35px;
+            }
+
+            .table-activity-log .table-log-content td:first-child{
+                vertical-align: top;
+            }
+
+            .mobile-date{
+                display: block;
+                padding: 10px;
+                background: #f7f7f7;
+            }
+        }
+
+        &.transaction{
+            .form-daterange{
+                width: 100%;
+                margin-top: -9px;
+            }
+
+            .search-component{
+                margin-top: -33px;
+            }
+
+            .transaction-product-container{
+                padding: 10px;
+            }
+
+            .transaction-segment{
+                border-radius: 0 !important;
+                border-width: 1px 0 !important;
+            }
+
+            .transaction-seller-container{
+                padding: 10px 0;
+                font-size: 10px;
+            }
+
+            .dashboard-submenu-container {
+                display: block;
+                padding-top: 13px;
+                padding-left: 15px;
+            }
+
+            .panel-delivery-log{
+                .panel-head{
+                    h4{
+                        font-size: 12px;
+                    }
+
+                    span{
+                        display: block;
+                        float: none !important;
+                        margin-top: 7px;
+                    }
+                }
+
+                .table-activity-log{
+                    .date{
+                        padding-right: 10px;
+
+                        h4, h5{
+                            font-size: 12px;
+                            margin-bottom: 3px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.my-points{
+            .dashboard-submenu-container{
+                &.purple{
+                    background: #f7f7f7;
+                    border-bottom: solid #dedede 1px;
+                    color: #666;
+                    overflow: hidden;
+                    padding-top: 8px;
+                }
+
+                .icon{
+                    font-weight: normal !important;
+                }
+            }
+
+            .points-earned-label{
+                color: #fff;
+            }
+
+            .dashboard-submenu-wrapper{
+                overflow: hidden;
+            }
+            
+            .table-activity-log .segment{
+                border: solid #dedede 1px;
+            }
+        }
+
+        &.help{
+            .dashboard-submenu-wrapper{
+                position: relative;
+                z-index: 4;
+            }
+
+            .dashboard-submenu-container{
+                width: 1320px;
+                z-index: 2;
+                position: relative;
+            }
+
+            .list-submenu.tab-head-container{
+                margin-top: 2px;
+            }
+
+            .dashboard-component.top{
+                margin-top: -37px;
+                z-index: 3;
+                position: relative;
+            }
+        }
+
+        .dashboard-submenu-wrapper{
+            overflow: auto;
+            display: block;
+        }
+
+        .dashboard-submenu-container{
+            display: block;
+            padding-top: 16px;
+        }
+
+        .dashboard-body-container{
+            margin: auto;
+            margin-top: 85px;
+
+            &.gray{
+                background: #fff;
+            }
+        }
+
+        .dashboard-component{
+            padding-bottom: 1em;
+
+            .component-content{
+                padding: 0 20px;
+            }
+
+            .component-no-padding{
+                padding: 0;
+            }
+
+            .component-user-info{
+                padding: 20px 20px;
+                margin-top: -36px;
+            }
+        }
+
+        .user-info{
+            text-align: center;
+
+            .semi-bold{
+                font-size: 1.3em;
+                margin-bottom: 5px;
+                margin-top: 10px;
+            }
+        }
+
+        .profile-image-container{
+            margin-top: 0;
+        }
+
+        .user-image-profile{
+            width: 80px;
+            height: 80px;
+        }
+
+        .mobile-dashboard-footer-fixed{
+            position: fixed;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            padding: 15px !important;
+        }
+
+        .shipping-address-container{
+            .col-md-6.col-xl-4.masonry-item{
+                width: 100%;
+            }
+        }
+
+        .accordion-head{
+            padding: 1.25em 20px;
+        }
+
+        .accordion-body{
+            padding: 1.25em 30px;
+        }
+
+        &.messages{
+            .row-tab-messages{
+                margin: -7px -10px;
+            }
+
+            .dashboard-submenu-wrapper.conversation-view{
+                position: fixed;
+                top: 85px;
+
+                .button-message{
+                    padding: 10px 5px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 13px;
+                    margin-bottom: -7px;
+
+                    &.delete-message{
+                        margin-top:-7px;
+                    }
+                }
+            }
+
+            .dashboard-submenu-container{
+                padding: 10px;
+                background: #fff;
+                color: #666 !important;
+                border-bottom: solid #dedede 1px;
+                height: 41px;
+                text-align: left;
+            }
+
+            .col-body-message{
+                height: calc(100vh - 85px);
+                background: #f2f2f2;
+
+                &.conversation{
+                    margin-left: 100%;
+                }
+
+                &.contacts{
+                    margin-left: 100%;
+                }
+
+                &.conversation.thread-open,
+                &.conversation.contacts-open{
+                    margin-left: 0;
+                }
+                
+                .contacts-mobile,
+                .message-mobile{
+                    display: none !important;
+                }
+
+                &.thread-open{
+                    .message-mobile{
+                        display: block !important;
+                    }
+
+                    .contacts-mobile{
+                        display: none !important;
+                    }
+                }
+
+                &.contacts-open{
+                    .message-mobile{
+                        display: none !important;
+                    }
+
+                    .contacts-mobile{
+                        display: block !important;
+                    }
+                }
+
+                .contacts-mobile{
+                    display: none !important;
+                }
+
+                &.thread-open{
+                    
+                }
+            }
+
+            .thread-container-wrapper{
+                position: fixed;
+                overflow: auto;
+                height: calc(100vh - 176px);
+                margin-top: 42px;
+                width: 100%;
+                background:#f2f2f2;
+            }
+
+            .dashboard-body-container{
+                height: auto;
+            }
+
+            .message-field-container{
+                position: fixed;
+                bottom:0;
+                width: 100%;
+            }
+
+            .dashboard-message-container{
+                min-height: 0 !important;
+            }
+
+            .col-body-message.recent-messages{
+                position: fixed;
+            }
+
+            .mobile-contact-trigger{
+                font-size: 1.5em;
+                position: absolute;
+                right: 0;
+                top: 5px;
+                padding: 0 10px;
+                cursor: pointer;
+            }
+
+            .contacts-mobile{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: #fff;
+
+                
+                .search-contact-container{
+                    padding: 10px;
+                    padding-left: 47px;
+                    background: #f7f7f7;
+                    .back-recent{
+                        padding: 2px;
+                        width: 33px;
+                        position: absolute;
+                        left: 5px;
+                        font-size: 2em;
+                        text-align: center;
+                        top: 8px;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                }
+
+                .contacts-container{
+                    position: absolute; 
+                    width: 100%; 
+                    height: calc(100% - 65px) !important;
+                }
+            }
+            .empty-messages{
+                position: fixed;
+                z-index: 8;
+                top: 90px;
+                width: 100%;
+                font-size: 12px;
+                padding: 20px;
+
+                h3{
+                    font-size: 17px;
+                }
+            }
+        }
+
+        .daterangepicker.dropdown-menu{
+            z-index: 804;
+        }
+    }
+}
+
+@media screen and (max-width: 480px){
+    .dashboard,
+    .profile{
+        &.transaction{
+            .component-seller{
+                .button{
+                    width: 100%;
+                    margin-left: 0 !important;
+                    margin-bottom: 7px;
+                }
+            }
+        }
+    }
+
+    .ui.modal{
+        .feedback-criteria{
+            display: block;
+        }
+
+        .feedback-rating{
+            display: block;
+            margin-top: 10px;
+            .rating-container{
+                text-align: left;
+            }
+
+            .rating-icons{
+                font-size: 20px;
+            }
+        }
+
+        .feedback-component{
+            h4{
+                font-size: 14px;
+            }
+        }
+    }
+}

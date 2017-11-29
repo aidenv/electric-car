@@ -1,0 +1,292 @@
+  <!-- Modal Promo -->
+<div class="ui modal small modal-box modal-promo" data-id="">
+  <a class="close"><i class="icon-times"></i></a>
+    <div class="header">Promo Details</div>
+    <form name="promo" class="ui form segment">
+      <input type="hidden" name="_token" value="{{ csrf_token('promo') }}">
+      <div class="content">
+        <div class="message-box green mrg-bt-30 active-notification">
+          <p class="title">Promo is currently Active</p>
+          <p>Please be advised that this promo is active, any alteration may cause a major problem all through out the system, proceed with caution.</p>
+        </div>
+
+        <div class="ui error message message-box red error-container hidden"></div>
+
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="row">
+              <div class="form col-md-12">
+                <label class="required">Promo Name</label>
+                <input class="ui fluid input field" type="text" name="title" required maxlength="255" placeholder="Promo Name">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form col-md-12">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>Advertisement</label>
+                    <input class="ui fluid input field" type="text" name="advertisement" required maxlength="255" placeholder="Advertisement">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form col-md-12">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label class="required">Start</label>
+                    <input class="ui fluid input field start-date datetimepicker" type="text" name="dateStart" value="" placeholder="Start Date"/>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="required">End</label>
+                    <input class="ui fluid input field end-date datetimepicker" type="text" name="dateEnd" value="" placeholder="End Date"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form col-md-12">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label class="required">Promo Type</label>
+                    <select name="promoType" required class="form-ui ui search single selection dropdown promo-type-input">
+                      {% for promoType in promoTypes %}
+                        <option value="{{ promoType.getPromoTypeId }}">{{ promoType.getName }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row countdown-timer-container">
+              <div class="form col-md-12">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="countdown-timer">
+                      <div class="toggle-me disabled-timer">
+                        <h4>Countdown Timer is currently Disabled</h4>
+                        <p class="mrg-bt-10">Do you want to enable the countdown timer on this promo? please be adviced that all
+                        products under this promo will have their countdown timer shown on there profile.</p>
+                        <a class="button purple small toggle-me enable-timer-button">Yes, Enable the Countdown timer</a>
+                      </div>
+                      <div class="toggle-me enabled-timer" style="display: none;">
+                        <h4 class="blue-color">Countdown Timer is Active</h4>
+                        <p class="timer mrg-bt-20">
+                          <span class="days">5 :<sub>days</sub></span>
+                          <span class="hours"> {{ "now"|date("H") }} :<sub>hrs</sub></span>
+                          <span class="minutes">{{ "now"|date("i") }} :<sub>min</sub></span>
+                          <span class="seconds">{{ "now"|date("s") }} <sub>sec</sub></span>
+                          <span><small><i>left until the promo ends</i></small></span>
+                        </p>
+                        <a class="button light-gray small mrg-tp-30 toggle-me disable-timer-button">Disabled Countdown Timer</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="table-scroller-head">
+                <div class="row">
+                <div class="col-md-6">
+                  <label>Product list</label>
+                </div>
+                <div class="col-md-6 align-right">
+                  <a class="options button small gray modal-promo-add-products-trigger">Add Products</a>
+                </div>
+                  </div>
+              </div>
+              <div class="table-scroller">
+                <table class="table basic table-vertical-align-top center">
+                  <thead>
+                    <tr>
+                      <th>Item Name</th>
+                      <th>Sku</th>
+                      <th>Price</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody class="promoProducts">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="enable-promo col-md-12">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="isEnabled">
+                  <label>Activate this Promo</label>
+                </div>
+                <p>Activating this promo will execute the set schedule, along with the current set discount and duration.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div class="row">
+          <div class="col-md-12 align-right">
+            <a class="button ui submit blue">Save</a>
+            <a class="button cancel">Cancel</a>
+          </div>
+        </div>
+      </div>
+    </form>
+</div>
+
+<!-- Modal Add Item -->
+<div class="ui modal small modal-box modal-promo-add">
+  <form name="addPromoProducts">
+    <div class="content">
+      <div class="message-box red hidden error-container"></div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form">
+              <div class="row">
+                <div class="col-md-12">
+                  <label>Add Products (use product links, separated by line break)</label>
+                  <textarea name="productSlugs" class="form-ui" required></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="actions align-right">
+      <button class="button confirm">Save</button>
+      <span class="button cancel modal-cancel-promo-products-trigger">Cancel</span>
+    </div>
+  </form>
+</div>
+
+
+<!--Start of modal activate promo-->
+<div class="ui modal coupled-activate small enable-promo-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <h3 class="ui header">
+            <i class="icon icon-active"></i>
+            <div class="content">
+                    Enable selected promos?
+                <div class="sub-header">Promos must be enabled for the discounts to apply.</div>
+            </div>
+        </h3>
+    </div>
+    <div class="actions">
+        <button class="button cancel close">Cancel</button>
+        <button class="button blue submit-to-success positive">Activate</button>
+    </div>
+</div>
+<!--End of modal activate promo-->
+
+<!--Start of modal success activate promo-->
+<div class="ui modal coupled-activate small enable-success-promo-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <h3 class="ui header">
+            <i class="icon icon-checkmark"></i>
+                <div class="content">
+                    Promos has been successfully enabled
+                <div class="sub-header">Congratulations! This promo has been successfully enabled</div>
+            </div>
+        </h3>
+    </div>
+    <div class="actions">
+        <button class="button confirm close">Okay</button>
+    </div>
+</div>
+<!--End of modal success activate promo-->
+
+<!--Start of modal deactivate promo-->
+<div class="ui modal coupled-deactivate small disable-promo-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <h3 class="ui header">
+            <i class="icon icon-inactive"></i>
+            <div class="content">
+                    Disable selected promos?
+                <div class="sub-header">This promo has been successfully disabled.</div>
+            </div>
+        </h3>
+    </div>
+    <div class="actions">
+        <button class="button cancel close">Cancel</button>
+        <button class="button blue submit-to-success positive">Deactivate</button>
+    </div>
+</div>
+<!--End of modal dectivate promo-->
+
+<!--Start of modal success deactivate promo-->
+<div class="ui modal coupled-deactivate small deactivate-success-promo-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <h3 class="ui header">
+            <i class="icon icon-checkmark"></i>
+                <div class="content">
+                    Promos has been successfully deactivated
+                <div class="sub-header">This promo has been successfully deactivated. </div>
+            </div>
+        </h3>
+    </div>
+    <div class="actions">
+        <button class="button confirm close">Okay</button>
+    </div>
+</div>
+<!--End of modal success deactivate promo-->
+
+<!--Start of modal delete promo-->
+<div class="ui modal coupled-delete small delete-promo-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <h3 class="ui header">
+            <i class="icon icon-alert-exclamation"></i>
+            <div class="content">
+                Delete selected promo(s)?
+            </div>
+        </h3>
+    </div>
+    <div class="actions">
+        <button class="button cancel close">Cancel</button>
+        <button class="button red submit-to-success positive">Delete</button>
+    </div>
+</div>
+<!--End of modal delete promo-->
+
+<!--Start of modal success delete promo-->
+<div class="ui modal coupled-delete small delete-success-promo-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <h3 class="ui header">
+            <i class="icon icon-checkmark"></i>
+                <div class="content">
+                    Promos has been successfully deleted
+                <div class="sub-header">This promo has been successfully deleted. </div>
+            </div>
+        </h3>
+    </div>
+    <div class="actions">
+        <button class="button confirm close">Okay</button>
+    </div>
+</div>
+<!--End of modal success delete promo-->
+
+<!--Start of modal success create promo-->
+<div class="ui modal coupled-delete small create-success-promo-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <h3 class="ui header">
+            <i class="icon icon-checkmark"></i>
+                <div class="content">
+                    Promos has been successfully created
+                <div class="sub-header">Congratulations! This promo has been successfully created. </div>
+            </div>
+        </h3>
+    </div>
+    <div class="actions">
+        <button class="button confirm close">Okay</button>
+    </div>
+</div>
+<!--End of modal success create promo-->

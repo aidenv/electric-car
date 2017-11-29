@@ -1,0 +1,102 @@
+.body-mobile {
+    .category-container {
+        background-color: #75338a;
+
+        nav {
+            ul {
+                list-style: none;
+                padding: 15px 0 15px 15px;
+                li {
+                    @include border-radius(4px 0 0 4px);
+                    background-color: #f2f2f2;
+                    color: #75338a;
+                    cursor: pointer;
+                    display: block;
+                    font-size: 0.82em;
+                    font-weight: 600;
+                    span {
+                        display: table-cell;
+                        height: 40px;
+                        padding-left: 6px;
+                        padding-right: 6px;
+                        vertical-align: middle;
+                    }
+                }
+                li.inactive {
+                    background-color: #75338a;
+                    color: #fff;
+                }
+            }
+        }
+        .category-content {
+            background-color: #f2f2f2;
+            padding-right: 15px;
+            padding-bottom: 15px;
+            div {
+                padding-left: 15px;
+                padding-top: 15px;
+                a {
+                    @include border-radius;
+                    display: block;
+                    overflow: hidden;
+                    text-align:center;
+                    transition: $transition-default;
+                    img {
+                        width: 100%;
+                    }
+                    p {
+                        background-color: #fff;
+                        display: table;
+                        width: 100%;
+                        span {
+                            display: table-cell;
+                            font-size: 0.83em;
+                            height: 40px;
+                            line-height: 1.4;
+                            vertical-align: middle;
+                        }
+                    }
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 1);
+                        p,img {
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .body-mobile {
+        .category-container {
+            nav {
+                ul {
+                    li {
+                        font-size: 1em;
+                        padding-left: 15px;
+                        padding-right: 15px;
+                        span {
+                                padding-left: 0;
+                                padding-right: 0;
+                        }
+                    }
+                }
+            }
+            .category-content {
+                div {
+                    a {
+                        p {
+                            span {
+                                font-size: 0.96em;
+                                font-weight: 600;
+                                padding: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,169 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    {% trans %} AENEAS {% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block facebook_analytics %}
+    {% embed 'analytics/facebook-pixel.html.twig' %}
+        {% block fbPixel %}
+        fbq('track', 'ViewContent', {
+            content_name: 'homepage',
+            content_category: 'homepage'
+        });
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block body %}
+    <div class="home-page new-homepage" data-app-name="{{ iosAppName }}">
+        <section class="wrapper-outer">
+            {% for data in homeData %}
+                {% if data.layoutId is defined and
+                   data.layoutId is same as(constant("Yilinker\\Bundle\\CoreBundle\\Services\\Cms\\PagesService::HOMEPAGE_WEB_V6_CONTENT_BANNERS"))
+                %}
+                 {#   {{ include('YilinkerFrontendBundle:Home:v3/all_categories.html.twig', {
+                        categorySideBar: data.content.categorySideBar
+                    }) }} #}
+	          <div class="header-nav">
+				<ul class="cl">
+					<li class="j-nav-li drop-menu-effect" data-val="0">
+						<a>Home</a>
+					</li>
+					<li class="j-nav-li drop-menu-effect" data-val="1">
+						<a>Media Center</a>
+					</li>
+					<li class="j-nav-li drop-menu-effect" data-val="2">
+						<span>e-Motorcycle</span>
+					</li>
+					<li class="j-nav-li drop-menu-effect" data-val="3">
+					<span>Aftersale Service</span>
+					</li>
+				<li class="j-nav-li drop-menu-effect cl" data-val="4">
+					<span>Join Us</span>
+						</li>
+			</ul>
+			<div class="noe">
+				<ul style="display: none;"></ul>
+				<ul style="display: none;"></ul>
+					<ul class="hide j-submenu sub-menu cl">
+						<li><img src="{{ asset('images/aeneasusa/classificat/e-Bike.jpg') }}" class="sub-menu-img"/>
+						<a href="">
+							e-Bike
+						</a></li>
+						<li><img src="{{ asset('images/aeneasusa/classificat/e-Scooter.jpg') }}" class="sub-menu-img"/>
+						<a href="">
+							e-Scooter
+						</a></li>
+						<li><img src="{{ asset('images/aeneasusa/classificat/e-Tricycle.jpg') }}" class="sub-menu-img"/>
+							<a href="">
+							e-Tricycle
+						</a></li>
+						<li><img src="{{ asset('images/aeneasusa/classificat/e-Vehicle.jpg') }}" class="sub-menu-img"/>
+							<a href="">
+							e-Vehicle
+						</a></li>
+						<li><img src="{{ asset('images/aeneasusa/classificat/Spare_Part.jpg') }}" class="sub-menu-img"/>
+							<a href="">
+							Spare Part
+						</a></li>
+						<li><img src="{{ asset('images/aeneasusa/classificat/Accessory.jpg') }}" class="sub-menu-img"/>
+							<a href="">
+							Accessory
+						</a></li>
+					</ul>
+				<ul class="hide j-submenu sub-menu cl">
+					<li>
+						<div>
+							<img src="{{ asset('images/aeneasusa/classificat/Normal_Knowledge.jpg') }}" class="sub-menu-img"/>
+							<a href="">
+								Normal Knowledge
+							</a>
+						</div>
+					</li>
+					<li>
+						<div>
+						<img src="{{ asset('images/aeneasusa/classificat/Service_Process.jpg') }}" class="sub-menu-img"/>
+						<a href="">
+							Service Process
+						</a>
+						</div></li>
+					<li>
+						<img src="{{ asset('images/aeneasusa/classificat/Service_Point.jpg') }}" class="sub-menu-img"/>
+						<a href="">
+							Service Point
+						</a>
+					</li>
+				</ul>
+					<ul class="hide j-submenu sub-menu">
+						<li><img src="{{ asset('images/aeneasusa/classificat/About_Aeneas.jpg') }}" class="sub-menu-img"/>
+							<a href="">
+							About Aeneas
+						</a></li>
+						<li><img src="{{ asset('images/aeneasusa/classificat/Dealership.jpg') }}" class="sub-menu-img"/>
+						<a href="">
+							Dealership
+						</a></li>
+						<li><img src="{{ asset('images/aeneasusa/classificat/Marketing_Network.jpg') }}" class="sub-menu-img"/>
+						<a href="">
+							Marketing Network
+						</a></li>
+						<li><img src="{{ asset('images/aeneasusa/classificat/Recruitment.jpg') }}" class="sub-menu-img"/>
+						<a href="">
+							Recruitment
+						</a></li>
+						<li><img src="{{ asset('images/aeneasusa/classificat/Official_Website.jpg') }}" class="sub-menu-img"/>
+						<a href="">
+							Official Website
+						</a></li>
+						<li><img src="{{ asset('images/aeneasusa/classificat/Official_Facebook.jpg') }}" class="sub-menu-img"/>
+						<a href="">
+							Official Facebook
+						</a></li>
+						<li><img src="{{ asset('images/aeneasusa/classificat/Official_Wechat.jpg') }}" class="sub-menu-img"/>
+						<a href="">
+							Official Wechat
+						</a></li>
+					</ul>
+			</div>
+		</div>
+				 <div class="row">
+				            <div class="col-md-12 col-xs-12">
+				                 {{ include('YilinkerFrontendBundle:Home:v3/main_banners.html.twig', {
+				                    banners: data.content.main.mainBanner
+				                }) }}
+				            </div>
+		           </div>
+                {% endif %}
+            {% endfor %}
+			
+            
+            <div class="home-section home-top-layer">
+                {{ include('YilinkerFrontendBundle:Home:homepage_v6.html.twig') }}
+            </div>
+        </section>
+        <section class="items-you-make-like">
+            {{ include('YilinkerFrontendBundle:Home:items_you_may_like.html.twig') }}
+        </section>
+    </div>
+
+
+    {{ include('YilinkerFrontendBundle:Home:app_download_banner.html.twig') }}
+    <div class="clear"></div>
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}
+
+{% block yeahmobi_google_remarketing %}
+    {% include 'analytics/yeahmobi/google-remarketing.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/hinclude.js') }}"></script>
+    <script src="{{ asset('js/bower/masonry.min.js') }}"></script>
+    <script src="{{ asset('js/bower/slick.min.js') }}"></script>
+    <script src="{{ asset('js/src/utility/timer.js') }}"></script>
+    <script src="{{ asset('js/src/home.js') }}"></script>
+{% endblock %}

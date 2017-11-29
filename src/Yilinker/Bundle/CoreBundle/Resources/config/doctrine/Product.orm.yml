@@ -1,0 +1,213 @@
+Yilinker\Bundle\CoreBundle\Entity\Product:
+    type: entity
+    table: Product
+    inheritanceType: JOINED
+    discriminatorColumn:
+        name: discriminator
+        type: string
+    discriminatorMap:
+        Product: Product
+        InhouseProduct: InhouseProduct
+    gedmo:
+        translation:
+            locale: locale
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ProductRepository
+    indexes:
+        fk_product_brandid_brand_brandid_idx:
+            columns:
+                - brand_id
+        fk_product_productcategoryid_productcategory_productcategoryid_idx:
+            columns:
+                - product_category_id
+        fk_product_userid_user_userid_idx:
+            columns:
+                - user_id
+        fk_product_conditionid_productcondition_productconditionid_idx:
+            columns:
+                - condition_id
+        fk_product_name_idx:
+            columns:
+                - name
+    id:
+        productId:
+            type: bigint
+            id: true
+            column: product_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateCreated:
+            type: datetime
+            column: date_created
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+        dateLastEmptied:
+            type: datetime
+            column: date_last_emptied
+        name:
+            length: 255
+            options:
+                default: ''
+            gedmo:
+                - translatable
+        description:
+            type: text
+            nullable: true
+            gedmo:
+                - translatable
+        shortDescription:
+            columng: short_description
+            length: 512
+            nullable: true
+            options:
+                default: ''
+            gedmo:
+                - translatable
+        clickCount:
+            type: integer
+            column: click_count
+            options:
+                default: '0'
+        keywords:
+            nullable: true
+            length: 1024
+            options:
+                default: ''
+        status:
+            type: smallint
+            column: status
+            options:
+                default: '0'
+        slug:
+            type: string
+            length: 1024
+            gedmo:
+                slug:
+                    separator: -
+                    style: default
+                    fields:
+                        - name
+        isCod:
+            type: boolean
+            column: is_cod
+            options:
+                default: '0'
+        isFreeShipping:
+            type: boolean
+            column: is_free_shipping
+            options:
+                default: '0'
+        youtubeVideoUrl:
+            column: youtube_video_url
+            type: string
+            length: 1024
+            nullable: true
+            column: youtube_video_url
+            options:
+                default: ''
+        defaultLocale:
+            type: string
+            column: default_locale
+            length: 50
+            options:
+                default: 'en'
+        isNotShippable:
+            type: boolean
+            column: is_not_shippable
+            options:
+                default: '0'
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: productUploads
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        brand:
+            targetEntity: Brand
+            joinColumn:
+                name: brand_id
+                referencedColumnName: brand_id
+            orphanRemoval: false
+        productCategory:
+            targetEntity: ProductCategory
+            inversedBy: products
+            joinColumn:
+                name: product_category_id
+                referencedColumnName: product_category_id
+            orphanRemoval: false
+        condition:
+            targetEntity: ProductCondition
+            joinColumn:
+                name: condition_id
+                referencedColumnName: product_condition_id
+            orphanRemoval: false
+        shippingCategory:
+            targetEntity: ShippingCategory
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                shipping_category_id:
+                    referencedColumnName: shipping_category_id
+            orphanRemoval: false
+    oneToMany:
+        productCountries:
+            targetEntity: ProductCountry
+            mappedBy: product
+            cascade: ['persist']
+        orderProducts:
+            targetEntity: OrderProduct
+            mappedBy: product
+        units:
+            targetEntity: ProductUnit
+            fetch: EAGER
+            mappedBy: product
+            cascade: ['persist']
+        attributes:
+            targetEntity: ProductAttributeName
+            mappedBy: product
+            cascade: ['persist']
+        images:
+            targetEntity: ProductImage
+            fetch: EXTRA_LAZY
+            mappedBy: product
+            cascade: ['persist']
+        reviews:
+            targetEntity: ProductReview
+            fetch: EXTRA_LAZY
+            mappedBy: product
+        customBrand:
+            targetEntity: CustomBrand
+            fetch: EXTRA_LAZY
+            mappedBy: product
+            cascade: ['persist']
+        customizedCategoryLookup:
+            targetEntity: CustomizedCategoryProductLookup
+            fetch: EXTRA_LAZY
+            mappedBy: product
+        productVisits:
+            targetEntity: ProductVisit
+            fetch: EXTRA_LAZY
+            mappedBy: product
+        productRemarks:
+            targetEntity: ProductRemarks
+            mappedBy: product
+        productWarehouses:
+            targetEntity: ProductWarehouse
+            mappedBy: product
+            cascade: ['persist']
+        productGroups:
+            targetEntity: ProductGroup
+            mappedBy: product
+            cascade: ['persist']
+        inhouseProductUsers:
+            targetEntity: InhouseProductUser
+            mappedBy: product
+    oneToOne:
+            manufacturerProductMap:
+                targetEntity: ManufacturerProductMap
+                mappedBy: product
+    lifecycleCallbacks: {  }

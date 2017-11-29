@@ -1,0 +1,82 @@
+{% set isSeller = storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') and storeType is not null %}
+{% set phCode = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Country::AREA_CODE_PHILIPPINES') %}
+{% set cnCode = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Country::AREA_CODE_CHINA') %}
+
+<input type="hidden" id="ph-code" value="{{phCode}}">
+<form name="register" class="" data-action="{{ actionUrl }}" data-callback="{{ successUrl }}" data-store-type="{{ storeType }}">
+    <div class="content">
+        <div class="message-box red with-close-message hidden"></div>
+        <div class="token-sent message-box green with-close-message" style="display: none;"></div>
+        
+        <div class="field">
+            <select name="languageId" class="form-ui single selection dropdown">
+                <option value="0">Select Language</option>
+                {% for language in languages %}
+                    <option {{ language.code == userLanguage.code ? 'selected': '' }} data-code="{{language.code|lower}}" value="{{language.getLanguageId}}">{{language.name}}</option>  
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="field">
+            <div class="input-inner-button label-text field">
+                <div class="ui inline dropdown tag-text number-prefix-dropdown">
+                    <div class="text text-dropdown">
+                        <i class="flag-icon flag-icon-{{ userCountry ? userCountry.code|lower: null | default('ph') }}"></i> 
+                        +{{userCountry ? userCountry.areaCode|lower: null|default(phCode)}}
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <input type="hidden" name="areaCode" value="{{(userCountry ? userCountry.areaCode: null)|default(phCode)}}" />
+                    <div class="menu">
+                        {% for country in countries %}
+                            <div class="item" data-code="{{country.code|lower}}" data-value="{{country.areaCode}}" data-text="+{{country.areaCode}}"><i class="flag-icon flag-icon-{{ country.code|lower }}"></i>  +{{country.areaCode}}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <input type="text" class="form-ui two-way-bind" name="contactNumber" placeholder="Contact Number*"/>
+                <div class="form-error-prompt hidden"></div>                
+                <span class="button gray uppercase alert-verification-modal-trigger">
+                    <span class="text">Verify</span>
+                </span>
+                <div class="cooldown-timer button basic gray uppercase disabled" style="display:none" data-expiration="{{ timestamp is defined? timestamp : '' }}">00:00</div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="input-inner-button field">
+                <input type="text" class="form-ui two-way-bind" name="verificationCode" placeholder="Confirmation Code*"/>
+                <small class="mrg-bt-15 pd-left-10 light-color block neg-mrg-top-10px" style="margin-top: -5px;">
+                    (Click verify to receive your confirmation code.)
+                </small>
+                <div class="form-error-prompt hidden"></div>
+                {% if
+                    app.session.has("register") and
+                    app.session.get('register').expiration is defined and
+                    date() < app.session.get('register').expiration
+                %}
+                    {% set timestamp = app.session.get('register').expiration.timestamp %}
+                {% endif %}
+                <div class="register-timer button basic gray uppercase disabled" data-expiration="{{ timestamp is defined? timestamp : '' }}">{{ "%s"|format("00:00") }}</div>
+            </div>
+        </div>
+        <div class="field">
+            <input type="password" class="form-ui two-way-bind" name="password" placeholder="Password*"/>
+            <div class="form-error-prompt hidden"></div>
+        </div>
+        <div class="field">
+            <input type="password" class="form-ui two-way-bind" name="confirmPassword" placeholder="Confirm your password*"/>
+            <div class="form-error-prompt hidden"></div>
+        </div>
+        {% if referral is defined and referral is same as(true) %}
+            <div>
+                <input type="text" class="form-ui no-margin" name="referralCode" placeholder="Referral Code"/>
+                <small class="mrg-bt-15 mrg-top-5 pd-left-10 light-color block">(Optional) Get if from registered users.</small>
+            </div>
+        {% endif %}
+        <input type="hidden" id="token" name="token" data-val="{{ csrf_token('core_user_add') }}" />
+        <div class="form">
+            <button class="button purple block submit-button">
+                <span class="text">Register now</span>
+                <span class="loader hidden">Please wait</span>
+            </button>
+        </div>
+    </div>
+</form>

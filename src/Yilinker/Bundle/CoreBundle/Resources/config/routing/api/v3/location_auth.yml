@@ -1,0 +1,39 @@
+api_v3_auth_core_get_all_country:
+    path: /auth/location/getAllCountries
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getAllCountries }
+    methods: [POST]
+
+api_v3_auth_core_get_child_island:
+    path: /auth/location/getChildIslands
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getChildIslands }
+    methods: [POST]
+
+api_v3_auth_core_get_child_regions:
+    path: /auth/location/getChildRegions
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getChildRegions }
+    methods: [POST]
+
+api_v3_auth_core_get_child_provinces:
+    path: /auth/location/getChildProvinces
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getChildProvinces }
+    methods: [POST]
+
+api_v3_auth_core_get_all_provinces:
+    path: /auth/location/getAllProvinces
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getAllProvinces }
+    methods: [POST]
+
+api_v3_auth_core_get_child_cities:
+    path: /auth/location/getChildCities
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getChildCities }
+    methods: [POST]
+
+api_v3_auth_core_get_child_barangays:
+    path: /auth/location/getChildBarangays
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getChildBarangays }
+    methods: [POST]
+
+api_v3_auth_core_get_barangays_by_city:
+    path: /auth/location/getBarangaysByCity
+    defaults: { _controller: YilinkerCoreBundle:Api/LocationApi:getBarangaysByCity }
+    methods: [POST]

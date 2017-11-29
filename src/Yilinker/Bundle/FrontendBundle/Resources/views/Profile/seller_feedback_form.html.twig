@@ -1,0 +1,76 @@
+{{ form_start(form, {attr: {novalidate: 'novalidate', id: 'seller-feedback-form'}}) }}
+    {{ form_widget(form.reviewee, {attr: {'data-fed': 'data.storeId'}}) }}
+    {{ form_widget(form.order, {attr: {'data-fed': 'data.orderId'}}) }}
+    {% set feedbackCommunicationType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\FeedbackType::FEEDBACK_TYPE_COMMUNICATION') %}
+    {% set feedbackQualityType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\FeedbackType::FEEDBACK_TYPE_QUALITY')  %}
+    {{ form_widget(form['rating' ~ feedbackCommunicationType], {attr: {'data-capture-actives': '[data-communication-rating]'}}) }}
+    {{ form_widget(form['rating' ~ feedbackQualityType], {attr: {'data-capture-actives': '[data-quality-rating]'}}) }}
+    <div class="content">
+        <p class="message-box red" style="display:none;" data-seller-feedback-form-modal-message class="">
+            {% trans %}Feedback title and content cannot be empty{% endtrans %}
+        </p>
+        <p class="light mrg-bt-20 light-color">
+            {% trans %}Add a feedback to this store to let other people know what you think. Your opinions matter to us.{% endtrans %}
+        </p>
+        <div class="dashboard-component feedback-component">
+            <div class="form">
+                <div class="table-display" style="width: auto;">
+                    <div class="table-cell feedback-criteria">
+                        <h4 class="no-margin">{% trans %}Communication Rating:{% endtrans %} </h4>
+                    </div>
+                    <div class="table-cell feedback-rating">
+                        <div data-star-rating 
+                             data-fed-attributes="data.hasOwnProperty('userFeedbackId') ? {class: 'rating-container feedback-rating-container disabled'}: {class: 'rating-container feedback-rating-container'}" 
+                             data-fed="data.hasOwnProperty('rating') ? data.rating[{{ feedbackCommunicationType }}]: ''" 
+                             data-communication-rating 
+                             class="rating-container feedback-rating-container">
+                            <span class="rating-icons">
+                                <i class="icon icon-star-o"></i>
+                                <i class="icon icon-star-o"></i>
+                                <i class="icon icon-star-o"></i>
+                                <i class="icon icon-star-o"></i>
+                                <i class="icon icon-star-o"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form">
+                <div class="table-display" style="width: auto;">
+                    <div class="table-cell feedback-criteria">
+                        <h4 class="no-margin">{% trans %}Quality Rating:{% endtrans %} </h4>
+                    </div>
+                    <div class="table-cell feedback-rating">
+                        <div data-star-rating
+                             data-fed-attributes="data.hasOwnProperty('userFeedbackId') ? {class: 'rating-container feedback-rating-container disabled'}: {class: 'rating-container feedback-rating-container'}"
+                             data-fed="data.hasOwnProperty('rating') ? data.rating[{{ feedbackQualityType }}]: ''"
+                             data-quality-rating
+                             class="rating-container feedback-rating-container">
+                            <span class="rating-icons">
+                                <i class="icon icon-star-o"></i>
+                                <i class="icon icon-star-o"></i>
+                                <i class="icon icon-star-o"></i>
+                                <i class="icon icon-star-o"></i>
+                                <i class="icon icon-star-o"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form mrg-top-20">
+                <h4>
+                    <label for="seller_feedback_title" class="required">Title: </label>
+                </h4>
+                {{ form_widget(form.title, {attr: {'data-fed-readonly': 'data.userFeedbackId', 'data-fed': 'data.title', class: 'form-ui', placeholder: 'Enter review title here'}}) }}
+            </div>
+            <div class="form mrg-top-20">
+                <h4><label for="seller_feedback_feedback" class="required">Comment: </label></h4>
+                {{ form_widget(form.feedback, {attr: {'data-fed-readonly': 'data.userFeedbackId', 'data-fed': 'data.review', class: 'form-ui', placeholder: 'Leave a comment'}}) }}
+            </div>
+        </div>
+    </div>
+    <div data-fed-show="!data.userFeedbackId" class="actions">
+        <a class="button cancel uppercase">{% trans %}Cancel{% endtrans %}</a>
+        <button type="submit" class="button blue uppercase submit-to-success">{% trans %}Submit{% endtrans %}</button>
+    </div>
+{{ form_end(form) }}

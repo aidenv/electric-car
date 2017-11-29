@@ -1,0 +1,37 @@
+
+yilinker_product_api_route:
+    resource: "v1/product.yml"
+    prefix: /product
+
+yilinker_user_api_route:
+    resource: "v1/user.yml"
+    prefix: /
+
+yilinker_cart_api_route:
+    resource: "v1/cart.yml"
+    prefix: /
+
+yilinker_product_review_api_route:
+    resource: "v1/product_review.yml"
+    prefix: /
+
+yilinker_mobile_verification_api_route:
+    resource: "v1/mobile_verification.yml"
+    prefix: /verification
+
+yilinker_checkout_api_route:
+    resource: "v1/checkout.yml"
+    prefix: /
+
+yilinker_user_follow_api_route:
+    resource: "v1/user_follow.yml"
+    prefix: /
+
+
+yilinker_social_media_api_route:
+    resource: "v1/social_media.yml"
+    prefix: /
+
+yilinker_frontend_customized_category_api_route:
+    resource: "v1/customized_category.yml"
+    prefix: /category

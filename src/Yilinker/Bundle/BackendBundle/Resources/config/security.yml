@@ -1,0 +1,9 @@
+parameters:
+    yilinker_back_end.admin.account.provider.class: Yilinker\Bundle\CoreBundle\Provider\AccountProvider
+
+services:
+
+    yilinker_back_end.admin.provider:
+        class: %yilinker_back_end.admin.account.provider.class%
+        arguments: ['@yilinker_core.admin_user.repository']
+

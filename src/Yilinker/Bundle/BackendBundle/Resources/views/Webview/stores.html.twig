@@ -1,0 +1,136 @@
+<div class="box-div">
+  <div class="row gutters group-segment">
+    <div class="col-md-12">
+      <h4 class="mrg-bt-30">
+        Stores
+        <button class="button small pull-right gray modal-create-stores-trigger">
+          <span class="item-icon icon-plus"></span>
+          Create Stores
+        </button>
+      </h4>
+      <table class="table basic table-vertical-align-top">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>No. of Stores</th>
+            <th>Order</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in 1..10  %}
+          <tr>
+            <td>
+              Hot Stores
+            </td>
+            <td>
+              20
+            </td>
+            <td>
+              <select class="form-ui ui search single selection dropdown">
+                <option value="0">1</option>
+                <option value="1">2</option>
+                <option value="2">3</option>
+              </select>
+            </td>
+            <td class="align-right">
+              <button class="button small light-gray">
+                <span class="item-icon icon-edit"></span>
+                Edit
+              </button>
+              <button class="button small light-gray">
+                <span class="item-icon icon-trash"></span>
+                Delete
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <button class="button pull-right gray">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="ui modal modal-box small modal-create-stores">
+  <a class="close">
+    <i class="icon-times"></i>
+  </a>
+  <div class="header">
+    Stores
+  </div>
+  <form class="ui form segment" name="promo">
+    <div class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="form col-md-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="required">Title</label>
+                  <input class="form-ui" placeholder="ex. Title" type="text" value=""/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form col-md-12">
+              <label class="required">Products Slug (separated by line break)</label>
+              <textarea class="form-ui"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form col-md-12">
+              <label class="required">Products List</label>
+              <div class="table-scroller">
+                <table class="table basic table-vertical-align-top center">
+                  <thead>
+                    <tr>
+                      <th>Product Name</th>
+                      <th>Cover Photo Link</th>
+                      <th>Order</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for i in 1..5  %}
+                    <tr>
+                      <td>Product One</td>
+                      <td>
+                        <input class="form-ui" placeholder="Paste Link" type="text" value=""/>
+                        <input class="form-ui" placeholder="Paste Link" type="text" value=""/>
+                        <input class="form-ui" placeholder="Paste Link" type="text" value=""/>
+                      </td>
+                      <td>
+                        <div class="col-md-6">
+                          <select class="form-ui ui search single selection dropdown" id="" name="">
+                            <option value="0">1</option>
+                            <option value="1">2</option>
+                            <option value="2">3</option>
+                          </select>
+                        </div>
+                      </td>
+                      <td>
+                        <a href="#">x</a>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+  <div class="actions">
+    <div class="row">
+      <div class="col-md-12 align-right">
+        <a class="button ui submit blue">Save</a>
+        <a class="button cancel">Cancel</a>
+      </div>
+    </div>
+  </div>
+</div>

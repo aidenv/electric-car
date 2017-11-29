@@ -1,0 +1,187 @@
+<div class="search-header-wrapper">
+        <div class="search-header-top-category-layer search-category-header">
+            <div class="gutter-container">
+                <div class="search-header-label search-results-total">
+                    <span class="semi-bold title">Category</span>
+                </div>
+                <div data-activator="[data-product-search]" class="search-result-type">
+                    <ul class="list-unstyled list-search-result-type list-search-category">
+                        <li>
+                            <a href="#" data-product-search="{{ store.hasCustomCategory is same as(true)? 'customCategoryId' : 'categoryId' }}" data-value class="active">All</a>
+                        </li>
+                        {% if store.hasCustomCategory is same as(true) %}
+                            {% for category in filterMetaData['customCategories'] %}
+                                <li>
+                                    <a href="#" data-product-search="customCategoryId" data-value="{{ category.id }}">{{ category.name }}</a>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            {% for category in filterMetaData['categories'] %}
+                                <li>
+                                    <a href="#" data-product-search="categoryId" data-value="{{ category.id }}">{{ category.name }}</a>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="search-header-more">
+                    <span class="semi-bold expand-category-trigger">More <i class="icon icon-caret-down"></i></span>
+                    <span class="semi-bold compress-category-trigger">Less <i class="icon icon-caret-up"></i></span>
+                </div>
+            </div>
+        </div>
+    
+    <div class="search-header-bottom-layer" id="subCategoryFilter">
+        <div class="gutter-container">
+            <div class="desktop-hide search-control-mobile">
+                <div class="control-item wide filter-modal-trigger">
+                    <i class="icon icon-category"></i> Filter
+                </div>
+                <div class="control-item wide sort-modal-trigger">
+                    <i class="icon icon-category "></i> Sort By
+                </div>
+                <div class="control-item wide view-by-modal-trigger">
+                    <i class="icon icon-category "></i> View By
+                </div>
+                {# <div class="control-item grid-view-mobile-trigger">
+                    <i class="icon icon-grid-view"></i> 
+                </div>
+                <div class="control-item list-view-mobile-trigger">
+                    <i class="icon icon-list-view"></i>
+                </div> #}
+            </div>
+            <div class="row mobile-hide">
+                <div class="col-md-6">
+                    <div class="filter-control-container">
+                        <div class="search-header-label filter-label search-control-label table-cell">
+                            <span class="semi-bold">Filter Area: </span>
+                        </div>
+                        <div class="search-control-area filter table-cell less">
+
+                            <div class="control-type-container">
+                                <div class="price-slider-trigger control-dropdown form-ui ui single selection dropdown small">
+                                    <div class="text">Price</div>
+                                    <i class="dropdown icon"></i>
+                                </div>
+                                <div class="control-dropdown-menu" data-hide-intention>
+                                    <div class="price-range-container">
+                                        <div class="semi-bold range-label">Price Range </div>
+                                        <input data-product-search="priceRange" data-min="{{ filterMetaData.minPrice|round }}" data-max="{{ filterMetaData.maxPrice|round }}" id="priceRange" type="text" value="" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% for attribute, attributeValues in filterMetaData.attributes %}
+                                <div class="control-type-container">
+                                    <div class="control-dropdown form-ui ui single selection dropdown small">
+                                        <div class="text">{{ attribute }}</div>
+                                        <i class="dropdown icon"></i>
+                                    </div>
+                                    <div class="control-dropdown-menu">
+                                        <ul class="list-unstyled list-control-items">
+                                            {% for attributeValue in attributeValues %}
+                                                <li>
+                                                    <div class="ui checkbox">
+                                                        <input data-product-search="attributes" type="checkbox" value="{{ attribute }}|{{ attributeValue }}" />
+                                                        <label for="">{{ attributeValue }}</label>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div class="control-type-container">
+                                <div class="control-dropdown form-ui ui single selection dropdown small">
+                                    <div class="text">Brand</div>
+                                    <i class="dropdown icon"></i>
+                                </div>
+                                <div class="control-dropdown-menu">
+                                    <ul class="list-unstyled list-control-items">
+                                        {% for brand in filterMetaData.brands %}
+                                            <li>
+                                                <div class="ui checkbox">
+                                                    <input type="checkbox" data-product-search="brands" value="{{ brand }}" />
+                                                    <label for="">{{ brand }}</label>
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="more-filter">
+                                <span class="more-filter-trigger semi-bold light-color">More Filter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="filter-control-container pull-right">
+                        <div class="search-header-label search-control-label table-cell">
+                            <span class="semi-bold">Sort By: </span>
+                        </div>
+                        <div class="search-control-area table-cell">
+                            <div class="control-type-container-right">
+                                <select data-product-search="sorting" class="form-ui ui single selection dropdown small">
+                                    <option data-option="new-to-old" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::BYDATE') }}~{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') }}">
+                                        {% trans %} New to Old {% endtrans %}
+                                    </option>
+                                    <option data-option="old-to-new" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::BYDATE') }}~{{  constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_ASC') }}">
+                                        {% trans %} Old to New {% endtrans %}
+                                    </option>
+                                    <option data-option="default" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::RELEVANCE') }}~{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') }}">
+                                        {% trans %} Relevance {% endtrans %}
+                                    </option>
+                                    <option data-option="alphabetical" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::ALPHABETICAL') }}~{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_ASC') }}">
+                                        {% trans %} Alphabetical {% endtrans %}
+                                    </option>
+                                    <option data-option="popularity" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::BYPOPULARITY') }}~{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') }}">
+                                        {% trans %} Popularity {% endtrans %}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        {% block view_by_block %}
+                        <div class="search-header-label search-control-label table-cell">
+                            <span class="semi-bold">View By: </span>
+                        </div>
+                        <div class="search-control-group table-cell">
+                            <div class="control-type-container view-control">
+                                <button class="button-view grid-view-trigger active">
+                                    <i class="icon icon-grid-view icon-lg"></i>
+                                </button>
+                                <button class="button-view list-view-trigger">
+                                    <i class="icon icon-list-view icon-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                        {% endblock %}
+                        <div class="search-control-group table-cell">
+                            <div class="search-control-area list-pager">
+                                <div class="control-type-container view-control">
+                                    <div class="pagination-short">
+                                        <div class="pager">
+                                            <a data-mini-pager-previous href="#">
+                                                <i class="icon icon-caret-left"></i>
+                                            </a>
+                                        </div>
+                                        <span class="current-page">1</span>
+                                        <i class="of-divider">of</i>
+                                        <div class="total-page">1</div>
+                                        <div class="pager">
+                                            <a data-mini-pager-next href="#">
+                                                <i class="icon icon-caret-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{{ include('YilinkerFrontendBundle:Product:filter_mobile_modal.html.twig') }}

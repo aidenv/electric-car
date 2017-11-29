@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="csrf-token" content="{{ default_csrf_token() }}" />
+        <title>{% block title %} YilinkerOnline.com  {% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/plugin-accreditation-main.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/online-main.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/accreditation.css') }}"/>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body class="dashboard">
+        {{ include('YilinkerMerchantBundle:Base:accreditation_header.html.twig') }}
+        {% block body %}{% endblock %}
+
+        <script src="{{ asset('js/bower/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bower/dimmer.min.js') }}"></script>
+        <script src="{{ asset('js/bower/modal.min.js') }}"></script>
+        <script src="{{ asset('js/bower/dropdown.min.js') }}"></script>
+        <script src="{{ asset('js/bower/transition.min.js') }}"></script>
+        <script src="{{ asset('js/bower/twig.min.js') }}"></script>
+        <script src="{{ asset('js/bower/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        <script src="{{ asset('js/bower/checkbox.min.js') }}"></script>
+        <script src="{{ asset('js/bower/progress.js') }}"></script>
+        <script src="{{ asset('js/bower/masonry.min.js') }}"></script>
+        <script src="{{ asset('js/bower/accordion.min.js') }}"></script>
+        <script src="{{ asset('js/bower/circle-progress.js') }}"></script>
+        <script src="{{ asset('js/src/accreditation.js') }}"></script>
+        <script src="{{ asset('js/src/merchant/dashboard.js') }}"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        <script src="{{ asset('js/bower/form.min.js') }}"></script>
+        {% block javascripts %}
+            <script src="{{ asset('reactjs/build/vendor.js') }}"></script>
+        {% endblock %}
+
+    </body>
+</html>

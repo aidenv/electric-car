@@ -1,0 +1,142 @@
+home_page:
+    path: /overview
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardOverview }
+    requirements:
+        _locale: en
+
+dashboard_followers:
+    path: /followers
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardFollowers }
+    requirements:
+        _locale: en
+
+dashboard_activity_log:
+    path: /activity-log
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardActivityLog }
+    requirements:
+        _locale: en
+
+dashboard_settings:
+    path: /settings
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardSettings }
+    requirements:
+        _locale: en
+
+dashboard_messages:
+    path: /messages/{userId}
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardMessages, userId:null }
+    requirements:
+        _locale: en
+
+dashboard_product_view:
+    path: /product/iphone-6
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardProductView }
+    requirements:
+        _locale: en
+
+transaction_cancellation:
+    path: /transaction/cancellation
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardTransactionCancellation }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+dashboard_transaction:
+    path: /transactions
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardTransaction }
+    requirements:
+        _locale: en
+
+dashboard_transaction_view:
+    path: /transaction/{invoice}
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardTransactionView }
+    requirements:
+        _locale: en
+
+dashboard_resolution_center:
+    path: /resolution-center
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardResolutionCenter }
+    methods: [GET]
+    requirements:
+        _locale: en
+
+dashboard_resolution_center_add:
+    path: /resolution-center/add-case
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:addCase }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+dashboard_get_order_products:
+    path: /resolution-center/get-order-products
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:getOrderProduct }
+    methods: [GET]
+    requirements:
+        _locale: en
+
+dashboard_schedule_pickup:
+    path: /schedule-pickup
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:scheduleOrderProductPickup }
+    methods: [POST]
+    requirements:
+        _locale: en
+
+dashboard_help:
+    path: /help
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardHelp }
+    requirements:
+        _locale: en
+
+dashboard_reports:
+    path: /reports
+    defaults: { _controller: YilinkerMerchantBundle:Report:dashboardReports }
+    requirements:
+        _locale: en
+
+dashboard_earnings:
+    path: /earnings
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardEarnings }
+    requirements:
+        _locale: en
+
+dashboard_balance_withdrawal:
+    path: /balance-withdrawal
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardBalanceWithdrawal }
+    requirements:
+        _locale: en
+
+dashboard_balance_withdrawal_bank_charge:
+    path: /balance-withdrawal/bank-charge
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardWithdrawalCharge }
+    requirements:
+        _locale: en
+
+dashboard_balance_record:
+    path: /balance-record
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardBalanceRecord }
+    requirements:
+        _locale: en
+
+dashboard_country_setup:
+    path: /country-setup/{countryCode}/{productId}
+    defaults: { _controller: YilinkerMerchantBundle:Product:countrySetup }
+    requirements:
+        _locale: en
+
+yilinker_merchant_user_warehouse:
+    resource: "user_warehouse.yml"
+    prefix: /warehouse
+    requirements:
+        _locale: en
+
+dashboard_select_product:
+    path: /dashboard/select-product
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardSelectProduct }
+    requirements:
+        _locale: en
+
+dashboard_legal_information:
+    path: /legal-information
+    defaults: { _controller: YilinkerMerchantBundle:Dashboard:dashboardLegalInfo }
+    requirements:
+        _locale: en

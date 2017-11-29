@@ -1,0 +1,74 @@
+{% extends 'YilinkerBackendBundle:Chat:base/base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+<div class="ticket col-md-9">
+    <h2 class="sub-header">Waiting Tickets</h2>
+    {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {lastPage: 30}) }}
+    <div class="box-wrapper">
+        <div class="search-field">
+            <div class="field">
+                <div class="row">
+                    <label class="col-md-12" for="">
+                        Search:
+                    </label>
+                    <div class="col-md-12">
+                        <input class="form-ui" type="text" value="Search Here...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button>Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box col-md-12">
+            <table class="table basic">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th width="50%">Preview</th>
+                        <th>Waiting Duration</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in 1..10 %}
+                    <tr>
+                        <td></td>
+                        <td>Kawai Gurl</td>
+                        <td>
+                            <p class="prev -off">I feel nice you look nice!<br>
+                                Neol bojamaja na eomeona ttaengjab-assseu<br>
+                                Don't think twice<br>
+                                Imi geim kkeutnassseu<br>
+                                You be my curry I be your rice<br>
+                                My name is Psy<br>
+                                Hangugmallo bagjaesang<br>
+                                Neoui alyeonhan nundongja-e<br>
+                                Ppajyeoseo heeomchigopa<br>
+                                Oppa dallinda kkwag butjab-a eonniya<br>
+                                Naneun aleumdaun agassiui dongbanja<br>
+                                Hold up wait a minute...!</p>
+                        </td>
+                        <td>5 hrs</td>
+                        <td>
+                            <button class="mini">Export</button>
+                        </td>
+                        <td></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

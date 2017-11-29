@@ -1,0 +1,14 @@
+Yilinker\Bundle\CoreBundle\Entity\AccreditationApplicationStatus:
+    type: entity
+    table: AccreditationApplicationStatus
+    id:
+        accreditationApplicationStatusId:
+            type: bigint
+            column: accreditation_application_status_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            length: 255
+    lifecycleCallbacks: {  }

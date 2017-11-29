@@ -1,0 +1,59 @@
+{% block location_widget %}
+    {% spaceless %}
+
+        {{ form_label(form.country) }}
+        {{ form_widget(form.country, {
+                attr: {
+                    'data-placeholder': form.country.vars.placeholder,
+                    'data-location': {
+                        locationTypeId: constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LocationType::LOCATION_TYPE_PROVINCE'),
+                        target: '#'~form.province.vars.id
+                    }|json_encode, 
+                    class: 'form-ui ui single search selection dropdown'
+                }
+            }) 
+        }}
+        {{ form_errors(form.country) }}
+
+        {{ form_label(form.province) }}
+        {{ form_widget(form.province, {
+                attr: {
+                    'data-placeholder': form.province.vars.placeholder,
+                    'data-location': {
+                        locationTypeId: [
+                            constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LocationType::LOCATION_TYPE_CITY'), 
+                            constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LocationType::LOCATION_TYPE_MUNICIPALITY')
+                        ],
+                        target: '#'~form.cityOrMunicipality.vars.id
+                    }|json_encode, 
+                    class: 'form-ui ui single search selection dropdown'
+                }
+            }) 
+        }}
+        {{ form_errors(form.province) }}
+
+        {{ form_label(form.cityOrMunicipality) }}
+        {{ form_widget(form.cityOrMunicipality, {
+                attr: {
+                    'data-placeholder': form.cityOrMunicipality.vars.placeholder,
+                    'data-location': {
+                        locationTypeId: constant('Yilinker\\Bundle\\CoreBundle\\Entity\\LocationType::LOCATION_TYPE_BARANGAY'),
+                        target: '#'~form.barangay.vars.id
+                    }|json_encode,
+                    class: 'form-ui ui single search selection dropdown'
+                }
+            })
+        }}
+        {{ form_errors(form.cityOrMunicipality) }}
+
+        {{ form_label(form.barangay) }}
+        {{ form_widget(form.barangay, {
+                attr: {
+                    'data-placeholder': form.barangay.vars.placeholder,
+                    class: 'form-ui ui single search selection dropdown'
+                }
+            }) 
+        }}
+        {{ form_errors(form.barangay) }}
+    {% endspaceless %}
+{% endblock %}

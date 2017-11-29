@@ -1,0 +1,28 @@
+Yilinker\Bundle\CoreBundle\Entity\InhouseProduct:
+    type: entity
+    table: InhouseProduct
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\InhouseProductRepository
+    fields:
+        referenceNumber:
+            type: string
+            length: 255
+            column: reference_number
+            options:
+                default: ''
+    manyToOne:
+        manufacturer:
+            targetEntity: Manufacturer
+            joinColumns:
+                manufacturer_id:
+                    referencedColumnName: manufacturer_id
+    oneToOne:
+        manufacturerProduct:
+            targetEntity: ManufacturerProduct
+            joinColumns:
+                manufacturer_product_id:
+                    referencedColumnName: manufacturer_product_id
+    indexes:
+        fk_manufacturerproduct_manufacturerid_manufacturer_manufacturerid_idx:
+            columns:
+                - manufacturer_id
+    lifecycleCallbacks: {}

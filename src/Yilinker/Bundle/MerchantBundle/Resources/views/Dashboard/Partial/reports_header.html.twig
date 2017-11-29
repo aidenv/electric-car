@@ -1,0 +1,29 @@
+<div class="dashboard-submenu-wrapper">
+    <div class="dashboard-submenu-container">
+        {% set route = app.request.get('_route') %}
+        <ul class="list-unstyle list-submenu">
+            <li>
+                <a href="{{ path('dashboard_reports') }}" class="{{ route is same as("dashboard_reports") ? 'active': '' }}">
+                    {% trans %} Sales Report {% endtrans %}
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('dashboard_earnings') }}" class="{{ route is same as("dashboard_earnings") ? 'active': '' }}">
+                    {% trans %} Earning {% endtrans %}
+                </a>
+            </li>
+            {#
+            <li>
+                <a href="">
+                    Top Product
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    Top Buyer
+                </a>
+            </li>
+            #}
+        </ul>
+    </div>
+</div>

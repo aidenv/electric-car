@@ -1,0 +1,26 @@
+Yilinker\Bundle\CoreBundle\Entity\ManufacturerPayoutDocument:
+    type: entity
+    table: ManufacturerPayoutDocument
+    id:
+        manufacturerPayoutDocumentId:
+            type: integer
+            id: true
+            column: manufacturer_payout_document_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        filename:
+            type: string
+            length: 255
+            column: filename
+        dateAdded:
+            type: datetime
+            column: date_added
+    manyToOne:
+        manufacturerPayout:
+            targetEntity: ManufacturerPayout
+            joinColumn:
+                name: manufacturer_payout_id
+                referencedColumnName: manufacturer_payout_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,23 @@
+Yilinker\Bundle\CoreBundle\Entity\EarningReview:
+    type: entity
+    table: EarningReview
+    id:
+        earningReviewId:
+            type: integer
+            id: true
+            column: earning_review_id
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        productReview:
+            targetEntity: ProductReview
+            joinColumn:
+                name: product_review_id
+                referencedColumnName: product_review_id
+    oneToOne:
+        earning:
+            targetEntity: Earning
+            inversedBy: earningReview
+            joinColumn:
+                name: earning_id
+                referencedColumnName: earning_id

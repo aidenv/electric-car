@@ -1,0 +1,94 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Warehouse List
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+    <div class="dashboard-body-container white">
+        <div class="dashboard-submenu-wrapper">
+            <div class="dashboard-component top">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <div class="row">
+                            <div class="col-xs-8"><span class="uppercase">Warehouse List</span></div>
+                            <div class="col-xs-4 align-right">
+                                <button class="button blue small uppercase add-warehouse">
+                                    {% trans %} Add Warehouse {% endtrans %}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped">
+                   <thead>
+                        <tr class="inverted">
+                            <th>Warehouse Title Name</th>
+                            <th width="40%">Warehouse Address</th>
+                            <th>Country</th>
+                            <th>Zip Code</th>
+                            <th width="170">&nbsp;</th>
+                        </tr>
+                   </thead>
+                    {% if warehouses|length > 0 %}
+                    <tbody>
+                        {% for warehouse in warehouses %}
+                            <tr>
+                                <td>{{warehouse.name}}</td>
+                                <td>{{warehouse}}</td>
+                                <th>{{warehouse.getCountry()|default('')}}</th>
+                                <td>{{warehouse.zipCode}}</td>
+                                <td align="center">
+                                    <a href="{{url('merchant_user_warehouse_inventory', {warehouseId: warehouse.userWarehouseId})}}" class="button green small popup-hover" data-content="View Warehouse Details" data-variation="inverted">
+                                        <i class="icon icon-search"></i>
+                                    </a>
+                                    <button class="edit-warehouse button blue small popup-hover" data-id="{{warehouse.userWarehouseId}}">
+                                        <i class="icon icon-edit" data-content="Edit Warehouse Details" data-variation="inverted"></i>
+                                    </button>
+                                    {% if warehouses|length > 1 %}
+                                        <button class="button gray small popup-hover delete-trigger" data-id="{{warehouse.userWarehouseId}}">
+                                            <i class="icon icon-trash" data-content="Delete Warehouse" data-variation="inverted"></i>
+                                        </button>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                    {% else %}
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" align="center">
+                                No data available
+                            </td>
+                        </tr>
+                    </tfoot>
+                    {% endif %}
+                </table>
+                <!--Pagination-->
+                <div class="product-pagination-container align-center mrg-top-20">
+                    <div class="pagination-full">
+                        {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: warehouses.count(), perPage: warehouses.getQuery().getMaxResults()}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Start of modal add warehouse -->
+    <div class="ui modal small add-warehouse-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">Add Warehouse</h4>
+        </div>
+        {{ render(controller('YilinkerMerchantBundle:UserWarehouse:form')) }}
+    </div>
+    <!--end of modal add warehouse -->
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/dashboard-warehouse.js') }}"></script>
+{% endblock %}

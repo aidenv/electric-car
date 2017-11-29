@@ -1,0 +1,18 @@
+{% if app.user %}
+    <small class="follow-container">
+        {% if isFollowing %}
+        <button class="btn-un-follow">
+            <span class="circle-container"><i class="icon icon-plus"></i></span>
+            <span class="follow-text">Unfollow Seller</span>
+        </button>
+        {% else %}
+        <button class="btn-follow">
+            <span class="circle-container"><i class="icon icon-plus"></i></span>
+            <span class="follow-text">Follow Seller</span>
+        </button>
+        {% endif %}
+    </small>
+
+    <input type="hidden" id="sellerId" value="{{ seller.userId|default(0) }}">
+    <input type="hidden" id="isFollowing" value="{{ isFollowing|default(0) }}">
+{% endif %}

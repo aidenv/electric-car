@@ -1,0 +1,94 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    Search Product
+{% endblock %}
+
+{% block facebook_analytics %}
+    {% embed 'analytics/facebook-pixel.html.twig' %}
+        {% block fbPixel %}
+        fbq('track', 'Search', { 
+            content_category: 'product_search',
+            search_string: {{ query }},
+            content_ids: [{% for product in products %}'{{ product.productId }}'{% if loop.index != products|length %},{% endif %}{% endfor %}],
+        });
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/search.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <div class="search-page">
+        <div class="wrapper-outer" id="searchWrapper">
+            {{ include('YilinkerFrontendBundle:Search:search_page_header_by_product.html.twig') }}
+            {% if banner is defined and banner != null %}
+                <div class="advertisement-wrapper mrg-bt-20">
+                    {% if banner.target != null and banner.target != '' %}
+                        <a href="{{ banner.target }}">
+                            <img src="{{ banner.imageSrc }}" alt="{{ banner.alt|default('') }}">
+                        </a>
+                    {% else %}
+                        <img src="{{ banner.imageSrc }}" alt="{{ banner.alt|default('') }}">
+                    {% endif %}
+                </div>
+            {% endif %}
+            <!--Searched items area-->
+            <div class="search-body-wrapper product-group-wrapper">
+                <div class="row" style="margin-top: 0;">
+                    <!--Display for zero results-->
+                    {% if products|length == 0%}
+                    <div class="search-category-name-header">
+                        <h2 class="no-margin uppercase bold">
+                            {% if noResultMessage is defined %}
+                                {{noResultMessage}}
+                            {% else %}
+                                No search result found for "{{ query }}"
+                            {% endif %}
+                        </h2>
+                    </div>
+                    {% endif %}
+
+                    {% for product in products %}
+                        {% if app.environment == 'prod' %}
+                            {{ render_esi(controller('YilinkerFrontendBundle:Product:renderProductCard', {'productId':product.productId,'discountedPrice':product.defaultUnit.appliedDiscountPrice,'quantity':product.defaultUnit.quantity})) }}
+                        {% else %}
+                            {{ include('YilinkerFrontendBundle:Product:product_card.html.twig', {'product':product}) }}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <!--Pagination-->
+                {% if products|length > 0 %}
+                <div class="search-pagination-container">
+                    <div class="pagination-full simple-pagination">
+                        <ul class="list-unstyled" data-lastpage="{{ totalPages }}" data-currentpage="{{ page }}"
+                            data-hrefprefix="{{ path(app.request.attributes.get('_route'), parameters ) }}">
+                            {% for i in 1..totalPages %}
+                            <li data-page="{{ i }}">
+                                 <a class="{{ page == i ? 'current-page' : '' }}" href="{{ path(app.request.attributes.get('_route') , parameters) }}">
+                                    {{ i }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+            {{ include('YilinkerFrontendBundle:Base:product_list_schema.script.twig', {'products':products}) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('js/bower/ion.rangeSlider.min.js') }}"></script>
+    <script src="{{ asset('js/bower/simple-pagination.js') }}"></script>
+    <script src="{{ asset('js/src/product-list-header.js') }}"></script>
+    <script src="{{ asset('js/src/frontend/product-filter-modal.js') }}"></script>
+{% endblock %}

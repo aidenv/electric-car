@@ -1,0 +1,42 @@
+Yilinker\Bundle\CoreBundle\Entity\UserImage:
+    type: entity
+    table: UserImage
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserImageRepository
+    id:
+        userImageId:
+            type: integer
+            id: true
+            unsigned: false
+            column: user_image_id
+            generator:
+                strategy: AUTO
+    fields:
+        imageLocation:
+            type: string
+            length: 255
+            column: image_location
+            options:
+                default: ''
+        isHidden:
+            type: boolean
+            column: is_hidden
+            options:
+                default: '0'
+        dateAdded:
+            type: datetime
+            column: date_added
+        userImageType:
+            type: integer
+            column: user_image_type
+            options:
+                default: '0'
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: images
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
+

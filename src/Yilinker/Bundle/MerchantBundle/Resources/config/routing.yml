@@ -1,0 +1,71 @@
+yilinker_merchant_dashboard:
+    resource: "routing/dashboard.yml"
+    prefix: /dashboard
+
+yilinker_product:
+    resource: "routing/product.yml"
+    prefix: /
+
+yilinker_product_upload:
+    resource: "routing/product_upload.yml"
+    prefix: /
+
+yilinker_merchant_accreditation:
+    resource: "routing/accreditation.yml"
+    prefix: /
+
+yilinker_merchant_customized_category:
+    resource: "routing/customized_category.yml"
+    prefix: /
+
+yilinker_merchant_user_address:
+    resource: "routing/user_address.yml"
+    prefix: /
+
+yilinker_merchant_bank:
+    resource: "routing/bank.yml"
+    prefix: /
+
+yilinker_merchant_bank_account:
+    resource: "routing/bank_account.yml"
+    prefix: /
+
+yilinker_merchant_reseller:
+    resource: "routing/reseller.yml"
+    prefix: /
+
+
+# API
+
+# Please add suffix "v2" to all routes in version 2 related api
+# to avoid name conflicts and overriding routes. Thanks!
+# Moving forward:
+# For Merchant bundle use: yilinker_merchant_[ROUTE NAME]_v2
+# For Core bundle use: yilinker_core_[ROUTE NAME]_v2
+# For Frontend bundle use: yilinker_frontend_[ROUTE NAME]_v2
+
+yilinker_merchant_reseller_api_route_v1:
+    resource: "routing/api/v1.yml"
+    prefix: /api/v1/
+
+yilinker_merchant_reseller_api_route_v2:
+    resource: "routing/api/v2.yml"
+    prefix: /api/v2/
+
+yilinker_merchant_api_route_v3:
+    resource: "routing/api/v3.yml"
+    prefix: /api/{version}/{country_code}/{language_code}
+    defaults: { version: 'v3' }
+    requirements:
+        version: 'v[34]'
+
+#NOTE : NEEDS TO BE THE LAST FOR user_frontend_store
+
+yilinker_merchant_user_affiliate:
+    resource: "routing/user_affiliate.yml"
+    prefix: /
+    host: %affiliate_hostname%
+
+yilinker_merchant_user:
+    resource: "routing/user.yml"
+    prefix: /

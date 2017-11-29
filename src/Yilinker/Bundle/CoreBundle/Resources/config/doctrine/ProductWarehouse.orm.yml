@@ -1,0 +1,79 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductWarehouse:
+    type: entity
+    table: ProductWarehouse
+    indexes:
+        idx_product_id_product:
+            columns:
+                - product_id
+        idx_user_warehouse_id_user_warehouse:
+            columns:
+                - user_warehouse_id
+    id:
+        productWarehouseId:
+            type: bigint
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: product_warehouse_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        priority:
+            type: integer
+            column: priority
+            unsigned: true
+            nullable: false
+            options:
+                default: 1
+        dateAdded:
+            type: datetime
+            column: date_added
+        countryCode:
+            column: country_code
+            length: 10
+            options:
+                default: 'ph'
+        isCod:
+            type: boolean
+            column: is_cod
+            options:
+                default: '0'
+        handlingFee:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            options:
+                default: '0'
+            column: handling_fee
+    manyToOne:
+        logistics:
+            targetEntity: Logistics
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                logistics_id:
+                    referencedColumnName: logistics_id
+                    nullable: true
+            orphanRemoval: false
+        product:
+            targetEntity: Product
+            cascade: {  }
+            mappedBy: null
+            inversedBy: productWarehouses
+            joinColumns:
+                product_id:
+                    referencedColumnName: product_id
+            orphanRemoval: false
+        userWarehouse:
+            targetEntity: UserWarehouse
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_warehouse_id:
+                    referencedColumnName: user_warehouse_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

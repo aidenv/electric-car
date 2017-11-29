@@ -1,0 +1,41 @@
+Yilinker\Bundle\CoreBundle\Entity\UserMerge:
+    type: entity
+    table: UserMerge
+    indexes:
+        fk_usermerge_userid_user_userid_idx:
+            columns:
+                - user_id
+        fk_usermerge_oauthproviderid_oauthprovider_oauthproviderid_idx:
+            columns:
+                - oauth_provider_id
+    id:
+        userMergeId:
+            type: bigint
+            id: true
+            column: user_merge_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        socialMediaId:
+            type: string
+            length: 255
+            column: social_media_id
+            options:
+                default: ''
+        dateCreated:
+            type: datetime
+            column: date_created
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        oauthProvider:
+            targetEntity: OauthProvider
+            joinColumn:
+                name: oauth_provider_id
+                referencedColumnName: oauth_provider_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

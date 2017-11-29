@@ -1,0 +1,34 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    {% trans %}
+        Flash Sale
+    {% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper static static-wrapper flash-sale">
+        <div class="bg-black flash">
+            <div class="col-xs-12 align-center">
+                <img src="{{ asset('images/promo/flash-sale/flash-sale-banner.jpg') }}" alt="Midnight Sales" class="img-full-width main-banner full-width">
+            </div>
+        </div>
+        <div class="flash-main">
+            {{ include('YilinkerFrontendBundle:FlashSale:current_flash_sale.html.twig', {'currentPromoInstances' : currentPromoInstances}) }}
+            {{ include('YilinkerFrontendBundle:FlashSale:upcoming_flash_sale.html.twig', {'upcomingPromoInstances' : upcomingPromoInstances}) }}
+            {{ include('YilinkerFrontendBundle:FlashSale:previous_flash_sale.html.twig', {'completedPromoInstances' : completedPromoInstances}) }}
+        </div>
+    </div>
+    <div class="clear"></div>
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('js/bower/slick.min.js') }}"></script>
+    <script src="{{ asset('js/src/utility/timer.js') }}"></script>
+    <script src="{{ asset('js/src/flash-sale.js') }}"></script>
+{% endblock %}

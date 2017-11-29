@@ -1,0 +1,12 @@
+product_change_quantity:
+    path: /item/change-quantity
+    defaults: { _controller: YilinkerFrontendBundle:Product:changeQuantity }
+    methods: [POST]
+
+product_details:
+    path: /item/{slug}
+    defaults: { _controller: YilinkerFrontendBundle:Product:details }
+
+product_list:
+    path: /product-list/{list}
+    defaults: { _controller: YilinkerFrontendBundle:Product:renderCustomProductList }

@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Merge Account | YiLinker Online.com
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .login-tab-panel{
+            display: block !important;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="login">
+        <a href="#" class="me logo-link" width="57" height="57"></a>
+        <div class="bg"></div>
+        <div class="login-wrapper login-buyer">
+            <div class="align-center">
+                <a href="#">
+                    <img src="{{ asset('images/logo-icon.svg') }}" class="logo" />
+                </a>
+            </div>
+            <div class="tagline align-center">
+                <div class="">
+                    All in one place
+                </div>
+            </div>
+            <div class="login-tab-selection">
+                <a id="sign-in-tab" data-href="reset-password" class="active single">Merge with Social Media Account</a>
+            </div>
+            <div class="form-segment">
+                {{ include('YilinkerCoreBundle:Default:translation.html.twig') }}
+                <div class="login-tab-panel active" id="reset-password">
+                    <div class="login-form">
+                        <form action="" method="post">
+                            <div class="form">
+                                <div class="light-color mrg-bt-10">
+                                    A verification request will be sent to the email below in order to merge this with your social media account.
+                                </div>
+                            </div>
+                             <div class="form">
+                                <p class="mrg-bt-10 email-social-media">{{ email }}</p>
+                            </div>
+                            <div class="form">
+                                <button type="submit" class="button purple block" id="sendMergeNotification" data-url='{{ url }}' data-email='{{ email }}'> Verify </button>
+                            </div>
+                        </form>
+                    </div>
+                 </div>
+            </div>
+            <div class="footer-wrapper align-center">
+                Copyright 2015 YiLinker. All Rights Reserved
+            </div>
+        </div>
+
+        {#{{ token : token, csrfToken : csrfToken } | react('resetPassword') }#}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('reactjs/build/indexMap.js') }}"></script>
+    <script src="{{ asset('js/src/reactRender.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/vendor/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bower/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/login.js') }}"></script>
+{% endblock %}

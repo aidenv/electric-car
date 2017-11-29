@@ -1,0 +1,322 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% set currencySymbol = country.currency ? country.currency.symbol: '' %}
+{% set product = form.vars.value %}
+
+{% block title %}
+    {{country.name}} Store | {{ product.name }}
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+    <div class="dashboard-body-container white">
+        <div class="dashboard-submenu-wrapper">
+            <div class="dashboard-submenu-container">
+                <a href="{{ url('merchant_product_management') }}" class="button basic-default button-rounded-side no-margin"> <b>&larr;</b> Go Back</a>
+            </div>
+        </div>
+        {{ form_start(form) }}
+            <div class="dashboard-component top">
+                {% if remarks and product.getProductCountryStatus(country) == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::REJECT') %}
+                    <div class="component-content admin-notif">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <div class="panel-item row">
+                                    <span class="col-md-1">
+                                        <span class="admin-notif-image">
+                                            <img src="{{ asset('images/logo-icon.png') }}" alt="Yilinker">
+                                        </span>
+                                    </span>
+                                    <span class="col-md-11">
+                                        <p>{{ remarks[0].remarks }}</p>
+                                        <span class="admin-notif-txt">
+                                            Posted By:
+                                            <strong>Administrator</strong>
+                                            <span>{{ remarks[0].dateAdded|date('m/d/Y h:i') }}</span>
+                                        </span>
+                                    </span>
+                                </div>
+                                {% if remarks|length > 1 %}
+                                    <div class="panel-item row align-center">
+                                        <span class="show-prev-remarks">
+                                            <span class="remarks-txt-view">View</span>
+                                            <span class="remarks-txt-hide">Hide</span>
+                                            previous remark/s <strong>({{remarks|length - 1}})</strong>
+                                        </span>
+                                    </div>
+                                    {% for remark in remarks %}
+                                        {% if loop.first == false %}
+                                            <div class="panel-item row prev-remarks">
+                                                <span class="col-md-1">
+                                                    <span class="admin-notif-image">
+                                                        <img src="{{ asset('images/logo-icon.png') }}" alt="Yilinker">
+                                                    </span>
+                                                </span>
+                                                <span class="col-md-11">
+                                                    <p>{{ remark.remarks }}</p>
+                                                    <span class="admin-notif-txt">
+                                                        Posted By:
+                                                        <strong>Administrator</strong>
+                                                        <span>{{ remark.dateAdded|date('m/d/Y h:i') }}</span>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <br/>
+                    </div>
+                {% endif %}
+                <div class="component-content">
+                    {{ include('YilinkerCoreBundle:Widget:flash_message.html.twig') }}
+                </div>
+                <div class="component-content">
+                    <div class="row">
+                        {{ include('YilinkerMerchantBundle:Product/partial:product_country.html.twig') }}
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="breadcrumb-box mrg-bt-10">
+                                        {{ render(controller('YilinkerCoreBundle:Widget:productCategory', {product: product})) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="image-holder image-square">
+                                        <img src="{{ asset(product.primaryImageLocation, 'product') }}" alt="Product name" class="img-auto-place">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>
+                                        <a href="#" target="_blank">
+                                            {{ product.name }}
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        {{ product.shortDescription }}
+                                    </p>
+                                    <div class="mrg-top-5">
+                                        <label class="bold">
+                                            Brand : 
+                                        </label>
+                                        {{ product.brand }}
+                                    </div>
+                                    <div class="mrg-top-5">
+                                        <label class="bold">
+                                            Package Dimension : 
+                                        </label>
+                                        {{ product.defaultUnit.length }}cm
+                                        <i class="icon icon-times light-color"></i>
+                                        {{ product.defaultUnit.width }}cm 
+                                        <i class="icon icon-times light-color"></i>
+                                        {{ product.defaultUnit.height }}cm
+                                    </div>
+                                    <div class="mrg-top-5">
+                                        <label class="bold">
+                                            Weight : 
+                                        </label>
+                                        {{ product.defaultUnit.weight }}KG
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {% if product.units|length == 1 and false %}
+                                {% for unit in form.units %}
+                                    <div class="title-bar mrg-top-10"></div>
+                                    <div class="pull-left">
+                                        Selling Price <b>({{ currencySymbol }})</b>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="form mrg-top-10">
+                                        <div class="row" data-product-unit>
+                                            <div class="col-xs-4">
+                                                <label>Original Price: </label>
+                                                <div class="labeled-input left">
+                                                    <div class="label black">{{ currencySymbol }}</div>
+                                                    {{ form_widget(unit.price, {attr: {class: 'form-ui', placeholder: '0.00'}}) }}
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <label>Discount: </label>
+                                                <div class="labeled-input right">
+                                                    <input type="text" class="form-ui" data-product-unit-discount value="{{ unit.vars.value.discount }}" placeholder="0.00">
+                                                    <div class="label tag black">%</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <label>Final Price: </label>
+                                                <div class="labeled-input left">
+                                                    <div class="label black">{{ currencySymbol }}</div>
+                                                    {{ form_widget(unit.discountedPrice, {attr: {class: 'form-ui', placeholder: '0.00'}}) }}
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <label>Commission: </label>
+                                                <div class="labeled-input left">
+                                                    <div class="label black">{{ currencySymbol }}</div>
+                                                    {{ form_widget(unit.commission, {attr: {class: 'form-ui', placeholder: '0.00'}}) }}
+                                                </div>
+                                            </div>
+                                            <div style="display:none">{{ form_widget(form.units.offsetGet(0).status) }}</div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% if product.units|length != 1 or true %}
+                <div class="dashboard-component">
+                    <div class="title-bar mrg-top-10">
+                        <div class="component-content">
+                            <span class="uppercase">Product Combinations</span>
+                        </div>
+                    </div>
+                    <!--Recent order table-->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="inverted bold">
+                                <th align="center">Attributes</th>
+                                <th align="center">SKU</th>
+                                <th width="15%" align="center">Original Price</th>
+                                <th width="15%" align="center">Discount</th>
+                                <th width="15%" align="center">Final Price</th>
+                                <th width="15%" align="center">Commission</th>
+                                {# <th width="1%" align="center">&nbsp;</th> #}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for unit in form.units %}
+                                <tr data-product-unit>
+                                    <td valign="top" align="center">
+                                        {% for attributeValue in unit.vars.value.productAttributeValues %}
+                                            <p><strong>{{ attributeValue.productAttributeName.name }}: </strong> {{ attributeValue.value }}</p>
+                                        {% endfor %}
+                                    </td>
+                                    <td valign="top" align="center">{{ unit.vars.value.sku }}</td>
+                                    <td valign="top">
+                                        <div class="labeled-input left">
+                                            <div class="label black">{{ currencySymbol }}</div>
+                                            {{ form_widget(unit.price, {attr: {class: 'form-ui', placeholder: '0.00'}}) }}
+                                        </div>
+                                        {% if unit.vars.valid == false %}
+                                            <span class="form-error-note small-font">
+                                                Original price cannot be zero
+                                            </span>
+                                        {% endif %}
+                                    </td>
+                                    <td valign="top">
+                                        <div class="labeled-input right">
+                                            <input {{ form.vars.disabled ? 'disabled="disabled"': '' }} type="text" class="form-ui" data-product-unit-discount value="{{ unit.vars.value.discount }}" placeholder="0.00">
+                                            <div class="label tag black">%</div>
+                                        </div>
+                                    </td>
+                                    <td valign="top">
+                                        <div class="labeled-input left">
+                                            <div class="label black">{{ currencySymbol }}</div>
+                                            {{ form_widget(unit.discountedPrice, {attr: {class: 'form-ui', placeholder: '0.00'}}) }}
+                                        </div>
+                                    </td>
+                                    <td valign="top">
+                                        <div class="labeled-input left">
+                                            <div class="label black">{{ currencySymbol }}</div>
+                                            {{ form_widget(unit.commission, {attr: {class: 'form-ui', placeholder: '0.00'}}) }}
+                                        </div>
+                                    </td>
+                                    {#
+                                    <td align="center">
+                                        <div class="ui checkbox">
+                                            {{ form_widget(unit.status) }}<label class="pd-left-0">&nbsp;</label>
+                                        </div>
+                                    </td>
+                                    #}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        {# <tfoot>
+                        <tr>
+                            <td colspan="6" align="center">
+                                No transaction available
+                            </td>
+                        </tr>
+                        </tfoot> #}
+                    </table>
+                </div>
+            {% endif %}
+            <div class="dashboard-component">
+                <div class="title-bar"></div>
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4>
+                                Shipping
+                            </h4>
+                            <p class="light-color">
+                                Set your shipping charge and product sourcing. International freight charges will be shouldered by the buyer.
+                            </p>
+                        </div>
+                        <div class="col-md-8">
+                            {% set primaryWarehouse = null %}
+                            {% set secondaryWarehouse = null %}
+                            {% for productWarehouse in form.productWarehouses %}
+                                {% if productWarehouse.vars.value.priority == 1 %}
+                                    {% set primaryWarehouse = productWarehouse %}
+                                {% elseif productWarehouse.vars.value.priority == 2 %}
+                                    {% set secondaryWarehouse = productWarehouse %}
+                                {% endif %}
+                            {% endfor %}
+                            <div class="form">
+                                <div class="panel" style="overflow: visible;">
+                                    <div class="panel-head bold">
+                                        Product Inventory Location (PRIMARY)
+                                    </div>
+                                    {{ include('YilinkerMerchantBundle:Product/partial:product_country_warehouse.html.twig', {warehouse: primaryWarehouse, countryCode: country.code}) }}
+                                </div>
+                            </div>
+
+                            <div class="form">
+                                <div class="panel" style="overflow: visible;">
+                                    <div class="panel-head bold">
+                                        Product Inventory Location (SECONDARY) <i class="icon icon-question-circle icon-lg popup-hover" data-content="If your primary warehouse runs out of stocks, the system will automatically request the succeeding orders from your secondary warehouse." data-variation="inverted"></i>
+                                    </div>
+                                    {{ include('YilinkerMerchantBundle:Product/partial:product_country_warehouse.html.twig', {warehouse: secondaryWarehouse, countryCode: country.code}) }}
+                                </div>
+                            </div>
+                            {#
+                                <div class="form">
+                                    <label>Item will shipped by</label>
+                                    <h4 class="mrg-top-10">
+                                        <i class="flag-icon flag-icon-ph"></i> Philippines <span class="light-color">&rarr;</span> <i class="flag-icon flag-icon-my"></i> Malaysia
+                                    </h4>
+                                </div>
+                            #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Save button-->
+            <div class="dashboard-component dashboard-component-footer gray align-center">
+                {#<button class="button gray button-rounded-side uppercase">Reset</button>#}
+                <button class="button blue button-rounded-side uppercase success-setup-trigger">Save Changes</button>
+            </div>
+        {{ form_end(form) }}
+
+    <input type="hidden" id="express_type" value="{{constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Logistics::YILINKER_EXPRESS')}}" />
+    </div>
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script type="text/javascript">
+        var YILINKER_EXPRESS = "{{constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Logistics::YILINKER_EXPRESS')}}",
+            countryCode = "{{country.code}}";
+    </script>
+    <script src="{{ asset('js/src/merchant/dashboard-product-country-setup.js') }}"></script>
+    <script src="{{ asset('js/src/form/product-unit.js') }}"></script>
+{% endblock %}

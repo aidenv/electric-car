@@ -1,0 +1,16 @@
+<table class="table table-bordered mrg-top-20">
+    <thead>
+        <tr class="inverted">
+            <th width="33%" align="center">Requested Amount</th>
+            <th width="33%" align="center">Bank Charge</th>
+            <th width="34%" align="center">Amount to be Received</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td align="center">{{ payoutRequest.requestedAmount }}</td>
+            <td align="center">{{ payoutRequest.charge }}</td>
+            <td align="center">{{ payoutRequest.netAmount }}</td>
+        </tr>
+    </tbody>
+</table>

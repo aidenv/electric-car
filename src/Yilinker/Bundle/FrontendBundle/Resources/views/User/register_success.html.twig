@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    You have successfully registered! | YilinkerOnline.com
+{% endblock %}
+
+{% block facebook_analytics %}
+    {% embed 'analytics/facebook-pixel.html.twig' %}
+        {% block fbPixel %}
+        fbq('track', 'CompleteRegistration', { 
+            content_name: 'successful_buyer_registration',
+            status: 'successful'
+        });
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="splash-page">
+        <div class="bg"></div>
+        <div class="register-success-splash-message-wrapper">
+            <div class="content">
+                <a href="{{ path('home_page') }}">
+                    <img src="{{ asset('images/logo-main.png') }}" alt="">
+                </a>
+                <h2 class="title-text">
+                    You have successfully registered!
+                </h2>
+                <a class="button basic-purple" href="{{ path('home_page') }}">Browse our products</a>
+            </div>
+            
+        </div>
+        <div class="register-success-splash-image-wrapper">
+            <div class="register-success-splash-footer-wrapper align-center">
+            Copyright 2015 YiLinker. All Rights Reserved
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/src/splash-page.js') }}"></script>
+{% endblock %}

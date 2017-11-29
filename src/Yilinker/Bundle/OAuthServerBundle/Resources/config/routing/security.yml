@@ -1,0 +1,12 @@
+yilinker_oauth_server_login:
+    path:     /oauth/v2/auth_login
+    defaults: { _controller: YilinkerOAuthServerBundle:Security:login }
+
+yilinker_oauth_server_login_check:
+    path:     /oauth/v2/auth_login_check
+    defaults: { _controller: YilinkerOAuthServerBundle:Security:loginCheck }
+    
+yilinker_oauth_get_user:
+    path:     /api/v1/auth/user_info
+    defaults: { _controller: YilinkerOAuthServerBundle:Security:getUserOject }
+    

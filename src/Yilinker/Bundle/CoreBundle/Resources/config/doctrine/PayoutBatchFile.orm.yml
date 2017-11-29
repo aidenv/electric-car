@@ -1,0 +1,36 @@
+Yilinker\Bundle\CoreBundle\Entity\PayoutBatchFile:
+    type: entity
+    table: PayoutBatchFile
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\PayoutBatchFileRepository
+    id:
+        payoutBatchFileId:
+            column: payout_batch_file_id
+            type: integer
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fileName:
+            column: file_name
+            type: string
+        dateAdded:
+            column: date_added
+            type: datetime
+        dateLastModified:
+            column: date_last_modified
+            type: datetime
+        isDelete:
+            column: is_delete
+            type: smallint
+    indexes:
+        payout_batch_file_payout_batch_head_id__payout_batch_head_payout_batch_head_id_idx:
+            columns:
+                - payout_batch_head_id
+    manyToOne:
+        payoutBatchHead:
+            targetEntity: PayoutBatchHead
+            joinColumn:
+                name: payout_batch_head_id
+                referencedColumnName: payout_batch_head_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,119 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductCategory:
+    type: entity
+    table: ProductCategory
+    gedmo:
+        translation:
+            locale: locale
+            entity: Yilinker\Bundle\CoreBundle\Entity\ProductCategoryExtTranslation
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ProductCategoryRepository
+    id:
+        productCategoryId:
+            type: integer
+            id: true
+            column: product_category_id
+            generator:
+                strategy: IDENTITY
+    indexes: 
+        fk_productcategory_parentid_parentid__productcategoryid_idx:
+            columns:
+                - parent_id
+    fields:
+        name:
+            length: 100
+            gedmo:
+                translatable:
+                    fallback: true
+        slug:
+            type: string
+            length: 100
+            # gedmo:
+            #     slug:
+            #         separator: -
+            #         style: default
+            #         fields:
+            #             - name
+        sortOrder:
+            type: integer
+            column: sort_order
+            options:
+                default: '0'
+        description:
+            length: 1024
+            options:
+                default: ''
+        image:
+            type: string
+            length: 255
+            options:
+                default: ''
+        icon:
+            type: string
+            length: 255
+            options:
+                default: ''
+        isDelete:
+            type: boolean
+            column: is_delete
+            options:
+                default: false
+        referenceNumber:
+            type: string
+            length: 150
+            nullable: true
+            column: reference_number
+        dateAdded:
+            type: datetime
+            column: date_added
+            nullable: false
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+            nullable: false
+        yilinkerCharge:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            options:
+                default: '0'
+            column: yilinker_charge
+        additionalCost:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            options:
+                default: '0'
+            column: additional_cost
+        handlingFee:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            options:
+                default: '0'
+            column: handling_fee
+    manyToOne:
+        parent:
+            targetEntity: ProductCategory
+            inversedBy: ProductCategory
+            joinColumn:
+                name: parent_id
+                referencedColumnName: product_category_id
+                onDelete: CASCADE
+    oneToMany:
+        children:
+            targetEntity: ProductCategory
+            mappedBy: parent
+        products:
+            targetEntity: Product
+            mappedBy: productCategory
+            oneToMany:
+        productCategoryTranslations:
+            targetEntity: ProductCategoryTranslation
+            mappedBy: productCategory
+    oneToOne:
+        categoryNestedSet:
+            targetEntity: CategoryNestedSet
+            mappedBy: productCategory
+    lifecycleCallbacks: {  }

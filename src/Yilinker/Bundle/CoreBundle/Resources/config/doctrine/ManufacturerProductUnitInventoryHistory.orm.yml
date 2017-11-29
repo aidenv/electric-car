@@ -1,0 +1,25 @@
+Yilinker\Bundle\CoreBundle\Entity\ManufacturerProductUnitInventoryHistory:
+    type: entity
+    table: ManufacturerProductUnitInventoryHistory
+    id:
+        manufacturerProductUnitInventoryHistoryId:
+            type: integer
+            id: true
+            column: manufacturer_product_unit_inventory_history_id
+            generator:
+                strategy: AUTO
+    fields:
+        dateCreated:
+            type: datetime
+            column: date_created
+        quantity:
+            type: integer
+            options:
+                default: '0'
+    manyToOne:
+        manufacturerProductUnit:
+            targetEntity: ManufacturerProductUnit
+            joinColumns:
+                manufacturer_product_unit_id:
+                    referencedColumnName: manufacturer_product_unit_id
+    lifecycleCallbacks: {  }

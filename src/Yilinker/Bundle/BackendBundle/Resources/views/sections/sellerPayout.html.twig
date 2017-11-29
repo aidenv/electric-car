@@ -1,0 +1,122 @@
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Seller Payout</span>
+        </div>
+    </div>
+    <div class="container">
+      <!-- Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="tools top form">
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="options">
+                    <input type="text" class="form-ui" placeholder="11/12/14" readonly>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <input type="text" class="form-ui" placeholder="02/29/16" readonly>
+                  </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <input type="text" class="form-ui" placeholder="Storename / Username">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <div class="labeled-input">
+                      <div class="label black">From</i></div>
+                      <input type="text" class="form-ui" placeholder="02/29/16">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <div class="labeled-input">
+                      <div class="label black">To</i></div>
+                      <input type="text" class="form-ui" placeholder="02/29/16">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <button class="options button block cancel">
+                    <i class="item-icon icon-search"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tables -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+              <div class="box-div">
+                <div class="row gutters">
+                  <div class="col-md-12">
+                    <table class="table basic table-vertical-align-top">
+                      <tr>
+                        <th>Storename</th>
+                        <th>Bank</th>
+                        <th>Account Name</th>
+                        <th>Account No.</th>
+                        <th>Email</th>
+                        <th>Contact No.</th>
+                        <th>NET</th>
+                      </tr>
+                      {% for i in 1..10 %}
+                        <tr class="modal-seller-payout-one-trigger">
+                          <td>sammyboi22_22</td>
+                          <td>Asia United Bank </td>
+                          <td>aaaaa </td>
+                          <td>bbbbb </td>
+                          <td>samgavinio+tsss@easyshop.ph</td>
+                          <td>9876545345</td>
+                          <td><strong>PHP 187.67</strong></td>
+                        </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-blank">
+                <div class="row">
+                  <div class="col-md-6">
+                  </div>
+                  <div class="col-md-6">
+                    <div class="pagination pull-right">
+                      <a class="item active">1</a>
+                      <div class="disabled item">...</div>
+                      <a class="item">10</a>
+                      <a class="item">11</a>
+                      <a class="item">12</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+</section>

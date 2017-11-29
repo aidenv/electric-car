@@ -1,0 +1,18 @@
+Yilinker\Bundle\CoreBundle\Entity\OauthClient:
+    type: entity
+    table: OauthClient
+    id:
+        id:
+            type: integer
+            id: true
+            unsigned: false
+            generator:
+                strategy: AUTO
+    fields:
+        clientName:
+            type: string
+            column: client_name
+            length: '512'
+            options:
+                default: ''
+    lifecycleCallbacks: {  }

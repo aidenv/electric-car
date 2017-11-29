@@ -1,0 +1,41 @@
+
+<div class="ui modal small total-comment-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">How to Earn More</h4>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="inverted">
+                            <th width="33%" align="center">Comment</th>
+                            <th width="33%" align="center">Earn Per Comment</th>
+                            <th width="34%" align="center">Bonus Earning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for commentRow in commentTable %}
+                        <tr>
+                            <td align="center">{{ commentRow.from ~ ' - ' ~ commentRow.to|default('above') }}</td>
+                            <td align="center">P {{ commentRow.earning|number_format(2) }}</td>
+                            <td align="center"> {{ commentRow.bonus != null ? 'P ' ~ commentRow.bonus|number_format(2) : '-' }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <div class="mrg-bt-20 align-right">
+                    <h4>Total Comments</h4>
+                    <h2 class="purple-color">{{ commentReceived|number_format(2) }}</h2>
+                </div>
+                <div class="mrg-bt-20 align-right">
+                    <h4>Earning on Comment</h4>
+                    <h2 class="purple-color">P {{ totalEarningOnComment|number_format(2) }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

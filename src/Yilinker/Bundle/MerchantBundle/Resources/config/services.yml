@@ -1,0 +1,95 @@
+services:
+
+    yilinker_merchant.api.oauth.seller_extension:
+        class: Yilinker\Bundle\MerchantBundle\Oauth\GrantExtension\SellerGrantExtension
+        calls:
+            - [setUnaccreditedMessage, [%merchant_hostname%]]
+        arguments: ['@yilinker_core_bundle.repository.user', '@yilinker_core_bundle.repository.country', '@security.password_encoder', ]
+        tags:
+            - { name: fos_oauth_server.grant_extension, uri: 'http://yilinker-online.com/grant/seller' }
+
+    yilinker_merchant.api.oauth.affiliate_extension:
+        class: Yilinker\Bundle\MerchantBundle\Oauth\GrantExtension\AffiliateGrantExtension
+        arguments: ['@yilinker_core_bundle.repository.user', '@yilinker_core_bundle.repository.country', '@security.password_encoder']
+        tags:
+            - { name: fos_oauth_server.grant_extension, uri: 'http://yilinker-online.com/grant/affiliate' }
+
+    yilinker_merchant.service.product_uploader:
+        class: Yilinker\Bundle\MerchantBundle\Services\Product\ProductUploader
+        calls:
+            - [setContainer, ['@service_container']]
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @yilinker_core.service.entity
+            - @request_stack
+            - @yilinker_core.translatable.listener
+
+    yilinker_merchant.service.product_file_uploader:
+        class: Yilinker\Bundle\MerchantBundle\Services\FileUpload\ProductFileUploader
+        calls:
+            - [setContainer, ['@service_container']]
+        arguments:
+            - @photo_storage_filesystem
+
+    yilinker_merchant.service.user.account_manager:
+        class: Yilinker\Bundle\MerchantBundle\Services\User\AccountManager
+        arguments: 
+            - @doctrine.orm.entity_manager
+            - @yilinker_core.service.upload.upload
+            - @yilinker_core.service.jwt_manager
+            - @yilinker_core.service.yla_service
+            - @yilinker_core.service.qr_code.generator
+            - @templating.helper.assets
+            - @photo_storage_filesystem
+            - @yilinker_core.service.image_manipulation
+            - @service_container
+
+    yilinker_merchant.service.user.user_follow:
+        class: Yilinker\Bundle\MerchantBundle\Services\User\UserFollowManager
+        arguments: ['@doctrine.orm.entity_manager', '@templating.helper.assets']
+
+    yilinker_merchant.service.reseller_uploader:
+        class: Yilinker\Bundle\MerchantBundle\Services\Reseller\ResellerUploader
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @photo_storage_filesystem
+            - %tax_percentage%
+            - %affiliate_percentage_commision_multiplier%
+            - null
+            - @yilinker_merchant.service.product_file_uploader
+            - @yilinker_core.translatable.listener
+            - %asset_hostname%
+
+    yilinker_merchant.kernel.listener.exception_listener:
+        class: Yilinker\Bundle\MerchantBundle\EventListener\MerchantExceptionListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+        arguments:
+            - @security.token_storage
+            - @router
+            - @twig
+            - @service_container
+
+    yilinker_merchant.kernel.listener.auth_listener:
+        class: Yilinker\Bundle\MerchantBundle\EventListener\MerchantAuthListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+        arguments:
+            - @security.token_storage
+            - @yilinker_core.security.authentication
+
+
+    yilinker_merchant.service.api.store.store_api:
+        class: Yilinker\Bundle\MerchantBundle\Services\Api\Store\StoreApiService
+        arguments: 
+            - @doctrine.orm.entity_manager
+            - @yilinker_core.service.qr_code.generator
+            - @templating.helper.assets
+            - @service_container
+
+    yilinker_merchant.service.api.affiliate_product:
+        class: Yilinker\Bundle\MerchantBundle\Services\Api\AffiliateProductService
+        arguments: 
+            - @doctrine.orm.entity_manager
+            - @service_container
+            - @templating.helper.assets

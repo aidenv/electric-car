@@ -1,0 +1,13 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body_container %}
+    {{ include('YilinkerBackendBundle:sections:markup.html.twig') }}
+    {{ include('YilinkerBackendBundle:modal:modal.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/backend/admin-dashboard.js') }}"></script>
+{% endblock %}

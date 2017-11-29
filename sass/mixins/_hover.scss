@@ -1,0 +1,5 @@
+@mixin basic-hover($color, $background-color, $border){
+	color: $color;
+	background: $background-color;
+	border-color: $border;
+}

@@ -1,0 +1,86 @@
+<section class="box-section">
+	<div class="title-bar">
+		<div class="container">
+			<span>In-House Listings</span>
+		</div>
+	</div>
+	<div class="container">
+	  <!-- Tools -->
+	  {{ include('YilinkerBackendBundle:InHouse:inhouse_filter.html.twig', {
+		  totalResults:productsData.totalResultCount,
+		  brands:brands,
+		  categories:categories,
+		  manufacturer:manufacturer
+	  })}}
+
+	  <!-- Tables -->
+	  <div class="row">
+		<div class="box-upper">
+		  <div class="col-md-12">
+			  <div class="box-div">
+				<div class="row gutters">
+				  <div class="col-md-12">
+					<table class="table basic table-vertical-align-top">
+					  <tr>
+					  	<th>Id</th>
+						<th>Date Created</th>
+						<th>Item</th>
+						<th>Store Name</th>
+						<th>Category</th>
+						<th>Brand</th>
+						<th>SKU</th>
+						<th>Brief</th>
+						<th>Status</th>
+					  </tr>
+					  {% for product in productsData.products %}
+						<tr data-inhouse-product-row="{{ product.productId }}">
+						  <td>{{ product.productId }}</td>
+						  <td>{{ product.dateCreated|date('F d, Y') }}</td>
+						  <td>{{ product.name }}</td>
+							{#<td>{{ product.manufacturer.name }}</td>#}
+							<td></td>
+						  <td>{{ product.flattenedCategory.categoryName }}</td>
+						  <td>{{ product.brandName }}</td>
+						  <td>{{ product.skus|join() }}</td>
+						  <td>{{ product.shortDescription }}</td>
+						  {% if product.status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::ACTIVE')) %}
+							<td>Active</td>
+						  {% elseif product.status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::INACTIVE')) %}
+							<td>Inactive</td>
+						  {% endif %}
+						</tr>
+					  {% endfor %}
+					</table>
+				  </div>
+				</div>
+
+			  </div>
+			</div>
+
+		</div>
+	  </div>
+
+	  <!-- Bottom Tools -->
+	  <div class="row">
+		  <div class="box-upper">
+			<div class="col-md-12">
+			  <div class="box-blank">
+				  <div class="row">
+					<div class="col-md-12">
+					  {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {
+						totalResults:productsData.totalResultCount,
+						perPage: limit})
+					  }}
+					</div>
+				  </div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+	</div>
+
+</section>
+
+
+{{ include('YilinkerBackendBundle:InHouse:inhouse_modal.html.twig') }}

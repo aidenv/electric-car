@@ -1,0 +1,148 @@
+<div class="row mrg-bt-20 large-font">
+    <div class="col-sm-6">
+        <div class="mrg-top-10">
+            <span class="bold">Case ID: </span>
+            {{ payout.dispute ? payout.dispute.ticket: '' }}
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="mrg-top-10">
+            <span class="bold">Buyer Name: </span>
+            {{ payout.user.fullName }}
+        </div>
+    </div>
+     <div class="col-sm-6">
+        <div class="mrg-top-10">
+            <span class="bold">Buyer Email: </span>
+            {{ payout.user.email ? payout.user.email : '' }}
+        </div>
+    </div>
+     <div class="col-sm-6">
+        <div class="mrg-top-10">
+            <span class="bold">Buyer Contact Number: </span>
+            {{ payout.user.contactNumber }}
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="mrg-top-10">
+            <span class="bold">Date Request: </span>
+            {{ payout.dispute ? payout.dispute.dateAdded | date('m/d/Y'): '' }}
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="mrg-top-10">
+            <span class="bold">Date Processed: </span>
+            {{ payout.dateCreated | date('m/d/Y') }}
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="mrg-top-10">
+            <span class="bold">Processed By: </span>
+            {{ payout.adminUser.fullName }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table basic table-vertical-align-top mrg-bt-30">
+            <thead>
+              <tr>
+                  <th>Date</th>
+                  <th>Order Product Id</th>
+                  <th>Buyer</th>
+                  <th>Product Name</th>
+                  <th>Order Quantity</th>
+                  <th>Unit Price</th>
+                  <th>Shipping Price</th>
+                  <th>Total Amount</th>
+                  <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="historyInformationModal-orderProductDetailsContainer">
+                {% for payoutOrderProduct in payout.payoutOrderProducts %}
+                    <tr>
+                        <td>
+                            {{ payoutOrderProduct.orderProduct.dateAdded | date('m/d/Y') }}
+                        </td>
+                        <td>
+                            {{ payoutOrderProduct.orderProduct.orderProductid }}
+                        </td>
+                        <td>
+                            {{ payout.user.fullName }}
+                        </td>
+                        <td>
+                            {{ payoutOrderProduct.orderProduct.productName }}
+                        </td>
+                        <td>
+                            {{ payoutOrderProduct.orderProduct.quantity }}
+                        </td>
+                        <td>
+                            P {{ payoutOrderProduct.orderProduct.unitPrice | number_format(2) }}
+                        </td>
+                        <td>
+                            P 100.00
+                        </td>
+                        <td>
+                            P {{ payoutOrderProduct.orderProduct.totalPrice | number_format(2) }}
+                        </td>
+                        <th>
+                            {{ payoutOrderProduct.orderProduct.orderProductStatus }}
+                        </th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table basic table-vertical-align-top mrg-bt-30">
+            <thead>
+              <tr>
+                  <th>Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for refundNote in payout.refundNotes %}
+                    <tr>
+                        <td>
+                            {{ refundNote.note }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table basic table-vertical-align-top mrg-bt-30">
+            <thead>
+              <tr>
+                  <th>Deposit Slip</th>
+              </tr>
+            </thead>
+            <tbody id="historyInformationModal-historyContainer">
+                {% for payoutDocument in payout.payoutDocuments %}
+                    <tr>
+                        <td>
+                            <img src="{{ asset(payoutDocument.filepath, 'payout') }}" class="img-responsive">
+                            <br>
+                            <br>
+                            <a href="{{ asset(payoutDocument.filepath, 'payout') }}" download>
+                                 <b>Click here </b>
+                            </a>to download image
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            <a target="_blank" href="{{ path('yilinker_backend_buyer_refund_overview_print', {'payout':payout.payoutId}) }}" class="bold">Click here</a> to print this refund history information.
+        </p>
+    </div>
+</div>

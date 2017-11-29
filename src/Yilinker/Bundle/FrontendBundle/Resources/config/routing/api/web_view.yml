@@ -1,0 +1,36 @@
+
+flash_sale_webview:
+    path: /flash-sale
+    defaults: { _controller: YilinkerFrontendBundle:Api/WebViewApi:flashSale }
+
+get_flash_sale_products:
+    path: /flash-sale/products
+    defaults: { _controller: YilinkerFrontendBundle:Api/WebViewApi:flashSaleProducts }
+
+category_webview:
+    path: /mobile-category
+    defaults: { _controller: YilinkerFrontendBundle:Api/WebViewApi:renderCategoryWebView }
+
+store_webview:
+    path: /mobile-stores
+    defaults: { _controller: YilinkerFrontendBundle:Api/WebViewApi:renderStoresWebView }
+
+get_store_webview:
+    path: /mobile-stores/get-stores
+    defaults: { _controller: YilinkerFrontendBundle:Api/WebViewApi:getStores }
+
+product_list_webview:
+    path: /mobile-product-list
+    defaults: { _controller: YilinkerFrontendBundle:Api/WebViewApi:productList }
+
+get_products_webview:
+    path: /mobile-product-list/get
+    defaults: { _controller: YilinkerFrontendBundle:Api/WebViewApi:getProductsByNode }
+
+download_app_webview:
+    path: /download-app
+    defaults: { _controller: YilinkerFrontendBundle:Api/WebViewApi:downloadApp }
+
+featured_products:
+    path: /featured-products
+    defaults: { _controller: YilinkerFrontendBundle:Api/WebViewApi:featuredProducts }

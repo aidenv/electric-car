@@ -1,0 +1,135 @@
+Yilinker\Bundle\CoreBundle\Entity\ManufacturerProductUnit:
+    type: entity
+    table: ManufacturerProductUnit
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ManufacturerProductUnitRepository
+    indexes:
+        fk_manufacturerproductunit_manufacturerproductid_manufacturerproduct_manufacturerproductid_idx:
+            columns:
+                - manufacturer_product_id
+    id:
+        manufacturerProductUnitId:
+            type: integer
+            id: true
+            column:
+                manufacturer_product_unit_id
+            options:
+                unsigned: false
+            generator:
+                strategy: IDENTITY
+    fields:
+        referenceId:
+            type: string
+            length: 255
+            column: reference_id
+            options:
+                default: ''
+        quantity:
+            type: integer
+            options:
+                default: '0'
+        sku:
+            length: 255
+            options:
+                default: ''
+        price:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: price
+            options:
+                default: '0.00'
+        discountedPrice:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: discounted_price
+            options:
+                default: '0.00'
+        retailPrice:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: retail_price
+            nullable: true
+        commission:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: commission
+            nullable: true
+        unitPrice:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: unit_price
+            options:
+                default: '0.00'            
+        dateCreated:
+            type: datetime
+            column: date_created
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+        status:
+            type: integer
+            unsigned: true
+            options:
+                default: '0'
+        moq:
+            type: integer
+            unsigned: true
+            options:
+                default: '0'
+        weight:
+            type: decimal
+            nullable: true
+            precision: 5
+            scale: 2
+            options:
+                default: '0'
+        length:
+            type: decimal
+            nullable: true
+            precision: 5
+            scale: 2
+            options:
+                default: '0'
+        width:
+            type: decimal
+            nullable: true
+            precision: 5
+            scale: 2
+            options:
+                default: '0'
+        height:
+            type: decimal
+            nullable: true
+            precision: 5
+            scale: 2
+            options:
+                default: '0'
+        shippingFee:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: shipping_fee
+            options:
+                default: '0.00'
+        isInventoryConfirmed:
+            type: boolean
+            column: is_inventory_confirmed
+            options:
+                default: false
+    manyToOne:
+        manufacturerProduct:
+            targetEntity: ManufacturerProduct
+            inversedBy: units
+            joinColumn:
+                name: manufacturer_product_id
+                referencedColumnName: manufacturer_product_id
+            orphanRemoval: false
+    oneToMany:
+        manufacturerProductAttributeValues:
+            targetEntity: ManufacturerProductAttributeValue
+            mappedBy: manufacturerProductUnit
+    lifecycleCallbacks: {  }

@@ -1,0 +1,256 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Product Inventory List
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+
+<div class="dashboard-body-container white">
+    <div class="dashboard-submenu-wrapper">
+        <div class="dashboard-submenu-container">
+            <a href="{{ url('merchant_user_warehouse') }}" class="button basic-default button-rounded-side no-margin"> <b>&larr;</b> Go back to Warehouse List</a>
+        </div>
+    </div>
+    <div class="dashboard-component top">
+        <div class="component-content">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>{{warehouse.name}}</h4>
+                    <p class="breakword-white-space">
+                        {{warehouse}}
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Country : </b>
+                        </div>
+                        <div class="col-md-6">
+                            <i class="flag-icon flag-icon-{{warehouse.getCountry().code}} icon-lg"></i>{{warehouse.getCountry()}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Province : </b>
+                        </div>
+                        <div class="col-md-6">
+                            {{warehouse.getProvince()}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>City/Municipality : </b>
+                        </div>
+                        <div class="col-md-6">
+                            {{warehouse.getCity()}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Baranggay/District : </b>
+                        </div>
+                        <div class="col-md-6">
+                            {{warehouse.location.location}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>Zip Code : </b>
+                        </div>
+                        <div class="col-md-6">
+                            {{warehouse.zipCode}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <form>
+                        <div class="form">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="bold mrg-top-10">Search:</label>
+                                    <div class="input-icon left">
+                                        <i class="icon icon-search"></i>
+                                        <input value="{{app.request.get('query')}}" name="query" type="text" class="form-ui inverted" placeholder="Search product here">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="bold">Product Category:</label>
+                                    <select class="form-ui ui single selection dropdown inverted"
+                                        name="category">
+                                        <option value=""> Select product category </option>
+                                        {% for category in categories %}
+                                            <option value="{{category.productCategoryId}}"
+                                                {% if app.request.get('category') == category.productCategoryId %}
+                                                    selected="selected" 
+                                                {% endif %}
+                                            >
+                                                {{category}}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="bold">Product Group:</label>
+                                    <select class="form-ui ui single selection dropdown inverted"
+                                        name="group">
+                                        <option value=""> Select product group </option>
+                                        {% for group in app.user.productGroups %}
+                                            <option value="{{group.userProductGroupId}}"
+                                                {% if app.request.get('group') == group.userProductGroupId %}
+                                                    selected="selected" 
+                                                {% endif %}
+                                            >{{group.name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                        <label class="bold">Product Status:</label>
+                                        <select
+                                            class="form-ui ui single selection dropdown inverted"
+                                            name="status"
+                                        >
+                                            <option value=""> Select product status </option>
+                                            {% for key, status in productStatuses %}
+                                                <option value="{{key}}"
+                                                    {% if app.request.query.has('status')
+                                                        and app.request.get('status') == key %}
+                                                        selected="selected" 
+                                                    {% endif %}
+                                                >{{status}}</option>
+                                            {% endfor %}
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form no-margin">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="button blue">
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard-component">
+        <div class="title-bar">
+            <div class="component-content">
+                <div class="row">
+                    <div class="col-xs-8"><span class="uppercase"> Product List </span></div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr class="inverted">
+                    <th align="center">#</th>
+                    <th align="center" width="20%">SKU</th>
+                    <th width="40%">Product Name</th>
+                    <th align="center">System Inventory</th>
+                    <th  align="center">Actual Inventory</th>
+                    <th  align="center" width="100">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for productUnit in inventoryProducts %}
+                    {% set product = productUnit.product %}
+                    {% set quantity = productUnit.getWarehouseQuantity(warehouse) %}
+                    <tr>
+                        <td align="center">
+                           {{loop.index + (app.request.get('page', 1) - 1) * inventoryProducts.query.maxResults }}
+                        </td>
+                        <td align="center">
+                            {{productUnit.sku}}
+                        </td>
+                        <td>
+                            {{product.name}}
+                            <br>
+                            {% for attribute in productUnit.productAttributeValues%}
+                                <span class="badge">
+                                    <b>{{attribute.productAttributeName}}: </b>{{attribute.value}}
+                                </span>
+                            {% endfor %}
+                        </td>
+                        <td align="center">
+                            <span data-quantity="{{quantity}}" class="quantity-value">{{quantity}}</span>
+                        </td>
+                        <td align="center">
+                            <span class="value quantity-value">{{quantity}}</span>
+                            <input type="text" class="quantity form-ui align-center hidden" placeholder="{{quantity}}" value="{{quantity}}">
+                        </td>
+                        <td align="center">
+                            <button class="button blue small edit-actual-inventory">
+                                <i class="icon icon-edit"></i> Edit
+                            </button>
+                            <button data-product-unit="{{productUnit.productUnitId}}" data-warehouse="{{warehouse.userWarehouseId}}" class="button confirm small save-actual-inventory hidden">
+                                <i class="icon icon-check"></i> Save
+                            </button>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6" align="center">
+                            No data available
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!--Pagination-->
+        <div class="product-pagination-container align-center mrg-top-20">
+            <div class="pagination-full">
+                {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {
+                    totalResults: inventoryProducts.count,
+                    perPage: inventoryProducts.query.maxResults
+                }) }}
+            </div>
+        </div>
+    </div>
+    <div class="dashboard-component bottom">
+        <div class="title-bar"></div>
+        <div class="component-content">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Update Product Inventory</h4>
+                    <p class="light-color">You may update your product inventory by manual encode for by import inventory template files</p>
+                </div>
+                <div  class="col-md-6 align-right">
+                    <div class="form align-right">
+                        <a href="{{ path('merchant_user_warehouse_inventory_export', {warehouseId: warehouse.userWarehouseId}) }}" class="button fat wide-fixed blue mrg-bt-10 export-inventory-data">
+                            <i class="icon icon-download icon-lg"></i> Export Inventory Data
+                        </a>
+                        <br/>
+                        <button class="button fat wide-fixed gray import-inventory-data">
+                            <i class="icon icon-upload icon-lg"></i> Import Inventory Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ include('YilinkerMerchantBundle:Dashboard/modal:import_inventory.html.twig') }}
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="{{ asset('js/src/utility/loader.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/dashboard-product-inventory-data.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/import-inventory.js') }}"></script>
+{% endblock %}

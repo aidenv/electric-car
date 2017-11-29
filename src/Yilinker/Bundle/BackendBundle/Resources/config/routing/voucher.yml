@@ -1,0 +1,17 @@
+admin_voucher_list:
+    path: /vouchers
+    defaults: { _controller: YilinkerBackendBundle:Voucher:list }
+
+admin_voucher_edit:
+    path: /voucher/edit
+    defaults: { _controller: YilinkerBackendBundle:Voucher:edit }
+
+admin_generate_code:
+    path: /voucher/generate-code
+    defaults: { _controller: YilinkerBackendBundle:Voucher:generateCode }
+
+product_details:
+    path: /item/{slug}
+
+store_page_products:
+    path: /{slug}

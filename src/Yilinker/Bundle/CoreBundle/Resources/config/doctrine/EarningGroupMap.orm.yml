@@ -1,0 +1,31 @@
+Yilinker\Bundle\CoreBundle\Entity\EarningGroupMap:
+    type: entity
+    table: EarningGroupMap
+    indexes:
+        fk_earninggroupmap_earningtypeid_earningtype_earningtypeid_idx:
+            columns:
+                - earning_type_id
+        fk_earninggroupmap_earninggroupid_earninggroup_earninggroupid_idx:
+            columns:
+                - earning_type_id
+    id:
+        earningGroupMapId:
+            type: integer
+            id: true
+            column: earning_group_map_id
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        earningType:
+            targetEntity: EarningType
+            joinColumn:
+                name: earning_type_id
+                referencedColumnName: earning_type_id
+            orphanRemoval: false
+        earningGroup:
+            targetEntity: EarningGroup
+            joinColumn:
+                name: earning_group_id
+                referencedColumnName: earning_group_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

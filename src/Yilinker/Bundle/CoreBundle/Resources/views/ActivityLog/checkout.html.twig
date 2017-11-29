@@ -1,0 +1,38 @@
+<tr>
+    <td width="90">{{ activity.dateAdded('g:i A') }}</td>
+    <td colspan="2">
+        <p>
+            <em>
+                {% set paymentMethod = activity.activityData.paymentMethod is defined ? activity.activityData.paymentMethod.name : '' %}
+                Checked out item(s) through <strong>{{ paymentMethod }}</strong>
+            </em>
+        </p>
+        {% if activity.activityData.orderProducts is defined and activity.activityData.orderProducts %}
+            <ul>
+                {% for orderProduct in activity.activityData.orderProducts %}
+                    <li>
+                        <strong>
+                            (x{{ orderProduct.quantity }})
+                            {{ orderProduct.productName }}
+                        </strong>
+                        {% set attributes = orderProduct.attributes|json_decode(true) %}
+                        {% if attributes %}
+                            -
+                            {% for attrName, attrValue in attributes %}
+                                {{ attrName }}: {{ attrValue }}
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if orderProduct.seller.store is defined %}
+                            from
+                            {{ orderProduct.seller.store.storeName }}
+                        {% elseif orderProduct.seller is defined %}
+                            from
+                            {{ orderProduct.seller.firstName }} {{ orderProduct.seller.lastName }}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </td>
+</tr>

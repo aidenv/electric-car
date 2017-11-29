@@ -1,0 +1,42 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+        <title>Yilinker - Category</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Maven+Pro">
+        <link rel="stylesheet" href="{{ asset('css/webview.css') }}" media="screen,print">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="{{ asset('js/src/frontend/category_view.js') }}"></script>
+    </head>
+    <body>
+        <div class="body-mobile">
+            <section class="row category-container">
+                <nav class="col-xs-4">
+                    <ul>
+                        {% if categories|length > 0 %}
+                            {% for category in categories %}
+                                <li rel="{{ category.main.productCategoryId }}"><span>{{ category.main.name }}</span></li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% if categories|length > 0 %}
+                    {% for category in categories %}
+                        <div class="col-xs-8 category-content" id="{{ category.main.productCategoryId }}">
+                        {% for childCategory in category.childCategories %}
+                            {% if childCategory.image is not empty %}                            
+                            <div class="col-xs-6">
+                                <a data-mobile-href="{{ path('api_v3_product_list', {'country_code' : v3path.country_code, 'language_code': v3path.language_code,'categoryId': childCategory.productCategoryId}) }}" href="{{ path('api_v3_product_list', {'country_code' : v3path.country_code, 'language_code': v3path.language_code, 'categoryId': childCategory.productCategoryId}) }}" data-categoryid="{{ childCategory.productCategoryId }}">
+                                    <img src="{{ asset(childCategory.image, 'category' ) }}">
+                                    <p><span>{{ childCategory.name }}</span></p>
+                                </a>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </section>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,166 @@
+ul{
+    &.list-unstyled{
+        list-style-type: none;
+    }
+
+    &.list-bulleted{
+    	list-style-type: disc;
+    }
+}
+
+.align-center{
+    text-align: center;
+}
+
+.align-left{
+    text-align: left;
+}
+
+.align-right{
+    text-align: right;
+}
+
+.text-purple{
+    color: $brand-purple;
+}
+
+.light-color{
+    color: lighten($brand-gray, 10%);
+}
+
+.purple-color{
+    color: $brand-purple;
+}
+
+.blue-color{
+    color: $brand-blue;
+}
+
+.yellow-color{
+    color: $brand-yellow;
+}
+
+.green-color{
+    color: $brand-green;
+}
+
+.white-color{
+    color: #fff;
+}
+
+.red-color{
+    color: $brand-red;
+}
+
+.default-color{
+    color: $text-color;
+}
+
+.sky-blue-color{
+    color: $brand-sky-blue;
+}
+
+.normal-weight{
+    font-weight: normal;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.mrg-top-5 {
+  margin-top: 5px !important;;
+}
+
+.mrg-top-10 {
+  margin-top: 10px !important;;
+}
+
+.mrg-top-20 {
+  margin-top: 20px !important;;
+}
+
+.mrg-rt-10 {
+  margin-right: 10px !important;
+}
+
+.mrg-bt-5 {
+  margin-bottom: 5px !important;;
+}
+
+.mrg-bt-10 {
+  margin-bottom: 10px !important;;
+}
+
+.mrg-bt-20 {
+  margin-bottom: 20px !important;;
+}
+
+.mrg-bt-30 {
+  margin-bottom: 30px !important;;
+}
+
+.pd-left-10{
+    padding-left: 10px !important;;
+}
+
+.pd-right-10{
+    padding-right: 10px !important;;
+}
+
+.block{
+    display: block;
+}
+
+.no-margin{
+    margin: 0 !important;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.light{
+    font-weight: normal !important;
+}
+
+.semi-bold{
+    font-weight: 500;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+.breakword{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.ellipsis-overflow{
+    max-width: 100%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.no-text-overflow{
+    width: 100%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.large-font{
+    font-size: 1.25em;
+}
+
+.small-font{
+    font-size: 0.83em;
+}

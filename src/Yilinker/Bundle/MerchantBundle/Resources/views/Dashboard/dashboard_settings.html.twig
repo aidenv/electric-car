@@ -1,0 +1,165 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block dashboard_stylesheets %}
+    <link href="{{ asset('css/bower/checkbox.min.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block dashboard_body %}
+        <div class="dashboard-body-container white">
+            <div class="dashboard-component top">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Notifications</span>
+                    </div>
+                </div>
+                <!--Notification settings-->
+                <div class="component-content">
+                    <table class="table table-setting-content">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="setting-segment-head">
+                                                <div class="setting-segment-head-item align-left ">
+                                                    <h4 class="semi-bold">
+                                                        SMS Notifications
+                                                    </h4>
+                                                </div>
+                                                <div class="setting-segment-head-item align-right">
+                                                    <div class="ui green toggle checkbox pull-right">
+                                                        <input type="checkbox" class="enable-sms-checkbox" {% if isSubscribed %} checked {% endif %}>
+                                                        <label>&nbsp;</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <p class="about-paragraph">
+                                                Aside from your email, you'll also receive marketing announcements on your mobile by default. You can choose whether you want to receive SMS notifications.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Account setting</span>
+                    </div>
+                </div>
+                <!--Account settings-->
+                <div class="component-content">
+                    <table class="table table-setting-content">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="setting-segment-head">
+                                                <div class="setting-segment-head-item align-left ">
+                                                    <h4 class="semi-bold">
+                                                        Deactivate My Account
+                                                    </h4>
+                                                </div>
+                                                <div class="setting-segment-head-item align-right">
+                                                    <div class="ui green toggle checkbox pull-right">
+                                                        <input type="checkbox" class="disable-account-checkbox">
+                                                        <label>&nbsp;</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <p class="about-paragraph">
+                                                We'd really hate to see you go but, you still get to decide whether you want to keep your account active or deactivate it. Other people with whom you have transacted with will still have a record of your transactions details including, but not limited to your name & contact number. You will also receive an email that contains a reactivation link should you wish to reactivate your account at a future time.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui modal tiny deactivate-confirm-password-modal">
+            <a class="close"><i class="icon-times"></i></a>
+            <form name="verify-contact-number" class="form ui verify-contact-number-form">
+                <div class="content">
+                    <div class="password-verify-prompt error" style="display:none;">
+                        <div class="row">
+                            <div class="message-box red with-close-message">
+                                The password you entered is invalid.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden message-box red with-close-message verify-contact-number-errors"></div>
+                    <p class="light mrg-bt-20 light-color">
+                        Please enter your password to confirm your account deactivation.
+                    </p>
+                    <div class="form">
+                        <label for="" class="required">Password</label>
+                        <input type="password" name="password" class="form-ui password-input" placeholder="Enter your password here"/>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="button cancel uppercase">Cancel</button>
+                    <button type="submit" class="button blue submit-to-success uppercase approve">Deactivate</button>
+                </div>
+            </form>
+        </div>
+
+        
+        <div class="ui modal tiny success-deactivation-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                        <div class="content">
+                            Account has been successfully deactivated.
+                        <div class="sub-header">A reactivation email has been to your email should you wish to reneable your account.You will be logged out now.</div>
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button confirm close">Okay</button>
+            </div>
+        </div>
+
+        <div class="ui modal tiny sms-subscription-confirm-modal">
+          <a class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                  <div class="content">
+                       Are you sure you want to proceed?
+                       <div class="sub-header">
+                            You are about to change the subscription status of your active mobile number.
+                       </div>
+                  </div>
+                </h4>
+            </div>
+            <div class="actions">
+                 <button class="button cancel uppercase">Cancel</button>
+                 <button type="submit" class="button blue submit-to-success uppercase approve">Continue</button>
+            </div>
+        </div>
+
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/src/dashboard-settings.js') }}"></script>
+{% endblock %}

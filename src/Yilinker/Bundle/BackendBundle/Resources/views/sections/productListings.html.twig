@@ -1,0 +1,108 @@
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Product Listings</span>
+        </div>
+    </div>
+    <div class="container">
+      <!-- Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="tools top form">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="userlist options">
+                    <p>  <i class="item-icon icon-navigation-bar pull-left"></i> Number of Product Listings: <strong>10145</strong></p>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="options">
+                    <div class="labeled-input right">
+                      <input type="text" class="form-ui" placeholder="Search">
+                      <div class="label black"><i class="item-icon icon-search"></i></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <select name="" id="" class="form-ui ui search single selection dropdown">
+                      <option value="">Filters</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tables -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+              <div class="box-div">
+                <div class="row gutters">
+                  <div class="col-md-12">
+                    <table class="table basic table-vertical-align-top">
+                      <tr>
+                        <th>Date Created</th>
+                        <th>Item</th>
+                        <th>Store Name</th>
+                        <th>Category</th>
+                        <th>Brand</th>
+                        <th>SKU</th>
+                        <th>Brief</th>
+                        <th>Condition</th>
+                        <th>URL</th>
+                      </tr>
+                      {% for i in 1..10 %}
+                        <tr class="modal-product-listing-trigger">
+                          <td>2014-08-15 12:23:16</td>
+                          <td>sfasfas</td>
+                          <td>man of effin steel</td>
+                          <td>Building Toys</td>
+                          <td>Custom</td>
+                          <td>122121</td>
+                          <td>212</td>
+                          <td>New other (see details)</td>
+                          <td>https://easyshop.ph.trunk/item/sfasfas</td>
+                        </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-blank">
+                <div class="row">
+                  <div class="col-md-6">
+                  </div>
+                  <div class="col-md-6">
+                    <div class="pagination pull-right">
+                      <a class="item ">1</a>
+                      <div class="disabled item">...</div>
+                      <a class="item">10</a>
+                      <a class="item">11</a>
+                      <a class="item">12</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+</section>

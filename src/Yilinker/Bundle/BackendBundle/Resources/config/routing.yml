@@ -1,0 +1,80 @@
+yilinker_backend_home:
+    resource: "routing/home.yml"
+    prefix: /
+
+yilinker_backend_login:
+    resource: "routing/admin.yml"
+    prefix: /
+
+yilinker_backend_user:
+    resource: "routing/user.yml"
+    prefix: /
+
+yilinker_backend_product:
+    resource: "routing/product.yml"
+    prefix: /product
+
+yilinker_backend_transaction:
+    resource: "routing/transaction.yml"
+    prefix: /
+
+yilinker_backend_resolution_center:
+    resource: "routing/resolution_center.yml"
+    prefix: /
+
+yilinker_backend_accreditation:
+    resource: "routing/accreditation.yml"
+    prefix: /accreditation
+
+yilinker_backend_promo:
+    resource: "routing/promo.yml"
+    prefix: /promo
+
+yilinker_backend_seller_register:
+    resource: "routing/seller_register.yml"
+    prefix: /
+
+yilinker_backend_inhouse:
+    resource: "routing/inhouse.yml"
+    prefix: /
+
+yilinker_backend_cms:
+    resource: "routing/cms.yml"
+    prefix: /cms
+
+yilinker_backend_payout:
+    resource: "routing/payout.yml"
+    prefix: /
+
+yilinker_backend_feedback:
+    resource: "routing/feedback.yml"
+    prefix: /
+
+yilinker_backend_push_notification:
+    resource: "routing/push_notification.yml"
+    prefix: /push-notification
+
+yilinker_backend_chat:
+    resource: "routing/chat.yml"
+    prefix: /
+
+yilinker_backend_sms:
+    resource: "routing/sms.yml"
+    prefix: /sms
+
+#API
+
+yilinker_backend_express:
+    resource: "routing/api/express.yml"
+    prefix: /
+
+yilinker_backend_trading:
+    resource: "routing/api/trading.yml"
+    prefix: /
+
+
+#Should be the last entry
+    
+yilinker_backend_voucher:
+    resource: "routing/voucher.yml"
+    prefix: /    

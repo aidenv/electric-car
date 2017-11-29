@@ -1,0 +1,29 @@
+Yilinker\Bundle\CoreBundle\Entity\CategoryAttributeName:
+    type: entity
+    table: CategoryAttributeName
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\CategoryAttributeNameRepository
+    indexes:
+        fk_categoryattirbutename_productcategoryid_productcategory_productcategoryid_idx:
+            columns:
+                - product_category_id
+    id:
+        categoryAttributeNameId:
+            type: bigint
+            id: true
+            column: category_attribute_name_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            options:
+                default: ''
+    manyToOne:
+        productCategory:
+            targetEntity: ProductCategory
+            joinColumn:
+                name: product_category_id
+                referencedColumnName: product_category_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

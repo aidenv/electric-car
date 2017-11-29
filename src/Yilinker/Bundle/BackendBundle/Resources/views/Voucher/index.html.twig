@@ -1,0 +1,25 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body_container %}
+    <section class="box-outer">
+        <div class="box-wrapper">
+            {{ include('YilinkerBackendBundle:Voucher:list.html.twig') }}
+        </div>
+    </section>
+
+    {{ include('YilinkerBackendBundle:Voucher:modal.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+  {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/voucher-management.js"
+    "js/src/utility/loader.js"
+    "js/src/backend/admin-dashboard.js"
+    "js/src/utility/data-feeder.js"
+    "js/src/form/voucher-form.js"
+  %}
+  <script src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+{% endblock %}

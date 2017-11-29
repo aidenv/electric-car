@@ -1,0 +1,18 @@
+@media screen and (max-width: 768px){
+    .mobile-case-table {
+        overflow-x: scroll;
+        table {
+            width: 800px;
+        }
+    }
+    .mobile-case-modal {
+        .header {
+            small {
+                display: block;
+                float: none !important;
+                margin-left: 0;
+                margin-top: 1em;
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="box-upper">
+        <div class="col-md-12">
+            <div class="box-div">
+                <div class="row gutters">
+                    <div class="col-md-12">
+                        <table class="table basic table-vertical-align-top">
+                            <thead>
+                              <tr>
+                                  <th>Case ID</th>
+                                  <th>Date Request</th>
+                                  <th>Date Processed</th>
+                                  <th>Buyer</th>
+                                  <th>Amount</th>
+                                  <th>Processed By</th>
+                                  <th>Remarks</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                {% for payout in refundHistory %}
+                                    <tr data-refund-history-row="{{ payout.payoutId }}">
+                                        <td>{{ payout.dispute ? payout.dispute.ticket: '' }}</td>
+                                        <td>{{ payout.dispute ? payout.dispute.dateAdded | date('m/d/Y'): '' }}</td>
+                                        <td>{{ payout.dateCreated | date('m/d/Y') }}</td>
+                                        <td>
+                                            {{ payout.user.fullName }}
+                                            <p class="light-color small-font mrg-top-5">
+                                                {% if payout.user.email %}
+                                                    {{ payout.user.email }} <br>
+                                                {% endif %}
+                                                {{ payout.user.contactNumber }}
+                                            </p>
+                                        </td>
+                                        <td>P {{ payout.amount | number_format(2) }}</td>
+                                        <td>{{ payout.adminUser.fullName }}</td>
+                                        <!--Limit to 100 characters then replace with ellipsis-->
+                                        <td width="30%">
+                                            {% for refundNote in payout.refundNotes %}
+                                                {{ refundNote.note }}
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

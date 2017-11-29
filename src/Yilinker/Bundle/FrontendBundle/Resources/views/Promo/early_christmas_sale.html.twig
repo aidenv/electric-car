@@ -1,0 +1,592 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+     Early Christmas Sale
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    <div class="landing wrapper static-wrapper christmas">
+        <div class="block align-center header">
+            <img src="{{ asset('images/promo/christmas/header.jpg') }}" alt="" class="main-banner big-banner">
+        </div>
+        <div class="container pad-top-5em pad-bt-1em">
+                <div class="align-center pad-bt-1em intro">
+                    <p><i>The holiday season definitely came early today with YiBo’s Christmas Wishes!</i></p>
+                    <span><i>Get an early present from YiLinker by following the steps below!</i></span>
+                </div>
+                <div class="row">
+                    <div class="col-ms-1 col-md-1"></div>
+                    <div class="col-xs-12 col-ms-8 col-md-8 mechanics">
+                        <div class="content">
+                            <p><strong>Promo Mechanics:</strong></p>
+                            <ol>
+                                <li>Like YiLinker Philippines on Facebook.</li>
+                                <li>(5) gifts will be featured on the page for the whole week.</li>
+                                <li>Make a wish to YiBo by answering this question: "Who deserves this awesome gift for Christmas? <br>Tell us why you chose this person."</li>
+                                <li>Comment and tag the person you chose using this caption "YiBo, please give [name] this gift because [reason.]"</li>
+                                <li>(3) fans with the most creative reasons will win vouchers to purchase the item they desire, while one fan will win <br>the item for free as well as one voucher to purchase any of the Early Christmas Items of their choice.</li>
+                            </ol>
+                            <br>
+                            <p><strong>Terms &amp; Conditions:</strong></p>
+                            <ol>
+                                <li>The featured items are only available within the given period and until supplies last.</li>
+                                <li>Voucher code is only applicable to the featured items.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-ms-1 col-md-1"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/milk-bottle-two-port-powerbank-10-000mah-1">
+                                    Milk Bottle Two-Port Powerbank
+                                </a>
+                            </h4>
+                            <i>Gadget</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/milk-bottle-two-port-powerbank-10-000mah-1">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-15.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 555.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/one-leaf-journal">
+                                    One Leaf Journal
+                                </a>
+                            </h4>
+                            <i>Stationery</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/one-leaf-journal">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-19.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 120.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/art-stuff">
+                                    Art Stuff
+                                </a>
+                            </h4>
+                            <i>Stationery</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/art-stuff">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-20.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 99.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/writing-collection">
+                                    Writing Collection
+                                </a>
+                            </h4>
+                            <i>Stationery</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/writing-collection">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-22.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 217.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/volcanic-aromatherapy-humidifier-1">
+                                    Aromatherapy Humidifier
+                                </a>
+                            </h4>
+                            <i>Home</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/volcanic-aromatherapy-humidifier-1">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-16.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 385.00</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear rm-clear"></div>
+
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/character-designed-keyboard-pad-1">
+                                    Character Designed Keyboard Pad
+                                </a>
+                            </h4>
+                            <i>Gadget</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/character-designed-keyboard-pad-1">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-17.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 115.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/big-screw-tissue-storage-1">
+                                    Big Screw Tissue Storage
+                                </a>
+                            </h4>
+                            <i>Home</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/big-screw-tissue-storage-1">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-14.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 55.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/ceramic-mug-set-1">
+                                    Ceramic Mug Set
+                                </a>
+                            </h4>
+                            <i>Cups</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/ceramic-mug-set-1">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-24.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 115.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/magnetic-keys-holder-1">
+                                    Magnetic Keys Holder
+                                </a>
+                            </h4>
+                            <i>Gadget</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/magnetic-keys-holder-1">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-23.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 79.00</span>
+                                <span class="discount"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/usb-led-keyboard-light-1">
+                                    USB LED Keyboard Light
+                                </a>
+                            </h4>
+                            <i>Gadget</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/usb-led-keyboard-light-1">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-21.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 125.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear rm-clear"></div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/korean-sign-pen">
+                                    Korean Sign Pen
+                                </a>
+                            </h4>
+                            <i>Pen</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/korean-sign-pen">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-18.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 100.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/kpop-shirts">
+                                    KPOP Shirts
+                                </a>
+                            </h4>
+                            <i>Fashion</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/kpop-shirts">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-1.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 199.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/new-high-quality-fashion-men-sandals-22890">
+                                    New high quality fashion men sandals
+                                </a>
+                            </h4>
+                            <i>Fashion</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/new-high-quality-fashion-men-sandals-22890">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-3.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 1010.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/summer-sleeveless-women-dress-17">
+                                    Summer Sleeveless Women Dress
+                                </a>
+                            </h4>
+                            <i>Fashion</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/summer-sleeveless-women-dress-17">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-2.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 393.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/deli-highlighter">
+                                    Deli Highlighter
+                                </a>
+                            </h4>
+                            <i>Pen</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/deli-highlighter">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-25.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 120.00</span>
+                                <span class="discount"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear rm-clear"></div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/uu-family-women-snake-clutch-blue">
+                                    Family Women Snake Clutch Blue
+                                </a>
+                            </h4>
+                            <i>Bag</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/uu-family-women-snake-clutch-blue">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-12.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 235.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/uu-family-casual-python-boston-snake-handbag-gray">
+                                    Python Boston Snake Handbag Gray
+                                </a>
+                            </h4>
+                            <i>Bag</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/uu-family-casual-python-boston-snake-handbag-gray">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-11.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 969.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/high-sierra-city-winner-bp2">
+                                    High Sierra City Winner BP2
+                                </a>
+                            </h4>
+                            <i>Bag</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/high-sierra-city-winner-bp2">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-9.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 1000.00</span>
+                                <span class="discount">P 2550.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/uu-family-casual-python-boston-snake-handbag-beige">
+                                    Python Boston Snake Handbag Beige
+                                </a>
+                            </h4>
+                            <i>Bag</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/uu-family-casual-python-boston-snake-handbag-beige">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-10.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 979.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/uu-family-genuine-leather-lady-cluth-pink">
+                                    Family Genuine Leather Lady Cluth Pink
+                                </a>
+                            </h4>
+                            <i>Bag</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/uu-family-genuine-leather-lady-cluth-pink">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-13.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 627.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear rm-clear"></div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/green-crystal-hollywood-big-earrings">
+                                    Green Crystal Hollywood Earrings
+                                </a>
+                            </h4>
+                            <i>Accessories</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/green-crystal-hollywood-big-earrings">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-6.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 135.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/green-crystal-tassel-diamond-drop-earrings">
+                                    Green Crystal Tassel Diamond Earrings
+                                </a>
+                            </h4>
+                            <i>Accessories</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/green-crystal-tassel-diamond-drop-earrings">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-7.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 125.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/fashion-lighting-blue-china-traditional-luckly-avoiding-evils-gourd-necklace-and-earrings-set">
+                                    Luckly Necklace And Earrings Set
+                                </a>
+                            </h4>
+                            <i>Accessories</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/fashion-lighting-blue-china-traditional-luckly-avoiding-evils-gourd-necklace-and-earrings-set">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-4.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 159.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/female-red-ruby-crystal-water-drop-long-diamonds-chain-tassel-earrings">
+                                    Red Ruby Crystal Diamonds Earrings
+                                </a>
+                            </h4>
+                            <i>Accessories</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/female-red-ruby-crystal-water-drop-long-diamonds-chain-tassel-earrings">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-8.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 127.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-ms-3 col-md-2 col-md-push-1">
+                        <div class="product-container2">
+                            <h4>
+                                <a href="https://www.yilinker.com/item/green-square-with-full-diamonds-hanging-earrings">
+                                    Green Square Diamonds Earrings
+                                </a>
+                            </h4>
+                            <i>Accessories</i>
+                            <div class="product-container2-images">
+                                <div class="prod-overlay">
+                                    <a href="https://www.yilinker.com/item/green-square-with-full-diamonds-hanging-earrings">
+                                        <i class="icon icon-shopping-cart"></i>
+                                    </a>
+                                </div>
+                                <img src="{{ asset('images/promo/christmas/product-5.jpg') }}">
+                            </div>
+                            <div class="static-price-discount">
+                                <span class="static-price">P 125.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+        <br><br>
+    </div>
+
+    <div class="clear"></div>
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/bower/slick.min.js') }}"></script>
+    <script src="{{ asset('js/src/static.js') }}"></script>
+{% endblock %}

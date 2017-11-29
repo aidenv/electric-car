@@ -1,0 +1,48 @@
+<div class="col-md-4">
+    <div class="mrg-bt-10">
+        <i class="flag-icon flag-icon-{{ country.code|lower }} country-flag-icon"></i>
+    </div>
+    <h4 class="no-margin">
+        {{ country.name }}
+    </h4>
+    <div class="row">
+        <div class="col-md-4">
+            <label class="bold">Domain: </label>
+        </div>
+        <div class="col-md-6">
+            {{ country.domain }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label class="bold">Language: </label>
+        </div>
+        <div class="col-md-6">
+            {{ country.language ? country.language.name: '' }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label class="bold">Currency: </label>
+        </div>
+        <div class="col-md-6">
+            {{ country.currency ? country.currency.name: '' }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label class="bold">Rate: </label>
+        </div>
+        <div class="col-md-6">
+            <p>1USD = {{ currencySymbol }} {{ country.currency.rate }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label class="bold">Store Name: </label>
+        </div>
+        <div class="col-md-6">
+            {{ app.user.store.storeName }}
+        </div>
+    </div>
+</div>

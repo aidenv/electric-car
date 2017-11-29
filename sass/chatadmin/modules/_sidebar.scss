@@ -1,0 +1,118 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .profile {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#5f6870+0,383f46+100 */
+        background: $background; /* Old browsers */
+        background: -moz-linear-gradient(top,  lighten($background, 25%) 0%, lighten($background, 3%) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  lighten($background, 25%) 0%, lighten($background, 3%) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  lighten($background, 25%) 0%, lighten($background, 3%) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5f6870', endColorstr='#383f46',GradientType=0 ); /* IE6-9 */
+
+        padding: 10px 20px;
+        display: block;
+        border-bottom: 1px solid darken($background, 2%);
+        border-right: 1px solid darken($background, 15%);
+        height: 75px;
+
+        img {
+            background-color: $background;
+            border-radius: 50%;
+            height: 48px;
+            margin-right: 10px;
+            width: 48px;
+        }
+
+        p {
+            height: 48px;
+            margin-left: 60px;
+
+            span {
+                color: darken($puti, 15%);
+                float: left;
+                font-size: 16px;
+                margin-top: 3px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+
+        .ui.selection.dropdown {
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            min-height: 21px !important;
+            padding: 0px !important;
+            z-index: 11;
+
+            .icon {
+                display: none;
+            }
+
+            .text {
+                top: 0;
+                color: darken($puti, 13.2%);
+
+                &:after {
+                    content: '';
+                    width: 0;
+                    height: 0;
+                    border-left: 4px solid transparent;
+                    border-right: 4px solid transparent;
+                    border-top: 5px solid lighten($background, 30%);
+                    display: inline-block;
+                    position: relative;
+                    left: 7px;
+                    top: -1px;
+                }
+            }
+
+            .menu {
+                background: lighten($background, 6%); /* Old browsers */
+                height: 112px;
+                border: 0;
+                box-shadow: none;
+                border-radius: 4px;
+                left: -13px;
+
+                .item {
+                    color: darken($puti, 30%);
+                    border: 0;
+                }
+            }
+        }
+
+        select {
+            visibility: hidden;
+        }
+
+    }
+
+    .sidebar-wrapper {
+        background-color: $background;
+        border-right: 1px solid darken($background, 20%);
+        height: 100%;
+        min-height: auto;
+        overflow-y: auto;
+        padding: 0;
+        position: relative;
+        width: 100%;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: $background;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: lighten($background, 20%);
+            border: 3px solid $background;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            border: 0;
+        }
+    }
+}

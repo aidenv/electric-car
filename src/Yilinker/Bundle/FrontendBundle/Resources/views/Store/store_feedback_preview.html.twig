@@ -1,0 +1,65 @@
+<div class="review-item mrg-bt-10">
+    <div class="review-item-head">
+        <div class="row">
+            <table width="100%">
+                <tr>
+                    <td width="50%">
+                       <table class="table-buyer-name">
+                            <thead>
+                                <tr>
+                                    <td class="td-buyer-name">
+                                        <span class="name">
+                                            {{ review.title }}
+                                        </span>
+                                        {{ include('YilinkerCoreBundle:Default:star_rating.html.twig', {rating: review.rating}) }}
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </td>
+                    <td width="50%" class="align-right">
+                         <table class="table-buyer-name table-reviewer-name pull-right">
+                            <thead>
+                                <tr>
+                                    <td class="td-buyer-img align-center" width="5em">
+                                        <div class="img-buyer-container">
+                                            <img src="{{ review.reviewer.primaryImage ? 
+                                                asset(review.reviewer.primaryImage.getImageLocationBySize('thumbnail'), 'user') :
+                                                asset('images/default-merchant.png') 
+                                            }}" class="img-buyer" />
+                                        </div>
+                                    </td>
+                                    <td class="td-buyer-name">
+                                        <span class="name">
+                                            <a href="#" class="user-profile-trigger" data-feeder="{{ review.reviewer.userCard|json_encode }}">
+                                                {{ review.reviewer.fullName }}
+                                            </a>
+                                        </span>
+                                        <span class="sub-info light-color">{{ review.dateAdded.format('M d, Y g:i:sa')|time_elapsed }}</span>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="review-item-body">
+        {{ review.feedback }}
+    </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Review",
+  "name": "{{ review.title }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ review.reviewer.fullName }}",
+    "datePublished": "{{ review.dateAdded.format('M d, Y g:i:sa')|time_elapsed }}"
+  },
+  "reviewBody": "{{ review.feedback }}"
+}
+</script>

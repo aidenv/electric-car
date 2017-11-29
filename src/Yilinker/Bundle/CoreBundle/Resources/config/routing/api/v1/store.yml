@@ -1,0 +1,7 @@
+api_store_search:
+    path: /store/search
+    defaults: { _controller: YilinkerCoreBundle:Api/StoreApi:searchStorename }
+
+api_store_search_auth:
+    path: /auth/store/search
+    defaults: { _controller: YilinkerCoreBundle:Api/StoreApi:searchStorename }

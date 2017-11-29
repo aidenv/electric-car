@@ -1,0 +1,266 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block body %}
+
+    <section class="box-section">
+
+        <div class="title-bar">
+            <div class="container">
+                <span>Buyer Refund</span>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="tools top form">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="options">
+                                        <div class="labeled-input">
+                                            <div class="label black">From</div>
+                                            <input type="text" class="form-ui datePicker" id="dateFrom" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="options">
+                                        <div class="labeled-input">
+                                            <div class="label black">To</div>
+                                            <input type="text" class="form-ui datePicker" id="dateTo">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="options">
+                                        <input type="text" class="form-ui" id="searchKeyword" placeholder="FullName / Email">
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="options button block cancel" id="searchBtn">
+                                        <i class="item-icon icon-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tables -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+                            <div class="row gutters">
+                                <div class="col-md-12">
+                                    <table class="table basic table-vertical-align-top">
+                                        <thead>
+                                            <tr>
+                                                <th>Order ID</th>
+                                                <th>Invoice No.</th>
+                                                <th>Case ID</th>
+                                                <th>Buyer</th>
+                                                <th>Email</th>
+                                                <th>Contact No.</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="buyerContainer">
+                                            {% for refund in refunds %}
+                                                {% set orderProducts = [] %}
+                                                {% for orderProduct in refund.orderProduct|split(',') %}
+                                                    {% set orderProducts = orderProducts|merge([orderProduct]) %}
+                                                {% endfor %}
+                                                <tr class="buyerRow" data-id="{{ refund.buyerUserId }}" data-order-product-ids="{{ orderProducts|json_encode(true) }}" data-dispute-id="{{refund.disputeId|default('')}}">
+                                                    <td>
+                                                        {{ refund.orderId }}
+                                                    </td>
+                                                    <td>
+                                                        {{ refund.invoiceNumber }}
+                                                    </td>
+                                                    <td>
+                                                        {{ refund.ticket }}
+                                                    </td>
+                                                    <td>
+                                                        {{ refund.buyerFirstName ~ ' ' ~ refund.buyerLastName }}
+                                                    </td>
+                                                    <td>{{ refund.buyerEmail }}</td>
+                                                    <td>{{ refund.buyerContactNumber }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Bottom Tools -->
+                    <div class="row">
+                        <div class="box-upper">
+                            <div class="col-md-12">
+                                <div class="box-blank">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: refundCount, perPage: pageLimit}) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Buyer Refund Type One -->
+                    <div class="ui modal large modal-box modal-buyer-refund-one">
+                        <a class="close"><i class="icon-times"></i></a>
+
+                        <div class="header">
+                            <div class="header">Buyer Refund</div>
+                            <div class="ui tabular menu">
+                                <div class="item active" data-tab="payout-tab-details">Details</div>
+                                <div class="item" data-tab="remarks-tab">Remarks from Dispute</div>
+
+                                <div class="item" data-tab="payout-tab-upload">Deposit Slip</div>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            <div class="ui tab active" data-tab="payout-tab-details">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table basic table-vertical-align-top">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Buyer ID</th>
+                                                    <th>User</th>
+                                                    <th>Product ID</th>
+                                                    <th>Product Name</th>
+                                                    <th>Order Quantity</th>
+                                                    <th>Unit Price</th>
+                                                    <th>Total Amount</th>
+                                                    <th>Status</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="userOrderModal-userOrderContainer">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form mrg-top-20">
+                                            <label>Remarks:</label>
+                                            <textarea class="form-ui" name="refund_remark" placeholder="Enter your remarks"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui tab" data-tab="remarks-tab">
+                                {# START OF REMARKS #}
+                                <div class="row">
+                                    <div class="row gutters">
+                                        <div class="col-md-12">
+                                            <div class="form remarks remarks-container"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# END OF REMARKS #}
+                            </div>
+                            <div class="ui tab" data-tab="payout-tab-upload">
+                                <div class="row">
+                                    <div class="col-md-6 mrg-bt-20">
+                                        <label><strong>Deposit Slip:</strong></label>
+                                        <input type="file" name="deposit-slip" accept=".png,.jpg,.jpeg" class="deposit-slip form-ui" multiple/>
+                                        <span class="form-ui-note">Compatible files: JPG, JPEG, and PNG</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <ul class="deposit-slip-list col-md-12"></ul>
+                                </div>
+                            </div>                                         
+                        </div>
+                        <div class="actions align-right">
+                            <div class="button confirm proceed-confirm" >Proceed To Refund</div>
+                        </div>
+                    </div>
+
+                    <!--Start of modal confirm refund-->
+                    <div class="ui modal tiny confirm-refund-modal">
+                        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+                        <div class="content align-center">
+                            <h5 class="ui header">
+                                Confirm refund
+                                <div class="sub-header light-color mrg-top-10" style="font-size: 14px; line-height:1.66;">Are you sure you want to refund this transaction?</div>
+                            </h5>
+                        </div>
+                        <div class="actions">
+                            <a class="button cancel uppercase back-modal-buyer-refund-one">No</a>
+                            <button class="button blue uppercase approve">Yes</button>
+                        </div>
+                    </div>
+                    <!--End of modal confirm refund-->
+
+                    <div class="ui modal large modal-box modal-buyer-refund-two">
+                        <a class="close"><i class="icon-times"></i></a>
+                        <div class="header">History Information</div>
+                        <div class="content form">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table basic table-vertical-align-top mrg-bt-30">
+                                        <thead>
+                                            <tr>
+                                                <th>Order Product Id</th>
+                                                <th>User</th>
+                                                <th>Product Name</th>
+                                                <th>Order Quantity</th>
+                                                <th>Unit Price</th>
+                                                <th>Shipping Price</th>
+                                                <th>Total Amount</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="historyInformationModal-orderProductDetailsContainer">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table basic table-vertical-align-top mrg-bt-30">
+                                        <thead>
+                                            <tr>
+                                                <th>History ID</th>
+                                                <th>State</th>
+                                                <th>Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="historyInformationModal-historyContainer">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="actions align-right">
+                            <div class="button cancel buyerRow modal-buyer-refund-one-trigger">Back</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/buyer-refund.js"
+    "js/src/backend/buyer-refund.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

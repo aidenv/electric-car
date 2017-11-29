@@ -1,0 +1,21 @@
+Yilinker\Bundle\CoreBundle\Entity\LocationType:
+    type: entity
+    table: LocationType
+    id:
+        locationTypeId:
+            type: integer
+            id: true
+            column: location_type_id
+            unsigned: false
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 100    
+        lookupId:
+            type: integer
+            column: lookup_id
+            unsigned: true
+            nullable: true
+    lifecycleCallbacks: {  }

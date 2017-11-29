@@ -1,0 +1,86 @@
+{% set originalRequest = app.request.attributes.get('request') is not null ? app.request.attributes.get('request') : app.request %}
+
+{% if totalResults is defined and totalResults > 0 and perPage is defined and perPage > 0 %}
+    {% set a = totalResults / perPage %}
+    {% set b = a|round(0, 'floor') %}
+    {% set lastPage = b + (a - b)|round(0, 'ceil') %}
+{% endif %}
+
+{% if lastPage is defined and lastPage > 1 %}
+    {% if originalRequest.query.has('_path') %}
+        {{ originalRequest.query.remove('_path') }}
+    {% endif %}
+    {% if originalRequest.query.has('_controller') %}
+        {{ originalRequest.query.remove('_controller') }}
+    {% endif %}
+
+    {% set currentPage = originalRequest.query.get('page', 1) %}
+    {% if currentPage == 1 and originalRequest.get('page', 1) > 1 %}
+        {% set currentPage = originalRequest.get('page', 1) %}
+    {% endif %}
+    {# the number of first and last pages to be displayed #}
+    {% set extremePagesLimit = 2 %}
+    {# the number of pages that are displayed around the active page #}
+    {% set nearbyPagesLimit = 3 %}
+
+    <div class="pagination pagination-centered">
+        <ul class="list-unstyled">
+            {% if currentPage > 1 %}
+                {{ originalRequest.query.set('page', currentPage - 1) }}
+                {% set paginationPath = originalRequest.query.all|url_encode %}
+                <li class="page-navigation"><a href="?{{ paginationPath }}">&larr; previous</a></li>
+
+                {% for i in range(1, extremePagesLimit) if ( i < currentPage - nearbyPagesLimit ) %}
+                    {{ originalRequest.query.set('page', i) }}
+                    {% set paginationPath = originalRequest.query.all|url_encode %}
+                    <li><a href="?{{ paginationPath }}">{{ i }}</a></li>
+                {% endfor %}
+
+                {% if extremePagesLimit + 1 < currentPage - nearbyPagesLimit %}
+                    <li class="disabled"><a href="#">...</a></li>
+                {% endif %}
+
+                {% for i in range(currentPage-nearbyPagesLimit, currentPage-1) if ( i > 0 ) %}
+                    {{ originalRequest.query.set('page', i) }}
+                    {% set paginationPath = originalRequest.query.all|url_encode %}
+                    <li><a href="?{{ paginationPath }}">{{ i }}</a></li>
+                {% endfor %}
+            {% endif %}
+
+            <li class="active" style="pointer-events: none; cursor: default;"><a href="#">{{ currentPage }}</a></li>
+
+            {% if currentPage < lastPage %}
+                {% for i in range(currentPage+1, currentPage + nearbyPagesLimit) if ( i <= lastPage ) %}
+                    {{ originalRequest.query.set('page', i) }}
+                    {% set paginationPath = originalRequest.query.all|url_encode %}
+                    <li><a href="?{{ paginationPath }}">{{ i }}</a></li>
+                {% endfor %}
+
+                {% if  (lastPage - extremePagesLimit) > (currentPage + nearbyPagesLimit) %}
+                   <li class="disabled"><a href="#">...</a></li>
+                {% endif %}
+
+                {% for i in range(lastPage - extremePagesLimit+1, lastPage) if ( i > currentPage + nearbyPagesLimit ) %}
+                    {{ originalRequest.query.set('page', i) }}
+                    {% set paginationPath = originalRequest.query.all|url_encode %}
+                    <li><a href="?{{ paginationPath }}">{{ i }}</a></li>
+                {% endfor %}
+                {{ originalRequest.query.set('page', currentPage + 1) }}
+                
+                {% set paginationPath = originalRequest.query.all|url_encode %}
+                <li class="page-navigation"><a href="?{{ paginationPath }}">next &rarr;</a></li>
+            {% endif %}
+        </ul>
+        {#
+        <div class="ui dimmer inverted active">
+            <div class="content">
+                <div class="center">
+                    <h5 class="ui inverted icon header">
+                        <img src="{{ asset('images/loader.gif') }}" class="img-auto-place" alt="Loading...">
+                    </h5>
+                </div>
+            </div>
+        </div>
+        #}
+    </div>
+{% endif %}

@@ -1,0 +1,96 @@
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Raffle Manager</span>
+        </div>
+    </div>
+    <div class="container">
+      <!-- Tables -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+              <div class="box-div">
+                <div class="row gutters group-segment">
+                  <div class="col-md-4">
+                    <h4>Register Raffle</h4>
+                    <p class="sub-header">
+                      Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien.
+                      Maecenas quam neque, scelerisque sit amet elit fermentum, lobortis convallis dui.
+                    </p>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="form">
+                      <label>Raffle Name</label>
+                      <input type="text" class="form-ui" placeholder="Placeholder">
+                    </div>
+
+                    <div class="form">
+                      <label>Pool of Possible Winners</label>
+                      <input type="text" class="form-ui" placeholder="Placeholder">
+                    </div>
+
+                    <div class="form">
+                      <label>Number of Winners to Generate</label>
+                      <input type="text" class="form-ui" placeholder="Placeholder">
+                    </div>
+
+                    <div class="form">
+                      <label>List of Prices</label>
+                      <input type="text" class="form-ui" placeholder="Placeholder">
+                    </div>
+
+                    <div class="form">
+                      <button class="button purple modal-alert-success-trigger">
+                        <i class="icon icon-plus"></i>
+                        Add Raffle
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="row gutters group-segment">
+                  <div class="col-md-4">
+                    <h4>Raffle Lists</h4>
+                    <p class="sub-header">
+                      Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien.
+                      Maecenas quam neque, scelerisque sit amet elit fermentum, lobortis convallis dui.
+                    </p>
+                  </div>
+                  <div class="col-md-8">
+                    <table class="table basic table-vertical-align-top center">
+                      <tr>
+                        <th></th>
+                        <th>Raffle_Name</th>
+                        <th>Winners</th>
+                        <th>Time Created</th>
+                        <th>Prices</th>
+                      </tr>
+                      {% for i in 1..5 %}
+                        <tr>
+                          <td>
+                            <button class="options button simple red tiny">
+                              <i class="item-icon icon-times"></i>
+                            </button>
+                          </td>
+                          <td>2121sadasd</td>
+                          <td>test22</td>
+                          <td>2014-09-16 11:19:32</td>
+                          <td>
+                            <button class="options button cancel small">
+                              show less
+                            </button>
+                          </td>
+                        </tr>
+                      {% endfor %}
+                    </table>
+
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>

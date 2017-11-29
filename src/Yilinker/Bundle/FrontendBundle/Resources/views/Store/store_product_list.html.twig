@@ -1,0 +1,76 @@
+<div class="row row-products">
+    {% for i in 1..10 %}
+        <div class="col-item col-md-3 col-xs-6">
+            <div class="product-item-wrapper ">
+                <a href="#">
+                    <div class="image-wrapper image-display">
+                        <span class="discount pin">20% off</span>
+                        <img src="http://placehold.it/500x500/d35400/ffffff" alt="Product Name" title="Product Name" class="img-auto-place">
+                    </div>
+                </a>
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td valign="middle">
+                                <div class="meta-wrapper">
+                                    <div class="basic-name">
+                                        <div class="row group">
+                                            <div class="col-xs-12">
+                                                <h4 class="name">
+                                                   <a href="#">
+                                                        Lorem Ipsum
+                                                    </a>
+                                                    <span class="wishlist tooltip pull-right" title="Add to wislist">
+                                                        <i class="icon-heart-o"></i>
+                                                    </span>
+                                                </h4>
+                                                <h5 class="category no-margin">
+                                                    <a href="#">
+                                                        Electronics &amp; Gadgets
+                                                    </a>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="basic-amount">
+                                        <div class="row group">
+                                            <div class="col-md-7 col-xs-12 col-price-button-container align-center">
+                                                <span class="old-price">
+                                                    P 15,000.00
+                                                </span>
+                                                <div class="product-cart-button-flip">
+                                                    <div class="button purple block cart front">
+                                                        <span class="current-price">
+                                                            P 12,000.00
+                                                        </span>
+                                                        <span class="cart text">{% trans %} Add to cart {% endtrans %}</span>
+                                                    </div>
+                                                    <div class="button gray block cart disabled back">
+                                                        <span>
+                                                            <i class="icon icon-check"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 col-star-rating-container">
+                                                <div class="rating-container">
+                                                    <span class="rating-icons">
+                                                        <i class="icon icon-star-o active"></i>
+                                                        <i class="icon icon-star-o active"></i>
+                                                        <i class="icon icon-star-o active"></i>
+                                                        <i class="icon icon-star-o"></i>
+                                                        <i class="icon icon-star-o"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endfor %}
+</div>

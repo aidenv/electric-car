@@ -1,0 +1,198 @@
+<section class="box-section">
+  <div class="container">
+    <div class="row">
+      <ul class="breadcrumb">
+        <li>
+          <a href="#">Promo Banners</a>
+        </li>
+        <li>
+          <span>Create</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="box-upper">
+        <div class="col-md-12">
+          <div class="box-div">
+            <div class="row gutters group-segment">
+              <div class="col-md-12">
+                <h4>Create Promo Banner</h4>
+              </div>
+            </div>
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>Select Product</h4>
+                <p class="sub-header">
+                  Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque.
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="message-box red hidden" id="errorContainer">
+                  <p id="errorMessage">This transaction has been flagged for further review.</p>
+                </div>
+                <div class="form type-3">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label>Slug</label>
+                      <input class="form-ui" id="slug" placeholder="Enter Product Slug" value="">
+                      <button class="button purple type-4-trigger mrg-top-10">Add Product</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form type-4 hidden">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h4>Nexus X5 (Andriod 6.0 Marshmallow)</h4>
+                      <button class="button light-gray type-3-trigger">Change Product</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>Status</h4>
+                <p class="sub-header">
+                  Nam metus lectus, bibendum sit amet mauris id, pulvinar aliquet sapien. Maecenas quam neque.
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="message-box red hidden" id="errorContainer">
+                  <p id="errorMessage">This transaction has been flagged for further review.</p>
+                </div>
+                <div class="form type-1">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h4>This Promo Banner currently Disabled</h4>
+                      <p>Do you want to enable it now?</p>
+                      <button class="button purple type-2-trigger mrg-top-20">Yes, Enable this Promo Banner</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form type-2 hidden">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h4>This Promo Banner is Enabled</h4>
+                      <p>If you wish to disabled this promo banner, click
+                        <button class="button small light-gray type-1-trigger">Disable Now</button>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row gutters group-segment">
+              <div class="col-md-4">
+                <h4>Upload Banners</h4>
+                <p class="sub-header">
+                  Nam metus lectus, bibendum sit amet mauris id, pulvinar.
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="message-box red hidden" id="errorContainer">
+                  <p id="errorMessage">This transaction has been flagged for further review.</p>
+                </div>
+                <div class="form">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label>Upload Banners here</label>
+                      <input type="file" class="form-ui">
+                      <span class="form-ui-note">Compatible files: JPEG, PNG and PDF</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form">
+                  <table class="table basic table-vertical-align-top center">
+                    <tr>
+                      <th>Image</th>
+                      <th class="txtcenter" width="20">Activation</th>
+                    </tr>
+                    {% for i in 1..2 %}
+                      <tr>
+                        <td><img src="{{ asset('images/sample500x250.jpg') }}" border="0" align="left"></td>
+                        <td class="txtcenter">
+                          <div>
+                            <input class="toggle-one" type="checkbox" data-toggle="toggle">
+                          </div>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </table>
+
+                </div>
+              </div>
+            </div>
+            <div class="row gutters group-segment">
+              <div class="col-md-4"></div>
+              <div class="col-md-8">
+                <div class="form">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <button class="button purple ">Save Changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Notes -->
+<div class="ui modal small modal-box modal-notes-new">
+  <a class="close">
+    <i class="icon-times"></i>
+  </a>
+  <div class="header">New Notes</div>
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form">
+          <label>Title</label>
+          <input class="form-ui" placeholder="Placeholder" type="text">
+        </div>
+
+        <div class="form">
+          <label>Message</label>
+          <textarea class="form-ui" placeholder="Enter product description here"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions align-right">
+    <div class="button confirm" data-remodal-action="close">Save</div>
+    <div class="button cancel" data-remodal-action="close">Cancel</div>
+  </div>
+</div>
+
+<div class="ui modal small modal-box modal-notes-view">
+  <a class="close">
+    <i class="icon-times"></i>
+  </a>
+  <div class="header">New Notes</div>
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form">
+          <label>Title</label>
+          <input class="form-ui" placeholder="Placeholder" readonly="readonly" type="text" value="Blahhh Blahhh Blahhh">
+        </div>
+
+        <div class="form">
+          <label>Message</label>
+          <textarea class="form-ui" placeholder="Enter product description here" readonly="readonly">Something is wrong with the spaghetti senior, aahh its the sauce, bogz want it spice and sour but also tasty, so gay...</textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions align-right">
+    <div class="button confirm" data-remodal-action="close">Edit</div>
+    <div class="button cancel" data-remodal-action="close">Cancel</div>
+  </div>
+</div>

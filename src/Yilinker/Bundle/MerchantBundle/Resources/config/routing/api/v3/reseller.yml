@@ -1,0 +1,12 @@
+api_v3_reseller_upload_product_list:
+    path: /auth/reseller/products
+    defaults: { _controller: YilinkerMerchantBundle:Reseller:resellerViewProducts }
+    requirements:
+        _locale: en
+
+api_v3_reseller_upload_products:
+    path: /auth/reseller/upload
+    defaults: { _controller: YilinkerMerchantBundle:Reseller:resellerUpload }
+    methods: [POST]
+    requirements:
+        _locale: en

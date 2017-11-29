@@ -1,0 +1,2056 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="cn" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="663fc7093256cda156e571631ddb295e" resname="out of">
+        <source>out of</source>
+        <target>__out of</target>
+      </trans-unit>
+      <trans-unit id="0947c2e7a6010be139871e67854258da" resname="requirements are already completed">
+        <source>requirements are already completed</source>
+        <target>要求已完成</target>
+      </trans-unit>
+      <trans-unit id="76612b46efb737acfc4b0476ed7374cd" resname="Frequently Ask Questions">
+        <source>Frequently Ask Questions</source>
+        <target>经常问的问题</target>
+      </trans-unit>
+      <trans-unit id="9cfc9b74983d504ec71db33967591249" resname="Contact Us">
+        <source>Contact Us</source>
+        <target>联系我们</target>
+      </trans-unit>
+      <trans-unit id="d4afee271e10fa9ecc40d215b9716481" resname="324-8684">
+        <source>324-8684</source>
+        <target>__324-8684</target>
+      </trans-unit>
+      <trans-unit id="bd7820ce16a0a97019e2b0a4997ef2ea" resname="645 Lafayette Street,">
+        <source>645 Lafayette Street,</source>
+        <target>__645 Lafayette Street,</target>
+      </trans-unit>
+      <trans-unit id="1c290b4faf9759a1384cdf1f1d7306d0" resname="New Milford, CT 06776">
+        <source>New Milford, CT 06776</source>
+        <target>__New Milford, CT 06776</target>
+      </trans-unit>
+      <trans-unit id="5fa975b4aa2fd97c092945d86aef5706" resname="Add Product Category">
+        <source>Add Product Category</source>
+        <target>__Add Product Category</target>
+      </trans-unit>
+      <trans-unit id="0f55179233b56b898810720d909ee202" resname="Category One">
+        <source>Category One</source>
+        <target>__Category One</target>
+      </trans-unit>
+      <trans-unit id="cc7819055cde3194bb3b136bad5cf58d" resname="&amp;nbsp;">
+        <source>&amp;nbsp;</source>
+        <target><![CDATA[__&nbsp;]]></target>
+      </trans-unit>
+      <trans-unit id="b30940a7e255e2c77b59f94f8c39e3cd" resname="Add this Category">
+        <source>Add this Category</source>
+        <target>__Add this Category</target>
+      </trans-unit>
+      <trans-unit id="e49619a8aa73526dccc451323e37d995" resname="Verify Email Address">
+        <source>Verify Email Address</source>
+        <target>__Verify Email Address</target>
+      </trans-unit>
+      <trans-unit id="ca0dbad92a874b2f69b549293387925e" resname="Code">
+        <source>Code</source>
+        <target>__Code</target>
+      </trans-unit>
+      <trans-unit id="788be52b7a760ddb65bb7fb552f93665" resname="Resend Verification Code">
+        <source>Resend Verification Code</source>
+        <target>__Resend Verification Code</target>
+      </trans-unit>
+      <trans-unit id="5a750f86ef41f22f852c43351e3ff383" resname="Verify">
+        <source>Verify</source>
+        <target>__Verify</target>
+      </trans-unit>
+      <trans-unit id="a648a17da1b09988aee555b455a2ba2f" resname="New Store Address">
+        <source>New Store Address</source>
+        <target>新商铺地址</target>
+      </trans-unit>
+      <trans-unit id="98caebdd9d21dd9ef214cf6a57623bea" resname="Enter your address line 1 here">
+        <source>Enter your address line 1 here</source>
+        <target>__Enter your address line 1 here</target>
+      </trans-unit>
+      <trans-unit id="ea4788705e6873b424c65e91c2846b19" resname="Cancel">
+        <source>Cancel</source>
+        <target>取消</target>
+      </trans-unit>
+      <trans-unit id="a4d3b161ce1309df1c4e25df28694b7b" resname="Submit">
+        <source>Submit</source>
+        <target>提交</target>
+      </trans-unit>
+      <trans-unit id="26b63f278101527e06a5547719568bb5" resname="Okay">
+        <source>Okay</source>
+        <target>OK</target>
+      </trans-unit>
+      <trans-unit id="316d416ea955fbe02b289e52e6f9e4b3" resname="Are you sure you want to delete this address">
+        <source>Are you sure you want to delete this address</source>
+        <target>__Are you sure you want to delete this address</target>
+      </trans-unit>
+      <trans-unit id="f2a6c498fb90ee345d997f888fce3b18" resname="Delete">
+        <source>Delete</source>
+        <target>删除</target>
+      </trans-unit>
+      <trans-unit id="42d7132b537e39e1ca5645a214dad80f" resname="Progress Overview">
+        <source>Progress Overview</source>
+        <target>__Progress Overview</target>
+      </trans-unit>
+      <trans-unit id="3125ea503fedd636f10496b18f6a6d96" resname="Merchant Product">
+        <source>Merchant Product</source>
+        <target>__Merchant Product</target>
+      </trans-unit>
+      <trans-unit id="3adbdb3ac060038aa0e6e6c138ef9873" resname="Category">
+        <source>Category</source>
+        <target>品类</target>
+      </trans-unit>
+      <trans-unit id="1be6f9eb563f3bf85c78b4219bf09de9" resname="Brand">
+        <source>Brand</source>
+        <target>品牌</target>
+      </trans-unit>
+      <trans-unit id="b10f0c75b7b48c70aab4aed9e84e55da" resname="Warranty">
+        <source>Warranty</source>
+        <target>__Warranty</target>
+      </trans-unit>
+      <trans-unit id="694e8d1f2ee056f98ee488bdc4982d73" resname="Quantity">
+        <source>Quantity</source>
+        <target>数量</target>
+      </trans-unit>
+      <trans-unit id="ea2763c7aae648c8c4ca76c60422862c" resname="Basketball Shoes">
+        <source>Basketball Shoes</source>
+        <target>__Basketball Shoes</target>
+      </trans-unit>
+      <trans-unit id="345628013c78e9dbe318384bd1bc6902" resname="Enter your product brand">
+        <source>Enter your product brand</source>
+        <target>输入您的产品品牌</target>
+      </trans-unit>
+      <trans-unit id="93cba07454f06a4a960172bbd6e2a435" resname="Yes">
+        <source>Yes</source>
+        <target>是</target>
+      </trans-unit>
+      <trans-unit id="bafd7322c6e97d25b6299b5d6fe8920b" resname="No">
+        <source>No</source>
+        <target>否</target>
+      </trans-unit>
+      <trans-unit id="4f2f5e1d6e2a13469ad431474a68ab82" resname="Go Back">
+        <source>Go Back</source>
+        <target>回去</target>
+      </trans-unit>
+      <trans-unit id="c9cc8cce247e49bae79f15173ce97354" resname="Save">
+        <source>Save</source>
+        <target>保存</target>
+      </trans-unit>
+      <trans-unit id="290612199861c31d1036b185b4e69b75" resname="Summary">
+        <source>Summary</source>
+        <target>简介</target>
+      </trans-unit>
+      <trans-unit id="5f76d848c720fb66fb8f750c5284ba0c" resname="Bank Information">
+        <source>Bank Information</source>
+        <target>银行信息</target>
+      </trans-unit>
+      <trans-unit id="2f7f28b3b5dae003fb0469a7ccf0f5f0" resname="Delete Bank Account">
+        <source>Delete Bank Account</source>
+        <target>删除银行帐户</target>
+      </trans-unit>
+      <trans-unit id="84002fc150818898b455cd9ec38fa0ea" resname="Edit Bank Account">
+        <source>Edit Bank Account</source>
+        <target>__Edit Bank Account</target>
+      </trans-unit>
+      <trans-unit id="d98a13bb67f63faec3d8813a532d4367" resname="Bank Account">
+        <source>Bank Account</source>
+        <target>银行账号</target>
+      </trans-unit>
+      <trans-unit id="0ff59a22e2eb4d8e82f167759019539e" resname="Enter your bank account title here">
+        <source>Enter your bank account title here</source>
+        <target>在此输入您银行帐户的标题</target>
+      </trans-unit>
+      <trans-unit id="2fcecaf04456ae2ceac826fd0ccaaf1c" resname="Account Number">
+        <source>Account Number</source>
+        <target>在此输入您的账号</target>
+      </trans-unit>
+      <trans-unit id="19b66130569608ef0583d5b13aab41d7" resname="Enter your bank account number here">
+        <source>Enter your bank account number here</source>
+        <target>账户名</target>
+      </trans-unit>
+      <trans-unit id="5d55785a871474b5490ecc8da433a32d" resname="Account Name">
+        <source>Account Name</source>
+        <target>在此输入您的账户名</target>
+      </trans-unit>
+      <trans-unit id="2a24e23be2d528c561445b284a2cc3c0" resname="Enter your bank account name here">
+        <source>Enter your bank account name here</source>
+        <target>在此输入您的银行帐户名称</target>
+      </trans-unit>
+      <trans-unit id="e93b965bae5c0940bc6e1e1352dbc639" resname="Are you sure you want to delete this bank account">
+        <source>Are you sure you want to delete this bank account</source>
+        <target>确实要删除此银行帐户</target>
+      </trans-unit>
+      <trans-unit id="49ae8f2398793261ff675c2d10900e19" resname="Business Information">
+        <source>Business Information</source>
+        <target>公司信息</target>
+      </trans-unit>
+      <trans-unit id="e3fb0b5e9ce53fe70b119648fc217f44" resname="Store Name">
+        <source>Store Name</source>
+        <target>商店名称</target>
+      </trans-unit>
+      <trans-unit id="c3d923771fbc550316de7842f5f7f8e0" resname="Enter your display name">
+        <source>Enter your display name</source>
+        <target>输入您的显示名称</target>
+      </trans-unit>
+      <trans-unit id="bc910f8bdf70f29374f496f05be0330c" resname="First Name">
+        <source>First Name</source>
+        <target>名</target>
+      </trans-unit>
+      <trans-unit id="77587239bf4c54ea493c7033e1dbf636" resname="Last Name">
+        <source>Last Name</source>
+        <target>姓</target>
+      </trans-unit>
+      <trans-unit id="643a860f992333b8600ea264aca7c4fc" resname="Email Address">
+        <source>Email Address</source>
+        <target>电子邮箱</target>
+      </trans-unit>
+      <trans-unit id="a4c72a94703b05c9c918cbf8408afad5" resname="Mobile Number">
+        <source>Mobile Number</source>
+        <target>手机号码</target>
+      </trans-unit>
+      <trans-unit id="e4f96c7c25ee4810a23562e42988dfeb" resname="Company / School">
+        <source>Company / School</source>
+        <target>公司／学校</target>
+      </trans-unit>
+      <trans-unit id="58e0567c0545428814d53ea6bb450327" resname="Current Job / Course &amp; Year Lever">
+        <source>Current Job / Course &amp; Year Lever</source>
+        <target><![CDATA[__Current Job / Course & Year Lever]]></target>
+      </trans-unit>
+      <trans-unit id="389a0cd2a94db6e335d411c94db878c7" resname="TIN">
+        <source>TIN</source>
+        <target>纳税标记号</target>
+      </trans-unit>
+      <trans-unit id="dd7bf230fde8d4836917806aff6a6b27" resname="Address">
+        <source>Address</source>
+        <target>地址</target>
+      </trans-unit>
+      <trans-unit id="9a2dbbe31720570240ae498f10dbf089" resname="Delete Address">
+        <source>Delete Address</source>
+        <target>编辑地址</target>
+      </trans-unit>
+      <trans-unit id="0dbd2559b7f2c43a6e5f0a649c4b172a" resname="Edit Address">
+        <source>Edit Address</source>
+        <target>编辑地址</target>
+      </trans-unit>
+      <trans-unit id="618519f75cb6b9f92a814fa33553c52e" resname="Do you have an Online Store?">
+        <source>Do you have an Online Store?</source>
+        <target>您是否有其他网店</target>
+      </trans-unit>
+      <trans-unit id="ebcb51c8fc02415291ef8a75ff47c697" resname="Business Website">
+        <source>Business Website</source>
+        <target>商业网站</target>
+      </trans-unit>
+      <trans-unit id="4b2bc5862ebb5fb9c6b3e577e87d54ad" resname="Ex. https://yourWebSite.com">
+        <source>Ex. https://yourWebSite.com</source>
+        <target>例如，https://yourWebSite.com</target>
+      </trans-unit>
+      <trans-unit id="df925773bc1e79ad9b283f089038477b" resname="Social Media Account">
+        <source>Social Media Account</source>
+        <target>社交媒体帐户</target>
+      </trans-unit>
+      <trans-unit id="09c0421de64f4dbdbaaca792b0e3e8ab" resname="Select your Product Categories">
+        <source>Select your Product Categories</source>
+        <target>选择您的产品类别</target>
+      </trans-unit>
+      <trans-unit id="74732827e330fdf97fd74c38e544195d" resname="Address Title">
+        <source>Address Title</source>
+        <target>联系人</target>
+      </trans-unit>
+      <trans-unit id="9c9d1674420681239f48d5fa8e181533" resname="Home Address">
+        <source>Home Address</source>
+        <target>__Home Address</target>
+      </trans-unit>
+      <trans-unit id="7c7af2cd10f2623f2ff006ee46f9f29e" resname="Unit Number">
+        <source>Unit Number</source>
+        <target>房号</target>
+      </trans-unit>
+      <trans-unit id="1b08a6f064638ab9a5660a1bf14e0d3f" resname="Building Name">
+        <source>Building Name</source>
+        <target>楼号</target>
+      </trans-unit>
+      <trans-unit id="070a6f943470aec6d12c7090f290e10f" resname="Street Number">
+        <source>Street Number</source>
+        <target>街道号</target>
+      </trans-unit>
+      <trans-unit id="a110c5c194a15bdec2f8390a8454c3c8" resname="Street Name">
+        <source>Street Name</source>
+        <target>街道名称</target>
+      </trans-unit>
+      <trans-unit id="7a620d438361c15161512c4d98341ef1" resname="Subdivision">
+        <source>Subdivision</source>
+        <target>小区</target>
+      </trans-unit>
+      <trans-unit id="c6b5d0bb9a0c3f077863fdaef9773f7c" resname="Province">
+        <source>Province</source>
+        <target>省</target>
+      </trans-unit>
+      <trans-unit id="7aea8217f3b5d9d6e1e55140e7a02d31" resname="Select your province">
+        <source>Select your province</source>
+        <target>选择您所在的省份</target>
+      </trans-unit>
+      <trans-unit id="503c4eadea62827624f5c27d8be99b30" resname="City/Municipal">
+        <source>City/Municipal</source>
+        <target>__City/Municipal</target>
+      </trans-unit>
+      <trans-unit id="475d144ace6349a2e9d5bc1ac4bfc065" resname="Barangay">
+        <source>Barangay</source>
+        <target>选择您所在的区域</target>
+      </trans-unit>
+      <trans-unit id="5e178542b85fb18ca3c459e9a95f4f2e" resname="Zip Code">
+        <source>Zip Code</source>
+        <target>邮政编码</target>
+      </trans-unit>
+      <trans-unit id="a0bfb8e59e6c13fc8d990781f77694fe" resname="Continue">
+        <source>Continue</source>
+        <target>__Continue</target>
+      </trans-unit>
+      <trans-unit id="e722dcbdd00832dbaa45c9a1dd8a2981" resname="Legal Information">
+        <source>Legal Information</source>
+        <target>法律资料</target>
+      </trans-unit>
+      <trans-unit id="09cb51df05928dc41d7f5c0a14e8466a" resname="Legal Requirements">
+        <source>Legal Requirements</source>
+        <target>证件</target>
+      </trans-unit>
+      <trans-unit id="fec16c6692537c88b806d6b9bd5a39a6" resname="DTI/SEC Permit">
+        <source>DTI/SEC Permit</source>
+        <target>DTI／SEC 许可证</target>
+      </trans-unit>
+      <trans-unit id="722869cd31a4be51ebbf9e979f16c82f" resname="Where to get a copy of DTI/SEC Permit?">
+        <source>Where to get a copy of DTI/SEC Permit?</source>
+        <target>从何处获取DTI/SEC许可证?</target>
+      </trans-unit>
+      <trans-unit id="33292462aa0f021fb4ab7b07fc9f70df" resname="Download DTI/SEC Permit">
+        <source>Download DTI/SEC Permit</source>
+        <target>__Download DTI/SEC Permit</target>
+      </trans-unit>
+      <trans-unit id="65459251e7be840361a68e14c3c90ac3" resname="Compatible files: JPEG, PNG and PDF">
+        <source>Compatible files: JPEG, PNG and PDF</source>
+        <target>兼容的文件: JPEG、 PNG 和 PDF</target>
+      </trans-unit>
+      <trans-unit id="6c63ad1d3e99fdee26a0b10397c0cf3f" resname="Mayor's Permit">
+        <source>Mayor's Permit</source>
+        <target>市长许可证</target>
+      </trans-unit>
+      <trans-unit id="50e7a308e2d1b4e38304f1f7568e6eb0" resname="Where to get a copy of Mayor's Permit?">
+        <source>Where to get a copy of Mayor's Permit?</source>
+        <target>__Where to get a copy of Mayor's Permit?</target>
+      </trans-unit>
+      <trans-unit id="b3b4a63d5c84feee524d545a24d52115" resname="Download Mayor's Permit">
+        <source>Download Mayor's Permit</source>
+        <target>__Download Mayor's Permit</target>
+      </trans-unit>
+      <trans-unit id="70fee3fd2e372691a529921d424d2571" resname="BIR Permit">
+        <source>BIR Permit</source>
+        <target>BIR许可证</target>
+      </trans-unit>
+      <trans-unit id="8c1536fa99ac54ffb685ee7bae04ef4b" resname="Where to get a copy of BIR Permit?">
+        <source>Where to get a copy of BIR Permit?</source>
+        <target>__Where to get a copy of BIR Permit?</target>
+      </trans-unit>
+      <trans-unit id="87040b3d5248a5dc118244eb776d57c6" resname="Download BIR Permit">
+        <source>Download BIR Permit</source>
+        <target>__Download BIR Permit</target>
+      </trans-unit>
+      <trans-unit id="a7bda6168a26fd323e91c13abaecd3e3" resname="Form MA1501 with signature">
+        <source>Form MA1501 with signature</source>
+        <target>含签名的MA1501文档</target>
+      </trans-unit>
+      <trans-unit id="945b065cd1be5b83743c5e77f831953a" resname="Where to get a copy of Form MA1501?">
+        <source>Where to get a copy of Form MA1501?</source>
+        <target>从何处获取Form MA1501 Permit的复印件?</target>
+      </trans-unit>
+      <trans-unit id="107acda00733f55d77e67004c37dc55e" resname="Download Form MA1501">
+        <source>Download Form MA1501</source>
+        <target>下载Form MA1501 Permit</target>
+      </trans-unit>
+      <trans-unit id="0ca7fd9c292f3b495b847dac5bc1fe16" resname="Select your DTI/SEC Permit file from your computer">
+        <source>Select your DTI/SEC Permit file from your computer</source>
+        <target>选择 DTI/SEC 允许文件从您的计算机</target>
+      </trans-unit>
+      <trans-unit id="a67735a3ce29d3e26d16a7a572ead89c" resname="Select your Mayor's Permit file from your computer">
+        <source>Select your Mayor's Permit file from your computer</source>
+        <target>从您的计算机中选择Mayor's permit文件</target>
+      </trans-unit>
+      <trans-unit id="38ea5a9f8c2285903fb6b07c6a33d844" resname="Select your BIR Permit file from your computer">
+        <source>Select your BIR Permit file from your computer</source>
+        <target>从您的计算机中选择BIR permit文件</target>
+      </trans-unit>
+      <trans-unit id="e0c9f7c4700487788996177e80696ff0" resname="Select your Form MA1501 file from your computer">
+        <source>Select your Form MA1501 file from your computer</source>
+        <target>从您的计算机中选择Form MA1501 Permit</target>
+      </trans-unit>
+      <trans-unit id="7db113e0219b388376791d3d9d3f830f" resname="Others Documents">
+        <source>Others Documents</source>
+        <target>其他文件</target>
+      </trans-unit>
+      <trans-unit id="13a65b51b1ebd6e76933853d8dfa7691" resname="Select a document file from your computer">
+        <source>Select a document file from your computer</source>
+        <target>从您的计算机选择一个文件</target>
+      </trans-unit>
+      <trans-unit id="31b8afd39158787622f86d309142d24d" resname="TIN File">
+        <source>TIN File</source>
+        <target>__TIN File</target>
+      </trans-unit>
+      <trans-unit id="46a80cd771aa6c0d9ab878fe3fe52468" resname="Where to get a copy of TIN File?">
+        <source>Where to get a copy of TIN File?</source>
+        <target>__Where to get a copy of TIN File?</target>
+      </trans-unit>
+      <trans-unit id="dd001d483f9b170bad6e791823bf1b5c" resname="Download TIN File">
+        <source>Download TIN File</source>
+        <target>__Download TIN File</target>
+      </trans-unit>
+      <trans-unit id="fb0b79f130795988592d2cca064c6a4f" resname="SSS File">
+        <source>SSS File</source>
+        <target>SSS 文件</target>
+      </trans-unit>
+      <trans-unit id="b3aeed4b0572f77335e9be235b0e1bda" resname="Select Valid ID">
+        <source>Select Valid ID</source>
+        <target>选择有效证件</target>
+      </trans-unit>
+      <trans-unit id="d279594fd397648fa19980321309ad5c" resname="Where to get a copy of SSS File?">
+        <source>Where to get a copy of SSS File?</source>
+        <target>__Where to get a copy of SSS File?</target>
+      </trans-unit>
+      <trans-unit id="2a7c94816176a731d717889880ed938e" resname="Download SSS File">
+        <source>Download SSS File</source>
+        <target>__Download SSS File</target>
+      </trans-unit>
+      <trans-unit id="6698eb67f86ff9ef2dbd9ec89514c51a" resname="PAG-IBIG File">
+        <source>PAG-IBIG File</source>
+        <target>__PAG-IBIG File</target>
+      </trans-unit>
+      <trans-unit id="e3644098b252da2cbcc7479e8f0ab567" resname="Where to get a copy of PAG-IBIG File?">
+        <source>Where to get a copy of PAG-IBIG File?</source>
+        <target>__Where to get a copy of PAG-IBIG File?</target>
+      </trans-unit>
+      <trans-unit id="62ad95de9c68d187aae9594209059e85" resname="Download PAG-IBIG File">
+        <source>Download PAG-IBIG File</source>
+        <target>__Download PAG-IBIG File</target>
+      </trans-unit>
+      <trans-unit id="c752c567220f5ea7fc1330ac9005866f" resname="Postal File">
+        <source>Postal File</source>
+        <target>邮政文件</target>
+      </trans-unit>
+      <trans-unit id="db4681085345c7dfafec272be8b420fc" resname="Where to get a copy of Postal File?">
+        <source>Where to get a copy of Postal File?</source>
+        <target>到哪里获取邮政文件?</target>
+      </trans-unit>
+      <trans-unit id="e26d86bf03c0e62aa71fb8086f46db84" resname="Download Postal File">
+        <source>Download Postal File</source>
+        <target>邮政文件下载</target>
+      </trans-unit>
+      <trans-unit id="de80b53f32335810f7a35796c8552ff5" resname="Passport File">
+        <source>Passport File</source>
+        <target>护照文件</target>
+      </trans-unit>
+      <trans-unit id="431977d1e7ca0c5a84bac60fbd898b9d" resname="Where to get a copy of Passport File?">
+        <source>Where to get a copy of Passport File?</source>
+        <target>从何处获取护照文件?</target>
+      </trans-unit>
+      <trans-unit id="9eb194dfa51024fa229ce812581aa6ce" resname="Download Passport File">
+        <source>Download Passport File</source>
+        <target>下载的护照文件</target>
+      </trans-unit>
+      <trans-unit id="a188d27b648e7882565f2f7577deba22" resname="Driver's License File">
+        <source>Driver's License File</source>
+        <target>驾驶证件</target>
+      </trans-unit>
+      <trans-unit id="4c148224f40082d6d0db264c03baff71" resname="Where to get a copy of Driver's License File?">
+        <source>Where to get a copy of Driver's License File?</source>
+        <target>从何处获取驾驶证件?</target>
+      </trans-unit>
+      <trans-unit id="8c473d95bf3e99e03f82484fb33c5674" resname="Download Driver's License File">
+        <source>Download Driver's License File</source>
+        <target>下载驾驶证件</target>
+      </trans-unit>
+      <trans-unit id="95e2b4ecc24148c9fcc378c1535c9280" resname="PRC File">
+        <source>PRC File</source>
+        <target>PRC文件</target>
+      </trans-unit>
+      <trans-unit id="3a63b1012bfc574c308844d7f43f6868" resname="Where to get a copy of PRC File?">
+        <source>Where to get a copy of PRC File?</source>
+        <target>到哪里获取PRC?</target>
+      </trans-unit>
+      <trans-unit id="4153203a9c9f5b90d67c81640ff3ac4e" resname="Download PRC File">
+        <source>Download PRC File</source>
+        <target>PRC文件下载</target>
+      </trans-unit>
+      <trans-unit id="611ea82c498e435b73ff2e412a60a242" resname="Voter's ID File">
+        <source>Voter's ID File</source>
+        <target>选民ID文件</target>
+      </trans-unit>
+      <trans-unit id="f3b52090765fd4b440a0572a20e2e4a0" resname="Where to get a copy of Voter's ID File?">
+        <source>Where to get a copy of Voter's ID File?</source>
+        <target>从何处获取选民ID文件?</target>
+      </trans-unit>
+      <trans-unit id="097611695d1d22085b7ebd9630069674" resname="Download Voter's ID File">
+        <source>Download Voter's ID File</source>
+        <target>选民ID文件</target>
+      </trans-unit>
+      <trans-unit id="9c46320eb60b111baa0dede5e967b562" resname="School ID File">
+        <source>School ID File</source>
+        <target>学生证文件</target>
+      </trans-unit>
+      <trans-unit id="dd74387f557083194ee5891b4550b760" resname="Where to get a copy of School ID File?">
+        <source>Where to get a copy of School ID File?</source>
+        <target>__Where to get a copy of School ID File?</target>
+      </trans-unit>
+      <trans-unit id="7755955be085fd5a8c65de4341cc9a46" resname="Download School ID File">
+        <source>Download School ID File</source>
+        <target>__Download School ID File</target>
+      </trans-unit>
+      <trans-unit id="081a4397226a0f903f46bcbba0c804e9" resname="Select your TIN file from your computer">
+        <source>Select your TIN file from your computer</source>
+        <target>从您的计算机选择您的TIN文件</target>
+      </trans-unit>
+      <trans-unit id="06b70c66c0a25e7bf370414d936bd08d" resname="Valid ID">
+        <source>Valid ID</source>
+        <target>有效ID</target>
+      </trans-unit>
+      <trans-unit id="09acfd60681e4b8f61b4389aba1767b0" resname="Select the type of Valid ID you want to upload from your computer">
+        <source>Select the type of Valid ID you want to upload from your computer</source>
+        <target>从您的计算机选择您要上传有效的身份证</target>
+      </trans-unit>
+      <trans-unit id="70037c26b2cb97ee265b80f83715c320" resname="Seller Type:">
+        <source>Seller Type:</source>
+        <target>卖方类型:</target>
+      </trans-unit>
+      <trans-unit id="896890bfb700eac98300d639ca970f2b" resname="Merchant">
+        <source>Merchant</source>
+        <target>__Merchant</target>
+      </trans-unit>
+      <trans-unit id="bb166feff34b74fef81127259160c93a" resname="Affiliate">
+        <source>Affiliate</source>
+        <target>代销商</target>
+      </trans-unit>
+      <trans-unit id="bb1b536bd48f5eb83edfe2573b9e266c" resname="Owner Name:">
+        <source>Owner Name:</source>
+        <target>业主名称:</target>
+      </trans-unit>
+      <trans-unit id="d97acd72676037a22e3ed9d13c14d4ad" resname="Business Name:">
+        <source>Business Name:</source>
+        <target>公司名称:</target>
+      </trans-unit>
+      <trans-unit id="1ca5a178a201def8796a11ee92128814" resname="Primary Address:">
+        <source>Primary Address:</source>
+        <target>主地址:</target>
+      </trans-unit>
+      <trans-unit id="9353fe209cd31a0515f7b5ff64ed53a7" resname="Contact Number:">
+        <source>Contact Number:</source>
+        <target>__Contact Number:</target>
+      </trans-unit>
+      <trans-unit id="42e97c77d26bedb4d17e45920a708593" resname="Change Content">
+        <source>Change Content</source>
+        <target>更改内容</target>
+      </trans-unit>
+      <trans-unit id="7dce122004969d56ae2e0245cb754d35" resname="Edit">
+        <source>Edit</source>
+        <target>编辑</target>
+      </trans-unit>
+      <trans-unit id="a6122a65eaa676f700ae68d393054a37" resname="Start">
+        <source>Start</source>
+        <target>开始</target>
+      </trans-unit>
+      <trans-unit id="24dbbcd5e61d6c4be99b6a4ec1495785" resname="Bank Name:">
+        <source>Bank Name:</source>
+        <target>__Bank Name:</target>
+      </trans-unit>
+      <trans-unit id="88bc807994232fbedf30281d9da1a58e" resname="Account Title:">
+        <source>Account Title:</source>
+        <target>账号科目:</target>
+      </trans-unit>
+      <trans-unit id="3ccbb61bd210a71c887e93f8fcaa2e2a" resname="Account Name:">
+        <source>Account Name:</source>
+        <target>__Account Name:</target>
+      </trans-unit>
+      <trans-unit id="7a6afcdac3f745ccb9b92916ea0a9661" resname="Account Number:">
+        <source>Account Number:</source>
+        <target>__Account Number:</target>
+      </trans-unit>
+      <trans-unit id="3d756c429d3a9fe70f5f1ac25a561a9a" resname="Document Name">
+        <source>Document Name</source>
+        <target>文件名称</target>
+      </trans-unit>
+      <trans-unit id="286d8b0c77a9c65abb2747d81e84b392" resname="Date Uploaded">
+        <source>Date Uploaded</source>
+        <target>上传日期</target>
+      </trans-unit>
+      <trans-unit id="ec53a8c4f07baed5d8825072c89799be" resname="Status">
+        <source>Status</source>
+        <target>状态</target>
+      </trans-unit>
+      <trans-unit id="4c2a8fe7eaf24721cc7a9f0175115bd4" resname="Message">
+        <source>Message</source>
+        <target>消息</target>
+      </trans-unit>
+      <trans-unit id="a018ef21967d3cd1aea3b4b2c06b7923" resname="FORM MA11501 Permit">
+        <source>FORM MA11501 Permit</source>
+        <target>MA11501许可证</target>
+      </trans-unit>
+      <trans-unit id="52ef9633d88a7480b3a938ff9eaa2a25" resname="Others">
+        <source>Others</source>
+        <target>其他</target>
+      </trans-unit>
+      <trans-unit id="f542e296af9bd593c4e06b5a31a6eab4" resname="SSS">
+        <source>SSS</source>
+        <target>SSS</target>
+      </trans-unit>
+      <trans-unit id="6e277111b504f063d8da7876b24ea4ff" resname="PAG IBIG">
+        <source>PAG IBIG</source>
+        <target>PAG IBIG</target>
+      </trans-unit>
+      <trans-unit id="4bc3955079ef4d1940048fa1dd9a6bfa" resname="Postal">
+        <source>Postal</source>
+        <target>邮政</target>
+      </trans-unit>
+      <trans-unit id="916df6dabccb420c1ee355d7dd7dd89b" resname="Passport">
+        <source>Passport</source>
+        <target>护照</target>
+      </trans-unit>
+      <trans-unit id="0100349e7a7174eb2db0ebac41d71cc1" resname="Driver's License">
+        <source>Driver's License</source>
+        <target>驾照</target>
+      </trans-unit>
+      <trans-unit id="e01a919b068424df394a7f38a3a02ed2" resname="PRC">
+        <source>PRC</source>
+        <target>PRC</target>
+      </trans-unit>
+      <trans-unit id="96267446b678aa9f03cec99cd2f0abb0" resname="Voter's ID">
+        <source>Voter's ID</source>
+        <target>选民ID</target>
+      </trans-unit>
+      <trans-unit id="09c85126bc3b79b014140e686ef71490" resname="School ID">
+        <source>School ID</source>
+        <target>学生证</target>
+      </trans-unit>
+      <trans-unit id="25c9b3d4708aae10b0134e7b74a2cbce" resname="Legal Documents">
+        <source>Legal Documents</source>
+        <target>法律文件</target>
+      </trans-unit>
+      <trans-unit id="8413c683b4b27cc3f4dbd4c90329d8ba" resname="Comments">
+        <source>Comments</source>
+        <target>评论</target>
+      </trans-unit>
+      <trans-unit id="d3d2e617335f08df83599665eef8a418" resname="Close">
+        <source>Close</source>
+        <target>结案</target>
+      </trans-unit>
+      <trans-unit id="b6d4223e60986fa4c9af77ee5f7149c5" resname="Sign in">
+        <source>Sign in</source>
+        <target>__Sign in</target>
+      </trans-unit>
+      <trans-unit id="0ba7583639a274c434bbe6ef797115a4" resname="Register">
+        <source>Register</source>
+        <target>注册</target>
+      </trans-unit>
+      <trans-unit id="ce8ae9da5b7cd6c3df2929543a9af92d" resname="Email">
+        <source>Email</source>
+        <target>邮件地址</target>
+      </trans-unit>
+      <trans-unit id="dc647eb65e6711e155375218212b3964" resname="Password">
+        <source>Password</source>
+        <target>密码</target>
+      </trans-unit>
+      <trans-unit id="38c8c1f4156fa91158ebbcee727da0b0" resname="Forgot Password?">
+        <source>Forgot Password?</source>
+        <target>忘记密码</target>
+      </trans-unit>
+      <trans-unit id="f2fdea440d768b85591e936a803c3631" resname="Sign In">
+        <source>Sign In</source>
+        <target>注册</target>
+      </trans-unit>
+      <trans-unit id="537674296e59ea3527661d1d582f4e39" resname="New Bank Account">
+        <source>New Bank Account</source>
+        <target>开户行名称</target>
+      </trans-unit>
+      <trans-unit id="aebb135abb7f27676f79d058c09211aa" resname="Update Bank Account">
+        <source>Update Bank Account</source>
+        <target>更新银行帐户</target>
+      </trans-unit>
+      <trans-unit id="0323de4f66a1700e2173e9bcdce02715" resname="Logout">
+        <source>Logout</source>
+        <target>退出</target>
+      </trans-unit>
+      <trans-unit id="b4ac8d6f4411bfc3d90da8a995f5b62f" resname="View Store Info">
+        <source>View Store Info</source>
+        <target>查看店面信息</target>
+      </trans-unit>
+      <trans-unit id="f4f70727dc34561dfde1a3c529b6205c" resname="Settings">
+        <source>Settings</source>
+        <target>设置</target>
+      </trans-unit>
+      <trans-unit id="6a26f548831e6a8c26bfbbd9f6ec61e0" resname="Help">
+        <source>Help</source>
+        <target>求助</target>
+      </trans-unit>
+      <trans-unit id="af1b98adf7f686b84cd0b443e022b7a0" resname="Categories">
+        <source>Categories</source>
+        <target>品类</target>
+      </trans-unit>
+      <trans-unit id="e472674f7f8f924bd89ac932b3ec37aa" resname="Current Order:">
+        <source>Current Order:</source>
+        <target>最新订单</target>
+      </trans-unit>
+      <trans-unit id="4223dfcd18217eff4b6de709a9b27f19" resname="New Category">
+        <source>New Category</source>
+        <target>新到商品</target>
+      </trans-unit>
+      <trans-unit id="d0d4e3688fdaee5afa292083b855e143" resname="Add new category">
+        <source>Add new category</source>
+        <target>添加新类别</target>
+      </trans-unit>
+      <trans-unit id="f3398ffa74d9da29a259a2d2427b2401" resname="Delete Categories">
+        <source>Delete Categories</source>
+        <target>删除品类</target>
+      </trans-unit>
+      <trans-unit id="05947dcc922d7a94ccd8be7228bbb106" resname="Customize Category">
+        <source>Customize Category</source>
+        <target>定制品类</target>
+      </trans-unit>
+      <trans-unit id="99121ab27aaa7472cfada9071c5ba434" resname="Category Name">
+        <source>Category Name</source>
+        <target>品类名称</target>
+      </trans-unit>
+      <trans-unit id="4e98e60e38a29ab7bd94ea815c4f2ef2" resname="Parent Category">
+        <source>Parent Category</source>
+        <target>总品类</target>
+      </trans-unit>
+      <trans-unit id="aad912e5361b4910757234d5eed21769" resname="Select a parent category">
+        <source>Select a parent category</source>
+        <target>选择总品类</target>
+      </trans-unit>
+      <trans-unit id="90b826b57ed5a49415bc60cce3013161" resname="Custom Category Products">
+        <source>Custom Category Products</source>
+        <target>定制品类商品</target>
+      </trans-unit>
+      <trans-unit id="f3be76903ac20c97acaaa1a66a1107ee" resname="Search item here">
+        <source>Search item here</source>
+        <target>在此搜索产品</target>
+      </trans-unit>
+      <trans-unit id="a40de094ebb292b72fa2a4f3a1cf1209" resname="All Products">
+        <source>All Products</source>
+        <target>所有产品</target>
+      </trans-unit>
+      <trans-unit id="49ee3087348e8d44e1feda1917443987" resname="Name">
+        <source>Name</source>
+        <target>姓名</target>
+      </trans-unit>
+      <trans-unit id="cda83d00666a7bfa8cde6808de4ef994" resname="Contact Number">
+        <source>Contact Number</source>
+        <target>联系方式</target>
+      </trans-unit>
+      <trans-unit id="004bf6c9a40003140292e97330236c53" resname="Action">
+        <source>Action</source>
+        <target>操作</target>
+      </trans-unit>
+      <trans-unit id="2938c7f7e560ed972f8a4f68e80ff834" resname="Dashboard">
+        <source>Dashboard</source>
+        <target>首页</target>
+      </trans-unit>
+      <trans-unit id="80a11d2a54a677f6fadd9c041c0d6b98" resname="Store Information">
+        <source>Store Information</source>
+        <target>商铺信息</target>
+      </trans-unit>
+      <trans-unit id="1b0ffaae3973401f71cd000ab9f7856e" resname="Transaction">
+        <source>Transaction</source>
+        <target>交易</target>
+      </trans-unit>
+      <trans-unit id="948590535142d16883c105bb52330fb2" resname="Product Management">
+        <source>Product Management</source>
+        <target>商品管理</target>
+      </trans-unit>
+      <trans-unit id="ee2b8ed324f1eeecddcf6152536ff1ca" resname="Customized Category">
+        <source>Customized Category</source>
+        <target>定制目录</target>
+      </trans-unit>
+      <trans-unit id="7dfe5fbdf386940c5631899dd1b082dc" resname="Upload Product">
+        <source>Upload Product</source>
+        <target>货品上传</target>
+      </trans-unit>
+      <trans-unit id="d401ff02b78a8ecc9b835168f697b6e7" resname="Select Product">
+        <source>Select Product</source>
+        <target>选择产品</target>
+      </trans-unit>
+      <trans-unit id="41de6d6cfb8953c021bbe4ba0701c8a1" resname="Messages">
+        <source>Messages</source>
+        <target>留言</target>
+      </trans-unit>
+      <trans-unit id="2e33d882beae521f02fa7c0b14e33a23" resname="My Points">
+        <source>My Points</source>
+        <target>我的积分</target>
+      </trans-unit>
+      <trans-unit id="9783374e9ccdf4da2924477e87446430" resname="Resolution Center">
+        <source>Resolution Center</source>
+        <target>服务中心</target>
+      </trans-unit>
+      <trans-unit id="ad76c8d857b3f8a057d1f3b2932d9f6d" resname="Point Earned">
+        <source>Point Earned</source>
+        <target>积分累计</target>
+      </trans-unit>
+      <trans-unit id="15f2edbc1c359d13a40f962a24c058f8" resname="Breakdown">
+        <source>Breakdown</source>
+        <target>明细</target>
+      </trans-unit>
+      <trans-unit id="bbae0631be938f04036bd4ba31948ee7" resname="Total Product">
+        <source>Total Product</source>
+        <target>商品列表</target>
+      </trans-unit>
+      <trans-unit id="56db3618ec6b066d0190c48102e222fe" resname="Total Transactions">
+        <source>Total Transactions</source>
+        <target>总交易量</target>
+      </trans-unit>
+      <trans-unit id="0e687ac4f5f3ae64b8e2deef66dd1fb6" resname="Gross Sales">
+        <source>Gross Sales</source>
+        <target>销售总额</target>
+      </trans-unit>
+      <trans-unit id="4253e52d290384f76c24e67af329bbd3" resname="Sales Report">
+        <source>Sales Report</source>
+        <target>销售报告</target>
+      </trans-unit>
+      <trans-unit id="dc29e7e18a3841bdc2f64cc57a83b1b3" resname="View By">
+        <source>View By</source>
+        <target>__View By</target>
+      </trans-unit>
+      <trans-unit id="fd3458547ef9c3a8bd0e1e1b4ef2b4dd" resname="Recent Orders">
+        <source>Recent Orders</source>
+        <target>近期订单</target>
+      </trans-unit>
+      <trans-unit id="44749712dbec183e983dcd78a7736c41" resname="Date">
+        <source>Date</source>
+        <target>日期</target>
+      </trans-unit>
+      <trans-unit id="7c9a3504dd4ce74b8021267ae1802968" resname="Payment Type">
+        <source>Payment Type</source>
+        <target>支付类型</target>
+      </trans-unit>
+      <trans-unit id="bbd3a18e6d45b8331cf8a715f3f0008d" resname="Order Status">
+        <source>Order Status</source>
+        <target>订单状态</target>
+      </trans-unit>
+      <trans-unit id="96b0141273eabab320119c467cdcaf17" resname="Total">
+        <source>Total</source>
+        <target>总金额</target>
+      </trans-unit>
+      <trans-unit id="d8d7ad6abfd08c27baa8bedb78c72ddb" resname="View All">
+        <source>View All</source>
+        <target>__View All</target>
+      </trans-unit>
+      <trans-unit id="b9aefa40a54680bb258f9f9569290fae" resname="Product Name">
+        <source>Product Name</source>
+        <target>产品名称</target>
+      </trans-unit>
+      <trans-unit id="920993d08ed8ff3c327028cf796472b1" resname="iPhone 6 - GOLD">
+        <source>iPhone 6 - GOLD</source>
+        <target>__iPhone 6 - GOLD</target>
+      </trans-unit>
+      <trans-unit id="36e3402e4ddef43e92b99aef016c057e" resname="Short Description">
+        <source>Short Description</source>
+        <target>简介</target>
+      </trans-unit>
+      <trans-unit id="5daaf223b01f8f3e1bd9287170826fbc" resname="Photos">
+        <source>Photos</source>
+        <target>图片</target>
+      </trans-unit>
+      <trans-unit id="8acbbeabbc7818e91f5064a722b9423e" resname="Full Description">
+        <source>Full Description</source>
+        <target>详细描述</target>
+      </trans-unit>
+      <trans-unit id="1f7e1834bcc6ce8af1970f8903fc6ddc" resname="See More">
+        <source>See More</source>
+        <target>更多</target>
+      </trans-unit>
+      <trans-unit id="3ec365dd533ddb7ef3d1c111186ce872" resname="Details">
+        <source>Details</source>
+        <target>明细</target>
+      </trans-unit>
+      <trans-unit id="56a8a9eb05f9014da51a4f9b57322ac7" resname="Category:">
+        <source>Category:</source>
+        <target>__Category:</target>
+      </trans-unit>
+      <trans-unit id="31d87ad6b853e34f36d1af6414358b6b" resname="Electronics &amp;amp; Gadgets">
+        <source>Electronics &amp;amp; Gadgets</source>
+        <target><![CDATA[__Electronics &amp; Gadgets]]></target>
+      </trans-unit>
+      <trans-unit id="a27d5b5cd75acf7c91286283622d9927" resname="Smart Phones">
+        <source>Smart Phones</source>
+        <target>__Smart Phones</target>
+      </trans-unit>
+      <trans-unit id="fb437d90e0b282eb818e8e9978bb2f77" resname="Brand:">
+        <source>Brand:</source>
+        <target>__Brand:</target>
+      </trans-unit>
+      <trans-unit id="c831fa25d5fc70e06376c1b29501da4e" resname="Regular Price:">
+        <source>Regular Price:</source>
+        <target>__Regular Price:</target>
+      </trans-unit>
+      <trans-unit id="104d9898c04874d0fbac36e125fa1369" resname="Discount">
+        <source>Discount</source>
+        <target>折扣</target>
+      </trans-unit>
+      <trans-unit id="7d6395b374d009ee9cae645ecf8556d0" resname="Additional Details">
+        <source>Additional Details</source>
+        <target>附加信息</target>
+      </trans-unit>
+      <trans-unit id="f994ab7d227d020d7d4d8ed619955eda" resname="Combination 1">
+        <source>Combination 1</source>
+        <target>__Combination 1</target>
+      </trans-unit>
+      <trans-unit id="fb5a0e846f382e4f81b1c4daddcf6e4e" resname="Color:">
+        <source>Color:</source>
+        <target>颜色:</target>
+      </trans-unit>
+      <trans-unit id="ee38e4d5dd68c4e440825018d549cb47" resname="Red">
+        <source>Red</source>
+        <target>__Red</target>
+      </trans-unit>
+      <trans-unit id="d7389bccbb68a73a072d5bf3a9bd2d93" resname="Material:">
+        <source>Material:</source>
+        <target>__Material:</target>
+      </trans-unit>
+      <trans-unit id="bdf7ad23e89b55f904bca0304819309e" resname="Leather">
+        <source>Leather</source>
+        <target>__Leather</target>
+      </trans-unit>
+      <trans-unit id="4ccf0ac6a71deedb8cfc46e57e86c860" resname="Memory:">
+        <source>Memory:</source>
+        <target>__Memory:</target>
+      </trans-unit>
+      <trans-unit id="22c48a78d988a5fcd3e72ed8b81f592f" resname="128gb">
+        <source>128gb</source>
+        <target>__128gb</target>
+      </trans-unit>
+      <trans-unit id="c63b32bf2df3c9d488917b83b2a7b586" resname="12345667ADF">
+        <source>12345667ADF</source>
+        <target>__12345667ADF</target>
+      </trans-unit>
+      <trans-unit id="c81e728d9d4c2f636f067f89cc14862c" resname="2">
+        <source>2</source>
+        <target>__2</target>
+      </trans-unit>
+      <trans-unit id="7b10aca18117d255a05dae8f2301a06b" resname="P 22,500">
+        <source>P 22,500</source>
+        <target>__P 22,500</target>
+      </trans-unit>
+      <trans-unit id="7832c3a01152168a00c5c3fdfdfacfe9" resname="20% OFF">
+        <source>20% OFF</source>
+        <target>__20% OFF</target>
+      </trans-unit>
+      <trans-unit id="d5784255411f597ce2125a05b4875a53" resname="Combination 2">
+        <source>Combination 2</source>
+        <target>__Combination 2</target>
+      </trans-unit>
+      <trans-unit id="3c9f591c524fc16a79cabcc42ac5a7b6" resname="Dimensions &amp;amp; Weight">
+        <source>Dimensions &amp;amp; Weight</source>
+        <target><![CDATA[__Dimensions &amp; Weight]]></target>
+      </trans-unit>
+      <trans-unit id="2f4e178d92b83191c3e837f296eef885" resname="Length (CM):">
+        <source>Length (CM):</source>
+        <target>():</target>
+      </trans-unit>
+      <trans-unit id="c7ddfa947af75211d8034b8874f41e4a" resname="50 cm">
+        <source>50 cm</source>
+        <target>__50 cm</target>
+      </trans-unit>
+      <trans-unit id="0aabb80bb7b4c0430b7bf0a90f0dc6c2" resname="Weight (KG):">
+        <source>Weight (KG):</source>
+        <target>():</target>
+      </trans-unit>
+      <trans-unit id="0d5fa14daa2e8a78cf4de4b977ed33f5" resname="1 kg">
+        <source>1 kg</source>
+        <target>__1 kg</target>
+      </trans-unit>
+      <trans-unit id="9c0365f0518bfd0d29c6ccb951066a5d" resname="Width (CM):">
+        <source>Width (CM):</source>
+        <target>():</target>
+      </trans-unit>
+      <trans-unit id="deb070cc230e1521bd7619eaceea98ba" resname="100 cm">
+        <source>100 cm</source>
+        <target>__100 cm</target>
+      </trans-unit>
+      <trans-unit id="47d24b5495daedb1dd84099086eb4ceb" resname="Height (CM):">
+        <source>Height (CM):</source>
+        <target>():</target>
+      </trans-unit>
+      <trans-unit id="6805af29cf525be29a19836d89b9c76e" resname="34 cm">
+        <source>34 cm</source>
+        <target>__34 cm</target>
+      </trans-unit>
+      <trans-unit id="7177e0adfaf14e129e27bd06b55a10e6" resname="Edit Product">
+        <source>Edit Product</source>
+        <target>编辑商品</target>
+      </trans-unit>
+      <trans-unit id="f18d700c58f38e40c913a965f0cae794" resname="Select Products">
+        <source>Select Products</source>
+        <target>选择产品</target>
+      </trans-unit>
+      <trans-unit id="cc5bba4ff17cbcceb1c857bfab46a4b9" resname="Sub-Category">
+        <source>Sub-Category</source>
+        <target>子类别</target>
+      </trans-unit>
+      <trans-unit id="dcba4820ad23fa0dd1b156badb0d9082" resname="Select a category to filter the results">
+        <source>Select a category to filter the results</source>
+        <target>选择类别进行筛选</target>
+      </trans-unit>
+      <trans-unit id="37f3d033e10d2edede1b684211226344" resname="Product to Sell">
+        <source>Product to Sell</source>
+        <target>产品出售</target>
+      </trans-unit>
+      <trans-unit id="f2c12ae14393ffc83551d56f32bb03cc" resname="Price:">
+        <source>Price:</source>
+        <target>价格:</target>
+      </trans-unit>
+      <trans-unit id="549bee849302f6cf7601f27f179487ab" resname="Comission:">
+        <source>Comission:</source>
+        <target>佣金:</target>
+      </trans-unit>
+      <trans-unit id="82c1820a16fc683992a7ed2e40f98cb2" resname="Add to Selected">
+        <source>Add to Selected</source>
+        <target>添加到选上列表</target>
+      </trans-unit>
+      <trans-unit id="28da79e11242b9b0b03bec24f21cbdf1" resname="View product">
+        <source>View product</source>
+        <target>查看产品</target>
+      </trans-unit>
+      <trans-unit id="aede0c8bee5fd1ffdf5f4ecd74293a2e" resname="Update the details of your product by going to your product management page">
+        <source>Update the details of your product by going to your product management page</source>
+        <target>到您的产品管理页面去更新你的产品详细信息</target>
+      </trans-unit>
+      <trans-unit id="b1f0b866ff1e540503531b72d365a681" resname="Cases">
+        <source>Cases</source>
+        <target>案例</target>
+      </trans-unit>
+      <trans-unit id="2ab6dc8e89738aae0f74d0d97e5da16b" resname="Search By Case Id">
+        <source>Search By Case Id</source>
+        <target>通过案例 Id 进行搜索</target>
+      </trans-unit>
+      <trans-unit id="13348442cc6a27032d2b4aa28b75a5d3" resname="Search">
+        <source>Search</source>
+        <target>搜索</target>
+      </trans-unit>
+      <trans-unit id="d7778d0c64b6ba21494c97f77a66885a" resname="Filter">
+        <source>Filter</source>
+        <target>筛选器</target>
+      </trans-unit>
+      <trans-unit id="8669a07ee358f45e27373045738579ba" resname="Case ID">
+        <source>Case ID</source>
+        <target>案例号</target>
+      </trans-unit>
+      <trans-unit id="fffcb4d1e12c96b2f571f77ad25878b8" resname="Reason">
+        <source>Reason</source>
+        <target>原因</target>
+      </trans-unit>
+      <trans-unit id="a7244011b9f5c22e38c9b4406ffa80a1" resname="Other Party">
+        <source>Other Party</source>
+        <target>其他</target>
+      </trans-unit>
+      <trans-unit id="8fc66dcc3ce65115454a7375ac143e53" resname="Date Opened">
+        <source>Date Opened</source>
+        <target>提交时间</target>
+      </trans-unit>
+      <trans-unit id="c3bf447eabe632720a3aa1a7ce401274" resname="Open">
+        <source>Open</source>
+        <target>处理中</target>
+      </trans-unit>
+      <trans-unit id="03f4a47830f97377a35321051685071e" resname="Closed">
+        <source>Closed</source>
+        <target>__Closed</target>
+      </trans-unit>
+      <trans-unit id="2c40c54eaefe49177a436c26edde690a" resname="No case found">
+        <source>No case found</source>
+        <target>没有找到任何案例</target>
+      </trans-unit>
+      <trans-unit id="e16563f6ab5d41985927b6cd331485ed" resname="Dispute Title">
+        <source>Dispute Title</source>
+        <target>纠纷内容</target>
+      </trans-unit>
+      <trans-unit id="96f13fce7c9d952d395552c5e2294d26" resname="Enter title here">
+        <source>Enter title here</source>
+        <target>点击进入</target>
+      </trans-unit>
+      <trans-unit id="93fff8d710e8df972e76219e4914c0da" resname="Select dispute type here">
+        <source>Select dispute type here</source>
+        <target>选择纠纷类型</target>
+      </trans-unit>
+      <trans-unit id="f1d078071f725ba1436a916a0f13b0fd" resname="Select reason here">
+        <source>Select reason here</source>
+        <target>请选着理由</target>
+      </trans-unit>
+      <trans-unit id="3b4d8262aca97445950c583118a46cd2" resname="Select transaction here">
+        <source>Select transaction here</source>
+        <target>选择交易单号</target>
+      </trans-unit>
+      <trans-unit id="4d7a995b2605c5674719987ae3982ef8" resname="Select item to dispute:">
+        <source>Select item to dispute:</source>
+        <target>选择纠纷产品:</target>
+      </trans-unit>
+      <trans-unit id="0217ceef61df405a8f1b55fa8ddf9db0" resname="Leave your remarks here">
+        <source>Leave your remarks here</source>
+        <target>留言</target>
+      </trans-unit>
+      <trans-unit id="a38bd5138bf35514df41a1795ebbf5c3" resname="OPEN">
+        <source>OPEN</source>
+        <target>处理中</target>
+      </trans-unit>
+      <trans-unit id="110ccf2f5d2ff4eda1fd1a494293467d" resname="CLOSED">
+        <source>CLOSED</source>
+        <target>__CLOSED</target>
+      </trans-unit>
+      <trans-unit id="ccb168b5a6a86eb100dc2dee754a316b" resname="Reason:">
+        <source>Reason:</source>
+        <target>__Reason:</target>
+      </trans-unit>
+      <trans-unit id="a274f4d4670213a9045ce258c6c56b80" resname="Notifications">
+        <source>Notifications</source>
+        <target>通知</target>
+      </trans-unit>
+      <trans-unit id="4c5dad7059e8fbad01cfddf659b1f1e0" resname="Account setting">
+        <source>Account setting</source>
+        <target>帐户设置</target>
+      </trans-unit>
+      <trans-unit id="65f13145802f7e6f8f02c1d7d3afc32d" resname="Confirm your password">
+        <source>Confirm your password</source>
+        <target>确认您的密码</target>
+      </trans-unit>
+      <trans-unit id="109fec06829bd79d222cfc8af52aaaf1" resname="Deactivate">
+        <source>Deactivate</source>
+        <target>删除账户</target>
+      </trans-unit>
+      <trans-unit id="b4e146e706e4a87ad29b44e1f8f556c6" resname="Confirm SMS Subscription Change">
+        <source>Confirm SMS Subscription Change</source>
+        <target>确认更新短信服务</target>
+      </trans-unit>
+      <trans-unit id="ee7dbd72229f2932b4c624e0294848be" resname="This Year">
+        <source>This Year</source>
+        <target>本年</target>
+      </trans-unit>
+      <trans-unit id="983268bc2eba161bbc25dd3e73ecdba0" resname="This Week">
+        <source>This Week</source>
+        <target>本周</target>
+      </trans-unit>
+      <trans-unit id="93f558cb7b3fc8ef642cfe051b63ad7b" resname="This Month">
+        <source>This Month</source>
+        <target>本月</target>
+      </trans-unit>
+      <trans-unit id="707436a5aa13b82a4d777f64c717a625" resname="Payment Method">
+        <source>Payment Method</source>
+        <target>支付方式</target>
+      </trans-unit>
+      <trans-unit id="03ab340b3f99e03cff9e84314ead38c0" resname="Qty">
+        <source>Qty</source>
+        <target>数量</target>
+      </trans-unit>
+      <trans-unit id="ac1d3ccc1bcfd04b713a97b7421639b5" resname="Transaction Number">
+        <source>Transaction Number</source>
+        <target>交易单号</target>
+      </trans-unit>
+      <trans-unit id="24a23d787190f2c4812ff9ab11847a72" resname="Status:">
+        <source>Status:</source>
+        <target>状态:</target>
+      </trans-unit>
+      <trans-unit id="76d27e36c60cd0af334f2a096c3d8f19" resname="Payment Type:">
+        <source>Payment Type:</source>
+        <target>支付类型:</target>
+      </trans-unit>
+      <trans-unit id="d5a141a2ec9057f27c80b07408de56d1" resname="Date Created:">
+        <source>Date Created:</source>
+        <target>创建日期:</target>
+      </trans-unit>
+      <trans-unit id="44c107462c394c020275ba5a0d23e167" resname="Total Quantity:">
+        <source>Total Quantity:</source>
+        <target>总数量:</target>
+      </trans-unit>
+      <trans-unit id="13834d6aa1354cc9c160e0c9ba1ea356" resname="Total Product Cost:">
+        <source>Total Product Cost:</source>
+        <target>__Total Product Cost:</target>
+      </trans-unit>
+      <trans-unit id="74e7e5e74431a70152cdc3d681f510b9" resname="Total Shipping Fee:">
+        <source>Total Shipping Fee:</source>
+        <target>__Total Shipping Fee:</target>
+      </trans-unit>
+      <trans-unit id="a131af32f37d590af9a959381d0b35d9" resname="Total Cost:">
+        <source>Total Cost:</source>
+        <target>除了邮件，您将通过手机收到系统信息。您可以选择是否接受短信通知:</target>
+      </trans-unit>
+      <trans-unit id="266cae2087af23c12b8c71919ae57792" resname="Product List">
+        <source>Product List</source>
+        <target>__Product List</target>
+      </trans-unit>
+      <trans-unit id="2bf5ae55eb0ead91dda7d1f6c8524b98" resname="SKU:">
+        <source>SKU:</source>
+        <target>__SKU:</target>
+      </trans-unit>
+      <trans-unit id="2babe53026309ed1bc4d26626dbaf9b3" resname="Details:">
+        <source>Details:</source>
+        <target>__Details:</target>
+      </trans-unit>
+      <trans-unit id="3d0d1f906e27800531e054a3b6787b7c" resname="Quantity:">
+        <source>Quantity:</source>
+        <target>__Quantity:</target>
+      </trans-unit>
+      <trans-unit id="62cd06d4b9d14705d5da40557f15288f" resname="Product Price:">
+        <source>Product Price:</source>
+        <target>__Product Price:</target>
+      </trans-unit>
+      <trans-unit id="ed51222f31afbf17ca5f3b0654db8969" resname="Condition:">
+        <source>Condition:</source>
+        <target>__Condition:</target>
+      </trans-unit>
+      <trans-unit id="614ded76525b2366b1490eae434d2bae" resname="Total Price:">
+        <source>Total Price:</source>
+        <target>__Total Price:</target>
+      </trans-unit>
+      <trans-unit id="5117bdf4c3049ff36571893d39a1bffd" resname="Consignee">
+        <source>Consignee</source>
+        <target>__Consignee</target>
+      </trans-unit>
+      <trans-unit id="e6ed99ed709c5d21849c4019fb198884" resname="Consignee:">
+        <source>Consignee:</source>
+        <target>__Consignee:</target>
+      </trans-unit>
+      <trans-unit id="2bf1d5fae1c321d594fdedf05058f709" resname="Address:">
+        <source>Address:</source>
+        <target>地址:</target>
+      </trans-unit>
+      <trans-unit id="7bb59a43f4569665c933c0c850184c81" resname="Ship Item">
+        <source>Ship Item</source>
+        <target>__Ship Item</target>
+      </trans-unit>
+      <trans-unit id="f7bc508c88b7a3fb5137ec57c2fe7fb0" resname="Cancel Order">
+        <source>Cancel Order</source>
+        <target>__Cancel Order</target>
+      </trans-unit>
+      <trans-unit id="ff0f3da9450b08483abe23e3ccf53a71" resname="Schedule Pickup">
+        <source>Schedule Pickup</source>
+        <target>约定取货时间</target>
+      </trans-unit>
+      <trans-unit id="0d8d58008ef5dd7afce337373ef73993" resname="Date:">
+        <source>Date:</source>
+        <target>日期:</target>
+      </trans-unit>
+      <trans-unit id="8231cd63a1ea7e76519f65379292f503" resname="Items Included:">
+        <source>Items Included:</source>
+        <target>产品:</target>
+      </trans-unit>
+      <trans-unit id="421b12365f86ff59c88ff2c21cf53a2b" resname="Time:">
+        <source>Time:</source>
+        <target>时间:</target>
+      </trans-unit>
+      <trans-unit id="570cae13786d7ba6fdcacacd7c1a36f3" resname="Additional Note">
+        <source>Additional Note</source>
+        <target>备注</target>
+      </trans-unit>
+      <trans-unit id="a2efb877a912bb07e9c5c7b307f1d82a" resname="Enter your additional note here">
+        <source>Enter your additional note here</source>
+        <target>请在这里输入备注</target>
+      </trans-unit>
+      <trans-unit id="9911d63d8981b242a59851a69a663760" resname="Item has been schedule with the following Waybill Number:">
+        <source>Item has been schedule with the following Waybill Number:</source>
+        <target>产品已约定到指定的包裹号码:</target>
+      </trans-unit>
+      <trans-unit id="2a37324bb4c331c859044121df3f576b" resname="Search...">
+        <source>Search...</source>
+        <target>… 搜索</target>
+      </trans-unit>
+      <trans-unit id="92eb5ffee6ae2fec3ad71c777531578f" resname="b">
+        <source>b</source>
+        <target>__b</target>
+      </trans-unit>
+      <trans-unit id="ccd943f86a83b9411cf31a2d05054356" resname="View Profile">
+        <source>View Profile</source>
+        <target>查看商铺信息</target>
+      </trans-unit>
+      <trans-unit id="37693cfc748049e45d87b8c7d8b9aacd" resname="23">
+        <source>23</source>
+        <target>__23</target>
+      </trans-unit>
+      <trans-unit id="b1c94ca2fbc3e78fc30069c8d0f01680" resname="All">
+        <source>All</source>
+        <target>全部</target>
+      </trans-unit>
+      <trans-unit id="d8d370104f413cbcffe456e4edc2f25f" resname="Submit for Review">
+        <source>Submit for Review</source>
+        <target>提交供审查</target>
+      </trans-unit>
+      <trans-unit id="59b5114588999186e123b0ba3624160b" resname="Activate Product">
+        <source>Activate Product</source>
+        <target>激活产品</target>
+      </trans-unit>
+      <trans-unit id="f1298b4fa7d3fc0a84fccbc21c5337fa" resname="Deactivate Product">
+        <source>Deactivate Product</source>
+        <target>停用产品</target>
+      </trans-unit>
+      <trans-unit id="3b3c6c627bd5d8bb364c72c33f82af1f" resname="Delete Product">
+        <source>Delete Product</source>
+        <target>删除产品</target>
+      </trans-unit>
+      <trans-unit id="9c34a97f10f573b8d1cc54832a13da30" resname="Date Updated">
+        <source>Date Updated</source>
+        <target>更新日期</target>
+      </trans-unit>
+      <trans-unit id="3ddfec9db60a9c263617408bd0e98b42" resname="Total Quantity">
+        <source>Total Quantity</source>
+        <target>总数量</target>
+      </trans-unit>
+      <trans-unit id="e4cc585947db6303293acd6e50e23abd" resname="Product Price">
+        <source>Product Price</source>
+        <target>商品价格</target>
+      </trans-unit>
+      <trans-unit id="4d3d769b812b6faa6b76e1a8abaece2d" resname="Active">
+        <source>Active</source>
+        <target>__Active</target>
+      </trans-unit>
+      <trans-unit id="5fe6005bf6e415c950c011fb65f12b8f" resname="Deleted">
+        <source>Deleted</source>
+        <target>删除</target>
+      </trans-unit>
+      <trans-unit id="3cab03c00dbd11bc3569afa0748013f0" resname="Inactive">
+        <source>Inactive</source>
+        <target>禁用</target>
+      </trans-unit>
+      <trans-unit id="f03ab16cd58372c77ba45a3d9a5a1cb9" resname="Draft">
+        <source>Draft</source>
+        <target>草案</target>
+      </trans-unit>
+      <trans-unit id="e1521f742cf5771ba06eb2b11fe7f213" resname="Under Review">
+        <source>Under Review</source>
+        <target>正在审查</target>
+      </trans-unit>
+      <trans-unit id="d37b1f6c0512e2118cee17fea015b699" resname="Rejected">
+        <source>Rejected</source>
+        <target>拒收</target>
+      </trans-unit>
+      <trans-unit id="fb4c4bfe53f3bf85a7bd0759b534cc85" resname="Manage your preferences">
+        <source>Manage your preferences</source>
+        <target>管理偏好</target>
+      </trans-unit>
+      <trans-unit id="ca87ba2b0086c314ad5b69849bbab670" resname="Save as Draft">
+        <source>Save as Draft</source>
+        <target>保存为草稿</target>
+      </trans-unit>
+      <trans-unit id="b8900d8adf598b6653bb8c071bc49a1d" resname="Product Details">
+        <source>Product Details</source>
+        <target>产品信息</target>
+      </trans-unit>
+      <trans-unit id="e3a33c56cc080e789b08d8f8d490e65a" resname="Enter product name here">
+        <source>Enter product name here</source>
+        <target>输入商品名称</target>
+      </trans-unit>
+      <trans-unit id="40fffac20755cff658ab29218d67cc66" resname="Enter short product description here">
+        <source>Enter short product description here</source>
+        <target>输入商品简介</target>
+      </trans-unit>
+      <trans-unit id="b52a6329df6a26b4edd068729d7d366e" resname="characters remaining">
+        <source>characters remaining</source>
+        <target>__characters remaining</target>
+      </trans-unit>
+      <trans-unit id="bbc3b57d4995cc5244f1284d63265050" resname="Complete Description">
+        <source>Complete Description</source>
+        <target>商品详细介绍</target>
+      </trans-unit>
+      <trans-unit id="1a1f976080a3e4657d0007ff43fb1d5d" resname="Enter product description here">
+        <source>Enter product description here</source>
+        <target>在这里输入产品描述</target>
+      </trans-unit>
+      <trans-unit id="8c6ac5d4b4a4cba501ba94ca7af6e1ba" resname="Select category product here">
+        <source>Select category product here</source>
+        <target>选择目录</target>
+      </trans-unit>
+      <trans-unit id="163c403f03e836d723f817a29d451173" resname="Enter brand here">
+        <source>Enter brand here</source>
+        <target>点击进入</target>
+      </trans-unit>
+      <trans-unit id="9e2941b3c81256fac10392aaca4ccfde" resname="Condition">
+        <source>Condition</source>
+        <target>条件</target>
+      </trans-unit>
+      <trans-unit id="34842ae24fdd18ec6298e758c86f61ea" resname="Select Condition">
+        <source>Select Condition</source>
+        <target>条件筛选</target>
+      </trans-unit>
+      <trans-unit id="9ade0515734c4a5c5e11b767780bdf69" resname="Inventory and Variants">
+        <source>Inventory and Variants</source>
+        <target>库存及变量</target>
+      </trans-unit>
+      <trans-unit id="11031189a81798cb8fc9af5d9467175b" resname="Detail Name">
+        <source>Detail Name</source>
+        <target>详细信息名称</target>
+      </trans-unit>
+      <trans-unit id="c82a6100dace2b41087ba6cf99a5976a" resname="Values">
+        <source>Values</source>
+        <target>值</target>
+      </trans-unit>
+      <trans-unit id="06df33001c1d7187fdd81ea1f5b277aa" resname="Actions">
+        <source>Actions</source>
+        <target>功能</target>
+      </trans-unit>
+      <trans-unit id="e3dd7ac14314cc69aa7cee8cd0156e94" resname="Product Combinations">
+        <source>Product Combinations</source>
+        <target>产品组合</target>
+      </trans-unit>
+      <trans-unit id="fff0d600f8a0b5e19e88bfb821dd1157" resname="Images">
+        <source>Images</source>
+        <target>图像</target>
+      </trans-unit>
+      <trans-unit id="b9208b03bcc9eb4a336258dcdcb66207" resname="Combinations">
+        <source>Combinations</source>
+        <target>组合</target>
+      </trans-unit>
+      <trans-unit id="3601146c4e948c32b6424d2c0a7f0118" resname="Price">
+        <source>Price</source>
+        <target>价格</target>
+      </trans-unit>
+      <trans-unit id="1dc2af14d15238ba67e03c99a6f415f6" resname="Stocks">
+        <source>Stocks</source>
+        <target>库存</target>
+      </trans-unit>
+      <trans-unit id="f7ddd489ab0a82567b241b05971cbdb3" resname="0.00">
+        <source>0.00</source>
+        <target>__0.00</target>
+      </trans-unit>
+      <trans-unit id="272b6d701d99c285d224a44434ade80e" resname="Add Discount">
+        <source>Add Discount</source>
+        <target>添加折扣</target>
+      </trans-unit>
+      <trans-unit id="2ba8c07b379d6e8e3b0beb424cd15166" resname="Final Price">
+        <source>Final Price</source>
+        <target>最终价格</target>
+      </trans-unit>
+      <trans-unit id="d2ffa3f21695c05b53f30cccfc2c0cde" resname="SKU (Stock Keeping Unit)">
+        <source>SKU (Stock Keeping Unit)</source>
+        <target>(  )库存单位</target>
+      </trans-unit>
+      <trans-unit id="66e98facf9afec42dffd1d816eaf3bc5" resname="Enter stock keeping unit here">
+        <source>Enter stock keeping unit here</source>
+        <target>在此输入库存量</target>
+      </trans-unit>
+      <trans-unit id="d472d20abe47a526a7c4f15bede1ff72" resname="You can assign any code in order to keep track of your items">
+        <source>You can assign any code in order to keep track of your items</source>
+        <target>您可以分配任何代码以保持跟踪您的产品</target>
+      </trans-unit>
+      <trans-unit id="a7b105755291a175c2b2b6c35c1aea6c" resname="Number of Stocks Available">
+        <source>Number of Stocks Available</source>
+        <target>剩余库存量</target>
+      </trans-unit>
+      <trans-unit id="cfcd208495d565ef66e7dff9f98764da" resname="0">
+        <source>0</source>
+        <target>__0</target>
+      </trans-unit>
+      <trans-unit id="f2565c61cfb1b3dadb92b2ff23050718" resname="Dimensions and Weight">
+        <source>Dimensions and Weight</source>
+        <target>尺寸及重量</target>
+      </trans-unit>
+      <trans-unit id="979f4abd1a393f5a688fe92c8e2cea20" resname="Length (CM)">
+        <source>Length (CM)</source>
+        <target>() 长</target>
+      </trans-unit>
+      <trans-unit id="210a577ac07b3dac533c183b7e1e9401" resname="Height (CM)">
+        <source>Height (CM)</source>
+        <target>() 高</target>
+      </trans-unit>
+      <trans-unit id="61cd5c23f1fe1669ec68d913fca1563a" resname="Width (CM)">
+        <source>Width (CM)</source>
+        <target>() 宽</target>
+      </trans-unit>
+      <trans-unit id="06752dfc0286b9fa9e541f204f32f201" resname="Weight (KG)">
+        <source>Weight (KG)</source>
+        <target>() 重量</target>
+      </trans-unit>
+      <trans-unit id="914aa0ed85ed70c974236064811c95a1" resname="Variant Name">
+        <source>Variant Name</source>
+        <target>别名</target>
+      </trans-unit>
+      <trans-unit id="30772ccdba36c8ad773584090f70449a" resname="Enter keywords here">
+        <source>Enter keywords here</source>
+        <target>请在此输入关键字</target>
+      </trans-unit>
+      <trans-unit id="a01bfc09aea7c549a02048f87f9d7369" resname="Variant Choice">
+        <source>Variant Choice</source>
+        <target>其他选择</target>
+      </trans-unit>
+      <trans-unit id="a501b68c5ad4d6de1060619ca892561c" resname="Hit enter to add another">
+        <source>Hit enter to add another</source>
+        <target>点击空格键以便添加其他内容</target>
+      </trans-unit>
+      <trans-unit id="c41c80b092cde0adaf9f5c3d5a7f01a3" resname="You can search your category here">
+        <source>You can search your category here</source>
+        <target>点击此处选择目录</target>
+      </trans-unit>
+      <trans-unit id="0557fa923dcee4d0f86b1409f5c2167f" resname="Back">
+        <source>Back</source>
+        <target>返回</target>
+      </trans-unit>
+      <trans-unit id="6f6cb72d544962fa333e2e34ce64f719" resname="Size">
+        <source>Size</source>
+        <target>尺寸</target>
+      </trans-unit>
+      <trans-unit id="e5f4e2763a4955c12cb57414480f8a13" resname="Select Size Here">
+        <source>Select Size Here</source>
+        <target>在此处选择大小</target>
+      </trans-unit>
+      <trans-unit id="f163b0288780071801340ee4c0b33af0" resname="Upload image first">
+        <source>Upload image first</source>
+        <target>请先上传图片</target>
+      </trans-unit>
+      <trans-unit id="0d9284106f871dad4d3736142a7afbe0" resname="Variant Successfully Added">
+        <source>Variant Successfully Added</source>
+        <target>成功添加</target>
+      </trans-unit>
+      <trans-unit id="253d507a8f41e7d7b27f33de38da95e9" resname="Crop Photo">
+        <source>Crop Photo</source>
+        <target>裁剪照片</target>
+      </trans-unit>
+      <trans-unit id="d388632d05e8826abe4b95de0b110529" resname="Crop">
+        <source>Crop</source>
+        <target>裁剪</target>
+      </trans-unit>
+      <trans-unit id="861ed680820eee2b8ce36a29be88f89a" resname="Discounted Price:">
+        <source>Discounted Price:</source>
+        <target>__Discounted Price:</target>
+      </trans-unit>
+      <trans-unit id="0879300c429c6fd85dae81b3ca77c48c" resname="Enter your email here">
+        <source>Enter your email here</source>
+        <target>在这里输入您的电子邮件</target>
+      </trans-unit>
+      <trans-unit id="f4ec5f57bd4d31b803312d873be40da9" resname="Change">
+        <source>Change</source>
+        <target>更改</target>
+      </trans-unit>
+      <trans-unit id="5abf6f695a643a66bb52b831dffca609" resname="Click here to verify">
+        <source>Click here to verify</source>
+        <target>单击此处验证</target>
+      </trans-unit>
+      <trans-unit id="3ef89ab73b7f3df1259ab0d123370f3e" resname="Enter your password here">
+        <source>Enter your password here</source>
+        <target>在这里输入您的密码</target>
+      </trans-unit>
+      <trans-unit id="0d98d15e617ed62fdc4e98b222da2b29" resname="Change Email Address">
+        <source>Change Email Address</source>
+        <target>新邮件地址</target>
+      </trans-unit>
+      <trans-unit id="9b66db058f76654713ae888a66f9658e" resname="Enter your new email address here">
+        <source>Enter your new email address here</source>
+        <target>电子邮件地址缺少 ' @'</target>
+      </trans-unit>
+      <trans-unit id="87c289900eab161d5924faea869bcc4e" resname="Confirm your new email address here">
+        <source>Confirm your new email address here</source>
+        <target>密码</target>
+      </trans-unit>
+      <trans-unit id="8f1e77e0d2be21da93cd4d9a939148f7" resname="Change Password">
+        <source>Change Password</source>
+        <target>更改密码</target>
+      </trans-unit>
+      <trans-unit id="4bc28f132d571b160ba407e143915de2" resname="Current Password">
+        <source>Current Password</source>
+        <target>在此输入您的旧密码</target>
+      </trans-unit>
+      <trans-unit id="349aa56e44951fd66cc5b0153ba8d785" resname="Enter your current password here">
+        <source>Enter your current password here</source>
+        <target>新密码</target>
+      </trans-unit>
+      <trans-unit id="ae3bb2a1ac61750150b606298091d38a" resname="New Password">
+        <source>New Password</source>
+        <target>新密码</target>
+      </trans-unit>
+      <trans-unit id="294ec22d2c13a4ee81c753f4ca38a095" resname="Confirm New Password">
+        <source>Confirm New Password</source>
+        <target>在此确认您的新密码</target>
+      </trans-unit>
+      <trans-unit id="302d8fcfddc4ec70ef6b5d2d8f4bcf40" resname="Confirm your new password here">
+        <source>Confirm your new password here</source>
+        <target>需在有效期内登入壹零客</target>
+      </trans-unit>
+      <trans-unit id="a429832a55f18e53d78d5f5e6dd68cf7" resname="All in one place">
+        <source>All in one place</source>
+        <target>__All in one place</target>
+      </trans-unit>
+      <trans-unit id="7c3ae51a55ba1f4c0a7d302246ed1347" resname="Invalid Username or Password.">
+        <source>Invalid Username or Password.</source>
+        <target>用户名或密码错误</target>
+      </trans-unit>
+      <trans-unit id="b42a1bef8287aa3e90c1236fdde56761" resname="Email Verified.">
+        <source>Email Verified.</source>
+        <target>__Email Verified.</target>
+      </trans-unit>
+      <trans-unit id="44b021185b1ce19ae25e86e7b3b1bf24" resname="Password reset success.">
+        <source>Password reset success.</source>
+        <target>密码重置成功。</target>
+      </trans-unit>
+      <trans-unit id="e857817b07c27f3c57caa6c40f7499d4" resname="Remember Me">
+        <source>Remember Me</source>
+        <target>记住密码</target>
+      </trans-unit>
+      <trans-unit id="79aba3d9e7427b021c1bcc93d4b6b04d" resname="Copyright 2015 YiLinker. All Rights Reserved">
+        <source>Copyright 2015 YiLinker. All Rights Reserved</source>
+        <target>版权 2015 YiLinker。版权所有</target>
+      </trans-unit>
+      <trans-unit id="6fb916c7143a2cf342ca4e004dc53165" resname="Reset password request sent">
+        <source>Reset password request sent</source>
+        <target>已发送重置密码的请求</target>
+      </trans-unit>
+      <trans-unit id="6072e83b7f35887c76e64920bd370f4a" resname="Reset Password">
+        <source>Reset Password</source>
+        <target>重置密码</target>
+      </trans-unit>
+      <trans-unit id="6ab96a5df54aa6aae2bab9ea75ab76c9" resname="Confirm new password">
+        <source>Confirm new password</source>
+        <target>__Confirm new password</target>
+      </trans-unit>
+      <trans-unit id="ca8d9ce1ea0c79f097de4f1fd925113b" resname="Verify Number">
+        <source>Verify Number</source>
+        <target>验证号码</target>
+      </trans-unit>
+      <trans-unit id="babc2ec4735ad9526c9998701c1d7386" resname="Lorem ipsum dolor sit amet, consectetur">
+        <source>Lorem ipsum dolor sit amet, consectetur</source>
+        <target>__Lorem ipsum dolor sit amet, consectetur</target>
+      </trans-unit>
+      <trans-unit id="8c96eb4e4c2875752d354e3b04827e29" resname="Profile Photo">
+        <source>Profile Photo</source>
+        <target>卖家图片</target>
+      </trans-unit>
+      <trans-unit id="595a144a6dc362bc5c21a7de486b824e" resname="Select an image from your computer (10mb max)">
+        <source>Select an image from your computer (10mb max)</source>
+        <target>__Select an image from your computer (10mb max)</target>
+      </trans-unit>
+      <trans-unit id="5b5ebfdb4aa1f57835671948444dba74" resname="Cover Photo">
+        <source>Cover Photo</source>
+        <target>商铺主页图片</target>
+      </trans-unit>
+      <trans-unit id="176b3470bf23ec9c7e7b21f7af54ba4f" resname="Enter your store name here">
+        <source>Enter your store name here</source>
+        <target>在此输入您的商店名</target>
+      </trans-unit>
+      <trans-unit id="5020eaae41baf0caa37bcb73b4a12934" resname="Mobile Phone">
+        <source>Mobile Phone</source>
+        <target>联系电话</target>
+      </trans-unit>
+      <trans-unit id="9741dd9dfccfca815bb031f061e5b6f9" resname="Enter your mobile number here">
+        <source>Enter your mobile number here</source>
+        <target>在这里输入您的手机号码</target>
+      </trans-unit>
+      <trans-unit id="2b7c9847d4b0f8ba2cbec12b096c86d7" resname="Enter your store slug here">
+        <source>Enter your store slug here</source>
+        <target>请输入商店座右铭</target>
+      </trans-unit>
+      <trans-unit id="a1b5cb4c35ebb56b33d3892656675007" resname="Store Description">
+        <source>Store Description</source>
+        <target>商店描述</target>
+      </trans-unit>
+      <trans-unit id="7071087cff01f0859a1c145891c710ac" resname="Enter your store description here">
+        <source>Enter your store description here</source>
+        <target>请输入商店描述</target>
+      </trans-unit>
+      <trans-unit id="f5d6040ed78ca86ddc73296a49b18510" resname="Save Changes">
+        <source>Save Changes</source>
+        <target>保存更改</target>
+      </trans-unit>
+      <trans-unit id="526d688f37a86d3c3f27d0c5016eb71d" resname="Reset">
+        <source>Reset</source>
+        <target>重置</target>
+      </trans-unit>
+      <trans-unit id="16629982b0a460d8372fa8ab56a0903a" resname="Select your categories">
+        <source>Select your categories</source>
+        <target>选择您的类别</target>
+      </trans-unit>
+      <trans-unit id="9e3272ea568fdb0e64052f79f37e2c3c" resname="QR Code">
+        <source>QR Code</source>
+        <target>__QR Code</target>
+      </trans-unit>
+      <trans-unit id="f27e4e46028ca30341ff820dbe4eae4e" resname="Share with">
+        <source>Share with</source>
+        <target>__Share with</target>
+      </trans-unit>
+      <trans-unit id="685093b9d65688ce81115443d71c2432" resname="Generate your QR Code">
+        <source>Generate your QR Code</source>
+        <target>__Generate your QR Code</target>
+      </trans-unit>
+      <trans-unit id="23edfefc70c449a022ed6b0b76f13c98" resname="Referral Code">
+        <source>Referral Code</source>
+        <target>推荐识别码</target>
+      </trans-unit>
+      <trans-unit id="a5cb4012f8628a7157a6a93ef522b07f" resname="Copy Link.">
+        <source>Copy Link.</source>
+        <target>__Copy Link.</target>
+      </trans-unit>
+      <trans-unit id="78fc13f46174a57416493b60e99777c7" resname="Copy Link">
+        <source>Copy Link</source>
+        <target>复制链接</target>
+      </trans-unit>
+      <trans-unit id="2946b63c291f30157cc9fad6eb409ee6" resname="Change Mobile Number">
+        <source>Change Mobile Number</source>
+        <target>更改手机号码</target>
+      </trans-unit>
+      <trans-unit id="d57ccce9b37b079924f92f13163d3dfb" resname="Old Number">
+        <source>Old Number</source>
+        <target>旧号码</target>
+      </trans-unit>
+      <trans-unit id="a5592047b7fe25f12b44f0920c40c93c" resname="Enter New Number">
+        <source>Enter New Number</source>
+        <target>输入新号码</target>
+      </trans-unit>
+      <trans-unit id="f62e6a7faf47a56a6d26904be288e0a0" resname="Enter your new number here">
+        <source>Enter your new number here</source>
+        <target>输入您新的号码</target>
+      </trans-unit>
+      <trans-unit id="39eed84f005446f260a306adc287a14d" resname="Time Left:">
+        <source>Time Left:</source>
+        <target>剩余时间:</target>
+      </trans-unit>
+      <trans-unit id="ac29e4af163e60052daea96214151601" resname="5:00">
+        <source>5:00</source>
+        <target>__5:00</target>
+      </trans-unit>
+      <trans-unit id="3840196b3c126eadf992a0571e7d0753" resname="Enter Code">
+        <source>Enter Code</source>
+        <target>输入代码</target>
+      </trans-unit>
+      <trans-unit id="abbde21f5441d228a3914f17c7918afd" resname="Crop Profile Photo">
+        <source>Crop Profile Photo</source>
+        <target>裁剪头像</target>
+      </trans-unit>
+      <trans-unit id="30671cf7df10fbb13e88107fce3cd7bb" resname="Crop Cover Photo">
+        <source>Crop Cover Photo</source>
+        <target>裁剪封面照片</target>
+      </trans-unit>
+      <trans-unit id="6db3dcdf54522f02d31ac131ee419e60" resname="Share via Email">
+        <source>Share via Email</source>
+        <target>通过电子邮件共享</target>
+      </trans-unit>
+      <trans-unit id="3926c1d87e2dcb15fad1024362d48653" resname="Enter recipient email here. Separated with commas.">
+        <source>Enter recipient email here. Separated with commas.</source>
+        <target>输入收件人的电子邮件。用逗号分隔。</target>
+      </trans-unit>
+      <trans-unit id="2595b9c83ec46aa0a62aaf543d304f6e" resname="Enter your message here">
+        <source>Enter your message here</source>
+        <target>请在此处填写信息</target>
+      </trans-unit>
+      <trans-unit id="8ebeac2bc6d59ece1ac726dcc1872c37" resname="Enter your address title here">
+        <source>Enter your address title here</source>
+        <target>在此输入联系人信息</target>
+      </trans-unit>
+      <trans-unit id="7a809b61ea4a2ba706e21cd15c470679" resname="Enter your address unit number here">
+        <source>Enter your address unit number here</source>
+        <target>在此输入您的房号</target>
+      </trans-unit>
+      <trans-unit id="1f8c5a520f301923bbba723fad6bb8bb" resname="Enter your address building name here">
+        <source>Enter your address building name here</source>
+        <target>在此输入您的楼号</target>
+      </trans-unit>
+      <trans-unit id="87109f070a6e8c828ecfef1ddec17b1a" resname="Enter your address street number here">
+        <source>Enter your address street number here</source>
+        <target>在此输入您的街道号</target>
+      </trans-unit>
+      <trans-unit id="8015b2a9df903b7ab882eb5d83787be5" resname="Enter your address street name here">
+        <source>Enter your address street name here</source>
+        <target>在此输入您的街道名称</target>
+      </trans-unit>
+      <trans-unit id="edddb4278e046da7f459bc38999eda01" resname="Enter your address subdivision here">
+        <source>Enter your address subdivision here</source>
+        <target>在此输入您的小区名</target>
+      </trans-unit>
+      <trans-unit id="4d8229fe0ea7f7076208298baa0e3fee" resname="Select your city">
+        <source>Select your city</source>
+        <target>区域</target>
+      </trans-unit>
+      <trans-unit id="ba7cb00ee036ed5f3a59d2f524d22cf2" resname="Select your barangay">
+        <source>Select your barangay</source>
+        <target>选择你的镇</target>
+      </trans-unit>
+      <trans-unit id="16123b75410d31e36dd6c60ce3cee5ac" resname="Enter your zip code here">
+        <source>Enter your zip code here</source>
+        <target>输入您的邮政编码</target>
+      </trans-unit>
+      <trans-unit id="3d144b58c7f56931cfc8d7cf0252a37a" resname="Update Shipping Address">
+        <source>Update Shipping Address</source>
+        <target>更新送货地址</target>
+      </trans-unit>
+      <trans-unit id="d2838310188de7965f46c8a8e0061896" resname="Current Job / Course &amp; Year Level">
+        <source>Current Job / Course &amp; Year Level</source>
+        <target>职业／学年</target>
+      </trans-unit>
+      <trans-unit id="bcf34ea02caac911271dc63b63b642af" resname="Store Link">
+        <source>Store Link</source>
+        <target>商店链接</target>
+      </trans-unit>
+      <trans-unit id="3af8e3f8c9724de11c0b0e8dded68c6a" resname="Already a member?">
+        <source>Already a member?</source>
+        <target>已经是会员了吗?</target>
+      </trans-unit>
+      <trans-unit id="0457bda216a04a04d06066423426c262" resname="The Question">
+        <source>The Question</source>
+        <target>问题</target>
+      </trans-unit>
+      <trans-unit id="785046dbd81cabad003a949b39e7f966" resname="&amp;#9679;">
+        <source>&amp;#9679;</source>
+        <target><![CDATA[__&#9679;]]></target>
+      </trans-unit>
+      <trans-unit id="e654f7a86a4458b9cd662267e0f29b52" resname="Benefits">
+        <source>Benefits</source>
+        <target>福利</target>
+      </trans-unit>
+      <trans-unit id="a45da96d0bf6575970f2d27af22be28a" resname="System">
+        <source>System</source>
+        <target>系统</target>
+      </trans-unit>
+      <trans-unit id="db5eb84117d06047c97c9a0191b5fffe" resname="Support">
+        <source>Support</source>
+        <target>支持</target>
+      </trans-unit>
+      <trans-unit id="8ef5ecd70e4691ad5b32bd5a67855d43" resname="Want to start-up a business without any investment? Looking for passive income?">
+        <source>Want to start-up a business without any investment? Looking for passive income?</source>
+        <target>要零成本当老板吗？寻找收入吗?</target>
+      </trans-unit>
+      <trans-unit id="6efa8e96256d89b521424168a572ecc3" resname="Upload it now">
+        <source>Upload it now</source>
+        <target>请现在上传</target>
+      </trans-unit>
+      <trans-unit id="0a5fae7d585544f7a2f2c3bdd2b31636" resname="Overview">
+        <source>Overview</source>
+        <target>概况</target>
+      </trans-unit>
+      <trans-unit id="1297b4b04da14fecbf005bb89def3621" resname="Warehouse List">
+        <source>Warehouse List</source>
+        <target>仓库信息</target>
+      </trans-unit>
+      <trans-unit id="e29750617aac4599891be4df016aa7f3" resname="Balance record">
+        <source>Balance record</source>
+        <target>余额记录</target>
+      </trans-unit>
+      <trans-unit id="b581aebd42fb4d5b96c9ca5d3227b6e0" resname="Balance Record">
+        <source>Balance Record</source>
+        <target>余额记录</target>
+      </trans-unit>
+      <trans-unit id="8e675be575e3487689bdac6998e9f90e" resname="Withdrawal">
+        <source>Withdrawal</source>
+        <target>提现</target>
+      </trans-unit>
+      <trans-unit id="d600ffd408c94479b5dbc41ce282a4e6" resname="Earning">
+        <source>Earning</source>
+        <target>积分</target>
+      </trans-unit>
+      <trans-unit id="c647857405824954a337e9f5b0c31b00" resname="Followers">
+        <source>Followers</source>
+        <target>关注人</target>
+      </trans-unit>
+      <trans-unit id="231a5fce14fe43e8a19bdf3bdf22f649" resname="Activity Log">
+        <source>Activity Log</source>
+        <target>活动日记</target>
+      </trans-unit>
+      <trans-unit id="818c902cfd964919a7d7beb6d8b9c4b2" resname="Report">
+        <source>Report</source>
+        <target>报告</target>
+      </trans-unit>
+      <trans-unit id="85ea46afa6324d64997c33f51603e4d5" resname="General Information">
+        <source>General Gnformation</source>
+        <target>基本信息</target>
+      </trans-unit>
+      <trans-unit id="b7d275eda5fc40b188f155c464301c27" resname="Store Address">
+        <source>Store Address</source>
+        <target>店铺地址</target>
+      </trans-unit>
+      <trans-unit id="9b194194ad20401a9d5fddc2e2ebd3c3" resname="Bank Account Information">
+        <source>Bank Account Information</source>
+        <target>银行信息</target>
+      </trans-unit>
+      <trans-unit id="6ff50d3d55e74d4ebbc83bea2ee6d63c" resname="Legal Information">
+        <source>Legal Information</source>
+        <target>法律资料</target>
+      </trans-unit>
+      <trans-unit id="8a98c364e5b14b66b47c9dcba6b91f7f" resname="Account Information">
+        <source>Account Information</source>
+        <target>账户信息</target>
+      </trans-unit>
+      <trans-unit id="b4c5c5436ba64ff892ef4607b8821316" resname="All Transactions">
+        <source>All Transactions</source>
+        <target>所有交易</target>
+      </trans-unit>
+      <trans-unit id="297a7255302b44139b87d7b111745c08" resname="On-Going Transactions">
+        <source>On-Going Transactions</source>
+        <target>正在进行的交易</target>
+      </trans-unit>
+      <trans-unit id="0f3d0c1ab195472997977166ba7cdf94" resname="Completed Transactions">
+        <source>Completed Transactions</source>
+        <target>已完成交易</target>
+      </trans-unit>
+ 
+      <trans-unit id="bbac0b8c279e480682f845bb4772a7ad" resname="No transaction data available">
+        <source>No transaction data available</source>
+        <target>无交易数据</target>
+    </trans-unit>
+    <trans-unit id="b741bbb0b77f4590bc39edde6f4f9193" resname="All Products">
+        <source>All Products</source>
+        <target>所有产品</target>
+    </trans-unit>
+    <trans-unit id="98efa1e129ee4744a7c146eecad9add3" resname="Active Products">
+        <source>Active Products</source>
+        <target>上架产品</target>
+    </trans-unit>
+    <trans-unit id="da60e4dc6cda4370973e637b03f1eb30" resname="Inactive Products">
+        <source>Inactive Products</source>
+        <target>下架产品</target>
+    </trans-unit>
+    <trans-unit id="00501e1617544ed8b65843af33566161" resname="Draft Products">
+        <source>Draft Products</source>
+        <target>待上架产品</target>
+    </trans-unit>
+    <trans-unit id="0eefe841ab4b447eaab10868fe321314" resname="Deleted Products">
+        <source>Deleted Products</source>
+        <target>已删除产品</target>
+    </trans-unit>
+    <trans-unit id="9c1f478a73dd4607a786ee4a0475a327" resname="Under Review Products">
+        <source>Under Review Products</source>
+        <target>待审核产品</target>
+    </trans-unit>
+    <trans-unit id="5c03bfe6002b4b91b038a1702c3e0773" resname="Rejected Products">
+        <source>Rejected Products</source>
+        <target>未通过产品</target>
+    </trans-unit>
+    <trans-unit id="1b308b6ce09146c48d56ff46c47baf2b" resname="For Completion Products">
+        <source>For Completion Products</source>
+        <target>待完善产品</target>
+    </trans-unit>
+    <trans-unit id="c0014a81201e4d6f84636b85cb595cc1" resname="Select All">
+        <source>Select All</source>
+        <target>全选</target>
+    </trans-unit>
+    <trans-unit id="5a430864a86348339956a31ce6b8f9ac " resname="Set to Active">
+        <source>Set to Active</source>
+        <target>设为上架</target>
+    </trans-unit>
+    <trans-unit id="60a86ebc50ae4159b614eb5cf65f698a" resname="Set to Inactive">
+        <source>Set to Inactive</source>
+        <target>设为下架</target>
+    </trans-unit>
+    <trans-unit id="65f09b8bb28d478b9dadce413681f445" resname="Delete">
+        <source>Delete</source>
+        <target>删除</target>
+    </trans-unit>
+    <trans-unit id="f629a35865e8473b8f24a6517cbb0270" resname="Warehouse Title Name">
+        <source>Warehouse Title Name</source>
+        <target>仓库名称</target>
+    </trans-unit>
+    <trans-unit id="1f374b913ff14c32a34d952a2ec7d4ba" resname="Warehouse Address">
+        <source>Warehouse Address</source>
+        <target>仓库地址</target>
+    </trans-unit>
+    <trans-unit id="6de33610438e46128997773b21003563" resname="Country">
+        <source>Country</source>
+        <target>国家</target>
+    </trans-unit>
+    <trans-unit id="2046fda21ad146c58aad945f15cf6edc" resname="Add Warehouse">
+        <source>Add Warehouse</source>
+        <target>增加仓库</target>
+    </trans-unit>
+    <trans-unit id="556e2d4ba49d4dc0afcb63eaf5785592" resname="ADD WAREHOUSE">
+        <source>ADD WAREHOUSE</source>
+        <target>增加仓库</target>
+    </trans-unit>
+    <trans-unit id="7960dd1a111e4d468b9876582738feb3" resname="notification">
+        <source>notification</source>
+        <target>通知</target>
+    </trans-unit>
+    <trans-unit id="20f4397e83f44c4bafefbf61ae1f43dc" resname="Reorder/edit categories">
+        <source>Reorder/edit categories</source>
+        <target>重新排序 / 编辑分类</target>
+    </trans-unit>
+    <trans-unit id="6c9af84e151245f5939485868328d4e7" resname="Save Order">
+        <source>Save Order</source>
+        <target>保存排序</target>
+    </trans-unit>
+    <trans-unit id="05e6ca3894704c6ebce3ebfe8ebe23e1" resname="Cancel">
+        <source>Cancel</source>
+        <target>取消</target>
+    </trans-unit>
+    <trans-unit id="4ebc2d380cfe404d91bd102534410509" resname="Upload Video">
+        <source>Upload Video</source>
+        <target>上传视频</target>
+    </trans-unit>
+    <trans-unit id="9eccccb7e0ba4eddacf9d3dc44f4cbc8" resname="Product Group">
+        <source>Product Group</source>
+        <target>产品组</target>
+    </trans-unit>
+    <trans-unit id="3eed356692694bc282f0d76f422b6b2f" resname="Select your Category">
+        <source>Select your Category</source>
+        <target>选择品类</target>
+    </trans-unit>
+    <trans-unit id="7e11440c308a4025b53474676651c505" resname="Shipping Category">
+        <source>Shipping Category</source>
+        <target>派送分类</target>
+    </trans-unit>
+    <trans-unit id="4d79f53f8b6a4181a067f5086933f7ef" resname="Select your Shipping Category">
+        <source>Select your Shipping Category</source>
+        <target>选择你的派送类别</target>
+    </trans-unit>
+    <trans-unit id="79ba95a067f142e2bbb2b4ccc22a64cc" resname="Add more details">
+        <source>Add more details</source>
+        <target>增加更多明细</target>
+    </trans-unit>
+    <trans-unit id="6dfc5d72e05a4ecb89003edb52061471" resname="Add Product">
+        <source>Add Product</source>
+        <target>增加产品</target>
+    </trans-unit>
+    <trans-unit id="945400aec5384d369ad767b15bed4661" resname="Earning Report">
+        <source>Earning Report</source>
+        <target>积分报告</target>
+    </trans-unit>
+    <trans-unit id="a93d9a31bed5497886ce63d62d9d854a" resname="Earnings Report">
+        <source>Earnings Report</source>
+        <target>积分报告</target>
+    </trans-unit>
+    <trans-unit id="ff3d74269d98474a8f34fc5f972dc431" resname="Your inbox is currently empty">
+        <source>Your inbox is currently empty</source>
+        <target>您目前的留言箱是空的</target>
+    </trans-unit>
+    <trans-unit id="48bcf8a706ae4ace9878e67a06d33bae" resname="SMS Notifications">
+        <source>SMS Notifications</source>
+        <target>短信通知</target>
+    </trans-unit>
+    <trans-unit id="1deae864179b43489c8d4f79cd769dc2" resname="Electronics">
+        <source>Electronics</source>
+        <target>手机、数码</target>
+    </trans-unit>
+   <trans-unit id="5d23570d16264c628435cf10df86d586" resname="Log In">
+        <source>Log In</source>
+        <target>登入</target>
+    </trans-unit>
+    <trans-unit id="189a120ab6714aae97a3776517b828ce" resname="Sign Up">
+        <source>Sign Up</source>
+        <target>注册</target>
+    </trans-unit>
+   <trans-unit id="81d4d5e0366b4b47b66b4f6ef942fad1" resname="Type">
+        <source>Type</source>
+        <target>类型</target>
+    </trans-unit>
+    <trans-unit id="d7c764c0d9fc49f587265b7f4337e696" resname="Description">
+        <source>Description</source>
+        <target>交易描述</target>
+    </trans-unit>
+    <trans-unit id="d6de714734f041389a0af00c4702a68e" resname="Amount">
+        <source>Amount</source>
+        <target>金额</target>
+    </trans-unit>
+    <trans-unit id="2f01a291f8984f7a89bde20e139fe26e" resname="Available Balance">
+        <source>Available Balance</source>
+        <target>可提取余额</target>
+    </trans-unit>
+    <trans-unit id="3c26d4a6145740b29b04b0ada6f52aea" resname="Total Sales">
+        <source>Total Sales</source>
+        <target>总销售额</target>
+    </trans-unit>
+    <trans-unit id="4597f394607e4570a60c8087635b4381" resname="Total Net Sales">
+        <source>Total Net Sales</source>
+        <target>净销售额</target>
+    </trans-unit>
+    <trans-unit id="2f90b58fbd5841c58f5c6ed67cd3d19f" resname="Total Site View">
+        <source>Total Site View</source>
+        <target>总访问量</target>
+    </trans-unit>
+    <trans-unit id="7b944950722b4c8ebb548c0e6ed78b29" resname="Buyer Networks">
+        <source>Buyer Networks</source>
+        <target>用户推荐</target>
+    </trans-unit>
+    </body>
+  </file>
+</xliff>

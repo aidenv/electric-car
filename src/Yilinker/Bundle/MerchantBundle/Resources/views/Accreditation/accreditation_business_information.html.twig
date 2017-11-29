@@ -1,0 +1,517 @@
+{% extends 'YilinkerMerchantBundle:Base:accreditation_base.html.twig' %}
+
+{% block title %}
+    Accreditation Business Information
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+    {% set affiliateType = constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') %}
+
+    <div class="accreditation">
+
+        <!-- Breadcrumb -->
+        <div class="row gutters">
+            <ul class="breadcrumb">
+                <li><a href="{{ path('merchant_accreditation')}}">Summary</a></li>
+                <li>Business Information</li>
+            </ul>
+        </div>
+
+        <div class="row gutters">
+
+            {# MAIN CONTAINER #}
+            <div class="col span-9">
+                <div class="box wht">
+                    <div class="business">
+                        <div class="row">
+                            <div class="col span-12">
+                                <div class="title-bar">
+                                    <div class="component-content">
+                                        <span class="uppercase">Business Information</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Seller ID : {{storeEntity.storeNumber}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form group-segment">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="txt-user-store-name" class="required">Store Name</label>
+                                                <input type="text" class="form-ui" name="txt-user-store-name" placeholder="Enter your display name" value="{{ storeEntity.storeName|default('') }}" data-value="{{ storeEntity.storeName|default('') }}" />
+                                                <br>
+                                                <label class="required" for="user-store-link">Store Link</label>
+                                                <div class="table-display store-link">
+                                                    <div class="table-cell base-url">
+                                                        {{ baseUri }}/
+                                                    </div>
+                                                    <div class="table-cell valign-middle full-width">
+                                                        <input type="text" name="storeSlug" class="form-ui" value="{{ authenticatedUser.store.storeSlug|default('') }}" data-value="{{ authenticatedUser.store.storeSlug|default('') }}" id="user-store-link" />
+                                                        <i>eq. "yilinkerstore"</i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="help">
+                                                    <span class="icon icon-alert-exclamation"></span>
+                                                    <p><strong>Store Name and Store Link are Permanent</strong></p>
+                                                    <p>Make sure that you entered the correct name of your store before saving the document to avoid some inconvenience.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="user-first-name-txt">First Name</label>
+                                                <input type="text" class="form-ui" id="user-first-name-txt" value="{{ authenticatedUser.firstName }}" {{ authenticatedUser.firstName == '' ? '' : 'readonly' }} />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="user-last-name-txt">Last Name</label>
+                                                <input type="text" class="form-ui" id="user-last-name-txt" value="{{ authenticatedUser.lastName }}" {{ authenticatedUser.lastName == '' ? '' : 'readonly' }} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="user-email-txt">Email Address</label>
+                                                <div class="input-inner-button">
+                                                    <input type="text" class="form-ui" id="user-email-txt" value="{{ authenticatedUser.email }}" {{ authenticatedUser.email == '' ? '' : 'readonly' }} />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="user-mobile-number-txt">Mobile Number</label>
+                                                <div class="input-inner-button">
+                                                    <input type="text" class="form-ui" id="user-mobile-number-txt" value="{{ authenticatedUser.contactNumber }}" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="required" for="user-company-txt">Company / School</label>
+                                                <div class="input-inner-button">
+                                                    <input type="text" class="form-ui" id="user-company-txt" name="txt-user-company" value="{{ userOccupation is not empty ? userOccupation.name : '' }}" data-value="{{ userOccupation is not empty ? userOccupation.name : '' }}" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="required" for="user-job-txt">Current Job / Course & Year Level</label>
+                                                <div class="input-inner-button">
+                                                    <input type="text" class="form-ui" id="user-job-txt" name="txt-user-job" value="{{ userOccupation is not empty ? userOccupation.job|default('') : '' }}" data-value="{{ userOccupation is not empty ? userOccupation.job|default('') : '' }}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="required" for="user-company-tin">Tax Identification Number (TIN)</label>
+                                                <div class="input-inner-button">
+                                                    <input type="text" class="form-ui" id="user-company-tin" name="txt-user-tin" value="{{ authenticatedUser.tin == 0 ? '' : authenticatedUser.tin|default('') }}" data-value="{{ authenticatedUser.tin == 0 ? '' : authenticatedUser.tin|default('') }}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form" id="store-address-div">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label for="" class="required">Address</label>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="store-address-collection">
+                                            {% if userAddresses|length > 0 %}
+                                                {% for address in userAddresses %}
+                                                    <div class="col-md-6 col-xl-5 store-address address-id-{{ address.userAddressId }}" data-user-address-id="{{ address.userAddressId }}">
+                                                        <div class="bordered-segment store-address-segment stabilizeThird {{ address.isDefault? 'active':'' }}">
+                                                            <table class="store-address-table">
+                                                                <tbody>
+                                                                <tr class="tr-address">
+                                                                    <td width="2em">
+                                                                        <div class="ui checkbox check-box-div {{ address.isDefault ? 'checked' : '' }}">
+                                                                            <input type="checkbox" class="check-box-is-default" data-id="{{ address.userAddressId }}" name="isDefault" {{ address.isDefault? 'checked':'' }}>
+                                                                            <label>&nbsp;</label>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class="td-border-bottom-1">
+                                                                        <div class="shipping-label">
+                                                                            <a class="item-name">{{ address.title }}</a>
+                                                                            <a class="pull-right">
+                                                                                <div class="ui buttons">
+                                                                                    <div class="ui floating dropdown ellipsis-dropdown">
+                                                                                        <span class="ellipsis-text">...</span>
+                                                                                        <div class="menu">
+                                                                                            <div class="item edit" data-id="{{ address.userAddressId }}" data-address="{{ address|json_encode() }}"><i class="icon icon-edit"></i> Edit Address</div>
+                                                                                            <div class="item delete" data-id="{{ address.userAddressId }}"><i class="icon icon-trash"></i> Delete Address</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                            <div class="item-address-line light-color">
+                                                                                {{ address.fullLocation }}
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+
+                                        <div class="row not-empty-user-address">
+                                            <div class="col-md-12 mrg-bt-20">
+                                                <button class="button gray small uppercase" id="trigger-modal-address">
+                                                    <i class="icon icon-plus icon-lg"></i> Add Address
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form" id="online-store-div">
+                                        <div class="row">
+                                            <div class="extra col-md-9">
+                                                <div class="form">
+                                                    <label>Business Website</label>
+                                                    <input type="text" class="form-ui" name="txt-website-url" placeholder="Ex. https://yourWebSite.com" value="{{ accreditationApplication ? accreditationApplication.businessWebsiteUrl|default('') : '' }}" data-value="{{ accreditationApplication ? accreditationApplication.businessWebsiteUrl|default('') : '' }}" />
+                                                </div>
+                                                <div class="bordered-segment">
+                                                    <div class="form">
+                                                        <label>Social Media Account</label>
+                                                        <div id="user-social-media-container">
+                                                            {% for socialMediaAccount in socialMediaAccounts %}
+                                                                <div class="input-inner-button">
+                                                                    <input type="text"
+                                                                           name="social-media-{{ socialMediaAccount.socialMediaTypeId }}"
+                                                                           data-social-media-id="{{ socialMediaAccount.socialMediaTypeId }}"
+                                                                           data-user-social-media-id="{{ socialMediaAccount.userSocialMediaAccountId }}" class="form-ui"
+                                                                           placeholder="https://Your{{ socialMediaAccount.socialMediaTypeName }}Url.com"
+                                                                           value="{{ socialMediaAccount.url }}" data-value="{{ socialMediaAccount.url }}">
+                                                                </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {# Categories for Affiliate #}
+                                    {% if storeEntity.storeType == affiliateType and storeCategories is not empty %}
+                                        <div class="form">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <label for="user-first-name-txt" class="required">Select your Product Categories</label>
+                                                    <div class="row">
+                                                        {% for storeCategory in storeCategories %}
+                                                            <div class="col-md-6">
+                                                                <div class="ui checkbox">
+                                                                    <input type="checkbox" name="store-category-id" value="{{ storeCategory.productCategory.productCategoryId }}" tabindex="0" class="form-ui" {{ storeCategory.isSelected ? 'checked' : '' }}>
+                                                                    <label>{{ storeCategory.productCategory.name }}</label>
+                                                                </div>
+                                                            </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button class="button basic-default button-rounded-side" id="btn-go-back"><i class="icon icon-arrow-short-left icon-lg "></i>Go Back</button>
+                            </div>
+                            <div class="col-md-6 align-right">
+                                <button class="button blue button-rounded-side uppercase" id="btn-submit-business-information">
+                                    <span class="text">Save</span>
+                                    <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            {# LEFT CONTAINER #}
+            <aside class="col span-3">
+                {{ include('YilinkerMerchantBundle:Accreditation:acc_sub_business_side.html.twig') }}
+            </aside>
+
+        </div>
+    </div>
+    <div class="footer-wrapper align-center">
+        Copyright 2015 YiLinker. All Rights Reserved
+    </div>
+
+    {# START MODAL ADDRESS #}
+    <div class="ui modal small modal-address-container" id="modal-address">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="header"><h4 class="no-margin">Address</h4></div>
+        <form class="form ui" id="form-address">
+            <div class="content">
+                <div class="server-error-message error hidden">
+                    <div class="row">
+                        <div class="message-box red with-close-message">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field required">
+                            <label>Address Title</label>
+                            <input name="txt-title" placeholder="e.g. Home, Work, Office" type="text">
+                        </div>
+                        <div class="field">
+                            <label>Unit Number</label>
+                            <input name="txt-unit-number" placeholder="Unit Number" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Building Name</label>
+                            <input name="txt-building-name" placeholder="Building Name" type="text">
+                        </div>
+                        <div class="field">
+                            <label>Street Number</label>
+                            <input name="txt-street-number" placeholder="Street Number" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field required">
+                            <label>Street Name</label>
+                            <input name="txt-street-name" placeholder="Street Name" type="text">
+                        </div>
+                        <div class="field">
+                            <label>Subdivision</label>
+                            <input name="txt-subdivision" placeholder="Subdivision" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field required">
+                            <label>Province</label>
+                            <div class="dropdown search drop-down-location province-input ui selection">
+                                <input type="hidden" name="drop-down-province" />
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Select your province</div>
+                                <div class="menu">
+                                    {% for province in provinces  %}
+                                        <div class="item" data-value="{{ province.provinceId }}">{{ province.location }}</div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field required">
+                            <label>City/Municipal</label>
+                            <div class="dropdown search drop-down-location city-input ui selection">
+                                <input type="hidden" name="drop-down-city" />
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Select City/Municipal...</div>
+                                <div class="menu">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field required">
+                            <label>Barangay</label>
+                            <div class="dropdown search drop-down-location barangay-input ui selection">
+                                <input type="hidden" name="drop-down-barangay" />
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Select Barangay...</div>
+                                <div class="menu">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Zip Code</label>
+                            <input name="txt-zip-code" placeholder="Zip Code" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="button cancel uppercase">Cancel</div>
+                <button class="button confirm uppercase" id="btn-validate">
+                    <span class="text">Submit</span>
+                    <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                </button>
+            </div>
+        </form>
+    </div>
+    {# END MODAL ADDRESS #}
+
+    {# START MODAL MESSAGE #}
+    <div class="ui modal small" id="modal-message">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header sub-header-content"></div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close uppercase">Okay</button>
+        </div>
+    </div>
+    {# END MODAL MESSAGE #}
+
+    {# START MODAL CONFIRM REMOVE ADDRESS #}
+    <div class="ui modal small" id="modal-confirm-delete">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <div class="profile-address-delete-prompt error" style="display:none">
+                <div class="row">
+                    <div class="message-box red with-close-message">
+                        Something went wrong. Please try again later.
+                    </div>
+                </div>
+            </div>
+            <h3 class="ui header">
+                <i class="icon icon-trash"></i>
+                <div class="content">
+                    Delete Address?
+                    <div class="sub-header">Are you sure you want to delete this address</div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button cancel uppercase">Cancel</button>
+            <button class="button red submit-to-success positive uppercase">
+                <span class="text">{% trans %} Delete {% endtrans %}</span>
+                <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+            </button>
+        </div>
+    </div>
+    {# END MODAL CONFIRM REMOVE ADDRESS #}
+
+    {# START MODAL CONFIRM BACK #}
+    <div class="ui modal small" id="modal-confirm-back">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <div class="content">
+                    Continue?
+                    <div class="sub-header">All changes will be discarded.</div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button cancel uppercase">Cancel</button>
+            <button class="button red submit-to-success positive uppercase">
+                <span class="text">Ok</span>
+                <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+            </button>
+        </div>
+    </div>
+    {# END MODAL CONFIRM BACK #}
+
+    {# START OF DIV TO BE CLONED #}
+    <div class="hidden">
+        <div class="col-md-6 col-xl-5 store-address div-clone-address">
+            <div class="bordered-segment store-address-segment stabilizeThird" style="height: 150px">
+                <table class="store-address-table">
+                    <tbody>
+                    <tr class="tr-address">
+                        <td width="2em">
+                            <div class="ui checkbox check-box-div">
+                                <input type="checkbox" class="check-box-is-default" data-id="" name="isDefault">
+                                <label>&nbsp;</label>
+                            </div>
+                        </td>
+                        <td class="td-border-bottom-1">
+                            <div class="shipping-label">
+                                <a class="item-name"></a>
+                                <a class="pull-right">
+                                    <div class="ui buttons">
+                                        <div class="ui floating dropdown ellipsis-dropdown">
+                                            <span class="ellipsis-text">...</span>
+                                            <div class="menu">
+                                                <div class="item edit" data-id="">
+                                                    <i class="icon icon-edit"></i>Edit Address
+                                                </div>
+                                                <div class="item delete" data-id="">
+                                                    <i class="icon icon-trash"></i> Delete Address
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="item-address-line light-color"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {# END OF DIV TO BE CLONED #}
+
+    {# START MODAL CONFIRM CHANGE OF PHYSICAL STORE #}
+    <div class="ui modal small" id="modal-confirm-change-store">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-trash"></i>
+                <div class="content">
+                    Continue?
+                    <div class="sub-header"></div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button cancel uppercase">Cancel</button>
+            <button class="button red submit-to-success positive uppercase">
+                <span class="text">Continue</span>
+                <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+            </button>
+        </div>
+    </div>
+    {# END MODAL CONFIRM CHANGE OF PHYSICAL STORE #}
+
+    <input type="hidden" id="user-address-id" value="" />
+    <input type="hidden" id="user-addresses" value="{{ userAddresses|json_encode() }}" />
+    <input type="hidden" id="user-social-media-accounts" value="{{ socialMediaAccounts|json_encode() }}" />
+    <input type="hidden" id="application-accreditation-id" value="{{ accreditationApplication ? accreditationApplication.accreditationApplicationId : '' }}" />
+    <input type="hidden" id="store-seller-type" value="{{ storeEntity.storeType }}" />
+
+    <input type="hidden" id="social-media-type-facebook" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\UserSocialMediaAccountType::FACEBOOK_TYPE') }}">
+    <input type="hidden" id="social-media-type-google" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\UserSocialMediaAccountType::GOOGLE_TYPE') }}">
+    <input type="hidden" id="social-media-type-twitter" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\UserSocialMediaAccountType::TWITTER_TYPE') }}">
+    <input type="hidden" id="store-type-affiliate" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') }}">
+    <input type="hidden" id="store-type-merchant" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') }}">
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/utility/slugify.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/accreditation/business-information.js') }}"></script>
+{% endblock %}

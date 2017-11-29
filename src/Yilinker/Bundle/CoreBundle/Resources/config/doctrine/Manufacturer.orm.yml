@@ -1,0 +1,59 @@
+Yilinker\Bundle\CoreBundle\Entity\Manufacturer:
+    type: entity
+    table: Manufacturer
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ManufacturerRepository
+    indexes:
+        fk_manufacturer_countryid_country_countryid_idx:
+            columns:
+                - country_id
+    id:
+        manufacturerId:
+            type: integer
+            unsigned: false
+            id: true
+            column: manufacturer_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            fixed: false
+        contactNumber:
+            type: string
+            length: 45
+            fixed: false
+            column: contact_number
+            nullable: true
+        referenceId:
+            type: string
+            length: 100
+            fixed: false
+            column: reference_id
+            unique: true
+        dateAdded:
+            type: datetime
+            column: date_added
+            nullable: false
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+            nullable: false
+        isDelete:
+            type: boolean
+            column: is_delete
+            nullable: false
+            options:
+                default: false
+        description:
+            type: string
+            length: 2048 
+            fixed: false            
+    manyToOne:
+        country:
+            targetEntity: Country
+            joinColumns:
+                manufacturer_id:
+                    name: country_id
+                    referencedColumnName: country_id
+    lifecycleCallbacks: {  }

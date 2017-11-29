@@ -1,0 +1,257 @@
+<section id="dashboard" class="box-outer">
+  <div class="box-wrapper">
+    <div class="box-section">
+<!-- Title -->
+      <div class="title-bar">
+        <div class="container">
+          <span>Dashboard</span>
+        </div>
+      </div>
+
+<!-- content -->
+      <div class="container">
+
+        <div class="row">
+          <div class="box-upper">
+            <div class="col-md-3">
+              <div class="box-stats">
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="{{ path('yilinker_backend_product_listings') }}">
+                      <span class="icon-product icon-3x"></span>
+                      <span class="title">Products</span>
+                      <span class="numbers">{{ numberOfActiveProducts|default(0) }}</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="{{ path('yilinker_backend_product_listings') }}">
+                      <span class="icon-angle-right icon-3x"></span>
+                      view
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="box-stats">
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="{{ path('admin_registered_buyer_page') }}">
+                      <span class="icon-user icon-3x"></span>
+                      <span class="title">Buyers</span>
+                      <span class="numbers">{{ numberOfBuyer|default(0) }}</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="{{ path('admin_registered_buyer_page') }}">
+                      <span class="icon-angle-right icon-3x"></span>
+                      view
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="box-stats">
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="{{ path('admin_registered_merchant_page') }}">
+                      <span class="icon-store icon-3x"></span>
+                      <span class="title">Sellers</span>
+                      <span class="numbers">{{ numberOfMerchants|default(0) }}</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="{{ path('admin_registered_merchant_page') }}">
+                      <span class="icon-angle-right icon-3x"></span>
+                      view
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="box-stats">
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="{{ path('yilinker_backend_transaction_list') }}">
+                      <span class="icon-transaction icon-3x"></span>
+                      <span class="title">Transactions</span>
+                      <span class="numbers">{{ numberOfTransactions|default(0) }}</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="{{ path('yilinker_backend_transaction_list') }}">
+                      <span class="icon-angle-right icon-3x"></span>
+                      view
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="box-upper stabilizer">
+            <div class="col-md-6">
+              <div class="box-div">
+                <div class="row gutters group-segment">
+                  <div class="col-md-12">
+                    <h4>Transactions</h4>
+                    <table class="table basic table-vertical-align-top">
+                      {% if transactions is not empty %}
+                      <tr>
+                        <th>Invoice No</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                      </tr>
+                      {% endif %}
+                      {% for transaction in transactions %}
+                      <tr>
+                        <td>{{ transaction.invoiceNumber }}</td>
+                        <td>{{ transaction.orderStatus }}</td>
+                        <td>PHP
+                          {{ transaction.totalPrice|number_format(2, '.', ',') }}</td>
+                        <td>{{ transaction.dateCreated|date("m/d/Y") }}</td>
+                      </tr>
+                      {% endfor %}
+                    </table>
+                    {% if transactions is empty %}
+                      <p class="mrg-bt-20">Sorry, Your database is currently empty</p>
+                    {% endif %}
+                  </div>
+                </div>
+                <button class="button small gray" onclick="document.location='{{ path('yilinker_backend_transaction_list') }}'">
+                  view all transactions
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="box-div">
+                <div class="row gutters group-segment">
+                  <div class="col-md-12">
+                    <h4>Resolution Center</h4>
+                    <table class="table basic table-vertical-align-top">
+                      {% if disputes is not empty %}
+                      <tr>
+                        <th>Case ID</th>
+                        <th>Dispute Type</th>
+                        <th>Complainant</th>
+                        <th>Date Filed</th>
+                      </tr>
+                      {% endif %}
+                      {% for dispute in disputes %}
+
+                      <tr>
+                        <td>{{ dispute.ticket }}</td>
+                        <td>
+                          {{
+                             dispute.orderProductStatusId == constant(
+                                'Yilinker\\Bundle\\CoreBundle\\Entity\\OrderProduct::STATUS_ITEM_REFUND_REQUESTED'
+                             ) ? 'Refund' : 'Replacement'
+                          }}
+                        </td>
+                        <td>{{ dispute.disputerFullName }}</td>
+                        <td>{{ dispute.dateAdded|date('m/d/Y') }}</td>
+                      </tr>
+                      {% endfor %}
+                    </table>
+                    {% if disputes is empty %}
+                      <p class="mrg-bt-20">Sorry, Your database is currently empty</p>
+                    {% endif %}
+                  </div>
+                </div>
+                <button class="button small gray" onclick="document.location='{{ path('yilinker_backend_resolution_center') }}'">
+                  view all dispute
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="box-upper stabilizer">
+            <div class="col-md-6">
+              <div class="box-div">
+                <div class="row gutters group-segment">
+                  <div class="col-md-12">
+                    <h4>Buyer Refund</h4>
+                    <table class="table basic table-vertical-align-top">
+                      {% if refunds is not empty %}
+                      <tr>
+                        <th>Buyer</th>
+                        <th>Bank</th>
+                        <th>Account Name</th>
+                        <th>email</th>
+                      </tr>
+                      {% endif %}
+
+                      {% for refund in refunds %}
+                      <tr>
+                        <td>{{ refund.buyer.firstName ~ ' ' ~ refund.buyer.lastName }}</td>
+                        <td>{{ refund.buyer.getDefaultBank.bankName|default('None') }}</td>
+                        <td>{{ refund.buyer.getDefaultBank.accountName|default('None') }}</td>
+                        <td>{{ refund.buyer.email }}</td>
+                      </tr>
+                      {% endfor %}
+                    </table>
+                    {% if refunds is empty %}
+                      <p class="mrg-bt-20">Sorry, Your database is currently empty</p>
+                    {% endif %}
+                  </div>
+                </div>
+                <button class="button small gray" onclick="document.location='{{ path('yilinker_backend_buyer_refund') }}'">
+                  view all refunds
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="box-div">
+                <div class="row gutters group-segment">
+                  <div class="col-md-12">
+                    <h4>Seller Payout</h4>
+                    <table class="table basic table-vertical-align-top">
+                      {% if payouts is not empty %}
+                      <tr>
+                        <th>Store Name</th>
+                        <th>Email</th>
+                        <th>Contact No.</th>
+                        <th>Bank</th>
+                      </tr>
+                      {% endif %}
+
+                      {% for payout in payouts %}
+                      <tr>
+                        <td>{{ payout.storeName }}</td>
+                        <td>{{ payout.email }}</td>
+                        <td>{{ payout.contactNumber }}</td>
+                        <td>{{ payout.bankName|default('') }}</td>
+                      </tr>
+                      {% endfor %}
+
+                    </table>
+                    {% if payouts is empty %}
+                      <p class="mrg-bt-20">Sorry, Your database is currently empty</p>
+                    {% endif %}
+                  </div>
+                </div>
+                <button class="button small gray" onclick="document.location='{{ path('yilinker_backend_seller_payout_list') }}'">
+                  view all payouts
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

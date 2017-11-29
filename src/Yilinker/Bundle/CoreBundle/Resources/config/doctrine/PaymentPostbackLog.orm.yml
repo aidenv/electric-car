@@ -1,0 +1,26 @@
+Yilinker\Bundle\CoreBundle\Entity\PaymentPostbackLog:
+    type: entity
+    table: PaymentPostbackLog
+    id:
+        paymentPostbackLogId:
+            type: integer
+            id: true
+            column: payment_postback_log_id
+            generator:
+                strategy: AUTO
+    fields:
+        dateAdded:
+            type: datetime
+            nullable: false
+            column: date_added
+        data:
+            type: text
+            nullable: true
+    manyToOne:
+        paymentMethod:
+            targetEntity: PaymentMethod
+            joinColumn:
+                name: payment_method_id
+                referencedColumnName: payment_method_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

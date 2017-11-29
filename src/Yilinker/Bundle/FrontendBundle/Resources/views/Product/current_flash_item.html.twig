@@ -1,0 +1,29 @@
+{% set left = product.maxQuantity - product.productsSold %}
+<div class="product-container current">
+    <div class="product-image">
+        <a href="{{ path('product_details', {'slug' : product.slug}) }}" title="{{ product.name }}">
+            <img src="{{ product.medium }}" title="{{ product.name }}" class="img-auto-place" alt="{{ product.name }}">
+        </a>
+    </div>
+    <div class="product-name">
+        <a href="{{ path('product_details', {'slug' : product.slug}) }}" title="{{ product.name }}">
+            {{ product.name }}
+        </a>
+    </div>
+    <div class="large-font  mrg-bt-10">
+        <span class="static-price"> Php {{ product.discountedPrice }} </span>
+        <span class="discount-wrapper">
+            <span> Php {{ product.price }} </span>
+            <span><b> {{ product.discount }}% OFF </b></span>
+        </span>
+    </div>
+    {% if left <= 0  %}
+        <button class="static-button" disabled="disabled">
+            SOLD OUT
+        </button>
+    {% else %}
+        <button class="static-button" data-buynow='{"productId":"{{ product.productId }}","unitId":"{{ product.productUnitId }}"}'>
+            BUY NOW
+        </button>
+    {% endif %}
+</div>

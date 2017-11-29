@@ -1,0 +1,47 @@
+Yilinker\Bundle\CoreBundle\Entity\InhouseProductUnit:
+    type: entity
+    table: InhouseProductUnit
+    fields:
+        referenceId:
+            type: string
+            length: 255
+            column: reference_id
+            options:
+                default: ''
+        retailPrice:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: retail_price
+            nullable: true
+        unitPrice:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: unit_price
+            options:
+                default: '0.00'
+        moq:
+            type: integer
+            unsigned: true
+            options:
+                default: '0'
+        shippingFee:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: shipping_fee
+            options:
+                default: '0.00'
+        isInventoryConfirmed:
+            type: boolean
+            column: is_inventory_confirmed
+            options:
+                default: false
+    oneToOne:
+        manufacturerProductUnit:
+            targetEntity: ManufacturerProductUnit
+            joinColumns:
+                manufacturer_product_unit_id:
+                    referencedColumnName: manufacturer_product_unit_id
+    lifecycleCallbacks: {  }

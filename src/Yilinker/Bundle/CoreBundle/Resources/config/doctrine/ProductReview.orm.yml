@@ -1,0 +1,77 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductReview:
+    type: entity
+    table: ProductReview
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ProductReviewRepository
+    id:
+      productReviewId:
+            type: integer
+            id: true
+            column: product_review_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        dateAdded:
+            type: datetime
+            column: date_added
+            nullable: true
+        title:
+            type: string
+            length: '255'
+            nullable: true
+        review:
+            type: string
+            length: '1024'
+            nullable: true
+        rating:
+            type: decimal
+            precision: 3
+            scale: 2
+            column: rating
+            options:
+                default: '0.00'
+        isHidden:
+            type: boolean
+            column: is_hidden
+            nullable: true
+            options:
+                default: false
+        dateHidden:
+            type: datetime
+            column: date_hidden
+            nullable: true
+    manyToOne:
+        reviewer:
+            targetEntity: User
+            joinColumn:
+                name: reviewer_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        product:
+            targetEntity: Product
+            inversedBy: reviews
+            joinColumn:
+                name: product_id
+                referencedColumnName: product_id
+            orphanRemoval: false
+        orderProduct:
+            targetEntity: OrderProduct
+            inversedBy: productReviews
+            joinColumn:
+                name: order_product_id
+                referencedColumnName: order_product_id
+            orphanRemoval: false
+    indexes:
+        fk_user_userid_productreview_reviewerid_idx:
+            columns:
+                - reviewer_id
+        fk_product_productid_productreview_productid_idx:
+            columns:
+                - product_id
+        fk_productreview_order_product_idx:
+            columns:
+                - order_product_id
+    lifecycleCallbacks: {  }
+
+

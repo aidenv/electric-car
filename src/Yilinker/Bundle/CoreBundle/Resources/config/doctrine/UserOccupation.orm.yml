@@ -1,0 +1,33 @@
+Yilinker\Bundle\CoreBundle\Entity\UserOccupation:
+    type: entity
+    table: UserOccupation
+    indexes:
+        fk_user_occupation_user_id_user_user_id_idx:
+            columns:
+                - user_id
+    id:
+        userOccupationId:
+            type: integer
+            column: user_occupation_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+        job:
+            type: string
+            length: 255
+            nullable: true
+        dateAdded:
+            column: date_added
+            type: datetime
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

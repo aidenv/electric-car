@@ -1,0 +1,27 @@
+Yilinker\Bundle\CoreBundle\Entity\ShippingCategory:
+    type: entity
+    table: ShippingCategory
+    gedmo:
+        translation:
+            locale: locale
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ShippingCategoryRepository
+    id:
+        shippingCategoryId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            column: shipping_category_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 225
+            fixed: false
+            comment: ''
+            gedmo:
+                - translatable
+    lifecycleCallbacks: {  }

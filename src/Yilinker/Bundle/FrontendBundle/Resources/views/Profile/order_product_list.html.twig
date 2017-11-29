@@ -1,0 +1,184 @@
+<!--Product List-->
+<div class="dashboard-component">
+    <div class="title-bar">
+        <div class="component-content">
+            <span class="uppercase">{% trans %}Product List{% endtrans %}</span>
+        </div>
+    </div>
+    <div class="component-content component-no-padding">
+        {% for sellerProducts in order.orderProductsBySellerId %}
+            {% set seller = (sellerProducts|first).seller %}
+            {% set store = seller.store %}
+            <div class="transaction-segment">
+                <div class="transaction-product-container">
+                    <div class="transaction-product">
+                        {% for orderProduct in sellerProducts %}
+                            <table width="100%" class="table-transaction-product mrg-bt-20">
+                                <tbody>
+                                    <tr>
+                                        <td class="td-product-image-list" width="150" valign="top">
+                                            <div class="image-holder image-product">
+                                                {% if orderProduct.discount and orderProduct.discount > 0 %}
+                                                    <span class="discount pin">{{ orderProduct.discount }}% off</span>
+                                                {% endif %}
+                                                <img src="{{ asset(orderProduct.image ? orderProduct.image.getImageLocationBySize('thumbnail'): '', 'product') }}" class="img-auto-place">
+                                            </div>
+                                        </td>
+                                        <td class="td-product-meta" valign="top">
+                                            <div class="product-meta">
+                                                <div class="basic-name">
+                                                    <span class="name">
+                                                        <div class="item-name-container">
+                                                            <a href="{{ orderProduct.productSlug ? path('product_details', {slug: orderProduct.productSlug}): '#' }}">
+                                                                {{ orderProduct.productName }}
+                                                            </a>
+                                                        </div>
+                                                        <div class="button-feedback-container">
+                                                            {% if reviews.product[orderProduct.orderProductId] is defined %}
+                                                                {% set productReview = reviews.product[orderProduct.orderProductId] %}
+                                                                {% set orderFeedbackData = {productReviewId: productReview.productReviewId, title: productReview.title, review: productReview.review, rating: productReview.rating} %}
+                                                                {% set feedbackText = 'View' %}
+                                                            {% else %}
+                                                                {% set orderFeedbackData = orderProduct.toArray %}
+                                                                {% set feedbackText = 'Leave' %}
+                                                            {% endif %}
+                                                            {% if is_reviewable(orderProduct) %}
+                                                                <button data-product-feedback data-feeder="{{ orderFeedbackData|json_encode }}" class="button basic-purple button-rounded-side small uppercase pull-right feedback-product-modal-trigger">
+                                                                    {{ feedbackText }} Feedback
+                                                                </button>
+                                                            {% endif %}
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                                <div class="basic-detail">
+                                                     <div class="row">
+                                                        <div class="col-md-6">
+                                                            <span class="detail-name">SKU: </span>
+                                                            <span class="detail-value bold">{{ orderProduct.sku }}</span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="detail-name">{% trans %}Quantity:{% endtrans %} </span>
+                                                            <span class="detail-value bold">x {{ orderProduct.quantity }}</span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="detail-name">{% trans %}Details:{% endtrans %} </span>
+                                                            <span class="detail-value bold">{{ orderProduct.attributeDetails ? orderProduct.attributeDetails: 'N/A' }}</span>
+                                                        </div>
+                                                         <div class="col-md-6">
+                                                            <span class="detail-name">{% trans %}Condition:{% endtrans %} </span>
+                                                            <span class="detail-value bold">{{ orderProduct.condition ? orderProduct.condition.name: 'N/A' }}</span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="detail-name">{% trans %}Product Price:{% endtrans %} </span>
+                                                            <span class="detail-value bold">P {{ orderProduct.unitPrice|number_format(2) }}</span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span class="detail-name">{% trans %}Brand:{% endtrans %} </span>
+                                                            <span class="detail-value bold">
+
+                                                              {% if orderProduct.brandName == "" %}
+                                                                  {{ orderProduct.brand ? orderProduct.brand.name: 'N/A' }}
+                                                              {% else %}
+                                                                  {{ orderProduct.brandName }}
+                                                              {% endif %}
+                                                            </span>
+                                                        </div>
+                                                        {% if orderProduct.shippingFee > 0 %}
+                                                            <div class="col-md-6">
+                                                                <span class="detail-name">{% trans %}Shipping Fee:{% endtrans %} </span>
+                                                                <span class="detail-value bold">P {{ orderProduct.shippingFee|number_format(2) }}</span>
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <span class="detail-name">{% trans %}Status:{% endtrans %} </span>
+                                                            <span class="detail-value">
+                                                                <span class="badge transparent">
+                                                                    {{ orderProduct.orderProductStatus ? orderProduct.orderProductStatus.name: 'Waiting for Payment' }}
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <span class="detail-name">{% trans %}Total:{% endtrans %} </span>
+                                                            <span class="detail-value bold purple-color large-font">
+                                                              P {{ orderProduct.totalPrice|number_format(2) }}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    {% if orderProduct.isWaitingForDelivery and order.isFlagged == false  %}
+                                                    <div class="">
+                                                        * Transaction has been processed. Please wait for your package to arrive.
+                                                    </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        {% endfor %}
+                    </div>
+
+                </div>
+                {% if seller %}
+                    <div class="transaction-seller-container">
+                        <div class="component-content component-seller">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Seller:
+                                    <br/>
+                                    <h4>{{ store.storeName }}</h4>
+                                </div>
+                                {% if store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+                                    <div class="col-md-6">
+                                        Contact Number:
+                                        <br/>
+                                        <h4>{{ seller.contactNumber }}</h4>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    {% if store and reviews.seller[store.storeId] is defined %}
+                                        {% set sellerReview = reviews.seller[store.storeId] %}
+                                        {% set sellerFeedbackData = {
+                                            userFeedbackId: sellerReview.userFeedbackId, 
+                                            title: sellerReview.title, 
+                                            review: sellerReview.feedback,
+                                            rating: sellerReview.typeToRating
+                                        }
+                                        %}
+                                        {% set sellerFeedbackText = 'View' %}
+                                    {% else %}
+                                        {% set sellerFeedbackData = {storeId: store ? store.storeId: 0, orderId: order.orderId} %}
+                                        {% set sellerFeedbackText = 'Leave' %}
+                                    {% endif %}
+                                    {% if is_reviewable(order, store.user.userId) %}
+                                        <button data-seller-feedback data-feeder="{{ sellerFeedbackData|json_encode }}" class="button basic-purple button-rounded-side uppercase feedback-modal-trigger">
+                                            {{ sellerFeedbackText }} {% trans %}Feedback to Seller{% endtrans %}
+                                        </button>
+                                    {% endif %}
+                                    {% if app.user and store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}   
+                                        <button class="button purple button-rounded-side uppercase send-message-trigger" data-id="{{ store.storeSlug }}">
+                                            Message
+                                        </button>
+                                    {% endif %}
+                                    <a href="{{ seller.storeSlug ? path('store_page_products', {slug: seller.storeSlug}): '#' }}" class="button purple button-rounded-side uppercase">
+                                        {% trans %}Go to seller page{% endtrans %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{{ render(controller('YilinkerCoreBundle:Message:renderMessageModal')) }}

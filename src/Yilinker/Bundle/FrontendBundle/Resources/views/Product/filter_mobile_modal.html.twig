@@ -1,0 +1,148 @@
+{% set filters = filterMetaData is defined? filterMetaData : aggregations %}
+<div class="ui page dimmer inverted filter-modal">
+    <div class="content-container">
+        {% if attributesEnabled is defined and attributesEnabled is same as(true) %}
+            {% for attribute, attributeValues in filters.attributes %}
+                <div class="title">
+                    {{ attribute }}
+                </div>
+                <div class="content-filter">
+                    <ul class="list-unstyled list-menu-checkbox">
+                        {% for attributeValue in attributeValues %}
+                            <li>
+                                <div class="ui checkbox" data-mobile-search>
+                                    <input type="checkbox" data-mobile-product-search="attributes" value="{{ attribute }}|{{ attributeValue }}" />
+                                    <label for="">{{ attributeValue }}</label>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if subcategoriesEnabled is defined and subcategoriesEnabled is same as(true) %}
+            <div class="title">
+                Subcategories
+            </div>
+            <div class="content-filter">
+                <ul class="list-unstyled list-menu-checkbox">
+                    {% for subcategory in filters.categories %}
+                        <li>
+                            <div class="ui checkbox" data-mobile-search>
+                                <input 
+                                    type="checkbox" 
+                                    name="category_filter_{{ subcategory.id }}"
+                                    data-mobile-product-search="categories" 
+                                    data-subcategoryid="{{ subcategory.id }}"
+                                    value="{{ subcategory.id }}"
+                                />
+                                <label for="">{{ subcategory.name }}</label>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        {% if filters.brands is defined and not filters.brands is empty %}
+            <div class="title">
+                Brand
+            </div>
+            <div class="content-filter">
+                <ul class="list-unstyled list-menu-checkbox">
+                    {% for brand in filters.brands %}
+                        <li>
+                            <div class="ui checkbox" data-mobile-search>
+                                <input type="checkbox" data-mobile-product-search="brands" value="{{ brand }}" />
+                                <label for="">{{ brand }}</label>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="title">
+                Price
+            </div>
+            <div class="content-filter">
+                <div class="irs-container">
+                    <input data-mobile-product-search="priceRange" data-min="{{ filters.minPrice|round }}" data-max="{{ filters.maxPrice|round }}" type="text" value="" id="priceRangeMobile"/>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <div class="action-container">
+        <div class="row">
+            <div class="col-xs-6">
+                <button class="button basic block uppercase filter-modal-trigger">Cancel</button>
+            </div>
+            <div class="col-xs-6">
+                <button class="button purple block uppercase filter-apply">Apply Filter</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui page dimmer inverted sort-modal {{ filterMetaData is defined? 'store-search-sort' : 'product-search-sort'  }}">
+    <div class="content-container">
+        <div class="title">
+            Sort By
+        </div>
+        <div class="content-filter">
+            <ul class="list-unstyled list-menu-checkbox">
+                {% 
+                    if app.request.query.get('query') != "" and 
+                    not isStore is defined  
+                %}
+                    <li>
+                        <a href="#" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::RELEVANCE') }}~{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') }}" data-option="default">Relevance{#  <i class="icon icon-check icon-lg blue-color pull-right"></i> #}</a>
+                    </li>
+                {% endif %}
+                <li>
+                    <a href="#" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::BYDATE') }}~{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') }}" data-option="new-to-old">New to Old</a>
+                </li>
+                <li>
+                    <a href="#" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::BYDATE') }}~{{  constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_ASC') }}" data-option="old-to-new">Old to New</a>
+                </li>
+                <li>
+                    <a href="#" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::ALPHABETICAL') }}~{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_ASC') }}" data-option="alphabetical">Alphabetical</a>
+                </li>
+                {% if not isStore is defined %}
+                    <li>
+                        <a href="#" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::BYPOPULARITY') }}~{{ constant('Yilinker\\Bundle\\CoreBundle\\Repository\\ProductRepository::DIRECTION_DESC') }}" data-option="popularity">Popularity</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="action-container">
+        <div class="row">
+            <div class="col-xs-12 align-right">
+                <button class="button basic uppercase sort-modal-trigger">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui page dimmer inverted view-by-modal">
+    <div class="content-container">
+        <div class="title">
+            View Products By
+        </div>
+        <div class="content-filter">
+            <ul class="list-unstyled list-menu-checkbox">
+                <li>
+                    <a class="list-view-mobile-trigger">List View</a>
+                </li>
+                <li>
+                    <a class="grid-view-mobile-trigger">Grid View</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="action-container">
+        <div class="row">
+            <div class="col-xs-12 align-right">
+                <button class="button basic uppercase view-by-modal-trigger">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

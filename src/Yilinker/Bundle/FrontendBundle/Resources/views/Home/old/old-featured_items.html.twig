@@ -1,0 +1,93 @@
+<section class=" wrapper wrapper-top-layer white background">
+    <div class="row group">
+        <div class="col-xs-7 col-xl-6">
+            <div class="slider wrapper" style="position: relative;">
+                <div class="home-slider-top">
+                    {% for banner in homeXml.main.upperBannerSection.banner %}
+                        <div class="slide item">
+                            <a href="{{ banner.target }}" >
+                                <img src="{{ asset(banner.image, 'cms') }}" title="{{ banner.title }}" alt="{{ banner.alt }}" />
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="home-slider-bottom">
+                    {% for banner in homeXml.main.lowerBannerSection.banner %}
+                        <div class="slide item">
+                            <a href="{{ banner.target }}" >
+                                <img src="{{ asset(banner.image, 'cms') }}" href="{{ banner.target }}" title="{{ banner.title }}" alt="{{ banner.alt }}" />
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5 col-xl-6">
+            <div class="featured items wrapper">
+                <div class="row featured-group">
+                    <div class="col-xs-6 col-lg-6 col-xl-4">
+                        <div class="col-md-12 col-ms-12 col-xs-12">
+                            <div class="category title green background">
+                                <h4 class="name no-margin">{{ homeXml.main.featuredProductsLeftSection.title }}</h4>
+                            </div>
+                        </div>
+
+                        {% for products in homeXml.main.featuredProductsLeftSection.featuredProduct %}
+                            {% if 
+                                products.product.attributes.unit is defined and 
+                                productUnitsData[''~products.product.attributes.unit] is defined 
+                            %}
+                                {% set productDetails = productUnitsData[''~products.product.attributes.unit] %}
+                            {% elseif productsData[''~products.product] is defined %}
+                                {% set productDetails = productsData[''~products.product] %}
+                            {% endif %}
+                            {% if productDetails is defined %}
+                                <!--Start of product item card-->
+                                {{ include('YilinkerFrontendBundle:Product:product_preview2.html.twig', {'product': productDetails, 'cmsImage': products.image}) }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="col-xs-6 col-lg-6 col-xl-4 grid-featured-items">
+                        <div class="col-md-12 col-ms-12 col-xs-12">
+                            <div class="category title brown background">
+                                <h4 class="name">{{ homeXml.main.featuredProductsRightSection.title }}</h4>
+                            </div>
+                        </div>
+                        {% for products in homeXml.main.featuredProductsRightSection.featuredProduct %}
+                            {% if 
+                                products.product.attributes.unit is defined and 
+                                productUnitsData[''~products.product.attributes.unit] is defined 
+                            %}
+                                {% set productDetails = productUnitsData[''~products.product.attributes.unit] %}
+                            {% elseif productsData[''~products.product] is defined %}
+                                {% set productDetails = productsData[''~products.product] %}
+                            {% endif %}
+                            {% if productDetails is defined %}
+                                <!--Start of product item card-->
+                                <div class="col-md-12 col-ms-12 col-xs-6">
+                                    {{ include('YilinkerFrontendBundle:Product:product_preview2.html.twig', {'product': productDetails, 'cmsImage': products.image}) }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-6 col-xs-12 col-xl-4">
+                        <div class="grid-extra">
+                            <a  {{ homeXml.main.largeScreenImages.imageTop.target is defined? 
+                                "href="~homeXml.main.largeScreenImages.imageTop.target : "" }}>
+                                <img src="{{ asset(homeXml.main.largeScreenImages.imageTop.image, 'cms') }}"
+                                 alt="{{ homeXml.main.largeScreenImages.imageTop.alt }}"
+                                 title="{{ homeXml.main.largeScreenImages.imageTop.title }}" class="img-full-width"/>
+                            </a>
+                            <a  {{ homeXml.main.largeScreenImages.imageBottom.target is defined? 
+                                "href="~homeXml.main.largeScreenImages.imageBottom.target : "" }}>
+                                <img src="{{ asset(homeXml.main.largeScreenImages.imageBottom.image, 'cms') }}"
+                                 alt="{{ homeXml.main.largeScreenImages.imageBottom.alt }}"
+                                 title="{{ homeXml.main.largeScreenImages.imageBottom.title }}" class="img-full-width"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,61 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+     Yibo Family Bundle
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+    <div class="landing wrapper static-wrapper yibofamily">
+        <div class="block align-center header">
+            <img src="{{ asset('images/promo/yibofamily/yibo-landing-page.jpg') }}" alt="" class="img-full-width main-banner big-banner">
+        </div>
+        <div class="container pad-top-5em pad-bt-5em">
+                <div class="align-center pad-bt-1em intro">
+                    <p><i>The Holiday Season definitely came early today with yibo family!</i></p>
+                    <span><i>Get our limited edition of YiBo Family for only 499!</i></span>
+                </div>
+                <div class="row">
+                <div class="col-md-12 align-center">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <a href="https://www.yilinker.com/item/yibo-family-3">
+                            <img src="{{ asset('images/promo/yibofamily/yibo-family-product.jpg') }}" alt="Yibo Family" class="img-full-width">
+                        </a>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="col-md-12 static-product-content align-center">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <h2 class="mrg-bt-5 mrg-bt-20">
+                            <a href="https://www.yilinker.com/item/yibo-family-3">
+                                Yibo Family Bundle
+                            </a>
+                        </h2>
+
+                        <div class="mrg-bt-20">
+                            <div class="static-price-discount">
+                                <span class="static-price2 ft-size-3">PhP 499.00</span>
+                            </div>
+                        </div>
+                        <a href="https://www.yilinker.com/item/yibo-family-3" class="static-button2">
+                            BUY NOW
+                        </a>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/bower/slick.min.js') }}"></script>
+    <script src="{{ asset('js/src/static.js') }}"></script>
+{% endblock %}

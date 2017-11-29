@@ -1,0 +1,1030 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    {{ user.fullname }}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="profile information">
+        <div class="dashboard-wrapper">
+            {{ render(controller('YilinkerFrontendBundle:Dashboard:renderLeftWingMenu', {'currentRoute': app.request.attributes.get('_route') } )) }}
+            <div class="dashboard-body-container white">
+                <div class="dashboard-submenu-wrapper">
+                    <div class="dashboard-submenu-container" style="min-width: 600px;">
+                        <ul class="list-unstyle list-submenu">
+                            <li>
+                                <a class="active">
+                                    {% trans %}Information{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('profile_following') }}">
+                                    {% trans %}Followed Seller{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('profile_activity_log') }}">
+                                    {% trans %}Activity Log{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('profile_upload_document') }}">
+                                    {% trans %}Upload Document{% endtrans %}
+                                </a>
+                            </li>
+                        </ul>
+                     </div>
+                 </div>
+                 <!--Basic Info-->
+                <div class="dashboard-component top">
+                    <div class="component-content component-user-info">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="user-info">
+                                    <div class="profile-image-container desktop-hide">
+                                        <div class="image-holder user-image-profile crop-photo-modal-trigger">
+                                            <img src="{{ user.getPrimaryImage is not same as(null)? asset( user.getPrimaryImage.getImageLocationBySize('medium') , 'user') : asset('images/default-buyer.png') }}" alt="" class="img-auto-place mobile-change-profile-photo">
+                                        </div>
+                                        <input type="file" name="profile-photo" class="profile-file-input mobile-change-profile-photo-input"/>
+                                    </div>
+                                    <h3 class="semi-bold"><span class="mobile-hide">Welcome, </span><span data-fullname>{{ app.user.fullName }}</span></h3>
+                                    {% if app.user.verified %}
+                                        <div class="account-information-heading light-color">
+                                            {% if app.user.isMobileVerified %}
+                                                <div class="detail">
+                                                    <i class="icon icon-circle-check"></i>
+                                                    Verified mobile number
+                                                </div>
+                                            {% endif %}
+                                            {% if app.user.isEmailVerified %}
+                                                <div class="detail">
+                                                    <i class="icon icon-circle-check"></i>
+                                                    Verified email address
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="desktop-hide">
+                                            <span class="light-color">My Points: </span> <b class="large-font">{{totalPoints|number_format(2)}}</b>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-5 mobile-hide">
+                                <!--My Points-->
+                                <table class="table-dashboard-header-stat pull-right">
+                                    <thead>
+                                        <tr>
+                                            <th width="100%">My Points</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td width="100%">{{totalPoints|number_format(2)}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-component" id="basicInfo">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">{% trans %}Preferences{% endtrans %}</span>
+                        </div>
+                    </div>
+                    <div class="component-content">
+                        <div class="row">
+                            <div class="col-md-6 form">
+                                <label for="" class="required">Country Domain</label>
+                                {{ render(controller('YilinkerCoreBundle:Widget:countries', {country: app.user.country})) }}
+                            </div>
+                            <div class="col-md-6 form">
+                                <label for="" class="required">Language</label>
+                                {{ render(controller('YilinkerCoreBundle:Widget:languages', {language: app.user.language})) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-component">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">{% trans %}Basic Information{% endtrans %}</span>
+                        </div>
+                    </div>
+                    <div class="component-content">
+                        {% if app.session.flashbag.has('verificationEmailSent') %}
+                            {% if app.session.flashbag.get('verificationEmailSent') %}
+                                <div class="message-box green with-close-message">
+                                    {% trans %}Email verification sent.{% endtrans %}
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        <div class="profile-information-prompt error" style="display:none">
+                            <div class="row">
+                                <div class="message-box red with-close-message">
+                                    {% trans %}Something went wront. Please try again later{% endtrans %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-information-prompt success" style="display:none">
+                            <div class="row">
+                                <div class="message-box green with-close-message">
+                                    {% trans %}Information successfully updated.{% endtrans %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="row">
+                                <div class="col-md-6 form">
+                                    <label for="" class="required">First Name</label>
+                                    <input type="text" class="form-ui info-firstname profile-info-input" placeholder="Enter your first name here" value="{{ user.firstname }}">
+                                </div>
+                                <div class="col-md-6 form">
+                                    <label for="" class="required">Last Name</label>
+                                    <input type="text" class="form-ui info-lastname profile-info-input" placeholder="Enter your last name here" value="{{ user.lastname }}">
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="row">
+                                <div class="col-md-6 form">
+                                    <label for="" class="required">
+                                        {% trans %}Mobile Number{% endtrans %}
+                                    </label>
+                                    <div class="input-inner-button">
+                                        <input type="text" class="form-ui profile-input-contactnumber" placeholder="Enter your mobile number here" readonly value="{{ user.contactNumber }}">
+                                        <button class="button gray uppercase edit-mobile-phone-number-modal-trigger">Change</button>
+                                    </div>
+                                    <span class="red-color unverified-mobile-number {{ user.isMobileVerified is same as(false)? '':'hidden' }}">
+                                        <i class="icon icon-lg icon-alert-exclamation"></i> 
+                                        {% if user.contactNumber is not empty or user.contactNumber is not null %}
+                                            {% trans %}Mobile number is not yet verified.{% endtrans %}
+                                            <span class="bold underline pointer request-verify-mobile">Click here to verify</span>
+                                            <input type="hidden" id="contact-number-verify-type" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Services\\SMS\\OneTimePasswordService::OTP_TYPE_VERIFY_CONTACT_NUMBER') }}">
+                                        {% else %}
+                                            {% trans %}Kindly enter your contact number.{% endtrans %}
+                                        {% endif %}
+                                    </span>
+                                    <span class="green-color verified-mobile-number {{ user.isMobileVerified is same as(true)? '':'hidden' }}">
+                                        <i class="icon icon-lg icon-circle-check"></i> 
+                                        {% trans %}Verified mobile number{% endtrans %}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                <!--Account Information-->
+                <div class="dashboard-component">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">Account Information</span>
+                        </div>
+                    </div>
+                    <div class="component-content">
+                        <div class="form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="" class="required">
+                                        Email
+                                    </label>
+                                    <div class="input-inner-button">
+                                        <input type="text" class="form-ui email-readonly-input" placeholder="Enter your email here" readonly value="{{ user.email }}">
+                                        <button class="button gray uppercase edit-email-trigger">{% if user.email %}Change{% else %}Add{% endif %}</button>
+                                    </div>
+                                    <span class="green-color unverified-email {{ user.isEmailVerified is same as(true)? '':'hidden' }}">
+                                        <i class="icon icon-lg icon-circle-check"></i> Verified email
+                                    </span>
+                                    <span class="red-color verified-email {{ user.isEmailVerified is same as(false)? '':'hidden' }}">
+                                      <i class="icon icon-lg icon-alert-exclamation"></i>
+                                      <span {% if not user.email %}style="display:none;"{% endif %} class="verify-email-btn">
+                                          Email is not yet verified. <span class="bold underline pointer request-verify-email">Click here to verify</span>
+                                      </span>
+                                      <span {% if user.email %}style="display:none;"{% endif %} class="bold missing-email-message">Email is not yet provided.</span>
+                                    </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="" class="required">
+                                        Password
+                                    </label>
+                                    <div class="input-inner-button">
+                                        <input type="password" class="form-ui" placeholder="Enter your password here" readonly value="password">
+                                        <button class="button gray uppercase edit-password-trigger">Change</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Your Referral Code</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p>
+                                This is your personal referral code that you can share with anyone that wants to sign up with Aeneasusa. Each successful registration will earn you a certain amount of points which entitles you to some of our available freebies/promos.
+                            </p>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="input-inner-button referral-code">
+                                <input type="text" class="form-ui bold" readonly value="{{ app.user.referralCode }}">
+                                <button class="button gray uppercase" data-clipboard-text="{{ app.user.referralCode }}" title="Copy Link." id="copy-referral-code-trigger">Copy Code</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+                <div class="dashboard-component">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">Referral Person</span>
+                        </div>
+                    </div>
+                    <div class="component-content">
+                        <div class="row form">
+                            <div class="col-md-5">
+                                <label>Referrers Name:</label>
+                                <div class="input-inner-button referral-code">
+                                    {% set referrerName = "" %}
+                                    {% if app.user.userReferral is not null %}
+                                        {% set referrerName = app.user.userReferral.referrer.fullName %}
+                                    {% endif %}
+                                    <input type="text" class="form-ui" id="referral-user" value="{{referrerName}}" readonly>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label>Referrers Code:</label>
+                                <div class="input-inner-button referral-code">
+                                    {% if app.user.userReferral is not null %}
+                                        <input type="text" class="form-ui bold"  value="{{app.user.userReferral.referrer.referralCode}}" readonly>
+                                    {% else %}
+                                        <form id="add-referral-code">
+                                            <input id="referral-code" autocomplete="off" name="referralCode" type="text" class="form-ui bold"  value="">
+                                            <div class="referral-info-container small-font">
+                                                <span class="red-color referral-error hidden">
+                                                    <i class="icon icon-lg icon-alert-exclamation"></i>
+                                                    <span></span>
+                                                </span>
+                                                <span class="green-color referral-success hidden">
+                                                    <i class="icon icon-lg icon-circle-check"></i> 
+                                                    Verified referral code
+                                                </span>
+                                            </div>
+                                            <button id="add-referral" class="button blue uppercase" title="Save">Save</button>
+                                        </form>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                 <!--Store Address options-->
+                <div class="dashboard-component">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">Shipping Address</span>
+                        </div>
+                    </div>
+                    {{ include('YilinkerFrontendBundle:Profile:address_card.html.twig') }}
+                    <div class="component-content">
+                        <div class="shipping-address-container">
+                            <div class="row">
+                                {% for address in user.getAddressesSortedBy %}
+                                    {{ include('YilinkerFrontendBundle:Profile:address_card.html.twig', {'address': address}) }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--New Store Address button-->
+                <div class="dashboard-component">
+                    <div class="component-content top">
+                        <button class="button gray small uppercase new-address-modal-trigger">
+                            <i class="icon icon-plus icon-lg"></i> New Address
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="dashboard-component dashboard-component-footer mobile-dashboard-footer-fixed gray align-center">
+                    <div class="component-content">
+                        <button class="button purple button-rounded-side uppercase profile-information-save">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--Start of new address modal-->
+            <div class="ui modal small new-address-modal address-modal-container coupled-address" style="z-index: -1;">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="header">
+                    <h4 class="no-margin">New Shippping Address</h4>
+                </div>
+                <div class="content">
+                    <div class="address-form-group">
+                        <div class="address-prompt error" style="display:none">
+                            <div class="row">
+                                <div class="message-box red with-close-message">
+                                    Something went wront. Please try again later
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form">
+                                    <a class="map-trigger underline sky-blue-color">Pin your address to map</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="title" class="required">
+                                        Address Title
+                                    </label>
+                                    <input type="text" name="title" class="form-ui title-input" placeholder="e.g. Home, Work, Office">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="unitno">
+                                        Unit Number
+                                    </label>
+                                    <input type="text" name="unitno" class="form-ui unitnumber-input" placeholder="Unit Number">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="building">
+                                        Building Name
+                                    </label>
+                                    <input type="text" name="building" class="form-ui buildingname-input" placeholder="Building Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="streetno">
+                                        Street Number
+                                    </label>
+                                    <input type="text" label="streetno" class="form-ui streetnumber-input" placeholder="Street Number">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="streetname" class="required">
+                                        Street Name
+                                    </label>
+                                    <input type="text" label="streetname" class="form-ui streetname-input" placeholder="Street Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="subdivision">
+                                        Subdivision
+                                    </label>
+                                    <input type="text" label="subdivision" class="form-ui subdivision-input" placeholder="Subdivision">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="province" class="required">
+                                        Province
+                                    </label>
+                                    <div class="form-ui dropdown location-dropdown province-selector province-input ui selection">
+                                        <input type="hidden" name="location">
+                                        <i class="dropdown icon"></i>
+                                        <div class="default text">Select your province</div>
+                                        <div class="menu">
+                                            {% for province in provinces  %}
+                                            <div class="item" data-value="{{ province.locationId }}">{{ province.location }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="city" class="required">
+                                        City/Municipality
+                                    </label>
+                                    <div class="form-ui dropdown location-dropdown city-input city-selector ui selection">
+                                        <input type="hidden" name="locaition">
+                                        <i class="dropdown icon"></i>
+                                        <div class="default text">Select your city</div>
+                                        <div class="menu">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="barangay" class="required">
+                                        Barangay
+                                    </label>
+                                    <div class="form-ui dropdown location-dropdown barangay-input barangay-selector ui selection">
+                                        <input type="hidden" name="location">
+                                        <i class="dropdown icon"></i>
+                                        <div class="default text">Select your Barangay</div>
+                                        <div class="menu">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <label for="zipcode">
+                                        Zip Code
+                                    </label>
+                                    <input type="text" label="subdivision" class="form-ui zipcode-input" placeholder="Zipcode">
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" value="" name="latitude" class="latitude-input coordinate"/>
+                        <input type="hidden" value="" name="longitude" class="longitude-input coordinate"/>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="button cancel uppercase">Cancel</button>
+                    <button class="button confirm submit-address positive uppercase">
+                        Submit
+                    </button>
+                </div>
+            </div>
+            <!--End of new address modal-->
+
+            <!--Start of modal success resend email-->
+            <div class="ui modal tiny coupled-new-address success-resend-email-verification">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h4 class="ui header">
+                        <i class="icon icon-circle-check"></i>
+                            <div class="content">
+                                Email verification has been sent
+                        </div>
+                    </h4>
+                </div>
+                <div class="actions">
+                    <button class="button blue close uppercase">Okay</button>
+                </div>
+            </div>
+            <!--End of modal success resend email-->
+
+            <!--Start of modal success resend contact-->
+            <div class="ui modal tiny coupled-new-address success-resend-contact-verification">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h4 class="ui header">
+                        <i class="icon icon-circle-check"></i>
+                            <div class="content">
+                                Sms has been sent
+                        </div>
+                    </h4>
+                </div>
+                <div class="actions">
+                    <button class="button blue positive uppercase">Okay</button>
+                </div>
+            </div>
+            <!--End of modal success resend contact-->
+
+            <!--Start of modal success new address-->
+            <div class="ui modal tiny coupled-new-address success-new-address-message">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h4 class="ui header">
+                        <i class="icon icon-circle-check"></i>
+                            <div class="content">
+                                Address has been successfully added
+                            <div class="sub-header">An entry has been added to your available addresses. </div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="actions">
+                    <button class="button blue close uppercase">Okay</button>
+                </div>
+            </div>
+            <!--End of modal success address-->
+           
+            <!--Start of edit address modal-->
+            <div class="ui modal small edit-address-modal address-modal-container" style="z-index: -1;">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="header">
+                    <h4 class="no-margin">Update Shipping Address</h4>
+                </div>
+                <div class="content">
+                     <div class="address-form-group">
+                        <div class="address-prompt error" style="display:none">
+                            <div class="row">
+                                <div class="message-box red with-close-message">
+                                    Something went wrong. Please try again later
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form">
+                                        <a class="map-trigger underline sky-blue-color">Pin your address to map</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <input type="hidden" class="addressid-input"/>
+                                <div class="col-md-6">
+                                    <div class="form">
+                                        <label for="title" class="required">
+                                            Address Title
+                                        </label>
+                                        <input type="text" name="title" class="form-ui title-input" placeholder="e.g. Home, Work, Office">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form">
+                                        <label for="unitno">
+                                            Unit Number
+                                        </label>
+                                        <input type="text" name="unitno" class="form-ui unitnumber-input" placeholder="Unit Number">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form">
+                                        <label for="building">
+                                            Building Name
+                                        </label>
+                                        <input type="text" name="building" class="form-ui buildingname-input" placeholder="Building Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form">
+                                        <label for="streetno">
+                                            Street Number
+                                        </label>
+                                        <input type="text" label="streetno" class="form-ui streetnumber-input" placeholder="Street Number">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form">
+                                        <label for="streetname" class="required">
+                                            Street Name
+                                        </label>
+                                        <input type="text" label="streetname" class="form-ui streetname-input" placeholder="Street Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form">
+                                        <label for="subdivision">
+                                            Subdivision
+                                        </label>
+                                        <input type="text" label="subdivision" class="form-ui subdivision-input" placeholder="Subdivision">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form">
+                                        <label for="province" class="required">
+                                            Province
+                                        </label>
+                                        <div class="form-ui dropdown location-dropdown province-selector province-input ui selection">
+                                            <input type="hidden" name="location">
+                                            <i class="dropdown icon"></i>
+                                            <div class="default text">Select your province</div>
+                                            <div class="menu">
+                                                {% for province in provinces  %}
+                                                <div class="item" data-value="{{ province.locationId }}">{{ province.location }}</div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form">
+                                        <label for="city" class="required">
+                                            City/Municipality
+                                        </label>
+                                        <div class="form-ui dropdown location-dropdown city-selector city-input ui selection">
+                                            <input type="hidden" name="location">
+                                            <i class="dropdown icon"></i>
+                                            <div class="default text">Select your City</div>
+                                            <div class="menu">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form">
+                                        <label for="barangay" class="required">
+                                            Barangay
+                                        </label>
+                                        <div class="form-ui dropdown location-dropdown barangay-selector barangay-input ui selection">
+                                            <input type="hidden" name="location">
+                                            <i class="dropdown icon"></i>
+                                            <div class="default text">Select your Barangay</div>
+                                            <div class="menu">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form">
+                                        <label for="zipcode">
+                                            Zip Code
+                                        </label>
+                                        <input type="text" label="subdivision" class="form-ui zipcode-input" placeholder="Zipcode">
+                                    </div>
+                                </div>
+                             </div>
+                             <input type="hidden" value="" name="latitude" class="latitude-input coordinate"/>
+                             <input type="hidden" value="" name="longitude" class="longitude-input coordinate"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="button cancel uppercase">Cancel</button>
+                    <button class="button confirm submit-address submit-to-success positive uppercase">
+                        Submit
+                    </button>
+                    <button class="button dark-gray uppercase close-map-dimmer hidden">Back</button>
+                    <button class="button confirm positive apply-map-changes uppercase hidden">
+                        <span class="text">Apply Changes</span>
+                    </button>
+                </div>
+            </div>
+            <!--End of edit address modal-->
+            
+             <!--Start of modal success edit address-->
+            <div class="ui modal tiny coupled-edit-address edit-success-address-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h4 class="ui header">
+                        <i class="icon icon-circle-check"></i>
+                            <div class="content">
+                                Address has been successfully updated
+                            <div class="sub-header">Your address has been successfully updated.</div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="actions">
+                    <button class="button blue close uppercase">Okay</button>
+                </div>
+            </div>
+            <!--End of modal success edit address-->
+
+
+           <!--Start of modal delete address-->
+            <div class="ui modal tiny coupled-delete delete-address-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <div class="profile-address-delete-prompt error" style="display:none">
+                        <div class="row">
+                            <div class="message-box red with-close-message">
+                                Something went wrong. Please try again later.
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="ui header">
+                        <i class="icon icon-trash"></i>
+                            <div class="content">
+                                Delete Address?
+                            <div class="sub-header">Are you sure you want to delete this address</div>
+                        </div>
+                    </h3>
+                </div>
+                <div class="actions">
+                    <button class="button cancel uppercase">Cancel</button>
+                    <button class="button red submit-to-success positive uppercase">
+                        Delete
+                    </button>
+                </div>
+            </div>
+            <!--End of modal delete address-->
+
+             <!--Start of modal delete address-->
+            <div class="ui modal tiny coupled-delete delete-success-address-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h4 class="ui header">
+                        <i class="icon icon-trash"></i>
+                            <div class="content">
+                                Shipping address has been successfully deleted
+                        </div>
+                    </h4>
+                </div>
+                <div class="actions">
+                    <button class="button blue close uppercase">Okay</button>
+                </div>
+            </div>
+            <!--End of modal delete address-->
+
+            <!--Start of edit email-->
+            <div class="ui modal small coupled edit-email-modal profile-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="header">
+                    <h4 class="no-margin">Change Email Address</h4>
+                </div>
+                <div class="content">
+                    <div class="profile-change-prompt error" style="display:none">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="message-box red with-close-message">
+                                    You must enter the same email address.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <label for="" class="required">
+                            New Email
+                        </label>
+                        <input type="text" class="form-ui email-input profile-modal-input" placeholder="Enter your new email address here">
+                    </div>
+                    <div class="form" class="required">
+                        <label for="">
+                            Confirm New Email
+                        </label>
+                        <input type="text" class="form-ui email-confirm-input profile-modal-input" placeholder="Confirm your new email address here">
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="button cancel uppercase">Cancel</button>
+                    <button class="button blue submit-to-success approve uppercase">
+                        Submit
+                    </button>
+                </div>
+            </div>
+            <!--End of edit email-->
+
+            <!--Start of edit password-->
+            <div class="ui modal small edit-password-modal profile-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="header">
+                    <h4 class="no-margin">Change Password</h4>
+                </div>
+                <div class="content">
+                    <div class="profile-change-prompt error" style="display:none">
+                         <div class="row">
+                            <div class="col-md-12">
+                                <div class="message-box red with-close-message">
+                                    Something went wrong please try again later
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="form">
+                        <label for="" class="required">
+                           Current Password
+                        </label>
+                        <input type="password" class="form-ui current-password-input profile-modal-input" placeholder="Enter your current password here">
+                    </div>
+                    <div class="form">
+                        <label for="" class="required">
+                            New Password
+                        </label>
+                        <input type="password" class="form-ui new-password-input profile-modal-input" placeholder="Enter your new password here">
+                    </div>
+                    <div class="form">
+                        <label for="" class="required">
+                            Confirm New Password
+                        </label>
+                        <input type="password" class="form-ui confirm-password-input profile-modal-input" placeholder="Confirm your new password here">
+                    </div>
+                </div>
+                <div class="actions">
+                     <button class="button cancel uppercase">Cancel</button>
+                     <button class="button confirm blue submit-to-success approve uppercase">
+                        Submit
+                     </button>
+                </div>
+            </div>
+            <!--End of edit password-->
+
+            <div class="ui modal tiny email-update-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h4 class="ui header">
+                        <i class="icon icon-circle-check"></i>
+                            <div class="content">
+                                Your email has been successfully updated
+                            <div class="sub-header">An email has been sent to your new email. Verify your email to regain full access to the site.</div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="actions">
+                    <button class="button blue uppercase close">Okay</button>
+                </div>
+            </div>
+
+            <!--Start of modal success change-->
+            <div class="ui modal tiny password-update-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h4 class="ui header">
+                        <i class="icon icon-circle-check"></i>
+                            <div class="content">
+                                Your password has been successfully updated
+                            <div class="sub-header">You will be logged-out in 3 seconds. Login with your new password to continue using the website.</div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="actions">
+                    <button class="button confirm close">Okay</button>
+                </div>
+            </div>
+            <!--End of modal success address-->
+
+            <!--Start of modal edit mobile number-->
+            <div class="ui modal tiny coupled-edit-number-modal edit-mobile-phone-number-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="header">
+                    <h4 class="no-margin">Change Mobile Number</h4>
+                </div>
+                <form name="change-contact-number" class="form ui change-contactnumber-form">
+                    <div class="content">
+                         <div class="contact-number-prompt error" style="display:none;">
+                             <div class="row">
+                                 <div class="message-box red with-close-message">
+                                     Something went wront. Please try again later
+                                 </div>
+                             </div>
+                        </div>
+                        <div class="field">
+                            <div class="row">
+                                <div class="col-md-12 form ui">
+                                    <label for="new-contact-number" class="required">Enter New Number</label>
+                                    <input name="new-contact-number" type="text" class="new-contact-number form-ui" placeholder="Enter your new number here"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <span class="button cancel uppercase">Cancel</span>
+                        <button type="submit" class="button blue uppercase submit-to-verify approve">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <!--End of modal edit mobile number-->
+
+            <!--Start of modal verify number-->
+            <div class="ui modal small coupled-edit-number-modal verify-contact-number-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="header">
+                    <h4 class="no-margin">Verify Number</h4>
+                </div>
+                <form name="verify-contact-number" class="form ui verify-contact-number-form">
+                    <div class="content">
+                        <div class="hidden message-box red with-close-message verify-contact-number-errors"></div>
+                        <p class="light mrg-bt-20 light-color">
+                            You are about to change your contact number, please ensure that your mobile phone is within reach before you proceed with this step.
+                        </p>
+                        <p class="light mrg-bt-20">
+                            Please enter the 6 digit code that was sent to your mobile phone
+                        </p>
+                        <h4 class="light mrg-bt-20">Time Left: <span class="bold time-limit"></span></h4>
+                        <div class="form">
+                            <label for="" class="required">Enter Code</label>
+                            <input type="text" name="code" class="form-ui verification-code-input" placeholder="Enter your verification code"/>
+                        </div>
+                        <div class="contact-verify-prompt error" style="display:none;">
+                            <div class="row">
+                                <div class="message-box red with-close-message">
+                                     The code is either invalid or is already expired.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <span class="button cancel uppercase">Cancel</span>
+                        <button type="submit" class="button blue submit-to-success uppercase approve">Verify</button>
+                    </div>
+                </form>
+            </div>
+            <!--End of modal verify number-->
+
+            <div class="ui modal tiny success-change-contact-number-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h4 class="ui header">
+                        <i class="icon icon-circle-check"></i>
+                            <div class="content">
+                                Contact number has been successfully verified.
+                        </div>
+                    </h4>
+                </div>
+                <div class="actions">
+                    <button class="button blue close uppercase">Okay</button>
+                </div>
+            </div>
+
+             <!--Start of modal verify number from regitered user from checkout-->
+            <div class="ui modal small coupled-edit-number-modal verify-contact-number-from-checkout-register-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="header">
+                    <h4 class="no-margin">Verify Number</h4>
+                </div>
+                <form name="verify-contact-number" class="form ui verify-contact-number-form">
+                    <div class="content">
+                        <div class="hidden message-box red with-close-message verify-contact-number-errors"></div>
+                        <p class="light mrg-bt-20 light-color">
+                            Verify your number to proceed with your purchase.
+                        </p>
+                        <p class="light mrg-bt-20">
+                            Please enter the 6 digit code that was sent to your mobile phone
+                        </p>
+                        <h4 class="light mrg-bt-20">Time Left: <span class="bold time-limit"></span></h4>
+                        <div class="form">
+                            <label for="" class="required">Enter Code</label>
+                            <input type="text" name="code" class="form-ui verification-code-input" placeholder="Enter your verification code"/>
+                        </div>
+                        <div class="contact-verify-prompt error" style="display:none;">
+                            <div class="row">
+                                <div class="message-box red with-close-message">
+                                     The code is either invalid or is already expired.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="button cancel uppercase">Cancel</button>
+                        <button type="submit" class="button blue submit-to-success uppercase approve">Verify</button>
+                    </div>
+                </form>
+            </div>
+            <!--End of modal verify number from regitered user from checkout-->
+            
+            <div class="ui modal tiny verify-email-from-checkout-register-modal">
+                <a class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h4 class="ui header">
+                        <i class="icon icon-circle-check"></i>
+                        <div class="content">
+                            Email sent for verification
+                        </div>
+                    </h4>
+                </div>
+                <div class="actions">
+                    <button class="button blue close uppercase">Okay</button>
+                </div>
+            </div>
+
+            <!--Start of modal copied referral code message-->
+            <div class="ui modal tiny modal copied-referral-code-modal">
+                <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+                <div class="content align-center">
+                    <h4 class="ui header">
+                        <i class="icon icon-copy"></i>
+                        <div class="content">
+                            Referral code copied to clipboard
+                        </div>
+                    </h4>
+                </div>
+                <div class="actions">
+                    <button class="button blue close uppercase">Okay</button>
+                </div>
+            </div>
+            <!--End of modal copied referral code message-->
+
+
+            <!--OPT Cooldown Error-->
+            <div class="ui modal tiny modal otp-cooldown-error-modal">
+                <div class="content align-center">
+                  <h4 class="ui header">
+                    <div class="content">
+                      Please try again later.
+                      <div class="sub-header error-message"></div>
+                    </div>
+                  </h4>
+                </div>
+                <div class="actions">
+                  <button class="button confirm close">Okay</button>
+                </div>
+            </div>
+            <!--End of modal verify contact number error -->
+            
+
+            {{ include('YilinkerFrontendBundle:Profile:profile_right_wing_notifications.html.twig') }}
+            {{ include('YilinkerFrontendBundle:Profile:address_map_modal.html.twig') }}
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block javascripts %}
+    {{ include('YilinkerFrontendBundle:Profile:profile_base_js.html.twig') }}
+    <script src="{{ asset('js/bower/api.min.js') }}"></script>
+    <script src="{{ asset('js/src/utility/autocomplete.js') }}"></script>
+    <script src="{{ asset('js/bower/checkbox.min.js') }}"></script>
+    <script src="{{ asset('js/bower/jquery-countdown.js') }}"></script>
+    <script src="{{ asset('js/bower/zeroclipboard.min.js') }}"></script>
+    <script src="{{ asset('js/src/utility/email-utility.js') }}"></script>
+    <script src="{{ asset('js/src/utility/google-map.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_browser_app_id }}"></script>
+    <script src="{{ asset('js/src/utility/client-image-handler.js') }}"></script>
+    <script src="{{ asset('js/src/frontend/profile-information.js') }}"></script>
+{% endblock %}

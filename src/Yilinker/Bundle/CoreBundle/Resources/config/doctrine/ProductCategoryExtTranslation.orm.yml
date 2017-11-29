@@ -1,0 +1,38 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductCategoryExtTranslation:
+    type: entity
+    table: ext_translations_product_category
+    repositoryClass: Gedmo\Translatable\Entity\Repository\TranslationRepository
+    indexes:
+        product_category_translation_idx:
+            columns:
+                - locale
+                - object_class
+                - field
+                - foreign_key
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        locale:
+            type: string
+            length: 10
+            column: locale
+        objectClass:
+            type: string
+            length: 255
+            column: object_class
+        field:
+            type: string
+            length: 100
+            column: field
+        foreignKey:
+            type: string
+            length: 255
+            column: foreign_key
+        content:
+            type: string
+            length: 255
+            column: content

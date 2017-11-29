@@ -1,0 +1,193 @@
+services:
+
+#Form types
+
+    yilinker_merchant.form.type.payout_request:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\PayoutRequestFormType
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: form.type, alias: payout_request }
+
+    yilinker_merchant.form.type.product_upload_detail:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\ProductUploadAddFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: product_upload_detail }
+
+    yilinker_merchant.form.type.translate_product:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\TranslateProductFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: translate_product }
+
+    yilinker_merchant.form.type.product_upload_unit:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\ProductUploadUnitAddFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: product_upload_unit }
+
+    yilinker_merchant.form.type.product_upload_unit_draft:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\ProductUploadUnitAddDraftFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: product_upload_unit_draft }
+
+    yilinker_merchant.form.type.product_upload_image:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\ProductUploadImageFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: product_upload_image }
+
+    yilinker_merchant.form.type.api.update_merchant_info:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\Api\UpdateUserInfoFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: update_merchant_info }
+
+    yilinker_merchant.form.type.affiliate_accreditation_application_information:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\AffiliateAccreditationApplicationFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: affiliate_accreditation_application_information }
+
+    yilinker_merchant.form.type.user_reset_password:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\UserResetPasswordFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: user_reset_password }
+
+    yilinker_merchant.form.type.legal_document_upload:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\LegalDocumentationUploadFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: legal_document_upload }
+
+    yilinker_merchant.form.type.earning_filter:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\EarningFilterFormType
+        tags:
+            - { name: form.type, alias: earning_filter }
+# API
+
+    yilinker_merchant.form.type.api.product_upload_add:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\Api\ProductUploadAddFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: api_product_upload_add }
+
+    yilinker_merchant.form.type.api.product_upload_add_draft:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\Api\ProductUploadAddDraftFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: api_product_upload_add_draft }
+
+    yilinker_merchant.form.type.reseller_product_upload_detail:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\ResellerProductUploadFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: reseller_product_upload_detail }
+
+    yilinker_merchant.form.type.api.v2.update_merchant_info:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\Api\v2\UpdateUserInfoFormType
+        tags:
+            - { name: form.type, alias: update_merchant_info_v2 }
+
+    yilinker_merchant.form.type.api.v2.update_store_info:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\Api\v2\UpdateStoreInfoFormType
+        tags:
+            - { name: form.type, alias: update_store_info_v2 }
+
+    yilinker_merchant.form.type.api.v3.api_v3_product_upload:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\Api\v3\ProductUploadFormType
+        tags:
+            - { name: form.type, alias: api_v3_product_upload }
+
+    yilinker_merchant.form.type.api.v3.api_v3_product_country_unit:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\Api\v3\ProductCountryUnitFormType
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: form.type, alias: api_v3_product_country_unit }
+
+    yilinker_merchant.form.type.api.v3.api_v3_product_country_warehouse:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\Api\v3\ProductCountryWarehouseFormType
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: form.type, alias: api_v3_product_country_warehouse }
+
+    yilinker_merchant.form.type.api.v3.api_v3_product_translate:
+        class: Yilinker\Bundle\MerchantBundle\Form\Type\Api\v3\ProductTranslateFormType
+        tags:
+            - { name: form.type, alias: api_v3_product_translate }
+
+#Constraints
+
+    yilinker_merchant.form.validator.constraint.is_tin_editable:
+        class: Yilinker\Bundle\MerchantBundle\Form\Validator\Constraints\IsTinEditableValidator
+        tags:
+            - { name: validator.constraint_validator, alias: is_tin_editable }
+
+    yilinker_merchant.form.validator.constraint.is_store_editable:
+        class: Yilinker\Bundle\MerchantBundle\Form\Validator\Constraints\IsStoreEditableValidator
+        tags:
+            - { name: validator.constraint_validator, alias: is_store_editable }
+
+    yilinker_merchant.form.validator.constraint.is_valid_id_editable:
+        class: Yilinker\Bundle\MerchantBundle\Form\Validator\Constraints\IsValidIdEditableValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.legal_document_type'
+        tags:
+            - { name: validator.constraint_validator, alias: is_valid_id_editable }
+
+    yilinker_merchant.form.validator.constraint.unique_store_name:
+        class: Yilinker\Bundle\MerchantBundle\Form\Validator\Constraints\UniqueStoreNameValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.store'
+        tags:
+            - { name: validator.constraint_validator, alias: unique_store_name }
+
+    yilinker_merchant.form.validator.constraint.unique_product_sku:
+        class: Yilinker\Bundle\MerchantBundle\Form\Validator\Constraints\UniqueProductSkuValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.product'
+        tags:
+            - { name: validator.constraint_validator, alias: unique_product_sku }
+
+    yilinker_front_end.form.validator.constraint.valid_slug:
+        class: Yilinker\Bundle\MerchantBundle\Form\Validator\Constraints\ValidSlugValidator
+        tags:
+            - { name: validator.constraint_validator, alias: valid_slug }
+
+    yilinker_front_end.form.validator.constraint.unique_slug:
+        class: Yilinker\Bundle\MerchantBundle\Form\Validator\Constraints\UniqueSlugValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.store'
+            - '@router'
+        tags:
+            - { name: validator.constraint_validator, alias: unique_slug }
+
+    yilinker_front_end.form.validator.constraint.valid_youtube_url:
+        class: Yilinker\Bundle\MerchantBundle\Form\Validator\Constraints\ValidYoutubeURLValidator
+        tags:
+            - { name: validator.constraint_validator, alias: valid_youtube_url }
+
+    yilinker_front_end.form.validator.constraint.valid_temp_product_image:
+        class: Yilinker\Bundle\MerchantBundle\Form\Validator\Constraints\ValidTempProductImageValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.product_image'
+        tags:
+            - { name: validator.constraint_validator, alias: valid_temp_product_image }
+
+    yilinker_front_end.form.validator.constraint.valid_units:
+        class: Yilinker\Bundle\MerchantBundle\Form\Validator\Constraints\ValidUnitsValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.product_unit'
+            - '@yilinker_core_bundle.repository.product_image'
+        tags:
+            - { name: validator.constraint_validator, alias: valid_units }
+
+    yilinker_front_end.form.validator.constraint.valid_variants:
+        class: Yilinker\Bundle\MerchantBundle\Form\Validator\Constraints\ValidVariantsValidator
+        tags:
+            - { name: validator.constraint_validator, alias: valid_variants }

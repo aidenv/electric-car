@@ -1,0 +1,96 @@
+services:
+
+    yilinker_front_end.service.user.account_manager:
+        class: Yilinker\Bundle\FrontendBundle\Services\User\AccountManager
+        arguments: 
+            - @doctrine.orm.entity_manager
+            - @yilinker_core.service.user.verification
+            - @yilinker_core.service.user.mailer
+            - @yilinker_core.service.upload.upload
+            - @yilinker_core.service.sms.sms_service
+            - @yilinker_core.service.yla_service
+            - @yilinker_core.service.jwt_manager
+            - @form.factory 
+            - @photo_storage_filesystem
+            - @yilinker_core.service.image_manipulation
+
+    yilinker_front_end.service.cart:
+        class: Yilinker\Bundle\FrontendBundle\Services\Cart\CartService
+        arguments: ['@request_stack', '@doctrine.orm.entity_manager', '@security.token_storage', '@yilinker_front_end.service.product.product']
+
+    yilinker_front_end.service.checkout:
+        class: Yilinker\Bundle\FrontendBundle\Services\Checkout\CheckoutService
+        calls:
+            - [setContainer, ['@service_container']]
+        arguments: 
+            - @request_stack
+            - @doctrine.orm.entity_manager
+            - @security.token_storage
+            - @yilinker_front_end.service.cart
+            - @yilinker_core.logistics.yilinker.express
+            - %payment_gateways%
+            - %compute_in_shipping_category%
+
+    yilinker_front_end.service.old.checkout:
+        class: Yilinker\Bundle\FrontendBundle\Services\Checkout\OldCheckoutService
+        calls:
+            - [setContainer, ['@service_container']]
+        arguments: 
+            - @request_stack
+            - @doctrine.orm.entity_manager
+            - @security.token_storage
+            - @yilinker_front_end.service.cart
+            - @yilinker_core.logistics.yilinker.express
+            - %payment_gateways%
+            - %compute_in_shipping_category%
+
+    yilinker_front_end.api.oauth.buyer_extension:
+        class: Yilinker\Bundle\FrontendBundle\Oauth\GrantExtension\BuyerGrantExtension
+        arguments: ['@yilinker_core_bundle.repository.user', '@yilinker_core_bundle.repository.country', '@security.password_encoder']
+        tags:
+            - { name: fos_oauth_server.grant_extension, uri: 'http://yilinker-online.com/grant/buyer' }
+
+    yilinker_front_end.service.product.product:
+        class: Yilinker\Bundle\FrontendBundle\Services\Product\ProductService
+        arguments: ['@doctrine.orm.entity_manager', '@templating.helper.assets']
+
+    fos_oauth_server.controller.token:
+        class: FOS\OAuthServerBundle\Controller\TokenController
+        arguments: ['@fos_oauth_server.server']
+
+    yilinker_front_end.service.elastica.transformer.product:
+        class: Yilinker\Bundle\FrontendBundle\Services\Search\Transformers\ElasticaToProductTransformer
+        arguments: ['@doctrine', '', {identifier:productId}]
+        calls:
+            - [setPropertyAccessor, ['@fos_elastica.property_accessor']]
+        tags:
+            - { name: fos_elastica.elastica_to_model_transformer, type: product, index: yilinker_online }
+
+    yilinker_front_end.service.social_media.social_media_manager:
+        class: Yilinker\Bundle\FrontendBundle\Services\SocialMedia\SocialMediaManager
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @yilinker_core.service.yla_service
+            - @yilinker_core.service.jwt_manager
+            - @service_container
+
+    yilinker_front_end.service.user.user_follow:
+        class: Yilinker\Bundle\FrontendBundle\Services\User\UserFollowService
+        arguments: ['@doctrine.orm.entity_manager', '@templating.helper.assets', '@yilinker_core.service.contact.contact_service']
+
+    yilinker_front_end.kernel.listener.exception_listener:
+        class: Yilinker\Bundle\FrontendBundle\EventListener\FrontendExceptionListener
+        arguments:
+            - @service_container
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+
+    yilinker_front_end.checkout.social_media_redirect:
+        class: Yilinker\Bundle\FrontendBundle\Services\Checkout\SocialMediaRedirectListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
+    yilinker_front_end.service.user_promo.daily_login:
+        class: Yilinker\Bundle\FrontendBundle\Services\UserPromo\DailyLoginManager
+        arguments:
+            - @doctrine.orm.entity_manager

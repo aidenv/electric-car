@@ -1,0 +1,4 @@
+pages_v4_home:
+    path: /home/getData
+    defaults: { _controller: YilinkerFrontendBundle:Api/PagesApi:home, version:v4 }
+    methods: [GET]

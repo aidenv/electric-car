@@ -1,0 +1,4 @@
+bank_search_by_keyword:
+    path: /search
+    defaults: { _controller: YilinkerCoreBundle:Bank:getEnabledBankByName }
+    methods: [GET]

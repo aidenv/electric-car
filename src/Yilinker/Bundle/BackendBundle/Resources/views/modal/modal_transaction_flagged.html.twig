@@ -1,0 +1,49 @@
+<div data-feed=".order-trigger" class="ui modal small modal-remarks-approved">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">Reason of Approval</div>
+    <form action="{{ path('yilinker_approve_or_reject_order') }}" method="POST">
+        <div class="content">
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <input type="hidden" name="approve" value="1">
+                        <input data-fed="data.orderId" name="orderId" type="hidden">
+                        <div class="form">
+                            <label>Remarks</label>
+                            <textarea name="remarks" class="form-ui"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <button class="button blue" type="submit">Submit</button>
+            <div class="button cancel modal-order-one-trigger returnToPreviousModal">Back</div>
+        </div>
+    </form>
+</div>
+
+<div data-feed=".order-trigger" class="ui modal small modal-remarks-reject">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">Reason of Rejection</div>
+    <form action="{{ path('yilinker_approve_or_reject_order') }}" method="POST">
+        <div class="content">
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <input type="hidden" name="approve" value="2">
+                        <input data-fed="data.orderId" name="orderId" type="hidden">
+                        <div class="form">
+                            <label>Remarks</label>
+                            <textarea name="remarks" class="form-ui"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <button class="button blue" type="submit">Submit</button>
+            <div class="button cancel modal-order-one-trigger returnToPreviousModal">Back</div>
+        </div>
+    </form>
+</div>

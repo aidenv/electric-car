@@ -1,0 +1,48 @@
+Yilinker\Bundle\CoreBundle\Entity\Currency:
+    type: entity
+    table: Currency
+    id:
+        currencyId:
+            type: integer
+            id: true
+            column: currency_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        code:
+            type: string
+            length: 60
+            column: code
+            nullable: false
+        dateCreated:
+            type: datetime
+            nullable: false
+            column: date_created
+        dateModified:
+            type: datetime
+            nullable: false
+            column: date_modified
+        name:
+            type: string
+            length: 150
+            nullable: false
+            column: name
+        symbol:
+            type: string
+            length: 50
+            nullable: false
+            column: symbol
+        rate:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: rate
+            options:
+                default: 0.00
+    oneToMany:
+        countries:
+            targetEntity: Country
+            mappedBy: currency
+    lifecycleCallbacks: {  }

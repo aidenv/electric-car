@@ -1,0 +1,14 @@
+{% if banners is iterable and banners is defined %}
+    <div class="row">
+    {% for banner in banners %}
+        {% if banner.image is defined %}
+            <a href="{{ banner.target }}" class="side-banner mrg-bt-6 block">
+                <img data-original="{{ banner.image }}" alt="{{ banner.alt }}" title="{{ banner.title }}" class="lazy immediate img-full-width" style="outline: 0; text-indent: -9999px;">
+                <noscript>
+                    <img src="{{ banner.image }}" alt="{{ banner.alt }}" title="{{ banner.title }}" class="img-full-width">
+                </noscript>
+            </a>
+        {% endif %}
+    {% endfor %}
+    </div>
+{% endif %}

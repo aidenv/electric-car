@@ -1,0 +1,57 @@
+<tr>
+    <td width="90">{{ activity.dateAdded('g:i A') }}</td>
+    <td colspan="2">
+        <p>
+            <em>
+                {% set actionTxt = '' %}
+                {% if activity.activityData.__changes is defined %}
+                    {% for column, change in activity.activityData.__changes %}
+                        {% if column == 'isDelete' %}
+                            {% set actionTxt = 'Deleted' %}
+                            {{ actionTxt }}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {{ not actionTxt and activity.mysqlAction == 'UPDATE' ? 'Updated' : '' }}
+                {{ not actionTxt and activity.mysqlAction == 'INSERT' ? 'Created' : '' }}
+                {{ not actionTxt and activity.mysqlAction == 'DELETE' ? 'Deleted' : '' }}
+                Address `{{ activity.activityData.title ? activity.activityData.title: '' }}`
+                {% if activity.activityData.addressString is defined %}
+                    <p>
+                        <strong>
+                            {{ activity.activityData.addressString }}
+                        </strong>
+                    </p>
+                {% endif %}
+            </em>
+        </p>
+        {% if not actionTxt and activity.mysqlAction == 'UPDATE' and activity.activityData.__changes is defined %}
+            <ol class="bulleted">
+                {% for column, change in activity.activityData.__changes %}
+                    {% set before = change|first %}
+                    {% set after = change|last %}
+                    {% if before or after %}
+                        <li>
+
+                            {% if column == 'isDefault' %}
+                                {% if activity.activityData.isDefault %}
+                                    set as default
+                                {% else %}
+                                    removed as default
+                                {% endif %}
+                            {% else %}
+                                {{ column|phrasify }} changed
+                                {% if (before is not iterable and after and after is not iterable) %}
+                                    from {{ before ? before: '``' }} to `{{ after }}`
+                                {% elseif column == 'location' %}
+                                    from {{ before.location }} to {{ after.location }}
+                                {% endif %}
+                            {% endif %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+        {% endif %}
+    </td>
+</tr>

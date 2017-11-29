@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="cn" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="a9ced76f2dd6907220fa95b3a136b04a" resname="Invalid amount">
+        <source>Invalid amount</source>
+        <target>无效金额</target>
+      </trans-unit>
+      <trans-unit id="dd797c49fc2a78615906a38ba7dcef8e" resname="Withdraw amount has a minimum of P100.00 and should not exceed the available balance">
+        <source>Withdraw amount has a minimum of P100.00 and should not exceed the available balance</source>
+        <target>取消金额不少于P100，并且不超出账户余额</target>
+      </trans-unit>
+      <trans-unit id="b64523324ec5a2bf17b5574068edd7a4" resname="This value should be a valid number.">
+        <source>This value should be a valid number.</source>
+        <target>值应该是有效数字.</target>
+      </trans-unit>
+      <trans-unit id="aa91769b6605f04881f9068843ca6734" resname="Confirmation code is either invalid or expired.">
+        <source>Confirmation code is either invalid or expired.</source>
+        <target>确认码无效或已过期.</target>
+      </trans-unit>
+      <trans-unit id="539a7189bb9607c6bbb5a63da8031307" resname="Short Description cannot be longer than %limit% characters">
+        <source>Short Description cannot be longer than %limit% characters</source>
+        <target>短描述不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="5d69121989e6cf4fa607e0f71e158da6" resname="This value is too short. It should have %limit% character or more.|This value is too short. It should have %limit% characters or more.">
+        <source>This value is too short. It should have %limit% character or more.|This value is too short. It should have %limit% characters or more.This value is too short.</source>
+        <target>值过小. 至少有 %limit% 字符或更多.|值过小. 至少有 %limit% 字符或更多</target>
+      </trans-unit>
+      <trans-unit id="85b12d8e5990956bff2859e56497f8c9" resname="This value should have exactly %limit% character.|This value should have exactly %limit% characters.">
+        <source>This value should have exactly %limit% character.|This value should have exactly %limit% characters.</source>
+        <target>值应有确定 %limit% 字符.|值应有确定 %limit% 字符.</target>
+      </trans-unit>
+      <trans-unit id="0e269fac2b15b7fd12566625556561e7" resname="This value does not match the expected %charset% charset.">
+        <source>This value does not match the expected %charset% charset.</source>
+        <target>值与字符集不匹配 %charset%.</target>
+      </trans-unit>
+      <trans-unit id="6e350bbec139e81f2f011301d1ddb9fa" resname="Weight cannot be longer than %limit% characters">
+        <source>Weight cannot be longer than %limit% characters</source>
+        <target>重量不超过%limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="0818b5a6be0c5ec754032c8a4f3fcb08" resname="Weight cannot be less than %compared_value%">
+        <source>Weight cannot be less than %compared_value%</source>
+        <target>重量不少于 %compared_value%</target>
+      </trans-unit>
+      <trans-unit id="6d24a6df4dc37872bf7878a92b417bef" resname="Weight cannot be greater than %compared_value%">
+        <source>Weight cannot be greater than %compared_value%</source>
+        <target> 重量不超过 %compared_value%</target>
+      </trans-unit>
+      <trans-unit id="43bf81f76cbfb03e5fb4b6f705060c87" resname="Length cannot be less than %compared_value%">
+        <source>Length cannot be less than %compared_value%</source>
+        <target>长度不小于 %compared_value%</target>
+      </trans-unit>
+      <trans-unit id="b25919c16c40d72e588e1d160315d4b2" resname="Length cannot be greater than %compared_value%">
+        <source>Length cannot be greater than %compared_value%</source>
+        <target> 长度不大于 %compared_value%</target>
+      </trans-unit>
+      <trans-unit id="8ef58e89a90aa774c0be451ee0542291" resname="Width is not valid">
+        <source>Width is not valid</source>
+        <target> 宽度无效</target>
+      </trans-unit>
+      <trans-unit id="c8e0cf4b7c48e171e11a921e05e43bea" resname="Width cannot be less than %compared_value%">
+        <source>Width cannot be less than %compared_value%</source>
+        <target> 宽度不低于 %compared_value%</target>
+      </trans-unit>
+      <trans-unit id="2a067ebc2e029e701a33963966333bbf" resname="Width cannot be greater than %compared_value%">
+        <source>Width cannot be greater than %compared_value%</source>
+        <target>宽度不大于 %compared_value%</target>
+      </trans-unit>
+      <trans-unit id="eec29a1b800d7f271ca9a7c21718e0e5" resname="Height cannot be less than %compared_value%">
+        <source>Height cannot be less than %compared_value%</source>
+        <target> 高度不低于 %compared_value% </target>
+      </trans-unit>
+      <trans-unit id="ddc0d6298d28cac392ca8c8470adda24" resname="Height cannot be greater than %compared_value%">
+        <source>Height cannot be greater than %compared_value%</source>
+        <target> 高度不大于 %compared_value%</target>
+      </trans-unit>
+      <trans-unit id="e3fec7c28c52e6676069411a5ab21c53" resname="The size of the image could not be detected.">
+        <source>The size of the image could not be detected.</source>
+        <target> 图片大小无法检测.</target>
+      </trans-unit>
+      <trans-unit id="d34a3e8c6d3a52cbead84e56da285d4b" resname="The image width is too small (%width%px). Minimum width expected is %min_width%px.">
+        <source>The image width is too small (%width%px). Minimum width expected is %min_width%px  .</source>
+        <target>图片宽度太小 (%width%px). 最小不低于%min_width%px.</target>
+      </trans-unit>
+      <trans-unit id="5a97575873324eda599c54428e9e03ee" resname="The image height is too small (%height%px). Minimum height expected is %min_height%px.">
+        <source>The image height is too small (%height%px). Minimum height expected is %min_height%px.</source>
+        <target> 图片高度不够 (%height%px).最低高度 %min_height%px.</target>
+      </trans-unit>
+      <trans-unit id="ca07033b68a7ca38b5b73440746a052b" resname="The image height is too big (%height%px). Allowed maximum height is %max_height%px.">
+        <source>The image height is too big (%height%px). Allowed maximum height is %max_height%px.</source>
+        <target> 图片高度过大 (%height%px). 高度最大 %max_height%px.</target>
+      </trans-unit>
+      <trans-unit id="d4a13fe83d5768ca8a94dcd014aac3ea" resname="The image ratio is too small (%ratio%). Minimum ratio expected is %min_ratio%.">
+        <source>The image ratio is too small (%ratio%). Minimum ratio expected is %min_ratio%.</source>
+        <target> 图片比例过小 (%ratio%). 最低比例 %min_ratio%.</target>
+      </trans-unit>
+      <trans-unit id="6a9c7d038ed21c0aa5f2e29a7e761f08" resname="The image ratio is too big (%ratio%). Allowed maximum ratio is %max_ratio%.">
+        <source>The image ratio is too big (%ratio%). Allowed maximum ratio is %max_ratio%.</source>
+        <target> 图片比例过大 (%ratio%). 最大比例 %max_ratio%.</target>
+      </trans-unit>
+      <trans-unit id="0698c5afbe76e0bd8dffb9ebf36ceea7" resname="The image is square (%width%x%height%px). Square images are not allowed.">
+        <source>The image is square  (%width%x%height%px). Square images are not allowed.</source>
+        <target> 图片为正方形 (%width%x%height%px). 不接受正方形.</target>
+      </trans-unit>
+      <trans-unit id="4c2e0ef3efe543cd1ff7d85a13bd6f14" resname="The image is landscape oriented (%width%x%height%px). Landscape oriented images are not allowed.">
+        <source>The image is landscape oriented (%width%x%height%px). Landscape oriented images are not allowed.</source>
+        <target> 图片为风景图 (%width%x%height%px). 不接受风景图.</target>
+      </trans-unit>
+      <trans-unit id="2d5416ba51225345b6b29fd32bf1e471" resname="The image is portrait oriented (%width%x%height%px). Portrait oriented images are not allowed.">
+        <source>The image is portrait oriented (%width%x%height%px). Portrait oriented images are not allowed.</source>
+        <target> 图为画像 (%width%x%height%px). 不接受画像.</target>
+      </trans-unit>
+      <trans-unit id="19e0f27cb89e7dce1c19c10c38a8ec4a" resname="The file could not be found.">
+        <source>The file could not be found.</source>
+        <target> 找不到文件.</target>
+      </trans-unit>
+      <trans-unit id="844367449082fa76dfffc4f1ae31c69a" resname="The file is not readable.">
+        <source>The file is not readable.</source>
+        <target> 文件无法读取.</target>
+      </trans-unit>
+      <trans-unit id="5b67b5c852b5415cd1852d8979908dc9" resname="An empty file is not allowed.">
+        <source>An empty file is not allowed.</source>
+        <target>不接受空文件.</target>
+      </trans-unit>
+      <trans-unit id="f7f6b17d56bb74713c2e11b0e37823e9" resname="The file is too large. Allowed maximum size is %limit% %suffix%.">
+        <source>The file is too large. Allowed maximum size is %limit% %suffix%.</source>
+        <target>文件过大. 最大量 %limit% %suffix%.</target>
+      </trans-unit>
+      <trans-unit id="40f9f62de5a8ccf912bc1cd19d515dd2" resname="The file is too large.">
+        <source>The file is too large.</source>
+        <target>文件过大.</target>
+      </trans-unit>
+      <trans-unit id="3357baa9b7aecc3a02e243fe11fbe5bf" resname="The file was only partially uploaded.">
+        <source>The file was only partially uploaded.</source>
+        <target>文件只上传了部分.</target>
+      </trans-unit>
+      <trans-unit id="8c9067e52e4440d8a20e74fdc745b0c6" resname="No file was uploaded.">
+        <source>No file was uploaded.</source>
+        <target> 没有上传文件.</target>
+      </trans-unit>
+      <trans-unit id="57506b8ac3df8983084cc5577245f77f" resname="No temporary folder was configured in php.ini.">
+        <source>No temporary folder was configured in php.ini.</source>
+        <target> 临时文件无法配置选项.</target>
+      </trans-unit>
+      <trans-unit id="eedc8167ca2a6a6e3e364cebed9191d0" resname="Cannot write temporary file to disk.">
+        <source>Cannot write temporary file to disk.</source>
+        <target> 临时文件无法写入磁盘.</target>
+      </trans-unit>
+      <trans-unit id="f0cd0d805a3ff26a09e392e71443900a" resname="A PHP extension caused the upload to fail.">
+        <source>A PHP extension caused the upload to fail.</source>
+        <target> PHP扩展导致无法上传.</target>
+      </trans-unit>
+      <trans-unit id="994d3e6aeb13ac3d7d0180ff59763e8e" resname="The file could not be uploaded.">
+        <source>The file could not be uploaded.</source>
+        <target> 文件无法上传.</target>
+      </trans-unit>
+      <trans-unit id="27205f1af55f07200768e714d93c66ec" resname="First name can only be up to %limit% characters">
+        <source>First name can only be up to %limit% characters</source>
+        <target> 名字不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="d946e2ecf68e2c0f65ed0e2587b9e936" resname="Last name can only be up to %limit% characters">
+        <source>Last name can only be up to %limit% characters</source>
+        <target> 姓氏不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="89944680f5f495e79412390f7238a161" resname="Nickname can only be up to %limit% characters">
+        <source>Nickname can only be up to %limit% characters</source>
+        <target> 昵称不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="758acf874e679561643464e19b39ec45" resname="Store name can only be up to %limit% characters">
+        <source>Store name can only be up to %limit% characters</source>
+        <target> 店铺名不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="bf64f228f18426f47cd2ca71a0a0ccc0" resname="Store description can only be up to %limit% characters">
+        <source>Store description can only be up to %limit% characters</source>
+        <target> 店铺描述不超过 %limit% </target>
+      </trans-unit>
+      <trans-unit id="fa78e7be6521e10570448714c7aaf61c" resname="Store slug can only be up to %limit% characters">
+        <source>Store slug can only be up to %limit% characters</source>
+        <target> 店铺链接不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="8b269e7bd764ea238dfd0373e13a6a84" resname="Tin can only be up to %limit% characters">
+        <source>Tin can only be up to %limit% characters</source>
+        <target>Tin码不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="6b26996cc8d749b815386537df5522c5" resname="Please upload a valid jpeg/png file">
+        <source>Please upload a valid jpeg/png file</source>
+        <target>请上传有效 jpeg/png 文件</target>
+      </trans-unit>
+      <trans-unit id="b1b0c35f8f00e2b4485c159b8d6fcd0c" resname="The file is too large (%size% %suffix%). Allowed maximum size is %limit% %suffix%.">
+        <source>The file is too large (%size% %suffix%). Allowed maximum size is %limit% %suffix%.</source>
+        <target> 文件过大 (%size% %suffix%).最大上限 %limit% %suffix%.</target>
+      </trans-unit>
+      <trans-unit id="f3411184e3120c4ed1e8099c662d3d3b" resname="Password can only be up to %limit% characters">
+        <source>Password can only be up to %limit% characters</source>
+        <target>密码不超过 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="3ff7f5e2593b14e7ecf08d7170f95cf7" resname="Password must be atleast %limit% characters">
+        <source>Password must be atleast %limit% characters</source>
+        <target> 密码至少 %limit% 字符</target>
+      </trans-unit>
+      <trans-unit id="d96dd1aac8b6c52f4c0cc4ccb29adbad" resname="Password must contain at least one number and minimum of 8 alphabetic characters">
+        <source>Password must contain at least one number and minimum of 8 alphabetic characters</source>
+        <target> 密码包含至少一个数字和八个字母</target>
+      </trans-unit>
+      <trans-unit id="6dff4e6a9b9284e6920be42f76ae60f8" resname="Please upload a valid jpeg/png/pdf file">
+        <source>Please upload a valid jpeg/png/pdf file</source>
+        <target> 请上传有效 jpeg/png/pdf 文件</target>
+      </trans-unit>
+      <trans-unit id="5015cca7ca7d225ab3a41293af37f43a" resname="Invalid User">
+        <source>Invalid User</source>
+        <target> 无效用户</target>
+      </trans-unit>
+      <trans-unit id="4a6cd4cf885ed64f0fc9b01dfb114f6c" resname="Product Name field is required">
+        <source>Product Name field is required</source>
+        <target> 需填产品名</target>
+      </trans-unit>
+      <trans-unit id="18e38ca832f24f76990f95930e75520a" resname="Short Description cannot be longer than {{ limit }} characters">
+        <source>Short Description cannot be longer than {{ limit }} characters</source>
+        <target> 短描述不长于 {{ limit }} characters</target>
+      </trans-unit>
+      <trans-unit id="e03884d57129a156d1814a97ee5dc578" resname="Short Description is required">
+        <source>Short Description is required</source>
+        <target> 需要短描述</target>
+      </trans-unit>
+      <trans-unit id="471df260547ba905b4717e6d538fe45b" resname="Complete Description is required">
+        <source>Complete Description is required</source>
+        <target>需要完整描述</target>
+      </trans-unit>
+      <trans-unit id="1259c520a1c4097ceaba56c73b54543a" resname="No Brand is selected">
+        <source>No Brand is selected</source>
+        <target> 品牌未选择</target>
+      </trans-unit>
+      <trans-unit id="45198fe71fbdb57b0ec095fc0ab187dc" resname="No Condition is selected">
+        <source>No Condition is selected</source>
+        <target>条件未选择</target>
+      </trans-unit>
+      <trans-unit id="54c4aa66055fa6619f9d7fa4d32f5f06" resname="No Category is selected">
+        <source>No Category is selected</source>
+        <target>种类未选择</target>
+      </trans-unit>
+      <trans-unit id="85696d5fac801915575e78d2bca4d55d" resname="Product Free Shipping is not valid">
+        <source>Product Free Shipping is not valid</source>
+        <target>产品包邮无效</target>
+      </trans-unit>
+      <trans-unit id="ec43c37af44aab22ebfb7c469a291477" resname="Image Max Size should not be greater than 3MB">
+        <source>Image Max Size should not be greater than 3MB</source>
+        <target> 图片最大不超过3MB</target>
+      </trans-unit>
+      <trans-unit id="4907a8be743b99a4780b13dea2bd8d81" resname="Please upload a valid jpeg or png Image">
+        <source>Please upload a valid jpeg or png Image</source>
+        <target> 请上传有效 jpeg 或 png 图</target>
+      </trans-unit>
+      <trans-unit id="2fd05daaf9f9230493f023fac1743dc7" resname="Declared Product Quantity is not valid">
+        <source>Declared Product Quantity is not valid</source>
+        <target> 产品数量无效</target>
+      </trans-unit>
+      <trans-unit id="20009dbe87c232dccb9c17d86b7b71b2" resname="Declared Product Price is not valid">
+        <source>Declared Product Price is not valid</source>
+        <target>产品价格无效</target>
+      </trans-unit>
+      <trans-unit id="a8000ea7743ba9fbe82e0864b5b21597" resname="Declared Product weight is not valid">
+        <source>Declared Product weight is not valid</source>
+        <target> 产品重量无效</target>
+      </trans-unit>
+      <trans-unit id="02d9e6b092660aa760aecb9f2cbb0014" resname="Declared Product length is not valid">
+        <source>Declared Product length is not valid</source>
+        <target> 产品长度无效</target>
+      </trans-unit>
+      <trans-unit id="3654a368eeb4fa234794ff16fdef788a" resname="Declared Product width is not valid">
+        <source>Declared Product width is not valid</source>
+        <target>产品宽度无效</target>
+      </trans-unit>
+      <trans-unit id="8d1bc5cd658a2c736d75a3ca853e681d" resname="Declared Product height is not valid">
+        <source>Declared Product height is not valid</source>
+        <target>产品重量无效</target>
+      </trans-unit>
+      <trans-unit id="95b7b330c97b24fb3aba67be1f6cae17" resname="No Status is selected">
+        <source>No Status is selected</source>
+        <target> 状态未选择</target>
+      </trans-unit>
+      <trans-unit id="f2a7f16fba0d6dc75a5785faf2cfe033" resname="Quantity is required">
+        <source>Quantity is required</source>
+        <target>数量需填写</target>
+      </trans-unit>
+      <trans-unit id="dd0d53f6e22854dbdd7f6a655eb7e044" resname="Quantity is not valid">
+        <source>Quantity is not valid</source>
+        <target>数量无效</target>
+      </trans-unit>
+      <trans-unit id="0ce2edee0e466ee1b1244c98055113f2" resname="Quantity cannot be less than zero">
+        <source>Quantity cannot be less than zero</source>
+        <target> 数量不小于零</target>
+      </trans-unit>
+      <trans-unit id="8dc3577087345c5971a65a016c1e844d" resname="Quantity must be less than 1000">
+        <source>Quantity must be less than 1000</source>
+        <target> 数量小于1000</target>
+      </trans-unit>
+      <trans-unit id="771b0dbf9b16d006b8ee1b80cf108cac" resname="SKU is required">
+        <source>SKU is required</source>
+        <target> 需要库存号码</target>
+      </trans-unit>
+      <trans-unit id="0ee18dc1612b5457729c1bdbfb99f996" resname="Price is required">
+        <source>Price is required</source>
+        <target> 需价格</target>
+      </trans-unit>
+      <trans-unit id="d95948c5c839ee39fa74d92cf1d89352" resname="Price is not valid">
+        <source>Price is not valid</source>
+        <target>无效价格</target>
+      </trans-unit>
+      <trans-unit id="d4f245eec2423c980a8a45260406d689" resname="Price cannot be less than zero">
+        <source>Price cannot be less than zero</source>
+        <target> 价格不低于零</target>
+      </trans-unit>
+      <trans-unit id="7e182419d096237e72d18eac167e48ae" resname="Discounted price is not valid">
+        <source>Discounted price is not valid</source>
+        <target> 折扣价格无效</target>
+      </trans-unit>
+      <trans-unit id="0c6e6bfc1edf351fb225858333916464" resname="Discounted price cannot be less than zero">
+        <source>Discounted price cannot be less than zero</source>
+        <target> 折扣价格不低于0</target>
+      </trans-unit>
+      <trans-unit id="f84859db468ca1aa9a5984d523d2caac" resname="Weight cannot be longer than {{ limit }} characters">
+        <source>Weight cannot be longer than {{ limit }} characters</source>
+        <target> 重量不大于 {{ limit }}字符</target>
+      </trans-unit>
+      <trans-unit id="3aa1c4a6fd2066d1de5ef1750187ccc8" resname="Weight is required">
+        <source>Weight is required</source>
+        <target>需填重量</target>
+      </trans-unit>
+      <trans-unit id="253361ccf770f8d5a81415d8779d6ad8" resname="Weight is not valid">
+        <source>Weight is not valid</source>
+        <target> 重量无效</target>
+      </trans-unit>
+      <trans-unit id="9a0ac860bf9a3d490eba66088f5993be" resname="Weight cannot be less than {{ compared_value }}">
+        <source>Weight cannot be less than {{ compared_value }}</source>
+        <target>重量不少于 {{ compared_value }}</target>
+      </trans-unit>
+      <trans-unit id="de53acd12677e802d9a4ef406c37a068" resname="Weight cannot be greater than {{ compared_value }}">
+        <source>Weight cannot be greater than {{ compared_value }}</source>
+        <target> 重量不超过 {{ compared_value }}</target>
+      </trans-unit>
+      <trans-unit id="37e46f0ca7d81b72fd4db03001c4911e" resname="Length is required">
+        <source>Length is required</source>
+        <target>需填长度</target>
+      </trans-unit>
+      <trans-unit id="b282198cdd3d93e32fc10aac5c95b72c" resname="Length is not valid">
+        <source>Length is not valid</source>
+        <target>长度无效</target>
+      </trans-unit>
+      <trans-unit id="94fba38095d2b30b2ccd1f1eabf52629" resname="Length cannot be less than {{ compared_value }}">
+        <source>Length cannot be less than {{ compared_value }}</source>
+        <target>长度不大于 {{ compared_value }}</target>
+      </trans-unit>
+      <trans-unit id="e9bdb106e721611bdf2a54f608ad4764" resname="Width is required">
+        <source>Width is required</source>
+        <target> 需填宽度</target>
+      </trans-unit>
+      <trans-unit id="fa8fdf75db44470f06b00f24908f4a0a" resname="Width cannot be less than {{ compared_value }}">
+        <source>Width cannot be less than {{ compared_value }}</source>
+        <target> 宽度不超过{{ compared_value }}</target>
+      </trans-unit>
+      <trans-unit id="2d03d81b0982c4a7fbe5b6b1da17d788" resname="Height is required">
+        <source>Height is required</source>
+        <target>需填高度</target>
+      </trans-unit>
+      <trans-unit id="86c693d9942e5d1729c00a84279f49e6" resname="Height is not valid">
+        <source>Height is not valid</source>
+        <target> 高度无效</target>
+      </trans-unit>
+      <trans-unit id="11a7400f1d85e2fa8619529cb9475190" resname="Height cannot be less than {{ compared_value }}">
+        <source>Height cannot be less than {{ compared_value }}</source>
+        <target> 高度不低于 {{ compared_value }}</target>
+      </trans-unit>
+      <trans-unit id="cea7c1e9f472c7bb2f434756995e2cf0" resname="Height cannot be greater than {{ compared_value }}">
+        <source>Height cannot be greater than {{ compared_value }}</source>
+        <target>高度不高于 {{ compared_value }}</target>
+      </trans-unit>
+      <trans-unit id="39992a3b71b682b0d52c4c1d9f39a661" resname="Field is required.">
+        <source>Field is required.</source>
+        <target> 字段需填.</target>
+      </trans-unit>
+      <trans-unit id="2fd8b837f0692614540e421504556427" resname="Captcha is required.">
+        <source>Captcha is required.</source>
+        <target> 验证码需填.</target>
+      </trans-unit>
+      <trans-unit id="867cee98fdd724e7d5bc87f61ce657bc" resname="Passwords do not match">
+        <source>Passwords do not match</source>
+        <target> 密码不符</target>
+      </trans-unit>
+      <trans-unit id="46b8bc278834ffcd40779b64825e77d0" resname="Password field is required">
+        <source>Password field is required</source>
+        <target> 密码需填</target>
+      </trans-unit>
+      <trans-unit id="0323fb472c26a360e534def52c0175dd" resname="Password must be atleast {{ limit }} characters">
+        <source>Password must be atleast {{ limit }} characters</source>
+        <target> 密码需至少 {{ limit }} 字符</target>
+      </trans-unit>
+      <trans-unit id="996ff7362f80ba01ebf4ed8869827596" resname="Password can only be up to {{ limit }} characters">
+        <source>Password can only be up to {{ limit }} characters</source>
+        <target> 密码至少 {{ limit }}字母</target>
+      </trans-unit>
+      <trans-unit id="f0e46a4a91ffce2fb550f2a9a898505f" resname="Invalid Brand">
+        <source>Invalid Brand</source>
+        <target>无效品牌</target>
+      </trans-unit>
+      <trans-unit id="bb06f496c7d62f1de647745976a4224b" resname="Invalid Category">
+        <source>Invalid Category</source>
+        <target>无效分类</target>
+      </trans-unit>
+      <trans-unit id="9024ab13de0f29ae4948ba8b11cb34f3" resname="No Product Title">
+        <source>No Product Title</source>
+        <target>产品无名称</target>
+      </trans-unit>
+      <trans-unit id="8c657c5fc0b74568eac36d18af587ee5" resname="Invalid Condition">
+        <source>Invalid Condition</source>
+        <target> 无效条件</target>
+      </trans-unit>
+      <trans-unit id="d237dbb61a0d5e87e96408b42fa64e41" resname="Declared Product Free Shipping is not valid">
+        <source>Declared Product Free Shipping is not valid</source>
+        <target>产品包邮无效</target>
+      </trans-unit>
+      <trans-unit id="14dd4e051e4953ca8a399d3df65b33c1" resname="Declared Product Status is not valid">
+        <source>Declared Product Status is not valid</source>
+        <target>产品状态无效</target>
+      </trans-unit>
+      <trans-unit id="29e0ef5f575866841c4955f7621c0306" resname="Profile photo should be in jpg, jpeg or png format">
+        <source>Profile photo should be in jpg, jpeg or png format</source>
+        <target> 产品图需要 jpg, jpeg 或者 png 格式</target>
+      </trans-unit>
+      <trans-unit id="2ec8ac07bbe70ecaf6d7df344d00bda6" resname="Profile photo cant exceed to 10MB file size.">
+        <source>Profile photo cant exceed to 10MB file size.</source>
+        <target>产品图大小不超过 10MB.</target>
+      </trans-unit>
+      <trans-unit id="731a9d4c2c6364a499b2891e8b5df902" resname="Cover photo should be in jpg, jpeg or png format">
+        <source>Cover photo should be in jpg, jpeg or png format</source>
+        <target> 封面图格式可以是 jpg, jpeg 或 png </target>
+      </trans-unit>
+      <trans-unit id="7a3a406c06cdd541115b4a405c1b5ccf" resname="Cover photo cant exceed to 10MB file size.">
+        <source>Cover photo cant exceed to 10MB file size.</source>
+        <target> 封面图大小不超过 10MB.</target>
+      </trans-unit>
+      <trans-unit id="c6631869fbb1e424e58bf74cdbc387cc" resname="First name is required">
+        <source>First name is required</source>
+        <target> 名字需填</target>
+      </trans-unit>
+      <trans-unit id="93ce705902dcdbcc5dd4fe22486b6b06" resname="First name can only be up to {{ limit }} characters">
+        <source>First name can only be up to {{ limit }} characters</source>
+        <target> 名字不少于{{ limit }} 字符</target>
+      </trans-unit>
+      <trans-unit id="02595dde6ec4a8de9aeaf825b07b9cde" resname="First name contains invalid characters">
+        <source>First name contains invalid characters</source>
+        <target> 名字中包含无效字符</target>
+      </trans-unit>
+      <trans-unit id="e51b62746c48b9311ae857890adb70ba" resname="Last name is required">
+        <source>Last name is required</source>
+        <target>姓氏需填写</target>
+      </trans-unit>
+      <trans-unit id="94d758d7c406092e7db0bd91fbcfee1b" resname="Last name can only be up to {{ limit }} characters">
+        <source>Last name can only be up to {{ limit }} characters</source>
+        <target> 姓氏不少于 {{ limit }}字符</target>
+      </trans-unit>
+      <trans-unit id="2a83ede52adbd5239d7e28227f0f43ca" resname="Last name contains invalid characters">
+        <source>Last name contains invalid characters</source>
+        <target>姓氏包含无效字符</target>
+      </trans-unit>
+      <trans-unit id="e88b79af071686f7c8521936fc7004d0" resname="Nickname can only be up to {{ limit }} characters">
+        <source>Nickname can only be up to {{ limit }} characters</source>
+        <target> 昵称不少于{{ limit }} 字符</target>
+      </trans-unit>
+      <trans-unit id="711a1d0609dd3999c0957e31db6cdc67" resname="Nickname contains invalid characters">
+        <source>Nickname contains invalid characters</source>
+        <target>昵称中包含无效字符</target>
+      </trans-unit>
+      <trans-unit id="ff266a4d411d21ba9c25cb28098976d1" resname="Invalid gender">
+        <source>Invalid gender</source>
+        <target>无效性别</target>
+      </trans-unit>
+      <trans-unit id="6b797dd5b2bc939b714649bc6c13b7f7" resname="Incorrect date format">
+        <source>Incorrect date format</source>
+        <target> 日期格式不正确</target>
+      </trans-unit>
+      <trans-unit id="09a044448bdc79b6a89bb09ae10e7103" resname="Store name can only be up to {{ limit }} characters">
+        <source>Store name can only be up to {{ limit }} characters</source>
+        <target>店铺名不少于 {{ limit }} 字符</target>
+      </trans-unit>
+      <trans-unit id="ac8d7754df991fdc97285badf7e384cd" resname="Store name contains invalid characters">
+        <source>Store name contains invalid characters</source>
+        <target>店铺名包含无效字符</target>
+      </trans-unit>
+      <trans-unit id="e1014d3f06a056c9bd7500bb55509c3d" resname="Store description can only be up to {{ limit }} characters">
+        <source>Store description can only be up to {{ limit }} characters</source>
+        <target> 店铺描述不少于 {{ limit }} 字符</target>
+      </trans-unit>
+      <trans-unit id="8304bd6ae6549fabb5facb9f6709ec6c" resname="Store slug can only be up to {{ limit }} characters">
+        <source>Store slug can only be up to {{ limit }} characters</source>
+        <target> 店铺链接不少于 {{ limit }} 字符</target>
+      </trans-unit>
+      <trans-unit id="bd88e768500a1c9fd77e8f81948e7fa4" resname="Category not found.">
+        <source>Category not found.</source>
+        <target>种类未找到.</target>
+      </trans-unit>
+      <trans-unit id="33747579a8c8586107c5ad897a932f7b" resname="SKU is already taken.">
+        <source>SKU is already taken.</source>
+        <target> SKU已被占用.</target>
+      </trans-unit>
+      <trans-unit id="c411f3ee0a046822b9acd420a411c739" resname="Slug is already taken.">
+        <source>Slug is already taken.</source>
+        <target> 链接已被占用.</target>
+      </trans-unit>
+      <trans-unit id="483715ede8bc3ae062efe27690c4b36e" resname="Slug contains invalid chars.">
+        <source>Slug contains invalid chars.</source>
+        <target> 链接中包含无效字符.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
+

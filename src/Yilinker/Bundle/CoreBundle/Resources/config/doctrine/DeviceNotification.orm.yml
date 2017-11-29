@@ -1,0 +1,101 @@
+Yilinker\Bundle\CoreBundle\Entity\DeviceNotification:
+    type: entity
+    table: DeviceNotification
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\DeviceNotificationRepository
+    id:
+        deviceNotificationId:
+            type: integer
+            id: true
+            column: device_notification_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            column: title
+            length: '255'
+            nullable: true
+        message:
+            type: string
+            length: '512'
+            column: message
+            nullable: true
+        target:
+            type: string
+            column: target
+            length: '255'
+            nullable: true
+        targetParameters:
+            type: string
+            length: '512'
+            column: target_parameters
+            nullable: true
+        targetType:
+            type: string
+            column: target_type
+            length: '255'
+            nullable: true
+        recipient:
+            type: smallint
+            column: recipient
+            options:
+                default: '0'
+        isSent:
+            type: boolean
+            column: is_sent
+            nullable: true
+            options:
+                default: false
+        dateAdded:
+            type: datetime
+            column: date_added
+            nullable: true
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+            nullable: true
+        dateScheduled:
+            type: datetime
+            column: date_scheduled
+            nullable: true
+        dateSent:
+            type: datetime
+            column: date_sent
+            nullable: true
+        isActive:
+            type: boolean
+            column: is_active
+            options:
+                default: true
+    manyToOne:
+        createdBy:
+            targetEntity: AdminUser
+            joinColumn:
+                name: created_by
+                referencedColumnName: admin_user_id
+            orphanRemoval: false
+        product:
+            targetEntity: Product
+            joinColumn:
+                name: product_id
+                referencedColumnName: product_id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    indexes:
+        fk_devicenotification_createdby_adminuser_adminuserid_idx:
+            columns:
+                - created_by
+        fk_devicenotification_productid_product_productid_idx:
+            columns:
+                - product_id
+        fk_devicenotification_userid_user_userid_idx:
+            columns:
+                - user_id
+    lifecycleCallbacks: {  }

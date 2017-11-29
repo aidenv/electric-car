@@ -1,0 +1,30 @@
+Yilinker\Bundle\CoreBundle\Entity\EarningTransaction:
+    type: entity
+    table: EarningTransaction
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\EarningTransactionRepository
+    id:
+        earningTransactionId:
+            type: integer
+            id: true
+            column: earning_transaction_id
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        orderProduct:
+            targetEntity: OrderProduct
+            inversedBy: earningTransactions
+            joinColumn:
+                name: order_product_id
+                referencedColumnName: order_product_id
+        order:
+            targetEntity: UserOrder
+            joinColumn:
+                name: order_id
+                referencedColumnName: order_id
+    oneToOne:
+        earning:
+            targetEntity: Earning
+            inversedBy: earningTransaction
+            joinColumn:
+                name: earning_id
+                referencedColumnName: earning_id

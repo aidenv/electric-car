@@ -1,0 +1,15 @@
+.accreditation {
+  .tin {
+    @include border-radius(4px);
+    font-size: 20px;
+    margin-top: 20px;
+    background-color: lighten($brand-gray-light, 10);
+    padding-top: 10px !important;
+  }
+
+  .id {
+    img {
+      max-width: 100%;
+    }
+  }
+}

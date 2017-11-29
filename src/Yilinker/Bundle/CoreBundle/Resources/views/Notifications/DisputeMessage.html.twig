@@ -1,0 +1,29 @@
+{% set disputeType = notification.data.dispute.disputeStatusType is defined ? 
+                     notification.data.dispute.disputeStatusType: null
+%}
+
+{% set ticket = notification.data.dispute.ticket %}
+
+{% set frontendDisputeURL = safe_route('profile_resolution_center') %}
+{% if frontendDisputeURL %}
+    {% set disputeUrl = frontendDisputeURL %}
+{% else %}
+    {% set disputeUrl = safe_route('dashboard_resolution_center') %}
+{% endif %}
+
+<a href="{{ disputeUrl ? disputeUrl~'?searchKeyword='~ticket: '#' }}">
+    <div class="notification-icon-container">
+        <span class="icon-circle-container">
+            <i class="icon icon-check"></i>
+        </span>
+    </div>
+    <div class="notification-details">
+        <span class="notification-description semi-bold">
+            CSR has left a remark on {{ disputeType ? disputeType.name : 'Dispute' }}
+            #{{ notification.data.dispute.disputeId }}
+        </span>
+        <span class="notification-time light-color">
+            {{ notification.dateAdded.format('M d, Y g:i:sa')|time_elapsed }}
+        </span>
+    </div>
+</a>

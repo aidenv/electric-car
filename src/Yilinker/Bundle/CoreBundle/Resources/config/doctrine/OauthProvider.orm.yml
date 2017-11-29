@@ -1,0 +1,18 @@
+Yilinker\Bundle\CoreBundle\Entity\OauthProvider:
+    type: entity
+    table: OauthProvider
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\OauthProviderRepository
+    id:
+        oauthProviderId:
+            type: bigint
+            id: true
+            column: oauth_provider_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            options:
+                default: ''
+    lifecycleCallbacks: {  }

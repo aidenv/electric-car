@@ -1,0 +1,492 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Product Translation | YilinkerOnline.com
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="product-upload-wrapper">
+
+        {# START OF HEADER #}
+        <div class="sticky-header">
+            <div class="navbar navbar-simple-seller">
+                <div class="container">
+                    <div class="navbar-group">
+                        <div class="navbar-item brand">
+                            <a href="{{ path('home_page') }}">
+                                <img src="{{ asset('images/logo-main-inverted.png') }}" alt="YiLinker" class="img-responsive"/>
+                            </a>
+                        </div>
+                        <a href="{{ path('home_page') }}" class="navbar-item action-link">
+                            <i class="icon icon-angle-left"></i> Back to Dashboard
+                        </a>
+                        <div href="#" class="navbar-item user-link">
+                            <div class="navbar-dropdown">
+                                <div class="user-image-container">
+                                    <img src="{{ app.user.primaryImage?
+                                    asset(app.user.primaryImage.getImageLocationBySize("thumbnail")|default(''), 'user') :
+                                    asset('images/default-merchant.png')
+                                    }}" alt="{{ app.user.store.storeName }}">
+                                </div>
+                            </div>
+                            <span class="item-counter" {% if messageCount == 0 %} style="display:none" {% endif %}>
+                                {{ messageCount }}
+                            </span>
+                            <div class="navbar-dropdown-container hidden menu">
+                                <ul class="list-unstyled">
+                                    <li><a href="{{ path('user_store_information') }}">View Store Info</a></li>
+                                    <li><a href="{{ path('dashboard_settings') }}">Settings</a></li>
+                                    <li>
+                                        <a href="{{ path('dashboard_messages') }}">Messages
+                                            <span class="badge pull-right unread-messages-text" {% if messageCount == 0 %} style="display:none" {% endif %} }}>
+                                                {{ messageCount }}
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li><a href="{{ path('dashboard_help') }}">Help</a></li>
+                                    <li><a href="{{ path('user_merchant_logout') }}">Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row row-header-box">
+                <div class="container">
+                    <div class="header-box-group">
+                        <div class="header-title">
+                            <h3 class="ui header side-icon">
+                                {% if languageEntity is not null %}
+                                    <i class="icon flag-icon flag-icon-{{ languageEntity.code(true)|lower }} icon-2x"></i>
+                                {% endif %}
+                                <div class="content">
+                                    Product Translation
+                                    {% if languageEntity is not null %}
+                                    <div class="sub-header">{{ languageEntity.name }}</div>
+                                    {% endif %}
+                                </div>
+                            </h3>
+                        </div>
+                        {% if productUploadDetail['productEntity'].isTranslatable %}
+                            <div class="header-action align-right">
+                                <div class="save-header-container">
+                                    <a href="{{ app.request.headers.get('referer') }}" class="button cancel">Cancel</a>
+                                    <button class="button blue" id="inputSave">
+                                        <span class="text">Save</span>
+                                        <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="" />
+                                    </button>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# END OF HEADER #}
+
+        <div class="clear"></div>
+
+        <div class="product-upload-container">
+            <div class="container">
+                <!--Start of error message box-->
+                <div class="message-box red with-close-message" id="generalErrorMessage">
+                </div>
+                <!--End of error message box-->
+
+                {# START OF PRODUCT DETAILS #}
+                <div class="row product-upload-group-segment">
+                    {# START OF DROPZONE #}
+                    <div class="col-md-4">
+                        <h4>Product Details</h4>
+                        <p class="sub-header">
+                            Tell your customers a little about your product.
+                        </p>
+
+                        <p class="bold mrg-bt-5">Default Language</p>
+                        <div class="dropzone inverted">
+                            {% for images in productUploadDetail.productImageEntity %}
+                                <div class="dz-preview dz-image-preview">
+                                    <div class="dz-image">
+                                        <img data-dz-thumbnail="" alt="undefined" src="{{ asset(images.path, 'product') }}">
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <p class="bold mrg-bt-5 mrg-top-20 required">Your Translation</p>
+                        <div class="dropzone dropzone-product-image" {{ productUploadDetail['productEntity'].isTranslatable ? '': 'data-readonly="true"' }}>
+                            {% if productUploadDetail['productEntity'].isTranslatable %}
+                                <div class="dz-default dz-message">
+                                    <i class="icon icon-circle-plus"></i><br/>
+                                    Drop photos here or click to upload
+                                    <h6>
+                                        Compatible image format: JPEG &amp; PNG
+                                    </h6>
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% if productUploadDetail['productEntity'].isTranslatable %}
+                            <span class="form-ui-note">
+                                Click the photo to set as primary photo
+                            </span>
+                        {% endif %}
+                    </div>
+                    {# END OF DROPZONE #}
+
+                    <div class="col-md-8">
+                        <div class="panel">
+                            <div class="panel-head gray">
+                                <h4 class="semi-bold no-margin">Product Name</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form">
+                                    <label>Default Language</label>
+                                    <div class="form-ui inverted mrg-bt-15">
+                                        {{ productUploadDetail['productEntity'].getName()|default('') }}
+                                    </div>
+                                    <label class="required">Your Translation</label>
+                                    <input {{ productUploadDetail['productEntity'].isTranslatable ? '': 'disabled="disabled"' }} type="text" class="form-ui" placeholder="Enter product name here" id="inputName" maxlength="255" value="{{ translatedProductUploadDetail['productEntity'].getName()|default('') }}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head gray">
+                                <h4 class="semi-bold no-margin">Short Description</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form">
+                                    <label>Default Language</label>
+                                    <div class="form-ui inverted mrg-bt-15">
+                                        {{ productUploadDetail['productEntity'].getShortDescription()|default('') }}
+                                    </div>
+                                    <label class="required">Your Translation</label>
+                                    <textarea {{ productUploadDetail['productEntity'].isTranslatable ? '': 'disabled="disabled"' }} class="form-ui textarea-limited-character" maxlength="160" id="inputShortDescription" placeholder="Enter short product description here">{{ translatedProductUploadDetail['productEntity'].getShortDescription()|default('') }}</textarea>
+                                    <div class="pull-right"><span class="textarea-limited-character-length"></span> characters remaining</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head gray">
+                                <h4 class="semi-bold no-margin">Complete Description</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form">
+                                    <label>Default Language</label>
+                                    <div class="form-ui inverted mrg-bt-15">{{ productUploadDetail['productEntity'].getDescription()|default('')|purify }}</div>
+                                    <label class="required">Your Translation</label>
+                                    <textarea {{ productUploadDetail['productEntity'].isTranslatable ? '': 'disabled="disabled"' }} class="form-ui" id="completeDescription" placeholder="Enter product description here">{{ translatedProductUploadDetail['productEntity'].getDescription()|default('') }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head gray">
+                                <h4 class="semi-bold no-margin">Product Group</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="bold mrg-bt-10">Default Language</p>
+                                    </div>
+                                </div>
+                                {% for group in productGroups %}
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-ui inverted">
+                                                {{group}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                {# END OF PRODUCT DETAILS #}
+
+                <!--Start of product category-->
+                <div class="row product-upload-group-segment">
+                    <div class="col-md-4">
+                        <h4>Category</h4>
+                        <p class="sub-header">
+                            Select your product category so we can correctly categorize your new product listing.
+                        </p>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="panel">
+                            <div class="panel-head gray">
+                                <h4 class="semi-bold no-margin">Product Category</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form">
+                                    <label>Default Language</label>
+                                    <div class="form-ui inverted mrg-bt-15">
+                                        <ul class="list-unstyled category-breadcrumb" id="main-breadcrumbs">
+                                            {% if breadcrumbs is defined %}
+                                                {% for categoryName in breadcrumbs %}
+                                                    <li><a>{{ categoryName }}</a></li>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+
+                                    <label class="required">System Translation</label>
+                                    <div class="form-ui">
+                                        <ul class="list-unstyled category-breadcrumb" id="main-breadcrumbs">
+                                            {% if breadcrumbs is defined %}
+                                                {% for categoryName in breadcrumbs %}
+                                                    <li><a>{{ categoryName }}</a></li>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                    <span class="form-ui-note">
+                                        This translation is automatically generated by our system.<br/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End of product category-->
+
+                <!--Start of shipping category-->
+                <div class="row product-upload-group-segment">
+                    <div class="col-md-4">
+                        <h4>Shipping Category</h4>
+                        <p class="sub-header">
+                            Select your product category so we can correctly categorize your new product listing.
+                        </p>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="panel">
+                            <div class="panel-head gray">
+                                <h4 class="semi-bold no-margin">Shipping Category</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form">
+                                    <label>Default Language</label>
+                                    <div class="form-ui inverted mrg-bt-15">
+                                        <ul class="list-unstyled category-breadcrumb" id="main-breadcrumbs">
+                                            <li>
+                                                <a>
+                                                    {{productUploadDetail.shippingCategory|default('No shipping category')}}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <label class="required">System Translation</label>
+                                    <div class="form-ui">
+                                        <ul class="list-unstyled category-breadcrumb" id="main-breadcrumbs">
+                                            <li>
+                                                <a>
+                                                    {{translatedProductUploadDetail.shippingCategory|default('No translation for category')}}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <span class="form-ui-note">
+                                        This translation is automatically generated by our system.<br/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End of shipping category-->
+
+                <!--Start of inventory details-->
+                {% if productUploadDetail.hasCombination %}
+                <div class="row product-upload-group-segment">
+                    <div class="col-md-4">
+                        <h4>Inventory and Variants</h4>
+                        <p class="sub-header">
+                            Set your product as a single purchase with one payment, or as a subscription based purchase with recurring monthly or yearly payments. This setting is permanent once product has been published.
+                        </p>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="panel">
+                            <div class="panel-head gray">
+                                <h4 class="semi-bold no-margin">Product Variants</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form">
+                                    <label>Default Language</label>
+                                    <table class="table basic table-bordered">
+                                        <thead>
+                                            <tr class="inverted">
+                                                <th width="35%"> Detail Name </th>
+                                                <th width="65%"> Values </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="attributeRowContainer">
+                                        {% if productUploadDetail['productAndCategoryAttributes'] is not empty %}
+                                            {% for productAttributes in productUploadDetail['productAndCategoryAttributes'] %}
+                                                <tr id="categoryAttributeRow_1">
+                                                    <td>{{ productAttributes.name }}</td>
+                                                    <td>
+                                                        {% for productValue in productAttributes.values %}
+                                                            <span class="badge">{{ productValue }}</span>
+                                                        {% endfor %}
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% endif %}
+                                        </tbody>
+                                    </table>
+                                    <label class="required mrg-top-20">Your Translation</label>
+                                    <table class="table basic table-bordered">
+                                        <thead>
+                                            <tr class="inverted">
+                                                <th width="35%"> Detail Name </th>
+                                                <th width="65%"> Values </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="attributeRowContainer">
+                                        {% set productUnitAttributes = translatedProductUploadDetail['productAndCategoryAttributes']|length != productUploadDetail['productAndCategoryAttributes']|length
+                                            ? productUploadDetail['productAndCategoryAttributes'] : translatedProductUploadDetail['productAndCategoryAttributes']%}
+                                        {% for productAttributes in productUnitAttributes %}
+                                            <tr id="categoryAttributeRow_1">
+                                                <td valign="top">
+                                                    <input type="text" class="form-ui inverted small translated-attr-name" attr-name-id="{{ productAttributes.attrNameId }}" placeholder="{{ productAttributes.name }}" value="{{ productAttributes.name }}">
+                                                </td>
+                                                <td valign="top">
+                                                    <div class="row">
+                                                        {% for productValueId, productValue in productAttributes.values %}
+                                                            <div class="col-md-3">
+                                                                <input type="text" class="form-ui inverted small translated-attr-value" attr-value-id="{{ productValueId }}" placeholder="{{ productValue }}" value="{{ productValue }}">
+                                                            </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p class="mrg-top-20 mrg-bt-5 bold" id="combinationsTables">Product Combinations</p>
+                                <table class="table table-bordered table-vertical-align-top" style="display: table;">
+                                   <thead>
+                                       <tr class="inverted">
+                                           <th align="left" width="30%">Image</th>
+                                           <th align="left" width="50%">Combination</th>
+                                           <th align="center" width="20%">SKU</th>
+                                       </tr>
+                                   </thead>
+                                   <tbody>
+                                   {% set productUnits = translatedProductUploadDetail['productUnit'] is not empty and translatedProductUploadDetail['productUnit'][0].id != ''
+                                        ? translatedProductUploadDetail['productUnit'] : productUploadDetail['productUnit'] %}
+                                       {% for productUnit in productUnits %}
+                                           <tr>
+                                               <td align="left">
+                                                   {% for productUnitImage in productUnit.images %}
+                                                    <div class="product-combination-image-wrapper">
+                                                        <img src="{{ asset(translatedProductUploadDetail.productEntity.productId ~ '/'~ productUnitImage.name, 'product') }}" alt="" class="img-responsive img-auto-place">
+                                                    </div>
+                                                   {% endfor %}
+                                               </td>
+                                                   <td align="left">
+                                                       {% for productUnitAttribute in productUnit['attributes'] %}
+                                                           <span class="badge">
+                                                               <span class="attribute-name-{{ productUnitAttribute.attrNameId }}">{{ productUnitAttribute.name }}</span>: <span class="spn-attr-value attribute-value-{{ productUnitAttribute.attrValueId }}" attr-value-id="{{ productUnitAttribute.attrValueId }}">{{ productUnitAttribute.value }}</span>
+                                                           </span>
+                                                       {% endfor %}
+                                                   </td>
+                                               <td align="center">{{ productUnit.sku|default('') }}</td>
+                                           </tr>
+                                       {% endfor %}
+                                   </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <!--End of inventory details-->
+            </div>
+        </div>
+    </div>
+
+    {% if translatedProductUploadDetail is defined and translatedProductUploadDetail['productImageEntity']|length > 0 %}
+        {% for key, productImage in translatedProductUploadDetail['productImageEntity'] %}
+            <input type="hidden" class="updateProductImage"
+                   data-isNew="{{ productImage['isNew']| default("") }}"
+                   data-id="{{ productImage['id']| default("") }}"
+                   data-image="{{ productImage['image']| default("") }}"
+                   data-is-primary="{{ productImage['isPrimary']| default("") }}"
+                   data-default-locale="{{ productImage['defaultLocale']| default("") }}"
+                   value="{{ productImage['path']| default("") }}">
+        {% endfor %}
+    {% else %}
+        {% for key, productImage in productUploadDetail['productImageEntity'] %}
+            <input type="hidden" class="updateProductImage"
+                   data-isNew="{{ productImage['isNew']| default("") }}"
+                   data-id="{{ productImage['id']| default("") }}"
+                   data-image="{{ productImage['image']| default("") }}"
+                   data-is-primary="{{ productImage['isPrimary']| default("") }}"
+                   data-default-locale="{{ productImage['defaultLocale']| default("") }}"
+                   value="{{ productImage['path']| default("") }}">
+        {% endfor %}
+    {% endif %}
+
+    <div class="ui modal small coupled-first" id="modal-message-container">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header detail-content"></div>
+                </div>
+            </h4>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">Okay</button>
+        </div>
+    </div>
+
+    <!--Start of crop photo modal-->
+    <div class="ui modal small" id="crop-modal">
+        <div class="header">
+            <h4 class="no-margin">Crop Photo</h4>
+        </div>
+        <div class="content">
+            <div class="cropper-profile-photo" style="width: 400px; height: 400px; margin: auto">
+                <img id="crop-img" src="" alt="Picture">
+            </div>
+        </div>
+        <div class="actions">
+            <button class="button cancel close uppercase">Cancel</button>
+            <button class="button blue uppercase submit-to-success" id="crop-btn">Crop</button>
+        </div>
+    </div>
+    <!--End of crop photo modal-->
+
+    <!--Crop Loading-->
+    <div class="ui page dimmer crop-dimmer">
+        <div class="content">
+            <div class="center">
+                <div class="ui text loader"><p class="mrg-top-10">Uploading images...</p></div>
+
+            </div>
+        </div>
+    </div>
+    <!--End of crop Loading-->
+
+    <input type="hidden" id="asset-hostname" value="{{ asset_hostname }}">
+    <input type="hidden" id="is-form-update" value="{{ isUpdate|default('0') }}" product-id="{{ productUploadDetail['productEntity'].getProductId()|default('0') }}">
+    <input type="hidden" id="locale" value="{{ languageToTranslate|default('en') }}" />
+
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('js/bower/dropzone.min.js') }}"></script>
+    <script src="{{ asset('js/bower/cropper.js') }}"></script>
+    <script src="{{ asset('js/src/canvas-to-blob.js') }}"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/product-translation.js') }}"></script>
+{% endblock %}

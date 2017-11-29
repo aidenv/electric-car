@@ -1,0 +1,82 @@
+Yilinker\Bundle\CoreBundle\Entity\Country:
+    type: entity
+    table: Country
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\CountryRepository
+    indexes:
+        fk_country_country_id_idx:
+            columns:
+                - country_id
+    id:
+        countryId:
+            type: integer
+            unsigned: false
+            id: true
+            column: country_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            fixed: false
+            unique: true
+        code:
+            type: string
+            length: 10
+            fixed: false
+        domain:
+            type: string
+            length: 100
+        areaCode:
+            column: area_code
+            type: string
+            length: 10
+            fixed: false
+        referenceNumber:
+            type: string
+            length: 255
+            column: reference_number
+        dateAdded:
+            type: datetime
+            column: date_added
+            nullable: false
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+            nullable: false
+        latitude:
+            precision: 10
+            scale: 6
+            nullable: true
+            options:
+                default: ''
+        longitude:
+            precision: 10
+            scale: 6
+            nullable: true
+            options:
+                default: ''
+        status:
+            type: smallint
+            column: status
+            options:
+                default: '0'
+    oneToMany:
+        users:
+            targetEntity: User
+            mappedBy: country
+        oneTimePasswords:
+            targetEntity: OneTimePassword
+            mappedBy: country
+        languageCountries:
+            targetEntity: LanguageCountry
+            mappedBy: country
+    manyToOne:
+        currency:
+            targetEntity: Currency
+            inversedBy: countries
+            joinColumn:
+                name: currency_id
+                referencedColumnName: currency_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

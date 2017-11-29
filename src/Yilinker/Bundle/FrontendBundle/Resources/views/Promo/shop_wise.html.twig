@@ -1,0 +1,78 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    Shop wise at the LOWEST PRICE!
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/static.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper static">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="content-container">
+                    <div class="content-segment">
+                        <div class="content-description row">
+                            <div class="col-md-6">
+                                <img src="{{ asset('images/promo/shop-wise/shop-wise.jpg') }}" alt="Shop wise at the LOWEST PRICE" class="img-full-width mrg-bt-20">
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="pd-left-20">
+                                    <h3 class="mrg-bt-30">
+                                        Shop wise at the LOWEST PRICE!
+                                        <br >
+                                        NEXT DAY Delivery or It’s FREE!
+                                    </h3>
+                                    <p  class="mrg-bt-15">
+                                        YiLinker offers a wide variety of affordable and good quality items which can now be delivered right on your doorstep. Buyers can now shop at the lowest price possible only at YiLinker! Get the item the day after you ordered online with the guaranteed next day delivery or else it’s FREE.
+                                    </p>
+                                    <p class="mrg-bt-15">
+                                        <strong>Terms and Conditions:</strong>
+                                    </p>
+                                    <ul class="pd-left-20 mrg-bt-30">
+                                        <li>
+                                            Buyers can buy selected items on YiLinker with the lowest price offered by other online stores* over the internet.
+                                        </li>
+                                        <li>
+                                            If the buyer finds the same item in other online stores that is 10% cheaper than what YiLinker offers, the buyer will be entitled for a refund plus a 30% of the item price as cashback.
+                                        </li>
+                                        <li>
+                                            Buyer can only compare the price within 10 days upon purchase provided that the same item is neither included to any special promo or sale.
+                                        </li>
+                                        <li>
+                                            Buyers residing within NCR will be entitled for FREE SHIPPING and guaranteed NEXT DAY DELIVERY for the items ordered before 4PM.
+                                        </li>
+                                        <li>
+                                            Buyers must provide their complete shipping address and be present at all times or have someone who will receive their item/s within the day of delivery.
+                                        </li>
+                                        <li>
+                                            Delay in the delivery may happen if there were unforeseen circumstances such as accidents and natural calamities.
+                                        </li>
+                                        <li>
+                                            For concerns, you can contact our customer support at {{ supportContactNumber }}.
+                                        </li>
+                                    </ul>
+
+                                    <a class="button blue mrg-bt-30" href="{{ path('product_list', {'list':'shop-wise'}) }}">SHOP NOW</a>
+
+                                    <p class="mrg-bt-15" style="font-size: 13px; line-height: 20px;">
+                                      <i><span style="font-size: 24px; position: relative; top: 6px;">*</span> Online stores that have been accredited in providing an invoice and
+                                      already established at least for a year.</i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}

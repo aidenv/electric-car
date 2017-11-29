@@ -1,0 +1,900 @@
+"Access Denied";"เข้าถึงถูกปฏิเสธ"
+"click here";"คลิกที่นี่"
+Accreditation;ได้รับการรับรอง
+"Business Information";"ข้อมูลทางธุรกิจ"
+"Seller Type";"ประเภทผู้ขาย"
+"Owner Name";"ชื่อเจ้าของ"
+"Store Name";"ชื่อร้านค้า"
+"Primary Address";"ที่อยู่หลัก"
+"Other Address";"อื่น ๆ ที่อยู่"
+"Contact Number";"หมายเลขติดต่อ"
+"Application Status";"สถานะใบสมัคร"
+You;คุณ
+Submit;ส่ง
+"Mark as Complete";"ทำเครื่องหมายเป็นเสร็จสมบูรณ์"
+"Mark as Incomplete";"ทำเครื่องหมายว่าไม่สมบูรณ์"
+"Bank Information";"ข้อมูลธนาคาร"
+"Bank Name";"ชื่อธนาคาร"
+"Account Title";"ชื่อเรื่องของบัญชี"
+"Account Name";"ชื่อบัญชี"
+"Account Number";"หมายเลขบัญชี"
+"Legal Files";"แฟ้มตามกฎหมาย"
+File;แฟ้ม
+"Date Uploaded";"วันที่อัปโหลด"
+Remarks;หมายเหตุ
+"DTI/SEC Permit";"ใบอนุญาต DTI/SEC"
+"Mayor's Permit";"ใบอนุญาตของนายกเทศมนตรี"
+"BIR Permit";"ใบอนุญาต BIR"
+"FORM MA11501 Permit";"แบบฟอร์มใบอนุญาต MA11501"
+Others;ผู้อื่น
+SSS;SSS
+"PAG IBIG";"ปลายแห่งชาติ IBIG"
+Postal;ไปรษณีย์
+Passport;หนังสือเดินทาง
+"Driver's License";"ใบอนุญาตขับขี่"
+PRC;สาธารณรัฐประชาชนจีน
+"Voter's ID";" ของต่อ ID"
+"School ID";"ของโรงเรียน ID"
+TIN;ดีบุก
+"Valid ID";"รหัสถูกต้อง"
+"Download this file";"ดาวน์โหลดแฟ้มนี้"
+"Update Accreditation Type";"ชนิดของการรับรองการปรับปรุง"
+Okay;โอเค
+Accreditations;รับรองคุณภาพ
+"Select Status";"เลือกสถานะ"
+Search;ค้นหา
+Status;สถานะ
+"Quick Info";"ข้อมูลอย่างรวดเร็ว"
+Name:;ชื่อ:
+Phone:;โทรศัพท์:
+Email:;อีเมล:
+"Affiliate Accreditation";"พันธมิตรได้รับการรับรอง"
+"Personal Information";"ข้อมูลส่วนบุคคล"
+"Identification Document";"เอกสารประจำตัว"
+Username;ชื่อผู้ใช้
+Password;รหัสผ่าน
+"Sign In";"เข้าสู่ระบบ"
+"Manage Administrator";"จัดการดูแล"
+"Register Administrator";"ลงทะเบียนผู้ดูแล"
+"Enter Username here";"ป้อนชื่อผู้ใช้"
+"Enter Password here";"ป้อนรหัสผ่านที่นี่"
+"Change Password";"เปลี่ยนรหัสผ่าน"
+"Confirm Password";"ยืนยันรหัสผ่าน"
+"Enter Confirm Password here";"ป้อนรหัสผ่านที่ยืนยัน"
+"First Name";"ชื่อแรก"
+"Enter First name here";"ใส่ชื่อที่นี่"
+"Last Name";"ชื่อสุดท้าย"
+"Enter Last name here";"ใส่นามสกุลที่นี่"
+"User Role";"บทบาทผู้ใช้"
+"Select Role";"เลือกบทบาท"
+Register;ลงทะเบียน
+"Manage Roles";"จัดการบทบาท"
+ID;รหัส
+Fullname;ชื่อเต็มของ
+Role;บทบาท
+Activation;เปิดใช้งาน
+"Enter your new password here";"ป้อนรหัสผ่านใหม่ที่นี่"
+"Confirm your new password here";"ยืนยันรหัสผ่านใหม่"
+Cancel;ยกเลิก
+"Manually Created Accounts";"บัญชีที่สร้างขึ้นด้วยตนเอง"
+"Number of Manual Accounts: 227";"หมายเลขบัญชีด้วยตนเอง: 227"
+"Search By Name / ID No. / Business Name";"ค้นหาตามชื่อ / รหัสหมายเลข / ชื่อธุรกิจ"
+"Accreditation Status:";"รับรองสถานะ:"
+Unaccredited;Unaccredited
+Accredited;ได้รับการรับรอง
+All;ทั้งหมด
+"Created By:";"สร้างโดย:"
+--;--
+"George Paulino";"George Paulino"
+"Ryan gVay";"Ryan gVay"
+KarlDub;KarlDub
+"Kevin the Nightstalker";"Kevin Nightstalker"
+"Account Status:";"สถานะบัญชี:"
+Activated;เปิดใช้งาน
+Locked;ล็อค
+"Create Account";"สร้างบัญชี"
+"Customer ID";"ID ของลูกค้า"
+"Business Name";"ชื่อธุรกิจ"
+192;192
+"Chris Bosh George";"Chris Bosh George"
+"Burger Machine";"เครื่องทำเบอร์เกอร์"
+Seller;ผู้ขายที่
+"Ronald McDonald Duck";"Ronald McDonald Duck"
+"McDonalds Fastfood";"McDonalds Fastfood"
+Mechant;Mechant
+"Casper Daprenlygosh";"คาสเปอร์ Daprenlygosh"
+"Haus of Honor";"Haus เกียรติยศ"
+Hybrid;ไฮบริดสลี
+"Manual Creation List";"รายการสร้างด้วยตนเองรายการ"
+"Manual Creation Details";"รายละเอียดสร้างด้วยตนเอง"
+"Account Details";"รายละเอียดบัญชี"
+"Account Notes";"บันทึกบัญชี"
+"Basic Information";"ข้อมูลพื้นฐาน"
+Affiliate;พันธมิตร
+"Email Address";"ที่อยู่อีเมล"
+"Mobile Number";"หมายเลขโทรศัพท์"
+"Address Information";"ข้อมูลที่อยู่"
+Addresses;ที่อยู่
+"&nbsp;";"&nbsp;"
+Home;บ้าน
+"1234 Building Street 2 Street Subdivision Metro Manila Manila Barangay 2 ,566056";"ถนนอาคาร 1234 2 ถนนอำเภอเมโทรมะนิลามะนิลาบา 2, 566056"
+"Bank Accounts";"บัญชีธนาคาร"
+2130909455677;2130909455677
+"George Georgia";"George Georgia"
+"Metrobank of the Borneo";"Metrobank ของเกาะบอร์เนียว"
+"Accreditation Option";"ตัวเลือกการรับรอง"
+"Accreditation Level";"ระดับ"
+"Level 1";"ระดับที่ 1"
+"Level 2";"ระดับที่ 2"
+"Level 3";"ระดับที่ 3"
+"Level 4";"ระดับที่ 4"
+"Activate this Account?";"เปิดใช้งานบัญชีนี้หรือไม่"
+Activate;เปิดใช้งาน
+"This Account is Active";"บัญชีนี้ถูกใช้งานอยู่"
+"If you wish to deactivate this account, click";"ถ้าคุณต้องการปิดใช้งานบัญชีนี้ คลิก"
+"Deactivate Now";"ปิดใช้งานในขณะนี้"
+"Temporary Password";"รหัสผ่านชั่วคราว"
+"System Information";"ข้อมูลระบบ"
+"Created By";"สร้างขึ้นโดย"
+"Karl Cases";"กรณีคาร์ล"
+", 10/22/16 4:43 am";", 10/22/59 4:43 am"
+"Last Modified By";"แก้ไขล่า สุดโดย"
+"Save Changes";"บันทึกการเปลี่ยนแปลง"
+Notes;หมายเหตุ
+Title;ชื่อเรื่อง
+Message;ข้อความ
+Actions;การดำเนินการ
+"About Paul Edward Borja and the Spaghetti";"เกี่ยวกับ Paul เอ็ดเวิร์ด Borja และสปาเกตตี"
+"Last Modified: 10/22/16 4:51 am";"แก้ไขล่า สุด: 10/22/59  4:51 am"
+View;ดู
+"New Notes";"บันทึกย่อใหม่"
+Placeholder;ตัวยึด
+"Enter product description here";"ป้อนคำอธิบายสินค้าที่นี่"
+Save;บันทึก
+"Bank Account";"บัญชีธนาคาร"
+"Enter your bank account title here";"ป้อนชื่อบัญชีธนาคารของคุณที่นี่"
+"Enter your bank account number here";"ป้อนหมายเลขบัญชีธนาคารของคุณที่นี่"
+"Enter your bank account name here";"ป้อนชื่อบัญชีธนาคารของคุณที่นี่"
+"Are you sure you want to delete this bank account";"คุณต้องการลบบัญชีธนาคารนี้แน่ใจหรือไม่"
+Delete;ลบ
+Log-out;ล็อกเอาท์
+English;ภาษาอังกฤษสำหรับ
+Chinese;จีน
+Canada;แคนาดา
+"Transactions List";"รายการธุรกรรม"
+"Seller Pay-out";"ผู้ขายจ่ายออก"
+"Buyer Refund";"คืนเงินผู้ซื้อ"
+"Buyer Refund History";"ประวัติคืนเงินผู้ซื้อ"
+"Promo List";"รายการส่งเสริมการขาย"
+"Seller Accreditation";"ผู้ขายรับรอง"
+"Inhouse Products";"ชมผลิตภัณฑ์"
+"Buyer List";"รายชื่อผู้ซื้อ"
+"Seller/Affiliate List";"รายการขาย/พันธมิตร"
+"Product Listings";"รายการผลิตภัณฑ์"
+Vouchers;ใบสำคัญ
+"Request Pay-Outs List";"ขอรายการจ่ายออก"
+"Batch Pay-Out List";"รายการจ่ายออกชุด"
+Product;ผลิตภัณฑ์
+Notification;แจ้งเตือน
+"Mobile Web view (CMS)";"ดูมือถือเว็บ (CMS)"
+"Daily Present";"ปัจจุบันทุกวัน"
+"Custom Messages";"ข้อความที่กำหนดเอง"
+"Message here";"ข้อความที่นี่"
+"Inner Banners";"ป้ายภายใน"
+"Upload Banner";"อัพโหลดแบนเนอร์"
+"Select your Banner Permit file from your computer";"เลือกไฟล์แบนเนอร์อนุญาตจากคอมพิวเตอร์ของคุณ"
+"Compatible files: JPEG and PNG";"รองรับไฟล์: JPEG และ PNG"
+"Banner URL";"URL แบนเนอร์"
+"Product CMS";"ผลิตภัณฑ์ CMS"
+"Created Date/Time";"มีเวลาและวันที่สร้างขึ้น"
+Creator;ผู้สร้าง
+Type;ชนิด
+"12/31/16, 3:00pm";"12/31/59, 3:00 pm"
+"George Paul";"George Paul"
+"Homepage Row";"หน้าแรกของแถว"
+"Hot Items";"รายการร้อน"
+150;150
+"Queued @ 12:00am";"จัดคิวแอท 12:00 น."
+"Custom Page";"กำหนดเองเพ"
+"Shop Wise";"ร้านฉลาด"
+Create;สร้าง
+"Create Product CMS";"สร้างผลิตภัณฑ์ CMS"
+"Product Title";"ชื่อผลิตภัณฑ์"
+"Enter Your Product Title";"ป้อนชื่อผลิตภัณฑ์ของคุณ"
+"Upload Featured Banner (Homepage)";"อัพโหลดแบนเนอร์ที่โดดเด่น (หน้าแรก)"
+"Upload Featured Banners (Homepage) here";"อัพโหลดแบนเนอร์แนะนำ (หน้าแรก) ที่นี่"
+"Compatible files: JPEG, PNG and PDF";"รองรับไฟล์: JPEG, PNG และ PDF"
+"Paste Featured Product (Homepage) Link here";"วางลิงค์แนะนำสินค้า (หน้าแรก)"
+Image;รูปภาพ
+"Upload Featured Banner (Inner-Page)";"อัพโหลดแบนเนอร์ที่โดดเด่น (หน้าใน)"
+"Upload Featured Banners (Inner-Page) here";"อัปโหลดแนะนำแบนเนอร์ (หน้าใน)"
+"Paste Product Link (Inner-Page) here";"วางผลิตภัณฑ์เชื่อมโยง (หน้าใน) ที่นี่"
+"Product List";"รายการผลิตภัณฑ์"
+Clear;ชัดเจน
+"Add Products";"เพิ่มผลิตภัณฑ์"
+"Date Created";"วันที่สร้าง"
+"Product Name";"ชื่อสินค้า"
+"Active Promo";"โปรโมชั่นที่ใช้งานอยู่"
+"Original Price";"ราคาเดิม"
+"Discounted Price";"ลดราคา"
+"Available Stock";"มีหุ้น"
+"Product Sold";"ผลิตภัณฑ์ที่จำหน่าย"
+12/16/16;12/16/59
+20%;20%
+"PhP 21230";"PHP 21230"
+"PhP 18930";"PHP 18930"
+2003;2003
+122;122
+"By Checking this box";"โดยช่องนี้"
+"Start the Process IMMEDIATELY";"เริ่มกระบวนการทันที"
+"Enter product list here";"ป้อนรายการสินค้าที่นี่"
+"Price Range:";"ช่วงราคา:"
+Brands:;แบรนด์:
+"Sort By:";"เรียงลำดับโดย:"
+Alphabetical;ตัวอักษร
+"New to Old";"ใหม่ไปเก่า"
+"Old to New";"เก่าไปใหม่"
+Relevance;ความเกี่ยวข้อง
+Categories:;หมวดหมู่:
+Status:;สถานะ:
+Active;ใช้งานอยู่
+Inactive;ไม่ได้ใช้งาน
+Manufacturer:;ผู้ผลิต:
+"Please click on the image you want to set as primary";"กรุณาคลิกที่ภาพที่คุณต้องการตั้งเป็นหลัก"
+Primary;หลัก
+Check;ตรวจสอบ
+Error;ข้อผิดพลาด
+"Remove file";"เอาแฟ้มออก"
+SKU;SKU
+Width;ความกว้าง
+Height;ความสูง
+Length;ความยาว
+Weight;น้ำหนัก
+Quantity;ปริมาณ
+"Regular Price";"ราคาปกติ"
+"Shipping fee";"ค่าจัดส่ง"
+"Retail Price";"ราคาขายปลีก"
+Commission;ค่าคอมมิชชัน
+Date;วัน
+"Promo Name";"ชื่อโปรโมชั่น"
+"Promo Discount";"ส่วนลดโปรโมชั่น"
+12/12/16;2559/12/12
+"Perfect Purple Pair";"สีม่วงคู่สมบูรณ์แบบ"
+"Last Edit By";"แก้ไขครั้งสุดท้ายโดย"
+"Time Stamp";"ประทับเวลา"
+"Chris Paul George";"Chris Paul George"
+"Upload 5 Photos";"อัพโหลดรูปภาพที่ 5"
+"2:00 am";"2:00 am"
+"Date Range:";"ช่วงวัน:"
+"Start Date";"วันเริ่มต้น"
+"End Date";"วันที่สิ้นสุด"
+"Quantity Sold";"ปริมาณที่ขาย"
+50;50
+"Export to Excel";"ส่งออกไปยัง Excel"
+"In-House Listings";"ภายในรายการ"
+Item;สินค้า
+Category;ประเภท
+Brand;แบรนด์
+Brief;โดยย่อ
+Details;รายละเอียดของ
+Photos;รูปภาพ
+Combinations;ชุด
+"Reason of Approval";"เหตุผลของการอนุมัติ"
+Back;ย้อนกลับ
+"Reason of Rejection";"เหตุผลหรือการปฏิเสธ"
+[[Username]];[[ชื่อ]]
+Refund;การคืนเงิน
+"Order ID";"หมายเลขใบสั่ง"
+"Invoice No";"ไม่มีใบแจ้งหนี้"
+"Seller ID";"ขาย ID"
+User;ผู้ใช้
+"Product ID";"ID รายการ"
+"Order Quantity";"ปริมาณการสั่งซื้อ"
+"Unit Price";"ราคาต่อหน่วย"
+"Total Amount";"ยอดเงินรวม"
+EasyPoint;จุดง่าย
+NET;เพียง
+144;144
+144-2-1503240909;144-2-1503240909
+2;2
+"man of effin steel";"มนุษย์หรือ effin เหล็ก"
+333;333
+"sammmy sam";"สาม sammmy"
+1;1
+On-going;จะ
+182;182
+182-12003-1504280105;182-12003-1504280105
+79;79
+warcraft;Warcraft
+14;14
+"Paid - Returned";"ชำระคืน"
+"Proceed To Refund";"ดำเนินการคืนเงิน"
+"History Information";"ข้อมูลประวัติ"
+"Shipping Price";"ราคาจัดส่ง"
+"Easyshop Charge";"ค่าธรรมเนียม ร้านง่าย"
+"Payment Method Charge";"ค่าบริการวิธีชำระเงิน"
+Easypoints;จุดง่าย
+Net;เพียง
+201-1-1506040106;201-1-1506040106
+sammyboi22_22;sammyboi22_22
+apple;Apple
+"History ID";"รหัสประวัติ"
+State;สถานะ
+404;404
+"2015-06-02 17:57:14";"2558-06-02 17:57:14"
+"Item has not been shipped";"มีการจัดส่งสินค้า"
+"Reason of Cancellation";"เหตุผลหรือการยกเลิก"
+Requestor;ผู้
+"--Select Requestor--";"เลือกผู้"
+Buyer;ผู้ซื้อ
+"Type of Reason";"ชนิดของเหตุผล"
+"--Select Reason--";"-เลือกเหตุผล-"
+"Edit/Add Category";"แก้ไข/เพิ่มหมวดหมู่"
+Name;โดยเฉพาะอย่างยิ่ง
+Description;คำอธิบาย
+Keyword;คำสำคัญ
+"Sort Order";"เรียงลำดับ"
+"Order Product Id";"รหัสสั่งซื้อสินค้า"
+"Shipping Fee";"ค่าจัดส่ง"
+"Total Price";"ราคารวม"
+"Net Price";"ราคาสุทธิ"
+"Current Tag";"ปัจจุบันป้าย"
+209;209
+"Order Details";"รายละเอียดใบสั่ง"
+Sample;ตัวอย่าง
+KD3-38u123pi;KD3-38u123pi
+"YiLinker Charge";"ค่าธรรมเนียม YiLinker"
+"Order Product ID";"รหัสสั่งซื้อสินค้า"
+"Unflag Transaction";"Unflag ธุรกรรม"
+"Void Transaction";"ยกเลิกธุรกรรม"
+"Apple Watch";"ดู Apple"
+"Short Description";"คำอธิบายโดยย่อ"
+"Full Description";"คำอธิบายแบบเต็ม"
+"Jewellery &amp; Watches";"นาฬิกาเครื่องประดับและแอมป์"
+Custom;แบบกำหนดเอง
+"Dimensions &amp; Weight";"มิติและแอมป์น้ำหนัก"
+"Length (CM)";"ความยาว (ซม.)"
+"Width (CM)";"ความกว้าง (ซม)"
+"Weight (KG)";"น้ำหนัก (กก.)"
+"Height (CM)";"ความสูง (ซม)"
+"Combination Name";"ชื่อชุด"
+10001;10001
+10;10
+Color;สี
+Blue;สีฟ้า
+Size;ขนาด
+Large;ขนาดใหญ่
+Address;ที่อยู่
+"asdsadsad, 123 jkhjk, asdsadsad, BF International Village, Las Pinas, Metro Manila, 1213";"Amey, Abdellah Abdellah, 123, BF เนวิลเลจ ลาสปินาส เมโทรมะนิลา 1213"
+"Generate Code";"สร้างรหัส"
+477-344-1;477-344-1
+"This account doesnt have any bank information";"บัญชีนี้ไม่มีข้อมูลใด ๆ ที่ธนาคาร"
+Add;เพิ่ม
+"My BPI Bank Account";"บัญชี BPI"
+283713968540781;283713968540781
+"George Macalulo Winston Lee";"George Macalulo Winston Lee"
+BPI;BPI
+Edit;แก้ไข
+"Bank Account Title";"ชื่อบัญชีธนาคาร"
+UCPB;UCPB
+"Allied Bank";"ธนาคารอัลลายด์"
+"Returned Item Pickup";"กลับไปรับสินค้า"
+Schedule;กำหนดการ
+02/29/16;02/29/59
+"Day Hour";"วันชั่วโมง"
+"eq. 1 Am";"eq. 1 Am"
+Why?;ทำไม
+"Bank Name:";"ชื่อธนาคาร:"
+Payout;จ่ายเงิน
+"Buyer ID";"ID ผู้ซื้อ"
+"Proceed To Payment";"ดำเนินการชำระเงิน"
+"Paid - Forwarded";"ชำระเงินส่งต่อ"
+"Shipment Information";"ข้อมูลการจัดส่ง"
+Courier;จัดส่งเอกสาร
+"Boy George Delivery";"จัดส่งเด็กชายจอร์จ"
+"Date of Shipment";"วันที่หรือจัดส่ง"
+"2015-04-01 00:00:00";"2558-04-01 00:00:00"
+"Expected Date of Arrival";"วันที่คาดว่าจะมาถึง"
+"2015-04-04 00:00:00";"2558-04-04 00:00:00"
+"Tracking Number";"หมายเลขการติดตาม"
+PK-235-137-556;PK-235-137-556
+"Missing Courier";"จัดส่งเอกสารที่ขาดหายไป"
+"Last updated on 2015-04-06 17:37:55";"แก้ไขล่าสุดใน 2558-04-06 17:37:55"
+Cancelled;ยกเลิก
+"&#8230;";"&#8230;"
+Color:;สี:
+Red;สีแดง
+Size:;ขนาด:
+Samplenation:;Samplenation:
+"Super Duper Ninja Warrior";"นักรบนินจาเจ๋ง"
+resolved;ได้รับการแก้ไข
+"George Chris Paul";"George Chris Paul"
+"requested items for cancellations";"รายการที่ร้องขอสำหรับการยกเลิก"
+"Order ID 209: Shoulder Bag";"หมายเลขสั่งซื้อ 209: กระเป๋าสะพาย"
+"Posted on 12:30 pm, July 21, 2014";"โพสต์ 12:30 pm, 21 กรกฎาคม 2557"
+"Koya Carl";"Koya Carl"
+"Approve Cancellation";"อนุมัติการยกเลิก"
+Reject;ปฏิเสธ
+"Select Reason";"เลือกเหตุผล"
+"Resolution Center";"ความละเอียดที่ศูนย์"
+"Disputed Tag Detected!";"แท็กมีข้อโต้แย้งที่ตรวจพบ"
+attachments;สิ่งที่แนบมา
+"Proceed to Resolution Center";"ไปที่ศูนย์ความละเอียด"
+"Flagged Tag Detected!";"แท็กตั้งค่าสถานะที่ตรวจพบ"
+Approve;อนุมัติ
+"Search By Batch ID/Process By";"ค้นหา โดย ID/กระบวน การชุดงานโดยการ"
+"Grand Batch Amount";"จำนวนชุดแกรนด์"
+"Batch ID";"รหัสชุดงาน"
+Count;จำนวน
+"Process By";"กระบวนการโดย"
+Amount;ยอดเงิน
+Memo;บันทึก
+Action;การดำเนินการ
+"Are you sure you want to remove payout?";"คุณต้องการเอาเงินแน่ใจหรือไม่"
+Remove;เอา
+"Batch Payout";"ชุดจ่าย"
+"Batch Number";"หมายเลขชุดงาน"
+"Batch Date";"วันชุดงาน"
+"Write your Remarks";"เขียนหมายเหตุของคุณ"
+"Attach Files";"แนบไฟล์"
+"Upload Receipt";"รับการอัปโหลด"
+"Transaction Update List";"รายการปรับปรุงธุรกรรม"
+"Search by reference number";"ค้นหา โดยหมายเลขอ้างอิง"
+"Request By";"ขอโดย"
+Method;วิธี
+Bank;ธนาคาร
+"Bank Info / Pay To";"ข้อมูลธนาคาร/ชำระไป"
+Charge;ค่าธรรมเนียม
+"Net Amount";"ยอดเงินสุทธิ"
+"Total Batch Amount";"ยอดเงินรวมชุด"
+"Are you sure you want to remove file?";"คุณแน่ใจหรือคุณต้องการเอาแฟ้ม"
+"Are you sure you want to remove payout request?";"คุณแน่ใจหรือคุณต้องการเอาออกจ่ายเงิน"
+"Search (requester fullname, requester email, bank name, bank account number, bank account name, reference no.)";"ค้นหา (ชื่อเต็ม ผู้ขอผู้ขออีเมล์ ธนาคารชื่อ เลขบัญชีธนาคาร ชื่อบัญชี อ้างอิงไม่)"
+"Order by Date";"ใบสั่งตามวัน"
+Ascending;จากน้อยไปมาก
+Descending;มากไปหาน้อย
+"Payment Status:";"สถานะการชำระเงิน:"
+"Payment Method";"วิธีการชำระเงิน"
+"Reference Id";"รหัสอ้างอิง"
+"Proceed Batch Pay-Out";"ดำเนินการชุดงานค่าใช้จ่ายออก"
+"For Review";"สำหรับรีวิว"
+InActive;ไม่ได้ใช้งาน
+Store:;ร้าน:
+Condition;เงื่อนไข
+URL;URL
+Videos;วิดีโอ
+"Reject Remarks";"ปฏิเสธเหตุ"
+"Item Details";"รายละเอียดสินค้า"
+"Shipping Category";"ประเภทการจัดส่ง"
+"Store Details";"รายละเอียดของร้านค้า"
+"Seller Name";"ชื่อผู้ขาย"
+"No youtube video";"ไม่มีวิดีโอ youtube"
+"Posted on";"โพสต์"
+"Send Reject Remark";"หมายเหตุปฏิเสธส่ง"
+"Promo Management";"จัดโปรโมชั่น"
+"Promo Type";"ชนิดโปรโมชั่น"
+"Promo Details";"รายละเอียดโปรโมชั่น"
+"Promo is currently Active";"โปรโมชั่นอยู่"
+Advertisement;โฆษณา
+"Discount %";"ส่วนลด%"
+Discount;ส่วนลด
+Start;เริ่มการทำงาน
+End;สิ้นสุด
+"% per hour";"%ต่อชั่วโมง"
+"Percent per hour";"เปอร์เซ็นต์ต่อชั่วโมง"
+"Minimum %";"%ที่ต่ำสุด"
+"Quantity Required";"ปริมาณที่ต้องการ"
+"Max Quantity";"ปริมาณสูงสุด"
+"Countdown Timer is currently Disabled";"จับเวลาถอยหลังปิดใช้งานอยู่"
+"Yes, Enable the Countdown timer";"ใช่ เปิดการใช้งานของตัวจับเวลานับถอยหลัง"
+"Countdown Timer is Active";"จับเวลาถอยหลังอยู่"
+"5 :";"5 :"
+days;วัน
+hrs;น.
+min;นาที
+sec;วินาที
+"left until the promo ends";"ด้านซ้ายจนโปรโมชั่นนี้สิ้นสุดลง"
+"Disabled Countdown Timer";"จับเวลาถอยหลังที่ถูกปิดใช้งาน"
+"Product list";"รายการผลิตภัณฑ์"
+"Item Name";"ชื่อสินค้า"
+Price;ราคา
+"Activate this Promo";"เปิดโปรโมชั่นนี้"
+"Add Item (separated by line break)";"เพิ่มรายการ (คั่น ด้วยเส้นแบ่ง)"
+"Congratulations! This promo has been successfully enabled";"ขอแสดงความยินดี โปรโมชั่นนี้มีการเปิดใช้เรียบร้อยแล้ว"
+Deactivate;ปิดใช้งาน
+Notifications;การแจ้งเตือน
+"Search By Title / Message Content";"ค้นหาตามชื่อ/ข้อความเนื้อหา"
+"IOS (Mobile)";"IOS (มือถือ)"
+"Andriod (Mobile)";"Andriod (มือถือ)"
+---;---
+"Custom Pages";"เพจที่กำหนดเอง"
+"Product Search";"ค้นหาผลิตภัณฑ์"
+Store;ร้านค้า
+"Store Search";"ค้นหาร้านค้า"
+"Send Notification";"ส่งการแจ้งเตือน"
+Devices;อุปกรณ์
+Target;เป้าหมาย
+Sender;ผู้ส่ง
+"Is Active";"ใช้งานอยู่"
+"Recipient Device";"อุปกรณ์ผู้รับ"
+"Message (Max : 100)";"ข้อความ (สูงสุด: 100)"
+Schedule:;ตาราง:
+"Set Schedule";"กำหนดเวลา"
+"Is Active?";"มีการใช้งาน"
+"Boy George Dako Wewe";"เด็กชาย George Dako Wewe"
+"George Haircut Station";"George ตัดผมสถานี"
+"479 9th Street West, Menomonee Falls, WI 53051";"479 9 ถนนตก น้ำตก Menomonee, WI 53051"
+Position;ตำแหน่ง
+"Manager / Yaya";"ผู้ จัดการ/Yaya"
+"Telephone Number";"หมายเลขโทรศัพท์"
+532-2393;532-2393
+"(63) 937-234-1286";"(63) 937-234-1286"
+"International Bank of the World ever!";"ธนาคารระหว่างประเทศของโลกที่เคย"
+1872-2783-5869;1872-2783-5869
+"File Name";"ชื่อแฟ้ม"
+9/12/3035;9/12/3578
+"Accreditation Level 0";"ระดับ 0"
+"Accreditation Level 1";"ระดับ 1"
+"Accreditation Level 2";"ระดับ 2"
+"Accreditation Level 3";"ระดับ 3"
+"Accreditation Level 4";"ระดับ 4"
+"Accreditation Level 5";"ระดับ 5"
+"Columns Container";"คอลัมน์คอนเทนเนอร์"
+"Order Status";"สถานะของใบสั่ง"
+11/12/14;2557/12/14
+"Transaction ID";"ID ธุรกรรม"
+"Date of Transaction";"วันหรือธุรกรรม"
+"Type of Payment Method";"ชนิดหรือวิธีการชำระเงิน"
+201;201
+PPY-1506040106-1;PPY-1506040106-1
+PAID;จ่าย
+"2015-06-04 13:05:51";"2558-06-04 13:05:51"
+PESOPAY;ประกาศ
+11;11
+12;12
+"Storename / Username";"Storename/ชื่อ ผู้ใช้"
+From;จาก
+To;ถึง
+Storename;ชื่อร้านค้า
+Email;อีเมล
+"Asia United Bank";"เอเชียสหธนาคาร"
+aaaaa;aaaaa
+bbbbb;bbbbb
+9876545345;9876545345
+9878263787;9878263787
+"Category Listings";"รายการประเภท"
+"Main Category";"หมวดหมู่หลัก"
+"Sub Category";"หมวดหมู่ย่อย"
+Filters;ตัวกรอง
+Slug;บุ้ง
+"10-24-1991 06:30:05";"10-24-2534 06:30:05"
+0;0
+PROMOTIONAL_ITEMS;PROMOTIONAL_ITEMS
+"Special Promotional Items";"รายการส่งเสริมการขายพิเศษ"
+"Special Promotional222";"222 โปรโมชั่นพิเศษ"
+promo-special;โปรโมชั่นสุดพิเศษ
+"Contact Buyer";"ติดต่อผู้ซื้อ"
+"Invoice Number";"หมายเลขใบแจ้งหนี้"
+"Buyer Fullname";"Fullname ผู้ซื้อ"
+"Buyer Store Name";"เก็บชื่อผู้ซื้อ"
+"Buyer Email";"อีเมลของผู้ซื้อ"
+"Transaction Date";"วันธุรกรรม"
+198;198
+PPY-1506020514-1;PPY-1506020514-1
+198-1-1506020514;198-1-1506020514
+"Omaha maria23";"มาเรียโอ 23"
+"2015-06-02 18:02:17";"2558-06-02 18:02:17"
+"Contact Seller";"ติดต่อผู้ขาย"
+"Seller Fullname";"ชื่อผู้ขาย"
+"Seller Store Name";"ชื่อร้านค้าผู้ขาย"
+"Number of Products";"จำนวนของผลิตภัณฑ์"
+"Seller Email";"อีเมล์ของผู้ขาย"
+Dashboard;แดชบอร์ด
+Products;ผลิตภัณฑ์
+Buyers;ผู้ซื้อ
+Sellers;สินค้าขายดี
+Transactions;ธุรกรรม
+"Sorry, Your database is currently empty";"ขอ ฐานข้อมูลของคุณจะว่างเปล่า"
+"Case ID";"รหัสกรณี"
+"Dispute Type";"ชนิดข้อโต้แย้ง"
+Complainant;ร้อง
+"Date Filed";"วันที่ยื่น"
+email;อีเมล
+"Seller Payout";"จ่ายเงินผู้ขาย"
+"Legal Documents";"เอกสารทางกฎหมาย"
+"This Account currently Locked";"บัญชีนี้ถูกล็อกอยู่"
+"Do you want to Activate it now?";"คุณต้องการเปิดใช้งานเดี๋ยวนี้หรือไม่"
+"Yes, Activate this Account";"ใช่ เปิดการใช้งานบัญชีนี้"
+"Select your DTI/SEC Permit file from your computer";"เลือกไฟล์ DTI/SEC อนุญาตจากคอมพิวเตอร์ของคุณ"
+"Select your Mayor's Permit file from your computer";"เลือกของนายกเทศมนตรีอนุญาตแฟ้มจากคอมพิวเตอร์ของคุณ"
+"Select your BIR Permit file from your computer";"เลือกไฟล์ใบอนุญาต BIR จากคอมพิวเตอร์ของคุณ"
+"Form MA1501 Permit";"แบบฟอร์มใบอนุญาต MA1501"
+"Select your Form MA1501 file from your computer";"เลือกไฟล์ MA1501 แบบฟอร์มจากคอมพิวเตอร์ของคุณ"
+"Where to get a copy of Form MA1501?";"ที่จะได้รับสำเนาของฟอร์ม MA1501"
+"Download Form MA1501";"ดาวน์โหลดแบบฟอร์ม MA1501"
+"Other Documents";"เอกสารอื่น ๆ"
+"Select a document file from your computer";"เลือกไฟล์เอกสารจากคอมพิวเตอร์ของคุณ"
+"Mobile Management";"การจัดการโทรศัพท์มือถือ"
+"Push Notification";"แจ้งเตือนผลักดัน"
+"Notification Message";"ข้อความแจ้งเตือน"
+;
+"Number of Product Listings:";"จำนวนสินค้ารายการ:"
+10145;10145
+"2014-08-15 12:23:16";"2557-08-15 12:23:16"
+sfasfas;sfasfas
+"Building Toys";"อาคารของเล่น"
+122121;122121
+212;212
+"New other (see details)";"ใหม่อื่น ๆ (ดูรายละเอียด)"
+"Promo Banners";"แบนเนอร์โปรโมชั่น"
+"Create Promo Banner";"สร้างแบนเนอร์โปรโมชั่น"
+"Select Product";"เลือกผลิตภัณฑ์"
+"Enter Product Slug";"ป้อนสินค้าบุ้ง"
+"Add Product";"เพิ่มผลิตภัณฑ์"
+"Change Product";"เปลี่ยนผลิตภัณฑ์"
+"This Promo Banner currently Disabled";"แบนเนอร์โปรโมชั่นนี้ปิดใช้งานอยู่"
+"Do you want to enable it now?";"คุณต้องการเปิดใช้งานเดี๋ยวนี้หรือไม่"
+"Yes, Enable this Promo Banner";"ใช่ เปิดการใช้งานแบนเนอร์โปรโมชั่นนี้"
+"This Promo Banner is Enabled";"เปิดใช้งานการแบนเนอร์โปรโมชั่นนี้"
+"Disable Now";"ปิดการใช้งานในขณะนี้"
+"Upload Banners";"อัพโหลดแบนเนอร์"
+"Upload Banners here";"อัพโหลดแบนเนอร์ที่นี่"
+"Search By Product Name";"ค้นหาตามชื่อผลิตภัณฑ์"
+Category:;หมวดหมู่:
+Electronics;อิเล็กทรอนิกส์
+Gadget;โปรแกรมเบ็ดเตล็ด
+Clothes;เสื้อผ้า
+Enable;เปิดใช้งาน
+Disable;ปิดใช้งาน
+"Banner Count";"จำนวนแบนเนอร์"
+"Date Added";"วันที่เพิ่ม"
+10/20/15;10/20/58
+Enabled;เปิดใช้งาน
+"Samsung Galaxy j1";"Samsung Galaxy j1"
+5;5
+Disabled;ปิดใช้งาน
+"Raffle Manager";"จัดการอรร์"
+"Register Raffle";"รีจิสทรีอรร์"
+"Raffle Name";"โดยเฉพาะอย่างยิ่ง อรร์"
+"Pool of Possible Winners";"สระว่ายน้ำหรือเป็น"
+"Number of Winners to Generate";"จำนวนของผู้สร้าง"
+"List of Prices";"รายการราคา"
+"Raffle Lists";"ในรายการอรร์"
+Raffle_Name;Raffle_Name
+Winners;ผู้ชนะ
+"Time Created";"เวลาสร้าง"
+Prices;ราคา
+2121sadasd;2121sadasd
+test22;ทดสอบ 22
+"2014-09-16 11:19:32";"2557-09-16 11:19:32"
+"Full Name";"ชื่อเต็ม"
+inonbaguio;inonbaguio
+"Inon Baguio";"Inon Baguio"
+Content;เนื้อหา
+CSR;กิจกรรมเพื่อสังคม
+Marketing;การตลาด
+Super-User;ผู้ใช้ขั้นสูง
+Guest;ผู้เข้าพัก
+"Registered Users";"ผู้ใช้ที่ลงทะเบียน"
+"Number of Registered Sellers:";"หมายเลขของผู้ขายที่จดทะเบียน:"
+141;141
+Affiliates;บริษัทในเครือ
+"2014-07-02 14:34:28";"2557-07-02 14:34:28"
+"sam gavinio";"Sam gavinio"
+"Banana Republic";"สาธารณรัฐกล้วย"
+38;38
+"Report Manager";"โปรแกรมจัดการรายงาน"
+"Number of uploaded products per account";"จำนวนผลิตภัณฑ์อัพโหลดต่อบัญชี"
+"Monthly Sign Up Statistics";"สถิติการสมัครรายเดือน"
+"Users w/ &amp; w/out Products";"ผู้ใช้ด้วยและแอมป์ ;w/out ผลิตภัณฑ์"
+"Number of uploaded items per month";"จำนวนสินค้าอัพโหลดต่อเดือน"
+"Number of items per parent category";"จำนวนสินค้าแต่ละประเภทหลัก"
+"Show Entries";"แสดงรายการ"
+20;20
+40;40
+80;80
+160;160
+Monthsss;Monthsss
+"Sign-up Count";"จำนวนที่ลงทะเบียน"
+2015;2558
+January;มกราคม
+29;29
+February;กุมภาพันธ์
+March;มีนาคม
+April;เมษายน
+May;อาจ
+2016;2559
+Month;เดือน
+"Showing 1 out 39 Entries";"แสดง 1 รายการ 39"
+"Dispute Details";"รายละเอียดข้อโต้แย้ง"
+KD3-38U123PI;KD3-38U123PI
+12371237837;12371237837
+"Complainant Full Name";"เปิดเผยชื่อเต็ม"
+322-3245-59898;322-3245-59898
+"Defendant Full Name";"ชื่อเต็มของจำเลย"
+"Janvan Ding";"สิ่ง Janvan"
+"Transaction Details";"รายละเอียดเพิ่มเติมของ"
+4916699163849;4916699163849
+"Armando Upton";"ด็อกเตอร์อาร์มานโด Upton"
+"Waiting for Payment";"รอการชำระเงิน"
+"Date of transaction";"วันหรือธุรกรรม"
+"2015-09-02 13:12:59";"2558-09-02 13:12:59"
+"see attachments";"ดูสิ่งที่แนบมา"
+x;x
+Reason;เหตุผล
+Open;เปิด
+On-Going;จะ
+Rejected;ปฏิเสธ
+Closed;ปิด
+"Boy Tigol";"เด็กชาย Tigol"
+"George Georgina";"จอร์จจอร์จินา"
+09/11/15;2542/11/15
+"Search Keyword";"คำค้นหา"
+"Query String";"สายอักขระแบบสอบถาม"
+"Number of Hits";"จำนวน"
+"apple UNION ALL SELECT NULL--";"ทั้งหมดสหภาพ Apple เลือกว่าง-"
+"Transaction List";"รายการธุรกรรม"
+!;!
+Cancellation;การยกเลิก
+"Dispute Something";"ข้อพิพาทบางอย่าง"
+Flag;ค่าสถานะ
+DENIED;ถูกปฏิเสธ
+"Create Vourcher";"สร้าง Vourcher"
+"Code Name";"ชื่อรหัส"
+"Voucher Type";"ชนิดใบสำคัญ"
+Duration;ระยะเวลา
+"Usage Limit";"จำกัดการใช้งาน"
+"Discount Type";"ชนิดส่วนลด"
+Ramboo;Ramboo
+"Something for Nothing";"บางสิ่งบางอย่างสำหรับอะไร"
+"10 Days";"10 วัน"
+"1 per Account";"1 บัญชี"
+Utang;Utang
+1000;1000
+"Voucher Code Name";"ชื่อรหัสคูปอง"
+"Voucher Code";"รหัสคูปอง"
+"Generate Voucher Code";"สร้างรหัสคูปอง"
+One-Time;ครั้งเดียว
+Multi-Use;อเนกประสงค์
+100;100
+"Fixed Amount";"ยอดเงินคงที่"
+Percentage;เปอร์เซ็นต์
+100%;100%
+"Voucher is currently Inactive";"สำคัญคือปัจจุบันไม่ได้ใช้งาน"
+"Yes, Activate this Voucher";"ใช่ เปิดการใช้งานของคูปองนี้"
+"Voucher is Now Active";"สำคัญอยู่ตอนนี้"
+872378912897;872378912897
+Unknown;ไม่รู้จัก
+10/10/15;2543/10/15
+"FullName / Email";"ชื่อเต็มของ/อี เมล"
+"Remarks from Dispute";"หมายเหตุจากข้อโต้แย้ง"
+"Deposit Slip";"ใบนำฝาก"
+Remarks:;หมายเหตุ:
+"Enter your remarks";"ป้อนหมายเหตุของคุณ"
+"Deposit Slip:";"ฝากเงิน:"
+"Compatible files: JPG, JPEG, and PNG";"ไฟล์รองรับ: JPG, JPEG และ PNG"
+"Are you sure you want to refund this transaction?";"คุณแน่ใจว่าต้องคืนธุรกรรมนี้หรือไม่"
+No;ไม่ใช่
+Yes;ใช่
+"Refund History Information";"คืนข้อมูลประวัติ"
+Print;พิมพ์
+"Dispute ID:";"ID ข้อโต้แย้ง:"
+"Buyer Name:";"ชื่อผู้ซื้อ:"
+"Buyer Email:";"ผู้ซื้ออีเมล์:"
+"Buyer Contact Number:";"หมายเลขติดต่อผู้ซื้อ:"
+"Date Request:";"วันร้องขอ:"
+"Date Processed:";"วันที่ประมวลผล:"
+"Processed By:";"ประมวลผล:"
+"Click here";"คลิกที่นี่"
+"Supplier Payout";"ผู้จ่ายเงิน"
+"Date From";"วันที่จาก"
+"Date To";"วัน"
+"Search for keyword: Manufacturer/Contact number";"ค้นหาคำสำคัญ: หมายเลขติดต่อบริษัทผู้ผลิต"
+"Payout List";"รายการจ่ายเงิน"
+"Payout History";"ประวัติการจ่ายเงิน"
+Manufacturer;ผู้ผลิต
+"Reference Number";"หมายเลขอ้างอิง"
+"Support CSR";"สนับสนุนกิจกรรมเพื่อสังคม"
+"Payout Details";"รายละเอียดการจ่ายเงินของ"
+"WayBill Number";"หมายเลขใบนำส่งสินค้า"
+Warehouse;คลังสินค้า
+"Payout Order Products";"ผลิตภัณฑ์ในใบสั่งจ่ายเงิน"
+"Deposit Slips";"ใบนำฝาก"
+"Date Modified";"วันที่ปรับเปลี่ยน"
+Close;ปิด
+"Case ID:";"รหัสกรณี:"
+"Date Request";"วันร้องขอ"
+"Date Processed";"วันที่ประมวลผล"
+"Processed By";"การประมวลผล"
+"Select type of dispute";"เลือกชนิดหรือข้อโต้แย้ง"
+"Select status";"เลือกสถานะ"
+"No case found";"กรณีไม่พบ"
+"Dispute Resolution";"ข้อพิพาท"
+"Voucher Name";"ชือบัตรกำนัล"
+"Voucher Value";"มูลค่าคูปอง"
+"Enter Dispute message here..";"ข้อโต้แย้งที่นี่..."
+"Replace Different Item";"แทนที่สินค้าที่แตกต่างกัน"
+Done;เสร็จแล้ว
+"Search for keyword: Store Name";"ค้นหาคำ: ชื่อร้าน"
+"Supplier Name";"ชื่อผู้จัดจำหน่าย"
+"Commission Amount";"จำนวนคณะกรรมการ"
+PHP;PHP
+"Supplier Payout Amount";"ผู้จ่ายเงิน"
+"Search By Invoice No. / Buyer";"ค้นหา โดยหมายเลขใบแจ้งหนี้/ผู้ซื้อ"
+"Order Status:";"สถานะของใบสั่ง:"
+"Payment Type:";"ชนิดการชำระเงิน:"
+Actions:;การดำเนินการ:
+"Cancel Request By Buyer";"ยกเลิก โดยผู้ซื้อ"
+"Cancel Product";"ยกเลิกผลิตภัณฑ์"
+None;ไม่มี
+"Collected Amount";"รวบรวมเงิน"
+"Transaction Price";"ราคาธุรกรรม"
+"Consignee Name";"ชื่อผู้รับ"
+"Consignee Contact Number";"หมายเลขติดต่อของผู้รับ"
+"Buyer Details";"รายละเอียดผู้ซื้อ"
+"Shipping Address";"ที่อยู่จัดส่ง"
+"Freight Charge";"ค่าธรรมเนียมขนส่ง"
+"Additional Charge";"ค่าธรรมเนียมเพิ่มเติม"
+"Seller Net";"ผู้ขายสุทธิ"
+"Voucher Details";"รายละเอียดใบสำคัญ"
+Attributes;แอตทริบิวต์
+"Cancel Transaction";"ยกเลิกธุรกรรม"
+Deny;ปฏิเสธ
+"Seller Details";"รายละเอียดผู้ขาย"
+"Store Address";"ที่อยู่ร้าน"
+"Remarks for Approval";"หมายเหตุสำหรับการอนุมัติ"
+"Remarks for Deny";"หมายเหตุสำหรับการปฏิเสธ"
+"Registered Buyer";"ผู้ซื้อลงทะเบียน"
+"Search Buyer here";"ค้นหาผู้ซื้อที่นี่"
+"User Information";"ข้อมูลผู้ใช้"
+UPDATE;การปรับปรุง
+"Address Title";"ชื่อที่อยู่"
+"Home Address";"ที่อยู่บ้าน"
+"Unit Number";"จำนวนหน่วย"
+"Building Name";"ชื่ออาคาร"
+"Street Number";"หมายเลขถนน"
+"Street Name";"ชื่อถนน"
+Subdivision;แผนผัง
+Province;จังหวัด
+"Select your province";"เลือกจังหวัดของคุณ"
+City/Municipal;เทศบาลเมือง
+Barangay;บา
+"Zip Code";"รหัสไปรษณีย์"
+"Registered Seller/Affiliates";"ลงทะเบียนผู้ขาย/บริษัท"
+"Create Voucher";"สร้างใบสำคัญ"
+Code;รหัส
+Used;ใช้
+"Voucher Codes";"รหัสคูปอง"
+"Minimum Purchase";"ซื้อขั้นต่ำ"
+"By Batch";"โดยชุดงาน"
+"Disable Countdown Timer";"ปิดใช้งานการจับเวลา"
+Orientation;วางแนว
+Order;สั่ง
+3;3
+"ex. Title";"เช่นชื่อเรื่อง"
+"Left to Right";"ซ้ายไปขวา"
+"Right to Left";"ขวาไปซ้าย"
+"Products Slug (separated by line break)";"ผลิตภัณฑ์บุ้ง (คั่น ด้วยเส้นแบ่ง)"
+"Products List";"รายการผลิตภัณฑ์"
+"Product One";"ผลิตภัณฑ์หนึ่ง"
+"Banner Link";"ลิงค์โฆษณา"
+"Paste your Banner Links here";"วางลิงค์แบนเนอร์ของคุณที่นี่"
+"Category Name";"ชื่อประเภท"
+Show;แสดง
+"Category Header Link";"เชื่อมโยงหัวข้อประเภท"
+11/03/2015;11/03/2558
+Time;เวลา
+"Pick a Date";"เลือกวัน"
+"Start Time";"เวลาเริ่มต้น"
+"End Time";"เวลาสิ้นสุด"
+"Flash Sales Discount";"ส่วนลดการขายแฟลช"
+"Flash Discounted Price";"แฟลชลดราคา"
+"Sales Stock";"ขายหุ้น"
+"P 1,000";"P 1.000"
+"10% off";"ส่วนลด 10%"
+"P 900";"P 900"
+"ex. 10%";"เช่น 10%"
+"ex. 1000";"เช่น 1000"
+"Mobile Webview (CMS)";"มุมมองเว็บมือถือ (CMS)"
+"Cover Photo Link";"เชื่อมโยงรูปภาพหน้าปก"
+"Paste Link";"วางการเชื่อมโยง"

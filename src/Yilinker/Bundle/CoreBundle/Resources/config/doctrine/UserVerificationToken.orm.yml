@@ -1,0 +1,52 @@
+Yilinker\Bundle\CoreBundle\Entity\UserVerificationToken:
+    type: entity
+    table: UserVerificationToken
+    indexes:
+        fk_userverificationtoken_userverificationtokenid_user_userid_idx:
+            columns:
+                - user_id
+    id:
+        userVerificationTokenId:
+            type: integer
+            id: true
+            column: user_verification_token_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        field:
+            type: string
+            length: '255'
+            column: field
+            nullable: true
+        token:
+            type: string
+            length: '255'
+            column: token
+        dateAdded:
+            type: datetime
+            column: date_added
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+        tokenExpiration:
+            type: datetime
+            column: token_expiration
+        isActive:
+            type: boolean
+            column: is_active
+            options:
+                default: true 
+        tokenType:
+            type: integer
+            column: token_type
+            options:
+                default: 0
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+            inversedBy: userVerificationTokens
+    lifecycleCallbacks: {  }

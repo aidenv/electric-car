@@ -1,0 +1,67 @@
+.payout {
+  .grand-amount {
+    position: relative;
+    right: 40px;
+    text-align: right;
+
+    h5 {
+      font-size: 12px;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 30px;
+      line-height: 1;
+    }
+  }
+
+  .receipt-list {
+    @include border-radius;
+    border: 1px solid $brand-gray-light;
+    list-style: none;
+    padding: 10px;
+  }
+
+  li {
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .download,
+  .delete {
+    color: $brand-red;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 5px 6px 4px;
+    border-radius: 4px;
+    position: relative;
+    top: -2px;
+  }
+
+  .delete {
+    color: $brand-red;
+  }
+
+  .download {
+    color: $brand-blue;
+  }
+
+  .receipt-upload {
+    margin-top: 10px;
+  }
+
+  .total-amount  {
+    text-align: right;
+
+    p {
+      color: $brand-purple;
+      font-size: 30px;
+    }
+  }
+
+}

@@ -1,0 +1,98 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+  {% trans %}Upload Document{% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="profile">
+        <div class="dashboard-wrapper">
+            {{ render(controller('YilinkerFrontendBundle:Dashboard:renderLeftWingMenu', {'currentRoute': app.request.attributes.get('_route') } )) }}
+            <div class="dashboard-body-container white">
+                <div class="dashboard-submenu-wrapper">
+                    <div class="dashboard-submenu-container" style="min-width: 572px;">
+                        <ul class="list-unstyle list-submenu">
+                            <li>
+                                <a href="{{ path('profile_information') }}">
+                                    {% trans %}Information{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('profile_following') }}">
+                                    {% trans %}Followed Seller{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('profile_activity_log') }}">
+                                    {% trans %}Activity Log{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                                <a class="active">
+                                    {% trans %}Upload Document{% endtrans %}
+                                </a>
+                            </li>
+                        </ul>
+                     </div>
+                </div>
+                <div class="dashboard-component top">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">{% trans %}Upload your document{% endtrans %}</span>
+                        </div>
+                    </div>
+                    <div class="component-content">
+                        <div class="form">
+                          {{ form_start(documentForm) }}
+                          {% if successMessage %}
+                          <div class="success-message message-box green with-close-message">
+                               {{ successMessage }} 
+                          </div>
+                          {% endif %}
+                          <span class="detail-name">
+                          {{ form_widget(documentForm.file, { 'attr':{'class':'form-ui'} }) }}
+                          <span class="form-ui-note">
+                              {% trans %}Only PDF, PNG, JPEG files are accepted{% endtrans %}
+                          </span>
+                          </span>
+                          <span class="detail-value">
+                              <button class="button blue">{% trans %}Upload{% endtrans %}</button>
+                          </span>
+                          {% if successMessage is null %}
+                              {{ form_errors(documentForm.file) }}
+                          {% endif %}
+
+                          {{ form_end(documentForm) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-component">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">{% trans %}Uploaded Documents{% endtrans %}</span>
+                        </div>
+                    </div>
+                    <div class="component-content">
+                        <div class="uploaded-document-gallery">
+                            {% for document in documents  %}
+                            <a href="{{ asset(document.getFilepath, 'user_document') }}" class="image-holder">
+                                <img src="{{ asset(document.getFilepath, 'user_document') }}" class="img-auto-place">
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ include('YilinkerFrontendBundle:Profile:profile_right_wing_notifications.html.twig') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/jquery.magnific-popup.min.js') }}"></script>
+    {{ include('YilinkerFrontendBundle:Profile:profile_base_js.html.twig') }}
+    <script src="{{ asset('js/src/frontend/profile-upload-document.js') }}"></script>
+{% endblock %}

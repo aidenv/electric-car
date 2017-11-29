@@ -1,0 +1,52 @@
+<section class="box-outer">
+  <div class="box-wrapper">
+  <!-- Transaction Management -->
+  {#{ include('YilinkerBackendBundle:sections:transactionList.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:sections:sellerPayout.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:sections:buyerRefund.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:sections:contactSeller.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:sections:contactBuyer.html.twig') }#}
+
+  <!-- YiLinker Data -->
+  {#{ include('YilinkerBackendBundle:sections:registeredUsers.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:sections:productListings.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:sections:categoryListings.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:sections:searchKeyword.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:sections:reportManager.html.twig') }#}
+
+  <!-- Account Management -->
+  {#{ include('YilinkerBackendBundle:sections:registerAdmin.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:sections:raffle.html.twig') }#}
+
+  <!-- Mobile Management -->
+  {#{ include('YilinkerBackendBundle:sections:mobileNotify.html.twig') }#}
+
+  <!-- Resolution Management -->
+  {#{ include('YilinkerBackendBundle:sections:resolutionList.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:sections:resolutionFull.html.twig') }#}
+
+  <!-- Accreditation -->
+  {#{ include('YilinkerBackendBundle:sections:accreditationList.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:sections:accreditationFull.html.twig') }#}
+
+  {#{ include('YilinkerBackendBundle:sections:manual_creation_list.html.twig') }#}
+  {{ include('YilinkerBackendBundle:sections:manual_creation_details.html.twig') }}
+  {#{ include('YilinkerBackendBundle:sections:promo_banners_list.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:sections:promo_banners_details.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:sections:voucher_list.html.twig') }#}
+  <!-- Inhouse Listing -->
+  {#{ include('YilinkerBackendBundle:InHouse:inhouse_listings.html.twig') }#}
+
+  <!-- Web View -->
+  {#{ include('YilinkerBackendBundle:Webview:flash-sales.html.twig') }#}
+
+  <!-- Transaction Verification -->
+  {#{ include('YilinkerBackendBundle:Verification:transaction_verification.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:Payout:request_payout.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:Payout:batch_payout.html.twig') }#}
+  {#{ include('YilinkerBackendBundle:Payout:modal_payout.html.twig') }#}
+
+  <!--accreditation affiliate-->
+  {#{ include('YilinkerBackendBundle:Accreditation:affiliate_accreditation_detail.html.twig') }#}
+  </div>
+</section>

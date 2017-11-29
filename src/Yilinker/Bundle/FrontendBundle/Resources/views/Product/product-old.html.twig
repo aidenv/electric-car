@@ -1,0 +1,63 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+{% block metatags %}
+    <meta property="og:title" content="{{ product.name }}"/>
+    <meta property="og:image" content="{{ asset(product.primaryImageLocation, 'product') }}"/>
+    <meta property="og:site_name" content="Yilinker Online"/>
+    <meta property="og:description" content="{{ product.shortDescription }}"/>
+    <meta property="og:url" content="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+    <meta property="fb:app_id" content="{{ frontend_facebook_appId }}"/>
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/header.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bower/sticky.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bower/slick.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/product-page.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper-outer ui segment">
+        <div id="productWrapper">
+            <div class="product-top-layer-wrapper">
+                <div class="row row-top-layer">
+                    <div class="col-xs-6">
+                        <!--Product Image Slider-->
+                        {{ include('YilinkerFrontendBundle:Product:product_images.html.twig') }}
+                    </div>
+                    <div class="col-xs-6 ui sticky">
+                        <div class="sticky-side">
+                            <!--Product Information-->
+                            {{ include('YilinkerFrontendBundle:Product:product_info.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-bottom-layer-wrapper" id="description">
+                <!--Product Description and Review-->
+                {{ include('YilinkerFrontendBundle:Product:product_moreinfo.html.twig') }}
+            </div>
+        </div>
+        <!--Recommended Items-->
+        {{ render(controller('YilinkerFrontendBundle:Product:related', {'productId' : product.getProductId})) }}
+        {{ render(controller('YilinkerFrontendBundle:Product:sellerRelated', {'productId' : product.getProductId})) }}
+        {{ render(controller('YilinkerFrontendBundle:Product:boughtWith', {'productId' : product.getProductId})) }}
+        {{ render(controller('YilinkerFrontendBundle:Product:mayLike')) }}
+        
+        {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('js/bower/slick.min.js') }}"></script>
+    <script src="{{ asset('js/src/form.js') }}"></script>
+    <script src="{{ asset('js/src/product-page.js') }}"></script>
+    <script src="{{ asset('js/src/utility/social/facebook.js') }}"></script>
+    <script src="{{ asset('js/src/utility/social/twitter.js') }}"></script>
+    <script src="{{ asset('js/src/utility/social/google.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,23 @@
+Yilinker\Bundle\CoreBundle\Entity\EarningType:
+    type: entity
+    table: EarningType
+    id:
+        earningTypeId:
+            type: integer
+            id: true
+            column: earning_type_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+        privilegeLevel:
+            type: smallint
+            column: privilege_level
+            options:
+                default: '0'
+    oneToMany:
+        earnings:
+            targetEntity: Earning
+            mappedBy: earningType

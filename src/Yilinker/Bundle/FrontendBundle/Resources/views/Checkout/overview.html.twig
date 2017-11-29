@@ -1,0 +1,175 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% trans %} Summary {% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+<link href="{{ asset('css/checkout.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block facebook_analytics %}
+    {% embed 'analytics/facebook-pixel.html.twig' %}
+            {% block fbPixel %}
+                {% if userOrder is not null %}
+                fbq('track', 'Purchase', { 
+                content_type: 'product_group',
+                content_ids: [{% for orderProduct in userOrder.orderProducts %}'{{orderProduct.product.productId}}'{% if loop.index != userOrder.orderProducts|length %},{% endif %}{% endfor %}],
+                num_items: {{ userOrder.orderProducts|length }},
+                content_name: 'Completed Purchase',
+                content_category: 'Checkout',
+                currency: 'PHP',
+                value: {{ userOrder.totalPrice }}
+                });
+                {% endif %}
+             {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block ga_analytics %}
+    {% embed 'analytics/google-analytics.html.twig' %}
+        {% block gaTracking %}
+              {% if userOrder is not null %}
+              ga('require', 'ecommerce', 'ecommerce.js');      
+              ga('ecommerce:addTransaction', {
+                  'id': {{ userOrder.invoiceNumber }},
+                  'affiliation': {{ userOrder.storeNames(true) }},
+                  'revenue': {{ userOrder.totalPrice }},
+                  'shipping': {{ userOrder.handlingFee }},
+                  'tax': '0.0000'
+              });
+              {% for orderProduct in userOrder.orderProducts %}              
+              ga('ecommerce:addItem', {
+                  'id': {{ orderProduct.orderProductId }},
+                  'name': {{ orderProduct.productName}},
+                  'sku': {{ orderProduct.sku }},
+                  'category': {{ orderProduct.productCategory.name }},
+                  'price': {{ orderProduct.totalPrice }},
+                  'quantity': {{ orderProduct.quantity }}
+              });
+              {% endfor %}
+              ga('ecommerce:send');
+              ga('require', 'linkid', 'linkid.js');
+              {% endif %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block iprice_analytics %}
+    {% embed 'analytics/iprice-pixel.html.twig' %}
+        {% block iPricePixel %}
+        <!-- IPrice Offer Conversion: PH YiLinker -->
+        <iframe src="https://ipricegroup.go2cloud.org/aff_l?offer_id={{ iprice_pixel_id }}&amount={{ userOrder.totalPrice }}&adv_sub={{ userOrder.invoiceNumber }}" scrolling="no" frameborder="0" width="1" height="1"></iframe>
+        <!-- // End Offer Conversion -->
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block body %}
+    <div class="checkout">
+        {{ include('YilinkerFrontendBundle:Checkout:header.html.twig', {active: 'overview', messages: messages, token: token, baseUri: baseUri, nodePort: nodePort}) }}
+        <div class="checkout-wrapper">
+            <div class="checkout-container">
+                <div class="container">
+                    {% if error %}
+                        <h1></h1>
+                        <!--Display if there is no store address-->
+                        <div class="align-center">
+                            <h3 class="ui header">
+                                <i class="icon icon-alert-exclamation"></i>
+                                <div class="content">
+                                    {% trans %}
+                                        There are no items to checkout.
+                                    {% endtrans %}
+                                    <div class="sub-header mrg-top-10">{{ error }}</div>
+                                </div>
+                            </h3>
+                            <a href="{{ path('checkout_type') }}" class="button purple uppercase mrg-top-20">
+                                {% trans %}
+                                    Go back to checkout
+                                {% endtrans %}
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="checkout-segment inverted jumbotron">
+                                    <div class="header-title align-center">
+                                        <h1 class="ui header side-icon">
+                                            <i class="icon icon-check-circle"></i>
+                                            <div class="content">
+                                                {% trans %}
+                                                    Congratulations
+                                                {% endtrans %}
+                                                <div class="sub-header">{% trans %} Your purchase was a success {% endtrans %}</div>
+                                            </div>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                {{ include('YilinkerFrontendBundle:Checkout:order_summary1.html.twig') }}
+                            </div>
+                            <div class="col-md-8">
+                                {% if app.user %}
+                                    <div class="success-payment-container">
+                                        <h1>
+                                            {% trans %}
+                                                Want to buy more items similar to this?
+                                            {% endtrans %}
+                                        </h1>
+                                        <h5>
+                                            {% trans %}
+                                                Congratulations on a successful purchase! While waiting for your product to arrive, we suggest checking out other related products that you just bought.
+                                            {% endtrans %}
+                                        </h5>
+                                        <br/>
+                                        <div class="form">
+                                            <a href="{{ path('profile_transaction_view', {invoice: userOrder.invoiceNumber}) }}" class="button purple wide-fixed">
+                                                {% trans %}
+                                                    View Transaction
+                                                {% endtrans %}
+                                            </a>
+                                            <span class="uppercase light-color bold separator-or">{% trans %} or {% endtrans %}</span>
+                                            <a href="{{ continueShoppingURL }}" class="button basic wide-fixed">
+                                                {% trans %}
+                                                    Continue Shopping
+                                                {% endtrans %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="success-payment-container">
+                                        <div class="form">
+                                            <a href="{{ continueShoppingURL }}" class="button basic wide-fixed">{% trans %} Continue Shopping {% endtrans %}</a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+    </div>
+        
+{% endblock %}
+
+{% block yeahmobi_google_remarketing %}
+    {% include 'analytics/yeahmobi/google-remarketing.html.twig' %}
+{% endblock %}
+
+{% block yeahmobi_adwords_conversion_tracking %}
+    {% include 'analytics/yeahmobi/google-conversion-tracking.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {% if app.user %}
+        <script src="{{ asset('socket.io/socket.io.js') }}"></script>
+        <script src="{{ asset('js/src/socket-connection.js') }}"></script>
+    {% endif %}
+    <script src="{{ asset('js/src/checkout.js') }}"></script>
+{% endblock %}

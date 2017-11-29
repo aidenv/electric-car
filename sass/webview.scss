@@ -1,0 +1,46 @@
+@import "online/base/variables";
+@import "online/base/reset";
+@import "online/base/base";
+
+@import "mixins/admin";
+
+@import "online/modules/grid";
+@import "online/modules/typography";
+@import "online/modules/icons";
+@import "online/modules/margin";
+
+@import "webview/category-view";
+@import "webview/daily-login";
+@import "webview/flash-sales";
+@import "webview/store-view";
+@import "webview/download-app";
+
+body {
+    min-width: 320px;
+}
+
+.body-mobile {
+    margin: 0 auto;
+    max-width: 984px;
+    width: 100%;
+    header {
+        background-color: #fff;
+        position: relative;
+        padding: 15px 0;
+        h1 {
+            font-size: 1.35em;
+            margin: 0;
+            text-align: center;
+        }
+        .back-btn {
+            font-size: 1.35em;
+            left: 0;
+            padding: 15px;
+            position: absolute;
+            top: 0;
+        }
+    }
+    .border-bt {
+        border-bottom: 1px solid #ededed;
+    }
+}

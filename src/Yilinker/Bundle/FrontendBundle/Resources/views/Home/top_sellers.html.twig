@@ -1,0 +1,55 @@
+
+<div class="title-bar">
+    <div class="home-section">
+        <span class="title-name">{{section.name|trans}}</span>
+        {#<a href="{{section.seeMore}}" class="view-more">view more &rarr;</a>#}
+    </div>
+</div>
+<div class="home-section">
+    <div class="home-listing-container">
+        <div class="seller-group">
+            <div class="row row-for-seller-group no-gutter-mobile">
+                {% for seller in section.sellers %}
+                    {% set store = seller.seller %}
+                    {% set products = seller.products %}
+                    <div class="col-sm-5ths col-xs-6 col-for-seller-group">
+                        <div class="seller-wrapper">
+                            <div class="seller-name">
+                                <div class="seller-img">
+                                    <div class="img-seller-container">
+                                        <a href="{{ path('store_page_products', { 'slug': store.storeSlug}) }}">
+                                            <img src="{{ store.user.primaryImage?
+                                                asset(store.user.primaryImage.thumbnail, 'user') :
+                                                asset('images/default-merchant.png')
+                                            }}" class="img-auto-place"/>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="seller-details">
+                                    <span class="name">
+                                        <a href="{{ path('store_page_products', { 'slug': store.storeSlug}) }}" class="ellipsis-overflow">
+                                            {{ store.storeName }}
+                                        </a>
+                                    </span>
+                                    <span class="specialty">{% trans %} Specialty: {% endtrans %} {{seller.category.name}}</span>
+                                </div>
+                            </div>
+                            <div class="seller-product-group">
+                                {% for product in products %}
+                                    <div class="product-square">
+                                        <a href="{{ path('product_details', {'slug': product.slug}) }}" title="{{ product.name }}">
+                                            {% if product.primaryImage %}
+                                            <img src="{{ asset(product.primaryImage.thumbnail, 'product') }}" class="img-responsive" alt="{{ product.name }}"/>
+                                            {% endif %}
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+

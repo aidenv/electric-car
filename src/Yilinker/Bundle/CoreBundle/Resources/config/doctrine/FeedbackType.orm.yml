@@ -1,0 +1,25 @@
+Yilinker\Bundle\CoreBundle\Entity\FeedbackType:
+    type: entity
+    table: FeedbackType
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\FeedbackTypeRepository
+    id:
+        feedbackTypeId:
+            type: integer
+            id: true
+            column: feedback_type_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            column: name
+            length: '255'
+            nullable: true
+        description:
+            type: string
+            column: description
+            length: '255'
+            nullable: true
+    lifecycleCallbacks: {  }

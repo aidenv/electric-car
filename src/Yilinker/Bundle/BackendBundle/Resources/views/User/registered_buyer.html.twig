@@ -1,0 +1,301 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+    <section class="box-section">
+        <div class="title-bar">
+            <div class="container">
+                <span>Registered Buyer</span>
+            </div>
+        </div>
+        {% if app.request.get('isActive') is null %}
+             {% set isActive = '1' %}
+        {% else %}
+             {% set isActive = app.request.get('isActive') %}
+        {% endif %}
+        <div class="container">
+            <!-- Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="tools top form">
+                            <div class="row gutters group-segment">
+                                <div class="col-md-4">
+                                    <h4>Number of {{ isActive == '1' ? 'Active' : 'Deactivated' }} Users: <strong>{{ registeredBuyer.userCount }}</strong></h4>
+                                    <p class="sub-header">
+                                        You may search for a particular buyer.
+                                    </p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form vers-one">
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <label> Search </label>
+                                                <input type="text" id="searchKeyword" class="form-ui" placeholder="Search Buyer here">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gutters group-segment light-segment">
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form">
+                                        <div class="row">
+                                            <label for="" class="col-md-12"> Date Range: </label>
+                                            <div class="col-md-3">
+                                                <input class="form-ui datePicker" id="dateFrom" placeholder="Date From" type="text">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input class="form-ui datePicker" id="dateTo" placeholder="Date To" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label for=""> Status: </label>
+                                                <select class="form-ui ui search single selection dropdown" id="active-select" >
+                                                    <option value="1" {{ isActive ? 'selected' : '' }}>
+                                                        Active
+                                                    </option>
+                                                    <option value="0" {{ isActive ? '' : 'selected' }}>
+                                                        Inactive
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                              <button class="button gray mrg-top-10" id="searchBtn">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tables -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+                            <div class="row gutters">
+                                <div class="col-md-12">
+                                    <table class="table basic table-vertical-align-top">
+                                        <tr>
+                                            <th>Date Created</th>
+                                            <th>Fullname</th>
+                                            <th>Email</th>
+                                            <th>Contact Number</th>
+                                            <th width="10%"></th>
+                                        </tr>
+                                        {% for buyer in registeredBuyer.users %}
+                                            <tr>
+                                                <td>{{ buyer.userEntity.dateAdded|date('m/d/Y') }}</td>
+                                                <td>{{ buyer.userEntity.fullName }}</td>
+                                                <td>{{ buyer.userEntity.email }}</td>
+                                                <td>{{ buyer.userEntity.contactNumber }}</td>
+                                                <td>
+                                                    <button class="options button pull-right gray tiny btn-render-user-detail-modal" data-id="{{ buyer.userEntity.userId }}">
+                                                      More info  <i class="item-icon icon-caret-right"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-blank">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: registeredBuyer.userCount, perPage: pageLimit}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    {# START OF MODAL SELLER DETAILS #}
+    <div class="ui modal small modal-box " id="modal-register-user">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="header">User Information</div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="form">
+                        <label>Address</label>
+                        <div id="div-address">
+                            <div class="address-row">
+                                <p class="div-full-address"></p>
+                                <a href="#" class="button btn-update" data-address-id="0">UPDATE</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {# END OF MODAL SELLER DETAILS #}
+
+    {# START MODAL ADDRESS #}
+    <div class="ui modal small modal-address-container" id="modal-address">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="header"><h4 class="no-margin">Address</h4></div>
+        <form class="form ui" id="form-address">
+            <div class="content">
+                <div class="server-error-message error hidden">
+                    <div class="row">
+                        <div class="message-box red with-close-message">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field required">
+                            <label>Address Title</label>
+                            <input name="txt-title" placeholder="Home Address" type="text" class="ui fluid input field">
+                        </div>
+                        <div class="field">
+                            <label>Unit Number</label>
+                            <input name="txt-unit-number" placeholder="Unit Number" type="text" class="ui fluid input field">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Building Name</label>
+                            <input name="txt-building-name" placeholder="Building Name" type="text" class="ui fluid input field">
+                        </div>
+                        <div class="field">
+                            <label>Street Number</label>
+                            <input name="txt-street-number" placeholder="Street Number" type="text" class="ui fluid input field">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field required">
+                            <label>Street Name</label>
+                            <input name="txt-street-name" placeholder="Street Name" type="text" class="ui fluid input field">
+                        </div>
+                        <div class="field">
+                            <label>Subdivision</label>
+                            <input name="txt-subdivision" placeholder="Subdivision" type="text" class="ui fluid input field">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field required">
+                            <label>Province</label>
+                            <div class="dropdown search drop-down-location province-input ui selection">
+                                <input type="hidden" name="drop-down-province" />
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Select your province</div>
+                                <div class="menu">
+                                    {% for province in provinces  %}
+                                        <div class="item" data-value="{{ province.provinceId }}">{{ province.location }}</div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field required">
+                            <label>City/Municipal</label>
+                            <div class="dropdown search drop-down-location city-input ui selection">
+                                <input type="hidden" name="drop-down-city" />
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Select City/Municipal...</div>
+                                <div class="menu">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="two fields">
+                        <div class="field required">
+                            <label>Barangay</label>
+                            <div class="dropdown search drop-down-location barangay-input ui selection">
+                                <input type="hidden" name="drop-down-barangay" />
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Select Barangay...</div>
+                                <div class="menu">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field required">
+                            <label>Zip Code</label>
+                            <input name="txt-zip-code" placeholder="Zip Code" type="text" class="ui fluid input field">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="button cancel uppercase">Cancel</div>
+                <button class="button confirm uppercase" id="btn-validate">
+                    <span class="text">Submit</span>
+                    <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                </button>
+            </div>
+        </form>
+    </div>
+    {# END MODAL ADDRESS #}
+
+    {# START MODAL MESSAGE #}
+    <div class="ui modal small" id="modal-message">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h3 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header sub-header-content"></div>
+                </div>
+            </h3>
+        </div>
+        <div class="actions">
+            <button class="button confirm close uppercase">Okay</button>
+        </div>
+    </div>
+    {# END MODAL MESSAGE #}
+
+    <input type="hidden" id="user-address-id" value="" />
+    <input type="hidden" id="user-id" value="" />
+
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/registeredBuyer.js"
+        "js/src/backend/registeredBuyer.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

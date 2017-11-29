@@ -1,0 +1,570 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Store Information
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+    <link rel="me" href="https://twitter.com/twitterdev">
+{% endblock %}
+
+{% block dashboard_body %}
+        {% set slug = baseUri~path('user_frontend_store', {'slug':storeDetails.storeSlug}) %}
+        <div class="dashboard-body-container white">
+            <div class="dashboard-submenu-wrapper">
+                 <div class="dashboard-submenu-container">
+                    <ul class="list-unstyle list-submenu">
+                        <li>
+                            <a href="{{ path('user_store_information') }}" class="active">
+                                {% trans %} General Information {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_store_address') }}">
+                                {% trans %} Store Address {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_bank_account_information') }}">
+                                {% trans %} Bank Account Information {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merchant_account_information') }}">
+                                {% trans %} Account Information {% endtrans %}
+                            </a>
+                        </li>
+                    </ul>
+                 </div>
+             </div>
+             <!--Upload Profile Picture-->
+             <div class="dashboard-component top">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Profile Photo</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-md-3 align-center">
+                            <div class="image-holder image-profile">
+                                <img src="{{ storeDetails.profilePhoto }}" class="img-auto-place profile-image">
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form">
+                                <button class="button blue change-profile-photo">
+                                    Upload Profile Photo
+                                </button>
+                            </div>
+                            <div class="form">
+                                <label for="" class="light">Select an image from your computer (10mb max)</label>
+                                <input type="file" name="profilePhoto" class="hidden profile-file-input" />
+                                <span class="form-ui-note">
+                                    Compatible files: JPEG and PNG
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+             <!--Upload cover photo-->
+             <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Cover Photo</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-md-5 align-center">
+                            <div class="image-holder image-cover">
+                                <img src="{{ storeDetails.coverPhoto }}" class="img-auto-place cover-image">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form">
+                                <button class="button blue change-cover-photo">
+                                    Upload Cover Photo
+                                </button>
+                            </div>
+                            <div class="form">
+                                <label for="" class="light">Select an image from your computer (10mb max)</label>
+                                <input type="file" name="coverPhoto" class="cover-file-input hidden" />
+                                <span class="form-ui-note">
+                                    Compatible files: JPEG and PNG
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+             <!--Store Info-->
+             <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Store Information</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="hidden message-box red with-close-message update-store-info-errors"></div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Seller ID : {{storeDetails.storeNumber}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="" class="required">Store Name</label>
+                                <input type="text" name="storeName" yilinker-slugify data-reset="{{ storeDetails.storeName }}" value="{{ storeDetails.storeName }}" {{ storeDetails.isEditable is same as(false)? "readonly='readonly'":"" }} class="form-ui" placeholder="Enter your store name here">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="required">Mobile Phone</label>
+                                <div class="input-inner-button">
+                                    <input type="text" name="contactNumber" class="form-ui" placeholder="Enter your mobile number here" readonly value="{{ storeDetails.contactNumber }}">
+                                    <button class="button gray uppercase edit-mobile-phone-number-modal-trigger">Change</button>
+                                </div>
+                                <span class="red-color unverified-mobile-number {{ storeDetails.isMobileVerified is same as(false)? '':'hidden' }}">
+                                    <i class="icon icon-lg icon-alert-exclamation"></i> Mobile number is not yet verified. <span class="bold underline pointer request-verify-mobile">Click here to verify</span>
+                                </span>
+                                <span class="green-color verified-mobile-number {{ storeDetails.isMobileVerified is same as(true)? '':'hidden' }}">
+                                    <i class="icon icon-lg icon-circle-check"></i> Verified mobile number
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <label for="" class="required slug-label" data-link="{{ baseUri~path('user_frontend_store') }}">Store Link ({{  baseUri~path('user_frontend_store', {'slug':storeDetails.storeSlug}) }})</label>
+                        <input type="text" {{ storeDetails.isEditable is same as(false)? "readonly='readonly'":"" }} data-reset="{{ storeDetails.storeSlug }}" data-slug="{{ storeDetails.storeSlug }}" name="storeSlug" {{ storeDetails.slugChanged is same as(true)? 'disabled':'' }} value="{{ storeDetails.storeSlug }}" class="form-ui" placeholder="Enter your store slug here">
+                    </div>
+                    <div class="form">
+                        <a
+                            class="button basic-default button-rounded-side slug-link"
+                            data-base="{{ baseUri~path('user_frontend_store')~'/' }}"
+                            href="{{ slug }}"
+                            target="_blank">
+                            Visit Store Link
+                        </a>
+                    </div>
+                    <div class="form">
+                        <label for="" class="required">Store Description</label>
+                        <textarea class="form-ui" name="storeDescription" data-reset="{{ storeDetails.storeDescription }}" placeholder="Enter your store description here">{{ storeDetails.storeDescription }}</textarea>
+                    </div>
+                    <div class="form">
+                         <button class="button blue button-rounded-side uppercase save-store-info">
+                            <span class="text">Save Changes</span>
+                            <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                        </button>
+                         <button class="button cancel button-rounded-side uppercase reset-store-info">Undo</button>
+                    </div>
+                </div>
+             </div>
+            <!--Reseller Category Selector-->
+            {% if app.user is defined and app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') %}
+            <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Select your categories</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="row">
+                    {% for categories in storeDetails.storeCategories.data %}
+                        <div class="col-xs-4 col-xl-3">
+                            <div class="form">
+                                <div class="ui checkbox">
+                                    <input type="checkbox" name="store-category-id" value="{{ categories.productCategory.productCategoryId }}" {{ categories.isSelected ? 'checked' : '' }} /><label>{{ categories.productCategory.name }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form">
+                                <div class="form">
+                                    <button class="button blue button-rounded-side uppercase" id="btn-submit-store-categories">
+                                        <span class="text">Save Changes</span>
+                                        <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="Loading">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+             <!--QR Code-->
+             <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">QR Code</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img id="qrcode" data-slug="{{ slug }}" src="{{ storeDetails.qrCodeLocation }}" class="img-full-width">
+                        </div>
+                        <!--Set the class to "col-md-7" if QR Code has yet to be generated-->
+                        <div class="col-md-9">
+                            <p>
+                                Generate your QR Code and spread the word about your store. Your QR code points to your store page and can be scanned by most smartphones for easier access.
+                            </p>
+                            <div class="social-media-sharing">
+                                <div class="row">
+                                    <div class="col-xl-3 col-md-6 col-">
+                                        <button data-app-id="{{facebookClientId}}" class="button facebook block uppercase share-with-facebook">Share with <div class="icon-container"><i class="icon icon-facebook"></i></div></button>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6">
+                                        <a href="https://twitter.com/intent/tweet?text=&url={{ slug|url_encode }}" class="button twitter block uppercase">Share with <div class="icon-container"><i class="icon icon-twitter"></i></div></a>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6">
+                                        <button
+                                            class="g-interactivepost button google-plus block uppercase share-with-google-plus"
+                                            data-contenturl="{{slug}}"
+                                            data-clientid="{{googleClientId}}"
+                                            data-cookiepolicy="single_host_origin"
+                                            data-calltoactiondeeplinkid="/pages/create"
+                                        >Share with <div class="icon-container"><i class="icon icon-google-plus"></i></div></button>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6">
+                                        <button class="button gray block uppercase share-email-trigger">Share with <div class="icon-container"><i class="icon icon-envelope"></i></div></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Display if QR Code has yet to be generated-->
+                        <!--
+                        <div class="col-md-5">
+                            <button class="button purple fat block uppercase">Generate your QR Code</button>
+                        </div>
+                        -->
+                    </div>
+                </div>
+             </div>
+             <!--Referral Code-->
+             <div class="dashboard-component">
+                <div class="title-bar">
+                    <div class="component-content">
+                        <span class="uppercase">Your Referral Code</span>
+                    </div>
+                </div>
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <p>
+                                This is your personal referral code that you can share with anyone that wants to sign up with YiLinker. Each successful registration will earn you a certain amount of points which entitles you to some of our available freebies/promos.
+                            </p>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="input-inner-button referral-code">
+                                <input type="text" class="form-ui bold" readonly value="{{ app.user.referralCode }}">
+                                <button class="button gray uppercase" data-clipboard-text="{{ app.user.referralCode }}" title="Copy Link." id="copy-referral-code-trigger">Copy Code</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+            {%  if app.user.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER') %}
+                 <div class="dashboard-component bottom">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">Referral Person</span>
+                        </div>
+                    </div>
+                    <div class="component-content">
+                        <div class="row form">
+                            <div class="col-md-5 referrer-div" {{ storeDetails.referrer != null ? '' : 'style="display:none"' }} >
+                                <label>Referrers Name:</label>
+                                <div class="input-inner-button referral-code">
+                                    <input type="text" class="form-ui display-referrer-code" value="{{ storeDetails.referrer != null ? storeDetails.referrer.fullName : '' }}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label>Referrers Code:</label>
+                                <div class="input-inner-button referral-code">
+                                    {% if storeDetails.referrer == null %}
+                                        <input type="text" class="form-ui bold"  id="txt-referrer-code" value="">
+                                        <button class="button blue uppercase" title="Save" id="save-referrer">Save</button>
+                                    {% else %}
+                                        <input type="text" class="form-ui bold"  id="txt-referrer-code" value="{{ storeDetails.referrer.referralCode }}" readonly>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            {% endif %}
+        </div>
+
+        <!--Start of modal success resend contact-->
+        <div class="ui modal tiny coupled-new-address success-resend-contact-verification">
+            <a class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h3 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                    <div class="content">
+                        Sms has been sent
+                    </div>
+                </h3>
+            </div>
+            <div class="actions">
+                <button class="button blue close uppercase">Okay</button>
+            </div>
+        </div>
+        <!--End of modal success resend contact-->
+
+        <!--Start of modal copied referral code message-->
+        <div class="ui modal tiny modal copied-referral-code-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-copy"></i>
+                    <div class="content">
+                        Referral code copied to clipboard
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button blue close uppercase">Okay</button>
+            </div>
+        </div>
+        <!--End of modal copied referral code message-->
+
+        <!--Start of modal edit mobile number-->
+        <div class="ui modal small modal coupled-edit-number-modal edit-mobile-phone-number-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="header">
+                <h4 class="no-margin">Change Mobile Number</h4>
+            </div>
+            <form name="change-contact-number" class="form ui">
+                <div class="content">
+                    <div class="hidden ui error message message-box red with-close-message"></div>
+                    <div class="hidden message-box red with-close-message change-contact-number-errors"></div>
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="">Old Number</label>
+                                <input type="text" name="oldContactNumber" class="form-ui ui input" readonly value="{{ storeDetails.contactNumber }}"/>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="required">Enter New Number</label>
+                                <input type="text" maxlength="60" name="newContactNumber" class="form-ui ui input" placeholder="Enter your new number here"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <span class="button cancel uppercase">Cancel</span>
+                    <button type="submit" class="button blue uppercase submit-to-verify submit-button">
+                        <span class="text">Submit</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!--End of modal edit mobile number-->
+
+        <!--Start of modal verify number-->
+        <div class="ui modal small modal coupled-edit-number-modal edit-verify-number-modal" data-store-type="{{ storeDetails.storeType }}">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="header">
+                <h4 class="no-margin">Verify Number</h4>
+            </div>
+            <form name="verify-contact-number" class="form ui">
+                <div class="content">
+                    <div class="hidden ui error message message-box red with-close-message"></div>
+                    <div class="hidden message-box red with-close-message verify-contact-number-errors"></div>
+                    <p class="light mrg-bt-20 light-color">
+                        You are about to change your contact number, please ensure that your mobile phone is within reach before you proceed with this step.
+                    </p>
+                    <p class="light mrg-bt-20">
+                        Please enter the 6 digit code that was sent to your mobile phone
+                    </p>
+                    <h4 class="light mrg-bt-20">Time Left: <span class="bold" id="time-left">5:00</span></h4>
+                    <div class="form">
+                        <label for="" class="required">Enter Code</label>
+                        <input type="text" name="code" required class="form-ui" placeholder="Enter your new number here"/>
+                    </div>
+                </div>
+                <div class="actions">
+                    <span class="button cancel uppercase">Cancel</span>
+                    <button type="submit" class="button blue uppercase submit-button">
+                        <span class="text">Verify</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!--End of modal verify number-->
+
+        <div class="ui modal coupled-activate tiny success-change-contact-number-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                    <div class="content">
+                        Contact number has been successfully changed
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button blue uppercase close">Okay</button>
+            </div>
+        </div>
+
+        <!-- crop photo -->
+        <div class="ui modal small crop crop-circle" id="profile-photo-modal">
+            <a class="close"><i class="icon-times"></i></a>
+            <div class="header">
+                <h4 class="no-margin">Crop Profile Photo</h4>
+                <div class="hidden message-box red with-close-message change-profile-photo-errors"></div>
+            </div>
+            <div class="content">
+                <div class="cropper-profile-photo">
+                    <img src="" alt="Picture">
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel uppercase">Cancel</button>
+                <button class="button blue uppercase submit-to-success upload-cropped-profile-image">
+                    Crop
+                </button>
+            </div>
+        </div>
+
+        <!-- crop photo -->
+        <div class="ui modal small" id="cover-photo-modal">
+            <a class="close"><i class="icon-times"></i></a>
+            <div class="header">
+                <h4 class="no-margin">Crop Cover Photo</h4>
+                <div class="hidden message-box red with-close-message change-cover-photo-errors"></div>
+            </div>
+            <div class="content">
+                <div class="cropper-cover-photo">
+                    <img src="" alt="Picture">
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button cancel uppercase">Cancel</button>
+                <button class="button blue uppercase submit-to-success upload-cropped-cover-image">
+                    Crop
+                </button>
+            </div>
+        </div>
+
+        <div class="ui modal tiny coupled-new-bank-account success-update-store-info-message">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                    <div class="content">
+                        Store information has been successfully updated
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button blue uppercase close">Okay</button>
+            </div>
+        </div>
+        <!--Start of send share email-->
+        <div class="ui modal small modal coupled share-email-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="header">
+                <h4 class="no-margin">Share via Email</h4>
+            </div>
+            <form name="share-via-email" class="form ui">
+                <div class="content">
+                <div class="hidden message-box red with-close-message share-via-email-errors"></div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-12 field">
+                                <label for="" class="required">
+                                    Recipient Email
+                                </label>
+                                <input type="text" name="recipient" required class="form-ui" placeholder="Enter recipient email here. Separated with commas.">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="" class="required">
+                            Message
+                        </label>
+                        <textarea class="form-ui" name="message" required maxlength="255" placeholder="Enter your message here"></textarea>
+                    </div>
+                </div>
+                <div class="actions">
+                    <span class="button cancel">Cancel</span>
+                    <button class="button confirm submit-to-success">Submit</button>
+                </div>
+            </form>
+        </div>
+        <!--End of share email-->
+
+        <!--Start of modal success share email-->
+        <div class="ui modal tiny coupled success-share-email-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                        <div class="content">
+                            Email Message Sent
+                        <div class="sub-header">An email notification has been successfully sent.</div>
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button blue uppercase close">Okay</button>
+            </div>
+        </div>
+        <!--End of modal success share email-->
+
+        <!--Start of modal invalid file type-->
+        <div class="ui modal tiny coupled invalid-file-type">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon ban"></i>
+                        <div class="content">
+                            Invalid image file type.
+                        <div class="sub-header">Please upload a valid jpg, jpeg or png image.</div>
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button blue uppercase close">Okay</button>
+            </div>
+        </div>
+        <!--End of modal success invalid file type-->
+
+        {# START MODAL MESSAGE #}
+        <div class="ui modal small" id="modal-message">
+            <a class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-circle-check"></i>
+                    <div class="content">
+                        <div class="header-content"></div>
+                        <div class="sub-header sub-header-content"></div>
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button blue close uppercase">Okay</button>
+            </div>
+        </div>
+        {# END MODAL MESSAGE #}
+
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>
+    <script src="https://apis.google.com/js/client:platform.js" async defer></script>
+    <script src="{{ asset('js/bower/zeroclipboard.min.js') }}"></script>
+    <script src="{{ asset('js/bower/cropper.js') }}"></script>
+    <script src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script src="{{ asset('js/bower/moment.min.js') }}"></script>
+    <script src="{{ asset('js/src/utility/button-loader.js') }}"></script>
+    <script src="{{ asset('js/src/utility/slugify.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/store-information.js') }}"></script>
+{% endblock %}

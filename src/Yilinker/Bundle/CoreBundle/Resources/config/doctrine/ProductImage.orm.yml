@@ -1,0 +1,49 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductImage:
+    type: entity
+    table: ProductImage
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ProductImageRepository
+    indexes:
+        fk_product_productid_product_productid_idx:
+            columns:
+                - product_id
+    id:
+        productImageId:
+            type: bigint
+            id: true
+            column: product_image_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        imageLocation:
+            length: 255
+            options:
+                default: ''
+        isPrimary:
+            type: boolean
+            column: is_primary
+            options:
+                default: '0'
+        isDeleted:
+            type: boolean
+            column: is_deleted
+            options:
+                default: '0'
+        defaultLocale:
+            type: string
+            column: default_locale
+            options:
+                default: 'en'
+    oneToMany:
+        productUnitImages:
+            targetEntity: ProductUnitImage
+            mappedBy: productImage
+            cascade: ['persist']
+    manyToOne:
+        product:
+            targetEntity: Product
+            inversedBy: images
+            joinColumn:
+                name: product_id
+                referencedColumnName: product_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

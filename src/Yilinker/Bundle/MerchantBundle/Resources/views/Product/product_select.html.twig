@@ -1,0 +1,42 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Product Management
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+        <div class="dashboard-body-container select-product-modal white">
+            {{ include('YilinkerMerchantBundle:Product/partial:product_management_header.html.twig') }}
+            <div class="dashboard-component top">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="">Sub-Category</label>
+                        <select class="form-ui single selection dropdown product-category-selection">
+                            <option value="0" disabled selected>Select a category to filter the results</option>
+                            {% for category in categories %}
+                                <option value="{{ category.productCategoryId }}">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-component bottom product-list-component">
+                <div class="dashboard-component">
+                    <div class="component-content product-list">
+                        <div class="row">
+                            <input type="checkbox" class="check-all-product hidden">
+                            {{ include('YilinkerMerchantBundle:Product/partial:product_selection_list.html.twig') }}               
+                        </div>
+                        <button class="button blue uppercase submit-to-success approve submit-product-selection"> Submit </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/src/merchant/dashboard-reseller-selection.js') }}"></script>
+{% endblock %}

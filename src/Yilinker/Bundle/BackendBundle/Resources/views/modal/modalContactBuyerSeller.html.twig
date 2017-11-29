@@ -1,0 +1,72 @@
+<!-- Modal Contact Buyer Seller One -->
+<div class="ui modal large modal-box modal-contact-buyer-seller-one">
+    <a class="close"><i class="icon-times"></i></a>
+    <div class="header">History Information</div>
+    <div class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table basic table-vertical-align-top mrg-bt-30">
+            <tr>
+                <th></th>
+                <th>Order Product Id</th>
+                <th>Product Name</th>
+                <th>Order Quantity</th>
+                <th>Shipping Fee</th>
+                <th>Total Price</th>
+                <th>Net Price</th>
+                <th>Current Tag</th>
+                <th></th>
+            </tr>
+            {% for i in 1..3 %}
+            <tr>
+                  <td><input type="checkbox" checked></td>
+                  <td>209</td>
+                  <td>apple</td>
+                  <td>1</td>
+                  <td>PHP 0.00</td>
+                  <td>PHP 2121.00</td>
+                  <td>PHP 2025.20</td>
+                  <td >
+                    <button class="button tiny cancel">
+                      No Tag
+                    </button>
+                  </td>
+                  <td>
+                    <button class="button tiny cancel">
+                      No Shipping Details
+                    </button>
+                    <button class="button tiny cancel">
+                      Add
+                    </button>
+                  </td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="box-upper">
+            <div class="col-md-12">
+              <div class="box-blank">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="options">
+                        <select name="" id="" class="form-ui ui search single selection dropdown">
+                          <option value="0">Mark as...</option>
+                          <option value="0">Contacted.</option>
+                          <option value="0">Cant Be Reach.</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-9">
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions align-right">
+      <div class="button cancel" data-remodal-action="close">Back</div>
+    </div>
+</div>

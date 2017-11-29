@@ -1,0 +1,16 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+   Help
+{% endblock %}
+
+{% block dashboard_stylesheets %}
+{% endblock %}
+
+{% block dashboard_body %}
+    {{ include('YilinkerCoreBundle:Default:help.html.twig', {frontendHostname:frontendHostname, merchantHostname:merchantHostname}) }}
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/src/faq.js') }}"></script>
+{% endblock %}

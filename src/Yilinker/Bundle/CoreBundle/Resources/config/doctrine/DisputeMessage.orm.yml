@@ -1,0 +1,44 @@
+Yilinker\Bundle\CoreBundle\Entity\DisputeMessage:
+    type: entity
+    table: DisputeMessage
+    indexes:
+        dispute_message_dispute_id_dispute_dispute_id_idx:
+            columns:
+                - dispute_id
+        dispute_message_author_id_admin_user_admin_user_id_idx:
+            columns:
+                - author_id
+    id:
+        disputeMessageId:
+            type: bigint
+            id: true
+            column: dispute_message_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        message:
+            length: 1048
+            nullable: true
+        dateAdded:
+            type: datetime
+            column: date_added
+        isAdmin:
+            type: smallint
+            column: is_admin
+            options:
+                default: 1
+    manyToOne:
+        dispute:
+            targetEntity: Dispute
+            inversedBy: disputeMessages
+            joinColumn:
+                name: dispute_id
+                referencedColumnName: dispute_id
+            orphanRemoval: false
+        author:
+            targetEntity: AdminUser
+            joinColumn:
+                name: author_id
+                referencedColumnName: admin_user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

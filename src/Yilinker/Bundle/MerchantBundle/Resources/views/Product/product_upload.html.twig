@@ -1,0 +1,808 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Product Upload | YilinkerOnline.com
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="product-upload-wrapper" data-nested-categories="{{ categories|json_encode }}">
+
+        <div class="sticky-header">
+            <div class="navbar navbar-simple-seller">
+                <div class="container">
+                    <div class="navbar-group">
+                        <div class="navbar-item brand">
+                            <a href="{{ path('home_page') }}">
+                                <img src="{{ asset('images/logo-main-inverted.png') }}" alt="YiLinker" class="img-responsive"/>
+                            </a>
+                        </div>
+                        <a href="{{ path('home_page') }}" class="navbar-item action-link">
+                            <i class="icon icon-angle-left"></i> Back to Dashboard
+                        </a>
+                        <div href="#" class="navbar-item user-link">
+                            <div class="navbar-dropdown">
+                                <div class="user-image-container">
+                                    <img src="{{ app.user.primaryImage?
+                                        asset(app.user.primaryImage.getImageLocationBySize("thumbnail")|default(''), 'user') :
+                                        asset('images/default-merchant.png')
+                                    }}" alt="{{ app.user.store.storeName }}">
+                                </div>
+                            </div>
+                            <span class="item-counter" {% if messageCount == 0 %} style="display:none" {% endif %}>
+                                {{ messageCount }}
+                            </span>
+                            <div class="navbar-dropdown-container hidden menu">
+                                <ul class="list-unstyled">
+                                    <li><a href="{{ path('user_store_information') }}">View Store Info</a></li>
+                                    <li><a href="{{ path('dashboard_settings') }}">Settings</a></li>
+                                    <li>
+                                        <a href="{{ path('dashboard_messages') }}">Messages
+                                            <span class="badge pull-right unread-messages-text" {% if messageCount == 0 %} style="display:none" {% endif %} }}>
+                                                {{ messageCount }}
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li><a href="{{ path('dashboard_help') }}">Help</a></li>
+                                    <li><a href="{{ path('user_merchant_logout') }}">Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row row-header-box">
+                <div class="container">
+                    <div class="header-box-group">
+                        <div class="header-title">
+                            <h3 class="ui header side-icon">
+                                <i class="icon icon-shopping-cart"></i>
+                                <div class="content">
+                                    {% if isUpdate is defined %}
+                                        Edit Product
+                                    {% else %}
+                                        {% trans %} Add Product {% endtrans %}
+                                    {% endif %}
+                                    <div class="sub-header">Manage your preferences</div>
+                                </div>
+                            </h3>
+                        </div>
+                        <div class="header-action align-right">
+                            <div class="save-header-container">
+                                <button class="button cancel" id="inputCancel">Cancel</button>
+                                <button class="button blue" id="inputSave">
+                                    <span class="text">Upload it now</span>
+                                    <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="" />
+                                </button>
+                                {% if productUploadDetail is not defined and isUpdate is not defined %}
+                                    <button class="button red" id="inputDraft">
+                                        <span class="text">Save as Draft</span>
+                                        <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="" />
+                                    </button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+        <div class="product-upload-container">
+        <div class="container">
+            <!--Start of error message box-->
+            <div class="message-box red with-close-message" id="generalErrorMessage">
+            </div>
+            <!--End of error message box-->
+            <!--Start of product details-->
+            <div class="row product-upload-group-segment">
+                <div class="col-md-4">
+                    <h4>Product Details</h4>
+                    <p class="sub-header">
+                        Tell your customers a little about your product.
+                    <div class="dropzone dropzone-product-image" {% if nonEditableFields is defined and 'images' in nonEditableFields %} data-readonly="true" {% endif %}>
+                        <div class="dz-default dz-message">
+                            <i class="icon icon-circle-plus"></i><br/>
+                            Drop photos here or click to upload
+                            <h6>
+                                Compatible image format: JPEG &amp; PNG
+                            </h6>
+                        </div>
+                    </div>
+                    <span class="form-ui-note">
+                        Click the photo to set as primary photo
+                    </span>
+                    </p>
+                </div>
+                <div class="col-md-8">
+                    <div class="form">
+                        <label for="" class="required">Product Name</label>
+                        <input type="text" class="form-ui" placeholder="Enter product name here" id="inputName" maxlength="255" value="{{ (productUploadDetail is defined ) ? productUploadDetail['productEntity'].getName() | default('') : '' }}"  {% if nonEditableFields is defined and 'name' in nonEditableFields %} readonly {% endif %}/>
+                    </div>
+                    <div class="form">
+                        <label for="" class="required">Short Description</label>
+                        <textarea class="form-ui textarea-limited-character" maxlength="155" id="inputShortDescription" placeholder="Enter short product description here"  {% if nonEditableFields is defined and 'shortDescription' in nonEditableFields %} readonly {% endif %}>{{ productUploadDetail['productEntity'].getShortDescription() | default('') }}</textarea>
+                        <div class="pull-right"><span class="textarea-limited-character-length"></span> characters remaining</div>
+                        <br/>
+                    </div>
+                    <div class="form">
+                        <label for="">Upload Video</label>
+                        <p class="mrg-bt-10">
+                            Product videos are a great way for showcasing the variety of ways your buyers can expect from your product, it also provides a better view of its features and functionality.
+                        </p>
+                         <div class="input-inner-button">
+                             <input id="youtube-url" type="text" class="form-ui" placeholder="Enter youtube video url here" value="{{ (isUpdate is defined and productUploadDetail['productEntity'].getYoutubeVideoUrl() != '') ? productUploadDetail['productEntity'].getYoutubeVideoUrl() : '' }}"/>
+                             <button id="btn-validate-youtube-url" class="button gray uppercase edit-mobile-phone-number-modal-trigger">Upload</button>
+                        </div>
+
+                        <div class="video-upload-result-container">
+
+                            <!--If video is verified-->
+                            <div class="{{ (isUpdate is defined and productUploadDetail['productEntity'].getYoutubeVideoUrl() != '') ? '' : 'hidden' }}" id="youtube-valid-url">
+                                <div class="table-display">
+                                    <div class="table-cell video-cell">
+                                        <div class="video-thumbnail-container image-holder video-modal-trigger">
+                                            <img src="" class="img-auto-place embed-video" alt="Youtube Video"/>
+                                            <div class="image-overlay"></div>
+                                            <img src="{{ asset('images/affiliate/video-thumbnail-play-button.png') }}" class="img-play-button img-auto-place" alt="Play"/>
+                                        </div>
+                                    </div>
+                                    <div class="table-cell valign-middle">
+                                        <h4 class="hidden" id="video-success-message">
+                                            <i class="icon icon-check"></i> Video successfully embedded
+                                        </h4>
+                                        <button class="button red mrg-top-10" id="remove-youtube-video">
+                                            Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--If not verified-->
+                            <div class="hidden" id="youtube-invalid-url">
+                                <h3 class="ui header align-center">
+                                    <i class="icon icon-alert-exclamation"></i>
+                                    <div class="content">
+                                        {% trans %}
+                                            Invalid video embed URL
+                                        {% endtrans %}
+                                        <div class="sub-header">
+                                            The link you entered is not a valid Youtube URL.
+                                        </div>
+                                    </div>
+                                </h3>
+                            </div>
+                            <!--Loading display while verifying video-->
+                            <div class="hidden" id="youtube-loader">
+                                <h3 class="ui header align-center">
+                                    <img src="{{ asset('images/loader.gif') }}" alt="Verifying" width="50" height="26" class="loading">
+                                    <div class="content">
+                                        {% trans %}
+                                        Verifying video
+                                        {% endtrans %}
+                                        <div class="sub-header">
+                                        </div>
+                                    </div>
+                                </h3>
+                            </div>
+                        </div>
+                        <br/>
+                    </div>
+                    <div class="form">
+                        <label for="" class="required">Complete Description</label>
+                        <textarea class="form-ui" id="completeDescription" placeholder="Enter product description here" id="inputDescription" {% if nonEditableFields is defined and 'description' in nonEditableFields %} readonly {% endif %}>{{ productUploadDetail['productEntity'].getDescription() | default('')  }}</textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form" id="brand-loader-image">
+                                <label for="">Brand</label>
+                                <div class="form-autosuggest" id="productBrands">
+                                    <input class="form-ui typeahead" type="text" placeholder="Enter brand here" value="{{ productUploadDetail['brandEntity'].getName() | default('')  }}" {% if nonEditableFields is defined and 'brand' in nonEditableFields %} readonly {% endif %}>
+                                </div>
+                                <img src="{{ asset('images/loader.gif')}}" alt="Loading" class="loading-img">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form">
+                                <label for="" class="required">Condition</label>
+                                <select class="form-ui ui single selection dropdown {% if nonEditableFields is defined and 'condition' in nonEditableFields %} disabled {% endif %}" id="inputCondition">
+                                    {% if productUploadDetail['productEntity'].getCondition() is defined %}
+                                        <option value="{{ productUploadDetail['productEntity'].getCondition().getProductConditionId() | default('')  }}"></option>
+                                    {% else %}
+                                        <option value="">Select Condition</option>
+                                    {% endif %}
+                                    {% for conditionEntity in conditionEntities %}
+                                        <option value="{{ conditionEntity.productConditionId }}">
+                                            {{ conditionEntity.name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form">
+                                <label for="">Product Group</label>
+                                <div class="form-ui ui fluid multiple search selection tag dropdown product-group-dropdown">
+                                    <input id="product-groups" name="groups" type="hidden">
+                                    <i class="dropdown icon"></i>
+                                    <div class="default text">Select your product group here</div>
+                                    <div class="menu">
+                                        {% for group in app.user.productGroups %}
+                                            <div class="item" data-value="{{group.name}}">{{group.name}}</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <span class="form-ui-note">
+                                    You can add your new product group by typing the new group and hit <code>Enter</code> or comma key to add the group.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End of product details-->
+
+            <div class="row product-upload-group-segment">
+                <div class="col-md-4">
+                    <h4>Category</h4>
+                    <p class="sub-header">
+                        Select your product category so we can correctly categorize your new product listing.
+                    </p>
+                </div>
+                <div class="col-md-8">
+                    <div class="form">
+                        <label for="" class="required">Select your Category</label>
+                        <p>
+                            The category field is required. Select from the available categories we have provided for you.
+                        </p>
+                    </div>
+                    <div class="form-ui">
+                        <ul class="list-unstyled category-breadcrumb" id="main-breadcrumbs">
+                            {% if breadcrumbs is defined %}
+                                {% for categoryName in breadcrumbs %}
+                                    <li><a>{{ categoryName }}</a></li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <br/>
+                    <div class="form">
+                        <button class="button purple" id="btn-select-category" {% if nonEditableFields is defined and 'productCategory' in nonEditableFields %} data-readonly="true" {% endif %}>
+                            <span class="text">Select Category</span>
+                            <img src="{{ asset('images/loader-light.gif') }}" class="loader hidden" alt="" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row product-upload-group-segment">
+                <div class="col-md-4">
+                    <h4>Shipping Category</h4>
+                    <p class="sub-header">
+                        The category is for shipping category
+                    </p>
+                </div>
+                <div class="col-md-8">
+                    <div class="form">
+                        <label for="">Select your Shipping Category</label>
+                        <p>
+                            Select from the available shipping categories we have provided for you.
+                        </p>
+                    </div>
+                    <div class="form loading" id="shipping-category-form">
+                        <div class="input-inner-button">
+                            <div class="form-autosuggest" id="shipping-category">
+                                <input class="form-ui typeahead input-shipping-category" type="text"
+                                    value="{{productUploadDetail['productEntity'].shippingCategory.name|default('')}}" 
+                                >
+                                <input id="shipping-category-id" type="hidden"
+                                    value="{{productUploadDetail['productEntity'].shippingCategory.shippingCategoryId|default('')}}" 
+                                >
+                                <img alt="Loading" class="loading-img" src="{{ asset('images/loader.gif')}}" style="top: 11px; right: 10px; display:none">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Start of inventory details-->
+            <div class="row product-upload-group-segment">
+                <div class="col-md-4">
+                    <h4>Inventory and Variants</h4>
+                    <p class="sub-header">
+                        Set your product as a single purchase with one payment, or as a subscription based purchase with recurring monthly or yearly payments. This setting is permanent once product has been published.
+                    </p>
+                </div>
+                <div class="col-md-8">
+
+                    <div class="form" id="attributeContainer">
+                        <label for="">Product Details</label>
+                        <p>
+                            If your product is available in different variations, eg size or color, set them here. Each variant can have its own price which will be added to the product price.
+                        </p>
+                        <br/>
+                        <div class="added-variant-list">
+                            <table class="table basic">
+                                <thead>
+                                <tr>
+                                    <th width="25%">Detail Name</th>
+                                    <th width="45%">Values</th>
+                                    <th width="30%">Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody id="attributeRowContainer">
+                                </tbody>
+                            </table>
+                        </div>
+                        <button id="add-variant-trigger" class="button purple labeled-icon {% if nonEditableFields is defined and 'attributes' in nonEditableFields %} disabled {% endif %}">
+                            <i class="icon icon-plus"></i>
+                            {% trans %} Add more details {% endtrans %}
+                        </button>
+                    </div>
+
+                    <div class="form product-combination-group" id="attributeCombinationDiv">
+                        <label for="">Product Combinations</label>
+                        <p>
+                            If your product is available in different variations, eg size or color, set them here. Each variant can have its own price which will be added to the product price.
+                        </p>
+                        <br/>
+                        <table class="table basic table-vertical-align-top">
+                            <thead>
+                            <tr>
+                                <th width="20%">Images</th>
+                                <th width="40%">Combinations</th>
+                                <th width="10%">SKU</th>
+                                <th width="30%">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody id="attributeCombinationRow">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="productUnitSkuQtyDiv">
+                        {% if productUploadDetail is defined and not productUploadDetail['hasCombination'] %}
+                            <input type="hidden" class="form-ui" id="inputBasePrice" placeholder="0.00" value="{{ productUploadDetail['productUnit'][0]['price']|number_format(2, '.', ',') }}" {% if nonEditableFields is defined and 'units' in nonEditableFields %} readonly {% endif %}/>
+                        {% else %}
+                            <input type="hidden" class="form-ui" id="inputBasePrice" placeholder="0.00" value="" {% if nonEditableFields is defined and 'units' in nonEditableFields %} readonly {% endif %}/>
+                        {% endif %}
+                        {% if productUploadDetail is defined and not productUploadDetail['hasCombination'] %}
+                            <input type="hidden" class="form-ui" id="inputDiscount" placeholder="0.00" value="{{ productUploadDetail['productUnit'][0]['discount'] }}" {% if nonEditableFields is defined and 'units' in nonEditableFields %} readonly {% endif %}/>
+                        {% else %}
+                            <input type="hidden" class="form-ui" id="inputDiscount" placeholder="0.00" {% if nonEditableFields is defined and 'units' in nonEditableFields %} readonly {% endif %}/>
+                        {% endif %}
+                        {% if productUploadDetail is defined and not productUploadDetail['hasCombination'] %}
+                            <input type="hidden" class="form-ui" readonly id="inputDiscountedPrice" value="{{ productUploadDetail['productUnit'][0]['discountedPrice']|number_format(2, '.', ',') }}" {% if nonEditableFields is defined and 'units' in nonEditableFields %} readonly {% endif %}/>
+                        {% else %}
+                            <input type="hidden" class="form-ui" readonly id="inputDiscountedPrice" value="" {% if nonEditableFields is defined and 'units' in nonEditableFields %} readonly {% endif %}/>
+                        {% endif %}
+
+                        <div class="form" >
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="" class="required">SKU (Stock Keeping Unit)</label>
+                                    <input type="text" class="form-ui" id="inputSku" placeholder="Enter stock keeping unit here" value="{{ productUploadDetail is defined and not productUploadDetail['hasCombination'] ? productUploadDetail['productUnit'][0]['sku'] | default('') }}" {% if nonEditableFields is defined and 'units' in nonEditableFields %} readonly {% endif %}/>
+                                    <span class="form-ui-note">You can assign any code in order to keep track of your items</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!--End of inventory details-->
+
+            <!--Start of dimensions and weight details-->
+            <div class="row product-upload-group-segment" id="div-dimensions-weight">
+                <div class="col-md-4">
+                    <h4>Dimensions and Weight</h4>
+                    <p class="sub-header">
+                        Please provide your package details as much as possible for a more accurate shipping fee.
+                        <br/><br/>
+                        If your product has additional packaging material e.g. box, bubble wrap,  please use those details.
+                    </p>
+                </div>
+                <div class="col-md-8">
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="" class="required">Length (CM)</label>
+                                <input type="text" class="form-ui" placeholder="0.00" id="inputLength" value="{{ productUploadDetail is defined and not productUploadDetail['hasCombination'] ? productUploadDetail['productUnit'][0]['unitLength'] | default('') }}"{% if nonEditableFields is defined and 'units' in nonEditableFields %} readonly {% endif %}/>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="required">Height (CM)</label>
+                                <input type="text" class="form-ui" placeholder="0.00" id="inputHeight" value="{{ productUploadDetail is defined and not productUploadDetail['hasCombination'] ? productUploadDetail['productUnit'][0]['unitHeight'] | default('') }}" {% if nonEditableFields is defined and 'units' in nonEditableFields %} readonly {% endif %}/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="" class="required">Width (CM)</label>
+                                <input type="text" class="form-ui" placeholder="0.00" id="inputWidth" value="{{ productUploadDetail is defined and not productUploadDetail['hasCombination'] ? productUploadDetail['productUnit'][0]['unitWidth'] | default('') }}" {% if nonEditableFields is defined and 'units' in nonEditableFields %} readonly {% endif %}/>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="required">Weight (KG)</label>
+                                <input type="text" class="form-ui" placeholder="0.00" id="inputWeight" value="{{ productUploadDetail is defined and not productUploadDetail['hasCombination'] ? productUploadDetail['productUnit'][0]['unitWeight'] | default('') }}" {% if nonEditableFields is defined and 'units' in nonEditableFields %} readonly {% endif %}/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End of dimensions and weight details-->
+        </div>
+    </div>
+
+    </div>
+
+    <!--Start of modal add variant-->
+    <div class="ui modal small coupled-first add-variant-modal">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="content">
+            <div class="form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="" class="required">Variant Name</label>
+                        <input type="text" class="form-ui" id="attributeName" placeholder="Enter keywords here"/>
+                        <span class="form-ui-note">
+                            eg. Size, Color, Material, etc.
+                        </span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="" class="required">Variant Choice</label>
+                        <input type="text" class="form-ui" placeholder="Hit enter to add another" id="tokenfield" name="variant-choices">
+                        <span class="form-ui-note">
+                            eg. Small, Medium, Large, etc. 
+                            Use comma or hit enter key to separate variant choices
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <div class="button cancel" data-remodal-action="close">Cancel</div>
+            <div class="button confirm test-only" id="modalCategoryAttributeSubmit" data-isUpdate="0">Submit</div>
+        </div>
+    </div>
+    <!--End of modal add variant-->
+
+    <!--Start of modal category selector-->
+    <div class="ui modal small modal product-category-selector">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-left">
+            <div class="form form-category-selector-search">
+                <div class="input-icon right">
+                    <i class="icon icon-search"></i>
+                    <input type="text" class="form-ui category-selector-search" id="modalCategorySearch" placeholder="You can search your category here">
+                </div>
+            </div>
+            <div class="form">
+                <ul class="list-unstyled category-modal-breadcrumb">
+                </ul>
+            </div>
+            <div class="form">
+                <div class="category-button-group">
+                    <div class="last-child wrapper align-center" id="parentCategoryContainer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="div actions">
+            <button class="button cancel" id="modalCategoryCancel">Back</button>
+            <button class="button confirm confirm-category-name close" id="modalCategoryButton" disabled>Okay</button>
+        </div>
+    </div>
+    <!--End of modal category selector-->
+
+    <!--Start of modal add product combinations-->
+    <div class="ui modal long coupled-first small add-product-combination-modal">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="content">
+            <div class="form product-combination-field-group">
+                <div class="row" id="modalAttributeDiv">
+                    <div class="col-md-4">
+                        <div class="form">
+                            <label for="">Size</label>
+                            <select name="" id="" class="form-ui ui search single selection dropdown">
+                                <option value="">Select Size Here</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-image-product-combination-button-container">
+                    <div class="add-product-combination-image-trigger">
+                        <i class="icon-plus"></i> Add Photo
+                    </div>
+                    <div class="add-product-combination-image-description">
+                        Use only the exact photo of the product combination.
+                    </div>
+                </div>
+
+                <div class="row image-selection-list-container">
+                    <div class="col-md-12">
+                        <div class="image-selection-list">
+                            <div class="image-group" id="chosenImageDiv">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" class="form-ui" placeholder="0.00" value="0" id="modalUnitPrice"/>
+            <input type="hidden" class="form-ui" placeholder="0.00" value="0" id="modalUnitDiscount"/>
+            <input type="hidden" class="form-ui" readonly value="0.00" id="modalUnitFinalPrice"/>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form">
+                        <label for="" class="required">SKU (Stock Keeping Unit)</label>
+                        <input type="text" class="form-ui" id="modalUnitSku" placeholder="Enter stock keeping unit here"/>
+                        <span class="form-ui-note">You can assign any code in order to keep track of your items</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form">
+                        <label for="" class="required">Length (CM)</label>
+                        <input type="text" class="form-ui" placeholder="0.00" id="modalUnitLength" value=""/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form">
+                        <label for="" class="required">Height (CM)</label>
+                        <input type="text" class="form-ui" placeholder="0.00" id="modalUnitHeight" value=""/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form">
+                        <label for="" class="required">Width (CM)</label>
+                        <input type="text" class="form-ui" placeholder="0.00" id="modalUnitWidth" value="" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form">
+                        <label for="" class="required">Weight (KG)</label>
+                        <input type="text" class="form-ui" placeholder="0.00" id="modalUnitWeight" value=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <div class="button cancel" data-remodal-action="close">Cancel</div>
+            <div class="button confirm test-only" id="modalAttributeCombinationBtn" data-isUpdate="">Submit</div>
+        </div>
+    </div>
+    <!--End of modal add product combinations-->
+    
+    <!--Start of modal success message-->
+    <div class="ui modal tiny coupled-first upload-image-first-modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-circle-question-mark"></i>
+                <div class="content">
+                    <div id="successMessage">Upload image first</div>
+                    <div class="sub-header"></div>
+                </div>
+            </h4>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">
+                Okay
+            </button>
+        </div>
+    </div>
+    <!--End of modal success message-->
+
+    <!--Start of modal success message-->
+    <div class="ui modal tiny coupled-first success modal">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-check"></i>
+                <div class="content">
+                    <div id="success-message">Variant Successfully Added</div>
+                    <div class="sub-header"></div>
+                </div>
+            </h4>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">
+                Okay
+            </button>
+        </div>
+    </div>
+    <!--End of modal success message-->
+    
+    <!--Start of crop photo modal-->
+    <div class="ui modal small" id="crop-modal">
+        <div class="header">
+            <h4 class="no-margin">Crop Photo</h4>
+        </div>
+        <div class="content">
+            <div class="cropper-profile-photo" style="width: 400px; height: 400px; margin: auto">
+                <img id="crop-img" src="" alt="Picture">
+            </div>
+        </div>
+        <div class="actions">
+            <button class="button cancel close uppercase">Cancel</button>
+            <button class="button blue uppercase submit-to-success" id="crop-btn">Crop</button>
+        </div>
+    </div>
+    <!--End of crop photo modal-->
+
+    <!--Crop Loading-->
+    <div class="ui page dimmer crop-dimmer">
+        <div class="content">
+            <div class="center">
+                <div class="ui text loader"><p class="mrg-top-10">Uploading images...</p></div>
+
+            </div>
+        </div>
+    </div>
+    <!--End of crop Loading-->
+
+    <div class="ui modal small coupled-first" id="modal-message-container">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header detail-content"></div>
+                </div>
+            </h4>
+        </div>
+        <div class="actions">
+            <button class="button confirm close">Okay</button>
+        </div>
+    </div>
+
+    <div class="ui modal small" id="modal-category-selection">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="header">
+            <h4 class="no-margin">
+                Select Category
+            </h4>
+        </div>
+        <div class="content align-left">
+
+            <div class="form form-category-selector-search">
+                <div class="input-icon right">
+                    <i class="icon icon-search"></i>
+                    <input type="text" name="keyword" class="form-ui category-selector-search" id="txt-search-category" placeholder="You can search your category here">
+                </div>
+            </div>
+
+            <div class="form category-history">
+                <div class="form-ui">
+                    <ul class="list-unstyled category-breadcrumb" id="list-breadcrumb">
+                        <li><a href="#">All Categories</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="category-finder-wrapper">
+
+                <div class="ui dimmer inverted">
+                    <div class="content search">
+                        <h5 class="bold default-color">Category Search Suggestion</h5>
+                        <br/>
+                        <div class="search-result-container" id="list-breadcrumb-suggestion">
+                        </div>
+                    </div>
+                    <div class="empty-category-search-results">
+                        <div class="content hidden">
+                            <div class="center">
+                                <h4>No Results Found.</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-finder-container" id="category-container">
+                </div>
+
+            </div>
+
+        </div>
+        <div class="div actions">
+            <button class="button cancel" id="modalCategoryCancel">Back</button>
+            <button class="button confirm confirm-category-name close" id="submit-selected-category">Select</button>
+        </div>
+    </div>
+
+    <div class="ui modal tiny coupled-first" id="modal-confirm-container">
+        <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header detail-content"></div>
+                </div>
+            </h4>
+        </div>
+        <div class="actions">
+            <button class="button confirm ok">Okay</button>
+        </div>
+    </div>
+
+    <div class="ui basic modal video-modal" id="youtube-video-modal">
+        <i class="close icon icon-times"></i>
+        <div class="video-me" style="width: 100%; position: relative;">
+            <div class="video-wrapper">
+                <!-- Copy & Pasted from YouTube -->
+                <iframe id="youtube-frame" class="video" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" name="inputBrand" id="inputBrand" value="{{ productUploadDetail['productEntity'].getBrand().getBrandId() | default('1')  }}" data-name="{{ productUploadDetail['brandEntity'].getName() | default('')  }}">
+    <input type="hidden" name="inputCategory" id="inputCategory" value="{{ productUploadDetail['productEntity'].getProductCategory() is defined and productUploadDetail['productEntity'].getProductCategory() is not empty ? productUploadDetail['productEntity'].getProductCategory().getProductCategoryId() : 0 }}"
+           data-parent-id="{{ productUploadDetail['productEntity'].getProductCategory().getProductCategoryParentId() | default('')  }}">
+    <input type="hidden" id="isFormUpdate" value="{{ isUpdate | default('0') }}" data-product-id="{{  productUploadDetail['productEntity'].getProductId() | default('0') }}">
+    <input type="hidden" id="asset-hostname" value="{{ asset_hostname }}">
+
+    {% if productUploadDetail is defined and isUpdate and productUploadDetail['hasCombination'] %}
+
+        {% for key, productUnit in productUploadDetail['productUnit'] %}
+            <input type="hidden" class="updateProductUnit" value='{{ productUnit|json_encode() }}'>
+        {% endfor %}
+
+        {% if productUploadDetail['productAndCategoryAttributes'] is not empty %}
+            {% for key, productAttributes in productUploadDetail['productAndCategoryAttributes'] %}
+                <input type="hidden" class="updateProductAttributeCategory" value='{{ productAttributes|json_encode() }}'>
+            {% endfor %}
+        {% endif %}
+
+    {% else %}
+
+        <input type="hidden" id="product-unit-id"  value="{{  productUploadDetail['productUnit'][0]['productUnitId']| default("") }}">
+
+    {% endif %}
+
+    {% if productUploadDetail is defined and isUpdate %}
+        {% for key, productImage in productUploadDetail['productImageEntity'] %}
+            <input type="hidden" class="updateProductImage"
+                   data-isNew="{{ productImage['isNew']| default("") }}"
+                   data-id="{{ productImage['id']| default("") }}"
+                   data-image="{{ productImage['image']| default("") }}"
+                   data-is-primary="{{ productImage['isPrimary']| default("") }}"
+                   value="{{ productImage['path']| default("") }}">
+        {% endfor %}
+    {% endif %}
+
+    <input id="currentProductGroups" type="hidden" value="{{productGroups|default('')|json_encode}}" />
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/underscore-min.js') }}"></script>
+    <script src="{{ asset('js/bower/dropzone.min.js') }}"></script>
+    <script src="{{ asset('js/bower/tipso.min.js') }}"></script>
+    <script src="{{ asset('js/bower/transition.min.js') }}"></script>
+    <script src="{{ asset('js/bower/modal.min.js') }}"></script>
+    <script src="{{ asset('js/bower/dimmer.min.js') }}"></script>
+    <script src="{{ asset('js/bower/dropdown.min.js') }}"></script>
+    <script src="{{ asset('js/bower/checkbox.min.js') }}"></script>
+    <script src="{{ asset('js/bower/typeahead.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/bower/bootstrap-tokenfield.min.js') }}"></script>
+    <script src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('js/bower/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('js/src/utility/loader.js') }}"></script>
+    <script src="{{ asset('js/src/form.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/product-category.js') }}"></script>
+    <script src="{{ asset('js/bower/cropper.js') }}"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('js/src/canvas-to-blob.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/product-upload.js') }}"></script>
+{% endblock %}

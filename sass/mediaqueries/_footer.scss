@@ -1,0 +1,72 @@
+@media screen and (max-width: 768px){
+  .footer-wrapper{
+    min-width: 0 !important;
+
+    .footer-body-wrapper{
+        padding: 10px 20px;
+    }
+
+    .powered-text{
+        display: none;
+    }
+
+    .logo-motto-container{
+        padding-bottom: 10px;
+    }
+
+    .footer-logo-store{
+        .logo{
+            max-width: 120px;
+            height: auto !important;
+        }
+    }
+
+    .top-content{
+        padding: 20px 0;
+    }
+
+    .copyright-social-container {
+      line-height: 16px;
+    }
+
+    .sitemap-section{
+        text-align: center;
+        table{
+            margin: auto;
+        }
+    }
+
+    .email-newsletter-form-container{
+        max-width: 400px;
+        margin: auto;
+        margin-top: 15px;
+    }
+
+    .footer-content-container{
+        margin-top: 10px;
+    }
+
+    .footer-bordered-mobile{
+        border-bottom: solid $brand-gray-light 1px;
+        padding: 20px 0 !important;
+
+        img{
+            max-height: 100px;
+            width: auto;
+            max-width: 100%;
+            margin: auto;
+            height: auto;
+        }
+    }
+
+    .copyright-social-container>div{
+        display: block !important;
+        text-align: center !important;
+
+        &.social-container{
+            width: 100% !important;
+            margin-top: 8px !important;
+        }
+    }
+  }
+}

@@ -1,0 +1,274 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    {% set products = productDetails is not null and productDetails.products is not empty ? productDetails.products : null %}
+    {% set PRODUCT_LIST_NODE = constant('Yilinker\\Bundle\\CoreBundle\\Services\\Cms\\PagesService::NODE_ID_PRODUCT_LIST') %}
+<section class="box-section">
+    <div class="container">
+        <div class="row">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="{{ path('cms_render_product_list') }}">Product CMS</a>
+                </li>
+                <li>
+                    <span>Create</span>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="box-upper">
+                <div class="col-md-12">
+                    <div class="box-div">
+                        <div class="row gutters group-segment">
+                            <div class="col-md-12">
+                                <h4>Create Product CMS</h4>
+                            </div>
+                        </div>
+                        <div class="row gutters group-segment">
+                            <div class="col-md-4">
+                                <h4>Product Title</h4>
+                                <p class="sub-header">
+                                    Enter your product cms title here...
+                                </p>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form type-3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Title</label>
+                                            <input class="form-ui" id="txt-title" placeholder="Enter Your Product Title" value="{{ productDetails is not null and productDetails.title is not empty ? productDetails.title : '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-8">
+                                {% if sections is not empty %}
+                                    <div class="form type-3">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label for="">Section: </label>
+                                                <select name="" id="selected-section" class="form-ui ui search single selection dropdown" >
+                                                    {% for section in sections %}
+                                                        <option value="{{ section.id }}">{{ section.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row gutters group-segment featured-home-banner">
+                            <div class="col-md-4">
+                                <h4>Upload Featured Banner (Homepage)</h4>
+                                <p class="sub-header">
+                                    Upload your featured product for the homepage here, kindly add the product link along with the process.
+                                </p>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Upload Featured Banners (Homepage) here</label>
+                                            <input class="form-ui file-image" type="file" id="fileHomePageBanner"
+                                                   data-file-name="{{ productDetails is not null and productDetails.homePageBannerFileName is not null ? productDetails.homePageBannerFileName : '' }}"
+                                                   data-is-new="{{ productDetails is not null and productDetails.homePageBannerFileName is not null ? 'false' : 'true' }}" >
+                                            <span class="form-ui-note">Compatible files: JPEG and PNG</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Paste Featured Product (Homepage) Link here</label>
+                                            <input type="text" class="form-ui" id="txtHomePageBannerUrl" placeholder="Enter link here" value="{{ productDetails is not null and productDetails.homePageBannerSrc is not null ? productDetails.homePageBannerSrc : '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form">
+                                    <table class="table basic table-vertical-align-top center">
+                                        <tr>
+                                            <th>Image</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                {% if productDetails is not null and productDetails.homePageBannerFileName is not null %}
+                                                    <img align="left" width="700" border="0" src="{{productDetails.homePageBannerUrl}}">
+                                                {% else %}
+                                                    None
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gutters group-segment featured-inner-banner">
+                            <div class="col-md-4">
+                                <h4>Upload Featured Banner (Inner-Page)</h4>
+                                <p class="sub-header">
+                                    Upload your featured banner for the sub-page here, kindly add the product link along with the process.
+                                </p>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Upload Featured Banners (Inner-Page) here</label>
+                                            <input class="form-ui file-image" id="innerPageBanner" type="file"
+                                                   data-file-name="{{ productDetails is not null and productDetails.innerPageBannerFileName is not null ? productDetails.innerPageBannerFileName : '' }}"
+                                                   data-is-new="{{ productDetails is not null and productDetails.innerPageBannerFileName is not null ? 'false' : 'true' }}" >
+                                            <span class="form-ui-note">Compatible files: JPEG and PNG</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Paste Product Link (Inner-Page) here</label>
+                                            <input type="text" class="form-ui" id="txtInnerPageBannerUrl" placeholder="Enter link here" value="{{ productDetails is not null and productDetails.innerPageBannerSrc is not null ? productDetails.innerPageBannerSrc : '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form">
+                                    <table class="table basic table-vertical-align-top center">
+                                        <tr>
+                                            <th>Image</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                {% if productDetails is not null and productDetails.innerPageBannerFileName is not null %}
+                                                    <img align="left" width="700" border="0" src="{{productDetails.innerPageBannerUrl}}">
+                                                {% else %}
+                                                    None
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row gutters group-segment">
+                            <div class="col-md-6">
+                                <h4>Product List</h4>
+                                <p class="sub-header">
+                                    Add your product using slug link(product links)...
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="button gray small mrg-top-20 pull-right" id="removeProducts">Remove</button>
+                                <button class="button purple small mrg-top-20 modal-trigger-add-product pull-right">Add Products</button>
+                            </div>
+                            <div class="col-md-12 mrg-top-20">
+                                <table class="table basic">
+                                    <tr>
+                                        <th>Date Created</th>
+                                        <th>Product Name</th>
+                                        <th>Active Promo</th>
+                                        <th>Original Price</th>
+                                        <th>Discounted Price</th>
+                                        <th>Available Stock</th>
+                                        <th><input type="checkbox" id="selectAll"></th>
+                                    </tr>
+                                    <tbody class="productRowContainer">
+                                    {% if productDetails is not null and productDetails.products|length > 0 %}
+                                        {% for product in productDetails.products %}
+                                            {% set defaultProduct = product.getDefaultUnit %}
+                                            <tr class="product-{{ product.productId }} row-data">
+                                                <td>{{ product.dateCreated|date('Y-m-d H:i:s') }}</td>
+                                                <td> <a target="_blank" href="{{ frontend_hostname ~ path('product_details', {'slug': product.slug }) }}"> {{ product.name }} <a/></td>
+                                                <td>{{ defaultProduct.discount }}%</td>
+                                                <td>P {{ defaultProduct.price|number_format(2) }}</td>
+                                                <td>
+                                                    <strong>P {{ defaultProduct.discountedPrice|number_format(2) }}</strong>
+                                                </td>
+                                                <td>{{ defaultProduct.quantity }}</td>
+                                                <td>
+                                                    <input type="checkbox" class="productIds" name="product-id" value="{{ product.productId }}">
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                        <tr class="noProductsRow">
+                                            <td colspan="7" align="center">No products found.</td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="row gutters group-segment">
+                            <div class="col-md-4">
+                                <div class="ui checkbox mrg-top-10 pull-right">
+                                    <input name="applyImmediate" id="applyImmediate" type="checkbox"/>
+                                    <label class="light">
+                                        <strong>By Checking this box</strong>, you will
+                                        <strong>
+                                            <u>Start the Process IMMEDIATELY</u>
+                                        </strong>.</label>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <button class="button blue" id="btn-save">Save</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="section-id" value="{{ productDetails is not null and productDetails.sectionId ? productDetails.sectionId : '0' }}" />
+</section>
+
+    {# START OF MODAL FOR ADD PRODUCTS #}
+    <div class="ui modal small modal-box modal-add-product">
+        <div class="header">Add Products</div>
+        <div class="error-container message-box red with-close-message"></div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form">
+                        <h5>Hit <code>Enter</code> key to separate product slugs</h5>
+                        <textarea class="form-ui" id="txt-slugs" placeholder="Enter product list here"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <div class="button approve">Save</div>
+            <div class="button cancel" data-remodal-action="close">Cancel</div>
+        </div>
+    </div>
+    {# END OF MODAL FOR ADD PRODUCTS #}
+
+    {# START MODAL MESSAGE #}
+    <div class="ui modal small" id="modal-message">
+        <div class="content align-center">
+            <h4 class="ui header">
+                <i class="icon icon-circle-check"></i>
+                <div class="content">
+                    <div class="header-content"></div>
+                    <div class="sub-header sub-header-content"></div>
+                </div>
+            </h4>
+        </div>
+        <div class="actions">
+            <button class="button blue approve uppercase">Okay</button>
+        </div>
+    </div>
+    {# END MODAL MESSAGE #}
+
+    <input type="hidden" id="section-items-you-may-like" value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Services\\Cms\\PagesService::NODE_ID_ITEMS_YOU_MAY_LIKE') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/src/backend/cms.js') }}"></script>
+{% endblock %}

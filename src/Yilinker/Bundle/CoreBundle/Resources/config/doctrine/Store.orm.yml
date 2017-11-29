@@ -1,0 +1,106 @@
+Yilinker\Bundle\CoreBundle\Entity\Store:
+    type: entity
+    table: null
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\StoreRepository
+    indexes:
+        fk_store_acreditationlevelid_accreditationlevel_acreditationlevelid_idx:
+            columns:
+                - accreditation_level_id
+        fk_store_store_level_id_store_store_level_id_idx:
+            columns:
+                - store_level_id
+    id:
+        storeId:
+            type: integer
+            id: true
+            column: store_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        storeNumber:
+            type: string
+            column: store_number
+            length: '100'
+            nullable: true
+        storeName:
+            type: string
+            column: store_name
+            length: '150'
+            nullable: true
+        storeDescription:
+            type: string
+            column: store_description
+            length: '1024'
+            nullable: true
+            options:
+                default: ''
+        storeSlug:
+            type: string
+            column: store_slug
+            length: '45'
+            nullable: true
+        slugChanged:
+            type: boolean
+            column: slug_changed
+            options:
+                default: '0'
+        storeType:
+            type: boolean
+            column: store_type
+            options:
+                default: '0'
+        isEditable:
+            type: boolean
+            column: is_editable
+            options:
+                default: '0'
+        qrCodeLocation:
+            length: 255
+            column: qr_code_location
+            options:
+                default: ''
+        hasCustomCategory:
+            type: boolean
+            column: has_custom_category
+            options:
+                default: '0'
+        isInhouse:
+            type: boolean
+            column: is_inhouse
+            options:
+                default: '0'
+        storeViews:
+            type: integer
+            column: store_views
+            options:
+                default: '0'
+    manyToOne:
+        accreditationLevel:
+            targetEntity: AccreditationLevel
+            joinColumn:
+                name: accreditation_level_id
+                referencedColumnName: accreditation_level_id
+        storeLevel:
+            targetEntity: StoreLevel
+            joinColumn:
+                name: store_level_id
+                referencedColumnName: store_level_id
+    oneToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            inversedBy: store
+    oneToMany:
+        reviews:
+            targetEntity: UserFeedback
+            fetch: EXTRA_LAZY
+            mappedBy: reviewee
+        storeCategories:
+            targetEntity: StoreCategory
+            fetch: EXTRA_LAZY
+            mappedBy: store
+    lifecycleCallbacks: {  }

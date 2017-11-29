@@ -1,0 +1,72 @@
+<div class="title-bar">
+    <div class="home-section">
+        <span class="title-name">{% trans %} Top Categories {% endtrans %}</span>
+        {#<a href="{{ homeData.topCategories.seeMore|default('') }}" class="view-more">view more &rarr;</a>#}
+    </div>
+</div>
+<div class="home-section">
+    <div class="home-listing-container">
+    <div class="row row-categories">
+
+        {% if homeData.topCategories.category|length > 0 %}
+            {% for category in homeData.topCategories.category %}
+                <div class="col-sm-3 col-xs-6 col-categories">
+                    <div class="category-item-wrapper">
+                        <a href="{{ path('get_category', {'slug': category.mainCategory.slug }) }}">
+                        <div class="category-image-wrapper" style="background-image: url({{ asset(category.mainCategory.image, 'category') }});">
+                        </div>
+                        </a>
+                        <div class="category-children-container">
+                            <div class="category-name">
+                                <h4 class="ui header">
+                                    <div class="content">
+                                        <a href="{{ path('get_category', {'slug': category.mainCategory.slug }) }}" class="bold">
+                                            {{ category.mainCategory.name }}
+                                        </a>
+                                        <p class="sub-header sky-blue-color">
+                                            <a href="{{ path('get_category', {'slug': category.mainCategory.slug }) }}" class="sky-blue-color">{% trans %} Shop Now {% endtrans %} &gt;</a>
+                                        </p>
+                                    </div>
+                                </h4>
+                            </div>
+                            <div class="category-children">
+                                <ul class="list-unstyled list-sub-category">
+                                    {% if category.subCategory|length > 0 %}
+                                        {% for subCategory in category.subCategory %}
+                                            <li>
+                                                <a href="{{ path('get_category', {'slug': subCategory.slug }) }}">
+                                                    <b>&rarr;</b>
+                                                    <span>{{ subCategory.name }}</span>
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+    </div>
+</div>
+<script type="application/ld+json">
+{% if homeData.topCategories.category|length > 0 %}
+{
+  "@context": "http://schema.org",
+  "@type": "WebPage",
+  "mainEntity":{
+          "@type": "ItemList",
+          "itemListElement": [
+            {% for category in homeData.topCategories.category %}
+            "{{ category.mainCategory.name }}",
+            {% endfor %}    
+          ],
+          "itemListOrder": "http://schema.org/ItemListOrderDescending",
+          "name": "Featured Cateories"
+        }
+}
+{% endif %}
+</script>

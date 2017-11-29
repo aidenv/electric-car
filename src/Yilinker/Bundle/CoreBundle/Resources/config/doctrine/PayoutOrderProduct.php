@@ -1,0 +1,35 @@
+Yilinker\Bundle\CoreBundle\Entity\PayoutOrderProduct:
+    type: entity
+    table: PayoutOrderProduct
+    id:
+        payoutOrderProductId:
+            type: integer
+            id: true
+            column: payout_order_product_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        dateCreated:
+            type: datetime
+            nullable: false
+            column: date_created
+        dateModified:
+            type: datetime
+            nullable: false
+            column: date_modified
+        amount:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            column: amount
+    manyToOne:
+        orderProduct:
+            targetEntity: OrderProduct
+            joinColumn:
+                name: order_product_id
+                referencedColumnName: order_product_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

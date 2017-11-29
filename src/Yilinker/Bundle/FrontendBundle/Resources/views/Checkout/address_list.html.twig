@@ -1,0 +1,50 @@
+<div class="checkout-ship-location-container">
+    <table data-address-list class="checkout-ship-location-table">
+        <tbody>
+            {% for address in addresses %}
+                <tr class="tr-address">
+                    <td class="td-border-bottom-1" width="2em">
+                        <div class="ui checkbox">
+                            {% set leadTime = address.location.leadTime is defined and address.location.leadTime ? address.location.leadTime: '' %}
+                            {% set leadTime = leadTime.leadTime is defined ? leadTime.leadTime: leadTime %}
+                            <input data-feeder='{"leadTime":"{{ leadTime }}"}' data-checkout-address {{ (selectedAddress and selectedAddress.userAddressId == address.userAddressId) ? 'checked="checked"' : '' }} name="address" type="checkbox" value="{{ address.userAddressId }}">
+                            <label for="">&nbsp;</label>
+                        </div>
+                    </td>
+                    <td class="td-border-bottom-1">
+                        <div class="shipping-label">
+                            <a class="item-name">
+                                {{ address.title }} {{ address.isDefault ? '(Default Address)': '' }}
+                            </a>
+                            <a class="pull-right">
+                                <div class="ui buttons">
+                                    <div class="ui floating dropdown ellipsis-dropdown">
+                                        <span class="ellipsis-text">...</span>
+                                        <div class="menu">
+                                            <div data-edit-address data-feeder='{"edit_address_url":"{{ path('core_address_edit_v1', {id: address.userAddressId}) }}"}' class="item edit">
+                                                <i class="icon icon-edit"></i> {% trans %} Edit Address {% endtrans %}
+                                            </div>
+                                            {% if not address.isDefault %}
+                                                <div class="item delete" data-trigger-confirmation="#delete-address-confirmation" data-href="{{ path('checkout_deleteAddress', {'addressId': address.userAddressId}) }}">
+                                                    <i class="icon icon-trash"></i> {% trans %} Delete Address {% endtrans %}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="item-address-line">
+                                {{ address.addressString }}
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <input type="hidden" name="refresh" value="address">
+    </table>
+    <div class="long-text-mask align-center">
+        <div class="fade-top"></div>
+        <spam class="button basic-default button-rounded-side uppercase see-more">{% trans %}See More{% endtrans %}</span>
+    </div>
+</div>

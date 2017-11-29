@@ -1,0 +1,34 @@
+Yilinker\Bundle\CoreBundle\Entity\OrderVoucher:
+    type: entity
+    table: OrderVoucher
+    id:
+        orderVoucherId:
+            type: bigint
+            id: true
+            column: order_voucher_id
+            unsigned: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        value:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            column: value
+    manyToOne:
+        order:
+            targetEntity: UserOrder
+            joinColumn:
+                name: order_id
+                referencedColumnName: order_id
+            orphanRemoval: false
+        voucherCode:
+            targetEntity: VoucherCode
+            inversedBy: orderVouchers
+            joinColumn:
+                name: voucher_code_id
+                referencedColumnName: voucher_code_id
+            orphanRemoval: false
+    lifecycleCallbacks: { }
+

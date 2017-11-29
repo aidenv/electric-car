@@ -1,0 +1,47 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductAttributeValue:
+    type: entity
+    table: ProductAttributeValue
+    gedmo:
+        translation:
+            locale: locale
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\ProductAttributeValueRepository
+    indexes:
+        fk_productattributevalue_productattributenameid_productattributename_productattributenameid_idx:
+            columns:
+                - product_attribute_name_id
+        fk_productattributevalue_productunitid_productunit_productunitid_idx:
+            columns:
+                - product_unit_id
+    id:
+        productAttributeValueId:
+            type: bigint
+            column: product_attribute_value_id
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        productUnitId:
+            type: bigint
+            column: product_unit_id
+        value:
+            lenght: 255
+            options:
+                default: ''
+            gedmo:
+                - translatable
+    manyToOne:
+        productAttributeName:
+            targetEntity: ProductAttributeName
+            inversedBy: productAttributeValues
+            joinColumn:
+                name: product_attribute_name_id
+                referencedColumnName: product_attribute_name_id
+            orphanRemoval: false
+        productUnit:
+            targetEntity: ProductUnit
+            inversedBy: productAttributeValues
+            joinColumn:
+                name: product_unit_id
+                referencedColumnName: product_unit_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

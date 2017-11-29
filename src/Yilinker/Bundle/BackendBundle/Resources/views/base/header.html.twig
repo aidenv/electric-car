@@ -1,0 +1,51 @@
+<nav class="navbar navbar-default ">
+    <div class="dropdown brand pull-left">
+        <a class="logo" href="javascript:void(0);">
+            <img alt="Aeneas" src="{{ asset('images/aeneasusa/admin/logo.png') }}" width="133" height="26"/>
+        </a>
+        <a class="min" href="javascript:void(0);">
+            <i class="icon-angle-left"></i>
+            <i class="icon-angle-right"></i>
+        </a>
+    </div>
+    <div class="account pull-right">
+        {% if app.user %}
+            <p>Welcome
+                <strong>{{ app.user.username }}</strong>
+            </p>
+            <a href="{{ path('admin_logout') }}">Log-out</a>
+        {% endif %}
+    </div>
+
+    <!-- Language -->
+    <div class="navbar-item user-link country-language pull-right" href="javascript:void(0);">
+        <div class="navbar-dropdown">
+            {% set currentLocale = app.getRequest().getLocale() %}
+            <div class="user-image-container">
+              <img alt="{{ currentLocale|upper }}" src="{{ asset('images/country-flag/' ~ currentLocale ~ '.png') }}"/>
+            </div>
+            <span class="selected-country-code">{{ currentLocale|upper }}</span>
+            <i class="icon icon-caret-down"></i>
+        </div>
+        <div class="navbar-dropdown-container hidden">
+            <ul class="list-unstyled country-list">
+                {% for locale in locales  %}
+                  <li>
+                      <a href="/?_locale={{ locale }}">
+                          {% if locale == "en" %}
+                          <span class="country-name">English</span>
+                          {% elseif locale == "cn" %}
+                          <span class="country-name">Chinese</span>
+                          {% elseif locale == "ca" %}
+                          <span class="country-name">Canada</span>
+                          {% endif %}
+                          <div class="user-image-container country-list-img">
+                              <img alt="{{ locale|upper }}" src="{{ asset('images/country-flag/'~locale~'.png') }}"/>
+                          </div>
+                      </a>
+                  </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>

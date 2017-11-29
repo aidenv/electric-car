@@ -1,0 +1,108 @@
+<div class="row">
+    <div class="box-upper">
+        <div class="col-md-12">
+            <div class="tools top form">
+                <form class="product-filters">
+                    <div class="row gutters group-segment">
+                        <div class="col-md-4">
+                            <h4>Number of In-House Listings: {{ totalResults }}</h4>
+                            <p class="sub-header">
+                                You may search for a particular product name.
+                            </p>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form vers-one">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <label>Search</label>
+                                        <input value="" name="q" type="text" placeholder="Search" class="form-ui query-string">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gutters group-segment light-segment">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form">
+                                <div class="row">
+                                    <label for="" class="col-md-12">Price Range: </label>
+                                    <div class="col-md-3">
+                                        <input type="number" value="" name="priceFrom" class="form-ui" min="0">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" value="" name="priceTo" class="form-ui" min="0">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="">Brands: </label>
+                                        <select name="brand" id="" class="form-ui ui search single selection dropdown">
+                                          <option value="">All</option>
+                                            {% for brand in brands %}
+                                                <option value="{{ brand.brandId }}">{{ brand.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">Sort By: </label>
+                                        <select name="sortType" class="search-sort form-ui ui search single selection dropdown">
+                                          <option {{ app.request.get('sortType') == 0 ? 'selected="selected"': '' }} value="0">Alphabetical</option>
+                                          <option {{ app.request.get('sortType') == 1 ? 'selected="selected"': '' }} value="1">New to Old</option>
+                                          <option {{ app.request.get('sortType') == 2 ? 'selected="selected"': '' }} value="2">Old to New</option>
+                                          <option {{ app.request.get('sortType') == 3 ? 'selected="selected"': '' }} value="3">Relevance</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">Categories: </label>
+                                        <select name="category" class="form-ui ui search single selection dropdown">
+                                               <option value="">All</option>
+                                               {% for category in categories %}
+                                               <option  {{ app.request.get('category') == category.productCategoryId ? 'selected="selected"': '' }}
+                                                        value="{{ category.productCategoryId }}">
+                                                   {{ category.name }}
+                                               </option>
+                                               {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="">Status: </label>
+                                        <select name="status" class="form-ui ui search single selection dropdown">
+                                          <option value="">All</option>
+                                          <option value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::ACTIVE') }}">Active</option>
+                                          <option value="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::INACTIVE') }}">Inactive</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="">Manufacturer: </label>
+                                        <select name="manufacturer" data-manufacturer-filter class="form-ui ui search single selection dropdown">
+                                            {% if manufacturer %}
+                                                <option value="{{ manufacturer.manufacturerId }}">{{ manufacturer.name }}</option>
+                                            {% else %}
+                                                <option value="">All</option>
+                                            {% endif %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button class="button gray mrg-top-10" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

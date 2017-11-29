@@ -1,0 +1,57 @@
+Yilinker\Bundle\CoreBundle\Entity\PromoInstance:
+    type: entity
+    table: PromoInstance
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\PromoInstanceRepository
+    id:
+        promoInstanceId:
+            type: integer
+            id: true
+            column: promo_instance_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            column: title
+            lenght: 255
+        dateCreated:
+            type: datetime
+            column: date_created
+        dateStart:
+            type: datetime
+            column: date_start
+        dateEnd:
+            type: datetime
+            column: date_end
+        advertisement:
+            type: string
+            column: advertisement
+            lenght: 1024
+            nullable: true
+        isImageAdvertisement:
+            type: boolean
+            column: is_image_advertisement
+            nullable: true
+            options:
+                default: false
+        isEnabled:
+            type: boolean
+            column: is_enabled
+            options:
+                default: false
+    manyToOne:
+        promoType:
+            targetEntity: PromoType
+            joinColumn:
+                name: promo_type_id
+                referencedColumnName: promo_type_id
+            orphanRemoval: false
+    oneToMany:
+        productPromoMap:
+            targetEntity: ProductPromoMap
+            fetch: EXTRA_LAZY
+            mappedBy: promoInstance
+    lifecycleCallbacks: {  }
+

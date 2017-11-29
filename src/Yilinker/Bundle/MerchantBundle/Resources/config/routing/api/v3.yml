@@ -1,0 +1,46 @@
+
+yilinker_merchant_customized_category_api_v3_route:
+    resource: "v3/customized_category.yml"
+    prefix: /
+
+yilinker_product_api_v3_route:
+    resource: "v3/product_old.yml"
+    prefix: /auth/product
+
+yilinker_bank_api_v3_route:
+    resource: "v3/bank.yml"
+    prefix: /
+
+yilinker_bank_account_api_v3_route:
+    resource: "v3/bank_account.yml"
+    prefix: /
+
+yilinker_reseller_api_v3_route:
+    resource: "v3/reseller.yml"
+    prefix: /
+
+yilinker_payout_api_v3_route:
+    resource: "v3/payout.yml"
+    prefix: /
+
+### V3 ###############
+yilinker_api_route_v3_oauth:
+    resource: "v3/oauth.yml"
+    defaults: { version: 2 }
+    prefix: /
+
+yilinker_api_route_v3_user:
+    resource: "v3/user.yml"
+    prefix: /
+
+yilinker_api_route_v3_store:
+    resource: "v3/store.yml"
+    prefix: /
+
+yilinker_api_route_v3_product_upload:
+    resource: "v3/product.yml"
+    prefix: /
+
+yilinker_api_route_v3_user_warehouse:
+    resource: "v3/user_warehouse.yml"
+    prefix: /

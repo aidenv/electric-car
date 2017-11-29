@@ -1,0 +1,151 @@
+{# {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/chat-buyer.css') }}">
+{% endblock %}
+    <div class="chat ui">
+        <div class="wrapper">
+            <div class="title-container">
+                <span id="title-text">Welcome to LiveChat</span>
+            </div>
+        </div>
+    </div>
+ #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YiLinker Support Chat</title>
+    <link rel="stylesheet" href="{{ asset('css/chat-buyer.css') }}">
+</head>
+<body class="chat ui">
+    <div>
+        <div class="wrapper">
+            <div class="wrapper-row">
+                <div class="title-container">
+                    <span id="title-text">Welcome to YL Chat</span>
+                    <span id="close-chat" class="title-button">
+                        <i class="icon icon-times"></i>
+                    </span>
+                    <span id="minimize-chat" class="title-button">
+                        <i class="icon icon-minus"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="wrapper-row">
+                <div class="support-details-container">
+                    <div class="image-holder support-image">
+                        <img src="{{ asset('images/buyer-img-1.jpg') }}" alt="Daenerys Targaryen" class="img-auto-place">
+                    </div>
+                    <div class="support-title-name">
+                        <span id="support-name">Daenerys The Unburnt Queen of the Andals, the Rhoynar, and of the First Men Queen of Meereen Khaleesi of the Great Grass Sea Breaker of Chains Mother of Dragons</span>
+                        <span id="support-title">Support Hero</span>
+                        <span id="chat-rate">
+                            Rate this conversation
+                        </span>
+                    </div>
+                    <div class="image-holder company-image">
+                        <img src="{{ asset('images/logo-alter-main.png') }}" alt="Daenerys Targaryen" class="img-auto-place">
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper-row thread">
+                <div class="thread-container">
+                    <div class="inbound">
+                        <span class="image-holder image-user-thread">
+                            <img src="{{ asset('images/buyer-img-1.jpg') }}" alt="Daenerys Targaryen" class="img-auto-place">
+                        </span>
+                        <div class="inner">
+                            <p class="chat-message">
+                                I see a little silhouetto of a man...
+                            </p>
+                            <span class="status"></span>
+                        </div>
+                        <div class="inner">
+                            <p class="chat-message">
+                                Magnifico.
+                            </p>
+                            <span class="status"></span>
+                        </div>
+                    </div>
+                    <div class="outbound">
+                        <div class="inner">
+                            <p class="chat-message">
+                                Scaramouche, Scaramouche, will you do the Fandango?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="inbound">
+                        <span class="image-holder image-user-thread">
+                            <img src="{{ asset('images/buyer-img-1.jpg') }}" alt="Daenerys Targaryen" class="img-auto-place">
+                        </span>
+                        <div class="inner">
+                            <p class="chat-message">
+                                Thunderbolt and lightning,
+                                Very, very frightening me.
+                                (Galileo) Galileo.
+                                (Galileo) Galileo,
+                                Galileo Figaro
+                                Magnifico.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="outbound">
+                        <div class="inner">
+                            <p class="chat-message">
+                                I'm just a poor boy, nobody loves me.
+                                He's just a poor boy from a poor family,
+                                Spare him his life from this monstrosity.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="inbound">
+                        <span class="image-holder image-user-thread">
+                            <img src="{{ asset('images/buyer-img-1.jpg') }}" alt="Daenerys Targaryen" class="img-auto-place">
+                        </span>
+                        <div class="inner">
+                            <p class="chat-message">
+                                <span class="text">Easy come, easy go, will you let me go?</span>
+                            </p>
+                        </div>
+                        <div class="inner image">
+                            <a href="{{ asset('images/buyer-img-1.jpg') }}" target="-blank">
+                                <img src="{{ asset('images/sample500x250.jpg') }}" alt="123123123.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="outbound">
+                        <div class="inner">
+                            <p class="chat-message">
+                                Bismillah! No, we will not let you go.
+                            </p>
+                        </div>
+                        <div class="inner">
+                            <p class="chat-message">
+                                Will not let you go
+                            </p>
+                        </div>
+                        <div class="inner image">
+                            <a href="{{ asset('images/buyer-img-1.jpg') }}" target="-blank">
+                                <img src="{{ asset('images/featured-1.jpg') }}" alt="123123123.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    {# Status if convo transferred to another CSR  #}
+                    <span class="chat-action">
+                        Your conversation was transferred to <b>CSR Cersei</b>
+                    </span>
+                </div>
+            </div>
+            <div class="wrapper-row textbox">
+                <div class="message-field">
+                    <textarea placeholder="Enter your message here..."></textarea>
+                    <span class="attachment-icon">
+                        <i class="icon icon-paper-clip"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

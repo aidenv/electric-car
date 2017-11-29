@@ -1,0 +1,117 @@
+services:
+
+# Form Type
+
+    yilinker_back_end.form.type.admin_account_registration:
+        class: Yilinker\Bundle\BackendBundle\Form\Type\AccountRegisterFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: admin_account_registration }
+
+    yilinker_back_end.form.type.admin_password_change:
+        class: Yilinker\Bundle\BackendBundle\Form\Type\AdminPasswordChangeFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: admin_password_change }
+
+    yilinker_back_end.form.type.admin_account_edit:
+        class: Yilinker\Bundle\BackendBundle\Form\Type\AccountEditFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: admin_account_edit }
+
+    yilinker_back_end.form.type.promo:
+        class: Yilinker\Bundle\BackendBundle\Form\Type\PromoFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: promo }
+
+    yilinker_back_end.form.type.backend_payout_form:
+        class: Yilinker\Bundle\BackendBundle\Form\Type\PayoutFormType
+        parent: yilinker_core.form.type.yilinker_base_form_type
+        tags:
+            - { name: form.type, alias: backend_payout_form }
+
+    yilinker_back_end.form.type.image_upload:
+        class: Yilinker\Bundle\BackendBundle\Form\Type\DailyLoginFormType
+        tags:
+            - { name: form.type, alias: daily_login_form_type }
+
+    yilinker_back_end.form.type.payout_batch_file_upload:
+        class: Yilinker\Bundle\BackendBundle\Form\Type\PayoutBatchFileFormType
+        tags:
+            - { name: form.type, alias: payout_batch_file_upload }
+
+    yilinker_back_end.form.type.refund_history_filter_form:
+        class: Yilinker\Bundle\BackendBundle\Form\Type\RefundHistoryFilterFormType
+        tags:
+            - { name: form.type, alias: refund_history_filter }
+
+    yilinker_back_end.form.type.admin_create_notification:
+        class: Yilinker\Bundle\BackendBundle\Form\Type\CreateDeviceNotificationFormType
+        tags:
+            - { name: form.type, alias: admin_create_notification }
+
+    yilinker_back_end.form.type.admin_update_notification:
+        class: Yilinker\Bundle\BackendBundle\Form\Type\UpdateDeviceNotificationFormType
+        tags:
+            - { name: form.type, alias: admin_update_notification }
+
+    yilinker_back_end.form.type.cms_brand_form:
+        class: Yilinker\Bundle\BackendBundle\Form\Type\CmsBrandFormType
+        tags:
+            - { name: form.type, alias: cms_brand_form }
+
+# Constraints
+
+    yilinker_back_end.form.validator.constraint.unique_username:
+        class: Yilinker\Bundle\BackendBundle\Form\Validator\Constraints\UniqueUsernameValidator
+        arguments:
+            - '@yilinker_core.admin_user.repository'
+        tags:
+            - { name: validator.constraint_validator, alias: unique_username }
+
+    yilinker_back_end.form.validator.constraint.valid_recipient:
+        class: Yilinker\Bundle\BackendBundle\Form\Validator\Constraints\ValidRecipientValidator
+        tags:
+            - { name: validator.constraint_validator, alias: valid_recipient }
+
+    yilinker_back_end.form.validator.constraint.valid_date_scheduled:
+        class: Yilinker\Bundle\BackendBundle\Form\Validator\Constraints\ValidDateScheduledValidator
+        tags:
+            - { name: validator.constraint_validator, alias: valid_date_scheduled }
+
+    yilinker_back_end.form.validator.constraint.valid_end_date:
+        class: Yilinker\Bundle\BackendBundle\Form\Validator\Constraints\ValidDateEndValidator
+        tags:
+            - { name: validator.constraint_validator, alias: valid_end_date }
+
+    yilinker_back_end.form.validator.constraint.valid_target_type:
+        class: Yilinker\Bundle\BackendBundle\Form\Validator\Constraints\ValidTargetTypeValidator
+        tags:
+            - { name: validator.constraint_validator, alias: valid_target_type }
+
+    yilinker_back_end.form.validator.constraint.valid_promo_units:
+        class: Yilinker\Bundle\BackendBundle\Form\Validator\Constraints\ValidPromoUnitsValidator
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@yilinker_core_bundle.repository.product_unit'
+            - '@yilinker_core_bundle.repository.promo_type'
+            - '@yilinker_core.translatable.listener'
+        tags:
+            - { name: validator.constraint_validator, alias: valid_promo_units }
+
+    yilinker_back_end.form.validator.constraint.valid_target:
+        class: Yilinker\Bundle\BackendBundle\Form\Validator\Constraints\ValidTargetValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.product'
+            - '@yilinker_core_bundle.repository.store'
+        tags:
+            - { name: validator.constraint_validator, alias: valid_target }
+
+    yilinker_back_end.form.validator.constraint.valid_notification:
+        class: Yilinker\Bundle\BackendBundle\Form\Validator\Constraints\ValidNotificationValidator
+        arguments:
+            - '@yilinker_core_bundle.repository.device_notification'
+        tags:
+            - { name: validator.constraint_validator, alias: valid_notification }

@@ -1,0 +1,29 @@
+core_broadcast_user_create_v3:
+    path: /broadcast/user/create
+    defaults: { _controller: YilinkerCoreBundle:Api/BroadcastApi:createUser }
+    methods: [POST]
+
+core_broadcast_user_update_v3:
+    path: /broadcast/user/update
+    defaults: { _controller: YilinkerCoreBundle:Api/BroadcastApi:updateUser }
+    methods: [POST]
+
+core_broadcast_location_create_v3:
+    path: /broadcast/location/create
+    defaults: { _controller: YilinkerCoreBundle:Api/BroadcastApi:createLocation }
+    methods: [POST]
+
+core_broadcast_location_update_v3:
+    path: /broadcast/location/update
+    defaults: { _controller: YilinkerCoreBundle:Api/BroadcastApi:updateLocation }
+    methods: [POST]
+
+core_broadcast_location_type_create_v3:
+    path: /broadcast/location-type/create
+    defaults: { _controller: YilinkerCoreBundle:Api/BroadcastApi:createLocationType }
+    methods: [POST]
+
+core_broadcast_location_type_update_v3:
+    path: /broadcast/location-type/update
+    defaults: { _controller: YilinkerCoreBundle:Api/BroadcastApi:updateLocationType }
+    methods: [POST]

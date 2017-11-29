@@ -1,0 +1,23 @@
+api_dispute_get_case:
+    path: /auth/dispute/get-case
+    defaults: { _controller: YilinkerCoreBundle:Api/DisputeApi:getCase }
+    methods: [GET]
+
+api_dispute_get_case_detail:
+    path: /auth/dispute/get-case-detail
+    defaults: { _controller: YilinkerCoreBundle:Api/DisputeApi:getCaseByDetail }
+    methods: [GET]
+
+api_dispute_add_case:
+    path: /auth/dispute/add-case
+    defaults: { _controller: YilinkerCoreBundle:Api/DisputeApi:addCase }
+
+api_dispute_get_seller_reasons:
+    path: /auth/dispute/get-seller-reasons
+    defaults: { _controller: YilinkerCoreBundle:Api/DisputeApi:getSellerDisputeReason }
+    methods: [GET]
+
+api_dispute_get_buyer_reasons:
+    path: /auth/dispute/get-buyer-reasons
+    defaults: { _controller: YilinkerCoreBundle:Api/DisputeApi:getBuyerDisputeReason }
+    methods: [GET]

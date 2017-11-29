@@ -1,0 +1,4 @@
+yilinker_frontend_points_index:
+    path: /my-points
+    defaults: { _controller: YilinkerFrontendBundle:Points:myPoints }
+    methods: [GET]

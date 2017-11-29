@@ -1,0 +1,37 @@
+Yilinker\Bundle\CoreBundle\Entity\UserOrderFlagged:
+    type: entity
+    table: UserOrderFlagged
+    indexes:
+        user_order_flagged_user_id:
+            columns:
+                - admin_user_id
+    id:
+        userOrderFlaggedId:
+            type: integer
+            nullable: false
+            unsigned: true
+            id: true
+            column: user_order_flagged_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        flagReason:
+            type: smallint
+            column: flag_reason
+            default: 0
+        status:
+            type: smallint
+            column: status
+            default: 0
+        remarks:
+            type: text
+        dateRemarked:
+            type: datetime
+            column: date_remarked
+    manyToOne:
+        user:
+            targetEntity: AdminUser
+            joinColumn:
+                name: admin_user_id
+                referencedColumnName: admin_user_id
+    lifecycleCallbacks: { }

@@ -1,0 +1,55 @@
+services:
+
+  yilinker_backend.admin_user_manager:
+      class: Yilinker\Bundle\BackendBundle\Services\AdminUser\AdminUserManager
+      arguments:
+          - @doctrine.orm.entity_manager
+
+  yilinker_backend.user_manager:
+      class: Yilinker\Bundle\BackendBundle\Services\User\UserManager
+      arguments:
+          - @doctrine.orm.entity_manager
+          - @yilinker_core.service.user_address.user_address
+
+  yilinker_backend.transaction_manager:
+      class: Yilinker\Bundle\BackendBundle\Services\Transaction\TransactionManager
+      arguments:
+          - @doctrine.orm.entity_manager
+          - @templating.helper.assets
+
+  yilinker_backend.promo_manager:
+      class: Yilinker\Bundle\BackendBundle\Services\Promo\PromoManager
+      arguments:
+          - @doctrine.orm.entity_manager
+
+  yilinker_backend.cms_manager:
+      class: Yilinker\Bundle\BackendBundle\Services\Cms\CmsManager
+      calls:
+            - [setContainer, ['@service_container']]
+
+  yilinker_backend.payout_request_manager:
+      class: Yilinker\Bundle\BackendBundle\Services\Payout\PayoutRequestManager
+      arguments:
+          - @doctrine.orm.entity_manager
+
+  yilinker_backend.batch_payout_manager:
+      class: Yilinker\Bundle\BackendBundle\Services\Payout\BatchPayoutManager
+      arguments:
+          - @doctrine.orm.entity_manager
+          - @templating.helper.assets
+
+  yilinker_backend.kernel.listener.exception_listener:
+        class: Yilinker\Bundle\BackendBundle\EventListener\BackendExceptionListener
+        arguments:
+          - @service_container
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+
+#file uploader
+  yilinker_backend.service.product_file_uploader:
+      class: Yilinker\Bundle\MerchantBundle\Services\FileUpload\ProductFileUploader
+      calls:
+          - [setContainer, ['@service_container']]
+      arguments:
+          - @photo_storage_filesystem
+  

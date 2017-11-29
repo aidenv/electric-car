@@ -1,0 +1,13 @@
+# payment postbacks and return urls
+
+payment_return_dragonpay:
+    path: /return/dragonpay
+    defaults: { _controller: YilinkerFrontendBundle:Checkout:returnDragonpay }
+    
+payment_postback_dragonpay:
+    path: /postback/dragonpay
+    defaults: { _controller: YilinkerFrontendBundle:Checkout:postbackDragonpay }
+
+payment_postback_pesopay:
+    path: /postback/pesopay
+    defaults: { _controller: YilinkerFrontendBundle:Checkout:postbackPesopay }

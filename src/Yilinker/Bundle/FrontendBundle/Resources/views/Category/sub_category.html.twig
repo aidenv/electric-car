@@ -1,0 +1,72 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    {{ category.name }}
+{% endblock %}
+
+{% block facebook_analytics %}
+    {% embed 'analytics/facebook-pixel.html.twig' %}
+        {% block fbPixel %}
+        fbq('track', 'ViewContent', { 
+            content_type: 'product_group',
+            content_ids: [{% for product in products %}'{{ product.productId }}'{% if loop.index != products|length %},{% endif %}{% endfor %}],
+            content_name: '{{ category.name }} > page:{{ page }}',
+            content_category: 'category'
+        });
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="category-page">
+        <div class="wrapper-outer" id="searchWrapper">
+            <!--Header for product seller-->
+            {% include 'YilinkerFrontendBundle:Category:sub_category_header.html.twig' %}
+            
+            <!--Searched items area-->
+            <div class="search-body-wrapper product-group-wrapper">
+                <div class="row">
+                   {% for product in products %}
+                        {% if app.environment == 'prod' %}
+                            {{ render_esi(controller('YilinkerFrontendBundle:Product:renderProductCard', {'productId':product.productId,'discountedPrice':product.defaultUnit.appliedDiscountPrice,'quantity':product.defaultUnit.quantity})) }}
+                        {% else %}
+                            {% set productData = {'product': product} %}
+                            {% include 'YilinkerFrontendBundle:Product:product_card.html.twig' with productData only %}
+                        {% endif %}
+                   {% endfor %}
+                </div>
+                
+                {{ include('YilinkerFrontendBundle:Base:product_list_schema.script.twig', {'products':products}) }}
+
+                <!--Pagination-->
+                <div class="search-pagination-container">
+                    <div class="pagination-full simple-pagination">
+                        <ul class="list-unstyled" data-lastpage="{{ totalPages }}" data-currentpage="{{ page }}"
+                            data-hrefprefix="{{ path('get_category', parameters) }}">
+                            {% for i in 1..totalPages %}
+                            <li data-page="{{ i }}">
+                                <a class="{{ page == i ? 'current-page' : '' }}" href="{{ path('get_category', parameters ) }}">
+                                    {{ i }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('js/bower/ion.rangeSlider.min.js') }}"></script>
+    <script src="{{ asset('js/bower/simple-pagination.js') }}"></script>
+    <script src="{{ asset('js/src/product-list-header.js') }}"></script>
+    <script src="{{ asset('js/src/frontend/product-filter-modal.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,57 @@
+
+#from v1
+yilinker_product_api_v3_route:
+    resource: "v3/product.yml"
+    prefix: /product
+
+yilinker_user_api_v3_route:
+    resource: "v3/user.yml"
+    prefix: /
+
+yilinker_cart_api_v3_route:
+    resource: "v3/cart.yml"
+    prefix: /
+
+yilinker_product_review_api_v3_route:
+    resource: "v3/product_review.yml"
+    prefix: /
+
+yilinker_mobile_verification_api_v3_route:
+    resource: "v3/mobile_verification.yml"
+    prefix: /verification
+
+yilinker_checkout_api_v3_route:
+    resource: "v3/checkout.yml"
+    prefix: /
+
+yilinker_user_follow_api_v3_route:
+    resource: "v3/user_follow.yml"
+    prefix: /
+
+
+yilinker_social_media_api_v3_route:
+    resource: "v3/social_media.yml"
+    prefix: /
+
+yilinker_frontend_customized_category_api_v3_route:
+    resource: "v3/customized_category.yml"
+    prefix: /category
+
+#from v2
+yilinker_checkout_api_v3_v2_route:
+    resource: "v3/checkout.yml"
+    prefix: /
+
+yilinker_oauth_api_v3_route:
+    resource: "v3/oauth.yml"
+    prefix: /
+
+pages_v3:
+    resource: "v3/pages.yml"
+    prefix: /
+
+web_view_v3:
+    resource: "v3/web_view.yml"
+    prefix: /
+
+

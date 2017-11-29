@@ -1,0 +1,40 @@
+Yilinker\Bundle\CoreBundle\Entity\ManufacturerProductAttributeName:
+    type: entity
+    table: ManufacturerProductAttributeName
+    fk_manufacturerproductattributename_manufacturerproductid_manufacturerproduct_manufacturerproductid_idx:
+            columns:
+                - manufacturer_product_id
+    id:
+        manufacturerProductAttributeNameId:
+            type: integer
+            unsigned: false
+            id: true
+            column: manufacturer_product_attribute_name_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 255
+            column: name
+            options:
+                default: ''
+        referenceId:
+            type: string
+            length: 255
+            column: reference_id
+            options:
+                default: ''
+    manyToOne:
+        manufacturerProduct:
+            targetEntity: ManufacturerProduct
+            joinColumn:
+                name: manufacturer_product_id
+                referencedColumnName: manufacturer_product_id
+            orphanRemoval: false
+            inversedBy: manufacturerProductAttributeNames
+    oneToMany:
+        manufacturerProductAttributeValues:
+            targetEntity: ManufacturerProductAttributeValue
+            mappedBy: manufacturerProductAttributeName
+    lifecycleCallbacks: {  }

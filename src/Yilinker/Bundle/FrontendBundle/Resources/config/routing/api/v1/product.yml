@@ -1,0 +1,13 @@
+api_product_detail:
+    path: /getProductDetail
+    defaults: { _controller: YilinkerFrontendBundle:Api/ProductApi:detail }
+    methods: [GET]
+
+api_promo_products:
+    path: /getPromoProducts
+    defaults: { _controller: YilinkerFrontendBundle:Api/ProductApi:getPromoProducts }
+
+api_product_list:
+    path: /getProductList
+    defaults: { _controller: YilinkerFrontendBundle:Api/ProductApi:list }
+    methods: [GET]

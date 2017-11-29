@@ -1,0 +1,304 @@
+@import "online/modules/icons";
+
+body{
+    background: #E0E0E0;
+    color: #666;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    margin: 0;
+}
+
+div, button, span, ul, input, section, a, textarea{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+ul, p{
+    padding: 0;
+    margin: 0;
+}
+
+//regulars
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../fonts/OpenSans-Light.ttf);
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../fonts/OpenSans-Regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../fonts/OpenSans-Semibold.ttf);
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../fonts/OpenSans-Bold.ttf);
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../fonts/OpenSans-ExtraBold.ttf);
+    font-weight: 800;
+    font-style: normal;
+}
+
+//italic
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../fonts/OpenSans-LightItalic.ttf);
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../fonts/OpenSans-Italic.ttf);
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../fonts/OpenSans-SemiboldItalic.ttf);
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../fonts/OpenSans-BoldItalic.ttf);
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../fonts/OpenSans-ExtraBoldItalic.ttf);
+    font-weight: 800;
+    font-style: italic;
+}
+
+.segment{
+    background: #EEEFF1;
+    margin: auto;
+    width: 100%;
+    max-width: 352px;
+    padding: 25px 25px;
+    border-radius: 4px;
+    position: relative;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    .title{
+        text-align: center;
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        margin: 10px;
+        margin-bottom: 13px;
+    }
+
+    .text{
+        font-size: 14px;
+        line-height: 1.66;
+    }
+}
+
+.segment:after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 13px 12px 0;
+    border-color: transparent #EEEFF1 transparent transparent;
+    position: absolute;
+    left: -12px;
+    top: 47px;
+}
+
+.logo{
+    height: 60px;
+    width: auto;
+    margin: auto;
+}
+
+.header{
+    position: absolute;
+    top: 26px;
+    left: -108px;
+    text-align: center;
+
+    .intro{
+        color: #75338A;
+        font-size: 13px;
+        margin-top: 5px;
+        letter-spacing: 1px;
+        font-weight: 500;
+    }
+
+    .name{
+        font-size: 16px;
+        letter-spacing: 2px;
+        color: #75338A;
+        font-weight: 500;
+        margin-top: 3px;
+    }
+}
+
+.register{
+    a{
+        color: #989898;
+        letter-spacing: 0.5px;
+        font-weight: bold;
+    }
+
+}
+
+input[type="text"],
+input[type="password"]{
+    display: block;
+    width: 100%;
+    padding: 0.6em 1em;
+    font-size: 14px;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 1.66667;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    outline: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    min-height: 3.33em;
+    color: #666;
+    transition: all 0.3s ease;
+    &:focus{
+        border-radius: 0 6px 6px 0;
+        border: 1px solid #dedede;
+        border-width-left: 3px;
+    }
+}
+
+.input-icon{
+    position: relative;
+    input[type="text"],
+    input[type="password"]{
+        padding-right: 44px;
+    }
+
+    .icon{
+        position: absolute;
+        z-index: 2;
+        top: 10px;
+        right: 9px;
+        font-size: 26px;
+        opacity: 0.5;
+
+        &.icon-user2{
+            font-size: 22px;
+            top: 12px;
+            right: 10px;
+        }
+
+        &.icon-lock{
+            font-size: 22px;
+            top: 12px;
+            right: 13px;
+        }
+    }
+}
+
+.button{
+    display: inline-block;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: center;
+    vertical-align: middle;
+    border-width: 1px;
+    border-style: solid;
+    margin-bottom: 5px;
+    padding: 0.67em 1.67em;
+    font-size: 1em;
+    line-height: 1.66667;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 3px;
+    margin-right: 5px;
+    color: #666;
+    outline: none;
+    transition: all 0.3s ease;
+    &:hover{
+        background: darken(#dedede, 10.5%);
+    }
+
+    &.submit{
+        color: #fff;
+        background: #75338a;
+        border-color: #75338a;
+        &:hover{
+            background: darken(#75338a, 10.5%);
+        }
+    }
+
+    &.block{
+        width: 100%;
+        display: block;
+    }
+
+    &.fat{
+        padding: 0.6em 1.67em;
+        font-size: 17px;
+    }
+}
+
+.message-box{
+    border: solid #ababab 1px;
+    padding: 15px 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    margin-bottom: 14px;
+
+    &.red{
+        color: #CD7170;
+        background: #F7E3E3;
+        border-color: #F7E3E3;
+    }
+}
+
+.mrg-top-10{
+    margin-top: 10px;
+}
+
+.mrg-top-15{
+    margin-top: 15px;
+}
+
+.mrg-top-20{
+    margin-top: 20px;
+}
+
+.mrg-bt-10{
+    margin-bottom: 10px;
+}
+
+.mrg-bt-15{
+    margin-bottom: 15px;
+}

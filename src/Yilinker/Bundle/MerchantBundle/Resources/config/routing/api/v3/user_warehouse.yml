@@ -1,0 +1,25 @@
+api_merchant_user_warehouse:
+    path: /auth/warehouse/list
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/UserWarehouseApi:list }
+
+api_merchant_user_warehouse_form:
+    path: /auth/warehouse/form
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/UserWarehouseApi:form }
+    methods: [POST]
+
+api_merchant_user_warehouse_delete:
+    path: /auth/warehouse/delete
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/UserWarehouseApi:delete }
+
+api_merchant_user_warehouse_inventory:
+    path: /auth/warehouse/inventory
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/UserWarehouseApi:inventory }
+
+api_merchant_user_warehouse_inventory_filter:
+    path: /auth/warehouse/inventory-filter
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/UserWarehouseApi:inventoryFilter }
+
+
+api_merchant_user_warehouse_inventory_update:
+    path: /auth/warehouse/inventory/update
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/UserWarehouseApi:updateInventory }

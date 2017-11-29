@@ -1,0 +1,40 @@
+store_about:
+    path: /store/{slug}/about
+    defaults: { _controller: YilinkerFrontendBundle:Store:aboutRedirect }
+    requirements:
+        _locale: en
+
+store_feedback:
+    path: /store/{slug}/feedback
+    defaults: { _controller: YilinkerFrontendBundle:Store:feedbackRedirect }
+    requirements:
+        _locale: en
+
+store_products:
+    path: /store/{slug}/{categorySlug}
+    defaults: { _controller: YilinkerFrontendBundle:Store:productsRedirect, categorySlug: ''}
+    requirements:
+        _locale: en
+
+store_page_about:
+    path: /{slug}/about
+    defaults: { _controller: YilinkerFrontendBundle:Store:about }
+    requirements:
+        _locale: en
+
+store_page_feedback:
+    path: /{slug}/feedback
+    defaults: { _controller: YilinkerFrontendBundle:Store:feedback }
+    requirements:
+        _locale: en
+
+store_page_products:
+    path: /{slug}
+    defaults: { _controller: YilinkerFrontendBundle:Store:products}
+    requirements:
+        _locale: en
+
+# currently used for affiliate only
+store_product_details:
+    path: /{storeSlug}/{slug}/store
+    defaults: { _controller: YilinkerFrontendBundle:Product:details }

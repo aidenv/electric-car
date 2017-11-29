@@ -1,0 +1,27 @@
+<section class="home-section">
+    <div class="title-bar">
+        <div class="home-body-wrapper">
+            <span>{% trans %} Items You May Like {% endtrans %}</span>
+        </div>
+    </div>
+    <div class="content product-group">
+        <div class="home-body-wrapper">
+            <div class="row row-for-product-group">
+                {% for product in homeXml.itemsYouMayLike.product %}
+                    {% if 
+                        product.attributes.unit is defined and 
+                        productUnitsData[''~product.attributes.unit] is defined 
+                    %}
+                        {% set productDetails = productUnitsData[''~product.attributes.unit] %}
+                    {% elseif productsData[''~product] is defined %}
+                        {% set productDetails = productsData[''~product] %}
+                    {% endif %}
+                    {% if productDetails is defined %}
+                        <!--Start of product item card-->
+                        {{ include('YilinkerFrontendBundle:Product:product_preview1.html.twig', {'product': productDetails}) }}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

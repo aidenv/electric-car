@@ -1,0 +1,77 @@
+cms_daily_login:
+    path: /daily-login
+    defaults: { _controller: YilinkerBackendBundle:Cms:renderDailyLogin }
+
+cms_update_daily_login:
+    path: /daily-login/update
+    defaults: { _controller: YilinkerBackendBundle:Cms:editDailyLoginContent }
+
+cms_render_product_list:
+    path: /product-lists
+    defaults: { _controller: YilinkerBackendBundle:Cms:renderCmsProduct }
+
+cms_remove_products:
+    path: /product-lists/remove
+    defaults: { _controller: YilinkerBackendBundle:Cms:removeProducts }
+
+cms_render_product_detail:
+    path: /product-detail/{id}
+    defaults: { _controller: YilinkerBackendBundle:Cms:renderProductDetail, id: 'new' }
+
+cms_update_product_detail:
+    path: /update-product-detail
+    defaults: { _controller: YilinkerBackendBundle:Cms:updateProductDetail }
+
+cms_get_product_by_slug:
+    path: /get-product-by-slug
+    defaults: { _controller: YilinkerBackendBundle:Cms:getProductBySlug }
+
+cms_render_main_banner:
+    path: /main-banner
+    defaults: { _controller: YilinkerBackendBundle:Cms:renderMainBanner }
+
+cms_update_main_banner:
+    path: /update-main-banner
+    defaults: { _controller: YilinkerBackendBundle:Cms:updateMainBanner }
+
+cms_render_brand_list:
+    path: /brand-list
+    defaults: { _controller: YilinkerBackendBundle:Cms:renderBrandList }
+
+cms_remove_brands:
+    path : /brand-list/remove
+    defaults: { _controller: YilinkerBackendBundle:Cms:removeBrands }
+
+cms_render_brand:
+    path : /brand/{id}
+    defaults: { _controller: YilinkerBackendBundle:Cms:renderBrandData, id: 'new' }
+
+cms_update_brand:
+    path: /update-brand
+    defaults: { _controller: YilinkerBackendBundle:Cms:updateBrand }
+
+cms_product_search_brand:
+    path: /search/brand
+    defaults: { _controller: YilinkerBackendBundle:Cms:getBrandByName }
+    methods: [GET]
+
+cms_render_store_list:
+    path: /store-list
+    defaults: { _controller: YilinkerBackendBundle:Cms:renderStoreList }
+
+cms_remove_stores:
+    path : /store-list/remove
+    defaults: { _controller: YilinkerBackendBundle:Cms:removeStores }
+
+cms_render_seller:
+    path: /seller/{storeListNodeId}/{id}
+    defaults: { _controller: YilinkerBackendBundle:Cms:renderSellerData, storeListNodeId: 'storeListOne', id:'new' }
+
+cms_update_seller:
+    path: /update-seller
+    defaults: { _controller: YilinkerBackendBundle:Cms:updateSeller }
+
+cms_search_store:
+    path: /search/stores
+    defaults: { _controller: YilinkerBackendBundle:Cms:getStoreByName }
+    methods: [GET]

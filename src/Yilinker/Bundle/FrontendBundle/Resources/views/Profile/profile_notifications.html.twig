@@ -1,0 +1,115 @@
+
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+
+{% block title %}
+    {% trans %}Notifications{% endtrans %}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="profile">
+        <div class="dashboard-wrapper">
+            
+            {{ render(controller('YilinkerFrontendBundle:Dashboard:renderLeftWingMenu', {'currentRoute': app.request.attributes.get('_route') } )) }}
+
+
+            <div class="dashboard-body-container white">
+                <div class="dashboard-component top">
+                    <div class="title-bar">
+                        <div class="component-content">
+                            <span class="uppercase">Notifications</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-component">
+                    <div class="component-content list-notifications mobile-notifications">
+                        <a href="">
+                            <div class="notification-icon-container">
+                                <span class="icon-circle-container">
+                                    <i class="icon icon-check"></i>
+                                </span>
+                            </div>
+                            <div class="notification-details">
+                                <span class="semi-bold">
+                                    Cancel Request for x1 Sample Product 1 Lorem Ipsul asd asd asd mcashc asd filed by Seller Official
+                                </span>
+                                <span class="notification-time light-color mrg-top-10">
+                                    3 months ago
+                                </span>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="notification-icon-container">
+                                <span class="icon-circle-container">
+                                    <i class="icon icon-check"></i>
+                                </span>
+                            </div>
+                            <div class="notification-details">
+                                <span class="semi-bold">
+                                    Cancel Request for x1 Sample Product 1 Lorem Ipsul asd asd asd mcashc asd filed by Seller Official
+                                </span>
+                                <span class="notification-time light-color mrg-top-10">
+                                    3 months ago
+                                </span>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="notification-icon-container">
+                                <span class="icon-circle-container">
+                                    <i class="icon icon-check"></i>
+                                </span>
+                            </div>
+                            <div class="notification-details">
+                                <span class="semi-bold">
+                                    Cancel Request for x1 Sample Product 1 Lorem Ipsul asd asd asd mcashc asd filed by Seller Official
+                                </span>
+                                <span class="notification-time light-color mrg-top-10">
+                                    3 months ago
+                                </span>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="notification-icon-container">
+                                <span class="icon-circle-container">
+                                    <i class="icon icon-check"></i>
+                                </span>
+                            </div>
+                            <div class="notification-details">
+                                <span class="semi-bold">
+                                    Cancel Request for x1 Sample Product 1 Lorem Ipsul asd asd asd mcashc asd filed by Seller Official
+                                </span>
+                                <span class="notification-time light-color mrg-top-10">
+                                    3 months ago
+                                </span>
+                            </div>
+                        </a>
+                        <a href="">
+                            <div class="notification-icon-container">
+                                <span class="icon-circle-container">
+                                    <i class="icon icon-check"></i>
+                                </span>
+                            </div>
+                            <div class="notification-details">
+                                <span class="semi-bold">
+                                    Cancel Request for x1 Sample Product 1 Lorem Ipsul asd asd asd mcashc asd filed by Seller Official
+                                </span>
+                                <span class="notification-time light-color mrg-top-10">
+                                    3 months ago
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ include('YilinkerFrontendBundle:Profile:profile_base_js.html.twig') }}
+    <script src="{{ asset('js/src/universal.js') }}"></script>
+{% endblock %}

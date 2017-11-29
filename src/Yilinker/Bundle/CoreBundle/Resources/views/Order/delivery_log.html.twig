@@ -1,0 +1,73 @@
+<div class="dashboard-component">
+    <div class="title-bar">
+        <div class="component-content">
+            <span class="uppercase">Delivery Log</span>
+        </div>
+    </div>
+    <div id="deliver-log-container" class="component-content">
+        {% for package in packages %}
+            <div class="panel panel-delivery-log">
+                <div class="panel-head purple">
+                    <div>
+                        <b>Package :</b> {{ package.waybillNumber }}
+                        <ul class="list-unstyled list-package-items">
+                            <li class="list-label"><b>Items : </b></li>
+                            {% for packageDetail in package.packageDetails %}
+                                <li class="item">
+                                    {{ packageDetail.orderProduct.productName }} x{{ packageDetail.quantity|default(packageDetail.orderProduct.quantity) }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    {% for date, timelinedHistory in package.timelinedHistory %}
+                        <table class="table table-activity-log">
+                            <tr>
+                                <td width="20%" valign="top" align="center" class="uppercase date">
+                                    <h4 class="light no-margin">{{ date|date('l') }}</h4>
+                                    <h5 class="light no-margin">{{ date }}</h5>
+                                </td>
+                                <td rowspan="2">
+                                    {% for packageHistory in timelinedHistory %}
+                                        <div class="panel">
+                                            <div class="panel-head">
+                                                <h4 class="no-margin semi-bold"><i class="icon icon-package"></i> {{ packageHistory.packageStatus.name }} <span class="purple-color pull-right"><i class="icon icon-clock"></i> {{ packageHistory.dateAdded|date('g:i A') }}</span></h4>
+                                            </div>
+                                            {% if packageHistory.personInCharge %}
+                                                <div class="panel-body">
+                                                    <!-- <div class="panel-item">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                Address: <span class="bold">Marc 2000 Tower, San Andres St, Malate, Manila, Metro Manila</span>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
+                                                        <div class="panel-item">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    Person in Charge: <span class="bold">{{ packageHistory.personInCharge }}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                </div>
+
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="20%" class="td-vertical-line">
+                                    <div class="vertical-line">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    {% endfor %}
+                </div>
+            </div>
+            
+        {% endfor %}
+    </div>
+</div>

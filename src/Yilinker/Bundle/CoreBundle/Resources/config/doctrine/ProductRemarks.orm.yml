@@ -1,0 +1,47 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductRemarks:
+    type: entity
+    table: ProductRemarks
+    repositoryClass: Yilinker\Bundle\CoreBundle\Entity\ProductRemarksRepository
+    id:
+        productRemarksId:
+            column: product_remarks_id
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        remarks:
+            type: string
+            length: 255
+        dateAdded:
+            type: datetime
+            column: date_added
+        productStatus:
+            column: product_status
+            type: smallint
+        countryCode:
+            column: country_code
+            length: 10
+            options:
+                default: 'ph'
+    indexes:
+        fk_product_product_id_product_remarks_product_id_idx:
+            columns:
+                product_id
+        fk_admin_user_admin_user_id_product_remarks_admin_user_id_idx:
+            columns:
+                admin_user_id
+    manyToOne:
+        product:
+            inversedBy: ProductRemarks
+            targetEntity: Product
+            joinColumn:
+                name: product_id
+                referencedColumnName: product_id
+            orphanRemoval: false
+        adminUser:
+            targetEntity: AdminUser
+            joinColumn:
+                name: admin_user_id
+                referencedColumnName: admin_user_id
+    lifecycleCallbacks: {  }

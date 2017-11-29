@@ -1,0 +1,38 @@
+Yilinker\Bundle\CoreBundle\Entity\DisputeDetailVoucher:
+    type: entity
+    table: DisputeDetailVoucher
+    indexes:
+        dispute_detail_voucher_id_idx:
+            columns:
+                - dispute_detail_voucher_id
+        voucher_code_id_idx:
+            columns:
+                - voucher_code_id
+        dispute_detail_id_idx:
+            columns:
+                - dispute_detail_id
+    id:
+        disputeDetailVoucherId:
+            type: bigint
+            id: true
+            column: dispute_detail_voucher_id
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        voucherCode:
+            targetEntity: VoucherCode
+            inversedBy: disputeDetailVouchers
+            joinColumn:
+                name: voucher_code_id
+                referencedColumnName: voucher_code_id
+            orphanRemoval: false
+    oneToOne:
+        disputeDetail:
+            targetEntity: DisputeDetail
+            inversedBy: disputeDetailVoucher
+            joinColumn:
+                name: dispute_detail_id
+                referencedColumnName: dispute_detail_id
+            orphanRemoval: false
+            
+

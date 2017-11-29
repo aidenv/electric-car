@@ -1,0 +1,72 @@
+
+api_get_shipping_categories_v3:
+    path: /product/get-product-conditions
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:getProductConditions }
+    methods: [GET]
+
+api_get_product_conditions_v3:
+    path: /product/get-shipping-categories
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:getShippingCategories }
+    methods: [GET]
+
+api_get_product_brands_v3:
+    path: /product/get-brands
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:getBrands }
+    methods: [GET]
+
+api_get_product_categories_v3:
+    path: /product/get-categories
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:getCategories }
+    methods: [GET]
+
+api_get_product_groups_v3:
+    path: /auth/product/get-product-groups
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:getProductGroups }
+    methods: [GET]
+
+api_get_product_upload_details_v3:
+    path: /auth/product/get-upload-details
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:getUploadDetails }
+    methods: [GET]
+
+api_product_create_v3:
+    path: /auth/product/create
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:create }
+    methods: [POST]
+
+api_product_edit_v3:
+    path: /auth/product/edit
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:edit }
+    methods: [POST]
+
+api_get_product_languages_v3:
+    path: /auth/product/get-languages
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:getLanguages }
+    methods: [GET]
+
+api_get_product_translation_v3:
+    path: /auth/product/get-translation
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:getTranslationDetails }
+    methods: [GET]
+
+api_update_product_translate_v3:
+    path: /auth/product/translate
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:translateProduct }
+    methods: [POST]
+
+api_country_setup_v3:
+    path: /auth/country-setup
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:countrySetup }
+
+api_country_setup_save_comibinations_v3:
+    path: /auth/country-setup/save-combinations
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:saveCombination }
+    methods: [POST]
+
+api_country_setup_setwarehouse_v3:
+    path: /auth/country-setup/setwarehouse
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:setWarehouse }
+
+api_country_setup_store_v3:
+    path: /auth/country-setup/country-store
+    defaults: { _controller: YilinkerMerchantBundle:Api/v3/ProductApi:countryStore }

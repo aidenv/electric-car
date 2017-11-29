@@ -1,0 +1,62 @@
+Yilinker\Bundle\CoreBundle\Entity\Earning:
+    type: entity
+    table: Earning
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\EarningRepository
+    id:
+        earningId:
+            type: integer
+            id: true
+            column: earning_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        amount:
+            type: decimal
+            precision: 12
+            scale: 2
+            column: amount
+            options:
+                default: '0.00'
+        status:
+            type: smallint
+            column: status
+            options:
+                default: 0
+        dateAdded:
+            type: datetime
+            nullable: false
+            column: date_added
+        dateLastModified:
+            type: datetime
+            nullable: false
+            column: date_last_modified
+    manyToOne:
+        earningType:
+            targetEntity: EarningType
+            inversedBy: earnings
+            joinColumn:
+                name: earning_type_id
+                referencedColumnName: earning_type_id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            inversedBy: earnings
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    oneToOne:
+        earningFollow:
+            targetEntity: EarningFollow
+            mappedBy: earning
+        earningReview:
+            targetEntity: EarningReview
+            mappedBy: earning
+        earningTransaction:
+            targetEntity: EarningTransaction
+            cascade: ['persist']
+            mappedBy: earning
+        earningUserRegistration:
+            targetEntity: EarningUserRegistration
+            mappedBy: earning
+

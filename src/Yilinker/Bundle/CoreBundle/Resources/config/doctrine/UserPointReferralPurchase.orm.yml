@@ -1,0 +1,10 @@
+Yilinker\Bundle\CoreBundle\Entity\UserPointReferralPurchase:
+    type: entity
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserPointReferralPurchaseRepository
+    manyToOne:
+        source:
+            targetEntity: OrderProduct
+            joinColumn:
+                name: table_id
+                referencedColumnName: order_product_id
+            orphanRemoval: false

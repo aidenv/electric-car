@@ -1,0 +1,4 @@
+yilinker_oauth_security:
+    resource: "routing/security.yml"
+    prefix: /
+    

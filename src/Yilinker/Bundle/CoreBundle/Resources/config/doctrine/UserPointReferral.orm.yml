@@ -1,0 +1,9 @@
+Yilinker\Bundle\CoreBundle\Entity\UserPointReferral:
+    type: entity
+    manyToOne:
+        source:
+            targetEntity: UserReferral
+            joinColumn:
+                name: table_id
+                referencedColumnName: user_referral_id
+            orphanRemoval: false

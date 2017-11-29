@@ -1,0 +1,27 @@
+Yilinker\Bundle\CoreBundle\Entity\UserFollow:
+    type: entity
+    table: UserFollow
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserFollowRepository
+    id:
+        userFollowId:
+            type: integer
+            id: true
+            column: user_follow_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    manyToOne:
+        follower:
+            targetEntity: User
+            joinColumn:
+                name: follower_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        followee:
+            targetEntity: User
+            joinColumn:
+                name: followee_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

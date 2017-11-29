@@ -1,0 +1,18 @@
+<div class="right-side-title-bar">
+    <span class="title-name">
+        Notifications
+    </span>
+</div>
+<div class="right-side-item-container notifications-container">
+    <ul data-notifications="{{ socket|json_encode }}" class="list-unstyled list-notifications">
+        {% for notification in notifications %}
+            <li>
+                {{ notification(notification) }}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script src="{{ asset('js/bower/jquery.min.js') }}"></script>
+<script src="{{ asset('socket.io/socket.io.js') }}"></script>
+<script src="{{ asset('js/src/frontend/notification.js') }}"></script>

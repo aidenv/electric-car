@@ -1,0 +1,83 @@
+
+product_upload:
+    path: /seller/upload
+    defaults: 
+        _controller: YilinkerMerchantBundle:ProductUpload:productUploadRender
+
+product_upload_old:
+    path: /merchant/upload
+    defaults: 
+        _controller: FrameworkBundle:Redirect:redirect
+        route: product_upload
+        permanent: true
+
+product_upload_edit_old:
+    path: /merchant/uploadEdit/{slug}
+    defaults : 
+        _controller: FrameworkBundle:Redirect:redirect
+        route: product_upload_edit
+        permanent: true
+
+product_upload_edit:
+    path: /seller/uploadEdit/{slug}
+    defaults : { _controller: YilinkerMerchantBundle:ProductUpload:productUploadEditRender }
+
+product_upload_detail:
+    path: /merchant/upload/detail
+    defaults: { _controller: YilinkerMerchantBundle:ProductUpload:productUploadDetail }
+    methods: [POST]
+
+product_upload_edit_detail:
+    path: /merchant/upload/edit/detail
+    defaults: { _controller: YilinkerMerchantBundle:ProductUpload:productUploadEditDetail }
+    methods: [POST]
+
+product_upload_draft:
+    path: /merchant/upload/draft
+    defaults: { _controller: YilinkerMerchantBundle:ProductUpload:productUploadSaveAsDraft }
+    methods: [POST]
+
+product_upload_add_image:
+    path: /merchant/add/image
+    defaults: { _controller: YilinkerMerchantBundle:ProductUpload:productUploadImage }
+    methods: [POST]
+
+product_search_brand:
+    path: /merchant/search/brand
+    defaults: { _controller: YilinkerMerchantBundle:ProductUpload:getBrandByName }
+    methods: [GET]
+
+product_search_child_category:
+    path: /merchant/search/category/child
+    defaults: { _controller: YilinkerMerchantBundle:ProductUpload:getProductCategoryChild }
+    methods: [GET]
+
+product_search_category:
+    path: /merchant/search/category
+    defaults: { _controller: YilinkerMerchantBundle:ProductUpload:getProductCategoryParentsByKeyword }
+    methods: [GET]
+
+product_search_category_attribute:
+    path: /merchant/search/categoryAttribute
+    defaults: { _controller: YilinkerMerchantBundle:ProductUpload:getCategoryAttribute }
+    methods: [GET]
+
+product_upload_description_image_upload:
+    path: /merchant/upload/detail/image
+    defaults: { _controller: YilinkerMerchantBundle:ProductUpload:productDescriptionImageUpload }
+
+product_upload_get_child_category:
+    path: /merchant/upload/category/children
+    defaults: { _controller: YilinkerMerchantBundle:ProductUpload:getCategoryChildren }
+
+product_upload_search_category:
+    path: /merchant/upload/category/search
+    defaults: { _controller: YilinkerMerchantBundle:ProductUpload:getCategoryByKeyword }
+
+product_translation:
+    path: /seller/product-translation/{languageCode}/{slug}
+    defaults: { _controller: YilinkerMerchantBundle:ProductUpload:renderProductTranslation }
+
+translate_product:
+    path: /seller/translate-product
+    defaults: { _controller: YilinkerMerchantBundle:ProductUpload:translateProduct }

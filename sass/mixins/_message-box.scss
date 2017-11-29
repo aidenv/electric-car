@@ -1,0 +1,5 @@
+@mixin message-box-variant($color, $background-color, $border){
+	color: $color;
+	background: $background-color;
+	border-color: $background-color;
+}

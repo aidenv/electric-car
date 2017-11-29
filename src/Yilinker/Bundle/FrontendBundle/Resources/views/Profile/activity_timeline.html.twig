@@ -1,0 +1,85 @@
+<div class="dashboard-component top">
+    <div class="component-content component-no-padding">
+    {% for date, activities in timeline %}
+        <div class="desktop-hide mobile-date">
+            <span class="light-color">{{ date|date('l') }}</span> &middot; <span>{{ date }}</span>
+        </div>
+        <table class="table table-activity-log">
+            <tr>
+                <td valign="top" align="center" class="td-time uppercase mobile-hide">
+                    <h4 class="light no-margin">{{ date|date('l') }}</h4>
+                    <h5 class="light no-margin">{{ date }}</h5>
+                </td>
+                <td rowspan="2">
+                    <div class="segment">
+                        <table class="table table-log-content">
+                            {% for activity in activities %}
+                                {{ activity_log(activity) }}
+                            {% endfor %}
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="td-vertical-line mobile-hide">
+                    <div class="vertical-line">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    {% endfor %}
+    </div>
+</div>
+
+{# <div class="dashboard-component top">
+    <div class="component-content">
+        <div class="desktop-hide">
+            <span class="light-color">Wednesday</span> &middot; <span>01123</span>
+        </div>
+        <table class="table table-activity-log">
+            <tr>
+                <td valign="top" align="center" class="td-time uppercase mobile-hide">
+                    <h4 class="light no-margin">Wednesday</h4>
+                    <h5 class="light no-margin">123123</h5>
+                </td>
+                <td rowspan="2">
+                    <div class="segment">
+                        <table class="table table-log-content">
+                            asdasdasdas
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="td-vertical-line mobile-hide">
+                    <div class="vertical-line">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="desktop-hide">
+            <span class="light-color">Wednesday</span> &middot; <span>01123</span>
+        </div>
+        <table class="table table-activity-log">
+            <tr>
+                <td valign="top" align="center" class="td-time uppercase mobile-hide">
+                    <h4 class="light no-margin">Wednesday</h4>
+                    <h5 class="light no-margin">123123</h5>
+                </td>
+                <td rowspan="2">
+                    <div class="segment">
+                        <table class="table table-log-content">
+                            asdasdasdas
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%" class="td-vertical-line mobile-hide">
+                    <div class="vertical-line">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div> #}

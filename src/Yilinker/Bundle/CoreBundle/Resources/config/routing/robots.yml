@@ -1,0 +1,3 @@
+core_robots:
+    path: /robots.txt
+    defaults: { _controller: YilinkerCoreBundle:Robots:index }

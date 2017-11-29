@@ -1,0 +1,207 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if tab is same as('register') %}
+        {% trans %}Register | Aeneasusa.com{% endtrans %}
+    {% else %}
+        {% trans %}Sign In | Aeneasusa.com{% endtrans %}
+    {% endif %}
+{% endblock %}
+
+{# try  this is my edit aaaa #}
+
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="login">
+        <a href="{{ path('home_page') }}" class="logo-link" width="57" height="100"></a>
+            <div class="bg"></div>
+            <div class="back-slider-dummy">
+                <div class="item"><img src="{{ asset('images/back-slide-img-0.png') }}" class="img-full-width" alt=""></div>
+            </div>
+            <div class="back-slider">
+                <div class="item"><img src="{{ asset('images/back-slide-img-0.png') }}" class="img-full-width" alt=""></div>
+                <div class="item"><img src="{{ asset('images/back-slide-img-2.png') }}" class="img-full-width" alt=""></div>
+                <div class="item"><img src="{{ asset('images/back-slide-img-1.png') }}" class="img-full-width" alt=""></div>
+            </div>
+            <div class="login-wrapper login-buyer">
+                <div class="front-slider ">
+                    <div class="item">{#<img src="{{ asset('images/front-slide-img-0.png') }}" class="img-full-width" alt="">#}</div>
+                    <div class="item">{#<img src="{{ asset('images/front-slide-img-2.png') }}" class="img-full-width" alt="">#}</div>
+                    <div class="item">{#<img src="{{ asset('images/front-slide-img-1.png') }}" class="img-full-width" alt="">#}</div>
+                </div>
+                <div class="front-slider-dummy">
+                    <div class="item">{#<img src="{{ asset('images/front-slide-img-0.png') }}" class="img-full-width" alt="">#}</div>
+                </div>
+                <div class="align-center">
+                    <a href="{{ path('home_page') }}">
+                        <img src="{{ asset('images/logo-icon.svg') }}" class="logo" />
+                    </a>
+                </div>
+                <div class="login-taglines align-center">
+                    <div class="item">
+                        {% trans %} Electric bicycle {% endtrans %}
+                    </div>
+                    <div class="item">
+                        {% trans %} Shoes in one place {% endtrans %}
+                    </div>
+                    <div class="item">
+                        {% trans %} Camera in one place {% endtrans %}
+                    </div>
+                </div>
+                <div class="login-tagline login-tagline-dummy align-center">
+                    <div class="item">
+                        {% trans %} Electric bicycle {% endtrans %}
+                    </div>
+                </div>
+                <div class="login-tab-selection">
+                    <a id="sign-in-tab" data-href="login-form" class="{{ tab is same as('login') or tab is same as('forgot_password') ? 'active' : '' }}">Sign in</a>
+                    <a id="register-tab" data-href="register-form" class="{{ tab is same as('register')? 'active' : '' }}">Register</a>
+                </div>
+                <div class="form-segment">
+
+                    <div class="login-tab-panel {{ tab is same as('login') or tab is same as('forgot_password') ? 'active' : '' }}" id="login-form" data-sitekey="{{ siteKey }}">
+                        <div class="login-form">
+                            <form name="login" action="{{ path('user_buyer_authenticate') }}" method="post">
+                                {% if error %}
+                                    <div class="message-box red with-close-message">
+                                        {{ error.message|replace({"Bad credentials." : "Invalid email/contact number or password."})|trans }}
+                                    </div>
+                                {% endif %}
+                                {% if app.session.flashbag.has('resetPassword') %}
+                                    {% if app.session.flashbag.get('resetPassword') %}
+                                        <div class="message-box green with-close-message">
+                                            {% trans %} Password reset success. {% endtrans %}
+                                        </div>
+                                    {% endif %}
+                                {% elseif app.session.flashbag.has('verifyEmail') %}
+                                    {% if app.session.flashbag.get('verifyEmail') %}
+                                        <div class="message-box green with-close-message">
+                                            {% trans %} Email Verified. {% endtrans %}
+                                        </div>
+                                    {% endif %}
+                                {% elseif app.session.flashbag.has('failedMerge') %}
+                                    {% if app.session.flashbag.get('failedMerge') %}
+                                        <div class="message-box red with-close-message">
+                                            {% trans %} Failed merging account. Please try again later. {% endtrans %}
+                                        </div>
+                                    {% endif %}
+                                {% elseif app.session.flashbag.has('failedRegisteredMerge') %}
+                                    {% if app.session.flashbag.get('failedRegisteredMerge') %}
+                                        <div class="message-box red with-close-message">
+                                            {% trans %} Failed merging account. Account is already registered. {% endtrans %}
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                                <div class="form">
+                                    <input type="text" class="form-ui" id="username" name="_username" value="{{ email }}" placeholder="Enter your email or contact number here"/>
+                                </div>
+                                <div class="form">
+                                    <input type="password" class="form-ui" id="password" name="_password" placeholder="Password"/>
+                                </div>
+                                <div class="form text">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <div class="form-ui-checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="remember_me" name="_remember_me" />
+                                                    <span></span>
+                                                    {% trans %} Remember Me {% endtrans %}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 align-right">
+                                            <a class="forgot-password-trigger">Forgot Password?</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form">
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+                                    <button type="submit" class="button purple block"> Sign In </button>
+                                </div>
+
+                            </form>
+
+                            <div class="horizontal-divider">
+                                 {% trans %} Sign in with social media {% endtrans %}
+                            </div>
+                            <div class="form no-margin">
+                                 <div class="row">
+                                     <div class="col-sm-6">
+                                         <a class="button facebook block" href="{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}"><i class="icon-facebook icon-lg"></i> Facebook</a>
+                                     </div>
+                                     <div class="col-sm-6">
+                                         <a class="button google-plus block" href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}"><i class="icon-google-plus icon-lg"></i> Google+</a>
+                                     </div>
+                                 </div>
+                            </div>
+                        </div>
+                        {{ render(controller('YilinkerCoreBundle:User:renderForgotPassword', {
+                                userType : constant('Yilinker\\Bundle\\CoreBundle\\Entity\\User::USER_TYPE_BUYER'),
+                                storeType : constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_RESELLER')
+                            }))
+                        }}
+                    </div>
+                    <div class="login-tab-panel {{ tab is same as('register')? 'active' : '' }}" id="register-form">
+                        {{ render(controller('YilinkerCoreBundle:User:renderRegister', {
+                                'actionUrl':'core_user_create',
+                                'successUrl':'user_register_success',
+                                'referral':true,
+                                'storeType':null
+                            }))
+                        }}
+                    </div>
+                </div>
+                <div class="footer-wrapper align-center">
+                    Copyright 2015 YiLinker. All Rights Reserved
+                </div>
+            </div>
+            <!--Start of modal success message-->
+            <div class="ui modal tiny success modal">
+                <div class="content align-center">
+                    <h4 class="ui header">
+                        <i class="icon icon-check"></i>
+                            <div class="content">
+                                Reset password request sent
+                            <div class="sub-header">Password reset has been sent to your email, don't forget to check your SPAM folder if you haven't received it in your inbox.</div>
+                        </div>
+                    </h4>
+                </div>
+                <div class="actions">
+                    <button class="button confirm close forgot-password-hide-trigger">Okay</button>
+                </div>
+            </div>
+            <!--End of modal success message-->
+
+            <input type="hidden" id="is-backed" value="0" />
+    </div>
+    <div id="domain-container" data-value="{{ merchantHostName }}">
+    </div>
+
+    {{ include('YilinkerFrontendBundle:Base:mobile_download_app.html.twig') }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/bower/form.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bower/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/utility/timer.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/utility/form-validator.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/utility/button-loader.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/vendor/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bower/transition.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bower/modal.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bower/dimmer.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/bower/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/login.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/forgot-password.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/vendor/forms.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/universal.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/src/register.js') }}"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+{% endblock %}

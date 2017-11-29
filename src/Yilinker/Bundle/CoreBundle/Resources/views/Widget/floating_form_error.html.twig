@@ -1,0 +1,5 @@
+<div class="form-error-prompt" {{ form_errors(field) ? '': 'style="display:none"' }}>
+    {% if form_errors(field) %}
+        {{ form_errors(field) }}
+    {% endif %}
+</div>

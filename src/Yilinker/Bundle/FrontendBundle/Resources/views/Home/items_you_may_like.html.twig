@@ -1,0 +1,66 @@
+<div class="home-section">
+    <div class="row">
+        <div class="title">
+            <h2>{% trans %} Items You May Like {% endtrans %}</h2>
+            <h3>Cool Stuff, We promise to give you something interesting</h3>
+        </div>
+
+        <div class="product-card-list-wrapper">
+            <div class="row">
+                {% if itemsYouMayLike.products.data is defined and itemsYouMayLike.products.data|length > 0 %}
+                {% for productDetail in itemsYouMayLike.products.data %}
+                        {%
+                            set addToCart = {
+                                'productId': productDetail.product.id,
+                                'unitId':    productDetail.firstUnit ? productDetail.firstUnit.productUnitId : 0
+                            }
+                        %}
+                        <div class="col-md-2 col-xs-6">
+                            <div class="unit-wrapper">
+                                <a class="unit-photo" href="{{ path('product_details', {'slug' : productDetail.product.slug}) }}">
+                                    <img src="{{ asset(productDetail.firstUnit.primaryThumbnailImage, 'product') }}" alt="{{ productDetail.product.title }}" title="{{ productDetail.product.title }}" class="lazy">
+                                </a>
+                                <a class="unit-name" href="{{ path('product_details', {'slug' : productDetail.product.slug}) }}">
+                                    {{ productDetail.product.title }}
+                                </a>
+                                <div class="unit-price"><b>
+                                    P {{ productDetail.firstUnit.discountedPrice|number_format(2, '.', ',') }}
+                                </b></div>
+                                {% if productDetail.firstUnit.discount > 0 %}
+                                    <div class="unit-discount-price">
+                                        <span>P {{ productDetail.firstUnit.price|number_format(2, '.', ',') }}</span>
+                                        <i>- {{ productDetail.firstUnit.promoTypeId is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\PromoType::BULK'))? 'UP TO' : '' }} {{ productDetail.firstUnit.discount }}%</i>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<script type="application/ld+json">
+{% if homeData.itemsYouMayLike.products.data is defined and homeData.itemsYouMayLike.products.data|length > 0 %}
+{
+  "@context": "http://schema.org",
+  "@type": "ItemList",
+  "url": "{{ frontend_hostname }}",
+  "numberOfItems": "{{ homeData.itemsYouMayLike.products.data|length }}",
+  "itemListElement": [
+    {% for productDetail in homeData.itemsYouMayLike.products.data %}
+        {
+          "@type": "Product",
+          "name": "{{ productDetail.product.title }}",
+          "image": "{{ asset(productDetail.firstUnit.primaryThumbnailImage, 'product') }}",
+          "url": "{{ frontend_hostname }}{{ path('product_details', {'slug' : productDetail.product.slug}) }}"
+          "offers": {
+            "@type": "Offer",
+            "price": "{{ productDetail.firstUnit.discountedPrice|number_format(2, '.', ',') }}"
+          }
+        },
+    {% endfor %}
+  ]
+}
+{% endif %}
+</script>

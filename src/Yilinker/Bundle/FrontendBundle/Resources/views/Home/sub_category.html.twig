@@ -1,0 +1,12 @@
+{% if categoryData|length > 0 %}
+    {% for category in categoryData %}
+        <div class="col-xs-2">
+            <a href="{{ path('get_category', {'slug': category.slug }) }}">
+                <img src="{{ asset(category.image, 'category') }}" alt="Category" class="lazy img-full-width">
+                <div class="title-bar">
+                    <span class="title-name">{{ category.name }}</span>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+{% endif %}

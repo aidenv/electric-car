@@ -1,0 +1,53 @@
+Yilinker\Bundle\CoreBundle\Entity\OrderProductCancellationHead:
+    type: entity
+    table: OrderProductCancellationHead
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\OrderProductCancellationHeadRepository
+    indexes:
+        order_product_cancellation_head_order_product_order_id_order_product_cancellation_reason_id_idx:
+            columns:
+                - order_product_cancellation_reason_id
+        order_product_cancellation_head_user_id_user_user_id_idx:
+            columns:
+                - user_id
+    id:
+        orderProductCancellationHeadId:
+            type: bigint
+            id: true
+            column: order_product_cancellation_head_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateAdded:
+            type: datetime
+            column: date_added
+        isOpened:
+            type: smallint
+            column: is_opened
+        remarks:
+            length: 1024
+            nullable: true
+    manyToOne:
+        orderProductCancellationReason:
+            targetEntity: OrderProductCancellationReason
+            joinColumn:
+                name: order_product_cancellation_reason_id
+                referencedColumnName: order_product_cancellation_reason_id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        admin:
+            targetEntity: AdminUser
+            joinColumn:
+                name: admin_id
+                referencedColumnName: admin_user_id
+            orphanRemoval: false
+    oneToMany:
+        orderProductCancellationDetails:
+            targetEntity: OrderProductCancellationDetail
+            mappedBy: orderProductCancellationHead
+    lifecycleCallbacks: {  }
+    

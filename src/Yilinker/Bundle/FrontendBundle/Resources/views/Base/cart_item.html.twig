@@ -1,0 +1,127 @@
+{%
+    set addtocart = {
+        'itemId':    product.itemId is defined ? product.itemId : 0,
+        'productId': product.id,
+        'unitId':    product.unitId,
+        'quantity':  product.quantity,
+        'sellerId':  product.sellerId
+    }
+%}
+
+{% if product.productUnits[product.unitId].appliedDiscountPrice is null %}
+    {% set price = product.productUnits[product.unitId].discountedPrice %}
+{% else %}
+    {% set price = product.productUnits[product.unitId].appliedDiscountPrice %}
+{% endif %}
+{% set totalUnitPrice = (price * product.quantity)|number_format(2) %}
+
+<tr data-cartitem="{{ addtocart|json_encode }}" data-trigger="auto" data-updatecartitem="{{ path('cart_add_item') }}" class="cart-mobile">
+    <td colspan="3" >
+        <div class="relative">
+            <div data-cart-delete-confirm class="ui dimmer">
+                <div class="content">
+                    <div class="center">
+                        Are you sure you want to delete this item?
+                        <div class="mrg-top-10">
+                            <button data-cart-delete-cancel class="button cancel small">
+                                Cancel
+                            </button>
+                            {%
+                                set deletetocart = {
+                                    'productId': product.id,
+                                    'unitId':    product.unitId,
+                                    'quantity':  0,
+                                    'sellerId':  product.sellerId
+                                }
+                            %}
+                            <a
+                                data-href="{{ path('cart_add_item') }}"
+                                data-addtocart="{{ deletetocart|json_encode }}"
+                                class="button red small"
+                            >
+                                Delete
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="item-breakdown-table" width="100%">
+                <tbody>
+                    <tr>
+                        <td width="5%">
+                            <div class="ui checkbox">
+                              <input type="checkbox" name="cart[]" value="{{ product.itemId }}" checked data-price="{{ totalUnitPrice }}">
+                              <label>&nbsp;</label>
+                            </div>
+                        </td>
+                        {% set unitImage = product.productUnits[product.unitId]['primaryThumbnailImage'] %}
+                        {% set unitImage = unitImage ? unitImage : product.thumbnail %}
+                        <td class="align-center" width="10%">
+                            <div class="item-image-container">
+                                <img src="{{ asset(unitImage, 'product') }}" alt="">
+                            </div>
+                        </td>
+                        <td class="td-border-bottom-1 td-number-of-order">
+                            <div class="cart-product-details">
+                                <a href="{{ path('product_details', {slug: product.slug}) }}" class="item-name breakword">{{ product.title }}</a>
+                                <div class="row item-details-group" data-default="{{ product.unitId }}" data-attribute-chooser="{{ product.productUnits | json_encode }}">
+                                    {% for attribute in product.attributes %}
+                                        <div {{ (attribute.groupName|lower != 'custom' or (attribute.items|length != 1)) ? '': 'style="display:none"' }} class="col-sm-4">
+                                            <div class="form">
+                                                <select data-dropdown="{{ attribute.groupName }}" class="form-ui ui single selection dropdown">
+                                                    <option value="">{{ attribute.groupName }}</option>
+                                                    {% for attrvalue in attribute.items %}
+                                                        <option value="{{ attrvalue.id }}">{{ attrvalue.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                {% if not product.hasCOD %}
+                                    <div class="not-cod-prompt">
+                                        <span class="label">COD not available</span>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="cart-price">
+                                <div class="number-of-cart-item">
+                                    {%
+                                        set addtocart = {
+                                            'productId': product.id,
+                                            'unitId':    product.unitId,
+                                            'sellerId':  product.sellerId
+                                        }
+                                    %}
+                                    <select data-href="{{ path('cart_add_item') }}" data-change="quantity" data-addtocart-change="{{ addtocart|json_encode }}" class="form-ui ui search single selection dropdown">
+                                        {% for i in 1..product.productUnits[product.unitId].quantity %}
+                                            <option {{ product.quantity == i ? 'selected' : '' }} value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="item-price col-sm-8">
+                                    <h6>P {{ price|number_format(2) }}</h6>
+                                    {% if product.quantity > 1 %}
+                                        <p>
+                                            <strong>P {{ totalUnitPrice }}</strong>
+                                        </p>
+                                    {% endif %}
+                                    {% if product.shippingCost > 0 %}
+                                        <h6 class="light-color small-font">
+                                            SC: P {{ product.shippingCost|number_format(2) }}
+                                        </h6>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </td>
+                        <td width="5%">
+                            <a data-remove-cartitem class="item-remove">
+                                <i class="icon icon-circle-times"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </td>
+</tr>

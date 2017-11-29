@@ -1,0 +1,48 @@
+{% set earningObject = earning.earningObjectType %}
+
+{% if earningObject is classof('Yilinker\\Bundle\\CoreBundle\\Entity\\EarningTransaction') %}
+    {% set orderProduct = earningObject.orderProduct %}
+    {% set order = earningObject.order %}
+    {% if orderProduct %}
+        <a class="bold transaction-summary-modal-trigger">{{ orderProduct.order.invoiceNumber }}</a>
+        <p class="light-color">
+            {{ orderProduct.productName }}
+        </p>
+        <p class="light-color">
+            Bought by: {{ orderProduct.order.buyer.fullName }}
+        </p>
+    {% elseif order %}
+        <p>Earned in Buyer `{{ order.buyer.fullName }}'s` transaction</p>
+    {% endif %}
+{% elseif earningObject is classof('Yilinker\\Bundle\\CoreBundle\\Entity\\EarningUserRegistration') %}
+    {% set user = earningObject.user %}
+    {% set isSeller = user.isSeller %}
+    {% set role = 'Buyer' %}
+    {% if isSeller %}
+        {% if user.store.isAffiliate %}
+            {% set role = 'Affiliate' %}
+        {% else %}
+            {% set role = 'Seller' %}
+        {% endif %}
+    {% endif %}
+    <p>{{ role }} `{{ earningObject.user.fullName }}` linked to your network</p>
+{% elseif earningObject is classof('Yilinker\\Bundle\\CoreBundle\\Entity\\EarningFollow') %}
+    {% set follower = earningObject.userFollowHistory.follower %}
+    {% set fullname = follower.fullName|trim %}
+    {% set isSeller = follower.isSeller %}
+    <p>
+        {% if isSeller %}
+            {{ fullname ? 'Affiliate `'~fullname~'`': 'An affiliate' }} followed you
+        {% else %}
+            {{ fullname ? 'Buyer `'~fullname~'`': 'A buyer' }} followed you
+        {% endif %}
+    </p>
+{% elseif earningObject is classof('Yilinker\\Bundle\\CoreBundle\\Entity\\EarningReview') %}
+    {% set productReview = earningObject.productReview %}
+    {% set fullname = productReview.reviewer.fullName %}
+    {% set productName = productReview.orderProduct.productName %}
+
+    <p>{{ fullname ? 'Buyer `'~fullname~'`': 'A buyer' }} reviewed the product `{{ productName }}`</p>
+{% endif %}
+
+<p style="margin-top:10px;font-size:italic" class="light-color"> {{ earning.earningTransactionUserOrderStatus }} </p>

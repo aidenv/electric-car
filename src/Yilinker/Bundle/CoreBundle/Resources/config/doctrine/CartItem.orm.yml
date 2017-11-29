@@ -1,0 +1,52 @@
+Yilinker\Bundle\CoreBundle\Entity\CartItem:
+    type: entity
+    table: CartItem
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\CartItemRepository
+    indexes:
+        fk_cartitem_cartid_cart_id_idx:
+            columns:
+                - cart_id
+        fk_cartitem_productid_product_productid_idx:
+            columns:
+                - product_id
+        fk_cartitem_productunitid_productunit_productunitid_idx:
+            columns:
+                - product_unit_id
+    id:
+        id:
+            type: integer
+            id: true
+            column: id
+            generator:
+                strategy: IDENTITY
+    fields:
+        quantity:
+            type: integer
+    manyToOne:
+        product:
+            targetEntity: Product
+            joinColumn:
+                name: product_id
+                referencedColumnName: product_id
+            orphanRemoval: false
+        productUnit:
+            targetEntity: ProductUnit
+            fetch: EAGER
+            joinColumn:
+                name: product_unit_id
+                referencedColumnName: product_unit_id
+            orphanRemoval: false
+        cart:
+            targetEntity: Cart
+            inversedBy: cartItems
+            joinColumn:
+                name: cart_id
+                referencedColumnName: id
+            orphanRemoval: false
+        seller:
+            targetEntity: User
+            joinColumn:
+                name: seller_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

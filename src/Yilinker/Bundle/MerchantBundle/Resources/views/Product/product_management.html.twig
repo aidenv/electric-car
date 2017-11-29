@@ -1,0 +1,363 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Product Management
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+        <div class="dashboard-body-container white">
+            <div class="dashboard-submenu-wrapper">
+                <div class="dashboard-submenu-container">
+                    <ul class="list-unstyle list-submenu">
+                        <li>
+                            <a data-val="" class="current-tab {{ status is null ? 'active':'' }}" href="{{ path('merchant_product_management') }}">
+                                {% trans %} All {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::ACTIVE') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::ACTIVE')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'active'}) }}">
+                                {% trans %} Active {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::INACTIVE') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::INACTIVE')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'inactive'}) }}">
+                                {% trans %} Inactive {% endtrans %}
+                            </a>
+                        </li>
+                        {% if app.user.isAffiliate(false) %}
+                        <li>
+                            <a class="current-tab" href="{{ path('reseller_product_select') }}">
+                                Products to Sell
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% 
+                          if seller is defined and seller.store.storeType == constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT')
+                        %}
+                        <li>
+                            <a data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DRAFT') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DRAFT')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'draft'}) }}">
+                                {% trans %} Draft {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DELETE') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DELETE')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'delete'}) }}">
+                                {% trans %} Deleted {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a  data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_REVIEW') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_REVIEW')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'review'}) }}">
+                                {% trans %} Under Review {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::REJECT') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::REJECT')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'rejected'}) }}">
+                                {% trans %} Rejected {% endtrans %}
+                            </a>
+                        </li>
+                        <li>
+                            <a data-val="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_COMPLETION') }}" class="current-tab {{ status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_COMPLETION')) ? 'active':'' }}" href="{{ path('merchant_product_management', {'status' : 'for-completion'}) }}">
+                                {% trans %} For Completion {% endtrans %}
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <div class="dashboard-component top">
+                <div class="component-content component-control-container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <!--For seller only-->
+                            <div class="row">
+                                <div class="col-md-4 col-xl-3">
+                                    <select name="byPeriod" class="form-ui ui single selection dropdown inverted no-margin period-input">
+                                        <option value="1">All</option>
+                                        <option {{ filters.period is same as(2) ? 'selected':'' }} value="2">This Week</option>
+                                        <option {{ filters.period is same as(3) ? 'selected':'' }} value="3">This Month</option>
+                                        <option {{ filters.period is same as(4) ? 'selected':'' }} value="4">This Year</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 col-xl-3">
+                                    <select name="categoryId" class="form-ui ui single searchable selection dropdown inverted no-margin category-input">
+                                        <option value="0">Category</option>
+                                        {% for category in categories %}
+                                            <option {{ filters.categoryId is same as(category.getProductCategoryId) ? 'selected':'' }} value="{{ category.getProductCategoryId }}">{{ category.getName }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                {% if countries|length > 1 %}
+                                    <div class="col-md-4 col-xl-3">
+                                        {% set countrySelectedLabel = 'Select Country' %}
+                                        <div class="form-ui ui single searchable selection dropdown inverted no-margin search countryfilter">
+                                            <select name="_country">
+                                                {% for country in countries %}
+                                                    <option {{ app.session.get('_country')|lower == country.code|lower ? 'selected': '' }} value="{{ country.code }}">{{ country.name }}</option>
+                                                    {% if app.session.get('_country')|lower == country.code|lower %}
+                                                        {% set countrySelectedLabel = country.name %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                            <i class="dropdown icon"></i>
+                                            <input class="search" tabindex="0">
+                                            <div class="text">{{ countrySelectedLabel }}</div>
+                                            <div class="menu transition hidden" tabindex="-1">
+                                                {% for country in countries %}
+                                                    <div class="item {{ app.session.get('_country')|lower == country.code|lower ? 'active selected': '' }}" data-value="{{ country.code }}">
+                                                        {{ country.name }}
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <!--For Reseller only-->
+                            {% if seller is defined %}
+                                {% if seller.store.storeType != constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Store::STORE_TYPE_MERCHANT') %}
+                                    <h4 class="light-color mrg-top-20 light">
+                                        Total Products: <span class="green-color" id="total-result-count">{{ totalResults }}</span>
+                                    </h4>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        {% if not seller.isAffiliate %}
+                            <div class="col-md-3 col-xl-3">
+                               <div class="form">
+                                    {% set dateRange = "01/01/2015 - "~date()|date('m/d/Y') %}
+                                    {% if filters.period is same as(1) and filters.dateFrom is not null and filters.dateTo and not null  %}
+                                        {% set dateRange = date(filters.dateFrom)|date('m/d/Y')~" - "~date(filters.dateTo)|date('m/d/Y') %}
+                                    {% endif %}
+                                    <input type="text" name="dateRange" readonly="true" class="form-ui form-daterange product-daterange inverted rounded align-center pull-right" value="{{ dateRange }}" />
+                               </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if status is not null %}
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td valign="middle">
+                                            <button class="button blue button-control-table-product select-all-trigger">
+                                                <i class="icon icon-check bold"></i> {% trans %} Select All {% endtrans %}
+                                            </button>
+                                            <button class="button gray button-control-table-product deselect-all-trigger hidden">
+                                                <i class="icon icon-minus bold"></i> Deselect All
+                                            </button>
+                                             <button class="button blue button-control-table-product" 
+                                             {% if status is same as (constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DELETE')) %}
+                                                  data-status="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_REVIEW') }}" 
+                                                  title="Submit for Review"
+                                             {% else %}
+                                                  data-status="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::ACTIVE') }}" 
+                                                  title="Activate Product" 
+                                             {% endif %}
+                                             {{ 
+                                             status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::ACTIVE')) or
+                                             status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DRAFT')) or
+                                             status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_REVIEW')) or
+                                             status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::REJECT')) or
+                                             status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_COMPLETION')) or
+                                             status is null                                                     
+                                             ? 'disabled':'' }}>
+                                                <i class="icon icon-active bold"></i> {% trans %} Set to Active {% endtrans %}
+                                            </button>
+                                             <button class="button red button-control-table-product" 
+                                             data-status="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::INACTIVE') }}" 
+                                             title="Deactivate Product" {{ 
+                                             status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DELETE')) or
+                                             status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DRAFT')) or
+                                             status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_REVIEW')) or
+                                             status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::REJECT')) or
+                                             status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::INACTIVE')) or
+                                             status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_COMPLETION')) or
+                                             status is null    
+                                             ? 'disabled':'' }}>
+                                                <i class="icon icon-inactive bold"></i> {% trans %} Set to Inactive {% endtrans %}
+                                            </button>
+                                             <button class="button cancel button-control-table-product" 
+                                             {% if status in [
+                                                    constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DELETE'),
+                                                    constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DRAFT'),
+                                                    constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FOR_COMPLETION')
+                                                ] %}
+                                                  data-status="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FULL_DELETE') }}" 
+                                             {% else %}
+                                                  data-status="{{ constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::DELETE') }}" 
+                                             {% endif %}                                      
+                                                title="Delete Product" 
+                                                data-store-type="{{ app.user.store.storeType }}" 
+                                                {{ 
+                                                    status is same as(constant('Yilinker\\Bundle\\CoreBundle\\Entity\\Product::FULL_DELETE')) or
+                                                    status is null ? 'disabled':'' 
+                                                }}>
+                                                <i class="icon icon-trash bold"></i>  Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="component-content">
+                {{ include('YilinkerCoreBundle:Widget:flash_message.html.twig') }}
+            </div>
+            <div class="dashboard-component bottom product-list-component">
+            <!--Product Management table-->
+                <div class="dashboard-component">
+                    <div class="component-content product-list" id="product-list" data-status="{{ status }}">
+                        <div class="row" id="row-list">
+                            <input type="checkbox" class="check-all-product hidden">
+                            {% for product in products %}
+                                {{ include('YilinkerMerchantBundle:Product:product_list_card.html.twig') }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                
+                <!--Pagination-->
+                <div class="product-pagination-container align-center">
+                    <div class="pagination-full">
+                        {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: totalResults,perPage: perPage}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--update status modal-->
+        <div class="ui modal coupled-activate small update-product-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h3 class="ui header">
+                    <i class="icon icon-active"></i>
+                    <div class="content">
+                        <div class="sub-header"></div>
+                    </div>
+                </h3>
+            </div>
+            <div class="actions">
+                <button class="button cancel close">Cancel</button>
+                <button class="button blue submit-to-success positive change-status">
+                    <span class="text">Submit</span>
+                </button>
+            </div>
+        </div>
+        <!--End of modal activate product-->
+
+        <!--Start of modal success update product-->
+        <div class="ui modal coupled-activate small update-success-product-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h3 class="ui header">
+                    <i class="icon icon-trash"></i>
+                    <div class="content">
+                            Products has been successfully activated
+                        <div class="sub-header"></div>
+                    </div>
+                </h3>
+            </div>
+            <div class="actions">
+                <button class="button confirm close">Okay</button>
+            </div>
+        </div>
+        <!--End of modal success update product-->
+
+        <!--Start of modal existing language option-->
+        {#
+        <div class="ui modal coupled-remove small language-option-modal">
+            <div class="ui dimmer inverted remove-translation-dimmer">
+                <div class="content">
+                    <div class="center">
+                        <h4 class="ui header">
+                            <div class="content">
+                                Are you sure you want to remove this language translation?
+                            </div>
+                        </h4>
+                        <div class="mrg-top-20">
+                            <button class="button gray back">Back</button>
+                            <button class="button blue remove-confirm-trigger">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="header">
+                <h4 class="no-margin">Chinese Mandarin</h4>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="image-holder image-square">
+                                <img src="http://placehold.it/500x500/d35400/ffffff" alt="Product Image" class="img-auto-place">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="mrg-top-10">Sample Product Name</h3>
+                            <p class="light-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neglegentur tractatas virtute teneam interesset. Quosdam nudus fuit sumitur. Unde vituperata corpore </p>
+                            <div class="mrg-top-10">
+                                <b>Translated Language : </b>
+                                <div class="mrg-top-5">
+                                    <i class="flag-icon flag-icon-cn icon-2x popup-hover" data-content="Chinese Mandarin"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button gray remove-translation-trigger">
+                    Remove Translation
+                </button>
+                <button class="button blue">
+                    Edit Translation
+                </button>
+            </div>
+        </div>
+        #}
+        <!--End of modal existing language option-->
+
+        <!--Start of success modal existing language removal-->
+        <div class="ui modal coupled-remove tiny remove-confirm-modal">
+            <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+            <div class="content align-center">
+                <h4 class="ui header">
+                    <i class="icon icon-check-circle"></i>
+                    <div class="content">
+                        Language translation has been successfully removed
+                    </div>
+                </h4>
+            </div>
+            <div class="actions">
+                <button class="button blue close">
+                    Okay
+                </button>
+            </div>
+        </div>
+        <!--End of success modal existing language removal-->
+
+        {{ render(controller('YilinkerMerchantBundle:Product:countryModal')) }}
+        {{ render(controller('YilinkerMerchantBundle:Product:languageModal')) }}
+        
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/bower/api.min.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="{{ asset('js/src/utility/floating-error.js') }}"></script>
+    <script src="{{ asset('js/src/utility/autocomplete.js') }}"></script>
+    <script src="{{ asset('js/bower/moment.min.js') }}"></script>
+    <script src="{{ asset('js/bower/daterangepicker.js') }}"></script>
+    <script src="{{ asset('js/bower/tipso.min.js') }}"></script>
+    <script src="{{ asset('js/src/merchant/product-management.js') }}"></script>
+{% endblock %}

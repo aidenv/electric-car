@@ -1,0 +1,59 @@
+<tr>
+    <td class="td-border-bottom-1" width="9em">
+        <a href="{{ path('product_details', {slug: product.slug}) }}">
+            <div class="item-image-container">
+                {% set unitImage = product.productUnits[product.unitId]['primaryThumbnailImage'] %}
+                {% set unitImage = unitImage ? unitImage : product.thumbnail %}
+                <img src="{{ asset(unitImage, 'product') }}" alt="{{ product.title}}">
+            </div>
+        </a>
+    </td>
+    <td class="td-border-bottom-1" style="max-width:100px;">
+        <a href="{{ path('product_details', {slug: product.slug}) }}"
+           class="item-name breakword">{{ product.title }}
+        </a>
+        <div class="item-attributes">
+            {% for attributeValueId in product['productUnits'][product.unitId]['combination'] %}
+                {% if product['attributes'][loop.index0] is defined %}
+                    {% for attributeValue in product['attributes'][loop.index0]['items'] %}
+                        {% if attributeValue.id == attributeValueId %}
+                            <span>{{ attributeValue.name }}</span>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% if not product.hasCOD %}
+            <div class="not-cod-prompt">
+                <span class="label">COD not available</span>
+            </div>
+        {% endif %}
+    </td>
+    <td class="td-border-bottom-1 td-number-of-order">
+        <span class="number-of-items">
+            <i class="icon icon-times"></i> {{ product.quantity }}
+        </span>
+    </td>
+    <td class="td-border-bottom-1 align-right">
+        <span class="item-price">
+            {% if product.productUnits[product.unitId].appliedDiscountPrice is null %}
+                {% set price = product.productUnits[product.unitId].discountedPrice %}
+            {% else %}
+                {% set price = product.productUnits[product.unitId].appliedDiscountPrice %}
+            {% endif %}
+            P {{ price|number_format(2) }}
+            {% if product.quantity > 1 %}
+                <p>
+                    <strong>P {{ (price * product.quantity)|number_format(2) }}</strong>
+                </p>
+            {% endif %}
+        </span>
+        {% if product.shippingCost > 0 %}
+            <span class="light-color small-font">
+                <p>
+                    SC: P {{ product.shippingCost|number_format(2) }}
+                </p>
+            </span>
+        {% endif %}
+    </td>
+</tr>

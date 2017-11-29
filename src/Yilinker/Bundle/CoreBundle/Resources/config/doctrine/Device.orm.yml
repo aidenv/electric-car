@@ -1,0 +1,59 @@
+Yilinker\Bundle\CoreBundle\Entity\Device:
+    type: entity
+    table: Device
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\DeviceRepository
+    id:
+        deviceId:
+            type: integer
+            id: true
+            column: device_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        token:
+            type: string
+            column: token
+            length: '255'
+            nullable: true
+        tokenType:
+            type: smallint
+            column: token_type
+            options:
+                default: '0'
+        deviceType:
+            type: smallint
+            column: device_type
+            options:
+                default: '0'
+        isIdle:
+            type: boolean
+            column: is_idle
+            nullable: true
+            options:
+                default: false
+        isDelete:
+            type: boolean
+            column: is_delete
+            nullable: true
+            options:
+                default: false
+        isNotificationSubscribe:
+            type: boolean
+            column: is_notification_subscribe
+            nullable: true
+            options:
+                default: true
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+    indexes:
+        fk_user_userid_userregisterid_userregistrationid_idx:
+            columns:
+                - user_id
+    lifecycleCallbacks: {  }

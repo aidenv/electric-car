@@ -1,0 +1,19 @@
+<div class="global-options-container table-display bordered country">
+    <div class="label-container table-cell">
+        <i class="icon icon-store icon-2-5x popup-hover" data-html="<b>Country Store: </b> Use this to add the countries where you want your products to be sold." data-variation="large"></i>
+    </div>
+    <div class="flag-container table-cell">
+        {% for country in countries %}
+            {% if not app.user.isAffiliate %}
+            <a data-product-country href="{{ path('dashboard_country_setup', {countryCode: country.code|lower, productId: product.productId}) }}">
+            {% endif %}
+                <span {{ app.session.get('_country')|lower == country.code|lower ? '':'style="opacity:0.40"' }} class="flag-icon country flag-icon-{{ country.code|lower }} icon-2-5x popup-hover" data-content="{{ country.name }}" data-variation="inverted"></span>
+            {% if not app.user.isAffiliate %}
+            </a>
+            {% endif %}
+        {% endfor %}
+        {% if not app.user.isAffiliate %}
+            <span class="flag-icon add-country icon-2-5x add  popup-hover" data-html="Add available country" data-variation="inverted"><i class="icon icon-plus"></i></span>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,19 @@
+api_v3_user_follow_add:
+    path: /auth/followSeller
+    defaults: { _controller: YilinkerFrontendBundle:Api/UserFollowApi:followSeller }
+    methods: [POST]
+
+api_v3_user_follow_delete:
+    path: /auth/unfollowSeller
+    defaults: { _controller: YilinkerFrontendBundle:Api/UserFollowApi:unfollowSeller }
+    methods: [POST]
+
+api_v3_user_follow_history:
+    path: /auth/getFollowHistory
+    defaults: { _controller: YilinkerFrontendBundle:Api/UserFollowApi:getFollowHistory }
+    methods: [POST]
+
+api_v3_user_followed_sellers:
+    path: /auth/getFollowedSellers
+    defaults: { _controller: YilinkerFrontendBundle:Api/UserFollowApi:getFollowedSellers }
+    methods: [POST]

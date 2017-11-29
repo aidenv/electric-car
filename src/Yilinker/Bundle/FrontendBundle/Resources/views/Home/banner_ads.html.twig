@@ -1,0 +1,30 @@
+<div class="row no-gutter-mobile">
+    {% if homeData.main.ads|length > 0 %}
+        {% for ads in homeData.main.ads %}
+            <div class="col-xs-4">
+                <a href="{{ ads.target }}">
+                    <img src="{{ ads.image }}" title="{{ ads.title }}" alt="{{ ads.alt }}" class="img-full-width"/>
+                </a>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<script type="application/ld+json">
+{% if homeData.main.ads|length > 0 %}
+{
+  "@context": "http://schema.org",
+  "@type": "WebPage",
+  "mainEntity":{
+          "@type": "ItemList",
+          "itemListElement": [
+            {% for ads in homeData.main.ads %}
+            "{{ ads.title }}",
+            {% endfor %}    
+          ],
+          "itemListOrder": "http://schema.org/ItemListOrderDescending",
+          "name": "Banner"
+        }
+}
+{% endif %}
+</script>

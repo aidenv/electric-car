@@ -1,0 +1,79 @@
+{% extends 'YilinkerFrontendBundle:Base:base.html.twig' %}
+
+{% block title %}
+    Search Seller
+{% endblock %}
+
+{% block facebook_analytics %}
+    {% embed 'analytics/facebook-pixel.html.twig' %}
+        {% block fbPixel %}
+        fbq('track', 'Search', { 
+            content_category: 'store_search',
+            search_string: {{ query }},
+        });
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="search-page">
+        <div class="wrapper-outer" id="searchWrapper">
+            <!--Header for product seller-->
+            {{ include('YilinkerFrontendBundle:Search:search_page_header_by_seller.html.twig') }}
+
+            <!--Searched items area-->
+            <div class="search-body-wrapper product-group-wrapper">
+                <div class="seller-group">
+                    <div class="row row-for-seller-group">
+                        {% if totalStoreResultCount == 0 %}
+                        <div class="search-category-name-header">
+                            <h2 class="no-margin uppercase bold">
+                                No search result found for "{{ query }}"
+                            </h2>
+                        </div>
+                        {% endif %}
+
+                        {% for store in stores %}
+                             {% if app.environment == 'prod' or true %}
+                                {{ render_esi(controller('YilinkerFrontendBundle:Store:renderStoreCard', {'storeId':store.storeId})) }}
+                             {% else %}
+                                {% set storeData = {'store': store} %}
+                                {% include 'YilinkerFrontendBundle:Store:store_card.html.twig' with storeData only %}
+                             {% endif %}
+                        {% endfor %}
+                    </div>
+                    
+                    {% if totalStoreResultCount > 0 %}
+                    <div class="search-pagination-container">
+                        <div class="pagination-full simple-pagination">
+                            <ul class="list-unstyled" data-lastpage="{{ totalPages }}" data-currentpage="{{ page }}"
+                                data-hrefprefix="{{ path('search_seller', parameters) }}">
+                                {% for i in 1..totalPages %}
+                                <li data-page="{{ i }}">
+                                    <a class="{{ page == i ? 'current-page' : '' }}" href="{{ path('search_seller', parameters) }}">
+                                        {{ i }}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {{ render_esi(controller('YilinkerFrontendBundle:Home:renderFooter')) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/bower/jquery.sticky-kit.min.js') }}"></script>
+    <script src="{{ asset('js/bower/ion.rangeSlider.min.js') }}"></script>
+    <script src="{{ asset('js/bower/simple-pagination.js') }}"></script>
+    <script src="{{ asset('js/src/seller-list-header.js') }}"></script>
+    <script src="{{ asset('js/src/frontend/product-filter-modal.js') }}"></script>
+{% endblock %}

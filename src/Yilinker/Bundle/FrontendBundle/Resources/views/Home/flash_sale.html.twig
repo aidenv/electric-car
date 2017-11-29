@@ -1,0 +1,77 @@
+<div class="flas-sale-container" data-flash-sale-content="{{ flashSaleContent|json_encode }}">
+    {% if
+        flashSaleContent.currentPromoProducts is defined and
+        flashSaleContent.currentPromoProducts is not empty and
+        is_current_or_upcoming(flashSaleContent.isUpcoming, flashSaleContent.isCurrent) is same as(true)
+    %}
+        <div class="flash-sale-container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="banner">
+                        <a href="{{ path('flash_sale') }}">
+                            <img src="{{ asset('images/promo/flash-sale/flash-sale-logo.png') }}" alt="Flash Item" class="img-auto-place">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        {% for product in flashSaleContent.currentPromoProducts %}
+                            <div class="col-md-3">
+                                <div class="flash-item">
+                                    {% if flashSaleContent.isCurrent is same as(true) %}
+                                        <div class="red-color align-center uppercase mrg-top-10">
+                                            Ends in <b class="timer hours-enabled" data-expiration="{{ flashSaleContent.dateEnd|date('U') }}">{{ remaining_time(flashSaleContent.dateEnd, constant('Yilinker\\Bundle\\CoreBundle\\Twig\\CustomExtension::REMAINING_TIME_TYPE_WHOLE')) }}</b>
+                                        </div>
+                                    {% elseif flashSaleContent.isUpcoming is same as(true) %}
+                                        <div class="light-color align-center uppercase mrg-top-10">
+                                            Starts at <b>{{ flashSaleContent.dateStart|date("g:i A") }}</b>
+                                        </div>
+                                    {% endif %}
+                                    <div class="img-container">
+                                        <a href="{{ path('product_details', {'slug' : product.slug}) }}">
+                                            <img src="{{ product.medium }}" alt="{{ product.name }}" class="img-auto-place">
+                                        </a>
+                                    </div>
+                                    <div class="product-name">
+                                        <a href="{{ path('product_details', {'slug' : product.slug}) }}">
+                                            {{ product.name }}
+                                        </a>
+                                    </div>
+                                    <div class="large-font  mrg-bt-10 align-center">
+                                        <span class="static-price"> PhP {{ product.discountedPrice}} </span>
+                                        <span class="discount-wrapper">
+                                            <span> Php {{ product.price}} </span>
+                                            <span><b> {{ product.discountPercentage }}% OFF </b></span>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        {% if flashSaleContent.isCurrent is same as(true) %}
+                                            {% if product.productsSold < product.maxQuantity %}
+                                            <button class="button purple block uppercase" data-buynow='{"productId":"{{ product.productId }}","unitId":"{{ product.productUnitId }}"}'>
+                                                Buy Now
+                                            </button>
+                                            {% else %}
+                                                <button class="button purple block uppercase disabled">
+                                                    Sold Out
+                                                </button>
+                                            {% endif %}
+                                        {% elseif flashSaleContent.isUpcoming is same as(true) %}
+                                            <button class="button gray block uppercase disabled">
+                                                Upcoming
+                                            </button>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 align-right">
+                    <a href="{{ path('flash_sale') }}" class="see-more uppercase">See More &rarr;</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>

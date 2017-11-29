@@ -1,0 +1,9 @@
+pages_v3_home:
+    path: /home/getData
+    defaults: { _controller: YilinkerFrontendBundle:Api/PagesApi:home, version:v3 }
+    methods: [GET]
+
+pages_v3_home_country:
+    path: /home/countries
+    defaults: { _controller: YilinkerFrontendBundle:Api/PagesApi:overseasCountry }
+    methods: [GET]

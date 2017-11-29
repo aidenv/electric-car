@@ -1,0 +1,13 @@
+api_package_update:
+    path: /api/v1/package/update
+    defaults: { _controller: YilinkerBackendBundle:Api/ExpressApi:updatePackageDetail }
+
+api_product_inventory_update:
+    path: /api/v1/inventory/update
+    defaults: { _controller: YilinkerBackendBundle:Api/ExpressApi:updateProductInventory }
+
+# Synch routes
+
+api_express_forward_product_list:
+    path: /api/v1/express/product/create
+    defaults: { _controller: YilinkerBackendBundle:Api/ExpressApi:receiveProductList }

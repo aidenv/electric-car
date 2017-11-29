@@ -1,0 +1,28 @@
+Yilinker\Bundle\CoreBundle\Entity\CategoryAttributeValue:
+    type: entity
+    table: CategoryAttributeValue
+    indexes:
+        fk_categoryattirbutevalue_categoryattributenameid_categoryattributename_categoryattributenameid_idx:
+            columns:
+                - category_attribute_name_id
+    id:
+        categoryAttributeId:
+            type: bigint
+            id: true
+            column: category_attribute_value_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        value:
+            type: string
+            length: 255
+            options:
+                default: ''
+    manyToOne:
+        categoryAttributeName:
+            targetEntity: CategoryAttributeName
+            joinColumn:
+                name: category_attribute_name_id
+                referencedColumnName: category_attribute_name_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

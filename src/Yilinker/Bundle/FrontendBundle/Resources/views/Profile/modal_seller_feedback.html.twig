@@ -1,0 +1,7 @@
+<div data-feed="[data-seller-feedback]" class="ui modal small modal coupled feedback-modal">
+    <a data-remodal-action="close" class="close"><i class="icon-times"></i></a>
+    <div class="header">
+        <h4 class="no-margin">{% trans %}Feedback for Seller{% endtrans %}</h4>
+    </div>
+    {{ render(controller('YilinkerFrontendBundle:Feedback:sellerFeedbackForm', {request: app.request})) }}
+</div>

@@ -1,0 +1,7 @@
+autocomplete_countries:
+    path: countries
+    defaults: { _controller: YilinkerCoreBundle:AutoComplete:countries }
+
+autocomplete_languages:
+    path: languages
+    defaults: { _controller: YilinkerCoreBundle:AutoComplete:languages }

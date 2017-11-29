@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="csrf-token" content="{{ default_csrf_token() }}" />
+        <title>{% block title %} AENEAS USA Admin {% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/plugin-admin-main.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}"/>
+    </head>
+    <body>
+
+    {% block body_container %}
+      <section class="accessdenied">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="content">
+              <span class="icon icon-alert-exclamation"></span>
+              <p class="title semi-bold">Access Denied</p>
+              <p class="desc">You have tried to access a page that you have no permission to view.</p>
+              <p class="link"><a href="/"><u>click here</u></a> to return to dashboard.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endblock %}
+
+    </body>
+</html>

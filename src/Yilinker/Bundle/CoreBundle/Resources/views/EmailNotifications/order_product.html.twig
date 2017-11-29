@@ -1,0 +1,161 @@
+<tr mc:repeatable="Select" mc:variant="layout-2">
+    <td mc:hideable align="center" valign="top" class="fix-box">
+        <!-- start layout-2 container width 600px --> 
+        <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="full-width" style="background-color: #ffffff;  ">
+            <tr>
+                <td valign="top">
+                    <!-- Start of Item Container --> 
+                    <table width="600" align="center" border="0" cellspacing="0" cellpadding="0" class="full-width" style="background-color:#ffffff;">
+                        <tr>
+                            <td height="20"></td>
+                        </tr>
+                        <!-- start image and content --> 
+                        <tr>
+                            <td valign="top" width="100%">
+                                <!-- start content left --> 
+                                <table width="240" border="0" cellspacing="0" cellpadding="0" align="left" style="padding-left:50px;">
+                                    <tr>
+                                        <td valign="middle" align="center">
+                                            <table width="240" border="0" cellspacing="0" cellpadding="0" align="left">
+                                                <tr>
+                                                    <td width="65">
+                                                        {% set orderProductImg = orderProduct.image.product ? orderProduct.image.product.productId~'/'~orderProduct.image.imageLocation : '' %}
+                                                        <img src="{{ asset(orderProductImg, 'product') }}" width="60" height="60" style="width: 60px; height: 60px; border: solid #e2e2e2 1px; text-align: center;">
+                                                    </td>
+                                                    <td valign="bottom" style="padding-left: 10px;">
+                                                        {% if orderProduct.product is defined %}
+                                                            <a href="{{ url('product_details', {slug: orderProduct.product.slug}) }}" style="font-size: 15px; line-height: 22px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; color:#555555; font-weight:400; text-align:left; ">
+                                                                {{ orderProduct.productName }}
+                                                            </a>
+                                                        {% else %}
+                                                            {{ orderProduct.productName }}
+                                                        {% endif %}
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!--start space height --> 
+                                    <tr>
+                                        <td height="15"></td>
+                                    </tr>
+                                    <!--end space height --> 
+                                    {% set attributes = orderProduct.attributes|json_decode(true) %}
+                                    {% if attributes %}
+                                        <tr>
+                                            <td mc:edit="content (layout-2) TB21" style="font-size: 13px; line-height: 22px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; color:#a3a2a2; font-weight:300; text-align:left; ">
+                                                <span style="text-transform: uppercase; font-size: 15px; line-height: 22px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; color:#75338a; font-weight:300; text-align:left; ">
+                                                    Product Specifications
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="10"></td>
+                                        </tr>
+                                        {% for attrName, attrValue in attributes %}
+                                            <tr>
+                                                <td valign="top" mc:edit="content (layout-2) TB21" style="font-size: 13px; line-height: 22px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; color:#a3a2a2; font-weight:400; text-align:left; ">
+                                                    <span style="color: #555555; font-weight: bold; ">{{ attrName }}: </span>{{ attrValue }}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% endif %}
+                                    <!--start space height --> 
+                                    <tr>
+                                        <td height="20"></td>
+                                    </tr>
+                                    <!--end space height -->
+                                </table>
+                                <!-- end content left --> 
+                                <!-- start space width --> 
+                                <table class="remove" width="1" border="0" cellpadding="0" cellspacing="0" align="left" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                    <tr>
+                                        <td width="0" height="2" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                            <p style="padding-left: 20px;">&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- end space width -->
+                                <!-- start content right --> 
+                                <table width="300" border="0" cellspacing="0" cellpadding="0" align="right" class="full-width-text">
+                                    <tr>
+                                        <td valign="top">
+                                            <table border="0" cellspacing="0" cellpadding="0" align="left" width="100%">
+                                                <tr>
+                                                    <td mc:edit="content (layout-2) TB21" style="font-size: 13px; line-height: 22px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; color:#a3a2a2; font-weight:300; text-align:left; ">
+                                                        <table width="100%">
+                                                            {% if not user.isSeller %}
+                                                                <tr>
+                                                                    <td valign="bottom" width="50%" style="color: #555555; font-weight: bold; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; ">
+                                                                        Purchased From : 
+                                                                    </td>
+                                                                    <td valign="top" width="50%" align="right" style="padding-right: 40px;">
+                                                                        {% if orderProduct.seller.store is defined and orderProduct.seller.store and orderProduct.seller.store.storeName %}
+                                                                            {{ orderProduct.seller.store.storeName }}
+                                                                        {% else %}
+                                                                            {{ orderProduct.seller.firstName~"'s Store" }}
+                                                                        {% endif %}
+                                                                    </td>
+                                                                </tr>
+                                                            {% endif %}
+                                                            <tr>
+                                                                <td valign="top"width="50%" style="color: #555555; font-weight: bold; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; ">
+                                                                    Product Order # : 
+                                                                </td>
+                                                                <td valign="top" width="50%" align="right" style="padding-right: 40px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; ">
+                                                                    {{ orderProduct.orderProductId }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td valign="top" width="50%" style="color: #555555; font-weight: bold; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; ">
+                                                                    Quantity : 
+                                                                </td>
+                                                                <td valign="top" width="50%" align="right" style="padding-right: 40px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; ">
+                                                                    {{ orderProduct.quantity }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td valign="top" width="50%" style="color: #555555; font-weight: bold; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; ">
+                                                                    Base Price : 
+                                                                </td>
+                                                                <td valign="top" width="50%" align="right" style="padding-right: 40px; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; ">
+                                                                    &#8369; {{ orderProduct.unitPrice|number_format(2) }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td valign="top" width="50%" style="color: #555555; font-weight: bold; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; ">
+                                                                    Final Price : 
+                                                                </td>
+                                                                <td valign="top" width="50%" align="right" style="padding-right: 40px; font-size: 14px; font-weight: bold; font-family:Roboto,Open Sans, Arial,Tahoma, Helvetica, sans-serif; ">
+                                                                    &#8369; {{ orderProduct.totalPrice|number_format(2) }}
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <!--start space height --> 
+                                                <tr>
+                                                    <td height="20"></td>
+                                                </tr>
+                                                <!--end space height --> 
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- end text content --> 
+                                </table>
+                                <!-- end content right --> 
+                            </td>
+                        </tr>
+                        <!-- end image and content --> 
+                        <tr>
+                            <td height="10" width="100%" style="border-top: solid #e2e2e2 1px;">
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- End of Item Container --> 
+                </td>
+            </tr>
+        </table>
+        <!-- end layout-2 container width 600px -->
+    </td>
+</tr>

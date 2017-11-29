@@ -1,0 +1,146 @@
+<!-- Modal Add Item -->
+<div class="ui modal small modal-box send-message-modal">
+    <form name="send-sms">
+        <div class="content">
+            <div class="ui error message message-box red error-container hidden"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Recipient Number</label>
+                                <textarea class="form-ui" name="recipient" placeholder="Separated by line break"></textarea>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="ui checkbox mrg-top-10">
+                                    <input type="checkbox" name="recipientType" class="toggle-one" value="1" data-toggle="toggle">
+                                    <label for=""> Send to all buyer</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="ui checkbox mrg-top-10">
+                                    <input type="checkbox" name="recipientType" class="toggle-one" value="2" data-toggle="toggle">
+                                    <label for="">Send to all seller</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="ui checkbox mrg-top-10">
+                                    <input type="checkbox" name="recipientType" class="toggle-one" value="3" data-toggle="toggle">
+                                    <label for="">Send to all affiliate</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Your message</label>
+                                <textarea name="message" class="form-ui"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <button class="button confirm send">Send</button>
+            <span class="button close cancel">Cancel</span>
+        </div>
+    </form>
+</div>
+
+<div class="ui modal tiny message-sent-modal">
+    <a class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <i class="icon icon-circle-check icon-3x"></i>
+        <h4 class="ui header">
+            <div class="content">
+                Sms has been sent
+            </div>
+        </h4>
+    </div>
+    <div class="actions">
+        <button class="button blue close uppercase">Okay</button>
+    </div>
+</div>
+
+<div class="ui modal small modal-box view-message-modal">
+    <form name="addPromoProducts">
+        <div class="content">
+            <div class="message-box red hidden error-container"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Recipients</label>
+                                <div class="form-ui">
+                                    <span class="badge">All Buyer</span>
+                                    <span class="badge">All Seller</span>
+                                    <span class="badge">All Affiliate</span>
+                                    <span class="badge">09123456789</span>
+                                    <span class="badge">09987456321</span>
+                                    <span class="badge">09123456789</span>
+                                    <span class="badge">09987456321</span>
+                                    <span class="badge">09123456789</span>
+                                    <span class="badge">09987456321</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Your message</label>
+                                <div class="form-ui">
+                                    We’re relaunching the Globalization features next week on 16 May 2016 since the first attempt was marred with problems that would’ve resulted in an unstable release, and we apologize for that.
+
+                                    The upgrade will start around 11PM to midnight to prevent any interruptions with the Express operations and should be finished by the early wee hours of Tuesday, before 6 AM.
+
+                                    These are the people who will be staying up late for this task, so if you need anything from them on Tuesday, expect a reply late in the afternoon. Lee please take note and excuse them from the tardiness policy on Tuesday.
+                                    <p class="align-right mrg-top-10">
+                                        <i>04/29/2016 06:51:59</i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions align-right">
+            <span class="button close cancel">Close</span>
+        </div>
+    </form>
+</div>
+
+<div class="ui modal tiny delete-message-modal">
+    <a class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <i class="icon icon-circle-question-mark icon-3x"></i>
+        <h4 class="ui header">
+            <div class="content">
+                Are you sure you want to delete the selected messages?
+            </div>
+        </h4>
+    </div>
+    <div class="actions">
+        <button class="button red delete uppercase">Delete</button>
+        <button class="button cancel close uppercase">Cancel</button>
+    </div>
+</div>
+
+<div class="ui modal tiny delete-success-modal">
+    <a class="close"><i class="icon-times"></i></a>
+    <div class="content align-center">
+        <i class="icon icon-circle-check icon-3x"></i>
+        <h4 class="ui header">
+            <div class="content">
+                Selected messages successfully deleted
+            </div>
+        </h4>
+    </div>
+    <div class="actions">
+        <button class="button blue close uppercase">Okay</button>
+    </div>
+</div>

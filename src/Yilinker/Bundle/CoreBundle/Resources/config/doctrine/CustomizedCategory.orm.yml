@@ -1,0 +1,62 @@
+Yilinker\Bundle\CoreBundle\Entity\CustomizedCategory:
+    type: entity
+    table: CustomizedCategory
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\CustomizedCategoryRepository
+    id:
+        customizedCategoryId:
+            type: integer
+            id: true
+            column: customized_category_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            length: 100
+        sortOrder:
+            type: integer
+            column: sort_order
+            options:
+                default: '0'
+        dateCreated:
+            type: datetime
+            column: date_created
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+
+    manyToOne:
+        productCategory:
+            targetEntity: ProductCategory
+            joinColumn:
+                name: product_category_id
+                referencedColumnName: product_category_id
+            orphanRemoval: false
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        parent:
+            targetEntity: CustomizedCategory
+            inversedBy: CustomizedCategory
+            joinColumn:
+                name: parent_id
+                referencedColumnName: customized_category_id
+    oneToMany:
+        children:
+            targetEntity: CustomizedCategory
+            mappedBy: parent
+        productsLookup:
+            targetEntity: CustomizedCategoryProductLookup
+            mappedBy: customizedCategory
+    indexes:
+        fk_customizedcategory_productcategoryid_productcategory_productcategoryid_idx:
+            columns:
+                - product_category_id
+        fk_customizedcategory_userid_user_userid_idx:
+            columns:
+                - user_id
+    lifecycleCallbacks: {  }

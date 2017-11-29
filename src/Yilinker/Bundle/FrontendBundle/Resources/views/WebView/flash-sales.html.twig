@@ -1,0 +1,73 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+        <title>Yilinker - Flash Sales</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Maven+Pro">
+        <link rel="stylesheet" href="{{ asset('css/webview.css') }}" media="screen,print">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="body-mobile">
+            <div class="time-wrapper">
+                <ul id="time-section" class="row">
+                    {% if promoInstances|length > 0 %}
+                        {% for promoInstance in promoInstances  %}
+
+                            <li class="col-xs-3"><a class="promo-tab-head" rel="tab-content{{ promoInstance.promoInstanceIds }}" data-id="{{ promoInstance.promoInstanceIds }}">{{ promoInstance.dateTimeStart|date('H:i') }} - {{ promoInstance.dateTimeEnd|date('H:i') }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+            <input type="hidden" id="current-time" value="{{ dateNow.format('Y-m-d H:i:s') }}"/>
+            <div class="product-container-clone hidden">
+                <div class="row product">
+                    <a href="" target="_blank" data-mobile-href="" class="col-xs-3 product-image">
+                        <span class="discount-tag" data-concat="% OFF"></span>
+                        <img class="product-image">
+                    </a>
+                    <div class="product-content col-xs-9">
+                        <span class="col-xs-8">
+                            <a href="" target="_blank" data-mobile-href="" class="product-name"></a>
+                            <p class="product-short-description"></p>
+                            <span class="price product-price"></span>
+                            <span class="price original-price"></span>
+                        </span>
+                        <span class="col-xs-4">
+                            <!-- btn-inactive -->
+                            <a href="" target="_blank" class="btn promo-instance-product-status">BUY</a>
+                        </span>
+                        <span class="col-xs-12">
+                            <span class="progress-bar product-sold"> 
+                                <!-- style = width % -->
+                                <span class="promo-instance-product-percentage"></span>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            {% if promoInstances|length > 0 %}
+                {% for promoInstance in promoInstances %}
+            
+                   {% set isActive = false  %}
+                   {% if promoInstance.dateTimeStart <= dateNow and promoInstance.dateTimeEnd >= dateNow   %}
+                        {% set isActive = true  %}
+                   {% endif %}
+
+                    <div class="products-container scrollable {{ isActive ? 'currently-active-promo' : '' }} " id="tab-content{{ promoInstance.promoInstanceIds }}" data-promo-instance="{{ promoInstance.promoInstanceIds }}">
+                        <div class="main-product-container">
+                            
+                        </div>
+                        <div class="loading-container hidden">
+                            <img src="assets/images/spinner.gif" alt="loading">
+                            <p>loading more items</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        <script src="{{ asset('js/src/frontend/flash-sales.js') }}"></script>
+    </body>
+</html>

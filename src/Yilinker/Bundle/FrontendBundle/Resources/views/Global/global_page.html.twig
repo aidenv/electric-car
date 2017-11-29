@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=0, maximum-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        {% block metatags %}{% endblock %}
+        <title>{% block title %} {{globalDomain}}  {% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('css/online-main.css') }}">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <style>
+            html, body {
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                min-width: auto;
+            }
+            #vmap {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        {# For facebook like buttton #}
+        <div id="fb-root"></div>
+        <script>
+            (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        {# For twitter follow buttton #}
+        <script>
+            window.twttr = (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+              if (d.getElementById(id)) return t;
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "https://platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js, fjs);
+             
+              t._e = [];
+              t.ready = function(f) {
+                t._e.push(f);
+              };
+              return t;
+            }(document, "script", "twitter-wjs"));
+        </script>
+
+        <div class="global-page" style="background: url({{ asset('images/icons-background.png') }}) repeat; background-size: 50%;">
+            <div style="display:none">
+              <img id="pin" src="{{ asset('images/logo-main.png') }}" />
+            </div>
+            <div class="title-container">
+                <img src="{{ asset('images/logo-main.png') }}" alt="YiLinker.com"/>
+                <div class="tagline uppercase semi-bold">
+                    All in one place
+                </div>
+            </div>
+            <div id="vmap"></div>
+            <button id="focus-multiple" class="hidden;">Get</button>
+            <div class="footer-container">
+                <div class="footer-copyright-container">
+                    <div class="footer-content-container">
+                        <div class="footer-body-wrapper copyright-social-container">
+                            <div class="copyright-text-container">
+                                <p style="margin-top: -3px;">
+                                    <img src="{{ asset('images/logo-icon.png') }}" alt="YiLinker.com"/>
+                                    {% trans %}
+                                        &copy; 2015 Aeneas are the property of their respective owners.
+                                    {% endtrans %}
+                                </p>
+                            </div>
+                            <div class="social-container">
+                                <div style="display: inline-block;">
+                                    <div class="pull-left light-color">Keep in touch : </div>
+                                    <div class="social-button">
+                                        <div class="fb-like" data-href="https://www.facebook.com/YilinkerPH/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+                                    </div>
+                                    <div class="social-button">
+                                        <a class="twitter-follow-button" href="https://twitter.com/YilinkerPH" data-show-screen-name="false" data-show-count="false">Follow @TwitterDev</a>
+                                    </div>
+                                    <div class="social-button">
+                                        <div class="g-follow" data-annotation="none" data-height="20" data-href="https://plus.google.com/100572719500398142731" data-rel="author"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        var pinImageSrc = "{{ asset('images/map-marker.png') }}",
+            domain = [],
+            regions = {},
+            countries = {};
+
+        {% for country in countries %}
+
+            countries["{{country.code}}"] = {
+                name: "Yilinker {{country.name}}",
+                coords: ["{{country.latitude}}", "{{country.longitude}}"],
+                weburl: "{{'http://'~country.domain}}",
+            };
+
+            domain.push({
+                name: countries["{{country.code}}"].name,
+                coords: countries["{{country.code}}"].coords,
+                status: "available",
+                weburl: countries["{{country.code}}"].weburl,
+                code: "{{country.code}}"
+            });
+
+            regions["{{country.code}}"] = '#BBACBF';
+        {% endfor %}
+
+    </script>
+    <script type="text/javascript" src="{{ asset('js/bower/jquery.min.js') }}" charset="utf-8"></script>
+    <script type="text/javascript" src="{{ asset('js/bower/jquery.vmap.min.js') }}" charset="utf-8"></script>
+    <script type="text/javascript" src="{{ asset('js/bower/jquery.vmap.world.js') }}" charset="utf-8"></script>
+    <script type="text/javascript" src="{{ asset('js/bower/jquery-jvectormap.js') }}" charset="utf-8"></script>
+    <script type="text/javascript" src="{{ asset('js/bower/jquery-mousewheel.js') }}" charset="utf-8"></script>
+    {# src jvector #}
+    <script src="{{ asset('js/bower/jvectormap/src/jvectormap.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/abstract-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/abstract-canvas-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/abstract-shape-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/svg-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/svg-group-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/svg-canvas-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/svg-shape-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/svg-path-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/svg-circle-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/svg-image-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/svg-text-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/vml-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/vml-group-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/vml-canvas-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/vml-shape-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/vml-path-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/vml-circle-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/vml-image-element.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/map-object.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/region.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/marker.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/vector-canvas.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/simple-scale.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/ordinal-scale.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/numeric-scale.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/color-scale.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/legend.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/data-series.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/proj.js') }}"></script>
+    <script src="{{ asset('js/bower/jvectormap/src/map.js') }}"></script>
+    {# src jvector map render #}
+    <script type="text/javascript" src="{{ asset('js/bower/jquery-jvectormap-world-mill-en.js') }}" charset="utf-8"></script>
+    <script type="text/javascript" src="{{ asset('js/src/global-page.js') }}" charset="utf-8"></script>
+</html>

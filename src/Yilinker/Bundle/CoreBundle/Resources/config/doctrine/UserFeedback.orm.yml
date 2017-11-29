@@ -1,0 +1,82 @@
+Yilinker\Bundle\CoreBundle\Entity\UserFeedback:
+    type: entity
+    table: UserFeedback
+    id:
+      userFeedbackId:
+            type: integer
+            id: true
+            column: user_feedback_id
+            unsigned: true
+            comment: ''
+            generator:
+                strategy: AUTO
+    fields:
+        dateAdded:
+            type: datetime
+            column: date_added
+            nullable: true
+        title:
+            type: string
+            length: '255'
+            nullable: true
+        feedback:
+            type: string
+            length: '1024'
+            nullable: true
+        rating:
+            type: decimal
+            precision: 3
+            scale: 2
+            column: rating
+            options:
+                default: '0.00'
+        isHidden:
+            type: boolean
+            column: is_hidden
+            nullable: true
+            options:
+                default: false
+        dateHidden:
+            type: datetime
+            column: date_hidden
+            nullable: true
+            mappedBy: user
+    manyToOne:
+        reviewer:
+            targetEntity: User
+            joinColumn:
+                name: reviewer_id
+                referencedColumnName: user_id
+            orphanRemoval: false
+        reviewee:
+            targetEntity: Store
+            joinColumn:
+                name: reviewee_id
+                referencedColumnName: store_id
+            orphanRemoval: false
+        order:
+            targetEntity: UserOrder
+            joinColumn:
+                name: order_id
+                referencedColumnName: order_id
+            orphanRemoval: false
+    oneToMany:
+        ratings:
+            targetEntity: UserFeedbackRating
+            mappedBy: feedbacks
+            fetch: EAGER
+            cascade: ['persist']
+    indexes:
+        fk_user_userid_userfeedback_reviewerid_idx:
+            columns:
+                - reviewer_id
+        fk_store_storeid_userfeedback_revieweeid_idx:
+            columns:
+                - reviewee_id
+        fk_userorder_orderid_userfeedback_orderid_idx:
+            columns:
+                - order_id
+    lifecycleCallbacks: {  }
+
+
+

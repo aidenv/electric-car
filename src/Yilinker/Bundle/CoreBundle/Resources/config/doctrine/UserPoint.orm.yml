@@ -1,0 +1,52 @@
+Yilinker\Bundle\CoreBundle\Entity\UserPoint:
+    type: entity
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\UserPointRepository
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn:
+        name: discriminator
+        type: string
+    discriminatorMap:
+        UserPointRegistration: UserPointRegistration
+        UserPointPurchase: UserPointPurchase
+        UserPointReferralPurchase: UserPointReferralPurchase
+        UserPointDailyLogin: UserPointDailyLogin
+        UserPointReferral: UserPointReferral
+    table: UserPoint
+    indexes:
+        fk_userpoint_userpointid:
+            columns:
+                - user_point_id
+        fk_userpoint_userid:
+            columns:
+                - user_id
+    id:
+        userPointId:
+            type: integer
+            id: true
+            column: user_point_id
+            unsigned: true
+            generator:
+                strategy: AUTO
+    fields:
+        points:
+            type: decimal
+            nullable: false
+            precision: 12
+            scale: 4
+            column: points
+            options:
+                default: 0
+        type:
+            type: smallint
+            column: type
+        dateAdded:
+            type: datetime
+            nullable: false
+            column: date_added
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: user_id
+            orphanRemoval: false

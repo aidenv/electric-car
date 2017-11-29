@@ -1,0 +1,44 @@
+Yilinker\Bundle\CoreBundle\Entity\ProductCountry:
+    type: entity
+    table: ProductCountry
+    indexes:
+        fk_productcountry_productid_product_productid_idx:
+            columns:
+                - product_id
+        fk_productcountry_countryid_country_countryid_idx:
+            columns:
+                - country_id
+    id:
+        productCountryId:
+            type: bigint
+            id: true
+            column: product_country_id
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateAdded:
+            type: datetime
+            column: date_created
+        dateLastModified:
+            type: datetime
+            column: date_last_modified
+        status:
+            type: smallint
+            column: status
+            options:
+                default: '0'
+    manyToOne:
+        product:
+            targetEntity: Product
+            inversedBy: productCountries
+            joinColumn:
+                name: product_id
+                referencedColumnName: product_id
+            orphanRemoval: false
+        country:
+            targetEntity: Country
+            joinColumn:
+                name: country_id
+                referencedColumnName: country_id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

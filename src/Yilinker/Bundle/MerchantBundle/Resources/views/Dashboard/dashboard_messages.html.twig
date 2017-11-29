@@ -1,0 +1,36 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+    Messages
+{% endblock %}
+
+{% block dashboard_stylesheet %}
+{% endblock %}
+
+{% block dashboard_body %}
+    <div class="dashboard-body-container gray dashboard-message-container" data-user-id="{{ userId }}">
+        <div class="row row-body-message">
+            <div class="col-xs-4 col-body-message recent-messages {{ messages is empty? 'hidden':'' }}">
+                {{ render(controller('YilinkerCoreBundle:Message:renderRecentMessages', {'messages':messages})) }}
+            </div>
+            <div class="col-xs-8 col-body-message conversation {{ messages is empty? 'hidden empty-messages':'' }}">
+                {{ render(controller('YilinkerCoreBundle:Message:renderConversation')) }}
+            </div>
+            <div class="dashboard-component top align-center empty-messages {{ messages is not empty? 'hidden':'' }}">
+                <h3 class="ui header">
+                    <i class="icon icon-envelope"></i>
+                    <div class="content">
+                        {% trans %} Your inbox is currently empty {% endtrans %}.
+                        <div class="sub-header mrg-top-10">But it doesn't have to be this way. Check out our diverse list of sellers and start inquiring about the products that they have to offer.</div>
+                    </div>
+                </h3>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/bower/moment.min.js') }}"></script>
+    <script src="{{ asset('js/bower/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('js/src/dashboard-messages.js') }}"></script>
+{% endblock %}

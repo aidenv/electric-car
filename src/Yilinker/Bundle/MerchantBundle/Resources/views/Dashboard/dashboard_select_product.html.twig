@@ -1,0 +1,310 @@
+{% extends 'YilinkerMerchantBundle:Dashboard:dashboard_base.html.twig' %}
+
+{% block title %}
+   Affiliate Product Selection
+{% endblock %}
+
+{% block dashboard_stylesheets %}
+{% endblock %}
+
+{% block dashboard_body %}
+    <div class="dashboard-body-container white">
+        <div class="dashboard-component top">
+            <div class="component-content">
+                <div class="message-box red">
+                    Error message here...
+                </div>
+            </div>
+            <div class="title-bar">
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-xs-8"><span class="uppercase">Selected Products</span></div>
+                        <div class="col-xs-4 align-right">
+                            <div class="mrg-top-10 light-color"><b>4</b> products selected</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="component-content">
+                <div class="box-wrapper">
+                    <div class="tools">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="options">
+                                    <select name="" id="" class="ui form-ui single selection dropdown">
+                                        <option value="" selected>Select category here</option>
+                                        <option value="1">Test category</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <div class="options">
+                                    <input type="text" placeholder="Search keyword..." class="form-ui">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="options">
+                                    <button class="button blue block uppercase">
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="component-content">
+                <div class="product-list-affiliate selected-products">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="product-card">
+                                <div class="image-holder">
+                                    <img src="http://placehold.it/500x500/d35400/ffffff" alt="Product name" class="img-auto-place">
+                                </div>
+                                <div class="details">
+                                    <p class="large-font semi-bold name">
+                                        <a href="#">
+                                            Test Product
+                                        </a>
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-6 small-font align-center">
+                                            <div class="semi-bold">Price</div>
+                                            <div>P 120.00</div>
+                                        </div>
+                                        <div class="col-md-6 small-font align-center">
+                                            <div class="semi-bold">Price</div>
+                                            <div>P 120.00</div>
+                                        </div>
+                                    </div>
+                                    
+                                    {# <p class="small-font">
+                                        <span class="semi-bold">Commission :</span> P 120.00
+                                    </p> #}
+                                    <p class=" description light-color">
+                                        Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.
+                                    </p>
+
+                                    <div class="two-buttons mrg-top-10 mrg-bt-10">
+                                        <div class="button gray">View</div>
+                                        <div class="button red remove">Remove</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-component">
+            <div class="title-bar">
+                <div class="component-content">
+                    <div class="row">
+                        <div class="col-xs-8"><span class="uppercase">Product Selection</span></div>
+                        <div class="col-xs-4 align-right">
+                            <div class="mrg-top-10 light-color"><b>100</b> available products</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="component-content">
+                <div class="box-wrapper">
+                    <div class="tools">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="options">
+                                    <select name="" id="" class="ui form-ui single selection dropdown">
+                                        <option value="" selected>Select category here</option>
+                                        <option value="1">Test category</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <div class="options">
+                                    <input type="text" placeholder="Search keyword..." class="form-ui">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="options">
+                                    <button class="button blue block uppercase">
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="component-content">
+                <div class="product-list-affiliate all-products">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="product-card">
+                                <div class="image-holder">
+                                    <img src="http://placehold.it/500x500/d35400/ffffff" alt="Product name" class="img-auto-place">
+                                </div>
+                                <div class="details">
+                                    <p class="large-font semi-bold name">
+                                        <a href="#">
+                                            Test Product
+                                        </a>
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-6 small-font align-center">
+                                            <div class="semi-bold">Price</div>
+                                            <div>P 120.00</div>
+                                        </div>
+                                        <div class="col-md-6 small-font align-center">
+                                            <div class="semi-bold">Price</div>
+                                            <div>P 120.00</div>
+                                        </div>
+                                    </div>
+                                    
+                                    {# <p class="small-font">
+                                        <span class="semi-bold">Commission :</span> P 120.00
+                                    </p> #}
+                                    <p class=" description light-color">
+                                        Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.
+                                    </p>
+
+                                    <div class="two-buttons mrg-top-10 mrg-bt-10">
+                                        <div class="button gray">View</div>
+                                        <div class="button blue select">Select</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product-card">
+                                <div class="image-holder">
+                                    <img src="http://placehold.it/500x500/d35400/ffffff" alt="Product name" class="img-auto-place">
+                                </div>
+                                <div class="details">
+                                    <p class="large-font semi-bold name">
+                                        <a href="#">
+                                            Test Product
+                                        </a>
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-6 small-font align-center">
+                                            <div class="semi-bold">Price</div>
+                                            <div>P 120.00</div>
+                                        </div>
+                                        <div class="col-md-6 small-font align-center">
+                                            <div class="semi-bold">Price</div>
+                                            <div>P 120.00</div>
+                                        </div>
+                                    </div>
+                                    
+                                    {# <p class="small-font">
+                                        <span class="semi-bold">Commission :</span> P 120.00
+                                    </p> #}
+                                    <p class=" description light-color">
+                                        Veronika Ossi is a set designer living in .
+                                    </p>
+
+                                    <div class="two-buttons mrg-top-10 mrg-bt-10">
+                                        <div class="button gray">View</div>
+                                        <div class="button blue select">Select</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product-card">
+                                <div class="image-holder">
+                                    <img src="http://placehold.it/500x500/d35400/ffffff" alt="Product name" class="img-auto-place">
+                                </div>
+                                <div class="details">
+                                    <p class="large-font semi-bold name">
+                                        <a href="#">
+                                            Test Product
+                                        </a>
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-6 small-font align-center">
+                                            <div class="semi-bold">Price</div>
+                                            <div>P 120.00</div>
+                                        </div>
+                                        <div class="col-md-6 small-font align-center">
+                                            <div class="semi-bold">Price</div>
+                                            <div>P 120.00</div>
+                                        </div>
+                                    </div>
+                                    
+                                    {# <p class="small-font">
+                                        <span class="semi-bold">Commission :</span> P 120.00
+                                    </p> #}
+                                    <p class=" description light-color">
+                                        Veronika Ossi is a set designer living in .
+                                    </p>
+
+                                    <div class="two-buttons mrg-top-10 mrg-bt-10">
+                                        <div class="button gray">View</div>
+                                        <div class="button blue select">Select</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product-card">
+                                <div class="image-holder">
+                                    <img src="http://placehold.it/500x500/d35400/ffffff" alt="Product name" class="img-auto-place">
+                                </div>
+                                <div class="details">
+                                    <p class="large-font semi-bold name">
+                                        <a href="#">
+                                            Test Product
+                                        </a>
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-6 small-font align-center">
+                                            <div class="semi-bold">Price</div>
+                                            <div>P 120.00</div>
+                                        </div>
+                                        <div class="col-md-6 small-font align-center">
+                                            <div class="semi-bold">Price</div>
+                                            <div>P 120.00</div>
+                                        </div>
+                                    </div>
+                                    
+                                    {# <p class="small-font">
+                                        <span class="semi-bold">Commission :</span> P 120.00
+                                    </p> #}
+                                    <p class=" description light-color">
+                                        Veronika Ossi is a set designer living in .
+                                    </p>
+
+                                    <div class="two-buttons mrg-top-10 mrg-bt-10">
+                                        <div class="button gray">View</div>
+                                        <div class="button blue select">Select</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="component-content">
+                <!--Pagination-->
+                <div class="transaction-pagination-container mrg-top-20">
+                  {{ 
+                      include('YilinkerCoreBundle:Default:pagination.html.twig', {
+                          totalResults: 100, 
+                          perPage: 10
+                      }) 
+                  }}
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-component bottom dashboard-component-footer gray align-center">
+            <button class="button blue button-rounded-side uppercase"> Save Changes </button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block dashboard_javascripts %}
+    <script src="{{ asset('js/src/reseller-product-selection.js') }}"></script>
+{% endblock %}

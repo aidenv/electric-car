@@ -1,0 +1,9 @@
+api_v3_add_product_review:
+    path: /auth/product/addProductReview
+    defaults: { _controller: YilinkerFrontendBundle:Api/ProductReviewApi:addProductReview }
+    methods: [POST]
+
+api_v3_get_product_reviews:
+    path: /product/getProductReviews
+    defaults: { _controller: YilinkerFrontendBundle:Api/ProductReviewApi:getProductReviews }
+    methods: [POST]

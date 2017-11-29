@@ -1,0 +1,251 @@
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Columns Container</span>
+        </div>
+    </div>
+    <div class="container">
+      <!-- Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="tools top form">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="search options">
+                    <div class="labeled-input right">
+                      <input type="text" class="form-ui" placeholder="Search">
+                      <div class="label black"><i class="item-icon icon-search"></i></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <select name="" id="" class="form-ui ui search single selection dropdown">
+                      <option value="">Order Status</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <select name="" id="" class="form-ui ui search single selection dropdown">
+                      <option value="">Payment Method</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <input type="text" class="form-ui" placeholder="11/12/14">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <input type="text" class="form-ui" placeholder="02/29/16">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tables -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+              <div class="box-div">
+                <div class="row gutters">
+                  <div class="col-md-12">
+                    <table class="table basic table-vertical-align-top">
+                      <tr>
+                        <th>Order ID</th>
+                        <th>Invoice No</th>
+                        <th>Transaction ID</th>
+                        <th>Total Amount</th>
+                        <th>Buyer</th>
+                        <th>Status</th>
+                        <th>Date of Transaction</th>
+                        <th>Type of Payment Method</th>
+                      </tr>
+                      {% for i in 1..10 %}
+                        <tr>
+                          <td>201</td>
+                          <td>201-1-1506040106</td>
+                          <td>PPY-1506040106-1</td>
+                          <td>PHP 2121.0000</td>
+                          <td>sammyboi22_22</td>
+                          <td>PAID</td>
+                          <td>2015-06-04 13:05:51</td>
+                          <td>PESOPAY</td>
+                        </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-blank">
+                <div class="row">
+                  <div class="col-md-6">
+                    <button class="button cancel">
+                      <i class="item-icon icon-arrow-down"></i> Download
+                    </button>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="pagination pull-right">
+                      <a class="item ">1</a>
+                      <div class="disabled item">...</div>
+                      <a class="item">10</a>
+                      <a class="item">11</a>
+                      <a class="item">12</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+</section>
+
+<!-- Dont include <br> -->
+<br clear="all">
+<!-- -->
+
+<section class="box-section">
+    <div class="title-bar">
+        <div class="container">
+            <span>Columns Container</span>
+        </div>
+    </div>
+    <div class="container">
+      <!-- Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="tools box-div top form">
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="options">
+                    <input type="text" class="form-ui" placeholder="11/12/14" readonly>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <input type="text" class="form-ui" placeholder="02/29/16" readonly>
+                  </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <input type="text" class="form-ui" placeholder="Storename / Username">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <div class="labeled-input">
+                      <div class="label black">From</i></div>
+                      <input type="text" class="form-ui" placeholder="02/29/16">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="options">
+                    <div class="labeled-input">
+                      <div class="label black">To</i></div>
+                      <input type="text" class="form-ui" placeholder="02/29/16">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  <button class="options button block cancel">
+                    <i class="item-icon icon-search"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tables -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+              <div class="box-div">
+                <div class="row gutters">
+                  <div class="col-md-12">
+                    <table class="table basic table-vertical-align-top">
+                      <tr>
+                        <th>Storename</th>
+                        <th>Bank</th>
+                        <th>Account Name</th>
+                        <th>Account No.</th>
+                        <th>Email</th>
+                        <th>Contact No.</th>
+                        <th>NET</th>
+                      </tr>
+                      {% for i in 1..10 %}
+                        <tr>
+                          <td>sammyboi22_22</td>
+                          <td>Asia United Bank </td>
+                          <td>aaaaa </td>
+                          <td>bbbbb </td>
+                          <td>samgavinio+tsss@easyshop.ph</td>
+                          <td>9876545345</td>
+                          <td><strong>PHP 187.67</strong></td>
+                        </tr>
+                      {% endfor %}
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Tools -->
+      <div class="row">
+        <div class="box-upper">
+          <div class="col-md-12">
+            <div class="box-blank">
+                <div class="row">
+                  <div class="col-md-6">
+                    <button class="button cancel">
+                      <i class="item-icon icon-arrow-down"></i> Download
+                    </button>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="pagination pull-right">
+                      <a class="item ">1</a>
+                      <div class="disabled item">...</div>
+                      <a class="item">10</a>
+                      <a class="item">11</a>
+                      <a class="item">12</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+</section>

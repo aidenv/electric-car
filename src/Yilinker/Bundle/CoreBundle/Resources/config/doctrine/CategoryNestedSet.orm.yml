@@ -1,0 +1,31 @@
+Yilinker\Bundle\CoreBundle\Entity\CategoryNestedSet:
+    type: entity
+    table: CategoryNestedSet
+    repositoryClass: Yilinker\Bundle\CoreBundle\Repository\CategoryNestedSetRepository
+    id:
+        categoryNestedSetId:
+            type: integer
+            id: true
+            unsigned: true
+            column: category_nested_set_id
+            generator:
+                strategy: AUTO
+    fields:
+        left:
+            type: integer
+            unsigned: true            
+            options:
+                default: '0'
+        right:
+            type: integer
+            unsigned: true            
+            options:
+                default: '0'
+    oneToOne:
+        productCategory:
+            targetEntity: ProductCategory
+            joinColumn:
+                name: product_category_id
+                referencedColumnName: product_category_id
+            orphanRemoval: false        
+    lifecycleCallbacks: {  }

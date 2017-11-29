@@ -1,0 +1,29 @@
+message_add:
+    path: /message/sendMessage
+    defaults: { _controller: YilinkerCoreBundle:Api/MessageApi:sendMessage }
+    methods: [POST]
+
+message_mark_as_read:
+    path: /message/setConversationAsRead
+    defaults: { _controller: YilinkerCoreBundle:Api/MessageApi:setConversationAsRead }
+    methods: [POST]
+
+message_get_contacts:
+    path: /message/getContacts
+    defaults: { _controller: YilinkerCoreBundle:Api/MessageApi:getContacts }
+    methods: [POST]
+
+message_get_conversation_head:
+    path: /message/getConversationHead
+    defaults: { _controller: YilinkerCoreBundle:Api/MessageApi:getConversationHead }
+    methods: [POST]
+
+message_get_conversation_messages:
+    path: /message/getConversationMessages
+    defaults: { _controller: YilinkerCoreBundle:Api/MessageApi:getConversationMessages }
+    methods: [POST]
+
+message_image_attach:
+    path: /message/imageAttach
+    defaults: { _controller: YilinkerCoreBundle:Api/MessageApi:imageAttach }
+    methods: [POST]

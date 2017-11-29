@@ -1,0 +1,60 @@
+<div class="tab-item-container" id="sign-in-checkout">
+    <form action="{{ path('user_buyer_authenticate') }}" method="post">
+        {% if error %}
+            <div class="message-box red">
+                {{ error.message| replace({"Bad credentials." : "Invalid Email or Password."}) }}
+            </div>
+        {% endif %}
+        <div class="form">
+            <div class="row">
+                    <div class="col-md-6">
+                        <label for="login-email" class="capitalize">{% trans %} Email/Mobile {% endtrans %}</label>
+                        <input name="_username" 
+                               value="{{ lastEmail }}" 
+                               id="login-email" 
+                               type="text" 
+                               class="form-ui" 
+                               placeholder="Enter your email/mobile here"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">{% trans %} Password {% endtrans %}</label>
+                        <input name="_password" 
+                               type="password" 
+                               class="form-ui" 
+                               placeholder="Enter your password here"/>
+                    </div>
+                    <input type="hidden" 
+                           name="_target_path_success" 
+                           value="checkout_summary" />
+                    <input type="hidden" 
+                           name="_target_path_error" 
+                           value="checkout_type" />
+                    <input type="hidden" 
+                           name="_csrf_token" 
+                           value="{{ csrf_token('authenticate') }}" />
+            </div>
+        </div>
+        <div class="form">
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <button type="submit" class="button purple block login-button">
+                        {% trans %} Sign In &amp; Continue {% endtrans %}
+                    </button>
+                </div>
+                <div class="col-xs-12 col-md-2 col-divider-sign-in">
+                    <span class="divider-sign-in-button uppercase">{% trans %} or sign in with {% endtrans %}</span>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <a class="button facebook block" href="{{ path("hwi_oauth_service_redirect", {service: "facebook"}) }}">
+                        <div class="icon-container"><i class="icon icon-facebook"></i></div> {% trans %} Facebook {% endtrans %}
+                    </a>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <a class="button google-plus block" href="{{ path('hwi_oauth_service_redirect', {service: 'google'}) }}">
+                        <div class="icon-container"><i class="icon icon-google-plus"></i></div> {% trans %} Google+ {% endtrans %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

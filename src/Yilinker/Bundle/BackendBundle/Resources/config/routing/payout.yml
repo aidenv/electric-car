@@ -1,0 +1,56 @@
+yilinker_backend_request_payout_list:
+    path: /request-payout-list
+    defaults: { _controller: YilinkerBackendBundle:Payout:renderRequestPayout }
+    methods : [GET]
+
+yilinker_backend_batch_payout_create:
+    path: /payout-batch-create
+    defaults: { _controller: YilinkerBackendBundle:Payout:createBatchPayout }
+
+yilinker_backend_batch_payout_update:
+    path: /payout-batch-update
+    defaults: { _controller: YilinkerBackendBundle:Payout:updateBatchPayoutHead }
+
+yilinker_backend_batch_payout_detail_remove:
+    path: /payout-batch-detail-remove
+    defaults: { _controller: YilinkerBackendBundle:Payout:removePayoutBatchDetails }
+
+yilinker_backend_batch_payout_list:
+    path: /payout-batch-list
+    defaults: {  _controller: YilinkerBackendBundle:Payout:renderBatchPayout }
+
+yilinker_backend_batch_payout_head_remove:
+    path: /payout-batch-head-remove
+    defaults: { _controller: YilinkerBackendBundle:Payout:removePayoutBatchHead }
+
+yilinker_backend_payout_batch_file_upload:
+    path: /payout-batch-file-upload
+    defaults: { _controller: YilinkerBackendBundle:Payout:uploadPayoutBatchFile }
+
+yilinker_backend_payout_batch_file_download:
+    path: /payout-batch-file-download/{payoutBatchFileId}
+    defaults: { _controller: YilinkerBackendBundle:Payout:downloadPayoutBatchFile }
+
+yilinker_backend_payout_batch_file_remove:
+    path: /payout-batch-file-remove
+    defaults: { _controller: YilinkerBackendBundle:Payout:removePayoutBatchFile }
+
+yilinker_backend_payout_batch_create_bulk:
+    path: /payout-batch-create-bulk
+    defaults: { _controller: YilinkerBackendBundle:Payout:bulkCreatePayoutBatch }
+
+yilinker_backend_retrieve_payout_batch_detail:
+    path: /payout-batch-detail-search
+    defaults: { _controller: YilinkerBackendBundle:Payout:getPayoutBatchDetail }
+
+yilinker_backend_create_payout_batch_detail:
+    path : /payout-batch-detail-create
+    defaults: { _controller: YilinkerBackendBundle:Payout:createPayoutBatchDetail }
+
+yilinker_backend_get_payout_data:
+    path: /payout-batch-data
+    defaults: { _controller: YilinkerBackendBundle:Payout:getPayoutBatchData }
+
+yilinker_backend_get_payout_transaction:
+    path: /payout-transaction
+    defaults: { _controller: YilinkerBackendBundle:Payout:getPayoutTransaction }

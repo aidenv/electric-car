@@ -1,0 +1,19 @@
+core_widget_get_manufacturers:
+    path: /widget/get-manufacturers
+    defaults: { _controller: YilinkerCoreBundle:Widget:manufacturers }
+
+core_widget_get_brands:
+    path: /widget/get-brands
+    defaults: { _controller: YilinkerCoreBundle:Widget:brands }
+
+core_widget_get_product_categories:
+    path: /widget/get-product-categories
+    defaults: { _controller: YilinkerCoreBundle:Widget:productCategories }
+
+core_widget_upload_temp:
+    path: /widget/upload-temp
+    defaults: { _controller: YilinkerCoreBundle:Widget:uploadTemp }
+
+core_widget_upload_image:
+    path: /widget/upload-image
+    defaults: { _controller: YilinkerCoreBundle:Widget:uploadImage }

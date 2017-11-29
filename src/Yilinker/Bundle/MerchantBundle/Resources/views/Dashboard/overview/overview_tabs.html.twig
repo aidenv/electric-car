@@ -1,0 +1,51 @@
+<div class="dashboard-submenu-wrapper">
+    <div class="dashboard-submenu-container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-unstyle list-submenu">
+                    <li>
+                        <a class="active">
+                            {% trans %} Overview {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('dashboard_followers') }}">
+                            {% trans %} Followers {% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('dashboard_activity_log') }}">
+                            {% trans %} Activity Log {% endtrans %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <div class="social-media-set align-right">
+                    <a data-fb-share='{"appId":"{{ merchant_facebook_appId }}","customUrl":"{{referralUrl}}"}'>
+                        <div class="social-media-icon facebook">
+                            <i class="icon-facebook"></i>
+                        </div>
+                    </a>
+
+                    <a data-twitter-share='{"url":"{{referralUrl}}"}' href="#">
+                        <div class="social-media-icon twitter">
+                            <i class="icon-twitter"></i>
+                        </div>
+                    </a>
+                    <a data-google-share='{"customUrl":"{{referralUrl}}"}' href="#">
+                        <div class="social-media-icon google-plus">
+                            <i class="icon-google-plus"></i>
+                        </div>
+                    </a>
+
+                    <a class="qr-code-modal-trigger" >
+                        <div class="social-media-icon">
+                            <img src="{{ qrCodeLocation }}" data-thumb="{{ qrcode_data_uri(referralUrl, size=240) }}" data-small="{{ qrcode_data_uri(referralUrl, size=480) }}" data-medium="{{ qrcode_data_uri(referralUrl, size=960) }}" data-large="{{ qrcode_data_uri(referralUrl, size=1920) }}" alt="QR Code" class="img-auto-place">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

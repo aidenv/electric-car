@@ -1,0 +1,21 @@
+{% if promoInstance is not same as(null) %}
+    <div class="item upcoming-sale">
+        {% if hasEnded is same as(true) %}
+             <div class="ended-time-label">
+                    Ended on {{ promoInstance.dateEnd|date("gA") }}
+            </div>
+        {% else %}
+            <div class="upcoming-time-label">
+                Starts at {{ promoInstance.dateStart|date("gA") }}
+            </div>
+        {% endif %}
+        <div class="flash-upcoming-slider">
+            {% for product in products %}
+                {{ include('YilinkerFrontendBundle:Product:flash_item_upcoming.html.twig', {
+                    'product':product,
+                    'hasEnded':hasEnded
+                }) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

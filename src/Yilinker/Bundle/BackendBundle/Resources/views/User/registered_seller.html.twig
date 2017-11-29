@@ -1,0 +1,236 @@
+{% extends 'YilinkerBackendBundle:base:base.html.twig' %}
+
+{% block body %}
+    <section class="box-section">
+        <div class="title-bar">
+            <div class="container">
+                <span>Registered Seller/Affiliates</span>
+            </div>
+        </div>
+        <div class="container">
+            <!-- Tools -->
+            <div class="row">
+              <div class="box-upper">
+                <div class="col-md-12">
+                  <div class="box-div tabular-inside">
+                    <div class="row gutters group-segment">
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-8">
+                            <h4 class="mrg-top-10"><i class="icon-user"></i> Number of Registered
+                              {% if type == 'seller'  %}
+                                  Sellers
+                              {% elseif type == 'affiliate' %}
+                                  Affiliates
+                              {% endif %}
+                              :
+                              <strong>{{ registeredSellers.userCount }}</strong></h4>
+                          </div>
+                          <div class="col-md-3">
+                            <input type="text" id="searchKeyword" class="form-ui" placeholder="Search">
+                          </div>
+                          <div class="col-md-1">
+                            <div class="button block gray" id="searchBtn"><i class="item-icon icon-search"></i></div>
+                          </div>
+                        </div>
+                        <div class="ui tabular menu">
+                          <div class="item {% if type == 'seller' %}active{% endif %}" data-tab="tab-name-merchant">
+                              <a href="{{ path('admin_registered_merchant_page') }}">Sellers</a>
+                          </div>
+                          <div class="item {% if type == 'affiliate' %}active{% endif %}" data-tab="tab-name-affiliate">
+                              <a href="{{ path('admin_registered_affliate_page') }}">Affiliates</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tables Seller Merchant -->
+            <div class="ui tab row active" data-tab="tab-name">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-div">
+                            <div class="row gutters">
+                                <div class="col-md-12">
+                                    <table class="table basic table-vertical-align-top">
+                                        <tr>
+                                            <th>Date Created</th>
+                                            <th>Fullname</th>
+                                            <th>Store Name</th>
+                                            <th>Email</th>
+                                            <th>No. uploaded Products</th>
+                                            <th>Contact Number</th>
+                                            <th width="10%"></th>
+                                        </tr>
+                                        {% for seller in registeredSellers.users %}
+                                            <tr>
+                                                <td>{{ seller.userEntity.dateAdded|date('m/d/Y') }}</td>
+                                                <td>{{ seller.userEntity.fullName }}</td>
+                                                <td>{{ seller.userEntity.store.storeName|default('') }}</td>
+                                                <td>{{ seller.userEntity.email }}</td>
+                                                <td>{{ seller.numOfUploadedProducts }}</td>
+                                                <td>{{ seller.userEntity.contactNumber }}</td>
+                                                <td>
+                                                    <button class="options button pull-right gray tiny btn-render-user-detail-modal" data-id="{{ seller.userEntity.userId }}">
+                                                        More info  <i class="item-icon icon-caret-right"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom Tools -->
+            <div class="row">
+                <div class="box-upper">
+                    <div class="col-md-12">
+                        <div class="box-blank">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ include('YilinkerCoreBundle:Default:pagination.html.twig', {totalResults: registeredSellers.userCount, perPage: pageLimit}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    {# START OF MODAL SELLER DETAILS #}
+    <div class="ui modal small modal-box " id="modal-register-user">
+        <a class="close"><i class="icon-times"></i></a>
+        <div class="header">
+          User Information
+          <div class="ui tabular menu user-detail-menu">
+            <div class="item active" data-tab="modal-tab-address">Address</div>
+            <div class="item" data-tab="modal-tab-bank">Bank Account</div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="ui tab active" data-tab="modal-tab-address">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form">
+                  <label>Address</label>
+                  <div id="div-address"></div>
+                </div>
+                <div class="form">
+                  <label>Generate Code</label>
+                  <div id="div-generated-code"></div>
+                  <button class="button gray small" id="btn-generate-code" data-id="0">Generate Code</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui tab" data-tab="modal-tab-bank">
+            <div class="row empty-bank-container">
+              <div class="col-md-12">
+                <div class="form">
+                  <p>This account doesnt have any bank information</p>
+                  <a class="button gray small mrg-top-10 trigger-add-bank" href="javascript:void(0);">Add</a>
+                </div>
+              </div>
+            </div>
+            <div class="row bank-details hidden">
+              <div class="col-md-12">
+                <div class="form">
+                  <label>Bank Account</label>
+                  <h4 class="account-title"></h4>
+                  <p class="account-number"></p>
+                  <p class="account-name"></p>
+                  <p class="bank-name"></p>
+                  <input type="hidden" class="bank-account-id" value="0"/>
+                  <input type="hidden" class="user-id" value="0"/>
+                  <input type="hidden" class="bank-id" value="0"/>
+                  <a class="button gray small mrg-top-10 trigger-edit-bank" href="javascript:void(0)">Edit</a>
+                </div>
+              </div>
+            </div>
+
+            <form class="form ui bank-edit-form hidden">
+              <div class="field required">
+                <label>Bank Account Title</label>
+                <input class="form-ui account-title-input" maxlength="255" name="txt-bank-account-title" placeholder="Enter your bank account title here" type="text">
+              </div>
+              <div class="field required">
+                <label>Bank Name</label>
+                <div class="ui selection dropdown bank-list-dropdown" tabindex="-1">
+                  <input name="drop-down-bank-name" type="hidden">
+                  <div class="text default">Select Bank...</div>
+                  <i class="dropdown icon"></i>
+                  <div class="menu" tabindex="-1">
+                    {% for bank in banks %}
+                    <div class="item" data-value="{{ bank.bankId }}" style="padding: 1em 1.25em !important">{{ bank.bankName }}</div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="two fields">
+                  <div class="field required ">
+                    <label>
+                      Account Number
+                    </label>
+                    <input class="form-ui account-number-input" name="txt-bank-account-number" placeholder="Enter your bank account number here" type="text">
+                  </div>
+                  <div class="field required">
+                    <label>
+                      Account Name
+                    </label>
+                    <input class="form-ui account-name-input" name="txt-bank-account-name" placeholder="Enter your bank account name here" type="text">
+                  </div>
+                  <input type="hidden" class="account-id-input" value=""/>
+                </div>
+              </div>
+              <div class="hidden" id="server-error-message"></div>
+
+              <div class="bank-account-prompt success" style="display:none">
+                  <div class="row">
+                      <div class="message-box green with-close-message">
+                         Bank update successfully completed.
+                      </div>
+                   </div>
+              </div>
+
+              <div class="bank-account-prompt error" style="display:none">
+                  <div class="row">
+                      <div class="message-box red with-close-message">
+                         Something went wront. Please try again later
+                      </div>
+                   </div>
+              </div>
+
+
+              <div>
+                <a class="button gray small mrg-top-10 trigger-save-bank" href="javascript:void(0)">Save</a>
+                <a class="button white small mrg-top-10 trigger-cancel-bank" href="javascript:void(0)">Cancel</a>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+    {# END OF MODAL SELLER DETAILS #}
+
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/registeredSeller.js"
+        "js/src/backend/registeredSeller.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

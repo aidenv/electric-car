@@ -1,0 +1,30 @@
+<li class="inbound-message" data-message-id="{{ message.messageId }}">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <table class="table-thread-item">
+                <tbody>
+                    <tr>
+                        <td class="td-message-container">
+                            <div class="message">
+                                <div class="message-gallery"><a href="{{ message.message }}"><img src="{{ message.message }}" width="75" height="75"></a></div>
+                            </div>
+                            <div class="message-status">
+                                <span class="status-item">
+                                    <i class="icon icon-clock"></i> {{ message.timeSent | date("m/d/Y") }}
+                                </span>
+                                <span class="status-item is-seen {{ message.isSeen is same as('1')? '':'hidden' }}" data-is-seen="{{ message.isSeen }}">
+                                    <i class="icon icon-check"></i> Seen
+                                </span>
+                            </div>
+                        </td>
+                        <td class="td-sender-image-container">
+                            <div class="image-holder img-thread-message-sender">
+                                <img src="{{ message.senderProfileThumbnailImageUrl }}" alt="" class="img-auto-place"/>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</li>

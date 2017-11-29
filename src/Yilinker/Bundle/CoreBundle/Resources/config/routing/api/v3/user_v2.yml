@@ -1,0 +1,30 @@
+
+api_v3_core_user_send_unauthenticated_token_v2:
+    path: /sms/send
+    defaults: { _controller: YilinkerCoreBundle:Api/v2/UserApi:sendSms }
+    methods: [POST]
+
+api_v3_core_user_send_authenticated_token_v2:
+    path: /auth/sms/send
+    defaults: { _controller: YilinkerCoreBundle:Api/v2/UserApi:sendSms }
+    methods: [POST]
+
+api_v3_core_user_register_v2:
+    path: /user/register
+    defaults: { _controller: YilinkerCoreBundle:Api/v2/UserApi:registerUser }
+    methods: [POST]
+
+api_v3_core_user_reset_password_v2:
+    path: /user/resetPassword
+    defaults: { _controller: YilinkerCoreBundle:Api/v2/UserApi:resetPassword }
+    methods: [POST]
+
+api_v3_core_user_unauth_validate_token_v2:
+    path: /token/validate
+    defaults: { _controller: YilinkerCoreBundle:Api/v2/UserApi:validateSms }
+    methods: [POST]
+
+api_v3_core_user_auth_validate_token_v2:
+    path: /auth/token/validate
+    defaults: { _controller: YilinkerCoreBundle:Api/v2/UserApi:validateSms }
+    methods: [POST]

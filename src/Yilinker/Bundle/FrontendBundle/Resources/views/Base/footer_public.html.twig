@@ -1,0 +1,214 @@
+<div class="footer-wrapper">
+    <div class="footer-top">
+        <div class="footer-body-wrapper">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="sitemap-mobile">
+                            <a href="#">Privacy Policy</a> &middot; <a href="#">Complaints</a> &middot; <a href="#">Resolution Center</a>
+                        </div>
+                    <div class="sitemap-container">
+                     {#   <div class="row">
+                                <div class="col-xs-12 col-sm-7 footer-bordered-mobile">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 sitemap-section">
+                                            <h2 class="header">YiLinker</h2>
+                                            <p>Yilinker.com is an emerging e-commerce platform founded and established by a Singapore-based
+                                                company, YiLinker Investment PTE LTD. Our goal is to provide our buyers with an exceptional
+                                                online shopping experience while we facilitate a one-of-a-kind selling opportunity to our
+                                                partners.</p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-1"></div>
+                                        <div class="col-xs-6 col-sm-3 sitemap-section">
+                                            <h2 class="header">{% trans %} Help &amp; Support {% endtrans %}</h2>
+                                            <ul class="list-unstyled list-sitemap-links">
+                                                <li><a href="#">Help Center</a></li>
+                                                <li><a href="#">How to Buy</a></li>
+                                                <li><a href="#">Shipping and Delivery</a></li>
+                                                <li><a href="#">How to Return</a></li>
+                                                <li><a href="{{ path('privacy_policy') }}">{% trans %} Privacy Policy {% endtrans %}</a></li>
+                                                <li><a href="#">F.A.Q.</a></li>
+                                                <li><a href="#">Contact Us</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-2 sitemap-section">
+                                            <h2 class="header">{% trans %} About {% endtrans %}</h2>
+                                            <ul class="list-unstyled list-sitemap-links">
+                                                <li><a href="#">About Aeneasusa</a></li>
+                                                <li><a href="#">Affiliate Programs</a></li>
+                                                <li><a href="#">Terms and Conditions</a></li>
+                                                <li><a href="#">Careers</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-1"></div>
+                                <div class="col-xs-12 col-sm-4 sitemap-section">
+                                    <div class="row">
+                                        <h2 class="header">Subscribe to YiLinker E-Newsletter</h2>
+                                        <p>
+                                            {% trans %}
+                                                Get the word out. Make sure you don't miss out on interesting events, sale, and more by joining our newsletter program.
+                                            {% endtrans %}
+                                        </p>
+                                        <div class="email-newsletter-form-container col-xs-12">
+                                            {{ form_start(newsletterForm, {'action': path('subscribe_email'), 'attr':{'class':'subscribe-newsletter'}}) }}
+                                                <div class="form col-xs-8">
+                                                      {{ form_widget(newsletterForm.email, {'attr': {
+                                                           'class':'form-ui email',
+                                                           'placeholder':'Enter your email address here'
+                                                         }})
+                                                      }}
+                                                </div>
+                                                <div class="form col-xs-4">
+                                                    <button class="button block">
+                                                        {% trans %}
+                                                            Subscribe
+                                                        {% endtrans %}
+                                                    </button>
+                                                </div>
+                                                <div class="subscribe-success-message message-box green with-close-message" style="display:none;">
+                                                     <i class="icon icon-checkmark"></i> <i>Email successfully subscribed!</i>
+                                                </div>
+                                                <div class="subscribe-fail-message message-box red with-close-message" style="display:none;">
+                                                     <i class="icon icon-alert-exclamation"></i> <i>Something went wrong. Please try again later!</i>
+                                                </div>
+                                            {{ form_end(newsletterForm) }}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-12 sitemap-section">
+                                            <div class="row download-app">
+                                                <div class="col-md-4 col-xs-5">
+                                                    <h2 class="header">{% trans %} Download our app {% endtrans %}</h2>
+                                                </div>
+                                                <div class="col-md-8 col-xs-7">
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <a href="{{ ios_app_url }}">
+                                                                <img src="{{ asset('images/mobile-app/ios-app.png') }}" alt="YiLinker iOS App" class="img-full-width">
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <a href="{{ android_app_url }}">
+                                                                <img src="{{ asset('images/mobile-app/android-app.png') }}" alt="YiLinker Android App" class="img-full-width">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div style="display: none">
+                                                <br/>
+                                                <div class="header">{% trans %} Download our app (via QR Code) {% endtrans %}</div>
+                                                <div class="row">
+                                                    <div class="col-xs-12 align-center">
+                                                        <img src="{{ asset('images/mobile-app/qr-app-prod.jpg') }}" alt="Download our App" class="img-full-width" style="max-width: 112px; margin: auto;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>#}
+                                <div class="row">
+	                                <div class="col-xs-12 col-sm-12 footer-bordered-mobile">
+	                                    <div class="row">
+	                                        <div class="col-xs-12 col-sm-4 sitemap-section brief-introduct">
+	                                            <h2 class="header">Aeneasusa</h2>
+													<p style="margin-bottom:5px;"><span>Address:</span>4355 Emilio Aguinaldo Highway,Panapaan IV Bacoor Cavite</p>
+													<p style="margin-bottom:5px;"><span>Telephone:</span></p>
+													<p style="margin-bottom:5px;"><span>Mailbox:</span>Aeneasusa.com.cn (Official email)</p>               
+	                                       	</div>
+	                                        <div class="col-xs-6 col-sm-2 sitemap-section">
+	                                            <h2 class="header">service&amp;support</h2>
+	                                            <ul class="list-unstyled list-sitemap-links">
+	                                           		 <li><a href="http://www.oceanusholdings.com/" target="_blank">Aeneas Home</a></li>
+	                                                <li><a href="#"> Help Center </a></li>
+	                                                <li><a href="#"> How to Buy </a></li>
+	                                                <li><a href="#"> Shipping and Delivery </a></li>
+	                                                <li><a href="#"> How to Return </a></li>
+	                                                <li><a href="/privacy-policy">Privacy Policy</a></li>
+	                                                <li><a href="#">F.A.Q.</a></li>
+	                                                <li><a href="#"> Contact Us </a></li>
+	                                        	</ul>
+	                                        </div><div class="col-xs-6 col-sm-2 sitemap-section">
+	                                            <h2 class="header">join us</h2>
+	                                            <ul class="list-unstyled list-sitemap-links">
+	                                                <li><a href="#"> About Aeneas </a></li>
+	                                                <li><a href="#">Dealership</a></li>
+	                                                <li><a href="#">Marketing Network</a></li>
+	                                                <li><a href="#">Recruitment</a></li>
+	                                                <li><a href="#">Official Website</a></li>
+	                                                <li><a href="#">Official Facebook</a></li>
+	                                                <li><a href="#">Official Wechat</a></li>
+	                                            </ul>
+											</div>
+											<div class="col-xs-12 col-sm-4 sitemap-section">
+												<div class="sitemap-section-label">
+												    <label>
+												    	<img>
+												      	<p>Official Website</p>
+												    </label>
+												    <label>
+												    	<img>
+												      	<p>Official Facebook</p>
+												    </label>
+												    <label>
+												    	<img>
+												      	<p>Official Wechat</p>
+												    </label>
+												</div>
+											</div>
+	                                    </div>
+	                                </div>
+	                            </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="footer-body-wrapper">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="sitemap-container">
+                        <div class="row">
+                            {% for category in categories %} 
+                                <div class="col-sm-3">
+                                    <h2 class="header"><a href="{{ path('get_category', {"slug" : category.slug}) }}">{{ category.name }}</a></h2>
+                                    {{ render_esi(controller('YilinkerFrontendBundle:Home:getSubCategories', { 'id': category.productCategoryId , 'section': 'footer' }) ) }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-social-container">
+                <div class="copyright-text-container">
+                    {% trans %}
+                        &copy; 2015 Aeneas are the property of their respective owners.
+                    {% endtrans %}
+                </div>
+                <div class="social-container">
+                    <a href="{{ yilinkerFacebook }}">
+                        <div class="social-icon facebook">
+                            <i class="icon icon-facebook"></i>
+                        </div>
+                    </a>
+                    <a href="{{ yilinkerTwitter }}">
+                        <div class="social-icon twitter">
+                            <i class="icon icon-twitter"></i>
+                        </div>
+                    </a>
+                    <a href="{{ yilinkerGoogle }}">
+                        <div class="social-icon google-plus">
+                            <i class="icon icon-google-plus"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{ include('YilinkerFrontendBundle:Base:mobile_download_app.html.twig') }}

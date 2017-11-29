@@ -1,0 +1,6 @@
+<ul class="list-unstyled list-sitemap-links">
+    {% for data in categoryData %} 
+        <li><a href="{{ path('get_category', {"slug" : data.slug}) }}">{{ data.name }}</a></li>
+    {% endfor %}    
+</ul>
+<br clear="all">
