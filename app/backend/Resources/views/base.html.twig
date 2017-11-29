@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="csrf-token" content="{{ default_csrf_token() }}" />
+        <title>{% block title %} YilinkerOnline.com  {% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/plugin-admin-main.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}"/>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+
+        {% block body %}{% endblock %}
+
+        {% javascripts filter="?jsqueeze" combine=true output="assets/compiled/admin-base-main.js"
+            "js/bower/jquery.min.js"
+            "js/bower/tipso.min.js"
+            "js/bower/dimmer.min.js"
+            "js/bower/modal.min.js"
+            "js/bower/dropdown.min.js"
+            "js/bower/checkbox.min.js"
+            "js/bower/transition.min.js"
+            "js/bower/dropzone.min.js"
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% block javascripts %}
+            <script src="{{ asset('reactjs/build/vendor.js') }}"></script>
+        {% endblock %}
+
+    </body>
+</html>

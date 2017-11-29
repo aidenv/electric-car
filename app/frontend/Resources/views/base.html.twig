@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="csrf-token" content="{{ default_csrf_token() }}" />
+        <title>{% block title %} YilinkerOnline.com  {% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('css/flag-icon-css/css/flag-icon.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/plugin-online-main.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/online-main.css') }}">        
+        {% block stylesheets %}
+        {% endblock %}
+
+        <!-- move before facebook pixel because this causes duplicate pixel firing for some reason -->
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+
+        {% block ga_analytics %}
+            {% include 'analytics/google-analytics.html.twig' %}
+        {% endblock %}
+
+        {% block facebook_analytics %}
+            {% include 'analytics/facebook-pixel.html.twig' %}
+        {% endblock %}
+
+        {% block iprice_analytics %}
+            {% include 'analytics/iprice-pixel.html.twig' %}
+        {% endblock %}
+        
+    </head>
+    <body>
+      
+        {% block body %}{% endblock %}
+        <script src="{{ asset('js/bower/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bower/tipso.min.js') }}"></script>
+        <script src="{{ asset('js/bower/dimmer.min.js') }}"></script>
+        <script src="{{ asset('js/bower/modal.min.js') }}"></script>
+        <script src="{{ asset('js/bower/dropdown.min.js') }}"></script>
+        <script src="{{ asset('js/bower/checkbox.min.js') }}"></script>
+        <script src="{{ asset('js/bower/transition.min.js') }}"></script>
+        <script src="{{ asset('js/bower/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        <script src="{{ asset('js/bower/flip.min.js') }}"></script>
+        <script src="{{ asset('js/src/frontend/base.js') }}"></script>
+        <script src="{{ asset('js/src/trigger-confirmation.js') }}"></script>
+        {% block javascripts %}
+            <script src="{{ asset('reactjs/build/vendor.js') }}"></script>
+        {% endblock %}
+        <script src="{{ asset('js/src/utility/loader.js') }}"></script>
+
+        {% block extendable_body_analytics %}
+            {% include 'analytics/google-remarketing.html.twig' %}
+        {% endblock %}
+
+        {% block yeahmobi_google_remarketing %}
+        {% endblock %}
+
+        {% block yeahmobi_adwords_conversion_tracking %}
+        {% endblock %}
+
+        {% block yeahmobi_google_conversion_tracking_cart %}
+        {% endblock %}
+
+    </body>
+</html>

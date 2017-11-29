@@ -1,0 +1,229 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        in_memory:
+            memory: ~
+        yilinker_merchant_provider:
+            id: yilinker_merchant.merchant.provider
+        yilinker_affiliate_provider:
+            id: yilinker_merchant.affiliate.provider
+
+    encoders:
+        Yilinker\Bundle\CoreBundle\Entity\User:
+            algorithm: bcrypt
+            cost: 12
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        api_doc:
+            pattern:    ^/api/doc
+            security:   false
+
+        oauth_token:
+            pattern:    ^/api/v(.*)/login
+            security:   false
+
+        oauth_authorize:
+            pattern:    ^/oauth/v(.*)/auth
+            anonymous: true
+            # Add authentication here if we start using authorization/implicit grant type
+
+        api:
+            pattern:    ^/api/(.*)/(auth|message|product)/
+            fos_oauth:  true
+            stateless:  true
+            anonymous:  false
+
+        gregwar_captcha:
+            pattern: ^/generate-captcha
+            security: false
+
+        api_unauthorized_v2_actions_firewall:
+            pattern:   ^/api/v(.*)/(sms/send|user/register|user/resetPassword|token/validate)$
+            anonymous: ~
+            context: primary_auth
+
+        api_unauthorized_v1_actions_firewall:
+            pattern:   ^/api/v(.*)/location
+            anonymous: ~
+            context: primary_auth
+
+        login_firewall:
+            pattern:   ^/login$
+            anonymous: ~
+            context: primary_auth
+
+        registration_firewall:
+            pattern:   ^/(register|register/add)$
+            anonymous: ~
+            context: primary_auth
+
+        seller_create_firewall:
+            pattern:   ^/user/register$
+            anonymous: ~
+            context: primary_auth
+
+        forgot_password_firewall:
+            pattern:   ^/forgot-password$
+            anonymous: ~
+            context: primary_auth
+
+        reset_password_firewall:
+            pattern:   ^/reset-password$
+            anonymous: ~
+            context: primary_auth
+
+        confirm_reset_password_firewall:
+            pattern:   ^/confirm-reset-password$
+            anonymous: ~
+            context: primary_auth
+
+        confirm_email_firewall:
+            pattern:   ^/user/confirm-email$
+            anonymous: ~
+            context: primary_auth
+
+        account_reactivation_firewall:
+            pattern:   ^/user/enable$
+            anonymous: ~
+            context: primary_auth
+
+        account_forgot_password_request_firewall:
+            pattern:   ^/forgot-password-request$
+            anonymous: ~
+            context: primary_auth
+
+        reset_password_verification_code_firewall:
+            pattern:   ^/reset-password/verification-code$
+            anonymous: ~
+            context: primary_auth
+
+        forgot_password_code_check_firewall:
+            pattern:   ^/forgot-password-code-checker$
+            anonymous: ~
+            context: primary_auth
+
+        user_unauthorized_actions_firewall:
+            pattern:   ^/sms/send$
+            anonymous: ~
+            context: primary_auth
+
+        set_cookie_firewall:
+            pattern:   ^/set-cookie
+            anonymous: ~
+            context: primary_auth
+
+        affiliate_landing_pages_firewall:
+            pattern:   ^/affiliate-program$
+            anonymous: ~
+            context: primary_auth
+
+        affiliate_host_landing_pages_firewall:
+            pattern:   ^/landing-page$
+            anonymous: ~
+            context: primary_auth
+
+        affiliate_old_pages_firewall:
+            pattern:   ^/affiliate-program/(register|login|forgot-password-request)$
+            anonymous: ~
+            context: primary_auth
+
+        affiliate_rootpage_firewall:
+            pattern:   ^/$
+            anonymous: ~
+            context: primary_auth
+            host: %affiliate_hostname%
+
+        affiliate:
+            request_matcher: yilinker_core.request_matcher.affiliate
+            pattern: ^/
+            http_basic: ~
+            provider: yilinker_affiliate_provider
+            context: primary_auth
+            form_login:
+                login_path: user_affiliate_login
+                check_path: user_affiliate_authenticate
+                success_handler: yilinker_core.security.authentication_handler
+                failure_handler: yilinker_core.security.authentication_handler
+                csrf_provider: security.csrf.token_manager
+            logout:
+                path: user_affiliate_logout
+                success_handler: yilinker_core.security.logout_handler
+                target: user_affiliate_login
+            remember_me:
+                name: "%session.merchant.remember_me.name%"
+                key: "%secret%"
+                lifetime: 31536000 # 4 weeks in seconds
+                path: home_page
+
+        seller:
+            pattern: ^/
+            http_basic: ~
+            provider: yilinker_merchant_provider
+            context: primary_auth
+            form_login:
+                login_path: /login
+                check_path: /user/authenticate
+                success_handler: yilinker_core.security.authentication_handler
+                failure_handler: yilinker_core.security.authentication_handler
+                csrf_provider: security.csrf.token_manager
+            logout:
+                path: /logout
+                success_handler: yilinker_core.security.logout_handler
+                target: /login
+            remember_me:
+                name: "%session.merchant.remember_me.name%"
+                key: "%secret%"
+                lifetime: 31536000 # 4 weeks in seconds
+                path:     /
+
+    access_control:
+        - { path: ^/user/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/affiliate-program/(register|register/add|login|forgot-password-request), roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/bank/search, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/affiliate-program, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(register|register/add), roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/enable, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/forgot-password, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/forgot-password-request, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/reset-password, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user/confirm-email, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/confirm-reset-password, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/reset-password/verification-code, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/forgot-password-code-checker, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/sms/send, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/dashboard/product-management/(delete|draft|review|rejected), roles: [ROLE_MERCHANT] }
+        - { path: ^/accreditation, roles: ROLE_UNACCREDITED_MERCHANT }
+
+            # affiliate security
+        - { path: ^/dashboard/(store-information|store-address|bank-account-information|account-information|legal-information|reseller/selection|help), roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_FULLY], host: %affiliate_hostname% }
+        - { path: ^/merchant/get-user-image, roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_FULLY], host: %affiliate_hostname% }
+        - { path: ^/update-affiliate-accreditation-information, roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_FULLY], host: %affiliate_hostname% }
+        - { path: ^/user/(changeContactNumberRequest|changeEmail|changePassword|uploadPhoto), roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_FULLY], host: %affiliate_hostname% }
+        - { path: ^/address/, roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_FULLY], host: %affiliate_hostname% }
+        - { path: ^/location/, roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_FULLY], host: %affiliate_hostname% }
+        - { path: ^/bank/, roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_FULLY], host: %affiliate_hostname% }
+        - { path: ^/sms/validate, roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_FULLY], host: %affiliate_hostname% }
+        - { path: ^/resend-sms, roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_FULLY], host: %affiliate_hostname% }
+        - { path: ^/landing-page, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: %affiliate_hostname% }
+        - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: %affiliate_hostname% }
+        - { path: ^/(merchant/upload|merchant/upload/detail|merchant/add/image)$, roles : ROLE_MERCHANT }
+        - { path: ^/dashboard/messages, roles: [ROLE_MERCHANT] }
+        - { path: ^/set-cookie, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/v2/(sms/send|user/register|user/resetPassword|token/validate), roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/v3/(.*)/(.*)/(sms/send|user/register|user/resetPassword|token/validate), roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/v1/location, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/v3/(.*)/(.*)/location, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/(.*)/message, roles: [ROLE_MERCHANT] }
+        - { path: ^/api/(.*)/auth/, roles: [ROLE_MERCHANT, ROLE_RESELLER] }
+        - { path: ^/api/(.*)/product/, roles: [ROLE_MERCHANT, ROLE_RESELLER] }
+
+        - { path: ^/, roles: [ROLE_MERCHANT, ROLE_VERIFIED] }

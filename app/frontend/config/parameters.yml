@@ -1,0 +1,5 @@
+imports:
+    - { resource: "../../config/parameters.yml" }
+
+parameters:
+    app_hostname: %frontend_hostname%

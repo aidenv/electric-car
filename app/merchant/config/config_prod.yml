@@ -1,0 +1,92 @@
+imports:
+    - { resource: config.yml }
+
+#framework:
+#    validation:
+#        cache: validator.mapping.cache.apc
+#    serializer:
+#        cache: serializer.mapping.cache.apc
+
+doctrine:
+    dbal:
+        logging: false
+        profiling: false
+    orm:
+        metadata_cache_driver: redis
+        query_cache_driver: redis
+
+monolog:
+    handlers:
+        main:
+            type:         fingers_crossed
+            action_level: error
+            handler:      nested
+        nested:
+            type:  stream
+            path:  "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+        console:
+            type:  console
+
+swiftmailer:
+    mailers:
+      default:
+        disable_delivery: false
+        spool: { type: file, path: %kernel.root_dir%/spool }
+      account:
+        disable_delivery: false
+        spool: { type: file, path: %kernel.root_dir%/spool }
+      verification:
+        disable_delivery: false
+        spool: { type: file, path: %kernel.root_dir%/spool }
+      transaction:
+        disable_delivery: false
+        spool: { type: file, path: %kernel.root_dir%/spool }
+
+knp_gaufrette:
+    adapters:
+        photo_storage:
+            aws_s3:
+                service_id: yilinker_core.aws.s3
+                bucket_name:  %amazon_s3_bucket_name%
+    filesystems:
+        photo_storage:
+            adapter:    photo_storage
+            alias:      photo_storage_filesystem
+
+snc_redis:
+    clients:
+        default:
+            type: predis
+            alias: default
+            dsn: redis://%redis_password%@%redis_host%
+            options:
+                prefix : %redis_prefix%
+        session:
+            type: predis
+            alias: session
+            dsn: redis://%redis_password%@%redis_host%
+            options:
+                prefix : %redis_prefix%
+        doctrine:
+            type: predis
+            alias: doctrine
+            dsn: redis://%redis_password%@%redis_host%
+            options:
+                prefix : %redis_prefix%
+    session:
+        client: session
+        prefix: session:main
+        use_as_default: true
+    doctrine:
+        metadata_cache:
+            client: doctrine
+            entity_manager: default
+            document_manager: default
+            namespace: "%kernel.root_dir%"
+        result_cache:
+            client: doctrine
+            entity_manager: [default, read]
+        query_cache:
+            client: doctrine
+            entity_manager: default

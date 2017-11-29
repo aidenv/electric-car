@@ -1,0 +1,27 @@
+imports:
+    - { resource: "../../config/parameters.yml" }
+    - { resource: "../../config/config.yml" }
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: fos_oauth_server.yml }
+    - { resource: fos_js_routing.yml }
+
+nelmio_api_doc:
+    sandbox:
+        authentication:
+            name: access_token
+            delivery: query
+            type: bearer
+
+endroid_qr_code:
+    size: 300
+    padding: 10
+    extension: png
+    error_correction_level: high
+    foreground_color: { r: 0, g: 0, b: 0, a: 0 }
+    background_color: { r: 255, g: 255, b: 255, a: 0 }
+
+yilinker_merchant:
+    bank:
+        is_editable: true

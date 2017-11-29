@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- http://phpunit.de/manual/4.1/en/appendixes.configuration.html -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
+         backupGlobals="false"
+         colors="true"
+         bootstrap="bootstrap.php.cache"
+>
+    <testsuites>
+        <testsuite name="Merchant Bundle Test Suite">
+            <directory>../../src/Yilinker/Bundle/MerchantBundle/Tests</directory>
+            <exclude>../../src/Yilinker/Bundle/MerchantBundle/Tests/History</exclude>
+        </testsuite>
+    </testsuites>
+
+    <logging>
+        <log type="junit" target="../build/logs/seller-junit.xml" logIncompleteSkipped="false"/>
+    </logging>
+    
+</phpunit>

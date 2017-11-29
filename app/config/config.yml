@@ -1,0 +1,415 @@
+imports:
+    - { resource: fos_elastica.yml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: "%default_locale%"
+    app.locales: |en|cn|ca
+    session.attribute_bag.class: Symfony\Component\HttpFoundation\Session\Attribute\NamespacedAttributeBag
+    twig.class: Yilinker\Bundle\CoreBundle\Twig\YilinkerTwigEnvironment
+
+gregwar_captcha:
+    reload: true
+    as_url: true
+    quality: 100
+    background_color: [255, 255, 255]
+
+framework:
+    esi: { enabled: true }
+    fragments: { path: /_fragment }
+    translator:      { fallbacks: ["%locale%"] }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        assets_version: 'v%assets_version%'
+        assets_version_format: '%%s?ver=%%s'
+        assets_base_urls:
+            http: ['%asset_hostname%/assets']
+        packages:
+            product:
+                base_urls: '%asset_hostname%/assets/images/uploads/products'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            chat:
+                base_urls: '%asset_hostname%/assets/images/uploads/chats'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            cms:
+                base_urls: '%asset_hostname%/assets/images/uploads/cms'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            user:
+                base_urls: '%asset_hostname%/assets/images/uploads/users'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            qr_code:
+                base_urls: '%asset_hostname%/assets/images/uploads/qr_code'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            email:
+                base_urls: '%asset_hostname%/assets/images/email'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            category:
+                base_urls: '%asset_hostname%/assets/images/category/main'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            mobile_category:
+                base_urls: '%asset_hostname%/assets/images/category/mobile'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            brand:
+                base_urls: '%asset_hostname%/assets/images/brands'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            manufacturer_product:
+                base_urls: '%asset_hostname%/assets/images/uploads/manufacturer_products'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            user_document:
+                base_urls: '%asset_hostname%/assets/images/uploads/user_documents'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            payout:
+                base_urls: '%asset_hostname%/assets/images/uploads/payouts'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            cms_banners:
+                base_urls: '%asset_hostname%/assets/images/uploads/cms/home-web'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            cms_product_image:
+                base_urls: '%asset_hostname%/assets/images/uploads/cms/product-image'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            cms_flash_sale:
+                base_urls: '%asset_hostname%/assets/images/uploads/cms/flash-sale'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            cms_featured_categories:
+                base_urls: '%asset_hostname%/assets/images/uploads/cms/featured-categories'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            cms_featured_products:
+                base_urls: '%asset_hostname%/assets/images/uploads/cms/featured-products'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+            cms_featured_category:
+                base_urls: '%asset_hostname%/assets/images/uploads/cms/featured-category'
+                version: 'v%assets_version%'
+                version_format: '%%s?ver=%%s'
+        # assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies:
+        - 172.31.0.0/20 #Load balancer
+    session:
+        # handler_id set to null will use default session handler from php.ini
+        handler_id:  ~
+        name: "%session.name%"
+    fragments:       ~
+    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    form_themes:
+        - 'YilinkerCoreBundle:Field:location.html.twig'
+        - 'YilinkerCoreBundle:Form:captcha.html.twig'
+    globals:
+        frontend_facebook_appId: "%facebook_client_id%"
+        merchant_facebook_appId: "%merchant_facebook_client_id%"
+        google_browser_app_id: "%google_browser_app_id%"
+        default_latitude: "%default_latitude%"
+        default_longitude: "%default_longitude%"
+        merchant_hostname: "%merchant_hostname%"
+        backend_hostname: "%backend_hostname%"
+        frontend_hostname: "%frontend_hostname%"
+        affiliate_hostname: "%protocol%://%affiliate_hostname%"
+        asset_hostname: "%asset_hostname%"
+        protocol: "%protocol%"
+        disable_payment: "%disable_payment%"
+        protocol: "%protocol%"
+        disable_payment: "%disable_payment%"
+        facebook_pixel_id: "%facebook_pixel_id%"
+        google_analytics_id: "%google_analytics_id%"
+        google_tag_manager_id: "%google_tag_manager_id%"
+        iprice_pixel_id: "%iprice_pixel_id%"
+        android_app_url: "%google_playstore_link%"
+        ios_app_url: "%appstore_link%"
+        apk_url: "%apk_link%"
+        support_mobile: "%support_contact_number%"
+        yeahmobi_conversion_id: "%yeahmobi_conversion_id%"
+
+    exception_controller: yilinker.twig.controller.exception:showAction
+
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        []
+    read_from:      %kernel.root_dir%/../web/assets
+    write_to:       %kernel.root_dir%/../web
+    filters:
+        cssrewrite: ~
+        scssphp:
+            formatter: 'Leafo\ScssPhp\Formatter\Compressed'
+        jsqueeze: ~
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            testing:
+                driver:   pdo_mysql
+                host:     "%database_host%"
+                port:     "%database_port%"
+                dbname:   "%database_name%"
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF8
+                logging: true
+                profiling: true
+            default:
+                driver:   pdo_mysql
+                wrapper_class: Doctrine\DBAL\Connections\MasterSlaveConnection
+                host:     "%database_host%"
+                port:     "%database_port%"
+                dbname:   "%database_name%"
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF8
+                slaves:
+                    slave1:
+                        host:     "%slave1_database_host%"
+                        port:     "%slave1_database_port%"
+                        dbname:   "%slave1_database_name%"
+                        user:     "%slave1_database_user%"
+                        password: "%slave1_database_password%"
+                        charset:  UTF8
+                # if using pdo_sqlite as your database driver:
+                #   1. add the path in parameters.yml
+                #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
+                #   2. Uncomment database_path in parameters.yml.dist
+                #   3. Uncomment next line:
+                #     path:     "%database_path%"
+                logging: true
+                profiling: true
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        entity_managers:
+            default:
+                auto_mapping: true
+                mappings:
+                    Yilinker:
+                        type: yml
+                        is_bundle: false
+                        dir: %kernel.root_dir%/../../src/Yilinker/Bundle/CoreBundle/Resources/config/doctrine
+                        prefix: Yilinker\Bundle\CoreBundle\Entity
+                        alias: YilinkerCoreBundle
+                    gedmo_translatable:
+                        type: annotation
+                        prefix: Gedmo\Translatable\Entity
+                        dir: "%kernel.root_dir%/../../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                        is_bundle: false
+                    gedmo_translator:
+                        type: annotation
+                        prefix: Gedmo\Translator\Entity
+                        dir: "%kernel.root_dir%/../../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translator/Entity"
+                        is_bundle: false
+                hydrators:
+                    GroupHydrator: \Yilinker\Bundle\FrontendBundle\Hydrators\GroupHydrator
+                dql:
+                    string_functions:
+                        field: DoctrineExtensions\Query\Mysql\Field
+                        group_concat: DoctrineExtensions\Query\Mysql\GroupConcat
+                        match_against: DoctrineExtensions\Query\Mysql\MatchAgainst
+                        date_format: DoctrineExtensions\Query\Mysql\DateFormat
+            custom:
+                mappings:
+                    Yilinker:
+                        type: yml
+                        is_bundle: false
+                        dir: %kernel.root_dir%/../../src/Yilinker/Bundle/CoreBundle/Resources/config/doctrine
+                        prefix: Yilinker\Bundle\CoreBundle\Entity
+                        alias: YilinkerCoreBundle
+                    gedmo_translatable:
+                        type: annotation
+                        prefix: Gedmo\Translatable\Entity
+                        dir: "%kernel.root_dir%/../../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                        alias: GedmoTranslatable # (optional) it will default to the name set for the mapping
+                        is_bundle: false
+                    gedmo_translator:
+                        type: annotation
+                        prefix: Gedmo\Translator\Entity
+                        dir: "%kernel.root_dir%/../../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translator/Entity"
+                        alias: GedmoTranslator # (optional) it will default to the name set for the mapping
+                        is_bundle: false
+                hydrators:
+                    GroupHydrator: \Yilinker\Bundle\FrontendBundle\Hydrators\GroupHydrator
+                dql:
+                    string_functions:
+                        field: DoctrineExtensions\Query\Mysql\Field
+                        group_concat: DoctrineExtensions\Query\Mysql\GroupConcat
+                        match_against: DoctrineExtensions\Query\Mysql\MatchAgainst
+                        date_format: DoctrineExtensions\Query\Mysql\DateFormat
+
+# Swiftmailer Configuration
+swiftmailer:
+    default_mailer: default
+    mailers:
+      default:
+        transport: "%mailer_transport%"
+        host:      "%mailer_host%"
+        username:  "%mailer_user%"
+        password:  "%mailer_password%"
+        spool: { type: memory }
+      account:
+        transport: "%account_mailer_transport%"
+        host:      "%account_mailer_host%"
+        username:  "%account_mailer_user%"
+        password:  "%account_mailer_password%"
+        spool: { type: memory }
+      verification:
+        transport: "%verification_mailer_transport%"
+        host:      "%verification_mailer_host%"
+        username:  "%verification_mailer_user%"
+        password:  "%verification_mailer_password%"
+        spool: { type: memory }
+      transaction:
+        transport: "%transaction_mailer_transport%"
+        host:      "%transaction_mailer_host%"
+        username:  "%transaction_mailer_user%"
+        password:  "%transaction_mailer_password%"
+        spool: { type: memory }
+
+doctrine_migrations:
+    dir_name: %kernel.root_dir%/../DoctrineMigrations
+    namespace: Application\Migrations
+    table_name: migration_versions
+    name: Application Migrations
+
+
+stof_doctrine_extensions:
+    default_locale: %default_locale%
+    orm:
+        default:
+            sluggable: true
+
+react_server_side_renderer:
+    renderer:
+        render_server: "http://localhost:3000"
+        is_enabled: false
+    twig_extension:
+        src_path: "./reactjs/src/"
+
+knp_gaufrette:
+    adapters:
+        photo_storage:
+            local:
+                directory:  %kernel.root_dir%/../../web
+                create:     true
+    filesystems:
+        photo_storage:
+            adapter:    photo_storage
+            alias:      photo_storage_filesystem
+
+liip_imagine:
+    resolvers:
+       default:
+          web_path:
+              web_root: %kernel.root_dir%/../../web
+    loaders:
+        default:
+            filesystem:
+                data_root: %kernel.root_dir%/../../web
+    filter_sets:
+        cache: ~
+        image:
+            quality: 70
+            filters:
+                strip: ~
+                thumbnail: { size: [1600, 1000], mode: inset }
+        qr_code_thumb:
+            quality: 70
+            filters:
+                relative_resize: { heighten: 240, widen : 240 }
+        qr_code_small:
+            quality: 70
+            filters:
+                relative_resize: { heighten: 480, widen : 480 }
+        qr_code_medium:
+            quality: 70
+            filters:
+                relative_resize: { heighten: 960, widen : 960 }
+        qr_code_large:
+            quality: 70
+            filters:
+                relative_resize: { heighten: 1920, widen : 1920 }
+
+monolog:
+    handlers:
+        yilinker_logger:
+            type: rotating_file
+            path: %kernel.logs_dir%/%kernel.environment%.yilinker.log
+            channels: [yilinker_logger]
+        express_api_logger:
+            type: rotating_file
+            path: %kernel.logs_dir%/express.log
+            channels: [express_api_logger]
+
+yilinker_core:
+    sms_semaphore:
+        api_key: "dgsMQ8q77hewW766aqxK"
+        from: "Yilinker"
+        outbound_endpoint: "http://api.semaphore.co/api/sms"
+    sms_mobiweb:
+        ip_address: "176.9.177.177"
+        username: "paul.borja@yilinker.ph"
+        password: "B6113F98"
+        originator: "Yilinker"
+    sms_ucpass:
+        accountSid: "12686b556b585e9c1d8969beae2edfd9"
+        token: "3152a2d2f700f164e29feec722eccf6d"
+        appId: "b42520de8e724910a07fcd5098fbd806"
+
+    yilinker_express:
+        baseurl: "%ylx_hostname%"
+        routes:
+            create_package: "v1/web/ylo/create-package"
+            create_internal_package: "v1/web/ylo/create-in-house-package"
+            handling_fee: "v1/web/ylo/get-shipment-cost"
+            create_products: "v1/web/ylo/product/create"
+            cancel_package: "v1/web/ylo/cancel-package"
+            test_create_internal_package: "v1/web/ylo/auto-in-house-package"
+            test_trigger_package_updates: "v1/web/ylo/trigger-package"
+    yilinker_account:
+        routes:
+            login: "/api/v1/login"
+            user_create: "/api/v1/user/create"
+            user_update: "/api/v1/user/update"
+            get_details: "/api/v1/user/get-details"
+            check_email_exists: "/api/v1/user/check-email-exists"
+    yilinker_trading:
+        baseurl: "%ylt_api_hostname%"
+        appurl: "%ylt_app_hostname%"
+        imageurl: "%ylt_image_hostname%"
+        api_key: "abcdefghijklmn"
+        routes:
+            get_brands: "0001YLK0001"
+            get_categories: "0002YLK0001"
+            get_countries: "0006YLK0001"
+            get_suppliers: "0004YLK0001"
+            get_supplier_detail: "0004YLK0002"
+            get_products: "0005YLK0003"
+            get_product_detail: "0005YLK0004"

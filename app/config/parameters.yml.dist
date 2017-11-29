@@ -1,0 +1,196 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     aeneasusa_online
+    database_user:     ~
+    database_password: ~
+    # You should uncomment this if you want use pdo_sqlite
+    # database_path: "%kernel.root_dir%/data.db3"
+
+    #slave connection
+    slave1_database_host:     127.0.0.1
+    slave1_database_port:     ~
+    slave1_database_name:     aeneasusa_online
+    slave1_database_user:     ~
+    slave1_database_password: ~
+
+    mailer_transport: smtp
+    mailer_host: ssl://smtp.gmail.com
+    mailer_user: noreply@easyshop.ph
+    mailer_password: 3a5y5h0p_noreply
+
+    account_mailer_transport:  smtp
+    account_mailer_host: ssl://smtp.gmail.com
+    account_mailer_user:       noreply@easyshop.ph
+    account_mailer_password:   3a5y5h0p_noreply
+
+    verification_mailer_transport:  smtp
+    verification_mailer_host: ssl://smtp.gmail.com
+    verification_mailer_user:       noreply@easyshop.ph
+    verification_mailer_password:   3a5y5h0p_noreply
+
+    transaction_mailer_transport:   smtp
+    transaction_mailer_host: ssl://smtp.gmail.com
+    transaction_mailer_user:        noreply@easyshop.ph
+    transaction_mailer_password:    3a5y5h0p_noreply
+
+    # A secret key that's used to generate certain security-related tokens
+    secret: ThisTokenIsNotSoSecretChangeIt
+    csrf_default_intention: yilinker_intention
+
+    elastic_host : localhost
+    elastic_port : 9200
+
+    node_internal: localhost
+    node_host: localhost
+    node_port: 3723
+    node_messaging_port: 3000
+
+    redis_host: localhost
+    redis_port: 6379
+    redis_password: 5d4623bd86e9b15855202ae9fe93b1ff
+    redis_prefix: aeneasusa-online-prod
+
+    jwt_secret: yilink3rd3vs
+
+    frontend_hostname: http://localhost:8000
+    backend_hostname: http://localhost:8000
+    merchant_hostname: http://localhost:8000
+    affiliate_hostname: affiliate.yilinker.online
+    global_hostname: global.yilinker.online
+    asset_hostname: http://localhost:8000
+    protocol: http
+    site_prefix: AE
+
+    ylx_hostname: http://express.api.easydeal.ph
+    yla_hostname: http://yilinker-account.dev
+    ylt_api_hostname: http://api-trading.yilinker.com/index.php
+    ylt_app_hostname: https://trading.yilinker.com
+    ylt_image_hostname: https://oajheekw8.qnssl.com
+    yla_grant: http://yilinker-account.com/grant/online
+
+    yla_client_id: 1_2p1rahn3fhgkk448w84s0so08wg84wg40oc0owcg8kw8804gw4
+    yla_client_secret: 5g2iio4x7kgss8go84848wgoog0k4wgk48w04kkcso0k48ww0s
+
+    ylo_secret_key: f7a4df927b7b319bc675a18897a7e433
+
+    assets_version: 1
+
+    facebook_client_id: 607749266032949
+    facebook_client_secret: 0b58dffc0f65bce4c9d16cfe3426246f
+    facebook_pixel_id: 1234567890
+
+    merchant_facebook_client_id: 1107384175938358
+    merchant_facebook_client_secret: 0b58dffc0f65bce4c9d16cfe3426246f
+
+    google_client_id: "180834770209-531eicg2q5tugchrbadiusc5topftj9v.apps.googleusercontent.com"
+    google_client_secret: "UqtptqcEkiWrG_5h0Z4tsbcc"
+    google_browser_app_id: "AIzaSyBZIOOzmHruRArkbwLqdG6fyo3QMhGKveM"
+    google_analytics_id: "UA-XXXXX-Y"
+    google_tag_manager_id: "GTM-XXXX"
+
+    iprice_pixel_id: "000"
+    twitter_client_id: "ZqomJmjRWrm95n85qPoL6ZFI5"
+    twitter_client_secret: "i8lEW2kd9VYy3Fqq95CqbA0LS6hof6IDMqo9EOe1ErJL087yZM"
+
+    easyshop:
+        base_url: "http://staging.easyshop.ph"
+        dragonpay_return: "payment/returnDragonPay"
+        dragonpay_postback: "payment/postBackDragonPay"
+        pesopay_postback: "payment/pesoPayDataFeed"
+        clientname: "easyshop"
+    payment_gateways:
+        pesopay:
+            clientname: "yilinker"
+            url: "https://test.pesopay.com/b2cDemo/eng/payment/payForm.jsp"
+            secureHash: "1JQ6vd9qatkqoA9gRJpyKeMpl2Nu6cmm"
+            merchantPrefixRef: 'yilinker_'
+            params:
+                merchantId: "18061489"
+                currCode: "608"
+                mpsMode: "NIL"
+                payType: "N"
+                lang: "E"
+                payMethod: "CC"
+                successUrl: %frontend_hostname%/checkout/overview
+                failUrl: %frontend_hostname%/checkout/payment
+                cancelUrl: %frontend_hostname%/checkout/payment
+        dragonpay:
+            clientname: "yilinker"
+            url: "http://test.dragonpay.ph/Pay.aspx"
+            password: "UT78W5VQ"
+            merchantPrefixRef: 'yilinker_'
+            params:
+                merchantid: "EASYSHOP"
+                ccy: "PHP"
+                description: ""
+
+    session.name: YLO_SESSION
+
+    session.remember_me.name: YLO_LONG_SESSION
+    session.merchant.remember_me.name: YLO_LONG_MERCHANT_SESSION
+
+    default_latitude: "14.5800"
+    default_longitude: "121.0000"
+
+    gcm_buyer_android_appid: "AIzaSyD3-aGXbOxgUTc9wv5-GqoRXmAf-a_wbgc"
+    gcm_buyer_ios_appid: "AIzaSyDAlP85iUepL1LEhvB4tVrkyTnINCZTv7Q"
+    gcm_seller_android_appid: "AIzaSyD7DtrMC_OxQMDCaG47ILbDQohoPAMhdsI"
+    gcm_seller_ios_appid: "AIzaSyB45D_ZqHfKpu_FmpqUoHtSjDxrCqSTNFE"
+
+    grecaptcha_buyer_site_key: "6LebDAsTAAAAAGapUoACbCid3lMuJ3xByoMAjucD"
+    grecaptcha_buyer_secret: "6LebDAsTAAAAAEpjVm26u7CCbzHlNqxU8EZYwIqK"
+    grecaptcha_merchant_site_key: "6LebDAsTAAAAAGapUoACbCid3lMuJ3xByoMAjucD"
+    grecaptcha_merchant_secret: "6LebDAsTAAAAAEpjVm26u7CCbzHlNqxU8EZYwIqK"
+
+    tax_percentage: 12
+    affiliate_percentage_commision_multiplier: 60
+    default_currency_code: '001'
+
+    amazon_s3_bucket_name: 'bucket'
+    amazon_s3_key: 'key'
+    amazon_s3_secret : 'secret'
+    amazon_s3_region: 'ap-southeast-1'
+
+    disable_payment: false
+    server_key_location: /bin/server.key
+    server_crt_location: /bin/server.crt
+
+    default_locale: en
+
+    google_playstore_link: https://play.google.com/
+    appstore_link: https://www.apple.com/itunes/
+    apk_link: https://www.apple.com/itunes/
+
+    yilinker_facebook: "https://www.facebook.com/YilinkerPH/"
+    yilinker_twitter: "https://twitter.com/YiLinkerPH/"
+    yilinker_google: "https://plus.google.com/u/0/100572719500398142731/posts"
+
+    reports_marketing_email: "noreply@yilinker.ph"
+    reports_csr_email: "noreply@yilinker.ph"
+    reports_accounting_email: "noreply@yilinker.ph"
+    reports_dev_email: "noreply@yilinker.ph"
+    support_contact_number: "+639777265481"
+
+    app_environment: dev
+
+    compute_in_shipping_category: false
+
+    apple_gateway_url: 'ssl://gateway.sandbox.push.apple.com:2195'
+    buyer_app_apple_pem_location: 'bin/ios-dev-cert.pem'
+    buyer_app_apple_pem_passphrase: 'pushbuyer'
+
+    google_gateway_url: 'https://android.googleapis.com/gcm/send'
+    has_flash_sale: false
+    sitemap_hostname: 'http://buyer.yilinker-online.dev/assets/sitemap/'
+
+    ios_app_name : "YiLinkerOnlineBuyer://com.easyshop.YiLinkerOnlineBuyer"
+
+    crm_hostname : "http://yilinker-crm.dev"
+    failure_crm_endpoint : "http://yilinker-crm.dev/#/auth/disconnect"
+    api_crm_hostname : "http://api.yilinker-crm.dev"
+    yeahmobi_conversion_id : "00"

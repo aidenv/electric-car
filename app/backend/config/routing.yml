@@ -1,0 +1,30 @@
+yilinker_oauth_server:
+    resource: "@YilinkerOAuthServerBundle/Resources/config/routing.yml"
+    prefix:   /
+
+yilinker_backend:
+    resource: "@YilinkerBackendBundle/Resources/config/routing.yml"
+    prefix:   /
+    schemes:  [%protocol%]
+
+yilinker_core:
+    resource: "@YilinkerCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+    schemes:  [%protocol%]
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    schemes:  [%protocol%]
+
+fos_oauth_server_token:
+    resource: "@YilinkerBackendBundle/Resources/config/routing/oauth.yml"
+    schemes:  [%protocol%]
+
+fos_oauth_server_authorize:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
+    schemes:  [%protocol%]
+
+nelmio_api_doc_bundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+    schemes:  [%protocol%]

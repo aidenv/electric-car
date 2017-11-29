@@ -1,0 +1,39 @@
+imports:
+    - { resource: config_dev.yml }
+
+framework:
+    test: ~
+    session:
+        storage_id: session.storage.filesystem
+    profiler:
+        collect: false
+
+web_profiler:
+    toolbar: false
+    intercept_redirects: false
+
+swiftmailer:
+    disable_delivery: true
+
+doctrine:
+    dbal:
+        default_connection: testing
+        connections:
+            testing:
+                driver:   pdo_sqlite
+                driver_class: Yilinker\Bundle\CoreBundle\Doctrine\Driver\Sqlite
+                path:     %kernel.cache_dir%/test.db
+
+liip_functional_test:
+    cache_sqlite_db: true
+
+security:
+    firewalls:
+        admin:
+            http_basic: ~
+
+fos_elastica:
+    indexes:
+        yilinker_online:
+            index_name: yilinker_online_test
+            use_alias: false

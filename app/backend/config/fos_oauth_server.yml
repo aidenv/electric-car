@@ -1,0 +1,12 @@
+fos_oauth_server:
+    db_driver:           orm  # Driver availables: orm, mongodb, or propel
+    client_class:        Yilinker\Bundle\CoreBundle\Entity\OauthClient
+    access_token_class:  Yilinker\Bundle\CoreBundle\Entity\OauthAdminAccessToken
+    refresh_token_class: Yilinker\Bundle\CoreBundle\Entity\OauthAdminRefreshToken
+    auth_code_class:     Yilinker\Bundle\CoreBundle\Entity\OauthAdminAuthCode
+    service:
+        user_provider: yilinker_back_end.admin.provider
+        options:
+            supported_scopes: user # can be extended to support more than 1 scope
+            access_token_lifetime: 3600
+            refresh_token_lifetime: 255152000

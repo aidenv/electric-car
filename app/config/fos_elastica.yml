@@ -1,0 +1,324 @@
+fos_elastica:
+    clients:
+        default: { host: %elastic_host%, port: %elastic_port% }
+    indexes:
+        yilinker_online:
+            index_name: yilinker_online_staging_refactor_affiliate
+            client: default
+            use_alias: false
+            settings:
+                 index:
+                     analysis:
+                        filter:
+                            edge_ngram_filter:
+                                type: edge_ngram
+                                min_gram: 1
+                                max_gram: 10
+                            snowball:
+                                type:     snowball
+                                language: English
+                            elision:
+                                type:     elision
+                                articles: [l, m, t, qu, n, s, j, d]
+                            stopwords:
+                                type:      stop
+                                stopwords: [_english_]
+                                ignore_case : true
+                        analyzer:
+                            name_analyzer:
+                                type: custom
+                                tokenizer: standard
+                                filter: [ edge_ngram_filter, elision, stopwords, lowercase ]
+                            case_insensitive_string:
+                                tokenizer: keyword
+                                filter:  [ lowercase ] 
+            types:
+                product:
+                    mappings:
+                        productId:
+                            type: integer
+                        dateCreated :
+                            type : date
+                        dateLastModified :
+                            type : date
+                        clickCount:
+                            type: integer
+                        wishlistCount:
+                            type: integer
+                        name:
+                            type: string
+                            index_analyzer: name_analyzer
+                            search_analyzer: standard
+                            fields:
+                                rawName:
+                                    type: string
+                                    analyzer: case_insensitive_string
+                        attributeValues:
+                            type: string
+                            index: not_analyzed
+                        description: ~
+                        slug:
+                            type: string
+                        keywords: ~
+                        shortDescription: ~
+                        isDelete: 
+                            type: boolean
+                        categoryKeyword:
+                            type: string
+                            analyzer: case_insensitive_string
+                        customCategoryIds:
+                            type: object
+                            analyzer: case_insensitive_string
+                        customCategories:
+                            type: string
+                            analyzer: case_insensitive_string
+                        promoInstances: 
+                            type: object
+                        flattenedCategory:
+                            type: object
+                        flattenedSeller:
+                            type: object
+                        flattenedBrand:
+                            type: object
+                            analyzer: case_insensitive_string    
+                        status:
+                            type: integer   
+                        isAffiliateProduct:
+                            type: boolean
+                        isInhouseProduct:
+                            type: boolean
+                        countries:
+                            type: string
+                            index: not_analyzed
+                        warehouses:
+                            type: string
+                            index: not_analyzed
+
+                        # CN Chinese Translatables
+                        CN_name:
+                            type: string
+                            index_analyzer: name_analyzer
+                            search_analyzer: standard
+                            fields:
+                                rawName:
+                                    type: string
+                                    analyzer: case_insensitive_string
+                        CN_defaultPrice:
+                            type: float
+                        CN_originalPrice:
+                            type: float
+                        CN_discount:
+                            type: float
+                        CN_status:
+                            type: integer
+    
+                        # PH English Translatables
+                        EN-PH_name:
+                            type: string
+                            index_analyzer: name_analyzer
+                            search_analyzer: standard
+                            fields:
+                                rawName:
+                                    type: string
+                                    analyzer: case_insensitive_string
+                        EN-PH_defaultPrice:
+                            type: float
+                        EN-PH_originalPrice:
+                            type: float
+                        EN-PH_discount:
+                            type: float
+                        EN-PH_status:
+                            type: integer
+
+                        #thailand Translatables
+                        TH_name:
+                            type: string
+                            index_analyzer: name_analyzer
+                            search_analyzer: standard
+                            fields:
+                                rawName:
+                                    type: string
+                                    analyzer: case_insensitive_string
+                        TH_defaultPrice:
+                            type: float
+                        TH_originalPrice:
+                            type: float
+                        TH_discount:
+                            type: float
+                        TH_status:
+                            type: integer
+
+                    persistence:
+                        driver: orm
+                        model: Yilinker\Bundle\CoreBundle\Entity\Product
+                        repository: Yilinker\Bundle\CoreBundle\Services\Search\Repository\ProductSearchRepository
+                        elastica_to_model_transformer:
+                            service: yilinker_core.service.elastica.transformer.elastica_to_product
+                            ignore_missing: true
+                        model_to_elastica_transformer:
+                            service: yilinker_core.service.elastica.transformer.product_to_elastica
+                        finder: ~
+                        provider: ~
+                        listener: ~
+                        identifier: productId
+                inhouse_product_user:
+                    mappings:
+                        inhouseProductUserId:
+                            type: integer
+                        status:
+                            type: integer
+                        dateAdded:
+                            type: date
+                        dateLastModified:
+                            type: date
+                        flattenedAffiliate:
+                            type: object
+                    _parent:
+                        type: "product"
+                        identifier: "productId"
+                    persistence:
+                        driver: orm
+                        model: Yilinker\Bundle\CoreBundle\Entity\InhouseProductUser
+                        model_to_elastica_transformer:
+                            service: yilinker_core.service.elastica.transformer.inhouse_product_user_to_elastica
+                        elastica_to_model_transformer:
+                            ignore_missing: true
+                        identifier: inhouseProductUserId
+                        provider: ~
+                        finder: ~
+                        listener: ~
+                store:
+                    mappings:
+                        storeId:
+                            type: integer
+                        storeName :
+                            type : string
+                            index_analyzer: name_analyzer
+                            search_analyzer: standard
+                        storeDescription :
+                            type : string
+                        storeSlug:
+                            type: string
+                        accreditationLevel:
+                            type: integer
+                        dateAdded:
+                            type: date
+                        productCount:
+                            type: integer
+                    persistence:
+                        driver: orm
+                        model: Yilinker\Bundle\CoreBundle\Entity\Store
+                        repository: Yilinker\Bundle\CoreBundle\Services\Search\Repository\StoreSearchRepository
+                        elastica_to_model_transformer:
+                            ignore_missing: true
+                        model_to_elastica_transformer:
+                            service: yilinker_core.service.elastica.transformer.store_to_elastica
+                        finder: ~
+                        provider: ~
+                        listener: ~
+                        identifier: storeId
+                manufacturerProductUnit:
+                    mappings:
+                        manufacturer_product_unit_id:
+                            type: integer
+                        sku:
+                            type : string
+                            index_analyzer: name_analyzer
+                            search_analyzer: standard
+                        dateCreated:
+                            type: date
+                        dateLastModified:
+                            type: date
+                        status:
+                            type: integer
+                        weight:
+                            type: float
+                        height:
+                            type: float
+                        width:
+                            type: float
+                        length:
+                            type: float
+                        isInventoryConfirmed:
+                            type: boolean
+                        moq:
+                            type: integer
+                        quantity:
+                            type: integer
+                        price:
+                            type: float
+                        discounted_price:
+                            type: float
+                        unit_price:
+                            type: float
+                        reference_number:
+                            type: string
+                        visit_count:
+                            type: integer
+                        wishlist_count:
+                            type: integer
+                        average_rating:
+                            type: float
+                        store_count:
+                            type: integer
+                        review_count:
+                            type: integer
+                        average_rating:
+                            type: float
+                        flattened_category: 
+                            type: object
+                        flattened_manufacturer: 
+                            type: object                 
+                    persistence:
+                        driver: orm
+                        model: Yilinker\Bundle\CoreBundle\Entity\ManufacturerProductUnit
+                        repository: Yilinker\Bundle\CoreBundle\Services\Search\Repository\ManufacturerProductUnitSearchRepository
+                        model_to_elastica_transformer:
+                            service: yilinker_core.service.elastica.transformer.manufacturerproductunit_to_elastica
+                        elastica_to_model_transformer:
+                            ignore_missing: true
+                            service: yilinker_core.service.elastica.transformer.elastica_to_manufacturerproductunit
+                        finder: ~
+                        provider: ~
+                        listener: ~
+                        identifier: manufacturerProductUnitId
+                manufacturerProduct:
+                    mappings:
+                        manufacturer_product_id:
+                            type: integer
+                        name:
+                            type : string
+                            index_analyzer: name_analyzer
+                            search_analyzer: standard
+                            fields:
+                                rawName:
+                                    type: string
+                                    index: not_analyzed
+                        dateAdded:
+                            type: date
+                        status:
+                            type: integer
+                        price:
+                            type: float
+                        discounted_price:
+                            type: float
+                        visit_count:
+                            type: integer
+                        flattened_category: 
+                            type: object
+                        flattened_manufacturer: 
+                            type: object      
+                        flattened_brand: 
+                            type: object             
+                    persistence:
+                        driver: orm
+                        model: Yilinker\Bundle\CoreBundle\Entity\ManufacturerProduct
+                        repository: Yilinker\Bundle\CoreBundle\Services\Search\Repository\ManufacturerProductSearchRepository
+                        model_to_elastica_transformer:
+                            service: yilinker_core.service.elastica.transformer.manufacturer_product_to_elastica
+                        elastica_to_model_transformer:
+                            ignore_missing: true
+                            service: yilinker_core.service.elastica.transformer.elastica_to_manufacturer_product
+                        finder: ~
+                        provider: ~
+                        listener: ~

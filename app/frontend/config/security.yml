@@ -1,0 +1,83 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        in_memory:
+            memory: ~
+        yilinker_buyer_provider:
+            id: yilinker_front_end.buyer.provider
+
+    encoders:
+        Yilinker\Bundle\CoreBundle\Entity\User:
+            algorithm: bcrypt
+            cost: 12
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        oauth_token:
+            pattern:    ^/api/v1/login
+            security:   false
+
+        oauth_authorize:
+            pattern: ^/oauth/v2/auth    
+            #implement form login for Authorization/Implicit Grants
+            form_login:
+                provider: yilinker_buyer_provider
+                check_path: /oauth/v2/auth_login_check
+                login_path: /oauth/v2/auth_login
+            anonymous: true
+            context: primary_auth
+        
+        set_cookie_firewall:
+            pattern:   ^/set-cookie
+            anonymous: ~
+            context: primary_auth
+
+        api:
+            pattern:    ^/api/(.*)/(auth|message)/
+            fos_oauth:  true
+            stateless:  true
+            anonymous:  false
+
+        buyer:
+            anonymous: ~
+            pattern: ^/
+            http_basic: ~
+            provider: yilinker_buyer_provider
+            context: primary_auth 
+            form_login:
+                login_path: /login
+                check_path: /user/authenticate
+                success_handler: yilinker_core.security.authentication_handler
+                failure_handler: yilinker_core.security.authentication_handler
+                csrf_provider: security.csrf.token_manager
+            logout:
+                path: /logout
+                success_handler: yilinker_core.security.logout_handler
+                target: /
+            oauth:
+                resource_owners:
+                    facebook: /socialmedia/facebook-auth
+                    google: /socialmedia/google-auth
+                login_path: /login
+                failure_path: /socialMedia/renderMerge
+                oauth_user_provider:
+                    service: yilinker_front_end.service.social_media.social_media_manager
+            remember_me:
+                name:  "%session.remember_me.name%"
+                key:  "%secret%"
+                lifetime: 31536000 # 4 weeks in seconds
+                path:     /
+
+    access_control:
+        - { path: ^/oauth/v2/auth_login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/oauth/v2/auth, roles: ROLE_BUYER }
+        - { path: ^/profile, roles: ROLE_BUYER }
+        - { path: ^/api/(.*)/auth/, roles: ROLE_BUYER }
+        - { path: ^/set-cookie, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/express/postback-create-package, roles: IS_AUTHENTICATED_ANONYMOUSLY }

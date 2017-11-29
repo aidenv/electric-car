@@ -1,0 +1,73 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        in_memory:
+            memory: ~
+        yilinker_admin_provider:
+            id: yilinker_back_end.admin.provider
+
+    encoders:
+        Yilinker\Bundle\CoreBundle\Entity\AdminUser:
+            algorithm: bcrypt
+            cost: 12
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        assets:
+            pattern: \.(css|js)$
+            security: false
+
+        oauth_token:
+            pattern:    ^/api/v1/login
+            security:   false
+
+        oauth_authorize:
+            pattern: ^/oauth/v2/auth
+            #implement form login for Authorization/Implicit Grants
+            form_login:
+                provider: yilinker_admin_provider
+                check_path: /oauth/v2/auth_login_check
+                login_path: /oauth/v2/auth_login
+            anonymous: true
+            context: primary_auth
+
+        api:
+            pattern:    ^/api/
+            fos_oauth:  true
+            stateless:  true
+            anonymous:  false
+
+        login_firewall:
+            pattern:   ^/login$
+            anonymous: ~
+            context: primary_auth
+
+        admin:
+            pattern: ^/
+            http_basic: ~
+            provider: yilinker_admin_provider
+            context: primary_auth
+            form_login:
+                login_path: /login
+                check_path: /user/authenticate
+                csrf_provider: security.csrf.token_manager
+            logout:
+                path: /logout
+                success_handler: yilinker_core.security.backend_logout_handler
+                target: /
+            access_denied_url: core_access_denied
+
+    role_hierarchy:
+        ROLE_CSR_MANAGER: ROLE_CSR   
+        ROLE_OPERATIONS_ADMIN: [ROLE_SELLER_SPECIALIST, ROLE_PRODUCT_SPECIALIST, ROLE_CSR, ROLE_MARKETING, ROLE_ACCOUNTING, ROLE_EXPRESS_OPERATIONS, ROLE_OPERATIONS_ADMIN]
+        ROLE_ADMIN: [ROLE_ADMIN, ROLE_OPERATIONS_ADMIN, ROLE_CSR_MANAGER]
+    access_control:
+        - { path: ^/oauth/v2/auth_login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/oauth/v2/auth, roles: [ROLE_CSR] }
+        - { path: ^/login, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }

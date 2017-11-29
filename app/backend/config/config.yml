@@ -1,0 +1,23 @@
+imports:
+    - { resource: "../../config/parameters.yml" }
+    - { resource: "../../config/config.yml" }
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: fos_oauth_server.yml }
+    - { resource: fos_js_routing.yml }
+
+nelmio_api_doc: ~
+
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [ YilinkerBackendBundle, YilinkerCoreBundle ]
+    read_from:      %kernel.root_dir%/../../web/assets
+    write_to:       %kernel.root_dir%/../../web
+    filters:
+        cssrewrite: ~
+        scssphp:
+            formatter: 'Leafo\ScssPhp\Formatter\Compressed'
+        jsqueeze: ~
