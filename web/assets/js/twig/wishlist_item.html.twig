@@ -1,0 +1,54 @@
+<tr>
+    <td width="1em">
+        <div class="ui checkbox">
+          <input type="checkbox" name="wishlist[]" value="{{ product.itemId }}" checked>
+          <label>&nbsp;</label>
+        </div>
+    </td>
+    <td class="align-center" width="9em">
+        <div class="item-image-container">
+            <img src="{{ asset(product.image, 'product') }}" alt="{{ product.title }}">
+        </div>
+    </td>
+    <td class="td-border-bottom-1">
+        <a href="{{ path('product_details', {slug: product.slug}) }}" class="item-name">{{ product.title }}</a>
+        <div class="wished-item-attributes">
+            {% for attributeValueId in product['productUnits'][product.unitId]['combination'] %}
+                {% if product['attributes'][loop.index0] is defined %}
+                    {% for attributeValue in product['attributes'][loop.index0]['items'] %}
+                        {% if attributeValue.id == attributeValueId %}
+                            <span>{{ attributeValue.name }}</span>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </td>
+    <td class="td-border-bottom-1" width="30">
+        <span class="number-of-wished-items">
+            <i class="icon icon-times"></i> 1
+        </span>
+    </td>
+    <td class="td-border-bottom-1" width="120" align="right">
+        <span class="item-price">
+            {% if product.productUnits[product.unitId].appliedDiscountPrice is null %}
+                {% set price = product.productUnits[product.unitId].discountedPrice %}
+            {% else %}
+                {% set price = product.productUnits[product.unitId].appliedDiscountPrice %}
+            {% endif %}
+            P {{ price|number_format(2) }}
+        </span>
+    </td>
+    <td width="2em">
+        {% 
+            set addtocart = {
+                'productId': product.id, 
+                'unitId':    product.unitId,
+                'quantity':  0
+            } 
+        %}
+        <a class="item-remove" data-href="{{ path('cart_add_item') }}?mode=wishlist" data-addtocart="{{ addtocart|json_encode|json_escape }}">
+            <i class="icon icon-circle-times"></i>
+        </a>
+    </td>
+</tr>

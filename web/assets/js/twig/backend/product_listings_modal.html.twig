@@ -1,0 +1,359 @@
+
+    <a class="close">
+        <i class="icon-times"></i>
+    </a>
+    <div class="header">
+        <h5 class="light-color light">Product Name</h5>
+        <h3 class="mrg-bt-20 product-field-name"></h3>
+        <div class="ui tabular menu user-detail-menu">
+            <div class="item active" data-tab="modal-tab-details">Details</div>
+            <div class="item" data-tab="modal-tab-combinations">Combinations</div>
+            <div class="item" data-tab="modal-tab-videos">Videos</div>
+            <div class="item" data-tab="modal-tab-remarks">Reject Remarks</div>
+        </div>
+    </div>
+
+    <div class="ui tab active" data-tab="modal-tab-details">
+        <div class="content">
+            <h4>Product and Translation Details</h4>
+
+            <table class="table table-bordered table-translation">
+                <thead>
+                    <tr class="inverted">
+                      <th width="20%">Detail Name</th>
+
+                        {% set width = 80/translations|length %}
+                        {% for translation in translations %}
+                        <th width="{{ width }}%" class="translation-header" style="">{{ translation.language }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td valign="top">Product Name</td>
+                        {% for translation in translations %}
+                        <td valign="top">{{ translation.name }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                         <td valign="top">Short Description</td>
+                         {% for translation in translations %}
+                         <td valign="top">{{ translation.shortDescription }}</td>
+                         {% endfor %}
+                    </tr>
+                    <tr>
+                        <td valign="top">Photos</td>
+                        {% for translation in translations %}
+                        <td valign="top">                  
+                            <div class="listing-image-gallery default">
+                                {% for image in translation.images %}
+                                <a href="{{ image.sizes.small }}" class="image-holder listing-image">
+                                    <img src="{{ image.sizes.small }}" class="img-auto-place">
+                                </a>
+                                {% endfor %}
+                            </div>
+                            <span class="form-ui-note">
+                                Click the photo to enlarge
+                            </span>
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td valign="top">Full Description</td>
+                        {% for translation in translations %}
+                        <td valign="top">
+                            <a href="javascript:void(0);" class="product-description-btn" data-content="{{ translation.description }}">
+                               View the full description
+                            </a>
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td valign="top">Variants</td>
+                        {% for translation in translations %}
+                        <td valign="top">
+                            {% for key, attributeGroup in translation.attributes  %}
+                            <div class="variant-group mrg-bt-10">
+                                <p class="bold">{{ key }}:</p>
+                                {% for value in attributeGroup %}
+                                <span class="badge">
+                                    {{ value.value }}
+                                </span>
+                                {% endfor %}
+                            </div>
+                          {% endfor %}
+                        </td>
+
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td valign="top">Shipping Category</td>
+                        {% for translation in translations %}
+                            <td valign="top">
+                                <span class="badge">
+                                    {{ translation.shippingCategory.name }}
+                                </span>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content details">
+            <h4>Item Details</h4>
+            <div class="col-md-6 md-box zeb">
+                <div>
+                    <div class="col-md-4">
+                        <strong>Category</strong>
+                    </div>
+                    <div class="col-md-8 product-field-category">{{ productCategory.name }}</div>
+                </div>
+                <div>
+                    <div class="col-md-4">
+                        <strong>Brand</strong>
+                    </div>
+                    <div class="col-md-8 product-field-brand">{{ brand.name }}</div>
+                </div>
+                <div>
+                    <div class="col-md-4">
+                        <strong>Shipping Category</strong>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <div class="form loading" id="shipping-category-form">
+                                    <div class="input-inner-button">
+                                        <div class="form-autosuggest" id="shipping-category">
+                                            <input class="form-ui typeahead input-shipping-category" type="text" value="{{ shippingCategory.name }}">
+                                            <input class="shipping-category-id" type="hidden" value="{{ shippingCategory.shippingCategoryId }}">
+                                            <img alt="Loading" class="loading-img" src="" style="top: 11px; right: 55px; display:none">
+                                        </div>
+                                        <button data-productid="{{productId}}" class="button gray shipping-category-update-button">
+                                            Save
+                                        </button>
+                                    </div>
+                                    <div class="shipping-category-message-container">
+                                        <div class="message-box red error-message" style="display:none;">
+                                            Something went wrong please try again later
+                                        </div>
+                                        <div class="message-box green success-message" style="display:none;">
+                                            Saving success
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-1"></div>
+            
+            <div class="col-md-5 md-box zeb">
+                <div>
+                    <div class="col-md-4">
+                        <strong>Store Name</strong>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="">{{ seller.storeName }}</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-md-4">
+                        <strong>Seller Fullname</strong>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="">{{ seller.sellerName }}</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-md-4">
+                        <strong>Contact Number</strong>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="">{{ seller.contactNumber }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="ui tab" data-tab="modal-tab-combinations">
+        <div class="content combination">
+            <h4 class="mrg-top-20 mrg-bt-20">Combinations</h4>
+
+            <div class="form">
+                {% for unit in productUnits %}
+                <div class="row product-field-units">
+                    <div class="col-md-4">
+                        <div class="combo">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="title">Combination ID
+                                        <span class="product-field-unitid">{{ unit.productUnitId }}</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>SKU</strong>
+                                </div>
+                                <div class="col-md-6 product-field-sku">{{ unit.sku }}</div>
+                            </div>
+                            {% for warehouse in unit.warehouses %}                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>Quantity ({{ warehouse.warehouse.name }})</strong>
+                                </div>
+                                <div class="col-md-6 product-field-quantity">{{ warehouse.quantity }}</div>
+                            </div>
+                            {% endfor %}
+
+
+                            {% for attribute in unit.attributes %}
+                            <div class="row product-field-details">
+                                <div class="col-md-6">
+                                    <strong class="product-field-detailname">{{ attribute.name }}</strong>
+                                </div>
+                                <div class="col-md-6 product-field-detailvalue">{{ attribute.value }}</div>
+                            </div>
+                            {% endfor %}
+                            
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>Regular Price</strong>
+                                </div>
+                                <div class="col-md-6">P
+                                    <span class="product-field-unitregularprice">{{ unit.price|number_format(2, '.', ',') }}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>Discounted Price</strong>
+                                </div>
+                                <div class="col-md-6">P
+                                    <span class="product-field-unitdiscountedprice">{{ unit.discountedPrice|number_format(2, '.', ',') }}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>Width</strong>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="product-field-width">{{ unit.width }}</span>cm
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>Height</strong>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="product-field-height">{{ unit.height }}</span>cm
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>Length</strong>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="product-field-length">{{ unit.length }}</span>cm
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>Weight</strong>
+                                </div>
+                                <div class="col-md-6">
+                                    <span class="product-field-weight">{{ unit.weight }}</span>kg
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="ui tab" data-tab="modal-tab-videos">
+        <div class="content videos">
+            <h4 class="mrg-top-20 mrg-bt-20">Videos</h4>
+
+            {% if video %}
+            <div style="text-align:center;">
+                <iframe allowfullscreen frameborder="0" height="315" id="youtube-frame" src="{{ video }}" width="560"></iframe>
+            </div>            
+            {% else %}
+            <span id="youtube-message">No available youtube videos</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="ui tab" data-tab="modal-tab-remarks">
+        <div class="content remarks">
+            <h4 class="mrg-top-20 mrg-bt-20">Remarks</h4>
+            <div id="product-remarks-container">
+                {% for remark in remarks%}
+                    <div class="csr product-field-remark-container">
+                        <p class="person">
+                            <span class="user">
+                                <strong class="product-field-remarkadmin">{{remark.adminUserFullName}}</strong>
+                                Customer Support Representative
+                            </span>
+                        </p>
+                        <p class="words product-field-remark">{{remark.remarks}}</p>
+                        <p class="time-stamp">Posted on
+                            <span class="product-field-timestamp">{{remark.formattedDateAdded}}</span>
+                        </p>
+                    </div>
+                {% else %}
+                    <p>No available remarks.</p>
+                {% endfor %}
+            </div>
+
+            {% if isForReview %}
+                <div class="csr remarks-field">
+                    <p class="person">
+                        <span class="user">
+                            <strong>
+                                You
+                            </strong>
+                            customer support representative
+                        </span>
+                    </p>
+                    <p class="words">
+                        <textarea class="form-ui text-area-message" text-area-message></textarea>
+                        <input class="rejected-productid" type="hidden" value="0">
+                        <button class="button gray btn-submit-remarks" data-productid="{{productId}}" data-country="{{requestCountryCode}}">
+                            <span class="text">Send Reject Remark</span>
+                        </button>
+                    </p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="content details">
+        <div class="col-md-12">
+            <div class="product-update-prompt error" style="display:none;">
+                <div class="row">
+                    <div class="message-box red with-close-message">
+                        Something went wrong. Please try again later
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions">
+        {% if isForReview %}
+            <button class="product-modal-button product-update-button button approve change-button" data-action="approve" data-productid="{{productId}}" data-country="{{requestCountryCode}}">Approve</button>
+            <button class="product-modal-button product-update-button button reject-button" data-action="reject" data-productid="{{productId}}" data-country="{{requestCountryCode}}">Reject</button>
+        {% endif %}
+        <button class="button cancel">Cancel</button>
+        <input id="product-status" type="hidden" value="0">
+    </div>
